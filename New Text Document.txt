@@ -1,0 +1,2 @@
+git remote add Animalgame https://github.com/INTERNS-LXI-TECHNOLOGIES/Team1
+git remote
