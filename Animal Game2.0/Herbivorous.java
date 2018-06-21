@@ -1,4 +1,6 @@
+
 import java.io.*;
+
 
 public interface Herbivorous
 {

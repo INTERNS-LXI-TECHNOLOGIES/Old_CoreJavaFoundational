@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.Random;
-public class Rabbit extends Herbivorousanimal
+public class Deer extends  Herbivorousanimal
 {
-		public Rabbit(int id)
+		public Deer(int id)
 	
 	{
-		name="Rabbit"+String.valueOf(id);
+		name="Deer"+String.valueOf(id);
 		Random ran=new Random();
 		strength=0;
 		hunger=ran.nextInt(10);

@@ -7,20 +7,13 @@ import java.util.Random;
 	{
 		name="Lion"+String.valueOf(id);
 		Random ran=new Random();
-		
-		
-		reach=ran.nextInt(5);
-		roamcheck();
+		hunger=ran.nextInt(10);
+		strength=ran.nextInt(10);
+		reach=ran.nextInt(2);
+		//roamcheck();
 		//carnivorous=true;
 		findloc();
 	}
-		public void roamcheck()
-	{
-		for(strength=ran.nextInt(10);(strength>5);strength--)
-		{
-			
-			fight();	
-	}
-	}
+		
 	
 }
