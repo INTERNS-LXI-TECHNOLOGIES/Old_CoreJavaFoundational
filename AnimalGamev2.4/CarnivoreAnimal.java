@@ -20,9 +20,9 @@ public class CarnivoreAnimal extends Animal implements Carnivore
         {
 			if(this instanceof Carnivore)
 			{
-                for(int i=0;i<7;i++)
+                for(int i=6;i>=0;i--)
 				{
-                    for(int j=0;j<7;j++)
+                    for(int j=6;j>=0;j--)
                        {
                             if(isAlive() && getGridMember(i,j)!=null && getGridMember(i,j)!=this && getGridMember(i,j).isAlive())
 						    {
@@ -57,7 +57,9 @@ public class CarnivoreAnimal extends Animal implements Carnivore
 							 a.iWon(this);
 							 try
 								{
+								 a.setGrid(getGrid());
 								 ((CarnivoreAnimal)a).checkNearby();
+								 setGrid(a.getGrid());
 								}
 							 catch(Exception e)
 							 { 
@@ -72,8 +74,10 @@ public class CarnivoreAnimal extends Animal implements Carnivore
 				{
 					 a.iWon(this);
 					 try
-						{
+						{	 
+							 a.setGrid(getGrid());
 							 ((CarnivoreAnimal)a).checkNearby();
+							 setGrid(a.getGrid());
 						}
 					 catch(Exception e)
 						{
