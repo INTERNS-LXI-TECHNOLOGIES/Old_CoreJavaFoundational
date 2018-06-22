@@ -1,0 +1,4 @@
+javac -d classes -cp mysql-connector-java-5.1.46-bin.jar;servlet-api.jar;. com\lxisoft\controller\ContactServlet.java
+cd classes
+jar -cf "G:\Softwares\lxi softwares\apache-tomcat-7.0.72\webapps\contacts-v3\WEB-INF\lib\contact-servlet.jar" com
+javac -d ..\classes -cp ..\..\..\lib\servlet-api.jar;..\..\..\lib\mysql-connector-java-5.1.46-bin.jar com\lxisoft\contacts\repository\ContactRepository.java
