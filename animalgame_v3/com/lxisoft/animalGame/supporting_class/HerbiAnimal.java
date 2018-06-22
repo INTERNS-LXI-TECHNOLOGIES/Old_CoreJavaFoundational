@@ -4,7 +4,7 @@ import com.lxisoft.animalGame.animal.*;
 public class HerbiAnimal extends Animal implements Herbivorous{
 		public void eatGrass(Animal d)
 	{try{
-	System.out.println(d.getName()+" is eating grass");}catch(Exception e){System.out.println();}
+	System.out.println(d.getName()+" is eating grass");}catch(NullPointerException e){System.out.printerr();}
 	}
 	
 	
