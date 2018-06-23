@@ -15,7 +15,7 @@ public void fight()
 					if(this.strength>Forest.grid[row][column].strength)
 					{
 						System.out.println("\n"+Forest.grid[row][column].name+" vs "+this.name+" "+this.name+" won "+Forest.grid[row][column].name+" loss");
-										
+										if(Forest.grid[row][column] instanceof Herbivorous)
 					  Forest.grid[row][column]=null;
 					}
 					else

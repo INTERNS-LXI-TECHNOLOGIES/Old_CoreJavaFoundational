@@ -1,19 +1,22 @@
 package com.lxisoft.animalgame.animaltype;
 import com.lxisoft.animalgame.animal.*;
 import com.lxisoft.animalgame.forest.*;
+import com.lxisoft.animalgame.exception.*;
 
 import java.io.*;
 import java.util.*;
 public class CarnivorousAnimal extends Animal implements Carnivorous
 {
-public void fight()
-	{
+public void fight() throws MyException
+{
+	
 		for(int row=0;row<5;row++)
 		{
 			for(int column=0;column<5;column++)
 			{
-				
-				if((Forest.grid[row][column]!=this)&&(Math.abs(this.getXloc()-row)<=getReach())&&(Math.abs(this.getYloc()-column)<=getReach())&&(Forest.grid[row][column]!=null))
+				if(Forest.grid[row][column]!=null)
+					throw new MyException();
+				if((Forest.grid[row][column]!=this)&&(Math.abs(this.getXloc()-row)<=getReach())&&(Math.abs(this.getYloc()-column)<=getReach()))
 				{
 					
 					if(this.getStrength()>Forest.grid[row][column].getStrength())
@@ -55,11 +58,12 @@ public void fight()
 		
 			if(getStrength()>5)
 			{
-			
+			//throw new MyException();
 				fight();
 				
 			}
-		
-		
+		}
+	
 	}
+	
 }
