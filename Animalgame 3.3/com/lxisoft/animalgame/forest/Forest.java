@@ -1,4 +1,5 @@
 package com.lxisoft.animalgame.forest;
+import com.lxisoft.animalgame.exception.*;
 import com.lxisoft.animalgame.type.*;
 import com.lxisoft.animalgame.animal.*;
 import java.io.*;
@@ -22,7 +23,7 @@ public class Forest
 				grid[i][j]=null;
 			}	
 		}
-			for (i=0;i<3;i++)
+			for (i=0;i<4;i++)
 			{
 				ln[i]=new Lion(i);
 			}
@@ -70,28 +71,32 @@ public class Forest
 		
 		public void finalState()
 	{
-		try
-			{
+		
+			
 				for(int i=0;i<5;i++)
-					
+					try{
 					{
 						ln[i].roamcheck();
-					}
-					
-				for(int i=0;i<5;i++)
-					{
-						tr[i].roamcheck();
-					}
-			}
-		catch(NullPointerException e)
+					}}catch(NullPointerException e)
 			{
 				System.out.println("lnzero");
 			}
+					
+				for(int i=0;i<5;i++)
+					try{
+					{
+						tr[i].roamcheck();
+					}}catch(NullPointerException e)
+			{
+				System.out.println("trzero");
+			}
+			
+		
 			System.out.println("\n\t\t\t\t\t FINAL STATUS\t\t\t\t\n");
 			outputGrid();
 	}
 
-	public void finalState1()
+	public void finalState1() //throws Exception1
 	{
 		try
 			{
@@ -103,10 +108,12 @@ public class Forest
 				{
 					dr[i].grasseat();
 				}
+				//throw new Exception1();
+					
 			}
 			catch(NullPointerException e)
 			{
-				System.out.println("zerog");
+				System.out.println("Null grasseat");
 			}
 }
 }
