@@ -1,4 +1,5 @@
 package com.lxisoft.animalgame.animaltype;
+import com.lxisoft.animalgame.exception.*;
 import java.io.*;
 public interface Carnivorous
 {

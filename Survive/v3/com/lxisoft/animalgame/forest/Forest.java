@@ -1,6 +1,7 @@
 package com.lxisoft.animalgame.forest;
 import com.lxisoft.animalgame.animal.*;
 import com.lxisoft.animalgame.animaltype.*;
+import com.lxisoft.animalgame.exception.*;
 import java.io.*;
 public class Forest
 {
@@ -9,7 +10,7 @@ public class Forest
 	private static Tiger[] tr=new Tiger[10];
 	private static Rabbit[] rt=new Rabbit[10];
 	private static Deer[] dr=new Deer[10];
-	public Forest(int lio,int tig,int rab,int der)
+	public Forest(int lio,int tig,int rab,int der) throws MyException
 	{
 		for(int row=0;row<5;row++)
 		{
@@ -66,6 +67,7 @@ public class Forest
 		{
 			
 			ln[li].meatEat();
+			
 			   
 		}
 		for(int ti=0;ti<5;ti++)

@@ -7,14 +7,19 @@ import java.io.*;
 import java.util.*;
 public class CarnivorousAnimal extends Animal implements Carnivorous
 {
-public void fight() throws MyException
+public void fight()// throws MyException
 {
+	
 	
 		for(int row=0;row<5;row++)
 		{
+			
 			for(int column=0;column<5;column++)
 			{
-				if(Forest.grid[row][column]!=null)
+				try
+				{
+				if(Forest.grid[row][column]==null)
+					
 					throw new MyException();
 				if((Forest.grid[row][column]!=this)&&(Math.abs(this.getXloc()-row)<=getReach())&&(Math.abs(this.getYloc()-column)<=getReach()))
 				{
@@ -34,31 +39,38 @@ public void fight() throws MyException
 					}
 				}
 				
+				}
+				catch(MyException me)
+				{
+					//System.out.println();
+				}
 			}
 		}
 		
 	}
 	
-	public void meatEat()
+	public void meatEat()// throws MyException
 	{
 		Random ran=new Random();
 	
 		
-			if(getHunger()>5)
+			if(getHunger()<5)
 			{
 				roamCheck();
+				
 			}
 		
 		
 	}
-	public void roamCheck()
+	public void roamCheck() //throws MyException
 	{
+				
 		Random ran=new Random();
 		
 		
 			if(getStrength()>5)
 			{
-			//throw new MyException();
+
 				fight();
 				
 			}
@@ -66,4 +78,3 @@ public void fight() throws MyException
 	
 	}
 	
-}

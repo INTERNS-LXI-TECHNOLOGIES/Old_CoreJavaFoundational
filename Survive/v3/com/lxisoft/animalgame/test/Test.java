@@ -7,8 +7,7 @@ public class Test
 {
 	public static void main(String args[]) throws MyException
 	{
-		try
-		{
+		
 		System.out.println("\n\n\t\t\t 	WELCOME TO SURVIVEL GAME  \t\t\t");
 		System.out.println("\n\n\n\n");
 		
@@ -20,11 +19,7 @@ public class Test
 		ft.finalOutput();
 		
 		ft.finalOutput1();
-		}
-		catch(NullPointerException ne)
-		{
-			System.out.println("NullPointerException");
-		}
+		
 		
 		
 
