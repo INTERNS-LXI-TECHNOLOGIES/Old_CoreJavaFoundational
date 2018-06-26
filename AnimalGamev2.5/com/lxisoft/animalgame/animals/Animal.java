@@ -55,7 +55,7 @@ public class Animal
 	             return strength;
             }
 			
-		 public void setStrength(int strength) 
+		 public void setStrength(int strength)
 			{
 				 this.strength=strength;
 			}
