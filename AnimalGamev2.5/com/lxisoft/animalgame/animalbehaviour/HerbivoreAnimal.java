@@ -1,7 +1,7 @@
 package com.lxisoft.animalgame.animalbehaviour;
 import com.lxisoft.animalgame.animals.Animal;
 import com.lxisoft.animalgame.animalbehaviour.Herbivore;
-public class HerbivoreAnimal extends Animal implements Herbivore
+public class HerbivoreAnimal extends Animal implements Herbivore 
 	{
 		 public void runAway(Animal a)
 			{

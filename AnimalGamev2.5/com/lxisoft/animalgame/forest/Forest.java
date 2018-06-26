@@ -104,7 +104,7 @@ public class Forest
                             }
                          System.out.println("\n\n\n");
                     }
-            }
+            } 
   
 		 public void initRoaming()
 			{

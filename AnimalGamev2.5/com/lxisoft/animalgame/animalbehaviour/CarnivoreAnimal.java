@@ -71,7 +71,7 @@ public class CarnivoreAnimal extends Animal implements Carnivore
 						 else
 							{
 								iWon(a);
-								a.iLost();
+								a.iLost(); 
 							}
 					}
 				 else if(getStrength()==a.getStrength())

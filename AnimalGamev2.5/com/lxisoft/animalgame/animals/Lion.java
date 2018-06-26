@@ -4,7 +4,7 @@ public class Lion extends CarnivoreAnimal
     {
          public Lion(int numID,int strength,int hunger)
 			{
-				 setAlive(true);
+				 setAlive(true); 
 				 setID(this.getClass().getSimpleName()+" "+String.valueOf(numID)); 
 				 setStrength(strength);
 				 setHunger(hunger);
