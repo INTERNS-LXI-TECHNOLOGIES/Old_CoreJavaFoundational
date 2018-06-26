@@ -9,4 +9,11 @@ public class HerbivoreAnimal extends Animal implements Herbivore
 				 this.setStrength(this.getStrength()-(a.getStrength()/2));
 				 a.setStrength(a.getStrength()-(this.getStrength()/2));
 			}
+			
+		 public void iWon(Animal lost)
+			{
+				 super.iWon(lost);
+				 runAway(lost);
+				 lost.setStrength(lost.getStrength()-(getStrength()/2));
+			}
 	}

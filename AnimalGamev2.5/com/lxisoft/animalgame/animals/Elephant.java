@@ -5,7 +5,7 @@ public class Elephant extends HerbivoreAnimal
 		 public Elephant(int numID,int strength,int hunger)
 			{
 				 setAlive(true);
-				 setID("Elephant "+String.valueOf(numID));
+				 setID(this.getClass().getSimpleName()+" "+String.valueOf(numID)); 
 				 setStrength(strength);
 				 setHunger(hunger);
 			}

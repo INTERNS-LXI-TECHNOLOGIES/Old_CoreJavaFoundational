@@ -4,18 +4,18 @@ public class Test
     {
      public static void main(String args[])
         {
-             Forest f=new Forest();
+             Forest forest=new Forest();
   
-             f.initForest(8,9,12,6);
+             forest.initForest(8,9,12,6);
 			 
 			 System.out.println("\nInitial Animal placements : \n");
-			 f.whosAlive();
+			 forest.whosAlive();
 			 
-			 f.initRoaming();
+			 forest.initRoaming();
 			 
 			 System.out.println("\n\n\nSurvived Animal Placements : \n");
-			 f.whosAlive();
+			 forest.whosAlive();
 			 
-			 System.out.println("Total     : 35 Animals\nSurvived  : "+(f.getAliveCount())+"\nDead      : "+(35-f.getAliveCount()));			 
+			 System.out.println("Total     : 35 Animals\nSurvived  : "+(forest.getAliveCount())+"\nDead      : "+(35-forest.getAliveCount()));			 
         }
     }

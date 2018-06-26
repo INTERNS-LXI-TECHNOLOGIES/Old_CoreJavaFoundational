@@ -2,11 +2,12 @@ package com.lxisoft.animalgame.animalbehaviour;
 import com.lxisoft.animalgame.animals.*;
 import com.lxisoft.animalgame.animalbehaviour.Carnivore;
 import java.util.Random;
+import java.util.*;
 
 public class CarnivoreAnimal extends Animal implements Carnivore
 	{
 		 private int roam;
-		 private Random r=new Random();
+		 private ArrayList<Animal> nearby= new ArrayList<Animal>();
 	
 		 public void setRoam(int roam)
 			{
@@ -17,29 +18,46 @@ public class CarnivoreAnimal extends Animal implements Carnivore
 			{
 				 return roam;
 			}
+			
+		 public void setNearby(Animal nearby)
+			{
+				 if(nearby!=null && nearby!=this)
+					{
+						this.nearby.add(nearby);
+					}
+			}
+			
+		 public Animal getNearby(int i)
+			{
+				 if(i<nearby.size() && i>=0)
+					 return nearby.get(i);
+				 else
+					 return null;
+			}
+			
+		 public boolean canRoam()
+			{
+				 boolean retVal=false;
+				 if(getHunger()<2 && getStrength()>5)
+					{
+						 retVal =true;
+					} 
+				 return retVal;            
+			}
 	
 		 public void checkNearby()
 			{
-				 if(this instanceof Carnivore)
+				  for(int i=(nearby.size()-1);i>=0;i--)
 					{
-						 for(int i=6;i>=0;i--)
+						 if(canRoam())
 							{
-								for(int j=6;j>=0;j--)
-									{
-										 if(isAlive() && getGridMember(i,j)!=null && getGridMember(i,j)!=this && getGridMember(i,j).isAlive())
-											{
-												 if((Math.abs(i-getXLoc()))<=getRoam() && (Math.abs(j-getYLoc()))<=getRoam())
-													{
-														 if(canRoam())
-															 combat(getGridMember(i,j));
-													}
-											}
-									}
+								combat(nearby.get(i));
 							}
 					}
 			}
 		 public void combat(Animal a)
 			{
+				 Random r=new Random();
 				 System.out.println("\n"+getID()+"\t vs   "+a.getID());
 				 if(getStrength()>a.getStrength())
 					{
@@ -48,43 +66,46 @@ public class CarnivoreAnimal extends Animal implements Carnivore
 							{
 								 System.out.print("\tLuckily");
 								 a.iWon(this);
+								 iLost();
 							}
 						 else
-							iWon(a);
+							{
+								iWon(a);
+								a.iLost();
+							}
 					}
 				 else if(getStrength()==a.getStrength())
 					{
 						 if(a.getHunger()>getHunger())
 							{
 								 a.iWon(this);
-								 try
-									{
-										 a.setGrid(getGrid());
-										 ((CarnivoreAnimal)a).checkNearby();
-										 setGrid(a.getGrid());
-									}
-								 catch(Exception e)
-									{ 
-									}
+								 iLost();
 							}
 						 else
 							{
 								 iWon(a);
+								 a.iLost();
 							}
 					}
 				 else
 					{
 						 a.iWon(this);
-						 try
-							{	 
-								 a.setGrid(getGrid());
-								 ((CarnivoreAnimal)a).checkNearby();
-								 setGrid(a.getGrid());
-							}
-						 catch(Exception e)
-							{
-							}
+						 iLost();
 					}				 
+			}
+			
+		 public void iWon(Animal lost)
+			{
+				super.iWon(lost);
+				if(lost instanceof Herbivore)
+					{
+						 eatMeat(lost);
+					}
+				 else
+					{
+						 System.out.println("\t"+getID()+"\t defeated "+lost.getID());
+					}
+					
 			}
 	
 		 public void eatMeat(Animal a)
@@ -95,15 +116,5 @@ public class CarnivoreAnimal extends Animal implements Carnivore
 				 else
 					 this.setHunger(this.getHunger()+1);
 				 this.setStrength(this.getStrength()+a.getStrength());
-			}
-	
-		 public boolean canRoam()
-			{
-				 boolean retVal=false;
-				 if(getHunger()<2 && getStrength()>5)
-					{
-						 retVal =true;
-					} 
-				 return retVal;            
 			}
 	}

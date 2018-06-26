@@ -1,5 +1,6 @@
 package com.lxisoft.animalgame.animals;
 import com.lxisoft.animalgame.animalbehaviour.*;
+import com.lxisoft.animalgame.exception.AnimalDeadException;
 import java.util.Random;
 
 public class Animal
@@ -10,7 +11,6 @@ public class Animal
 		 private int hunger;
 		 private int xLoc;
 		 private int yLoc;
-		 private Animal[][] grid=new Animal[7][7];
  
 		 private Random r=new Random();
 		 
@@ -19,9 +19,12 @@ public class Animal
 				 this.alive=alive;
 			}
 		 
-		 public boolean isAlive()
+		 public boolean isAlive() throws AnimalDeadException
 			{
-				 return alive;
+				 if(alive)
+					 return true;
+				 else
+					 throw new AnimalDeadException();
 			}
  
 		 public void setID(String id)
@@ -76,39 +79,15 @@ public class Animal
 			{
 				 this.yLoc=yLoc;
 			}
-			
-		 public void setGrid(Animal grid[][])
-			{
-				 this.grid=grid;
-			}
-			
-		 public Animal[][] getGrid()
-			{
-				 return grid;
-			}
-			
-		 public Animal getGridMember(int i,int j)
-			{
-				 return grid[i][j];
-			}
 		 
 		 public void iWon(Animal lost)
 			{
 				 setStrength(lost.getStrength()/2);
-				 if(!(lost instanceof Carnivore))
-					{
-						 ((CarnivoreAnimal)this).eatMeat(lost);
-						 lost.setAlive(false);
-					}
-				 else if(this instanceof Herbivore)
-					{
-						 ((HerbivoreAnimal)this).runAway(lost);
-						 lost.setStrength(lost.getStrength()-getStrength());
-					}
-				 else
-					{
-						 System.out.println("\t"+getID()+"\t defeated "+lost.getID());
-						 lost.setAlive(false);
-					}
-			}		
+			}
+		
+		 public void iLost()
+			{
+				 setStrength(0);
+				 setAlive(false);
+			}
     }
