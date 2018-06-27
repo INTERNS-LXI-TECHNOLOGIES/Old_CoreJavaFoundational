@@ -9,7 +9,7 @@ forest.getAliveCount() method is the getter method associated with aliveCount va
 
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.forest.Forest;
-public class Test
+public final class Test
     {
      public static void main(String args[])
         {

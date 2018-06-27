@@ -4,7 +4,7 @@ import com.lxisoft.animalgame.animalbehaviour.*;
 import com.lxisoft.animalgame.exception.AnimalDeadException;
 import java.util.Random;
 
-public class Forest
+public final class Forest
     {
 		 private Animal[][] grid= new Animal[7][7];
 		 private int aliveCount=0;
@@ -53,7 +53,10 @@ public class Forest
 									 j++;
 									}
 								 if(j>3)
+									{
 									 ((HerbivoreAnimal)nearby).changeLocation(((HerbivoreAnimal)nearby).getOldX(), ((HerbivoreAnimal)nearby).getOldY());
+									 break;
+									}
 							}
 						 grid[nearby.getXLoc()][nearby.getYLoc()]=nearby;
 					 	 nearby=((CarnivoreAnimal)a).getNearby(i++);

@@ -4,9 +4,14 @@ import com.lxisoft.animalgame.animalbehaviour.Herbivore;
 import java.util.Random;
 public class HerbivoreAnimal extends Animal implements Herbivore 
 	{
-		 private int oldX=getXLoc();
-		 private int oldY=getYLoc();
+		 private int oldX;
+		 private int oldY;
 		 
+		 public HerbivoreAnimal(int numID,int strength,int hunger)
+			{
+				 super(numID,strength,hunger);
+			}
+			
 		 public int getOldX()
 			{
 				return oldX;
@@ -17,13 +22,11 @@ public class HerbivoreAnimal extends Animal implements Herbivore
 				return oldY;
 			}
 		 
-		 public HerbivoreAnimal(int numID,int strength,int hunger)
-			{
-				 super(numID,strength,hunger);
-			}
 		 
 		 public void runAway(Animal a)
 			{
+				 oldX=getXLoc();
+				 oldY=getYLoc();
 				 changeLocation();
 				 System.out.println("\t"+this.getID()+" ran away from "+a.getID());
 			}
