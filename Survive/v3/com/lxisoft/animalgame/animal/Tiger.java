@@ -17,6 +17,13 @@ public class Tiger extends CarnivorousAnimal
 		
 		
 	}
+	public void sleep()
+	{
+		if(getHunger()<2)
+		{
+			System.out.println("\n"+this.getName()+" is Sleeping");
+		}
+	}
 	
 	
 }

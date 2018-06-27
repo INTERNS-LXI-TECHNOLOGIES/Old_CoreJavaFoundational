@@ -4,5 +4,6 @@ public interface Herbivorous
 {
 	
 	public void grassEat();
+	public void luck();
 	
 }

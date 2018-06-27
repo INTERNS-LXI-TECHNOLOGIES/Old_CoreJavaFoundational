@@ -2,14 +2,16 @@ package com.lxisoft.animalgame.animal;
 import com.lxisoft.animalgame.forest.*;
 import java.io.*;
 import java.util.*;
-public class Animal
+abstract public class Animal
 {
 	private String name;
 	private int strength;
 	private int reach;
 	private int hunger;
+	private int luck;
 	private Random ran=new Random();
 	private int xloc,yloc;
+	abstract public void sleep();
 	public void setName(String name)
 	{
 		this.name=name;
@@ -25,6 +27,10 @@ public class Animal
 	public void setHunger(int hunger)
 	{
 		this.hunger=hunger;
+	}
+	public void setLuck(int luck)
+	{
+		this.luck=luck;
 	}
 	public void setXloc(int xloc)
 	{
@@ -50,6 +56,10 @@ public class Animal
 	public int getHunger()
 	{
 		return hunger;
+	}
+	public int getLuck()
+	{
+		return luck;
 	}
 	public int getXloc()
 	{

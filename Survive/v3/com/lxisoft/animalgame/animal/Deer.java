@@ -11,7 +11,15 @@ public class Deer extends HerbivorousAnimal
 		Random ran=new Random();
 		setHunger(ran.nextInt(10));
 		setStrength(0);
+		setLuck(ran.nextInt(10));
 		findloc();
+	}
+	public void sleep()
+	{
+		if(getHunger()<2)
+		{
+			System.out.println("\n"+this.getName()+" is Sleeping");
+		}
 	}
 	
 	

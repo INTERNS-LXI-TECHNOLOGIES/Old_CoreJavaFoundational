@@ -5,7 +5,7 @@ import com.lxisoft.animalgame.exception.*;
 
 import java.io.*;
 import java.util.*;
-public class CarnivorousAnimal extends Animal implements Carnivorous
+abstract public class CarnivorousAnimal extends Animal implements Carnivorous
 {
 public void fight()// throws MyException
 {
@@ -16,12 +16,8 @@ public void fight()// throws MyException
 			
 			for(int column=0;column<5;column++)
 			{
-				try
-				{
-				if(Forest.grid[row][column]==null)
-					
-					throw new MyException();
-				if((Forest.grid[row][column]!=this)&&(Math.abs(this.getXloc()-row)<=getReach())&&(Math.abs(this.getYloc()-column)<=getReach()))
+				
+				if((Forest.grid[row][column]!=this)&&(Math.abs(this.getXloc()-row)<=getReach())&&(Math.abs(this.getYloc()-column)<=getReach())&&(Forest.grid[row][column]!=null))
 				{
 					
 					if(this.getStrength()>Forest.grid[row][column].getStrength())
@@ -39,11 +35,7 @@ public void fight()// throws MyException
 					}
 				}
 				
-				}
-				catch(MyException me)
-				{
-					//System.out.println();
-				}
+				
 			}
 		}
 		

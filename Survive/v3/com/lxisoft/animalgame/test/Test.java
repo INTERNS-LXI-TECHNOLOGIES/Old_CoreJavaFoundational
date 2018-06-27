@@ -14,12 +14,13 @@ public class Test
 			
 		Forest ft=new Forest(6,5,4,3);
 		System.out.println("\t\t\t\tFinal Output");
+		ft.luckRun();
+		ft.animalEat();
+		ft.animalSleep();
 		
 		System.out.println("\n\n\n\n");
 		ft.finalOutput();
-		
-		ft.finalOutput1();
-		
+
 		
 		
 

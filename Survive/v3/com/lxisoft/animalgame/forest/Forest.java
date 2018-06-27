@@ -79,17 +79,49 @@ public class Forest
 			System.out.println("\n\n\n\n");
 			outputGrid();
 	}
-	public void finalOutput1()
+	public void animalEat()
 	{	
 		for(int ra=0;ra<4;ra++)
 		{
 			rt[ra].grassEat();
+			
 		}
 		for(int de=0;de<3;de++)
 		{
 			dr[de].grassEat();
+			
 		}
 		
+	}
+	public void luckRun()
+	{
+		for(int ra=0;ra<4;ra++)
+		{
+			rt[ra].luck();
+		}
+		for(int de=0;de<3;de++)
+		{
+			dr[de].luck();
+		}
+	}
+	public void animalSleep()
+	{
+		for(int li=0;li<6;li++)
+		{
+			ln[li].sleep();
+		}
+		for(int ti=0;ti<5;ti++)
+		{
+			tr[ti].sleep();
+		}
+		for(int ra=0;ra<4;ra++)
+		{
+			rt[ra].sleep();
+		}
+		for(int de=0;de<3;de++)
+		{
+			dr[de].sleep();
+		}
 	}
 			
 	
