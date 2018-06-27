@@ -23,8 +23,11 @@ public class Forest
 							{	
 								 try
 									{
-										 if(i>=0 && j>=0 && i<7 && j<7 && grid[i][j]!=null && grid[i][j].isAlive())
-											 ((CarnivoreAnimal)a).setNearby(grid[i][j]);
+										 if(i>=0 && j>=0 && i<7 && j<7 && grid[i][j]!=null && grid[i][j].isAlive() && grid[i][j]!=a)
+											{
+												 ((CarnivoreAnimal)a).setNearby(grid[i][j]);
+												 grid[i][j]=null;
+											}
 									}
 								 catch(AnimalDeadException e)
 									{
@@ -41,6 +44,17 @@ public class Forest
 				 int roam=((CarnivoreAnimal)a).getRoam();
 				 while(nearby!=null)
 					{	
+						 int j=0;
+						 while(grid[nearby.getXLoc()][nearby.getYLoc()]!=null)
+							{
+								 if(nearby instanceof Herbivore)
+									{
+									 ((HerbivoreAnimal)nearby).changeLocation();
+									 j++;
+									}
+								 if(j>3)
+									 ((HerbivoreAnimal)nearby).changeLocation(((HerbivoreAnimal)nearby).getOldX(), ((HerbivoreAnimal)nearby).getOldY());
+							}
 						 grid[nearby.getXLoc()][nearby.getYLoc()]=nearby;
 					 	 nearby=((CarnivoreAnimal)a).getNearby(i++);
 					}
@@ -85,7 +99,7 @@ public class Forest
 				 createAnimal('E',ele);
 			} 
 		
-		 public void whosAlive()
+		 public void printForest()
             {
 				 aliveCount=0;
 	             for(Animal[] row : grid)
