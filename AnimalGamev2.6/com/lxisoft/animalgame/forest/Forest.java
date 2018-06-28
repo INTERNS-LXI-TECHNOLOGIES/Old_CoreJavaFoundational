@@ -2,16 +2,22 @@ package com.lxisoft.animalgame.forest;
 import com.lxisoft.animalgame.animals.*;
 import com.lxisoft.animalgame.animalbehaviour.*;
 import com.lxisoft.animalgame.exception.AnimalDeadException;
+import com.lxisoft.animalgame.hunter.Hunter;
 import java.util.Random;
 
 public final class Forest
     {
 		 private Animal[][] grid= new Animal[7][7];
+		 private Hunter hunter=new Hunter();
 		 private int aliveCount=0;
 	 
 		 public int getAliveCount()
 			{
 				return aliveCount;
+			}
+		 public boolean hunterAlive()
+			{
+				 return hunter.isAlive();
 			}
 			
 		 public void passNearby(Animal a)
@@ -45,13 +51,10 @@ public final class Forest
 				 while(nearby!=null)
 					{	
 						 int j=0;
-						 while(grid[nearby.getXLoc()][nearby.getYLoc()]!=null)
+						 while(nearby instanceof Herbivore && grid[nearby.getXLoc()][nearby.getYLoc()]!=null)
 							{
-								 if(nearby instanceof Herbivore)
-									{
-									 ((HerbivoreAnimal)nearby).changeLocation();
-									 j++;
-									}
+								 ((HerbivoreAnimal)nearby).changeLocation();
+								 j++;
 								 if(j>3)
 									{
 									 ((HerbivoreAnimal)nearby).changeLocation(((HerbivoreAnimal)nearby).getOldX(), ((HerbivoreAnimal)nearby).getOldY());
@@ -86,6 +89,19 @@ public final class Forest
 						 grid[tempX][tempY].setYLoc(tempY);
 					}
 			}
+			
+		 public void createHunter()
+			{
+				 Random r=new Random();
+				 int tempX,tempY;
+				 do
+					{
+						 tempX=r.nextInt(7);
+						 tempY=r.nextInt(7);
+					}while(grid[tempX][tempY]!=null);
+				 hunter.setXLoc(tempX);
+				 hunter.setYLoc(tempY);
+			}
 	 
 		 public void initForest(int lio,int tig,int der,int ele)
 			{	     
@@ -100,43 +116,59 @@ public final class Forest
 				 createAnimal('T',tig);
 				 createAnimal('D',der);
 				 createAnimal('E',ele);
+				 createHunter();
 			} 
 		
 		 public void printForest()
             {
 				 aliveCount=0;
+				 int i=0,j=0;
 	             for(Animal[] row : grid)
                     {
+						 j=0;
 		                 for(Animal animal : row)
                            {
-	                             try
+								 try
 									{
-										 if(animal!=null && animal.isAlive())
+										 if(i==hunter.getXLoc() && j==hunter.getYLoc() && hunter.isAlive())
+											{
+												 System.out.print("\t<<HUNTER>>  ");
+											}
+										 else if(animal!=null && animal.isAlive())
 											{
 												 System.out.print("\t"+animal.getID()+"  ");
 												 aliveCount++;
 											}
-										 else
+										 else	
 											{
 												 System.out.print("\t0\t");
 											}
 									}
                                  catch(AnimalDeadException e)
 									{
+										 grid[i][j]=null;
 										 System.out.print("\t0\t");
 									}
+								 j++;
                             }
+						 i++;
                          System.out.println("\n\n\n");
                     }
             } 
   
 		 public void initRoaming()
 			{
+				 int i=0,j=0;
 	         	 for(Animal[] row : grid)
 					{
+					 j=0;
 					 for(Animal animal : row)
 						{
-							 if(animal!=null && animal instanceof Carnivore)
+							 if(i==hunter.getXLoc() && j==hunter.getYLoc() && hunter.isAlive())
+								{
+									 hunter.hunt(grid);
+								}
+							 else if(animal!=null && animal instanceof Carnivore)
 								{
 									 if(((CarnivoreAnimal)animal).canRoam())
 										{
@@ -145,7 +177,9 @@ public final class Forest
 											 whosNearby(animal);
 										}
 								}
+							 j++;
 						}
+					 i++;
 					}
 			}
     }

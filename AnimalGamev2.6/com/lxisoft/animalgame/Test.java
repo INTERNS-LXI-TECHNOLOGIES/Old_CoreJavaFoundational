@@ -25,6 +25,14 @@ public final class Test
 			 System.out.println("\n\n\nSurvived Animal Placements : \n");
 			 forest.printForest();
 			 
-			 System.out.println("Total     : 35 Animals\nSurvived  : "+(forest.getAliveCount())+"\nDead      : "+(35-forest.getAliveCount()));			 
+			 System.out.println("Total     : 35 Animals & 1 Hunter");
+			 System.out.print("Survived  : "+(forest.getAliveCount())+" Animals");
+			 if(forest.hunterAlive())
+				 System.out.println(" & Hunter");
+			 else
+				 System.out.println();
+			 System.out.print("Dead      : "+(35-forest.getAliveCount())+" Animals");		
+			 if(!forest.hunterAlive())
+				 System.out.println(" & Hunter");
         }
     }

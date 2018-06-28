@@ -62,7 +62,12 @@ public abstract class Animal
 			
 		 public void setStrength(int strength)
 			{
-				 this.strength=strength;
+				 this.strength=0;
+				 
+				 if(strength>=0)
+					 this.strength=strength;
+				 if(strength>10)
+					 this.strength=10;
 			}
  			
 		 public int getXLoc()
