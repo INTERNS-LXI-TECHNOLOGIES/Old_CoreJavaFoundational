@@ -14,7 +14,7 @@ public class Tiger extends CarnivorousAnimal
 		setReach(ran.nextInt(2));
 		setHunger(ran.nextInt(10));
 		findloc();
-		
+		setCarnivorous(1);
 		
 	}
 	public void sleep()

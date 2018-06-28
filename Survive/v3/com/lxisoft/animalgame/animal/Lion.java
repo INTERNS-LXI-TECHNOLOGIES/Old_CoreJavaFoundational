@@ -14,13 +14,14 @@ public class Lion extends CarnivorousAnimal
 		setStrength(ran.nextInt(10));
 		setReach(ran.nextInt(2));
 		setHunger(ran.nextInt(10));
+		setCarnivorous(1);
 		findloc();
 		
 		
 	}
 	public void sleep()
 	{
-		if(getHunger()<2)
+		if(getHunger()<3)
 		{
 			System.out.println("\n"+this.getName()+" is Sleeping");
 		}

@@ -20,10 +20,10 @@ public void fight()// throws MyException
 				if((Forest.grid[row][column]!=this)&&(Math.abs(this.getXloc()-row)<=getReach())&&(Math.abs(this.getYloc()-column)<=getReach())&&(Forest.grid[row][column]!=null))
 				{
 					
-					if(this.getStrength()>Forest.grid[row][column].getStrength())
+					if((this.getStrength()>Forest.grid[row][column].getStrength()))
 					{
 						System.out.println("\n"+Forest.grid[row][column].getName()+" vs "+this.getName()+" "+this.getName()+" won "+Forest.grid[row][column].getName()+" loss");
-										if(Forest.grid[row][column] instanceof Herbivorous)
+										//if(Forest.grid[row][column] instanceof Herbivorous)
 					  Forest.grid[row][column]=null;
 					}
 					else

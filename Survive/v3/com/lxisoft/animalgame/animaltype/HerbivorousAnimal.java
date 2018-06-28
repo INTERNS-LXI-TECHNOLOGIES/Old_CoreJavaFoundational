@@ -18,4 +18,5 @@ abstract public class HerbivorousAnimal extends Animal implements Herbivorous
 			System.out.println("\n"+this.getName()+"\t run away due to the  luck");
 		}
 	}
+	
 }

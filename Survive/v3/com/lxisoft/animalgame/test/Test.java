@@ -12,11 +12,12 @@ public class Test
 		System.out.println("\n\n\n\n");
 		
 			
-		Forest ft=new Forest(6,5,4,3);
+		Forest ft=new Forest(6,5,4,3,1);
 		System.out.println("\t\t\t\tFinal Output");
 		ft.luckRun();
 		ft.animalEat();
 		ft.animalSleep();
+		ft.huntingOutput();
 		
 		System.out.println("\n\n\n\n");
 		ft.finalOutput();

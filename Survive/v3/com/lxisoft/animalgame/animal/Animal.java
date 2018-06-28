@@ -9,9 +9,15 @@ abstract public class Animal
 	private int reach;
 	private int hunger;
 	private int luck;
+	private int carnivorous;
 	private Random ran=new Random();
-	private int xloc,yloc;
+	private int xloc,yloc; 
+	private int arrow;
 	abstract public void sleep();
+	public void setCarnivorous(int carnivorous)
+	{
+		this.carnivorous=carnivorous;
+	}
 	public void setName(String name)
 	{
 		this.name=name;
@@ -31,6 +37,10 @@ abstract public class Animal
 	public void setLuck(int luck)
 	{
 		this.luck=luck;
+	}
+	public void setArrow(int arrow)
+	{
+		this.arrow=arrow;
 	}
 	public void setXloc(int xloc)
 	{
@@ -57,9 +67,17 @@ abstract public class Animal
 	{
 		return hunger;
 	}
+	public int getCarnivorous()
+	{
+		return carnivorous;
+	}
 	public int getLuck()
 	{
 		return luck;
+	}
+	public int getArrow()
+	{
+		return arrow;
 	}
 	public int getXloc()
 	{

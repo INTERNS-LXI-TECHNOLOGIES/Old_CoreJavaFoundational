@@ -12,6 +12,7 @@ public class Rabbit extends HerbivorousAnimal
 		setHunger(ran.nextInt(10));
 		setStrength(0);
 		setLuck(ran.nextInt(10));
+		setCarnivorous(0);
 		findloc();
 	} 
 	public void sleep()

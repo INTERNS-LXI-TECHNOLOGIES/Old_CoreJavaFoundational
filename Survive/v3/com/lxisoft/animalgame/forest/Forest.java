@@ -2,15 +2,18 @@ package com.lxisoft.animalgame.forest;
 import com.lxisoft.animalgame.animal.*;
 import com.lxisoft.animalgame.animaltype.*;
 import com.lxisoft.animalgame.exception.*;
+
 import java.io.*;
 public class Forest
 {
-	public static Animal[][] grid=new Animal[20][20];
+	public static Animal[][] grid=new Animal[30][30];
 	private static Lion[] ln=new Lion[10];
 	private static Tiger[] tr=new Tiger[10];
 	private static Rabbit[] rt=new Rabbit[10];
 	private static Deer[] dr=new Deer[10];
-	public Forest(int lio,int tig,int rab,int der) throws MyException
+	public static Hunter[] hr=new Hunter[5];
+	
+	public Forest(int lio,int tig,int rab,int der,int hun) throws MyException
 	{
 		for(int row=0;row<5;row++)
 		{
@@ -35,6 +38,10 @@ public class Forest
 		{
 			dr[de]=new Deer(de);
 		}
+		for(int hu=0;hu<hun;hu++)
+		{
+			hr[hu]=new Hunter(hu);
+		}
 		
 		outputGrid();
 	}
@@ -51,13 +58,14 @@ public class Forest
 					count++;
 					}
 					else
+						//System.out.println("position of null%d"+grid[this.getXloc()][this.getYloc()]);
 						System.out.print("\t0\t"); 
 					
 				}
 				System.out.println("\n\n\n");
 			}
-		
-				System.out.println("Number of Animals "+count);
+				System.out.println("Hunter");
+				System.out.println("Number of Animals "+((count)-2));
 			
 		}
 	public void finalOutput()
@@ -121,6 +129,19 @@ public class Forest
 		for(int de=0;de<3;de++)
 		{
 			dr[de].sleep();
+		}
+		for(int hu=0;hu<1;hu++)
+		{
+			hr[hu].sleep();
+		}
+	}
+	public void huntingOutput()
+	{
+		
+		for(int hu=0;hu<1;hu++)
+		{
+			hr[hu].hunting();
+			
 		}
 	}
 			
