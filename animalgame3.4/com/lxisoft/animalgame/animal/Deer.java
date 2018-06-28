@@ -7,18 +7,18 @@ public class Deer extends  Herbivorousanimal
 		public Deer(int id)
 	
 	{
-		setname("Deer"+String.valueOf(id));
+		setName("Deer"+String.valueOf(id));
 		Random ran=new Random();
-		setstrength(0);
-		sethunger(ran.nextInt(10));
+		setStrength(0);
+		setHunger(ran.nextInt(10));
 		setLuck(ran.nextInt(10));
 		findloc();
 	}
 	public void animalsleep()
 	{
-		if(gethunger()<5)
+		if(getHunger()<3)
 		{
-			System.out.println("Deer sleeping");
+			System.out.println(this.getName()+"\tsleeping");
 		}
 			
 	}

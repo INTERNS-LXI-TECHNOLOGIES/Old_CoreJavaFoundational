@@ -5,20 +5,19 @@ import java.util.Random;
 public class Tiger extends Carnivorousanimal
 {
 	public Tiger(int id)
-	
 	{
-		setname("Tiger"+String.valueOf(id));
+		setName("Tiger"+String.valueOf(id));
 		Random ran=new Random();
-		setstrength(ran.nextInt(10));
-		sethunger(ran.nextInt(10));
-		setreach(ran.nextInt(4));
+		setStrength(ran.nextInt(10));
+		setHunger(ran.nextInt(10));
+		setReach(ran.nextInt(4));
 		findloc();
 	}
 	public void animalsleep()
 	{
-		if(gethunger()<6)
+		if(getHunger()<3)
 		{
-			System.out.println("Tiger sleeping");
+			System.out.println(this.getName()+"\tsleeping");
 		}
 			
 	}

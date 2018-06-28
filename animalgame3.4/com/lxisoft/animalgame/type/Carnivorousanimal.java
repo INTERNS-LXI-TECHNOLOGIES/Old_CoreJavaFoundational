@@ -8,31 +8,45 @@ abstract public class Carnivorousanimal extends Animal implements Carnivorous
 {
 	public  void fight()
 	{   
-		for(int i=0;i<5;i++)
+		for(int i=0;i<7;i++)
 		{
-			for(int j=0;j<5;j++)
+			for(int j=0;j<7;j++)
 
 			{
-				if((Forest.grid[i][j]!=this)&&(Math.abs(this.getX()-i)<=getreach())&&(Math.abs(this.getY()-j)<=getreach())&&(Forest.grid[i][j]!=null))
+				if((Forest.grid[i][j]!=this)&&(Math.abs(this.getX()-i)<=getReach())&&(Math.abs(this.getY()-j)<=getReach())&&(Forest.grid[i][j]!=null))
 				{  
-					if(this.getstrength()>Forest.grid[i][j].getstrength())
+					if(this.getStrength()>Forest.grid[i][j].getStrength())
 					{
-						System.out.println("\n"+Forest.grid[i][j].getname()+" vs "+this.getname()+" "+this.getname()+" WON "+Forest.grid[i][j].getname()+" Loss");
-						Forest.grid[i][j]=null;				
+						System.out.println("\n"+this.getName()+" vs "+Forest.grid[i][j].getName()+"  "+this.getName()+"\t WON "+Forest.grid[i][j].getName()+"\t Loss");
+						if(Forest.grid[i][j].getLuck()>5)
+						{
+							System.out.println("\n"+Forest.grid[i][j].getName()+"\t Run away due to luck");
+						}
+						else
+						{
+						Forest.grid[i][j]=null;
+						}						
 					}
 				else 
 				{
-					System.out.println("\n"+Forest.grid[i][j].getname()+" vs "+this.getname()+" "+Forest.grid[i][j].getname()+" WON"+this.getname()+"Loss");
+					System.out.println("\n"+Forest.grid[i][j].getName()+" vs "+this.getName()+"  "+Forest.grid[i][j].getName()+"\t WON"+this.getName()+"\t Loss");
+					if(Forest.grid[this.getX()][this.getY()].getLuck()>5)
+					{
+						System.out.println("\n"+Forest.grid[this.getX()][this.getY()].getName()+"\t Run away due to luck");
+					}
+					else
+					{
 					Forest.grid[this.getX()][this.getY()]=null;
+					}
 				}
+				
 				}
 			}
 		}
 	}
 	public void meateat() 
 	{
-		
-		if(gethunger()>6)
+		if(getHunger()>6)
 		{
 			roamcheck();
 		}
@@ -40,7 +54,7 @@ abstract public class Carnivorousanimal extends Animal implements Carnivorous
 	public void roamcheck ()
 	{
 		
-		if(getstrength()>5)
+		if(getStrength()>5)
 		{
 			fight();	
 		}

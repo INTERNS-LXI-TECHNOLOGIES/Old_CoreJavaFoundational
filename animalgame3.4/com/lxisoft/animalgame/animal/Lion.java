@@ -7,18 +7,18 @@ import java.util.Random;
 	public Lion(int id)
 	
 	{
-		setname("Lion"+String.valueOf(id));
+		setName("Lion"+String.valueOf(id));
 		Random ran=new Random();
-		sethunger(ran.nextInt(10));
-		setstrength(ran.nextInt(10));
-		setreach(ran.nextInt(2));
+		setHunger(ran.nextInt(10));
+		setStrength(ran.nextInt(10));
+		setReach(ran.nextInt(2));
 		findloc();
 	}
 	public void animalsleep()
 	{
-		if(gethunger()<6)
+		if(getHunger()<3)
 		{
-			System.out.println("Lion sleeping");
+			System.out.println(this.getName()+"\tsleeping");
 		}
 			
 	}

@@ -7,18 +7,17 @@ abstract public class Herbivorousanimal extends Animal implements Herbivorous
 public void grasseat()
 {
 	Random ran=new Random();
-	sethunger(ran.nextInt(10));
-	if(gethunger()>5)
+	setHunger(ran.nextInt(10));
+	if(getHunger()>5)
 	{
-		System.out.println("\n"+this.getname()+"\t Eating grass");
+		System.out.println("\n"+this.getName()+"\tEating grass");
 	}
 }
 public void luck()
 {
-	
 	if(getLuck()>5)
 	{
-		System.out.println("\n"+this.getname()+"\t Run away due to luck");
+		//System.out.println("\n"+this.getname()+"\t Run away due to luck");
 	}
 }
 }

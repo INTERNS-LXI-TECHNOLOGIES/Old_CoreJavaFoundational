@@ -4,21 +4,20 @@ import java.io.*;
 import java.util.Random;
 public class Rabbit extends Herbivorousanimal
 {
-		public Rabbit(int id)
-	
+	public Rabbit(int id)
 	{
-		setname("Rabbit"+String.valueOf(id));
+		setName("Rabbit"+String.valueOf(id));
 		Random ran=new Random();
-		setstrength(0);
-		sethunger(ran.nextInt(10));
+		setStrength(0);
+		setHunger(ran.nextInt(10));
 		setLuck(ran.nextInt(10));
 		findloc();
 	}
 	public void animalsleep()
 	{
-		if(gethunger()<5)
+		if(getHunger()<3)
 		{
-			System.out.println("Rabbit sleeping");
+			System.out.println(this.getName()+"\tsleeping");
 		}
 			
 	}

@@ -1,5 +1,6 @@
 package com.lxisoft.animalgame.animal;
 import com.lxisoft.animalgame.forest.*;
+//import com.lxisoft.animalgame.hunter.*;
 import java.io.*;
 import java.util.Random;
 
@@ -10,6 +11,7 @@ abstract public class Animal
 	private int reach;
 	private int hunger;
 	private int luck;
+	private int arrow;
 	Random ran=new Random();
 	int xloc,yloc;
 	abstract public void animalsleep();
@@ -23,25 +25,29 @@ public void setY(int y)
 {
 	yloc = y;
 }
-public void setname(String name)
+public void setName(String x)
 {
-this.name=name;
+this.name=x;
 }
-public void setstrength(int strength)
+public void setStrength(int strength)
 {
 this.strength=strength;
 }
-public void setreach(int reach)
+public void setReach(int reach)
 {
 this.reach=reach;
 }
-public void sethunger(int hunger)
+public void setHunger(int hunger)
 {
 this.hunger=hunger;
 }
 public void setLuck(int luck)
 {
 this.luck=luck;
+}
+public void setArrow(int arrow)
+{
+	this.arrow=arrow;
 }
 
 //getters
@@ -53,26 +59,31 @@ public int getY()
 {
 	return yloc;
 }
-public String getname()
+public String getName()
 {
 	return name;
 }
-public int getstrength()
+public int getStrength()
 {
 	return strength;
 }
-public int getreach()
+public int getReach()
 {
 	return reach;
 }
-public int gethunger()
+public int getHunger()
 {
 	return hunger;
 }
 public int getLuck()
 {
 	return luck;
+}
+public int getArrow()
+{
+	return arrow;
 }	
+
 	public void findloc()
 	{
 		do
