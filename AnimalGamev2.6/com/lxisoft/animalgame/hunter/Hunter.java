@@ -2,7 +2,7 @@ package com.lxisoft.animalgame.hunter;
 import com.lxisoft.animalgame.animals.Animal;
 import com.lxisoft.animalgame.animals.Elephant;
 import com.lxisoft.animalgame.animalbehaviour.Carnivore;
-import com.lxisoft.animalgame.exception.AnimalDeadException;
+import com.lxisoft.animalgame.exception.*;
 import java.util.Random;
 public final class Hunter
 	{
@@ -44,7 +44,7 @@ public final class Hunter
 				 return alive;
 			}
 			
-		 public void hunt(Animal [][] grid)
+		 public void initHunt(Animal [][] grid)
 			{
 				 System.out.println("\n\nNow its Hunting time");
 				 Random r= new Random();
@@ -52,24 +52,48 @@ public final class Hunter
 				 String choose=animals[choice];
 				 System.out.println("\nHunter looking for a "+choose);
 				 Animal prey=findNearest(grid,choose);
-				 
-				 int distance=Math.abs(prey.getXLoc()-getXLoc())+Math.abs(prey.getYLoc()-getYLoc());
 				 System.out.println("\nHunter aims "+prey.getID());
+				 try
+					{
+						 hunt(prey);
+					}
+				 catch(AnimalFarException e)
+					{
+						 System.out.println("\n"+prey.getID()+" is too far away");
+					}
+			}
+			
+		 public void hunt(Animal prey) throws AnimalFarException
+			{
+				 Random r= new Random();
+				 int distance=Math.abs(prey.getXLoc()-getXLoc())+Math.abs(prey.getYLoc()-getYLoc());
 				 do
 					{
+						 if(distance>5)
+							{
+								 throw new AnimalFarException();
+							}
 						 System.out.println("\n"+prey.getID()+" is "+distance+" blocks far from hunter.\tHunter has "+arrows+" arrows left, strength of  "+prey.getID()+" is "+prey.getStrength());
-						 prey.setStrength(prey.getStrength()-2);
+						 if(r.nextInt(10)<7) //70% chance for arrow to strike
+							{
+								 System.out.println("Arrow Hit");
+								 prey.setStrength(prey.getStrength()-2);
+							}
+						 else
+								 System.out.println("Arrow Missed");
 						 arrows--;
-						 if(prey instanceof Carnivore)
+						 if(prey instanceof Carnivore || prey instanceof Elephant)
 							 distance--;
 						 else
 							 distance++;
-					}while(distance>0 && arrows>=0 && prey.getStrength()>0);
+					}while(distance>0 && arrows>0 && prey.getStrength()>0);
+					
 				 if(prey.getStrength()==0)
 					{
 						 System.out.println("\nHunter killed "+prey.getID()+"\n\n");
 						 prey.dead();
 					}
+					
 				 else if(distance==0 && arrows==0)
 					{
 						 if(prey instanceof Carnivore || prey instanceof Elephant)
@@ -80,21 +104,15 @@ public final class Hunter
 						 else
 							 System.out.println("\n"+prey.getID()+" escaped from the Hunter\n\n");
 					}
+					
 				 else if(distance>0 && arrows<=0)
 					{
 						 System.out.println("\nNo arrows left, Hunter aborted the plan\n\n");
 					}
+					
 				 else if(distance==0 && arrows>0)
 					{
-						 if(prey instanceof Carnivore || prey instanceof Elephant)
-							{
-								 System.out.println("\n"+prey.getID()+" got too close, Hunter fled the area\n\n");
-							}
-						 else
-							{
-								 System.out.println("\nHunter killed "+prey.getID()+"\n\n");
-								 prey.dead();
-							}
+						 System.out.println("\n"+prey.getID()+" got too close, Hunter fled the area\n\n");
 					}
 			}
 			

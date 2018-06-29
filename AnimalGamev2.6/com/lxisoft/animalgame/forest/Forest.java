@@ -166,7 +166,7 @@ public final class Forest
 						{
 							 if(i==hunter.getXLoc() && j==hunter.getYLoc() && hunter.isAlive())
 								{
-									 hunter.hunt(grid);
+									 hunter.initHunt(grid);
 								}
 							 else if(animal!=null && animal instanceof Carnivore)
 								{
