@@ -1,10 +1,9 @@
 package com.lxisoft.animalgame.animals;
 import com.lxisoft.animalgame.animalbehaviour.*;
-import com.lxisoft.animalgame.exception.AnimalDeadException;
+import com.lxisoft.animalgame.forest.Forest;
 
 public abstract class Animal
     {
-		 private boolean alive;
          private String id;
 		 private int strength;
 		 private int hunger;
@@ -13,23 +12,9 @@ public abstract class Animal
 		 
 		 public Animal(int numID,int strength,int hunger)
 			{
-				 setAlive(true);
 				 setID(this.getClass().getSimpleName()+" "+String.valueOf(numID)); 
 				 setStrength(strength);
 				 setHunger(hunger);
-			}
-		 
-		 public void setAlive(boolean alive)
-			{
-				 this.alive=alive;
-			}
-		 
-		 public boolean isAlive() throws AnimalDeadException
-			{
-				 if(alive)
-					 return true;
-				 else
-					 throw new AnimalDeadException();
 			}
  
 		 public void setID(String id)
@@ -95,6 +80,6 @@ public abstract class Animal
 		 public void dead()
 			{
 				 setStrength(0);
-				 setAlive(false);
+				 Forest.setGridElement(getXLoc(),getYLoc(),null);
 			}
     }

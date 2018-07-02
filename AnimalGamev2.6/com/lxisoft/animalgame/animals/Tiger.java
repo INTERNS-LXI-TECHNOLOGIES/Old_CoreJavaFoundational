@@ -5,6 +5,6 @@ public final class Tiger extends CarnivoreAnimal
 		 public Tiger(int numID,int strength,int hunger)
 			{  
 				 super(numID,strength,hunger);
-				 setRoam(3); 
+				 setRoam(2); 
 			} 
 	}

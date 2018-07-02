@@ -1,73 +1,39 @@
 package com.lxisoft.animalgame.animalbehaviour;
 import com.lxisoft.animalgame.animals.Animal;
+import com.lxisoft.animalgame.forest.Forest;
 import com.lxisoft.animalgame.animalbehaviour.Herbivore;
 import java.util.Random;
 public class HerbivoreAnimal extends Animal implements Herbivore 
 	{
-		 private int oldX;
-		 private int oldY;
-		 
 		 public HerbivoreAnimal(int numID,int strength,int hunger)
 			{
 				 super(numID,strength,hunger);
 			}
-			
-		 public int getOldX()
-			{
-				return oldX;
-			}
-			
-		 public int getOldY()
-			{
-				return oldY;
-			}
 		 
 		 
-		 public void runAway(Animal a)
+		 public void runAway(Animal opponent)
 			{
-				 oldX=getXLoc();
-				 oldY=getYLoc();
-				 changeLocation();
-				 System.out.println("\t"+this.getID()+" ran away from "+a.getID());
+				 Forest.setGridElement(getXLoc(),getYLoc(),null);
+				 changeLocation(opponent);
+				 System.out.println("\t"+this.getID()+" ran away from "+opponent.getID());
 			}
 			
-		 public void changeLocation()
+		 public void changeLocation(Animal opponent)
 			{
-				 int east=7-getXLoc(),west=getXLoc(),south=7-getYLoc(),north=getYLoc();
-				 
-				 runDirection(east,west,south,north);
+				 Random r=new Random();
+				 CarnivoreAnimal animal=(CarnivoreAnimal)(opponent);
+				 int minX=(animal.getXLoc()-animal.getRoam());
+				 int maxX=(animal.getXLoc()+animal.getRoam());
+				 int minY=(animal.getYLoc()-animal.getRoam());
+				 int maxY=(animal.getYLoc()+animal.getRoam());
+				 int tempX,tempY;
+				 do
+					{
+						 tempX= r.nextInt(7);
+						 tempY= r.nextInt(7);
+					}while((tempX>minX)&&(tempX<maxX)&&(tempY>minY)&&(tempY<maxY)&&(Forest.getGridElement(tempX,tempY)!=null));
+				 Forest.setGridElement(tempX,tempY,this);
 			}
-			
-		 public void changeLocation(int x,int y)
-			{
-				 setXLoc(x);
-				 setYLoc(y);
-			}
-			
-		 public void runDirection(int east,int west,int south,int north)
-		 {
-			 int bigOnX=(east>west)?east:west;
-			 int bigOnY=(south>north)?south:north;
-			 Random r=new Random();
-			
-			if(bigOnX==east)
-				{
-					 setXLoc(r.nextInt(7-getXLoc())+getXLoc()); //random between max animal grid size (7) and current x location
-				}
-			 else
-				{
-					 setXLoc(r.nextInt(getXLoc())); //random between 0 and current x location					
-				}
-			 
-			 if(bigOnY==south)
-				{
-					 setYLoc(r.nextInt(7-getYLoc())+getYLoc()); //random between max animal grid size (7) and current y location
-				}
-			 else
-				{
-					 setYLoc(r.nextInt(getYLoc())); //random between 0 and current y location
-				}
-		 }
 			
 		 public void defeated(Animal lost)
 			{

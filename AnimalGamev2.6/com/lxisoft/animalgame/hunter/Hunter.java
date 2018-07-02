@@ -1,8 +1,9 @@
 package com.lxisoft.animalgame.hunter;
+import com.lxisoft.animalgame.forest.Forest;
 import com.lxisoft.animalgame.animals.Animal;
 import com.lxisoft.animalgame.animals.Elephant;
 import com.lxisoft.animalgame.animalbehaviour.Carnivore;
-import com.lxisoft.animalgame.exception.*;
+import com.lxisoft.animalgame.exception.AnimalFarException;
 import java.util.Random;
 public final class Hunter
 	{
@@ -44,15 +45,20 @@ public final class Hunter
 				 return alive;
 			}
 			
-		 public void initHunt(Animal [][] grid)
+		 public void initHunt() throws InterruptedException
 			{
+				 Forest.cls();
+				 Forest.printGrid();
 				 System.out.println("\n\nNow its Hunting time");
+				 Thread.sleep(1000);
 				 Random r= new Random();
 				 int choice=(int)(r.nextInt(3));
 				 String choose=animals[choice];
 				 System.out.println("\nHunter looking for a "+choose);
-				 Animal prey=findNearest(grid,choose);
+				 Thread.sleep(1000);
+				 Animal prey=findNearest(choose);
 				 System.out.println("\nHunter aims "+prey.getID());
+				 Thread.sleep(1000);
 				 try
 					{
 						 hunt(prey);
@@ -63,7 +69,7 @@ public final class Hunter
 					}
 			}
 			
-		 public void hunt(Animal prey) throws AnimalFarException
+		 public void hunt(Animal prey) throws AnimalFarException,InterruptedException
 			{
 				 Random r= new Random();
 				 int distance=Math.abs(prey.getXLoc()-getXLoc())+Math.abs(prey.getYLoc()-getYLoc());
@@ -77,10 +83,14 @@ public final class Hunter
 						 if(r.nextInt(10)<7) //70% chance for arrow to strike
 							{
 								 System.out.println("Arrow Hit");
+								 Thread.sleep(1000);
 								 prey.setStrength(prey.getStrength()-2);
 							}
 						 else
+							{	
 								 System.out.println("Arrow Missed");
+								 Thread.sleep(1000);
+							}
 						 arrows--;
 						 if(prey instanceof Carnivore || prey instanceof Elephant)
 							 distance--;
@@ -105,7 +115,7 @@ public final class Hunter
 							 System.out.println("\n"+prey.getID()+" escaped from the Hunter\n\n");
 					}
 					
-				 else if(distance>0 && arrows<=0)
+				 else if(distance>0 && arrows==0)
 					{
 						 System.out.println("\nNo arrows left, Hunter aborted the plan\n\n");
 					}
@@ -116,7 +126,7 @@ public final class Hunter
 					}
 			}
 			
-		 public Animal findNearest(Animal [][] grid,String choose)
+		 public Animal findNearest(String choose)
 			{
 				 int smallDistance=99,distance;
 				 Animal nearest=null;
@@ -124,23 +134,17 @@ public final class Hunter
 					{
 						 for(int j=0;j<7;j++)
 							{
-								try
-									{
-										 if(grid[i][j]!=null && grid[i][j].isAlive() && grid[i][j].getClass().getSimpleName().equals(choose))
+										 Animal animal=Forest.getGridElement(i,j);
+										 if(animal!=null && animal.getClass().getSimpleName().equals(choose))
 											{
-												 distance=Math.abs(grid[i][j].getXLoc()-getXLoc())+Math.abs(grid[i][j].getYLoc()-getYLoc());
+												 distance=Math.abs(animal.getXLoc()-getXLoc())+Math.abs(animal.getYLoc()-getYLoc());
 										 
 												 if(distance<smallDistance)
 													{
 														 smallDistance=distance;
-														 nearest=grid[i][j];
+														 nearest=animal;
 													}
 											}
-									}
-								 catch(AnimalDeadException e)
-									{
-									}
-					
 							}
 					}
 				 return nearest;

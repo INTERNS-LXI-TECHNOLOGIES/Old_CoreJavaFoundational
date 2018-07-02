@@ -1,5 +1,6 @@
 package com.lxisoft.animalgame.animalbehaviour;
 import com.lxisoft.animalgame.animals.*;
+import com.lxisoft.animalgame.forest.Forest;
 import com.lxisoft.animalgame.animalbehaviour.Carnivore;
 import java.util.*;
 
@@ -48,31 +49,47 @@ public class CarnivoreAnimal extends Animal implements Carnivore
 					} 
 				 return retVal;            
 			}
+			
+		 public void setNearby()
+			{
+				 int roam=getRoam();
+			     for(int i=(getXLoc()-roam);i<=(getXLoc()+roam);i++)
+					{
+				 		 for(int j=(getYLoc()-roam);j<=(getYLoc()+roam);j++)
+							{
+								if(i>=0 && j>=0 && i<7 && j<7 && Forest.getGridElement(i,j)!=null && Forest.getGridElement(i,j)!=this)
+									{
+										 nearby.add(Forest.getGridElement(i,j));
+									}
+							}
+					}
+			}
 	
 		 public void checkNearby()
 			{
-				  for(int i=(nearby.size()-1);i>=0;i--)
+				 int i;
+				 Random r=new Random();
+				 setNearby();
+				 while(nearby.size()!=0 && canRoam())
 					{
-						 if(canRoam())
+						 i=r.nextInt(nearby.size());
+						 if(nearby.get(i) instanceof Carnivore)
 							{
-								 if(nearby.get(i) instanceof Carnivore)
-									{
-										if((Math.random()*10) <3)
-											 combat(nearby.get(i));
-									}
-								 else
+								 if((Math.random()*10) <3) 		//30% chance to fight with a carnivore
 									 combat(nearby.get(i));
 							}
 						 else
 							{
-								 break;
+								 combat(nearby.get(i));
 							}
+						 nearby.remove(i);
 					}
 			}
 			
 		 public void combat(Animal a)
 			{
 				 Random r=new Random();
+				 Forest.printGrid(this,a);
 				 System.out.println("\n"+getID()+"\t vs   "+a.getID());
 				 if(getStrength()>a.getStrength())
 					{

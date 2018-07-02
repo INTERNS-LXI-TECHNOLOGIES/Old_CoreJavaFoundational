@@ -12,18 +12,19 @@ import com.lxisoft.animalgame.forest.Forest;
 public final class Test
     {
      public static void main(String args[])
-        {
-             Forest forest=new Forest();
-  
-             forest.initForest(8,9,12,6);
+        {  
+             Forest forest= new Forest();
+			 forest.initForest(8,9,12,6);
 			 
+			 forest.cls();
 			 System.out.println("\nInitial Animal placements : \n");
-			 forest.printForest();
+			 forest.printGrid();
 			 
 			 forest.initRoaming();
 			 
+			 forest.cls();
 			 System.out.println("\n\n\nSurvived Animal Placements : \n");
-			 forest.printForest();
+			 forest.printGrid();
 			 
 			 System.out.println("Total     : 35 Animals & 1 Hunter");
 			 System.out.print("Survived  : "+(forest.getAliveCount())+" Animals");
