@@ -17,7 +17,7 @@ public class Rabbit extends Herbivorousanimal
 	{
 		if(getHunger()<3)
 		{
-			System.out.println(this.getName()+"\tsleeping");
+			System.out.println("\n"+this.getName()+"\tsleeping");
 		}
 			
 	}

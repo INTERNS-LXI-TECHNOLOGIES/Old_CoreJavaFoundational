@@ -83,7 +83,8 @@ public int getArrow()
 {
 	return arrow;
 }	
-
+//int arrow=getArrow();
+//	 int strength=getStrength();
 	public void findloc()
 	{
 		do

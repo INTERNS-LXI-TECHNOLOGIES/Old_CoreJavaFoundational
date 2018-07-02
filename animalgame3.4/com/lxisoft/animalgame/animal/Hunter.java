@@ -14,13 +14,13 @@ public class Hunter extends Omnivorousanimal
 	setReach(ran.nextInt(3));
 	setHunger(ran.nextInt(10));
 	findloc();
-	setArrow(5);
+	setArrow(4);
 	}
 	public void animalsleep()
 	{
-		if(getStrength()<5)
+		if(getStrength()<2)
 		{
-			System.out.println(this.getName()+"\tsleeping");
+			System.out.println("\n"+this.getName()+"\tsleeping");
 		}
 			
 	}

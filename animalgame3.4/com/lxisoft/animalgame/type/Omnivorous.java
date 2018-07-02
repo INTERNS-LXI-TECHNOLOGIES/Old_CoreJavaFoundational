@@ -4,4 +4,5 @@ import java.util.*;
 public interface Omnivorous 
 {
 public void hunting();
+public void animalattack();
 }

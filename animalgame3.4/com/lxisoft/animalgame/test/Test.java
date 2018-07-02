@@ -12,10 +12,11 @@ public static void main(String args[])
 {
 	System.out.println("\n\t\t\t\t WELCOME \t\t\t\t\n");
 	System.out.println("\n\t\t\t\tANIMAL GAME\t\t\t\n");
-	Forest ft=new Forest(4,5,3,4,1);
+	Forest ft=new Forest(3,5,3,4,1);
 	ft.grasseatState();
 	ft.animalsleepState();
 	ft.huntingState();
+	ft.animalattackState();
 	ft.roamcheckState();
 	ft.luckState();
 	
