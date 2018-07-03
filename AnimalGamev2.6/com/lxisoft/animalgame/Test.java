@@ -9,6 +9,7 @@ forest.getAliveCount() method is the getter method associated with aliveCount va
 
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.forest.Forest;
+import com.lxisoft.animalgame.clearscreen.Cls;
 public final class Test
     {
      public static void main(String args[])
@@ -16,13 +17,13 @@ public final class Test
              Forest forest= new Forest();
 			 forest.initForest(8,9,12,6);
 			 
-			 forest.cls();
+			 Cls.clear();
 			 System.out.println("\nInitial Animal placements : \n");
 			 forest.printGrid();
 			 
 			 forest.initRoaming();
 			 
-			 forest.cls();
+			 Cls.clear();
 			 System.out.println("\n\n\nSurvived Animal Placements : \n");
 			 forest.printGrid();
 			 

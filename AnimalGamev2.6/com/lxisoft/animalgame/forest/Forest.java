@@ -100,7 +100,7 @@ public final class Forest
 					}
 				 catch(InterruptedException e)
 					{}
-				 cls();
+				 Cls.clear();
 				 int i=0,j=0;
 				 System.out.println("\n\n\n");
 	             for(Animal[] row : grid)
@@ -159,23 +159,6 @@ public final class Forest
                          System.out.println("\n\n\n");
                     }
             }
-			
-		 public static void cls()
-			{
-				 Cls clrscr=new Cls();
-				 try
-					{
-						 clrscr.cls();
-					}
-				 catch (IOException e)
-					{
-			
-					}
-				 catch (InterruptedException e)
-					{
-			
-					}
-			}
   
 		 public void initRoaming()
 			{
