@@ -12,7 +12,7 @@ public abstract class Animal
 		 
 		 public Animal(int numID,int strength,int hunger)
 			{
-				 setID(this.getClass().getSimpleName()+" "+String.valueOf(numID)); 
+				 setID(this.getClass().getSimpleName()+" "+numID); 
 				 setStrength(strength);
 				 setHunger(hunger);
 			}
@@ -26,6 +26,10 @@ public abstract class Animal
             {
 	             return id;
             }
+		 public String toString()
+			{
+				 return id;
+			}
   
 		 public void setHunger(int hunger)
 			{

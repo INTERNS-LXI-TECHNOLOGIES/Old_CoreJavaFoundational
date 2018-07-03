@@ -4,11 +4,12 @@ import com.lxisoft.animalgame.animalbehaviour.*;
 import com.lxisoft.animalgame.hunter.Hunter;
 import com.lxisoft.animalgame.clearscreen.Cls;
 import java.io.IOException;
-import java.util.Random;
+import java.util.*;
 
 public final class Forest
     {
 		 private static Animal[][] grid= new Animal[7][7];
+		 private ArrayList<Object> participants= new ArrayList<Object>();
 		 private static Hunter hunter=new Hunter();
 		 private static int aliveCount=0;
 	 
@@ -51,8 +52,8 @@ public final class Forest
 						
 						 switch(animal)
 							{
-								 case 'L': grid[tempX][tempY]=new Lion(i,r.nextInt(3)+7,r.nextInt(2));  break;
-								 case 'T': grid[tempX][tempY]=new Tiger(i,r.nextInt(3)+7,r.nextInt(2)); break;
+								 case 'L': grid[tempX][tempY]=new Lion(i,r.nextInt(3)+7,r.nextInt(2)); participants.add(grid[tempX][tempY]); break;
+								 case 'T': grid[tempX][tempY]=new Tiger(i,r.nextInt(3)+7,r.nextInt(2)); participants.add(grid[tempX][tempY]); break;
 								 case 'D': grid[tempX][tempY]=new Deer(i,r.nextInt(3)+2,r.nextInt(2)); break;
 								 case 'E': grid[tempX][tempY]=new Elephant(i,r.nextInt(1)+9,r.nextInt(2)); break;
 							}
@@ -72,6 +73,7 @@ public final class Forest
 					}while(grid[tempX][tempY]!=null);
 				 hunter.setXLoc(tempX);
 				 hunter.setYLoc(tempY);
+				 participants.add(hunter);
 			}
 	 
 		 public void initForest(int lio,int tig,int der,int ele)
@@ -94,7 +96,7 @@ public final class Forest
             {
 				 try
 					{
-						 Thread.sleep(5000);
+						 Thread.sleep(2000);
 					}
 				 catch(InterruptedException e)
 					{}
@@ -108,14 +110,14 @@ public final class Forest
                            {
 								 if(i==hunter.getXLoc() && j==hunter.getYLoc() && hunter.isAlive())
 									{
-										 System.out.print("\tHUNTER  ");
+										 System.out.print("\t"+hunter+"  ");
 									}
 								 else if(animal!=null)
 									{
 										 if(animal.getID()==a.getID() || animal.getID()==b.getID())
-											 System.out.print("\t<<"+animal.getID()+">> ");
+											 System.out.print("\t<<"+animal+">> ");
 										 else
-											 System.out.print("\t"+animal.getID()+"  ");
+											 System.out.print("\t"+animal+"  ");
 									}
 								 else	
 									{
@@ -140,11 +142,11 @@ public final class Forest
                            {
 								 if(i==hunter.getXLoc() && j==hunter.getYLoc() && hunter.isAlive())
 									{
-										 System.out.print("\tHUNTER  ");
+										 System.out.print("\t"+hunter+"  ");
 									}
 								 else if(animal!=null)
 									{
-										 System.out.print("\t"+animal.getID()+"  ");
+										 System.out.print("\t"+animal+"  ");
 										 aliveCount++;
 									}
 								 else	
@@ -177,31 +179,25 @@ public final class Forest
   
 		 public void initRoaming()
 			{
-				 int i=0,j=0;
-	         	 for(Animal[] row : grid)
+				Random r=new Random();
+				int choice;
+				while(participants.size()!=0)
 					{
-					 j=0;
-					 for(Animal animal : row)
-						{
-							 if(i==hunter.getXLoc() && j==hunter.getYLoc() && hunter.isAlive())
-								{
-									 try
-										{
-											 hunter.initHunt();
-										}
-									 catch(InterruptedException e)
-										{}
-								}
-							 else if(animal!=null && animal instanceof Carnivore)
-								{
-									 if(((CarnivoreAnimal)animal).canRoam())
-										{
-											 ((CarnivoreAnimal)animal).checkNearby();
-										}
-								}
-							 j++;
-						}
-					 i++;
+						 choice=r.nextInt(participants.size());
+						 if(participants.get(choice) instanceof Hunter)
+							{			
+								 try
+									{
+										 ((Hunter)(participants.get(choice))).initHunt();
+									}
+								 catch(InterruptedException e)
+									{}
+							}			
+						 else if(((CarnivoreAnimal)(Animal)participants.get(choice)).canRoam())
+							{
+								 ((CarnivoreAnimal)(Animal)participants.get(choice)).checkNearby();
+							}
+						 participants.remove(choice);
 					}
 			}
     }

@@ -91,6 +91,12 @@ public class CarnivoreAnimal extends Animal implements Carnivore
 				 Random r=new Random();
 				 Forest.printGrid(this,a);
 				 System.out.println("\n"+getID()+"\t vs   "+a.getID());
+				 try
+					{
+						 Thread.sleep(1000);
+					}
+				 catch(InterruptedException e)
+					{}
 				 if(getStrength()>a.getStrength())
 					{
 						 int luckFact=r.nextInt(10);

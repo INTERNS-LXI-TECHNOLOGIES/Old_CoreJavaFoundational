@@ -10,7 +10,6 @@ public class HerbivoreAnimal extends Animal implements Herbivore
 				 super(numID,strength,hunger);
 			}
 		 
-		 
 		 public void runAway(Animal opponent)
 			{
 				 Forest.setGridElement(getXLoc(),getYLoc(),null);

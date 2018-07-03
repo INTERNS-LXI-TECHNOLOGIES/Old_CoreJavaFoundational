@@ -11,6 +11,7 @@ public final class Hunter
 		 private int arrows;
 		 private int xLoc;
 		 private int yLoc;
+		 private boolean hunting;
 		 String[] animals= {"Lion" ,"Tiger" , "Deer", "Elephant"};
 		 
 		 public Hunter()
@@ -18,6 +19,14 @@ public final class Hunter
 				 alive=true;
 				 Random r= new Random();
 				 arrows=(r.nextInt(4)+1);
+			}
+			
+		 public String toString()
+			{
+				 if(hunting)
+					 return "<<HUNTER>>";
+				 else
+					 return "HUNTER";
 			}
 			
 		 public int getXLoc()
@@ -47,18 +56,16 @@ public final class Hunter
 			
 		 public void initHunt() throws InterruptedException
 			{
-				 Forest.cls();
-				 Forest.printGrid();
-				 System.out.println("\n\nNow its Hunting time");
-				 Thread.sleep(1000);
+				 hunting=true;
 				 Random r= new Random();
 				 int choice=(int)(r.nextInt(3));
 				 String choose=animals[choice];
-				 System.out.println("\nHunter looking for a "+choose);
-				 Thread.sleep(1000);
 				 Animal prey=findNearest(choose);
+				 Forest.printGrid(prey,prey);
+				 System.out.println("\nHunter looking for a "+choose);
+				 Thread.sleep(1500);
 				 System.out.println("\nHunter aims "+prey.getID());
-				 Thread.sleep(1000);
+				 Thread.sleep(1500);
 				 try
 					{
 						 hunt(prey);
@@ -67,6 +74,7 @@ public final class Hunter
 					{
 						 System.out.println("\n"+prey.getID()+" is too far away");
 					}
+				 hunting=false;
 			}
 			
 		 public void hunt(Animal prey) throws AnimalFarException,InterruptedException
