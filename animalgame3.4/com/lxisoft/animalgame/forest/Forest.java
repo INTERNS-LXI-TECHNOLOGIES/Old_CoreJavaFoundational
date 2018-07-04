@@ -15,6 +15,8 @@ public class Forest
 
 	public Forest(int lio,int rab,int tig,int der,int hun)
 	{
+		int total=lio+tig+der+rab;
+		
 	//initial array
 		for(i=0;i<6;i++)
 		{	
@@ -45,12 +47,12 @@ public class Forest
 				hr[i]=new Hunter(i);
 			}
 		outputGrid();
+		System.out.println("Total number of Animals:"+total+"\n"+hun+" Hunter present in the Forest");
 	}	
-} 
+
 	//output grid state 
 	public void outputGrid()
 	{
-		int count=0;
 		for(i=0;i<6;i++)
 		{
 			for(j=0;j<6;j++)
@@ -58,7 +60,6 @@ public class Forest
 				if(Forest.grid[i][j]!=null)
 				{
 					System.out.print("\t"+Forest.grid[i][j].getName()+"\t");
-					count++;
 				}
 				else
 				{
@@ -67,7 +68,6 @@ public class Forest
 			}
 			System.out.print("\n\n\n");
 		}
-		System.out.println("Number of Animals:"+((count)-1));
 	}
 	//animal sleep state output
 	public void animalsleepState()
@@ -106,7 +106,8 @@ public class Forest
 				tr[i].meateat();
 			}
 			System.out.println("\n\t\t\t\t*****SURVIVAL STATUS OF ANIMALS******\t\t\t\t\n");
-			outputGrid();
+			survivalStatus();
+			//System.out.println("number of animals dead in fight:"+(count));
 	} 
 	//grass eat state output
 	public void grasseatState() 
@@ -138,12 +139,33 @@ public class Forest
 	for(i=0;i<1;i++)
 	{
 		hr[i].hunting();
+		hr[i].luck1();
 	}
 	}
-	//animal attack state
-	public void animalattackState()
+	public void survivalStatus()
 	{
-		for(i=0;i<1;i++)
-			hr[i].animalattack();
+		int count=0;
+	for(i=0;i<6;i++)
+		{
+			for(j=0;j<6;j++)
+			{
+				if(Forest.grid[i][j]!=null)
+				{
+					System.out.print("\t"+Forest.grid[i][j].getName()+"\t");
+					count++;
+				}
+				else
+				{
+					System.out.print("\t0\t");
+				}
+				if(Forest.grid[i][j] instanceof Omnivorous)
+				{
+					count--;
+				}
+			}
+			System.out.print("\n\n\n");
+		}
+		System.out.println("Survival status of animal:"+count);
 	}
+	
 }

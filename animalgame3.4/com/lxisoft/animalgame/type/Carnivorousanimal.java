@@ -7,13 +7,15 @@ abstract public class Carnivorousanimal extends Animal implements Carnivorous
 {
 	//animal fighting condition
 	public  void fight()
-	{   
+	{  
 		for(int i=0;i<7;i++)
 		{
 			for(int j=0;j<7;j++)
 			{
 				if((Forest.grid[i][j]!=this)&&(Math.abs(this.getX()-i)<=getReach())&&(Math.abs(this.getY()-j)<=getReach())&&(Forest.grid[i][j]!=null))
-				{  
+				{
+					if(this instanceof Carnivorous)
+					{
 					if((this.getStrength())>(Forest.grid[i][j].getStrength()))
 					{
 						System.out.println("\n"+this.getName()+" vs "+Forest.grid[i][j].getName()+"  "+this.getName()+"\t WON "+Forest.grid[i][j].getName()+"\t Loss");
@@ -36,12 +38,15 @@ abstract public class Carnivorousanimal extends Animal implements Carnivorous
 					else
 					{
 					Forest.grid[this.getX()][this.getY()]=null;
+					
 					}
 				}
-				
+					}
 				}
 			}
+			
 		}
+		
 	}
 	//meat eat condition
 	public void meateat() 
@@ -53,10 +58,12 @@ abstract public class Carnivorousanimal extends Animal implements Carnivorous
 	}
 	public void roamcheck ()
 	{
-		
 		if(getStrength()>5)
 		{
-			fight();	
+			fight();
+			//count++;
+			//System.out.println("number of animals dead in fight:"+c);	
+		
 		}
 	}
 }

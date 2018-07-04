@@ -11,18 +11,17 @@ public class Hunter extends Omnivorousanimal
 	Random ran=new Random();
 	setName("Hunter"+String.valueOf(id));
 	setStrength(ran.nextInt(10));
-	setReach(ran.nextInt(3));
+	setReach(ran.nextInt(1));
 	setHunger(ran.nextInt(10));
+	setLuck(ran.nextInt(10));
 	findloc();
-	setArrow(4);
+	setArrow(10);
 	}
 	public void animalsleep()
 	{
 		if(getStrength()<2)
 		{
 			System.out.println("\n"+this.getName()+"\tsleeping");
-		}
-			
+		}			
 	}
-	
 }

@@ -19,7 +19,7 @@ public void luck()
 {
 	if(getLuck()>5)
 	{
-		//System.out.println("\n"+this.getname()+"\t Run away due to luck");
+	
 	}
 }
 }
