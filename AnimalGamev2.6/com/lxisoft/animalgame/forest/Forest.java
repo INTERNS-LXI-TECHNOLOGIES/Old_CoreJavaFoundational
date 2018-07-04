@@ -52,10 +52,10 @@ public final class Forest
 						
 						 switch(animal)
 							{
-								 case 'L': grid[tempX][tempY]=new Lion(i,r.nextInt(3)+7,r.nextInt(2)); participants.add(grid[tempX][tempY]); break;
-								 case 'T': grid[tempX][tempY]=new Tiger(i,r.nextInt(3)+7,r.nextInt(2)); participants.add(grid[tempX][tempY]); break;
-								 case 'D': grid[tempX][tempY]=new Deer(i,r.nextInt(3)+2,r.nextInt(2)); break;
-								 case 'E': grid[tempX][tempY]=new Elephant(i,r.nextInt(1)+9,r.nextInt(2)); break;
+								 case 'L': grid[tempX][tempY]=new Lion(i+1,r.nextInt(3)+7,r.nextInt(2)); participants.add(grid[tempX][tempY]); break;
+								 case 'T': grid[tempX][tempY]=new Tiger(i+1,r.nextInt(3)+7,r.nextInt(2)); participants.add(grid[tempX][tempY]); break;
+								 case 'D': grid[tempX][tempY]=new Deer(i+1,r.nextInt(3)+2,r.nextInt(2)); break;
+								 case 'E': grid[tempX][tempY]=new Elephant(i+1,r.nextInt(1)+9,r.nextInt(2)); break;
 							}
 						 grid[tempX][tempY].setXLoc(tempX);
 						 grid[tempX][tempY].setYLoc(tempY);

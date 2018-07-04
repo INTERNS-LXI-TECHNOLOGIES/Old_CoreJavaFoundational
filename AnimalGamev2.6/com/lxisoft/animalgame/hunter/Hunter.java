@@ -5,6 +5,7 @@ import com.lxisoft.animalgame.animals.Elephant;
 import com.lxisoft.animalgame.animalbehaviour.Carnivore;
 import com.lxisoft.animalgame.exception.AnimalFarException;
 import java.util.Random;
+
 public final class Hunter
 	{
 		 private boolean alive;
@@ -12,13 +13,16 @@ public final class Hunter
 		 private int xLoc;
 		 private int yLoc;
 		 private boolean hunting;
-		 String[] animals= {"Lion" ,"Tiger" , "Deer", "Elephant"};
+		 private enum PreyList
+			{
+				 Lion ,Tiger , Deer, Elephant
+			}
 		 
 		 public Hunter()
 			{
 				 alive=true;
 				 Random r= new Random();
-				 arrows=(r.nextInt(4)+1);
+				 arrows=(r.nextInt(4)+2);
 			}
 			
 		 public String toString()
@@ -58,13 +62,21 @@ public final class Hunter
 			{
 				 hunting=true;
 				 Random r= new Random();
-				 int choice=(int)(r.nextInt(3));
-				 String choose=animals[choice];
-				 Animal prey=findNearest(choose);
+				 int pick=r.nextInt(PreyList.values().length);
+				 String choice=PreyList.values()[pick].toString();
+				 Animal prey=findNearest(choice);
 				 Forest.printGrid(prey,prey);
-				 System.out.println("\nHunter looking for a "+choose);
+				 System.out.println("\nHunter looking for a "+choice);
 				 Thread.sleep(1500);
-				 System.out.println("\nHunter aims "+prey.getID());
+				 if(prey!=null)
+					{
+						 System.out.println("\nHunter aims "+prey.getID());
+					}
+				 else
+					{
+						 System.out.println("\nHunter found no "+choice+" nearby");
+						 throw new InterruptedException();
+					}
 				 Thread.sleep(1500);
 				 try
 					{
@@ -83,7 +95,7 @@ public final class Hunter
 				 int distance=Math.abs(prey.getXLoc()-getXLoc())+Math.abs(prey.getYLoc()-getYLoc());
 				 do
 					{
-						 if(distance>5)
+						 if(distance>6)
 							{
 								 throw new AnimalFarException();
 							}
@@ -112,7 +124,7 @@ public final class Hunter
 						 prey.dead();
 					}
 					
-				 else if(distance==0 && arrows==0)
+				 else if((distance==0 && arrows==0))
 					{
 						 if(prey instanceof Carnivore || prey instanceof Elephant)
 							{
@@ -134,7 +146,7 @@ public final class Hunter
 					}
 			}
 			
-		 public Animal findNearest(String choose)
+		 public Animal findNearest(String choice)
 			{
 				 int smallDistance=99,distance;
 				 Animal nearest=null;
@@ -143,11 +155,11 @@ public final class Hunter
 						 for(int j=0;j<7;j++)
 							{
 										 Animal animal=Forest.getGridElement(i,j);
-										 if(animal!=null && animal.getClass().getSimpleName().equals(choose))
+										 if(animal!=null && animal.getClass().getSimpleName().equals(choice))
 											{
 												 distance=Math.abs(animal.getXLoc()-getXLoc())+Math.abs(animal.getYLoc()-getYLoc());
 										 
-												 if(distance<smallDistance)
+												 if((distance<smallDistance) && (distance>=3) && (distance<7))
 													{
 														 smallDistance=distance;
 														 nearest=animal;

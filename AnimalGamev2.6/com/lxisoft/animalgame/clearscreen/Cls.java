@@ -8,7 +8,6 @@ public class Cls
 			}
 		 public static void clear()
 			{
-				 //Cls clrscr=new Cls();
 				 try
 					{
 						 cls();
