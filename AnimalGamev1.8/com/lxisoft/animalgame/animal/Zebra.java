@@ -15,8 +15,10 @@ public class Zebra extends Animal implements Herbivorus{
 		   setCarnivorus(0);
 		   }
 	public boolean breathlevel(){
-		if(getStrength()<5)
-			return true;
+		if(getStrength()<5){
+		return true;
+		}
+		return false;
 		
 	}
 	public void runaway(Animal b){

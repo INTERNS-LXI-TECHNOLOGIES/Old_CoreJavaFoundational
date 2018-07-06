@@ -17,11 +17,12 @@ public class Lion extends Animal implements Carnivorus{
 		if(getStrength()<5){
 			return true;
 		}
+		return false;
 	}
-	public void fight(Animal f,Animal c){
+	public void fight(Animal c,Animal f){
 			System.out.println(c.getName()+" figths with  "+f.getName());  
 		   }
-    public void eats(Animal f,Animal c){
+    public void eats(Animal c,Animal f){
 		System.out.println(c.getName()+" eats  "+f.getName());
 	}	   
 	public void killed(Animal f,Animal c){

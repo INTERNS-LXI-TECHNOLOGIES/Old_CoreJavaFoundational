@@ -18,6 +18,7 @@ public boolean breathlevel(){
 		if(getStrength()<5){
 			return true;
 		}
+		return false;
 	}
 public void runaway(Animal b){
 	System.out.println(b.getName()+"Runsaway dueto its Luck");

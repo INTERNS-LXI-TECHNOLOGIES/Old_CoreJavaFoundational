@@ -1,12 +1,19 @@
 package com.lxisoft.animalgame.forest;
+import com.lxisoft.animalgame.men.*;
 import com.lxisoft.animalgame.animal.*;
 import com.lxisoft.animalgame.interfaces.*;
 import java.io.*;
 import java.util.*;
-public class Animal{
-private int hungry,strength,carnivorus,reach,xloc,yloc,luck;
+public abstract class Animal{
+private int hungry,strength,carnivorus,reach,xloc,yloc,luck,noOfarrows;
 private String name;
 //defining setters and getters function ;
+    public void setnoOfarrows(int noOfarrows){
+		this.noOfarrows=noOfarrows;
+	}
+	public int getnoOfarrows(){
+		return noOfarrows;
+	}
     public void setName(String name){
 		this.name=name;
 	}
@@ -55,5 +62,6 @@ private String name;
 	public int getCarnivorus(){
 		return carnivorus;
 	}
+	public abstract boolean breathlevel();
 
 }

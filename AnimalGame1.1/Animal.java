@@ -25,6 +25,12 @@ private String name;
 	public void setYloc(int yloc){
 		this.yloc=yloc;
 	}
+	public void setLuck(){
+		
+	}
+	public int getLuck(){
+		
+	}
 	public int getXloc(){
 		return xloc;
 	}

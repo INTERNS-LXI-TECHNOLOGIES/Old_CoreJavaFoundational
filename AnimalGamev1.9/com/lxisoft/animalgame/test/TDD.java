@@ -1,6 +1,7 @@
 package com.lxisoft.animalgame.test;
 import com.lxisoft.animalgame.forest.Forest;
 import com.lxisoft.animalgame.exceptions.*;
+import com.lxisoft.animalgame.men.*;
 import java.util.Scanner;
 import java.io.*;
 
