@@ -7,7 +7,5 @@ public class Tdd
 		System.out.println("\t\t**********UNIVERSITY OF XYZ**********\t\t");
 		University un=new University();
 		un.mainMenu();
-		
-		//System.out.println("\t\t***********UNIVERSITY OF XYZ**********\t\t");
 	}
 }

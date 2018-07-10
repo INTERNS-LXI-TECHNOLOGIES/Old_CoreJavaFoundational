@@ -2,55 +2,57 @@ import java.io.*;
 import java.util.*;
 public class University
 {
-	College college=new College();
-	public void mainMenu()
+	public static College college=new College();
+	public static void mainMenu()
 	{
 	System.out.println("\n\t\tMAIN MENU\t\t\n");
-	System.out.println("\n\t\t1.ENQUIRY\n\t\t2.REGISTRATION\n\t\t3.EXAMINATION\n\t\t4.LOGIN\n\t\t5.NOTIFICATION\n\t\t6.COLLEGES\n\t\t7.About us\n\t\t8.Contact us");
+	System.out.println("\n\t\t1.ENQUIRY\n\t\t2.EXAMINATION\n\t\t3.LOGIN\n\t\t4.NOTIFICATION\n\t\t5.COLLEGES\n\t\t6.About us\n\t\t7.Contact us\n\t\t8.COURSES ");
 		Scanner input=new Scanner(System.in);
 		int selectInput=input.nextInt();
 		switch(selectInput)
 		{
 		case 1:Enquiry();
 		break;
-		case 2:Registration();
+		case 2:Examination();
 		break;
-		case 3:Examination();
+		case 3:Login();
 		break;
-		case 4:Login();
+		case 4:Notification();
 		break;
-		case 5:Notification();
+		case 5:College_List();
 		break;
-		case 6:College_List();
+		case 6:About_us();
 		break;
-		case 7:About_us();
+		case 7:Contact_us();
 		break;
-		case 8:Contact_us();
+		case 8:Courses();
 		break;
 		default:System.out.println("Invalid Input");
 		}
 	}
-	public void Enquiry()
+	public static void Enquiry()
 	{
 		System.out.println("Enquiry Details");
 	}
-	public void Registration()
-	{
-		System.out.println("Registration Form");
-	}
-	public void Examination()
+	public static void Examination()
 	{
 		System.out.println("Examination Cell");
 	}
-	public void Login()
+	public static void Login()
 	{
+		Scanner input2=new Scanner(System.in);
 		System.out.println("Login");
+		System.out.println("E_mail:");
+		String email=input2.nextLine();
+		System.out.println("Password:");
+		String passwrd=input2.nextLine();
+		
 	}
-	public void Notification()
+	public static void Notification()
 	{
 		System.out.println("Notifications");
 	}
-	public void College_List()
+	public static void College_List()
 	{
 		System.out.println("List of Colleges");
 		System.out.println("\n1.Ahalia School of Engineering and Technology\n2.Ammini college of Engineering\n3.Nehru college of Engineering\n4.Sreepathy Institute of Management and Technology");
@@ -58,28 +60,32 @@ public class University
 		int selectCollege=input.nextInt();
 		switch(selectCollege)
 		{
-		case 1:college.Ahalia();
+		case 1:College.Ahalia();
 		break;
-		case 2:college.Ammini();
+		case 2:College.Ammini();
 		break;
-		case 3:college.Nehru();
+		case 3:College.Nehru();
 		break;
-		case 4:college.Sreepathy();
+		case 4:College.Sreepathy();
 		break;
 		default:mainMenu();
 		}
 	}
-	public void About_us()
+	public static void About_us()
 	{
 		System.out.println("Adress:");
 	}
-	public void Contact_us()
+	public static void Contact_us()
 	{
 		System.out.println("Contact Details:\ne-mail:");
 		
 	}
-	public void Exit()
+	public static void Exit()
 	{
 		mainMenu();
+	}
+	public static void Courses()
+	{
+		System.out.println("Courses Offered:");
 	}
 }
