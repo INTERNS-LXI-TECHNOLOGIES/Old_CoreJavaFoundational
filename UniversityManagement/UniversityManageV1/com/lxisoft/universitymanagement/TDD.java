@@ -5,6 +5,9 @@ public class TDD
 	public static void main(String args[])
 	{
 		University university=new University();
-		university.printMainMenu();
+		while(true)
+		{
+			university.printMainMenu();
+		}
 	}
 }

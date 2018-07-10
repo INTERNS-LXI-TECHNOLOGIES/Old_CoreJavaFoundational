@@ -1,0 +1,2 @@
+abcd|ahalia|maths|101,301
+xyz|nehru|ece|303,504,702
