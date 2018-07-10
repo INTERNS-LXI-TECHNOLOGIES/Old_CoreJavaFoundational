@@ -1,24 +1,25 @@
 //package com.lxisoft.universitymanage.university;
 import java.io.*;
 import java.util.*;
+
 public class University
 {
 	//public static College col=new College();
 	public static void Mainmenu()
 	{
-		System.out.println("\n\n\t\t\t\t\t\t\t\t************MAIN MENU**************");
-		System.out.println("\n\n\t\t\t1.ENQUIRY\t\t2.REGISTRATION\t\t3.LOGIN\t\t4.EXAMINATION\t\t5.COLLEGE LISTS\t\t6.EXIT");
+		System.out.println("\n\n\t\t\t\t\t\t\t\t************HOME PAGE**************");
+		System.out.println("\n\n\t\t\t1.ENQUIRY\t\t2.FACULTY DETAILS\t\t3.STUDENT DETAILS\t\t4.EXAMINATION CELL\t\t5.COLLEGE LISTS\t\t6.EXIT");
 		System.out.println("\n\n");
 		Scanner input=new Scanner(System.in);
-		int selection = input.nextInt();
-			
+		int selection = input.nextInt();	
 		switch(selection)
 		{
+			
 			case 1:Enquiry();
 					break;
-			case 2:Registration();
+			case 2:Faculty.Faculty_details();
 					break;
-			case 3:Login();
+			case 3:Student.Student_details();
 					break;
 			case 4:Examination();
 					break;
@@ -29,19 +30,13 @@ public class University
 		}
 		
 	}
+	
 	public static void Enquiry()
 	{
 		System.out.println("\t\t\t\t\t\t*******************ENQUIRY DETAILS*********************");
 		
 	}
-	public static void Registration()
-	{
-		System.out.println("REGISTRATION FORM");
-	}
-	public static void Login()
-	{
-		System.out.println("LOGIN");
-	}
+	
 	public static void Examination()
 	{
 		System.out.println("Examination cell");
@@ -68,5 +63,24 @@ public class University
 	public static void Exit()
 	{
 		
+	}
+	public static void Result()
+	{
+		
+	}
+	public static void Logout()
+	{
+		System.out.println("\t\t\t\t\t\tLogout Successfully Completed");
+		System.out.println("\n\nClick 1 for Home Page\t\t\t Click 2 for Exit");
+		Scanner input=new Scanner(System.in);
+		int selection = input.nextInt();
+			
+		switch(selection)
+		{
+			case 1:Mainmenu();
+					break;
+			case 2:Exit();
+					break;
+		}
 	}
 }
