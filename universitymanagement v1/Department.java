@@ -2,10 +2,11 @@ import java.io.*;
 import java.util.*;
 public class Department
 {
-	
+	public static Student student=new Student();
+	public static Faculty faculty=new Faculty();
 	public static void mech()
 	{
-		System.out.println("Mechanical Engineering ");
+		System.out.println("Mechanical Engineering");
 	}
 	public static void civil()
 	{
