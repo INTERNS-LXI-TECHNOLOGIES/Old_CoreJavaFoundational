@@ -1,6 +1,7 @@
 package com.lxisoft.universitymanagement.university;
 import java.util.Scanner;
 import com.lxisoft.universitymanagement.clearscreen.Cls;
+import com.lxisoft.universitymanagement.college.College;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.FileReader;
@@ -9,24 +10,77 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import com.lxisoft.universitymanagement.departments.*;
 import java.io.FileNotFoundException;
+
 
 public class University
 {
-	private enum Course{MECHANICAL,ELECTRICAL,ELECTRONICS,AUTOMOBILE,COMPUTER,MECHATRONICS,CIVIL}
-	private File collegeFile =new File("F:/WorkSpace/Team1/UniversityManagement/UniversityManageV1/com/lxisoft/universitymanagement/database/college.txt");
-	private File studentFile =new File("F:/WorkSpace/Team1/UniversityManagement/UniversityManageV1/com/lxisoft/universitymanagement/database/student.txt");
-	private File facultyFile =new File("F:/WorkSpace/Team1/UniversityManagement/UniversityManageV1/com/lxisoft/universitymanagement/database/faculty.txt");
+	private File collegeFile =new File("./com/lxisoft/universitymanagement/database/college.txt");
+	private ArrayList<College> collegeList=new ArrayList<College>();
+	private String[] courses={"Mechanical","Electrical","Electronics","Computer"};
 	
-	
-	public void printMainMenu()
+	public University()
 	{
 		try
 		{
-			Thread.sleep(1000);
+			FileReader fr=new FileReader(collegeFile);
+			BufferedReader br=new BufferedReader(fr);
+			String line;
+			while((line=br.readLine()) != null) 
+			{
+				String id="";
+				String name="";
+				ArrayList<Department> courses=new ArrayList<Department>();
+                for(int i=0;i<line.length();i++)
+				{
+					while(line.charAt(i)!='|')
+					{
+						id+=line.charAt(i);
+						i++;
+					}
+					i++;
+					while(line.charAt(i)!='|')
+					{
+						name+=line.charAt(i);
+						i++;
+					}
+					i++;
+					while(line.charAt(i)!='|')
+					{
+						String temp="";
+						while(line.charAt(i)!=',')
+						{
+							temp+=line.charAt(i);
+							i++;
+						}
+						courses.add(createDept(temp));
+						i++;
+					}
+				}
+				College c=new College(id,name,courses);
+				collegeList.add(c);
+            }
 		}
-		catch(Exception e)
+		catch(IOException e)
+		{
+			System.out.println("Error");
+		}
+	}
+	
+	public void waitForKey()
+	{
+		System.out.print("Press ENTER to continue");
+		try
+		{
+			char ch=(char)System.in.read();
+		}
+		catch(IOException e)
 		{}
+	}
+	
+	public void printMainMenu()
+	{
 		Cls.clear();
 		System.out.println("--------------------------------------------------Kerala Technological University-----------------------------------------------------\n");
 		System.out.println("-------------------------------------------------------------Menu---------------------------------------------------------------------\n");
@@ -47,7 +101,7 @@ public class University
 			case 3:System.out.println("Courses\n"); printCourses(); break;
 			case 4:System.out.println("Examination\n"); examination(); break;
 			case 5:System.out.println("Inquiry\n"); inquiry(); break;
-			case 6:System.exit(0);
+			case 6:System.out.println("to exit\n");System.exit(0);
 			default:System.out.println("a wrong option\n"); break;
 		}
 	}
@@ -74,43 +128,72 @@ public class University
 		System.out.print("Enter college name : ");
 		Scanner in=new Scanner(System.in);
 		String name=in.nextLine();
-		writeToFile(collegeFile,name);
+		System.out.println("Enter (Y) if you offer the following course.");
+		ArrayList<Department> crs=new ArrayList<Department>();
+		String crsToFile="";
+		for(String course:courses)
+		{
+			Department c=askFor(course);
+			if(c!=null)
+				crs.add(c);
+			crsToFile+=course+',';
+		}
+		String uniqueID="KTUCOL"+collegeList.size();
+		System.out.println("Registration successful\nYour unique ID is : "+uniqueID);
+		College c=new College(uniqueID,name,crs);
+		collegeList.add(c);
+		writeToFile(collegeFile,uniqueID,name,crsToFile);
+		waitForKey();
+	}
+	
+	public Department askFor(String deptName)
+	{
+		System.out.println(deptName+"?");
+		Scanner in=new Scanner(System.in);
+		char c=in.nextLine().charAt(0);
+		Department d;
+		if(c=='Y'||c=='y')
+		{
+			d=createDept(deptName);
+			return d;
+		}
+		else
+			return null;
+	}
+	
+	public Department createDept(String deptName)
+	{
+		Department d=null;
+		switch(deptName)
+			{
+				case "Mechanical": d=new Mechanical();
+				case "Electrical": d=new Electrical();
+				case "Electronics": d=new Electronics();
+				case "Computer": d=new Computer();
+			}
+		return d;
 	}
 	
 	public void studentReg()
 	{
-		System.out.println("Registering a new student");
-		System.out.print("Enter student name : ");
-		Scanner in=new Scanner(System.in);
-		String name=in.nextLine();
-		System.out.print("Enter the name of college : ");
-		String college=in.nextLine();
-		System.out.print("Enter the department name : ");
-		String dept=in.nextLine();
-		writeToFile(studentFile,name+'|'+college+'|'+dept);
+		
 	}
 	
 	public void facultyReg()
 	{
-		System.out.println("Registering a new faculty");
-		System.out.print("Enter faculty name : ");
-		Scanner in=new Scanner(System.in);
-		String name=in.nextLine();
-		System.out.print("Enter the name of college : ");
-		String college=in.nextLine();
-		System.out.print("Enter the department name : ");
-		String dept=in.nextLine();
-		System.out.print("Enter the subject codes(Separated by ',') : ");
-		String subjects=in.nextLine();
-		writeToFile(facultyFile,name+'|'+college+'|'+dept+'|'+subjects);
+		
 	}
 	
-	public void writeToFile(File file,String content)
+	public void writeToFile(File file,String... content)
 	{
 		try
 		{
 			BufferedWriter bw =new BufferedWriter(new FileWriter(file,true));
-			bw.write(content);
+			for(String val:content)
+			{
+				bw.write(val);
+				bw.write('|');
+			}
 			bw.newLine();
 			bw.close();
 		}
@@ -122,24 +205,41 @@ public class University
 	
 	public void login()
 	{
-		System.out.println("1.College login\n2.Student login");
+		System.out.println("1.College login\n2.Student login\n3.faculty login");
 		System.out.print("Choose an option : ");
 		Scanner in=new Scanner(System.in);
+		int choice=in.nextInt();
+		switch(choice)
+		{
+			case 1://collegeLogin(); break;
+			case 2://studentLogin(); break;
+			case 3://facultyLogin(); break;
+			default:System.out.println("a wrong option\n"); break;
+		}
+	}
+	
+	public void collegelogin()
+	{
+		
+	}
+	
+	public void studentLogin()
+	{
+		
+	}
+	
+	public void facultylogin()
+	{
+		
 	}
 	
 	public void printCourses()
 	{
-		for(Course c:Course.values())
+		for(String c:courses)
 		{
 			System.out.println(c);
 		}
-		System.out.print("Press ENTER to continue");
-		try
-		{
-			char ch=(char)System.in.read();
-		}
-		catch(IOException e)
-		{}
+		waitForKey();
 	}
 	
 	public void examination()
@@ -164,113 +264,20 @@ public class University
 	
 	public void collegeDetails()
 	{
-		try
+		for(College c:collegeList)
 		{
-			FileReader fr=new FileReader(collegeFile);
-			BufferedReader br=new BufferedReader(fr);
-			String line;
-			while((line=br.readLine()) != null) 
-			{
-                System.out.println(line);				
-            }  
+			System.out.println(c+"\n____________________________");
 		}
-		catch(IOException e)
-		{
-			System.out.println("Error");
-		}
-		finally
-		{
-			System.out.print("Press ENTER to continue");
-			try
-			{
-				char ch=(char)System.in.read();
-			}
-			catch(IOException e)
-			{
-		
-			}
-		}
+		waitForKey();
 	}
 	
 	public void  studentDetails()
 	{
-		try
-		{
-			Scanner scan=new Scanner(studentFile);
-			while(scan.hasNextLine())
-			{
-				System.out.println();
-				String line=scan.nextLine();
-				for(int i=0;i<line.length();i++)
-				{
-					if(line.charAt(i)=='|')
-					{
-						System.out.println();
-					}
-					else
-					{
-						System.out.print(line.charAt(i));
-					}
-				}
-				System.out.println("\n______________________________________");
-			}
-		}
-		catch(FileNotFoundException e)
-		{
-			System.out.println("File not found");
-		}
-		finally
-		{
-			System.out.print("Press ENTER to continue");
-			try
-			{
-				char ch=(char)System.in.read();
-			}
-			catch(IOException e)
-			{
 		
-			}
-		}
 	}
 	
 	public void facultyDetails()
 	{
-		try
-		{
-			Scanner scan=new Scanner(facultyFile);
-			while(scan.hasNextLine())
-			{
-				System.out.println();
-				String line=scan.nextLine();
-				for(int i=0;i<line.length();i++)
-				{
-					if(line.charAt(i)=='|')
-					{
-						System.out.println();
-					}
-					else
-					{
-						System.out.print(line.charAt(i));
-					}
-				}
-				System.out.println("\n_______________________________________");
-			}
-		}
-		catch(FileNotFoundException e)
-		{
-			System.out.println("File not found");
-		}
-		finally
-		{
-			System.out.print("Press ENTER to continue");
-			try
-			{
-				char ch=(char)System.in.read();
-			}
-			catch(IOException e)
-			{
 		
-			}
-		}
 	}
 }
