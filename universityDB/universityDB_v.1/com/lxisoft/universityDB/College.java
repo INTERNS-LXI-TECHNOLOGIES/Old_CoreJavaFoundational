@@ -1,5 +1,5 @@
 public class College{
-	String collegeName;
+	private String collegeName;
 	String collegeType;
 	int collegeID;
 	

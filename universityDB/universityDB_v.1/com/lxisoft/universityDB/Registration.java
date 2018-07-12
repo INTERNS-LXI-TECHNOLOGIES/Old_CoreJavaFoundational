@@ -1,48 +1,26 @@
+import java.util.*;
+import java.io.*;
 public class Registration
 {
-	
-	public void regNew(String regName,int reg_choice)
+	public String regiName,USERNAME,ID,PASSWORD;
+	Scanner sc=new Scanner(System.in);
+	public void regNew(String regName)
 	{
-		int id=reg_choice;
+		regiName=regName;
+		System.out.println("Enter the following details of "+regName+"\n\n");
+		System.out.println("[ID] : ");ID=sc.nextLine();
+		System.out.println("[USERNAME] : ");USERNAME=sc.nextLine();
+		System.out.println("[PASSWORD] : ");PASSWORD=sc.nextLine();
+		System.out.println("\n\n------------ "+USERNAME+" data Entered Successfuly---------------\n\n");
+	try{commonRegistration();}catch(Exception e){System.out.println("");}
+	}
+	public void commonRegistration()throws Exception{
+		Properties p=new Properties();
+		p.setProperty("ID",ID);
+		p.setProperty("USERNAME",USERNAME);
+		p.setProperty("PASSWORD",PASSWORD);
+		p.store(new FileWriter("Database\\"+regiName+".properties"),"DATABASE DATA REGISTRATION");
 		
-		if (id==1)
-		{
-		System.out.println("Enter the following details of "+regName+"\n\n");
-		System.out.println("[AFFILIATION] : ");
-		System.out.println("[COLLEGE ID] : ");
-		System.out.println("[PASSWORD] : ");
-		System.out.println("[CONFIRM PASSWORD] : ");
-		}
-		else if(id==2)
-		{
-		System.out.println("Enter the following details of "+regName+"\n\n");
-		System.out.println("[FIRSTNAME] : ");
-		System.out.println("[LASTNAME] : ");
-		System.out.println("[USERNAME] : ");
-		System.out.println("[EMAIL ID] : ");
-		System.out.println("[PASSWORD] : ");
-		System.out.println("[CONFIRM PASSWORD] : ");		
-		}
-		else if(id==3)
-		{
-		System.out.println("Enter the following details of "+regName+"\n\n");	
-		System.out.println("[FIRSTNAME] : ");
-		System.out.println("[LASTNAME] : ");
-		System.out.println("[USERNAME] : ");
-		System.out.println("[EMAIL ID] : ");
-		System.out.println("[PASSWORD] : ");
-		System.out.println("[CONFIRM PASSWORD] : ");
-		}
-		else if(id==4)
-		{
-		System.out.println("Enter the following details of "+regName+"\n\n");
-		System.out.println("[REGISTRAR NAME] : ");
-		System.out.println("[USERNAME] : ");
-		System.out.println("[LIB ID] : ");
-		System.out.println("[PASSWORD] : ");
-		System.out.println("[CONFIRM PASSWORD] : ");
-		}
-		else
-		System.out.println("wrong selection");		
+		
 	}
 }
