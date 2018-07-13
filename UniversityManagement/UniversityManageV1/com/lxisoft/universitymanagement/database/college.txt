@@ -1,3 +1,3 @@
-KTUCOL0|NCERC|Mechanical,Electrical,Electronics,Computer,|
-KTUCOL1|ACE|Mechanical,Electrical,Electronics,Computer,|
-KTUCOL2|Ahalia|Mechanical,Electrical,Electronics,Computer,|
+KTUCOL0|Nehru College of Engineering and Research Centre|NCERC|Mechanical,Electronics,Computer,|
+KTUCOL1|Ahalia School of Engineering and Technology|ASET|Mechanical,Electrical,Electronics,|
+KTUCOL2|Ammini College of Engineering|ACE|Mechanical,Computer,|

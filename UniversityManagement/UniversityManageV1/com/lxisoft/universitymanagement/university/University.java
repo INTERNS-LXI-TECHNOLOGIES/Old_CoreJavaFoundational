@@ -31,6 +31,7 @@ public class University
 			{
 				String id="";
 				String name="";
+				String abbr="";
 				ArrayList<Department> courses=new ArrayList<Department>();
                 for(int i=0;i<line.length();i++)
 				{
@@ -48,18 +49,28 @@ public class University
 					i++;
 					while(line.charAt(i)!='|')
 					{
+						abbr+=line.charAt(i);
+						i++;
+					}
+					College c=new College(id,name,abbr);
+					i++;
+					while(line.charAt(i)!='|')
+					{
 						String temp="";
 						while(line.charAt(i)!=',')
 						{
 							temp+=line.charAt(i);
 							i++;
 						}
-						courses.add(createDept(temp));
+						courses.add(createDept(c,temp));
 						i++;
 					}
+					for(Department d:courses)
+					{
+						c.addDepartment(d);
+					}
+					collegeList.add(c);
 				}
-				College c=new College(id,name,courses);
-				collegeList.add(c);
             }
 		}
 		catch(IOException e)
@@ -128,63 +139,136 @@ public class University
 		System.out.print("Enter college name : ");
 		Scanner in=new Scanner(System.in);
 		String name=in.nextLine();
-		System.out.println("Enter (Y) if you offer the following course.");
-		ArrayList<Department> crs=new ArrayList<Department>();
+		System.out.print("Enter your abbreviation : ");
+		String abbr=in.nextLine();
+		String uniqueID="KTUCOL"+collegeList.size();
+		College c=new College(uniqueID,name,abbr);
 		String crsToFile="";
+		System.out.println("Enter (Y) if you offer the following course.");
 		for(String course:courses)
 		{
-			Department c=askFor(course);
-			if(c!=null)
-				crs.add(c);
-			crsToFile+=course+',';
+			Department d=askFor(c,course);
+			if(d!=null)
+			{
+				c.addDepartment(d);
+				crsToFile+=course+',';
+			}
 		}
-		String uniqueID="KTUCOL"+collegeList.size();
 		System.out.println("Registration successful\nYour unique ID is : "+uniqueID);
-		College c=new College(uniqueID,name,crs);
 		collegeList.add(c);
-		writeToFile(collegeFile,uniqueID,name,crsToFile);
+		writeToFile(collegeFile,uniqueID,name,abbr,crsToFile);
 		waitForKey();
 	}
 	
-	public Department askFor(String deptName)
+	public Department askFor(College c,String deptName)
 	{
-		System.out.println(deptName+"?");
+		System.out.print(deptName+"? : ");
 		Scanner in=new Scanner(System.in);
-		char c=in.nextLine().charAt(0);
+		char ch=in.nextLine().charAt(0);
 		Department d;
-		if(c=='Y'||c=='y')
+		if(ch=='Y'||ch=='y')
 		{
-			d=createDept(deptName);
+			d=createDept(c,deptName);
 			return d;
 		}
 		else
 			return null;
 	}
 	
-	public Department createDept(String deptName)
+	public Department createDept(College c,String deptName)
 	{
 		Department d=null;
 		switch(deptName)
 			{
-				case "Mechanical": d=new Mechanical();
-				case "Electrical": d=new Electrical();
-				case "Electronics": d=new Electronics();
-				case "Computer": d=new Computer();
+				case "Mechanical": d=new Mechanical(c,"ME");break;
+				case "Electrical": d=new Electrical(c,"EE");break;
+				case "Electronics": d=new Electronics(c,"EC");break;
+				case "Computer": d=new Computer(c,"CS");break;
 			}
 		return d;
 	}
 	
 	public void studentReg()
 	{
-		
+		System.out.println("Registering  a new student : ");
+		System.out.print("Enter the college ID : ");
+		Scanner in=new Scanner(System.in);
+		String collegeID=in.nextLine();
+		College c=null;
+		for(College col:collegeList)
+		{
+			if(col.getID().equals(collegeID))
+			{
+				c=col;
+				break;
+			}
+		}
+		if(c!=null)
+		{
+			System.out.println("You selected "+c.getName());
+			String dept=c.getDepts();
+			String[] deptList=dept.split(",");
+			for(int i=0;i<deptList.length;i++)
+			{
+				System.out.println((i+1)+"."+deptList[i]);
+			}
+			System.out.print("Select department : ");
+			int choice=in.nextInt();
+			Department d=c.getDepartment(choice-1);
+			if(d!=null)
+			{
+				System.out.println("You selected "+d.getName());
+				System.out.print("Enter your name : ");
+				String name=System.console().readLine();
 	}
 	
 	public void facultyReg()
 	{
-		
+		System.out.println("Registering  a new faculty member : ");
+		System.out.print("Enter the college ID : ");
+		Scanner in=new Scanner(System.in);
+		String collegeID=in.nextLine();
+		College c=null;
+		for(College col:collegeList)
+		{
+			if(col.getID().equals(collegeID))
+			{
+				c=col;
+				break;
+			}
+		}
+		if(c!=null)
+		{
+			System.out.println("You selected "+c.getName());
+			String dept=c.getDepts();
+			String[] deptList=dept.split(",");
+			for(int i=0;i<deptList.length;i++)
+			{
+				System.out.println((i+1)+"."+deptList[i]);
+			}
+			System.out.print("Select department : ");
+			int choice=in.nextInt();
+			Department d=c.getDepartment(choice-1);
+			if(d!=null)
+			{
+				System.out.println("You selected "+d.getName());
+				System.out.print("Enter your name : ");
+				String name=System.console().readLine();
+				System.out.print("Enter the subject codes you teach (Separated by a space): ");
+				String subjects=System.console().readLine();
+				String facultyID=d.addFaculty(c,name,subjects);
+				System.out.println("Registration successful\nFaculty ID : "+facultyID);
+				waitForKey();
+			}
+		}
+		else
+		{
+			System.out.println("Sorry no college with this ID was found");
+			waitForKey();
+		}
 	}
 	
-	public void writeToFile(File file,String... content)
+	public static void writeToFile(File file,String... content)
 	{
 		try
 		{
@@ -268,6 +352,18 @@ public class University
 		{
 			System.out.println(c+"\n____________________________");
 		}
+		System.out.println("\nEnter the college ID for more. Enter (x) to exit");
+		Scanner in=new Scanner(System.in);
+		String choice=in.nextLine();
+		if(choice.equals("x"))
+			System.exit(0);
+		else for(College c:collegeList)
+		{
+			if(choice.equals(c.getID()))
+			{
+				System.out.println(c+"\n"+c.getDepts());
+			}
+		}
 		waitForKey();
 	}
 	
@@ -278,6 +374,12 @@ public class University
 	
 	public void facultyDetails()
 	{
-		
+		for(College c:collegeList)
+		{
+			System.out.println("\n\n________________________________________________________________________________");
+			System.out.println("College : "+c.getName());
+			c.getDepartmentFaculty();
+		}
+		waitForKey();
 	}
 }
