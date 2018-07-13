@@ -2,86 +2,41 @@ import java.io.*;
 import java.util.*;
 public class College
 {
-	public static Faculty fac=new Faculty();
-	public static Student stu=new Student();
-	//public static Department dept=new Department();
-	public static void department()
+	public static void college()
 	{
-		System.out.println("\n1.CSE\n2.ECE\n3.MECH");
-		Scanner input=new Scanner(System.in);
-		int selection=input.nextInt();
-		switch(selection)
-		{
-			case 1: dept.cse();
-					break;
-			case 2: dept.ece();
-					break;.
-			case 3: dept.mech();
-					break;
-		}
+	System.out.println("WELCOME");
+	System.out.println("\n\t\t1.FACULTY LISTS\n\t\t2.STUDENT LISTS\n\t\t3.STUDENT REGISTRATION\n\t\t4.FACULTY LOGIN\n\t\t5.EXIT");
+	Scanner input=new Scanner(System.in);
+	int selection = input.nextInt();	
+	switch(selection)
+	{
+		case 1:Faculty.faculty_details();
+				break;
+		case 2:Student.Student_details();
+				break;
+		case 3:Department.department();
+				break;
+		case 4:faculty_login();
+				break;
+		case 5:exit();
+				break;
 	}
-	public static void Ahalia()
-	{
-		System.out.println("\nWelcome to Ahalia School of Engineering and Technology");
-		System.out.println("\n1.ENQUIRY\t\t2.REGISTRATION\t\t3.LOGIN\t\t4.DEPARTMENT\t\t\t\t5.EXIT");
-		Scanner input=new Scanner(System.in);
-		int selection = input.nextInt();
-			
-		switch(selection)
-		{
-			case 1:University.Enquiry();
-					break;
-			case 2:Department.Registration();
-					break;
-			case 3:Department.Login();
-					break;
-			case 4:department();
-					break;
-			case 5:University.Mainmenu();
-					break;
-		}
 	}
-	public static void Sreepathy()
+	public static void faculty_login()
 	{
-		System.out.println("\nWelcome to Sreepathy Engineering College");
-		System.out.println("\n1.ENQUIRY\t\t2.REGISTRATION\t\t3.LOGIN\t\t4.DEPARTMENT\t\t5.EXIT");
+	
 		Scanner input=new Scanner(System.in);
-		int selection = input.nextInt();
-			
-		switch(selection)
-		{
-			case 1:University.Enquiry();
-					break;
-			case 2:Department.Registration();
-					break;
-			case 3:Department.Login();
-					break;
-			case 4:department();
-					break;
-			case 5:University.Mainmenu();
-					break;
-		}
+		System.out.println("\n\tLOGIN");
+		System.out.println("\n\nEMAIL ID");
+		String email= input.nextLine();
+		System.out.println("\nPASSWORD");
+		String pwd= input.nextLine();
+		Faculty.faculty_details();
+	
 	}
-	public static void Nehru()
+	public static void exit()
 	{
-		System.out.println("\nWelcome to Nehru College of Engineering");
-		System.out.println("\n1.ENQUIRY\t\t2.REGISTRATION\t\t3.LOGIN\t\t4.DEPARTMENT\t\t5.EXIT");
-		Scanner input=new Scanner(System.in);
-		int selection = input.nextInt();
-			
-		switch(selection)
-		{
-			case 1:University.Enquiry();
-					break;
-			case 2:Department.Registration();
-					break;
-			case 3:Department.Login();
-					break;
-			case 4:department();
-					break;
-			case 5:University.Mainmenu();
-					break;
-		}
+		
 	}
 	
 }
