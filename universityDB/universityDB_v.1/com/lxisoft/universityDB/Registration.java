@@ -19,7 +19,7 @@ public class Registration
 		p.setProperty("ID",ID);
 		p.setProperty("USERNAME",USERNAME);
 		p.setProperty("PASSWORD",PASSWORD);
-		p.store(new FileWriter("Database\\"+regiName+".properties"),"DATABASE DATA REGISTRATION");
+		p.store(new FileWriter("Database\\"+USERNAME+regiName+".properties"),"DATABASE DATA REGISTRATION");
 		
 		
 	}
