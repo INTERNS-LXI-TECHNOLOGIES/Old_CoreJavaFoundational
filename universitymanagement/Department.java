@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 public class Department
 {
-	public static void department()
+	public void department()
 	{
 		System.out.println("\nChoose the Department");
 		System.out.println("\n\t\t1.CSE\n\t\t2.ECE\n\t\t3.EEE\n\t\t4.MECH\n\t\t5.CIVIL");
@@ -22,34 +22,34 @@ public class Department
 				break;
 		}
 	}
-	public static void cse()
+	public void cse()
 	{
 		
 		System.out.println("Computer Science Department");
-		Regidtration();
+		Registration();
 		
 	}
-	public static void ece()
+	public void ece()
 	{
 		System.out.println("Electronics and Communication Department");
 		Registration();
 	}
-	public static void eee()
+	public void eee()
 	{
 		System.out.println("Electrical and Electronics Department");
 		Registration();
 	}
-	public static void mech()
+	public void mech()
 	{
 		System.out.println("Mechanical Department");
 		Registration();
 	}
-	public static void civil()
+	public void civil()
 	{
 		System.out.println("Civil Department");
 		Registration();
 	}
-	public static void Registration()
+	public void Registration()
 	{
 		ArrayList arr=new ArrayList();
 		String Fname,lname,gen,dob,add,email,pwd;
@@ -83,7 +83,7 @@ public class Department
 			   {
 					case 1: System.out.println(arr);
 							break;
-					case 2: University.Mainmenu();
+					case 2: univ.homePage();
 							break;
 			   }
 			

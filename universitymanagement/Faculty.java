@@ -2,11 +2,11 @@ import java.io.*;
 import java.util.*;
 public class Faculty
 {
-	public static void faculty_details()
+	public void faculty_details()
 	{
 		
 	}
-	public static void Logout()
+	public void Logout()
 	{
 		System.out.println("\t\t\t\t\t\tLogout Successfully Completed");
 		System.out.println("\n\nClick 1 for Home Page\t\t\t Click 2 for Exit");
@@ -15,9 +15,7 @@ public class Faculty
 			
 		switch(selection)
 		{
-			case 1:University.Mainmenu();
-					break;
-			case 2:College.exit();
+			case 1:col.collegeHome();
 					break;
 		}
 	}

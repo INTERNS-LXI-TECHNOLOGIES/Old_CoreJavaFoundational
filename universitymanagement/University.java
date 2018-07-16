@@ -1,96 +1,81 @@
+//package com.lxisoft.management.university;
+//import com.lxisoft.management.college.*;
 import java.io.*;
 import java.util.*;
 public class University
 {
-
-	public static void Mainmenu()
+	//public static College coll=new College();
+	public ArrayList<College> list=new ArrayList<College>();
+	public College col;
+	
+	public void homePage()
 	{
+		col=new College();
 		System.out.println("\n\n\t\t\t\t\t\t\t\t************HOME PAGE**************");
-		System.out.println("\n\n\t1.CONTACT US\t2.FACULTY DETAILS\t3.STUDENT DETAILS\t4.EXAMINATION CELL\t5.COLLEGE REGISTRATION\t6.COLLEGE LISTS\t7.COLLEGE LOGIN\t8.EXIT");
-		System.out.println("\n\n");
+		System.out.println("\n\n1.COLLEGE REGISTRATION\t\t2.COLLEGE DETAILS\t\t2.FACULTY DETAILS\t3.STUDENT DETAILS");
 		Scanner input=new Scanner(System.in);
-		int selection = input.nextInt();	
+		int selection=input.nextInt();
 		switch(selection)
 		{
-			
-			case 1:Contact_us();
+			case 1:collegeRegistration();
 					break;
-			case 2:Faculty.faculty_details();
+			case 2:collegeList();
 					break;
-			case 3:Student.Student_details();
+			case 3:fac.faculty_details();
 					break;
-			case 4:Examination();
-					break;
-			case 5:College_Registration();
-					break;
-			case 6:College_Lists();
-					break;
-			case 7:College.college();
-					break;
-			case 8:Exit();
+			case 4:stud.student_Details();
 					break;
 		}
-		
 	}
-	
-	public static void Contact_us()
+	public  void collegeRegistration()
 	{
-		System.out.println("\t\t\t\t\t\t*******************ENQUIRY DETAILS*********************");
-		
-	}
-	
-	public static void Examination()
-	{
-		System.out.println("\t\t\t<<<<<<<<<<<<<<<<EXAMINATION CELL>>>>>>>>>>>>>>>>>>>>>");
-	}
-	public static void College_Lists()
-	{
-		
-		System.out.println("haii");
-		
-		
-	}
-
-	public static void College_Registration()
-	{
-		ArrayList clg=new ArrayList();
-		String Clg_name,Clg_add,Clg_ph;
+		list.add(col);
 		Scanner input=new Scanner(System.in);
 		System.out.println("\tCOLLEGE REGISTRATION FORM");
 		System.out.println("\n\nCOLLEGE NAME :");
-		Clg_name= input.nextLine();
-		clg.add(Clg_name);
+		col.clg_name= input.nextLine();
 		System.out.println("ADDRESS");
-		Clg_add= input.nextLine();
-		clg.add(Clg_add);
+		col.clg_addr= input.nextLine();
+		System.out.println("EMAIL");
+		col.clg_email= input.nextLine();
 		System.out.println("PHONE NUMBER");
-		Clg_ph= input.nextLine();
-		clg.add(Clg_ph);
+		col.clg_phno= input.nextInt();
 		System.out.println("\n\nRegistration is succefully completed");
-				System.out.println("\n\n\nClick 1 for display the process\n\nClick 2 for home page");
+		System.out.println("\n\n\nClick 1 for display the details\n\nClick 2 for home page");
 				int selection1 = input.nextInt();
 				switch(selection1)
 			   {
-					case 1: System.out.println("\t\t\t<<<<<<<<LIST OF COLLEGES>>>>>>>>\n\n");
-							System.out.println("COLLEGE NAME\t\tADDRESS\t\tPHONE NUMBER\n");
-							System.out.println("\n");
-							System.out.print(Clg_name);
-							System.out.print("\t\t\t");
-							System.out.print(Clg_add);
-							System.out.print("\t\t");
-							System.out.print(Clg_ph);
-							Mainmenu();
+				    case 1:collegeList();
 							break;
-					case 2: Mainmenu();
+					case 2:homePage();
 							break;
 			   }
 		
 	}
-	public static void Exit()
+	public void collegeList()
 	{
+		System.out.println("\t\tCOLLEGE NAME:\t\tADDRESS:\t\tEMAIL:\t\tPHONE NUMBER: \n\n");
+		for(College c:list)
+		{
+	    System.out.println("");
+		System.out.print("\t\t"+c.clg_name+"\t\t\t"+c.clg_addr+"\t\t\t"+c.clg_email);
+		System.out.print("\t\t"+c.clg_phno);
+		System.out.println("login"+c.clg_name);
+		}
+		
+		System.out.println("\n\n\nClick 1 for home page");
+		Scanner input=new Scanner(System.in);
+		int selection1 = input.nextInt();
+		switch(selection1)
+		{
+			 case 1:homePage();
+					break;
+		}
 		
 	}
+		
+		
 	
-
+	
 	
 }

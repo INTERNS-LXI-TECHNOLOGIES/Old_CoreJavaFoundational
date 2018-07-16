@@ -1,15 +1,13 @@
+//import com.lxisoft.management.university.*;
+//import com.lxisoft.management.college.*;
 import java.io.*;
-import java.util.*;
-//import com.lxisoft.universitymanage.university.*;
 public class Test
 {
-	public static void main(String args[])throws Exception
+	public static void main(String args[])
 	{
-		System.out.println("\n\t\t\t\t\t\t>>>>>>>>>>>>>>>UNIVERSITY MANAGEMENT SYSTEM<<<<<<<<<<<<<<<<<");
-		University uni=new University();
-		uni.Mainmenu();
-		
-		
-		
+		System.out.println("<<<<<<<<<<<<<<<<<<<<WELCOME>>>>>>>>>>>>>>>>>>>>>>");
+		System.out.println("<<<<<<<<<<<<<<<<<<<<University of Sumi>>>>>>>>>>>>>>>>>>>>>");
+		University univ=new University();
+		univ.homePage();
 	}
 }
