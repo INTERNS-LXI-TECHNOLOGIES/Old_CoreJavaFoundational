@@ -52,7 +52,10 @@ public class College
 	
 	public Department getDepartment(int deptIndex)
 	{
-		return departmentList.get(deptIndex);
+		if(deptIndex<departmentList.size())
+			return departmentList.get(deptIndex);
+		else
+			return null;
 	}
 	
 	public void getDepartmentFaculty()

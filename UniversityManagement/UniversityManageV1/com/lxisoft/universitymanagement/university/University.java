@@ -5,6 +5,7 @@ import com.lxisoft.universitymanagement.college.College;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.FileReader;
+import com.lxisoft.universitymanagement.semester.Semester;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -79,7 +80,7 @@ public class University
 		}
 	}
 	
-	public void waitForKey()
+	public static void waitForKey()
 	{
 		System.out.print("Press ENTER to continue");
 		try
@@ -220,6 +221,25 @@ public class University
 				System.out.println("You selected "+d.getName());
 				System.out.print("Enter your name : ");
 				String name=System.console().readLine();
+				System.out.print("Enter the semester number (Odd semesters only) : ");
+				int sem=in.nextInt();
+				Semester s=d.getSemester(sem);
+				if(s!=null)
+				{
+					String studID=s.addStudent(c,d,name);
+					System.out.println("Registration successful\nStudent ID : "+studID);
+				}
+				else
+				{
+					System.out.println("Semester not found.");
+				}
+			}
+		}
+		else
+		{
+			System.out.println("Sorry no college with this ID was found");
+		}
+		waitForKey();
 	}
 	
 	public void facultyReg()
@@ -258,14 +278,13 @@ public class University
 				String subjects=System.console().readLine();
 				String facultyID=d.addFaculty(c,name,subjects);
 				System.out.println("Registration successful\nFaculty ID : "+facultyID);
-				waitForKey();
 			}
 		}
 		else
 		{
 			System.out.println("Sorry no college with this ID was found");
-			waitForKey();
 		}
+		waitForKey();
 	}
 	
 	public static void writeToFile(File file,String... content)
@@ -369,7 +388,39 @@ public class University
 	
 	public void  studentDetails()
 	{
-		
+		System.out.print("Enter the college ID : ");
+		Scanner in=new Scanner(System.in);
+		String colID=in.nextLine();
+		int i=0;
+		int k=0;
+		int n=0;
+		for(College c:collegeList)
+		{
+			if(colID.equals(c.getID()))
+			{
+				System.out.println("______________________________________________");
+				System.out.println(c.getName());
+				Department d;
+				while((d=c.getDepartment(i))!=null)
+				{
+					System.out.println("----------------------------");
+					System.out.println(d.getName());
+					Semester s;
+					while((s=d.getSemester(k+n+1))!=null)
+					{
+						System.out.println("..................");
+						System.out.println("Semester "+s.getSemNo());
+						s.getStudents();
+						k++;
+						n++;
+					}
+					i++;
+					k=0;
+					n=0;
+				}
+			}
+		}
+		waitForKey();
 	}
 	
 	public void facultyDetails()

@@ -1,10 +1,11 @@
 package com.lxisoft.universitymanagement.departments;
 import java.util.ArrayList;
 import com.lxisoft.universitymanagement.university.University;
-import com.lxisoft.universitymanagement.faculty.Faculty;
+import com.lxisoft.universitymanagement.person.Faculty;
 import java.io.File;
 import com.lxisoft.universitymanagement.college.College;
 import java.io.FileReader;
+import com.lxisoft.universitymanagement.semester.Semester;
 import java.io.BufferedReader;
 import java.io.IOException;
 
@@ -12,6 +13,7 @@ public abstract class Department
 {
 	private String name;
 	private ArrayList<Faculty> facultyList=new ArrayList<Faculty>();
+	private Semester[] semList=new Semester [4];
 	private File facultyFile =new File("./com/lxisoft/universitymanagement/database/faculty.txt");
 	protected String abbr;
 	
@@ -72,6 +74,27 @@ public abstract class Department
 		{
 			
 		}
+		int k=0;
+		int n=0;
+		for(int i=0;i<4;i++)
+		{
+			k++;
+			semList[i]=new Semester(c,this,k+n);
+			n++;
+		}
+	}
+	
+	public Semester getSemester(int semNo)
+	{
+		Semester s=null;
+		for(Semester sem:semList)
+		{
+			if(sem.getSemNo()==semNo)
+			{
+				s=sem;
+			}
+		}
+		return s;
 	}
 	
 	public void setAbbr(String abbr)
