@@ -1,0 +1,10 @@
+Computer Network is;Interconnected by communication channels;Collection of hardware components and computers;All;Sharing of resources and information;All;
+What is a Firewall in Computer Network?;An operating System of Computer Network;A system designed to prevent unauthorized access;The physical boundary of Network;A web browsing Software;A system designed to prevent unauthorized access;
+DNS is the abbreviation of;Domain Name System;Dynamic Network System;Domain Network Service;Dynamic Name System;Domain Name System;
+ADSL is the abbreviation of;Asymmetric Dual System Line;Asymmetric Digital Subscriber Line;Asymmetric Digital System Line;Asymmetric Dual Subscriber Line;Asymmetric Digital Subscriber Line;
+Router operates in which layer of OSI Reference Model?;Layer 3 (Network Layer);Layer 1 (Physical Layer);Layer 4 (Transport Layer);Layer 7 (Application Layer);Layer 3 (Network Layer);
+What is the use of Bridge in Network?;All;To control Network Speed;To connect LANs;To separate LANs;To connect LANs;
+How many layers does OSI Reference Model has?;5;7;6;4;7;
+IPV4 Address is;8 bit;16 bit;32 bit;64 bit;32 bit;
+DHCP is the abbreviation of;Dynamic Hyper Configuration Protocol;Dynamic Host Configuration Protocol;Dynamic Hyper Control Protocol;Dynamic Host Control Protocol;Dynamic Host Configuration Protocol;
+What is the meaning of Bandwidth in Network?;Transmission capacity of a communication channels;Class of IP used in Network;None;Connected Computers in the Network;Transmission capacity of a communication channels;
