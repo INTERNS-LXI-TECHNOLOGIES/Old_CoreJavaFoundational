@@ -4,6 +4,7 @@ public class University
 {
 	public static String regName;
 	public static Registration reg=new Registration();
+	public static Faculty fac=new Faculty();
 	public static LogIn log=new LogIn();
 	public static int main_choice,reg_choice;
 	public static Scanner sc=new Scanner(System.in);

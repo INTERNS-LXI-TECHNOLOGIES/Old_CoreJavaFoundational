@@ -6,7 +6,8 @@ public class College{
 	public static String userName,regName;
 	
 	public static void collegePortal(String user,String regName)throws Exception
-	{
+	{main menu:
+		
 	userName=user;
 		FileReader reader=new FileReader("Database\\"+userName+regName+".properties");
 		po.load(reader);
