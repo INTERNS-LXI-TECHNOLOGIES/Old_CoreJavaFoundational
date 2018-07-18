@@ -1,0 +1,10 @@
+1.Choose a prime number?;4;6;8;3;
+2.choose an Alphabet?;a;2;5;4;
+3.choose an animal?;Zebra;parrot;banana;sand;
+4.choose a fruit?;Banana;brinjal;egg;milk;
+5.choose a liquid?;milk;sand;rock;honey;
+6.choose a vehicle?;car;jeep;bus;All;
+7.choose a living being?;tree;animals;insects;All;
+8.choose a monument?;Tajmahal;Qutab minar;Humayun tomb;All;
+9.choose a solid?;water;stone;milk;sand;
+10.choose a building material?;sand;water;cement;All;
