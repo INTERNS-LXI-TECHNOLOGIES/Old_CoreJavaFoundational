@@ -7,39 +7,13 @@ public class Department
 	private String name;
 	Class [] classes=new Class[10];
 	Scanner Scan=new Scanner(System.in);
-public	String getName()
+    Department(String dname)
 	{
-		return this.name;
+		this.name=dname;
+		setclass();
 	}
 
-	public void setDeptName(String name)
-	{
-		this.name=name;
-		
-		
-	}
-	public void setStudent()
-	{
-		System.out.print("Enter class:");
-		String cls_name=Scan.next();
-		for(int i=0;i<10;i++)
-		{
-			
-			if (classes[i]!=null)
-			{	
-							
-					String cl=classes[i].getName();
-					if(cl.equals(cls_name))
-					{	
-						
-						classes[i].setStudent();
-					}
-			}
-		}
-
 	
-	
-	}
 	
 
 	public void setclass()
@@ -54,10 +28,10 @@ public	String getName()
 				{
 					if(classes[i]==null)
 					{
-						classes[i]=new Class();
+						
 						System.out.print("Enter name of class:");
 						String cls_name=Scan.next();
-						classes[i].setClsName(cls_name);
+						classes[i]=new Class(cls_name);
 					
 					
 					}

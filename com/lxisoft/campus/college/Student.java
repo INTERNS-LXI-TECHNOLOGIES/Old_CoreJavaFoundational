@@ -2,12 +2,12 @@ package com.lxisoft.campus.college;
 public class Student
 {
 	private String name;
-	void setStudName(String name)
+	
+	Student(string name)
 	{
-		this.name=name;
-	}
+		this.name=name
 		
-		
+	}	
 	void display()
 	{
 		System.out.println(this.name);

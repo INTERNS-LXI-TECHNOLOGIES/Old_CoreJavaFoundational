@@ -1,18 +1,20 @@
- package com.lxisoft.campus.college;
- import java.util.*;
-	public class Class
-
-	{
+package com.lxisoft.campus.college;
+import java.util.*;
+public class Class
+{
+	
 		Scanner Scan=new Scanner(System.in);
 		Student stud[]=new Student[10];
 		
 		private String name;
 		
-		String getName()
-		{
-			return this.name;
-		}
-				
+		
+		
+	Class(String cname)
+    {
+       this.name=cname;
+	   setStudent();
+	}  
 	void setStudent()
 	{
 		System.out.print("Enter no of student:");
@@ -24,20 +26,26 @@
 			{
 				if(stud[i]==null)
 				{
-					stud[i]=new Student();
+					
 					System.out.print("Enter name of student:");
 					String stud_name=Scan.next();
-					stud[i].setStudName(stud_name);
+					System.out.println("enter department of student");
+					String stud_dep=Scan.next();
+					
+				    if (stud_dep equls("cse"))
+					{
+					student[i]=new Cse(stud_name);
+					}
+				    else
+					{
+					student[i]=new 	Mech(stud_name);
+					}
 				
-				
-				}
+				}			
 			}
 	}
 	
-	void setClsName(String name)
-	{
-		this.name=name;
-	}
+	
 	
 	
 	
@@ -52,4 +60,5 @@
 			}
 		}
 	}
+
 }
