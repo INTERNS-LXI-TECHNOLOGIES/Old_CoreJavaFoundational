@@ -10,8 +10,8 @@ public class Question
 {
 	public static void questionOption()
 	{
-		
-		String question="",option="",answer="",answer1="";
+		String answer;
+		//String question="",option="",answer="",answer1="";
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<GAME STARTING>>>>>>>>>>>>>>>>>>>>>>>>\n");
 		File file=new File("./com/lxisoft/quiz/file/quest.txt");
 		int mark=0;
@@ -21,15 +21,15 @@ public class Question
 				FileReader fr=new FileReader(file);
 				BufferedReader br=new BufferedReader(fr);
 				String line;
-				char que;
+				//char que;
 				int i=0;
 				int num=1;
 				while((line=br.readLine())!=null)
 				{
 					
-					System.out.print(num+":");
-					i=0;
-					while((que=line.charAt(i))!=';')
+					System.out.print(num+":->");
+					//i=0;
+					/*while((que=line.charAt(i))!=';')
 					{
 						question+=que;
 						i++;
@@ -46,7 +46,7 @@ public class Question
 					}
 					i++;
 					System.out.println(option);
-					System.out.println();
+					//System.out.println();
 					System.out.println("Enter your option");
 					Scanner input=new Scanner(System.in);
 					answer=input.nextLine();
@@ -55,12 +55,22 @@ public class Question
 						answer1+=que;
 						i++;
 						
+					}*/
+					String st[]=line.split(";");
+					System.out.println(st[0]);
+					for(i=1;i<5;i++)
+					{
+						System.out.println();
+						System.out.println(st[i]);
 					}
-					if(answer.equals(answer1))
+					System.out.println("Enter your option");
+					Scanner input=new Scanner(System.in);
+					answer=input.nextLine();
+					if(answer.equals(st[5]))
 					{
 						mark++;
 					}
-					question="";option="";answer1="";answer="";
+					//question="";option="";answer1="";answer="";
 					num++;
 					
 				
@@ -68,7 +78,12 @@ public class Question
 			System.out.println(" Score : "+mark+" Out of 5");
 			if(mark>2)
 			{
-				System.out.println("Congrats................\n Your Score is: "+mark+"You pass the Quiz.....");
+				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Congrats<<<<<<<<<<<<<<<<<<<<<<<<<<<\n...........You successfully completed the Quiz........");
+				
+			}
+			else
+			{
+				System.out.println("...................Better Luck..................\n.................Try next Time.................");
 			}
 			}
 	

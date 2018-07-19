@@ -1,5 +1,5 @@
-Who is our Father of nation?;A.Gandhiji,B.appu,C.Gokhale,D.ramu;A;
-Head quartersof Air India Express?;A.Mumbai,B.kochi,C.palakkad,D.Delhi;B;
-When was Chandrayan1 launched?;A.2006,B.2007,C.2009,D.2010;C;
-Whis is in the next series given the following: 1 1 2 3 5 __?;A.1,B.0,C.7,D.8;D;
-THe chemical that found in the largest quantity in the sun?;A.Helium,B.Hydrogen,C.Oxygen,D.Carbon;B;
+Who is our Father of nation?;A. Gandhiji;B. appu;C. Gokhale;D. ramu;A;
+Head quarters of Air India Express?;A. Mumbai;B. kochi;C. palakkad;D. Delhi;B;
+When was Chandrayan1 launched?;A. 2006;B. 2007;C. 2009;D. 2010;C;
+Which is in the next series given the following: 1 1 2 3 5 __?;A. 1;B. 0;C. 7;D. 8;D;
+The chemical that found in the largest quantity in the sun?;A. Helium;B. Hydrogen;C. Oxygen;D. Carbon;B;
