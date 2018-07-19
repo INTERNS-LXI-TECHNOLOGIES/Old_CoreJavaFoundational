@@ -1,14 +1,16 @@
-package com.lxisoft.campus.college;
+package com.lxisoft.campus.student;
+import  com.lxisoft.campus.college.*;
 public class Student
 {
 	private String name;
-	void setStudName(String name)
+	
+	Student(String name)
 	{
 		this.name=name;
 	}
 		
 		
-	void display()
+	public void display()
 	{
 		System.out.println(this.name);
 	}
