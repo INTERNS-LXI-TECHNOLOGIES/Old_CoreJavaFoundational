@@ -1,18 +1,34 @@
-class Department
+import java.util.*;
+public class Department
 {
-	String dep_name;
-	String hod_name;
-	Room[] cr=new Room[2];
-	public Department(String dep_name,String hod_name)
+	String depname;
+	Classroom cr[];
+	public Department(String depname)
 	{
-		this.dep_name=dep_name;
-		this.hod_name=hod_name;
+	this.depname=depname;
+	createClassroom();
 	}
-	void output()
+	void createClassroom()
 	{
-		System.out.println("Department Name:"+dep_name);
-		System.out.println("Hod Name:"+hod_name);
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of classrooms:");
+		int n=sc.nextInt();
+		cr=new Classroom[n];
+		System.out.println("Enter the location of classroom:");
+		String location=System.console().readLine();
+		for(int i=0;i<n;i++)
+		{
+			cr[i]=new Classroom(location);
+		}
 	}
-		
-	
+	void displayDetails()
+	{
+		System.out.println("Department name:"+depname);
+		for(int i=0;i<cr.length;i++)
+		{
+			cr[i].printDetails();
+		}
+	}
 }
+	
+	

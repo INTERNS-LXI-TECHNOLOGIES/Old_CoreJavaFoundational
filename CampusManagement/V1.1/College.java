@@ -1,32 +1,44 @@
-public class College
+import java.util.*;
+class College
 {
 	String name;
 	String location;
-	Department[] deps=new Department[2];
-	int i;
-	public College(String name,String location)
+	Department[] dep;
+	public College()
 	{
-		this.name=name;
-		this.location=location;
-		setdetails();
+		colDetails();
+		createDep();
 	}
-	void setdetails()
+	void colDetails()
 	{
-		deps[0]=new Department("CSE","Ganesh");
-		deps[1]=new Department("ECE","Sushama");
+		Scanner c=new Scanner(System.in);
+		System.out.println("Enter the name of college:");
+		name=System.console().readLine();
+		System.out.println("Enter the location of College:");
+		location=System.console().readLine();
 	}
-	void details()
+	void createDep()
 	{
-		System.out.println("CollegeName:"+name);
-		System.out.println("Location:"+location);
-		for(i=0;i<2;i++)
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of Departments:");
+		int n=sc.nextInt();
+		dep=new Department[n];
+		System.out.println("Enter the name of Department:");;
+		String depname=System.console().readLine();
+		for(int i=0;i<n;i++)
 		{
-		deps[i].output();
+			dep[i]=new Department(depname);
 		}
 	}
-		
-	
-	
+	void printDetails()
+	{
+		System.out.println("Name of College:"+name);
+		System.out.println("Location of College:"+location);
+		for(int i=0;i<dep.length;i++)
+		{
+			dep[i].displayDetails();
+		}
+	}
 }
-
+	
 	
