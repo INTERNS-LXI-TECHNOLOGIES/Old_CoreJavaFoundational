@@ -6,7 +6,7 @@ public class Tdd
 	
 	public static void main(String args[])
 	{	
-		College SREEPATHY=new College("simat");
+		College SREEPATHY=new College("SIMAT");
 	}	
 			
 			

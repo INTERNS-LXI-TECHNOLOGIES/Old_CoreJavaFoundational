@@ -4,7 +4,8 @@ public class Class
 {
 	
 		Scanner Scan=new Scanner(System.in);
-		Student stud[]=new Student[10];
+		Student student[]=new Student[10];
+		Faculty faculty[]=new Faculty[10];
 		
 		private String name;
 		
@@ -13,8 +14,21 @@ public class Class
 	Class(String cname)
     {
        this.name=cname;
-	   setStudent();
+	   
+	   setPerson();
+	   
 	}  
+	void setPerson()
+	{
+		System.out.println("student or faculty");
+		String choice=Scan.next();
+		if (choice .equals("student"))
+		{
+			setStudent();
+			setFaculty();
+		}
+	}
+			
 	void setStudent()
 	{
 		System.out.print("Enter no of student:");
@@ -24,21 +38,23 @@ public class Class
 			
 				for(int i=0;i<tot_stud;i++)
 			{
-				if(stud[i]==null)
+				if(student[i]==null)
 				{
 					
-					System.out.print("Enter name of student:");
+					System.out.println("Enter name of student");
 					String stud_name=Scan.next();
+					System.out.println("enter the id of "+stud_name);
+				    int student_id=Scan.nextInt();
 					System.out.println("enter department of student");
 					String stud_dep=Scan.next();
 					
-				    if (stud_dep equls("cse"))
+				    if (stud_dep.equals("cse"))
 					{
-					student[i]=new Cse(stud_name);
+					student[i]=new Cse(stud_name,student_id);
 					}
 				    else
 					{
-					student[i]=new 	Mech(stud_name);
+					student[i]=new 	Mech(stud_name,student_id);
 					}
 				
 				}			
@@ -46,18 +62,45 @@ public class Class
 	}
 	
 	
-	
-	
+	void setFaculty()
+	{
+		System.out.print("Enter no of faculty:");
+			
+			int tot_faculty =Scan.nextInt();
+			
+			
+				for (int i=0;i<tot_faculty;i++)
+			{
+				if(faculty[i]==null)
+				{
+					System.out.print("name of faculty:");
+					String fname=Scan.next();
+					System.out.print(" enter the id of "+fname);
+					int fid=Scan.nextInt();
+					faculty[i]=new Faculty(fname,fid);
+				}
+			}	
+	}
 	
 	public void display()	
 	{
 		System.out.println(this.name);
 		for(int i=0;i<10;i++)
 		{
-			if(stud[i]!=null)
+			if(faculty[i]!=null)
 			{	
-				stud[i].display();
+				faculty[i].display();
 			}
+			
+		}
+	
+		for(int i=0;i<10;i++)
+		{
+			if(student[i]!=null)
+			{	
+				student[i].display();
+			}
+			
 		}
 	}
 

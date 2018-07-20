@@ -42,7 +42,8 @@
 	
 public void display()	
 {
-	System.out.println(this.name);
+	System.out.println("		"+this.name+"		");
+	System.out.println("****************************");
 	for(int i=0;i<10;i++)
 	{
 		if(dept[i]!=null)

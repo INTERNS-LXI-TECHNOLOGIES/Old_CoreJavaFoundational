@@ -50,11 +50,13 @@ public class Department
 	public void display()	
 	{
 		System.out.println(this.name);
+		System.out.println("******");
 		for(int i=0;i<10;i++)
 		{
 			if(classes[i]!=null)
 			{	
-				classes[i].display();
+						
+				        classes[i].display();
 			}
 		}
 	}

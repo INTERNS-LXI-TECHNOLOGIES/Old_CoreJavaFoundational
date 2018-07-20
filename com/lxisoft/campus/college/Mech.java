@@ -1,9 +1,9 @@
-package com.lxisoft.campus.college
+package com.lxisoft.campus.college;
 public class Mech extends Student
 {    
-    Mech(String name)
+    Mech(String name,int id)
 	{
-	super(name);
+	super(name,id);
 	}
 	
 }

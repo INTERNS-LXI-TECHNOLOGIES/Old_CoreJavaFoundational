@@ -1,10 +1,12 @@
-package com.lxisoft.campus.college
+package com.lxisoft.campus.college;
 public class Cse extends Student
 {
-	Cse(String name)
+	Cse(String name,int id)
 	{
 	
-	super(name);
-}}
+	super(name,id);
+	
+	}   
+}
 	
 	
