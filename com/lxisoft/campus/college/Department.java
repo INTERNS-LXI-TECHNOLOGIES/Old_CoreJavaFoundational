@@ -1,5 +1,4 @@
 package com.lxisoft.campus.college;
-import  com.lxisoft.campus.student.*;
 import java.util.*;
 public class Department
 {
@@ -43,7 +42,7 @@ public class Department
 		{
 			if(classes[i]!=null)
 			{	
-				classes[i].display();
+				classes[i].display(this.name);
 			}
 		}
 	}

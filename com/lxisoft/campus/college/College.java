@@ -1,5 +1,4 @@
 package com.lxisoft.campus.college;
-import  com.lxisoft.campus.student.*;
 import java.util.*;
 public class College
 {
@@ -11,6 +10,8 @@ public class College
 			this.name=name;
 			setDepartment();
 		}
+
+		
 
 		public void setDepartment()
 		{	

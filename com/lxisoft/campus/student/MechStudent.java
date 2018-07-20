@@ -1,10 +1,9 @@
 package com.lxisoft.campus.student;
-import  com.lxisoft.campus.college.*;
 public class MechStudent extends Student
 {
-	public MechStudent(String name)
+	public MechStudent(String stud_name,String idno,int age)
 	{
-		super(name);
+		super(stud_name,idno,age);
 	}
 	
 }

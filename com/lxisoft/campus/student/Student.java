@@ -1,19 +1,17 @@
 package com.lxisoft.campus.student;
-import  com.lxisoft.campus.college.*;
-public class Student
+import com.lxisoft.campus.college.*;
+public class Student extends Person
 {
-	private String name;
+	private String studname,idno;
+	private int age;
 	
-	Student(String name)
+	public Student(String studname,String idno,int age)
 	{
-		this.name=name;
+		super(studname,idno,age);
 	}
 		
 		
-	public void display()
-	{
-		System.out.println(this.name);
-	}
+
 }	
 	
 	
