@@ -1,7 +1,7 @@
 package com.lxisoft.college.test;
 import com.lxisoft.inheritance.faculty.Faculty;
-import com.lxisoft.college.student.*;
-
+import com.lxisoft.college.student.StudentDetails;
+import com.lxisoft.college.student.Student;
 
 import java.util.*;
 public class TDD
@@ -9,7 +9,7 @@ public class TDD
 	 public static void main(String args[])
 	 {	 System.out.println("Welcome to college Registration");
 		 Faculty f=new Faculty();
-		 Student st=new Student();
+		 StudentDetails sd=new StudentDetails();
 		 
 	     Scanner sc=new Scanner(System.in);
 		 System.out.println("choose the department..\n1.Cse\n2.Ece\n");
@@ -34,7 +34,7 @@ public class TDD
 				 case 1:
 					
 					System.out.println("you are a student");
-					st.detail();
+					sd.detail();
 
 					
 					
@@ -67,6 +67,7 @@ public class TDD
 				 case 1:
 					
 					System.out.println("you are a student");
+					sd.detail();
 				   break;
 				   case 2:
 					
@@ -96,6 +97,7 @@ public class TDD
 				 case 1:
 					
 					System.out.println("you are a student");
+					sd.detail();
 				   break;
 				   case 2:
 					
@@ -134,6 +136,7 @@ public class TDD
 				 case 1:
 					
 					System.out.println("you are a student");
+					sd.detail();
 				   break;
 				   case 2:
 					
@@ -162,6 +165,7 @@ public class TDD
 				 case 1:
 					
 					System.out.println("you are a student");
+					sd.detail();
 				   break;
 				   case 2:
 					
@@ -190,6 +194,7 @@ public class TDD
 				 case 1:
 					
 					System.out.println("you are a student");
+					sd.detail();
 				   break;
 				   case 2:
 					
