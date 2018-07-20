@@ -4,9 +4,9 @@ public class Mechstudent extends Student
 	String mechkeyatribute=("Mechanic");
 	public void mechprint()
 		{
-			Mechstudent y=new Mechstudent();
+			
 		
-			System.out.println("Name::"+y.getName()+"\nAdmition number"+y.getAdmn()+"\nKeyattribute::"+y.mechkeyatribute);
+			System.out.println("Name::"+getName()+"\nAdmition number"+getAdmn()+"\nKeyattribute::"+mechkeyatribute);
 		}
 
 	

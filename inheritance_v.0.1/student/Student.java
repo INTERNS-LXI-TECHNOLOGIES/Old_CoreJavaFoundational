@@ -8,7 +8,7 @@ public class Student
 	private String studentName;
 	private int admnNo;
 	String aps;
-	Scanner choose=new Scanner(System.in);
+	//Scanner choose=new Scanner(System.in);
 	public void setName(String studentName1)
 	{  
 	    //System.out.println("*******test**********");
@@ -22,8 +22,8 @@ public class Student
 	public String getName()
 	{
 		//System.out.println("*******test**********");
-		System.out.println(this.studentName); //EncapsInputStream  error is present
-		System.out.println("valueee"+aps);
+		//System.out.println(this.studentName); //EncapsInputStream  error is present
+		//System.out.println("valueee"+aps);
 		return this.studentName;
 	}
 	public int getAdmn()
