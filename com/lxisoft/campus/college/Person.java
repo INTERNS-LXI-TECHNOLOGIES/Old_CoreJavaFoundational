@@ -13,7 +13,7 @@ public class Person
  
  public void display()
  {
-	 System.out.println(name);
+	 System.out.print(name+":");
 	 System.out.println(idno);
 	 
 

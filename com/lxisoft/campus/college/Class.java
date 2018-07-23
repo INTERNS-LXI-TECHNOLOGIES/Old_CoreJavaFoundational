@@ -20,13 +20,9 @@ public class Class
 	}  
 	void setPerson()
 	{
-		System.out.println("student or faculty");
-		String choice=Scan.next();
-		if (choice .equals("student"))
-		{
 			setStudent();
 			setFaculty();
-		}
+		
 	}
 			
 	void setStudent()
@@ -85,6 +81,8 @@ public class Class
 	public void display()	
 	{
 		System.out.println(this.name);
+		System.out.println(" FACULTIES");
+		System.out.println("----------");
 		for(int i=0;i<10;i++)
 		{
 			if(faculty[i]!=null)
@@ -93,7 +91,8 @@ public class Class
 			}
 			
 		}
-	
+	     System.out.println(" STUDENTS");
+		 System.out.println("----------");
 		for(int i=0;i<10;i++)
 		{
 			if(student[i]!=null)
