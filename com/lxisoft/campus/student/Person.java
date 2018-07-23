@@ -13,6 +13,6 @@ public class Person
 	}
 	public void display()
 	{
-		System.out.println("    "+this.name+" "+this.idno+" "+this.age);
+		System.out.print(this.name+"\t"+this.idno+"\t"+this.age+"\t");
 	}
 }

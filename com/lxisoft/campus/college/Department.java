@@ -11,10 +11,7 @@ public class Department
 		setClass(this.name);
 	}
 	
-	public	String getName()
-		{
-			return this.name;
-		}
+
 
 	
 	
@@ -36,7 +33,8 @@ public class Department
 	}	
 
 	public void display()	
-	{
+	{	
+		System.out.print("Department:");
 		System.out.println(this.name);
 		for(int i=0;i<10;i++)
 		{
