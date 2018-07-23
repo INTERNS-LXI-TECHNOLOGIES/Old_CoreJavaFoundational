@@ -8,7 +8,7 @@ public class Student
 		this.sname=sname;
 		this.rno=rno;
 	}
-	void studDetails()
+	public void studDetails()
 	{
 		System.out.println("Name of Student:"+sname);
 		System.out.println("Rollno of Student:"+rno);

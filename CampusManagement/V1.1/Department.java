@@ -18,7 +18,7 @@ public class Department
 		String location=System.console().readLine();
 		for(int i=0;i<n;i++)
 		{
-			cr[i]=new Classroom(location);
+			cr[i]=new Classroom(location,this.depname);
 		}
 	}
 	void displayDetails()

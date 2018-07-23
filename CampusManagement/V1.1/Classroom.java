@@ -2,13 +2,14 @@ import java.util.*;
 public class Classroom
 {
 	String location;
+	String depname;
 	Faculty f;
 	Student[] stud;
-	public Classroom(String location)
+	public Classroom(String location,String depname)
 	{
 		this.location=location;
 		createFac();
-		createStudent();
+		createStudent(depname);
 	}
 	void createFac()
 	{
@@ -17,7 +18,7 @@ public class Classroom
 		String name=System.console().readLine();
 		f=new Faculty(name);
 	}
-	void createStudent()
+	void createStudent(String depname)
 	{
 		Scanner p=new Scanner(System.in);
 		System.out.println("Enter the number of students:");
@@ -29,7 +30,16 @@ public class Classroom
 			String sname=System.console().readLine();
 			System.out.println("Enter the Roll Number of student:");
 			int rno=p.nextInt();
-			stud[i]=new Student(sname,rno);
+			if(depname.equals("cse"))
+			{
+				 stud[i]=new Csestudent(sname,rno);
+			}
+			else if(depname.equals("mech"))
+			{
+				 stud[i]=new Mechstudent(sname,rno);
+
+			}
+			
 		}
 		
 	}
