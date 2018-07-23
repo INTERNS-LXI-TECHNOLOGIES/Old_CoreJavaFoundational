@@ -1,5 +1,5 @@
 package com.lxisoft.quizz.quest;
-public class QuistionModel
+public class QuestionModel
 {
 	
 }
