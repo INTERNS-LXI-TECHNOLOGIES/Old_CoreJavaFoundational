@@ -1,5 +1,5 @@
 import java.util.*;
-class College
+public class College
 {
 	String name;
 	String location;
@@ -23,11 +23,11 @@ class College
 		System.out.println("Enter the number of Departments:");
 		int n=sc.nextInt();
 		dep=new Department[n];
-		System.out.println("Enter the name of Department:");;
-		String depname=System.console().readLine();
 		for(int i=0;i<n;i++)
 		{
-			dep[i]=new Department(depname);
+		System.out.println("Enter the name of Department:");;
+		String depname=System.console().readLine();
+		dep[i]=new Department(depname);
 		}
 	}
 	void printDetails()
