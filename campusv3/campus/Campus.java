@@ -1,5 +1,6 @@
 package com.lxisoft.campusv3.campus;
 import com.lxisoft.campusv3.faculty.Faculty;
+import com.lxisoft.campusv3.faculty.FacultySalary;
 import com.lxisoft.campusv3.student.StudentEntry;
 import com.lxisoft.campusv3.student.Student;
 import com.lxisoft.campusv3.student.StudentMarks;
@@ -11,6 +12,7 @@ public void campus()
 	Faculty f=new Faculty();
 	StudentEntry se=new StudentEntry();
 	StudentMarks marks=new StudentMarks();
+	FacultySalary sal=new FacultySalary();
 Scanner sc=new Scanner(System.in);
 System.out.println("-----\t\tChoose the Department----\n1)CSE\n2)MECH");
 int choice=sc.nextInt();
@@ -36,8 +38,10 @@ case 1:		System.out.println("You chose CSE");
 							System.out.println("\nEnter the address:\t ");
 						    String address=cs.nextLine();
 							f.setaddress(address);
+							sal.salary();
 							System.out.println("\nEntered name is:\t"+f.getname());
 							System.out.println("\nEntered address is:\t"+f.getaddress());
+							
                       break;
 					  case 2:System.out.println("Enter student details");
 					  marks.markEntry();
@@ -60,8 +64,10 @@ case 1:		System.out.println("You chose CSE");
 							 System.out.println("\nEnter the address:\t ");
 						   String address=cs.nextLine();
 							f.setaddress(address);
+							sal.salary();
 							System.out.println("\nEntered name is:\t"+f.getname());
 							System.out.println("\nEntered address is:\t"+f.getaddress());
+							
                       break;
 					  case 2:System.out.println("Enter student details");
 					  marks.markEntry();
@@ -84,8 +90,10 @@ case 1:		System.out.println("You chose CSE");
 							 System.out.println("\nEnter the address:\t ");
 						   String address=cs.nextLine();
 							f.setaddress(address);
+							sal.salary();
 							System.out.println("\nEntered name is:\t"+f.getname());
 							System.out.println("\nEntered address is:\t"+f.getaddress());
+							
                       break;
 					  case 2:System.out.println("Enter student details");
 					
@@ -109,6 +117,7 @@ case 1:		System.out.println("You chose CSE");
 							 System.out.println("\nEnter the address:\t ");
 						   String address=cs.nextLine();
 							f.setaddress(address);
+							sal.salary();
 							System.out.println("\nEntered name is:\t"+f.getname());
 							System.out.println("\nEntered address is:\t"+f.getaddress());
                       break;
@@ -147,8 +156,10 @@ Scanner me=new Scanner(System.in);
 							 System.out.println("\nEnter the address:\t ");
 						   String address=me.nextLine();
 							f.setaddress(address);
+							sal.salary();
 							System.out.println("\nEntered name is:\t"+f.getname());
 							System.out.println("\nEntered address is:\t"+f.getaddress());
+							
                       break;
 					  case 2:System.out.println("Enter student details");
 				
@@ -172,8 +183,10 @@ Scanner me=new Scanner(System.in);
 							 System.out.println("\nEnter the address:\t ");
 						   String address=me.nextLine();
 							f.setaddress(address);
+							sal.salary();
 							System.out.println("\nEntered name is:\t"+f.getname());
 							System.out.println("\nEntered address is:\t"+f.getaddress());
+							
                       break;
 					  case 2:System.out.println("Enter student details");
 					
@@ -197,10 +210,12 @@ Scanner me=new Scanner(System.in);
 							 System.out.println("\nEnter the address:\t ");
 						   String address=me.nextLine();
 							f.setaddress(address);
+							sal.salary();
 							System.out.println("\nEntered name is:\t"+f.getname());
 							System.out.println("\nEntered address is:\t"+f.getaddress());
                       break;
 					  case 2:System.out.println("Enter student details");
+					  marks.markEntry();
 					  se.entry();
                       break;
 					  default:System.out.println("invalid choice");
@@ -220,6 +235,7 @@ Scanner me=new Scanner(System.in);
 							 System.out.println("\nEnter the address:\t ");
 						   String address=me.nextLine();
 							f.setaddress(address);
+							sal.salary();
 							System.out.println("\nEntered name is:\t"+f.getname());
 							System.out.println("\nEntered address is:\t"+f.getaddress());
                       break;
