@@ -23,7 +23,7 @@ else
 						   String adm=sc2.next();
 							st.setadm(adm);
 							System.out.println("Name of Student:"+st.getname());
-							System.out.println("admission number:"+st.getaddress());
+							System.out.println("admission number:"+st.getadm());
 
 }
 
