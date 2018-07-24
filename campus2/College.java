@@ -3,7 +3,7 @@ package com.lxisoft.campus2;
 import com.lxisoft.campus2.stud.Student.java;
 import com.lxisoft.campus2.stud.Admission.java;
 import com.lxisoft.campus2.stud.MarkDetail.java;
-import java.util.*;
+import java.util.Scanner;
 
 
 public class College
