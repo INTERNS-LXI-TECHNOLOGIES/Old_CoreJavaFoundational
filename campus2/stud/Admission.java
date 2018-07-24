@@ -1,5 +1,5 @@
 package com.lxisoft.campus2.stud;
-import java.util.Scanner;
+import java.util.*;
 public class Admission
 {
 Scanner sc=new Scanner(System.in);	
@@ -13,7 +13,8 @@ if(id>100)
 {
 System.out.println("no more admission");}
 else
-{System.out.println("The details of Student:");
+{
+	System.out.println("The details of Student:");
                             Scanner sc1=new Scanner(System.in);
 					        System.out.println("Enter student name:");
 							String name=sc1.next();

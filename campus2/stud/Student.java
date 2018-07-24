@@ -1,8 +1,9 @@
-package com.lxisoft.project.stud;
+package com.lxisoft.campus2.stud;
 public class Student 
 {
 	private String name;
 	private String adm;
+	
 	
 	
 	public void setname(String nm1)
@@ -26,4 +27,7 @@ public class Student
 	{
 		return adm;
 	}
+	
+	
+
 }

@@ -1,15 +1,17 @@
 package com.lxisoft.campus2;
-import com.lxisoft.campus2.fac.Faculty.java;
 
+import com.lxisoft.campus2.stud.Student.java;
+import com.lxisoft.campus2.stud.Admission.java;
+import com.lxisoft.campus2.stud.MarkDetail.java;
 import java.util.*;
 
 
 public class College
 {
-	public static void main(String args[])
+	public void college()
 	{
 		System.out.println("COLLEGE PORTAL");
-		Faculty fc = new Fcaulty();
+		Faculty fc = new Faculty();
 		Student sd = new Student();
 		
 		Scanner sc = new Scanner(System.in);
@@ -39,19 +41,19 @@ public class College
 						
 						
 						
-									System.out.println("enter the employee id:");
-									String emp = s.nextLine();
-									fc.setemp(emp);
+									System.out.println("enter the faculty id:");
+									String facid = s.nextLine();
+									fc.setfacid(facid);
 									
 									System.out.println("Faculty name : "+ fc.getname());
-									System.out.println("employee id : " + fc.getemp());
+									System.out.println("Faculty id : " + fc.getfacid());
 									fc.salary();
 									
 								break;
 								
 								case 2:
 									System.out.println("enter details of Student:");
-									//to be included
+									ad.printmarks();
 								
 								break;
 								
@@ -76,19 +78,19 @@ public class College
 						
 						
 						
-									System.out.println("enter the employee id:");
-									String emp = s.nextLine();
-									fc.setemp(emp);
+									System.out.println("enter the faculty id:");
+									String facid = s.nextLine();
+									fc.setfacid(facid);
 									
 									System.out.println("Faculty name : "+ fc.getname());
-									System.out.println("employee id : " + fc.getemp());
+									System.out.println("Faculty id : " + fc.getfacid());
 									fc.salary();
 									
 								break;
 								
 								case 2:
 									System.out.println("enter details of Student:");
-									//to be included
+									ad.printmarks();
 								
 								break;
 								
@@ -120,19 +122,19 @@ public class College
 						
 						
 						
-									System.out.println("enter the employee id:");
-									String emp = s.nextLine();
-									fc.setemp(emp);
+									System.out.println("enter the faculty id:");
+									String facid = s.nextLine();
+									fc.setfacid(facid);
 									
 									System.out.println("Faculty name : "+ fc.getname());
-									System.out.println("employee id : " + fc.getemp());
+									System.out.println("Faculty id : " + fc.getfacid());
 									fc.salary();
 									
 								break;
 								
 								case 2:
 									System.out.println("enter details of Student:");
-									//to be included
+									ad.printmarks();
 								
 								break;
 								
@@ -157,19 +159,19 @@ public class College
 						
 						
 						
-									System.out.println("enter the employee id:");
-									String emp = s.nextLine();
-									fc.setemp(emp);
+									System.out.println("enter the faculty id:");
+									String facid = s.nextLine();
+									fc.setfacid(facid);
 									
 									System.out.println("Faculty name : "+ fc.getname());
-									System.out.println("employee id : " + fc.getemp());
+									System.out.println("Faculty id : " + fc.getfacid());
 									fc.salary();
 									
 								break;
 								
 								case 2:
 									System.out.println("enter details of Student:");
-									//to be included
+									ad.printmarks();
 								
 								break;
 								
