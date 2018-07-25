@@ -4,8 +4,8 @@ public class Class
 {
 	
 		Scanner Scan=new Scanner(System.in);
-		Student student[]=new Student[10];
-		Faculty faculty[]=new Faculty[10];
+		Student students[]=new Student[10];
+		Faculty facultys[]=new Faculty[10];
 		
 		private String name;
 		
@@ -29,30 +29,19 @@ public class Class
 	{
 		System.out.print("Enter no of student:");
 			
-			int tot_stud =Scan.nextInt();
+			int totalstudent =Scan.nextInt();
 			
 			
-				for(int i=0;i<tot_stud;i++)
+				for(int i=0;i<totalstudent;i++)
 			{
-				if(student[i]==null)
+				if(students[i]==null)
 				{
 					
 					System.out.println("Enter name of student");
-					String stud_name=Scan.next();
-					System.out.println("enter the id of "+stud_name);
-				    int student_id=Scan.nextInt();
-					System.out.println("enter department of student");
-					String stud_dep=Scan.next();
-					
-				    if (stud_dep.equals("cse"))
-					{
-					student[i]=new Cse(stud_name,student_id);
-					}
-				    else
-					{
-					student[i]=new 	Mech(stud_name,student_id);
-					}
-				
+					String studentname=Scan.next();
+					System.out.println("enter the id of "+studentname);
+				    int studentid=Scan.nextInt();
+					students[i]=new Student(studentname,studentid);
 				}			
 			}
 	}
@@ -62,32 +51,35 @@ public class Class
 	{
 		System.out.print("Enter no of faculty:");
 			
-			int tot_faculty =Scan.nextInt();
+			int totalfaculty =Scan.nextInt();
 			
 			
-				for (int i=0;i<tot_faculty;i++)
+				for (int i=0;i<totalfaculty;i++)
 			{
-				if(faculty[i]==null)
+				if(facultys[i]==null)
 				{
 					System.out.print("name of faculty:");
-					String fname=Scan.next();
-					System.out.print(" enter the id of "+fname);
-					int fid=Scan.nextInt();
-					faculty[i]=new Faculty(fname,fid);
+					String facultyname=Scan.next();
+					System.out.print(" enter the id of "+facultyname);
+					int facultyid=Scan.nextInt();
+					facultys[i]=new Faculty(facultyname,facultyid);
 				}
 			}	
 	}
-	
-	public void display()	
+    public String getClassName()
 	{
-		System.out.println(this.name);
+	return this.name;
+	}
+	public void showDetails()	
+	{
+		System.out.println(getClassName());
 		System.out.println(" FACULTIES");
 		System.out.println("----------");
 		for(int i=0;i<10;i++)
 		{
-			if(faculty[i]!=null)
+			if(facultys[i]!=null)
 			{	
-				faculty[i].display();
+				facultys[i].showDetails();
 			}
 			
 		}
@@ -95,9 +87,9 @@ public class Class
 		 System.out.println("----------");
 		for(int i=0;i<10;i++)
 		{
-			if(student[i]!=null)
+			if(students[i]!=null)
 			{	
-				student[i].display();
+				students[i].showDetails();
 			}
 			
 		}

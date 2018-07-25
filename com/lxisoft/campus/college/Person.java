@@ -11,7 +11,7 @@ public class Person
 	this.idno=id;
  }
  
- public void display()
+ public void showDetails()
  {
 	 System.out.print(name+":");
 	 System.out.println(idno);

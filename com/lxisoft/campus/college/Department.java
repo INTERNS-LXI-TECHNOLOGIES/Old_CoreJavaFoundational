@@ -7,9 +7,9 @@ public class Department
 	private String name;
 	Class [] classes=new Class[10];
 	Scanner Scan=new Scanner(System.in);
-    Department(String dname)
+    Department(String departmentname)
 	{
-		this.name=dname;
+		this.name=departmentname;
 		setclass();
 	}
 
@@ -21,10 +21,10 @@ public class Department
 			Scanner Scan=new Scanner(System.in);
 			System.out.print("Enter no of class:");
 			
-			int tot_cls =Scan.nextInt();
+			int totalclass =Scan.nextInt();
 			
 			
-				for(int i=0;i<tot_cls;i++)
+				for(int i=0;i<totalclass;i++)
 				{
 					if(classes[i]==null)
 					{
@@ -45,11 +45,14 @@ public class Department
 	
 	
 
-
-
-	public void display()	
+    public String getDepartment()
 	{
-		System.out.println(this.name);
+		 return this.name;
+	}	
+
+	public void showDetails()	
+	{
+		System.out.println(getDepartment());
 		
 		System.out.println("******");
 		for(int i=0;i<10;i++)
@@ -57,7 +60,7 @@ public class Department
 			if(classes[i]!=null)
 			{	
 						
-				        classes[i].display();
+				        classes[i].showDetails();
 			}
 		}
 	}

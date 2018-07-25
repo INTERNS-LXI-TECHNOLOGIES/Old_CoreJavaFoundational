@@ -6,7 +6,7 @@ public class Student extends Person
 	private int sub1;
 	private int sub2;
     private int sub3;
-	private int total_mark;
+	private int totalmark;
 	Scanner scan=new Scanner(System.in);
 	Student(String name,int id)
 	{   
@@ -15,16 +15,16 @@ public class Student extends Person
 		sub1=scan.nextInt();
 	    sub2=scan.nextInt();	
 	    sub3=scan.nextInt();
-        total_mark=sub1+sub2+sub3;
-		average=(total_mark/3.0);
+        totalmark=sub1+sub2+sub3;
+		average=(totalmark/3.0);
 		
     }	
 
 	
 	
-	public void display()
+	public void showDetails()
 	{
-		super.display();
+		super.showDetails();
 		System.out.println("Average="+average);
 	}
 }	

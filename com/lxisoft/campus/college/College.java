@@ -3,17 +3,20 @@
  public class College
 {   
   private  String name; 
-  private Department dept[]=new Department[10];
+  private Department departments[]=new Department[10];
   
   
   public College(String cname)
   {
   this.name=cname;
   setDepartment();
-  display();
+  showDetails();
   }
   
-	
+	public String getCollege()
+	{
+		return this.name;
+	}	
 	
 	
 
@@ -26,13 +29,13 @@
 		
 			for(int i=0;i<tot_dept;i++)
 		{
-			if(dept[i]==null)
+			if(departments[i]==null)
 			{
 						
 				
 				System.out.print("Enter name of dept:");
 				String dept_name=Scan.next();
-				dept[i]=new Department(dept_name);
+				departments[i]=new Department(dept_name);
 				
 			
 			
@@ -40,15 +43,15 @@
 		}
 	}	
 	
-public void display()	
+public void showDetails()	
 {
-	System.out.println("		"+this.name+"		");
+	System.out.println(getCollege());
 	System.out.println("****************************");
 	for(int i=0;i<10;i++)
 	{
-		if(dept[i]!=null)
+		if(departments[i]!=null)
 		{	
-			dept[i].display();
+			departments[i].showDetails();
 		}
 	}
 }	
