@@ -18,7 +18,6 @@ public class UserController
 			File userFile=new File("./com/lxisoft/culturalevaluation/database/userFile.txt");
 			BufferedReader reader=new BufferedReader(new FileReader(userFile));
 			String line;
-			int i=0;
 			while((line=reader.readLine())!=null)
 			{
 				String[] userCredentials=line.split(";");
@@ -32,7 +31,6 @@ public class UserController
 		}
 		catch(IOException e)
 		{
-			UserView view=new UserView();
 			view.printError("File not found...");
 		}
 		return users;
