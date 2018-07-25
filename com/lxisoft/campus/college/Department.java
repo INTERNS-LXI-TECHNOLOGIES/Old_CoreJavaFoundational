@@ -1,46 +1,49 @@
 package com.lxisoft.campus.college;
 import java.util.*;
+
 public class Department
 {
-	private String name;
-	Class classes[]=new Class[10];
+	private String departmentName;
+	private Class classes[]=new Class[10];
 	
-	Department (String name)
+	public void setDepartmentName (String name)
 	{
-		this.name=name;
-		setClass(this.name);
+		this.departmentName=name;
+		addClass();
+	}
+	public String getDepartmentName()
+	{
+		return this.departmentName;
 	}
 	
+	
 
-
-	
-	
-	
-	public void setClass(String dept_name)
+	public void addClass()
 	{	
 		Scanner Scan=new Scanner(System.in);
 		System.out.print("Enter no of classes:");
-		int tot_cls =Scan.nextInt();
-		for(int i=0;i<tot_cls;i++)
+		int totalClasses =Scan.nextInt();
+		for(int i=0;i<totalClasses;i++)
 		{
 			if(classes[i]==null)
 			{
 				System.out.print("Enter name of class:");
-				String cls_name=Scan.next();		
-				classes[i]=new Class(cls_name,dept_name);
+				String className=Scan.next();		
+				classes[i]=new Class();
+				classes[i].setClassName(className);
 			}
 		}
 	}	
 
-	public void display()	
+	public void showDetails()	
 	{	
 		System.out.print("Department:");
-		System.out.println(this.name);
+		System.out.println(getDepartmentName());
 		for(int i=0;i<10;i++)
 		{
 			if(classes[i]!=null)
 			{	
-				classes[i].display(this.name);
+				classes[i].showDetails();
 			}
 		}
 	}

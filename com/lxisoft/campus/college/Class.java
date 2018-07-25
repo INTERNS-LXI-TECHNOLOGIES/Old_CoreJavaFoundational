@@ -1,97 +1,66 @@
 package com.lxisoft.campus.college;
-import  com.lxisoft.campus.student.*;
+import  com.lxisoft.campus.person.*;
 import java.util.*;
+
 public class Class
 {
-	
-	Student cse_stud[]=new CseStudent[10];
-	Student mech_stud[]=new MechStudent[10];
-	Student stud[]=new Student[10];
-	Faculty fac;
-	private String name;
+	private Student students[]=new Student[10];
+	private Faculty faculty=new Faculty();
+	private String className;
 		
-		
-	Class(String cls_name,String dept_name)
+	public void setClassName(String className)
 	{
-		this.name=cls_name;
-		setPerson(dept_name);
+		this.className=className;
+		addPerson();
 	}
-		
 	
-				
-	public void setPerson(String dept_name)
+	public String getClassName()
+	{
+		return this.className;
+	}
+	
+	
+		
+	public void addPerson()
 	{	
 		Scanner Scan=new Scanner(System.in);
 		System.out.println("Enter faculty name,idno & age:");
-		String fac_name=Scan.next();
+		String facultyName=Scan.next();
+		String facultyIdno=Scan.next();
+		int facultyAge=Scan.nextInt();
 		
-		String fac_idno=Scan.next();
-		int fac_age=Scan.nextInt();
-
-			
-		fac=new Faculty(fac_name,fac_idno,fac_age);
+		faculty.addPerson(facultyName,facultyIdno,facultyAge);
 		
 		System.out.print("Enter no of students:");
-		int tot_stud =Scan.nextInt();
+		int totalStudents =Scan.nextInt();
+		for(int i=0;i<totalStudents;i++)
+		{
 			
-		
-		
-		for(int i=0;i<tot_stud;i++)
-			{
-			
-					System.out.print("Enter name,idno & age of student:");
-					String stud_name=Scan.next();
-					String stud_idno=Scan.next();
-					int stud_age=Scan.nextInt();
-					if(dept_name.equals("mech"))
-					{
-						stud[i]=new MechStudent(stud_name,stud_idno,stud_age);
-					}
-					else if(dept_name.equals("cse"))
-					{
-						
-						stud[i]=new CseStudent(stud_name,stud_idno,stud_age);
-					}
-					else
-						stud[i]=new Student(stud_name,stud_idno,stud_age);
-			}	
+			System.out.print("Enter name,idno & age of student:");
+			String studentName=Scan.next();
+			String studentIdno=Scan.next();
+			int studentAge=Scan.nextInt();
+			students[i]=new Student();
+			students[i].addStudent(studentName,studentIdno,studentAge);
+		}	
 			
 	}
 	
-	public void display(String dept_name)	
+	public void showDetails()	
 	{
 		System.out.print("Class:");
-		System.out.println(this.name);
+		System.out.println(getClassName());
 		System.out.println("\tname\tid\tage\ttot mark\tavg");
 		System.out.print("Faculty:");
-		
-		fac.display();
+		faculty.showDetails();
 		System.out.println("");
 		System.out.println("Students:");
 		for(int i=0;i<10;i++)
-		{	if(dept_name.equals("cse"))
+		{	
+			if(students[i]!=null)
 			{
-				if(cse_stud[i]!=null)
-				{
-					cse_stud[i].display();
-					
-				}
-			}
-			else if(dept_name.equals("mech"))
-			{
-				if(mech_stud[i]!=null)
-				{
-					mech_stud[i].display();
-				}
-			}				
-			else
-			{
-				if(stud[i]!=null)
-				{
-					stud[i].display();
-				}
+				students[i].showDetails();
 			}
 		}
 	}
-		
 }
