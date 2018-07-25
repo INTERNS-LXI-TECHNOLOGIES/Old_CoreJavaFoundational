@@ -30,7 +30,7 @@ int id=s.nextInt();
 		int id6=s.nextInt();
 		int id7;
 		id7=(id1+id2+id3+id4+id5+id6)/6;
-		System.out.println("average=" + id4);
+		System.out.println("average=" + id7);
 		
        }
 } 
