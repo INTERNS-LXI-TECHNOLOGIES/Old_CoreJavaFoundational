@@ -7,7 +7,7 @@ Student st=new Student();
 public void entry()
 {
 
-System.out.println("enter total entry of student");
+System.out.println("enter admission id");
 int id=sc.nextInt();
 if(id>100)
 {
@@ -20,11 +20,11 @@ else
 							String name=sc1.next();
 							st.setname(name);
 							Scanner sc2=new Scanner(System.in);
-							 System.out.println("Enter admission number:");
-						   String adm=sc2.next();
-							st.setadm(adm);
+							 System.out.println("Enter address:");
+						   String add=sc2.next();
+							st.setadd(add);
 							System.out.println("Name of Student:"+st.getname());
-							System.out.println("admission number:"+st.getadm());
+							System.out.println("address:"+st.getadd());
 
 }
 

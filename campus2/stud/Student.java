@@ -2,8 +2,7 @@ package com.lxisoft.campus2.stud;
 public class Student 
 {
 	private String name;
-	private String adm;
-	
+	private String add;
 	
 	
 	public void setname(String nm1)
@@ -12,9 +11,9 @@ public class Student
 	
 	}
 	
-	public void setadm(String adm1)
+	public void setadd(String add1)
 	{
-		this.adm=adm1;
+		this.add=add1;
 	}
 
 	
@@ -23,9 +22,9 @@ public class Student
 		return name;
 	}
 	
-	public String getadm()
+	public String getadd()
 	{
-		return adm;
+		return add;
 	}
 	
 	
