@@ -16,7 +16,7 @@ public class Faculity
 	{
 		return name;
 	}
-	public int setName()
+	public int getId()
 	{
 		return id; 
 	}

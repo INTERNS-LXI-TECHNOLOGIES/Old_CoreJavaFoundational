@@ -54,8 +54,9 @@ public class College
 		for(int i=0;i<noOfDepartment;i++)
 		{
 			d[i].printDetails();
-
+			d[i].faculityPrintDetails();
 		}
+
 	}
 }
 
