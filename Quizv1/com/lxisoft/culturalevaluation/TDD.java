@@ -1,5 +1,5 @@
 package com.lxisoft.culturalevaluation;
-import com.lxisoft.culturalevaluation.quiz.Quizcontroler;
+import com.lxisoft.culturalevaluation.quiz.*;
 public class TDD
 {
 	public static void main(String args[])

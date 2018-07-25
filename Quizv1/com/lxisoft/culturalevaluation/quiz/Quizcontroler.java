@@ -1,18 +1,18 @@
 package com.lxisoft.culturalevaluation.quiz;
-import com.lxisoft.culturalevaluation.user.Usercontroler;
-import com.lxisoft.culturalevaluation.question.Questioncontroler;
+import com.lxisoft.culturalevaluation.user.*;
+import com.lxisoft.culturalevaluation.question.*;
 import com.lxisoft.culturalevaluation.quiz.*;
 public class Quizcontroler
 {
-	private QuizModel quizmod;
 	private Quizview quizview;
+	private Usercontroler userctrl;
+	private Questioncontroler quesctrl;
 	public Quizcontroler()
 	{
 		quizview=new Quizview();
-		quizview.loginView();
-		Usercontroler userctrl;
-		Questioncontroler quectrl;
+		userctrl=new Usercontroler();
+		quesctrl=new Questioncontroler();
 		
 	}
 	
-}
+} 

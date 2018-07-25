@@ -2,12 +2,9 @@ package com.lxisoft.culturalevaluation.user;
 public class Usermodel
 {
 	private String username,password;
-	public void setUsername(String username)
+	public Usermodel(String username,String password)
 	{
 		this.username=username;
-	}
-	public void setPassword(String password)
-	{
 		this.password=password;
 	}
 	public String getUsername()
@@ -17,13 +14,5 @@ public class Usermodel
 	public String getPassword()
 	{
 		return password;
-	}
-	public void loaduserFile()
-	{
-		String file="D:/workspace/Team1/Quiz/doc.txt";
-	}
-	public void userLogin()
-	{
-		
 	}
 }
