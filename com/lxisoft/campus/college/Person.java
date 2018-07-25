@@ -1,17 +1,17 @@
 package com.lxisoft.campus.college;
 public class Person
 {
-	String name;
-	int age;
-	public Person(String name,int age)
+	private String name;
+	private int rno;
+	public Person(String name,int rno)
 	{
 		this.name=name;
-		this.age=age;
+		this.rno=rno;
 	}
 	public void studDetails()
 	{
 		System.out.println("Name:"+name);
-		System.out.println("Age:"+age);
+		System.out.println("Roll Number:"+rno);
 	}
 }
 		

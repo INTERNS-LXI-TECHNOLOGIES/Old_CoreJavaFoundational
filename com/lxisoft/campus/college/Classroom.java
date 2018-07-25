@@ -2,8 +2,8 @@ package com.lxisoft.campus.college;
 import java.util.*;
 public class Classroom
 {
-	String location;
-	String depname;
+	private String location;
+	private String depname;
 	Faculty f;
 	Student[] stud;
 	public Classroom(String location,String depname)
@@ -17,7 +17,13 @@ public class Classroom
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the faculty Name:");
 		String name=System.console().readLine();
-		f=new Faculty(name);
+		System.out.println("Enter the salary per hour:");
+		int sal=sc.nextInt();
+		System.out.println("Enter the number of subjects faculty taking:");
+		int sub=sc.nextInt();
+		System.out.println("Enter the number of hours worked by faculty:");
+		int hrs=sc.nextInt();
+		f=new Faculty(name,sal,sub,hrs);
 	}
 	void createStudent(String depname)
 	{

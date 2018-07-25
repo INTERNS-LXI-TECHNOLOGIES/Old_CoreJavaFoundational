@@ -2,10 +2,10 @@ package com.lxisoft.campus.college;
 import java.util.*;
 public class Student extends Person
 {
-	String sname;
-	int rno;
-	int tot_mark;
-	double avg;
+	private String sname;
+	private int rno;
+	private int tot_mark;
+	private double avg;
 	public Student(String sname,int rno)
 	{
 		super(sname,rno);

@@ -1,9 +1,10 @@
 package com.lxisoft.campus.college;
+
 import java.util.*;
 public class College
 {
-	String name;
-	String location;
+	private String name;
+	private String location;
 	Department[] dep;
 	public College()
 	{
@@ -32,9 +33,10 @@ public class College
 		}
 	}
 	public void printDetails()
-	{
-		System.out.println("Name of College:"+name);
-		System.out.println("Location of College:"+location);
+	{	
+		System.out.println("   "+"************************");
+		System.out.println("        "+name+","+location);
+		System.out.println("   "+"************************");
 		for(int i=0;i<dep.length;i++)
 		{
 			dep[i].displayDetails();

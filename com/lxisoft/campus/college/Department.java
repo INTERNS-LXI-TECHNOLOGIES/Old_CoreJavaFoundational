@@ -2,8 +2,8 @@ package com.lxisoft.campus.college;
 import java.util.*;
 public class Department
 {
-	String depname;
-	Classroom cr[];
+	private String depname;
+	Classroom[] cr;
 	public Department(String depname)
 	{
 	this.depname=depname;
