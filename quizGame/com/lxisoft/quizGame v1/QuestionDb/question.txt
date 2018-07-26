@@ -1,3 +1,0 @@
-What is VLSI;Very Long Scale Integration;Very Large Scale Intergration;Vast Low Scale Intergration;Very Low Scale Intergration;
-Choose a char array?;a;1;0;hai;
-Size of MAC address?;48;46;18;36;
