@@ -26,7 +26,7 @@ public class Usercontroler
 	public void loaduserFile()
 	{
 		
-		String file="D:/workspace/Team1/Quiz/doc.txt";
+		String file="./com/lxisoft/culturalevaluation/database/doc.txt";
 		try
 		{
 			FileReader fr=new FileReader(file);

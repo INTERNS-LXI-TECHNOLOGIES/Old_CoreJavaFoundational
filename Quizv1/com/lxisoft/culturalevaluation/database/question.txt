@@ -1,0 +1,5 @@
+1.At work I can be quite assertive;1;2;3;4;
+2.At work I prefer to influence people;2;3;4;1;
+3.At work I prefer to join in with other;1;2;4;3;
+4.At work I like to follow rules and regulations;1;2;3;4;
+5.At work I like to accommodate other peoples wishes;1;2;4;3;

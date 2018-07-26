@@ -1,23 +1,19 @@
 package com.lxisoft.culturalevaluation.question;
 public class Questionmodel
 {
-	String question,answer,option1,option2,option3,option4;
-	public Questionmodel(String question,String option1,String option2,String option3,String option4,String answer)
+	String question,option1,option2,option3,option4;
+	int mark;
+	public Questionmodel(String question,String option1,String option2,String option3,String option4)
 	{
 		this.question=question;
 		this.option1=option1;
 		this.option2=option2;
 		this.option3=option3;
 		this.option4=option4;
-		this.answer=answer;
 	}
 	public String getQuestion()
 	{
 		return question;
-	}
-	public String getAnswer()
-	{
-		return answer;
 	}
 	public String getOption1()
 	{
@@ -35,5 +31,12 @@ public class Questionmodel
 	{
 		return option4;
 	}
-	
+	public void setMark(int mark)
+	{
+		this.mark=mark;
+	}
+	public int getMark()
+	{
+		return mark;
+	}
 }

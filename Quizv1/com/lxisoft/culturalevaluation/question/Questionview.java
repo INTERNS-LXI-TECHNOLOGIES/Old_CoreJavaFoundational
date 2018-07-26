@@ -1,13 +1,21 @@
 package com.lxisoft.culturalevaluation.question;
 public class Questionview
 {
-	public void printDataFile(String question1,String option11,String option12,String option13,String option14,String answer1)
+	public void printDataFile(String question1)
 	{
-		System.out.println(question1);
-		System.out.println(option11);
-		System.out.println(option12);
-		System.out.println(option13);
-		System.out.println(option14);
+		System.out.println("\n"+question1);
+		System.out.println("A: Strongly Disagreee");
+		System.out.println("B: Disagree");
+		System.out.println("C: Agree");
+		System.out.println("D: Strongly Agree");
 
+	}
+	public void addOption()
+	{
+		System.out.println("\nEnter your answer");
+	}
+	public void printMark(int mark)
+	{
+		System.out.println("\n\nTotal mark Scored:  "+mark);
 	}
 }
