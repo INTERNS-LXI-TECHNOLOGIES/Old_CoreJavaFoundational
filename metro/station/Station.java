@@ -3,14 +3,14 @@ import com.lxisoft.metro.station.train.Train;
 import com.lxisoft.metro.datetime.CurrentDateTimeExample1;
 import com.lxisoft.metro.passenger.Passenger;
 import java.time.format.DateTimeFormatter;  
-import java.time.LocalDateTime.*;  
+import java.time.LocalDateTime;  
 import java.util.*;
 import java.util.Scanner;
 public class Station
 {    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"); 
-    
+    CurrentDateTimeExample1 ct=new CurrentDateTimeExample1();
      ArrayList<Train> trains=new ArrayList<Train>();
-	   ArrayList<CurrentDateTimeExample1> times=new ArrayList<CurrentDateTimeExample1>();
+	   ArrayList<LocalDateTime> times=new ArrayList<LocalDateTime>();
 	 Scanner sc=new Scanner(System.in);
   public void train()
   {
@@ -36,13 +36,15 @@ public class Station
 	  for(int i=0;i<passengerno;i++)
 	 {
 	 passengers.get(i).details();
-	 times.add(new CurrentDateTimeExample1());
+	  LocalDateTime l=ct.dateTime();
+	 
+	  times.add(l);
 	 }
 	  for(int i=0;i<passengerno;i++)
 		  
 	 {
 		
-     System.out.println("\t\t"+dtf.format(times.get(i).dateTime()));
+      System.out.println("\t\t"+dtf.format(times.get(i)));
 	 System.out.println("Passenger no="+i);
 	 passengers.get(i).ticket();
 	 System.out.println("\t\tRoute=\tTrivandrum");
@@ -66,11 +68,13 @@ public class Station
 	  for(int i=0;i<passengerno;i++)
 	 {
 	 passengers.get(i).details();
-	  times.add(new CurrentDateTimeExample1());
+	   LocalDateTime l=ct.dateTime();
+	 
+	  times.add(l);
 	 }
 	  for(int i=0;i<passengerno;i++)
 	 {
-	 System.out.println("\t\t"+dtf.format(times.get(i).dateTime()));
+	  System.out.println("\t\t"+dtf.format(times.get(i)));
 	 System.out.println("Passenger no="+i);
 	 passengers.get(i).ticket();
 	 System.out.println("\t\tRoute=\tcoimbatore");
@@ -92,11 +96,14 @@ public class Station
 	  for(int i=0;i<passengerno;i++)
 	 {
 	 passengers.get(i).details();
-	  times.add(new CurrentDateTimeExample1());
+	  
+	  LocalDateTime l=ct.dateTime();
+	 
+	  times.add(l);
 	 }
 	  for(int i=0;i<passengerno;i++)
 	 {
-     System.out.println("\t\t"+dtf.format(times.get(i).dateTime()));
+      System.out.println("\t\t"+dtf.format(times.get(i)));
 	 System.out.println("Passenger no="+i);
 	 passengers.get(i).ticket();
 	 System.out.println("\t\tRoute=\tkozhicode");
