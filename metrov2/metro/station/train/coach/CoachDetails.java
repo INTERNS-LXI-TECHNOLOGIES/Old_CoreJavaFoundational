@@ -21,12 +21,18 @@ public class CoachDetails
     switch(choice)
 {
      case 1:ac.settingAc();
+			ac.getcoachName();
+			ac.getcoachPrice();
 	
 	 break;
 	 case 2:general.settingGeneral();
+	        general.getcoachName();
+			general.getcoachPrice();
 	
 	 break;
 	 case 3:sleeper.settingSleeper();
+			sleeper.getcoachName();
+			sleeper.getcoachPrice();
 
 	 break;
 	 default:System.out.println("invalid choice");

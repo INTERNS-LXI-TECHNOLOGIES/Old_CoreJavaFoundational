@@ -1,28 +1,29 @@
 package com.lxisoft.metrov2.metro.station.train.coach;
-import com.lxisoft.metrov2.metro.station.train.coach.passenger.Passenger;
 public class Coach
-{
-private String coachName;
-private int coachPrice;
- Passenger passenger;
-  public void setcoachName(String name)
+{   
+     private String name;
+     private String gender;
+
+    public void setName(String name)
     {
-    this.coachName=name;
+    this.name=name;
     }
 
-    public String getcoachName()
-	{
-	return coachName;
-	}
-	
-	 public void setcoachPrice(int price)
+    public void setGender(String gender)
    {
-   this.coachPrice=price;
+   this.gender=gender;
    }
 
-	public int getcoachPrice()
+    public String getName()
 	{
-	return coachPrice;
+	return name;
 	}
 
-} 
+	public String getGender()
+	{
+	return gender;
+	}
+
+
+
+}
