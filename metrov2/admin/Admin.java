@@ -10,9 +10,9 @@ public class Admin
 {
 Scanner scan=new Scanner(System.in);
 private int adminpassword=123;
-Metro metro;
-Station station;
-Train train;
+public Metro metro=new Metro();
+public Station station=new Station();
+public Train train=new Train();
 public  void adminAccess()
 {
 	
@@ -37,12 +37,26 @@ public void setMetro()
 	System.out.println("Set the name of Metro");
 	String name=scan.next();
 	metro.setmetroName(name);
+
 }
+public void getMetro()
+{
+	String j=metro.getmetroName();
+	System.out.println(j);
+}
+
 public void setStation()
 {
 	System.out.println("Set the name of Station");
 	String name=scan.next();
+	
 	station.setstationName(name);
+}
+
+public void getStation()
+{
+String j=station.getstationName();
+System.out.println(j);
 }
 public void setTrain()
 {
@@ -50,13 +64,78 @@ public void setTrain()
 	String name=scan.next();
 	train.settrainName(name);
 }
+public void getTrain()
+{
+String j=train.gettrainName();
+System.out.println(j);
+}
+
 
 public void setCoach()
 {
 	System.out.println("Enter the no of coaches to be allocated to train(available coaches are Ac,Sleeper,General)");
 	int coachno=scan.nextInt();
+	 Ac ac=new Ac();
+	 General general=new General();
+	 Sleeper sleeper=new Sleeper();
 	
+	
+    switch(coachno)
+{
+     case 1: 
+	 System.out.println("choose the coach---- 1-AC,2-General,3-Sleeper");
+	int choice=scan.nextInt();
+    switch(choice)
+	{
+     case 1: ac.setcoachName("Ac");
+	        System.out.println("Ac coach has been assigned");
+	 	break;
+	 
+	 case 2:sleeper.setcoachName("Sleeper");
+	        System.out.println("Sleeper coach has been assigned");	 
+	 break;
+	 
+	 case 3:general.setcoachName("General");
+	        System.out.println("General coach has been assigned");	 
+	 break;
+	 default:System.out.println("invalid choice");
+		     break;
+	}
+	 break;
+	 
+	 
+	 case 2:System.out.println("choose the coach combination---- 1-AC&General,2-General&Sleeper,3-Sleeper&Ac");
+	int choice1=scan.nextInt();
+    switch(choice1)
+	{
+     case 1: ac.setcoachName("Ac");
+		     general.setcoachName("General");
+	        System.out.println("Ac&General coach has been assigned");
+	 	break;
+	 
+	 case 2:sleeper.setcoachName("Sleeper");
+		    general.setcoachName("General");
+	        System.out.println("Sleeper&General coach has been assigned");	 
+	 break;
+	 
+	 case 3:ac.setcoachName("Ac");
+	        sleeper.setcoachName("Sleeper");
+	        System.out.println("Ac&Sleeper coach has been assigned");	 
+	 break;
+	 default:System.out.println("invalid choice");
+		     break;
+	}	
+	 break;
+	 case 3:ac.setcoachName("Ac");
+			sleeper.setcoachName("Sleeper");
+			general.setcoachName("General");
+			System.out.println("All the three coaches has been assigned");	
+	 break;
+	 default:System.out.println("invalid choice");
+		     break;
 }
 
 
+
+}
 }
