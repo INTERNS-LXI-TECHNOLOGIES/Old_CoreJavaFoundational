@@ -8,6 +8,8 @@ import com.lxisoft.metrov2.metro.station.train.coach.Sleeper.Sleeper;
 import java.util.*;
 public class Admin
 {
+public int coachno;
+public int choice,choice1;
 Scanner scan=new Scanner(System.in);
 private int adminpassword=123;
 public Metro metro=new Metro();
@@ -15,6 +17,7 @@ public Station station=new Station();
 public Train train=new Train();
 public  void adminAccess()
 {
+	
 	
 System.out.println("Enter the password");
 int password=scan.nextInt();
@@ -74,7 +77,9 @@ System.out.println(j);
 public void setCoach()
 {
 	System.out.println("Enter the no of coaches to be allocated to train(available coaches are Ac,Sleeper,General)");
-	int coachno=scan.nextInt();
+	 coachno=scan.nextInt();
+	
+	
 	 Ac ac=new Ac();
 	 General general=new General();
 	 Sleeper sleeper=new Sleeper();
@@ -83,8 +88,10 @@ public void setCoach()
     switch(coachno)
 {
      case 1: 
-	 System.out.println("choose the coach---- 1-AC,2-General,3-Sleeper");
-	int choice=scan.nextInt();
+	 System.out.println("choose the coach---- 1-AC,2Sleeper,3-General");
+	
+	 choice=scan.nextInt();
+	 
     switch(choice)
 	{
      case 1: ac.setcoachName("Ac");
@@ -105,7 +112,7 @@ public void setCoach()
 	 
 	 
 	 case 2:System.out.println("choose the coach combination---- 1-AC&General,2-General&Sleeper,3-Sleeper&Ac");
-	int choice1=scan.nextInt();
+	 choice1=scan.nextInt();
     switch(choice1)
 	{
      case 1: ac.setcoachName("Ac");
@@ -134,8 +141,47 @@ public void setCoach()
 	 default:System.out.println("invalid choice");
 		     break;
 }
-
-
-
 }
+public void getnoofCoach()
+	{
+	System.out.println("Totally"+coachno+"coaches has assigned");
+	 System.out.println("Available coaches are listed below");
+     if(coachno==1)
+	 {   if(choice==1)
+		 { System.out.println("Ac ");
+		 }
+		 if(choice==2)
+		 { System.out.println("Sleeper");
+		 }
+		 if(choice==3)
+		 { System.out.println("General");
+		 }
+	 }
+	 if(coachno==2)
+	 {  if(choice1==1)
+		 { System.out.println("Ac ");
+			System.out.println("General");
+		 }
+		 if(choice1==2)
+		 { 
+		System.out.println("General");
+		System.out.println("Sleeper");
+		 }
+		 if(choice1==3)
+		 {
+			System.out.println("Ac"); 
+			System.out.println("Sleeper");
+		 }
+		 
+	 }
+	 if(coachno==3)
+		 {
+			System.out.println("Ac"); 
+			System.out.println("General");
+			System.out.println("Sleeper");
+		 }
+		 
+	
+	}
+
 }

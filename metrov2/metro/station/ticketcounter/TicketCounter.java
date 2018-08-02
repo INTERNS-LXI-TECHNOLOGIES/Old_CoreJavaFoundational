@@ -2,19 +2,21 @@ package com.lxisoft.metrov2.metro.station.ticketcounter;
 import com.lxisoft.metrov2.admin.Admin;
 import com.lxisoft.metrov2.metro.Metro;
 import com.lxisoft.metrov2.metro.station.Station;
+import java.util.*;
 public class TicketCounter
 {
-
-public static  void main(String args[])
+Scanner scan=new Scanner(System.in);
+public String Coachname;
+public void ticket()
 {
-	Admin admin=new Admin();
-admin.setMetro();
-admin.getMetro();	
-admin.setStation();
-admin.getStation();
-admin.setTrain();
-admin.getTrain();
+Admin admin=new Admin();
 
+admin.getMetro();	
+admin.getStation();
+admin.getTrain();
+admin.getnoofCoach();
+System.out.println("Select the coach");
+Coachname=scan.next();
 
 }
 

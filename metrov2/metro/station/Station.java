@@ -12,8 +12,6 @@ private String stationName;
     this.stationName=name;
     }
 
- 
-
     public String getstationName()
 	{
 	return stationName;

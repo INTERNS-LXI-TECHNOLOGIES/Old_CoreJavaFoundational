@@ -4,16 +4,16 @@ public class Passenger
 {
 
      private String name;
-     private String gender;
+     private String destinationpoint;
 
     public void setName(String name)
     {
     this.name=name;
     }
 
-    public void setGender(String gender)
+    public void setDestinationpoint(String destinationpoint)
    {
-   this.gender=gender;
+   this.destinationpoint=destinationpoint;
    }
 
     public String getName()
@@ -21,9 +21,9 @@ public class Passenger
 	return name;
 	}
 
-	public String getGender()
+	public String getDestinationpoint()
 	{
-	return gender;
+	return destinationpoint;
 	}
 
 
