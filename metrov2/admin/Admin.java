@@ -29,6 +29,12 @@ if(adminpassword==password)
 	setStation();
 	setTrain();
 	setCoach();
+	System.out.println(metro.getmetroName());
+	System.out.println(station.getstationName());
+	System.out.println(train.gettrainName());
+	System.out.println("!!!!--------Now passenger can book Tickets------!!!!");
+	getnoofCoach();
+	
 	}
 else
 	{
@@ -44,8 +50,7 @@ public void setMetro()
 }
 public void getMetro()
 {
-	String j=metro.getmetroName();
-	System.out.println(j);
+System.out.println(metro.getmetroName());
 }
 
 public void setStation()
@@ -58,8 +63,8 @@ public void setStation()
 
 public void getStation()
 {
-String j=station.getstationName();
-System.out.println(j);
+
+System.out.println(station.getstationName());
 }
 public void setTrain()
 {
@@ -69,8 +74,8 @@ public void setTrain()
 }
 public void getTrain()
 {
-String j=train.gettrainName();
-System.out.println(j);
+
+System.out.println(train.gettrainName());
 }
 
 
