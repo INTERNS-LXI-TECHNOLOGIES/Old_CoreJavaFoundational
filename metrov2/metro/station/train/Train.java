@@ -3,11 +3,30 @@ package com.lxisoft.metrov2.metro.station.train;
 
 public class Train
 {
-	public void getTrain()
+	Coach coach;
+	private String trainName;
+	private String trainRoute;
+	
+	public void settrainName(String trainName)
 	{
-	Coach coach=new Coach();
-	coach.chooseCoach();
+		this.trainName=trainName();
 	}
+	
+	public String gettrainName()
+	{
+		return trainName;
+	}
+	
+	public void settrainRoute(String trainRoute)
+	{
+		this.trainRoute=trainRoute;
+	}
+	
+	public String gettrainRoute()
+	{
+		return trainRoute;
+	}
+	
 	
 	
 }

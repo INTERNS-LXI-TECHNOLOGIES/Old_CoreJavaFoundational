@@ -3,11 +3,21 @@ import com.lxisoft.metrov2.metro.station.train.Train;
 
 public class Station
 {
-	public void gotoStation()
+	Train train;
+	private String stationName;
+	
+	public void setstationName(String stationName)
 	{
-		Train train=new Train();
-		train.getTrain();
+		this.stationName=stationName();
+		
 	}
+	
+	public String getstationName()
+	{
+		return stationName;
+	}
+	
+	
 	
 	
 }

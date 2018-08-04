@@ -11,6 +11,7 @@ public class Station
 {
 	DateTimeFormatter dtf=DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	ArrayList<Train>trains=new ArrayList<Train>();
+	ArrayList<DateTime>times=new ArrayList<DateTime>();
 	Scanner sn=new Scanner(System.in);
      public void train()
 	{
@@ -30,21 +31,23 @@ public class Station
 			for(int i=0;i<passno;i++)
 			{
 			 passengers.add(new Passenger());
+			 
 			}
 			
 			trains.get(0).coach();
 	           for(int i=0;i<passno;i++)
 			{
+				times.add(new d.dateTime());
 				passengers.get(i).detail();
 			}
 				for(int i=0;i<passno;i++)
 				{
 					int j=i+1;
-					System.out.println(dtf.format(dt));
+					System.out.println(dtf.format(times.get(i).dateTime()));
 					System.out.println("Passenger no=" +j);
 					passengers.get(i).ticket();
 					System.out.println("destination=chennai");
-					System.out.println("-------booking successful------");
+					System.out.println("-------booking is successful------");
 					
 					System.out.println("--------Thanks for Booking------");
 				}
@@ -58,6 +61,7 @@ public class Station
 				for(int i=0;i<passno;i++)
 				{
 					passengers.add(new Passenger());
+					times.add( new d.dateTime());
 				}
 				trains.get(1).coach();
 					for(int i=0;i<passno;i++)
@@ -68,6 +72,7 @@ public class Station
 						{
 							int j=i+1;
 							System.out.println("Passenger no="+j);
+							System.out.println(dtf.format(times.get(i).dateTime()));
 							passengers.get(i).ticket();
 							System.out.println("destination=banglore");
 							System.out.println("Happy journey");

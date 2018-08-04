@@ -3,11 +3,22 @@ import com.lxisoft.metrov2.metro.station.Station;
 
 public class Metro
 {
-	public void gotoMetro()
+	Station station;
+	private String metroName;
+	
+	public void setmetroName(String metroName)
 	{
-		Station station=new Station();
-		station.gotoStation();
+		this.metroName=metroName;
 	}
+	
+	public String  getmetroName()
+	{
+		this.metroName=metroName;
+	}
+	
+	
+		
+		
 	
 	
 }

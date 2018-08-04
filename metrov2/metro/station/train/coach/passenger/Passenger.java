@@ -1,41 +1,54 @@
 package com.lxisoft.metrov2.metro.station.train.coach.passenger;
-import com.lxisoft.metrov2.metro.station.train.coach.passenger.ticket.Ticket;
+
 
 public class Passenger
 {
       private String name;
       private int age;
-      private String gender;
+      private char gender;
+	  private String destination;
+	  
 	public void setName(String name)
 	{
 	  this.name=name;
 	}
-	public void setAge(int age1)
-	{
-	 this.age=age1;
-	}
-	public void setGender(String gender1)
-	{
-     this.gender=gender1;
-	}
-	public String getName()
+		
+		public String getName()
 	{
 	  return name;
 	}
-		public int getAge()
-		{
-			return age;
-		}
-			public String getGender()
-			{
-			return gender;
-			}
-			public void getPassenger()
-			{
-			Ticket ticket=new Ticket();
-			ticket.bookTicket();
-			}
-		
 	
+	public void setAge(int age)
+	{
+	 this.age=age;
+	}
+	
+	public int getAge()
+	{
+		return age;
+	}
+	
+	public void setGender(char gender)
+	{
+     this.gender=gender;
+	}
+	
+     public char getGender()
+	{
+		return gender;
+	}
+	
+	public void setDestination(String destination)
+	{
+		this.destination=destination;
+	}
+	
+	public String getDestination()
+	{
+		return destination;
+	}
 	
 }
+	
+		
+	
