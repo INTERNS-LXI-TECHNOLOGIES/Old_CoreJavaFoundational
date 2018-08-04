@@ -15,6 +15,10 @@ private int adminpassword=123;
 public Metro metro=new Metro();
 public Station station=new Station();
 public Train train=new Train();
+public Ac ac=new Ac();
+public	 General general=new General();
+public	 Sleeper sleeper=new Sleeper();
+
 public  void adminAccess()
 {
 	
@@ -24,16 +28,13 @@ int password=scan.nextInt();
 if(adminpassword==password)
 
 	{
-	System.out.println("Authorisation acheived");
+	System.out.println("\t\t\tAuthorisation acheived");
 	setMetro();
 	setStation();
 	setTrain();
 	setCoach();
-	System.out.println(metro.getmetroName());
-	System.out.println(station.getstationName());
-	System.out.println(train.gettrainName());
 	System.out.println("!!!!--------Now passenger can book Tickets------!!!!");
-	getnoofCoach();
+	
 	
 	}
 else
@@ -48,9 +49,9 @@ public void setMetro()
 	metro.setmetroName(name);
 
 }
-public void getMetro()
+public String getMetro()
 {
-System.out.println(metro.getmetroName());
+return metro.getmetroName();
 }
 
 public void setStation()
@@ -61,10 +62,10 @@ public void setStation()
 	station.setstationName(name);
 }
 
-public void getStation()
+public String getStation()
 {
 
-System.out.println(station.getstationName());
+return station.getstationName();
 }
 public void setTrain()
 {
@@ -72,10 +73,10 @@ public void setTrain()
 	String name=scan.next();
 	train.settrainName(name);
 }
-public void getTrain()
+public String  getTrain()
 {
 
-System.out.println(train.gettrainName());
+return train.gettrainName();
 }
 
 
@@ -83,31 +84,29 @@ public void setCoach()
 {
 	System.out.println("Enter the no of coaches to be allocated to train(available coaches are Ac,Sleeper,General)");
 	 coachno=scan.nextInt();
-	
-	
-	 Ac ac=new Ac();
-	 General general=new General();
-	 Sleeper sleeper=new Sleeper();
-	
+
 	
     switch(coachno)
 {
      case 1: 
-	 System.out.println("choose the coach---- 1-AC,2Sleeper,3-General");
+	 System.out.println("which all coaches do you want---- 1-AC,2Sleeper,3-General");
 	
 	 choice=scan.nextInt();
 	 
     switch(choice)
 	{
      case 1: ac.setcoachName("Ac");
+			ac.setcoachPrice(1000);
 	        System.out.println("Ac coach has been assigned");
 	 	break;
 	 
 	 case 2:sleeper.setcoachName("Sleeper");
+			sleeper.setcoachPrice(250);
 	        System.out.println("Sleeper coach has been assigned");	 
 	 break;
 	 
 	 case 3:general.setcoachName("General");
+			general.setcoachPrice(100);
 	        System.out.println("General coach has been assigned");	 
 	 break;
 	 default:System.out.println("invalid choice");
@@ -122,16 +121,22 @@ public void setCoach()
 	{
      case 1: ac.setcoachName("Ac");
 		     general.setcoachName("General");
+			 ac.setcoachPrice(1000);
+			 general.setcoachPrice(100);
 	        System.out.println("Ac&General coach has been assigned");
 	 	break;
 	 
 	 case 2:sleeper.setcoachName("Sleeper");
 		    general.setcoachName("General");
+			sleeper.setcoachPrice(250);
+			general.setcoachPrice(100);
 	        System.out.println("Sleeper&General coach has been assigned");	 
 	 break;
 	 
 	 case 3:ac.setcoachName("Ac");
 	        sleeper.setcoachName("Sleeper");
+			ac.setcoachPrice(1000);
+			sleeper.setcoachPrice(250);
 	        System.out.println("Ac&Sleeper coach has been assigned");	 
 	 break;
 	 default:System.out.println("invalid choice");
@@ -141,6 +146,9 @@ public void setCoach()
 	 case 3:ac.setcoachName("Ac");
 			sleeper.setcoachName("Sleeper");
 			general.setcoachName("General");
+			ac.setcoachPrice(1000);
+			sleeper.setcoachPrice(250);
+			general.setcoachPrice(100);
 			System.out.println("All the three coaches has been assigned");	
 	 break;
 	 default:System.out.println("invalid choice");
@@ -149,7 +157,7 @@ public void setCoach()
 }
 public void getnoofCoach()
 	{
-	System.out.println("Totally"+coachno+"coaches has assigned");
+	System.out.println("Totally "+coachno+" coaches has assigned");
 	 System.out.println("Available coaches are listed below");
      if(coachno==1)
 	 {   if(choice==1)

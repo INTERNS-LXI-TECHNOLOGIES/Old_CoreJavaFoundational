@@ -21,6 +21,6 @@ import java.util.Scanner;
                       
     System.out.println("\t\t Name\t=\t"+passenger.getName());
 	System.out.println("\t\t Destination point=\t"+passenger.getDestinationpoint());
-System.out.println("\n\n");
+   
     }
  }

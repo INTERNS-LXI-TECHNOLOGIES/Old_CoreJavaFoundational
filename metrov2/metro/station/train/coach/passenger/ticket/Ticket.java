@@ -7,16 +7,17 @@ import java.util.*;
 public class Ticket
 {  
 	Scanner scan=new Scanner(System.in);
-	 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"); 
+	 public DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"); 
     CurrentDateTimeExample1 ct=new CurrentDateTimeExample1();
-    ArrayList<LocalDateTime> times=new ArrayList<LocalDateTime>();
-	
+   public ArrayList<LocalDateTime> times=new ArrayList<LocalDateTime>();
+	public ArrayList<PassengerDetails> passengers;
+	public int passengerno;
     public void printTicket()
 	{  
 		
-		  ArrayList<PassengerDetails> passengers=new ArrayList<PassengerDetails>();
+		 passengers=new ArrayList<PassengerDetails>();
 		    System.out.println("Enter the no of passengers");
-	 int passengerno=scan.nextInt();
+	  passengerno=scan.nextInt();
 	 for(int i=0;i<passengerno;i++)
 	 {
      passengers.add(new PassengerDetails());
@@ -28,16 +29,7 @@ public class Ticket
 	 
 	  times.add( l);
 	 }
-	  for(int i=0;i<passengerno;i++)
-		  
-	 {
-		
-      System.out.println("\t\t"+dtf.format(times.get(i)));
-	 System.out.println("Passenger no="+i);
-	 passengers.get(i).showDetails();
-	 System.out.println("\t\tHappy journey");
-	 System.out.println("!!!!--------Thanks for Booking------!!!!");
-	 }
+
 	}	
 
 }

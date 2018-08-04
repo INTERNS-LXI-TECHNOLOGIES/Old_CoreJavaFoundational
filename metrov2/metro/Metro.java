@@ -19,10 +19,7 @@ private String metroName;
 	return metroName;
 	}
 
-	public void ticketCounter()
-	{
-		
-	}
+
 
 
 }

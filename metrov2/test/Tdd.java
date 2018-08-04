@@ -13,6 +13,6 @@ Admin admin=new Admin();
 TicketCounter ticketcounter=new TicketCounter();
 
 admin.adminAccess();
-ticketcounter.ticket(); 
+ticketcounter.ticket(admin); 
 }
 }
