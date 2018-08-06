@@ -1,4 +1,7 @@
 package com.lxisoft.metrov2.metro.station.train.coach;
+import com.lxisoft.metrov2.metro.station.train.coach.passenger.Passenger;
+import com.lxisoft.metrov2.metro.station.train.coach.passenger.PassengerDetails;
+import com.lxisoft.metrov2.metro.station.train.coach.passenger.ticket.Ticket;
 import com.lxisoft.metrov2.metro.station.train.coach.Coach;
 import com.lxisoft.metrov2.metro.station.train.coach.Ac;
 import com.lxisoft.metrov2.metro.station.train.coach.Sleeper;
@@ -8,19 +11,22 @@ import java.util.Scanner;
 
 public class CoachDetails
 {
+	//PassengerDetails passengerDetails=new passengerDetails();
 	public static void main(String args[])
 	{
 		Coach coach1=new Ac();
 		Coach coach2=new Sleeper();
 		Coach coach3=new General();
-
-
+		
+		
+		Ticket ticket=new Ticket();
+		
 		Scanner scan=new Scanner(System.in);
-
-		System.out.println("CHOOSE YOUR COACH 1.AC /n 2.SLEEPER/n 3.GENERAL");
+		
+		System.out.println("CHOOSE YOUR COACH \n 1.AC \n 2.SLEEPER \n 3.GENERAL");
 
 		int choice=scan.nextInt();
-
+		
 		switch(choice)
 		{
 			case 1: 
@@ -42,6 +48,12 @@ public class CoachDetails
 			break;
 	
 		}
+		
+		
+		//passengerDetails.showPassengerDetails();
+		
+		ticket.displayTicket();
+		
 	}
 
 }
