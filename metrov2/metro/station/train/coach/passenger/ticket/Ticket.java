@@ -26,8 +26,7 @@ public class Ticket
 	 {
 	 passengers.get(i).details();
 	  LocalDateTime l=ct.dateTime();
-	 
-	  times.add( l);
+	   times.add( l);
 	 }
 
 	}	

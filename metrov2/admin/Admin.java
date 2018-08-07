@@ -5,42 +5,26 @@ import com.lxisoft.metrov2.metro.station.train.Train;
 import com.lxisoft.metrov2.metro.station.train.coach.Ac.Ac;
 import com.lxisoft.metrov2.metro.station.train.coach.General.General;
 import com.lxisoft.metrov2.metro.station.train.coach.Sleeper.Sleeper;
+import com.lxisoft.metrov2.metro.station.ticketcounter.TicketCounter;
 import java.util.*;
 public class Admin
 {
 public int coachno;
 public int choice,choice1;
 Scanner scan=new Scanner(System.in);
-private int adminpassword=123;
 public Metro metro=new Metro();
 public Station station=new Station();
 public Train train=new Train();
 public Ac ac=new Ac();
 public	 General general=new General();
 public	 Sleeper sleeper=new Sleeper();
-
 public  void adminAccess()
 {
-	
-	
-System.out.println("Enter the password");
-int password=scan.nextInt();
-if(adminpassword==password)
-
-	{
-	System.out.println("\t\t\tAuthorisation acheived");
 	setMetro();
 	setStation();
 	setTrain();
 	setCoach();
 	System.out.println("!!!!--------Now passenger can book Tickets------!!!!");
-	
-	
-	}
-else
-	{
-	System.out.println("Password not matched");
-	}
 }
 public void setMetro()
 {
