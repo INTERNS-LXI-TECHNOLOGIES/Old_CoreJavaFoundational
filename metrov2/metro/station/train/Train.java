@@ -4,9 +4,31 @@ import com.lxisoft.metrov2.metro.station.train.coach.Coach;
 public class Train
 {
 	Coach coach = new Coach();
-	public void takeTrain()
+	
+	private String trainName;
+	private int trainNo;
+	
+	
+	public void settrainName(String trainName)
 	{
-		
-		coach.selectCoach();
+		this.trainName=trainName;
 	}
+	
+	public void settrainNo(int trainNo)
+	{
+		this.trainNo=trainNo;
+	}
+	
+	
+	public String gettrainName()
+	{
+		return trainName;
+	}
+	
+	public int gettrainNo()
+	{
+		return trainNo;
+	}
+	
+
 }

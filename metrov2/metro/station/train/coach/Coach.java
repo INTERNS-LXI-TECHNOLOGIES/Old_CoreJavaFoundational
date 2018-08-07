@@ -1,12 +1,27 @@
 package com.lxisoft.metrov2.metro.station.train.coach;
 
-import com.lxisoft.metrov2.metro.station.train.coach.passenger.Passenger;
 public class Coach
 {
-	Passenger passenger = new Passenger();
-	public void selectCoach()
+	private String coachName;
+	private int coachFare;
+	
+	public void setcoachName(String coachName)
 	{
-		
-		passenger.enterPassenger();
+		this.coachName= coachName;
+	}
+	
+	public void setcoachFare(int coachFare)
+	{
+		this.coachFare= coachFare;
+	}
+	
+	public String getcoachName()
+	{
+		return coachName;
+	}
+	
+	public int getcoachFare()
+	{
+		return coachFare;
 	}
 }
