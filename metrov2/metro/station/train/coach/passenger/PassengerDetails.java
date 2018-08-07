@@ -10,7 +10,7 @@ public class PassengerDetails
 		Scanner scan=new Scanner(System.in);
 		String passengerName;
 		String passengerGender;
-		System.out.println("ENTER PASSENGER NUMBER");
+		System.out.println("\nENTER PASSENGER NUMBER");
 		int passengerNumber=scan.nextInt();
 
 		for(int i=0; i<passengerNumber; i++)
@@ -30,7 +30,7 @@ public class PassengerDetails
 	public void showTicket()
 	{
 		
-		System.out.println("PASSENGER NAME:"+passenger.getPassengerName()+ "\nPASSENGER GENDER:"+passenger.getPassengerGender());
+		System.out.println("\n\nPASSENGER NAME:"+passenger.getPassengerName()+ "\nPASSENGER GENDER:"+passenger.getPassengerGender());
 		
 	}
 	

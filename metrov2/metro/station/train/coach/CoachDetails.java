@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class CoachDetails
 {
 	//PassengerDetails passengerDetails=new passengerDetails();
-	public static void main(String args[])
+	public void showCoachDetails()
 	{
 		Coach coach1=new Ac();
 		Coach coach2=new Sleeper();
