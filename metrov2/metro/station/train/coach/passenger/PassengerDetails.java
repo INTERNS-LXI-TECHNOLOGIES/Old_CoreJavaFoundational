@@ -6,34 +6,35 @@ public class PassengerDetails
 {
 	Passenger passenger=new Passenger();
 	Scanner sc=new Scanner(System.in);
-	
+	String name,destination;
+	int age;
 	
 	
 	public void details()
 	{
 		
 		System.out.println("Enter the name:");
-		String name=sc.nextLine();
+		 name=sc.next();
 		passenger.setName(name);
 		
+		Scanner s=new Scanner(System.in);
 		System.out.println("Enter the destination:");
-		String destination=sc.nextLine();
+		
+		destination=s.next();
 		passenger.setDestination(destination);
 		
-		System.out.println("Your gender:");
-		char gender=sc.next().charAt(0);
-		passenger.setGender(gender);
+		
 		
 		System.out.println("your age:");
-		int age=sc.nextInt();
+		 age=sc.nextInt();
 		passenger.setAge(age);
 	}
 		
-		public void show()
+		public void showDetails()
 		 {
 			System.out.println("\t\tName of the passenger :" +passenger.getName());
-			System.out.println("\t\tName of the passenger :" +passenger.getDestination());
-			System.out.println("\t\tGender :" +passenger.getGender());
+			System.out.println("\t\tDestination :" +passenger.getDestination());
+			
 			System.out.println("\t\tAge :" +passenger.getAge());
 		 }
 	

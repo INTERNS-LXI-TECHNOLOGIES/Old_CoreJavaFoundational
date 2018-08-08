@@ -16,7 +16,7 @@ public class Coach
 	}
 	public void setcoachFare(int coachFare)
 	{
-		this.coachFare();
+		this.coachFare=coachFare;
 	}
 	public int getcoachFare()
 	{

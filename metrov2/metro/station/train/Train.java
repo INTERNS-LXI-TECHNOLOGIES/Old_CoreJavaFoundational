@@ -7,9 +7,9 @@ public class Train
 	private String trainName;
 	private String trainRoute;
 	
-	public void settrainName(String trainName)
+	public void settrainName(String name)
 	{
-		this.trainName=trainName();
+		this.trainName=name;
 	}
 	
 	public String gettrainName()
@@ -17,9 +17,9 @@ public class Train
 		return trainName;
 	}
 	
-	public void settrainRoute(String trainRoute)
+	public void settrainRoute(String route)
 	{
-		this.trainRoute=trainRoute;
+		this.trainRoute=route;
 	}
 	
 	public String gettrainRoute()

@@ -6,14 +6,14 @@ public class Metro
 	Station station;
 	private String metroName;
 	
-	public void setmetroName(String metroName)
+	public void setmetroName(String name)
 	{
-		this.metroName=metroName;
+		this.metroName=name;
 	}
 	
 	public String  getmetroName()
 	{
-		this.metroName=metroName;
+		return metroName;
 	}
 	
 	

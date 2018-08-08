@@ -11,35 +11,37 @@ import java.util.*;
 public class Ticket
 {
 	  Scanner scan=new Scanner(System.in);
-	  DateTimeFormatter dtf=DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-	  DateTime dt=new DateTime();
-	  ArrayList<LocalDateTime>times=new ArrayList<LocalDateTime>();
+	 public  DateTimeFormatter dtf=DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+	  DateTime ct=new DateTime();
+	  public ArrayList<LocalDateTime>times=new ArrayList<LocalDateTime>();
+      public ArrayList<PassengerDetails> passengers;
+	  public int passengerno;
+	  
+    public void printTicket()
+	{  
+		
+		 passengers=new ArrayList<PassengerDetails>();
+		 System.out.println("Enter the no of passengers");
+	     passengerno=scan.nextInt();
+		 
+		for(int i=0;i<passengerno;i++)
+		{
+			passengers.add(new PassengerDetails());
+		}
+		for(int i=0;i<passengerno;i++)
+		{
+			passengers.get(i).details();
+			LocalDateTime l=ct.dateTime();
+			times.add( l);
+		}
+
+	}	
+
+	 
 	  
 	
-	  public void printTicket()
 	
-	{
-		ArrayList<PassengerDetails>passengers=new ArrayList<PassengerDetails>();
-		System.out.println("enter the no of passengers:");
-		int passengerno=scan.nextInt();
-		for(int i=0;i<passengerno;i++)
-			{
-				passengers.add(new PassengerDetails());
-			}
-		for(i=0;i<passengerno;i++)
-			{
-				passengers.get(i).details();
-				LocalDateTime l=dt.dateTime();
-				times.add(l);
-			}
-		for(i=0;i<passengerno;i++)
-			{
-				System.out.println("\t"+dtf.format(times.get(i)));
-				System.out.println("\tpassenger no:"+i);
-				passengers.get(i).show();
-				System.out.println("\t booking successful");
-			}
-	}		
+}	
 				
 			
 		
@@ -48,4 +50,3 @@ public class Ticket
 	
 	
 	
-}

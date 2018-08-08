@@ -5,7 +5,7 @@ public class Passenger
 {
       private String name;
       private int age;
-      private char gender;
+      
 	  private String destination;
 	  
 	public void setName(String name)
@@ -28,15 +28,7 @@ public class Passenger
 		return age;
 	}
 	
-	public void setGender(char gender)
-	{
-     this.gender=gender;
-	}
 	
-     public char getGender()
-	{
-		return gender;
-	}
 	
 	public void setDestination(String destination)
 	{

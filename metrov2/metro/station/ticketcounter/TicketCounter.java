@@ -1,8 +1,10 @@
 package com.lxisoft.metrov2.metro.station.ticketcounter;
-import com.lxisoft.metrov2.metro.admin.Admin;
-import com.lxisoft.metrov2.metro.Metro;
-import com.lxisoft.metrov2.metro.station.Station;
+import com.lxisoft.metrov2.admin.Admin;
 import com.lxisoft.metrov2.metro.station.train.coach.passenger.ticket.Ticket;
+import com.lxisoft.metrov2.metro.station.train.coach.passenger.PassengerDetails;
+
+import com.lxisoft.metrov2.metro.station.train.coach.Coach;
+
 import java.util.*;
 
 
@@ -11,16 +13,55 @@ public class TicketCounter
 {
 
 	Scanner scan=new Scanner(System.in);
-	Ticket ticket=new Ticket();
 	
-	 public void ticket()
-	 {
-		 
-        		 
-		System.out.println("select your coach");
-		String coachName=scan.nextLine();
-		ticket.printTicket();
-	 }
+	public String coachName,MetroName,TrainName,StationName;
+	int Coachno,coachFare;
+	Ticket ticket=new Ticket();
+	public void ticket(Admin admin)
+{
+
+
+	MetroName=admin.getMetro();
+	TrainName=admin.getTrain();	
+	StationName=admin.getStation();
+	admin.getStation();
+	admin.getTrain();
+	admin.getnoofCoach();
+	System.out.println("Choose the coach(1-AC,2-Sleeper,3-General)");
+	Coachno=scan.nextInt();
+	
+	if(Coachno==1)
+   {
+	   coachName="Ac";
+	   coachFare= admin.ac.getcoachFare();  
+   }
+   if(Coachno==2)
+   {
+	   coachName="Sleeper";
+	   coachFare= admin.sleeper.getcoachFare();  
+   }
+   if(Coachno==3)
+   {
+	   coachName="General";
+	  coachFare=admin.general.getcoachFare();  
+   }
+   
+	System.out.println("\t\tWelcome to\t"+MetroName+"\tMetro");
+  	ticket.printTicket();
+
+	  for(int i=0;i<ticket.passengerno;i++)
+	{
+	 System.out.println("\t\t"+ticket.dtf.format(ticket.times.get(i)));
+	
+	 System.out.println("Passenger no="+i+"\t\tYour Train is\t"+TrainName);
+	 ticket.passengers.get(i).showDetails();
+	System.out.println("\t\tCoach="+coachName);
+	System.out.println("\t\tCoach price="+coachFare);
+	System.out.println("\t\tStarting point="+StationName);
+	System.out.println("\t\tHappy journey");
+	System.out.println("!!!!--------Thanks for Booking------!!!!\n");
+    }
+}
+
 
 }
-		

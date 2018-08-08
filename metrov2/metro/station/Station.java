@@ -6,9 +6,9 @@ public class Station
 	Train train;
 	private String stationName;
 	
-	public void setstationName(String stationName)
+	public void setstationName(String name)
 	{
-		this.stationName=stationName();
+		this.stationName=name;
 		
 	}
 	
