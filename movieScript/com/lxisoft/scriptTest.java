@@ -1,9 +1,11 @@
 package com.lxisoft;
 import com.lxisoft.movie.*;
-public class scriptTest
+import com.lxisoft.actors.*;
+public class ScriptTest
 {
 	public static void main(String args[])
 	{
 		MovieScriptController moviescriptcontroller=new MovieScriptController();
+	    HeroController herocontroller=new HeroController();
 	}
 }

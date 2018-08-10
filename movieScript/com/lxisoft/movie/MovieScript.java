@@ -1,11 +1,12 @@
 package com.lxisoft.movie;
 public class MovieScript
 {
-private String movieName,directorName;
-public MovieScript(String movieName,String directorName)
+private String movieName,directorName,producerName;
+public MovieScript(String movieName,String directorName,String producerName)
 {
 this.movieName=movieName;
 this.directorName=directorName;	
+this.producerName=producerName;
 }
 public String getMovieName()
 {
@@ -14,5 +15,9 @@ public String getMovieName()
 public String getDirectorName()
 {
 	return directorName;
+}
+public String getProducerName()
+{
+	return producerName;
 }
 }
