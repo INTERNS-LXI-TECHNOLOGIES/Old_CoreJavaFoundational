@@ -8,7 +8,7 @@ public class Ticket
 	public void displayTicket()
 	{
 passengerDetails.showPassengerDetails();
-passengerDetails.showTicket();
+//passengerDetails.showTicket();
 	}
 
 }

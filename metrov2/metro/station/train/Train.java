@@ -5,6 +5,7 @@ public class Train
 	CoachDetails coachDetails=new CoachDetails();
 public void showTrain()
 {
+	System.out.println("\n \nWELCOME TO TRAIN");
 
 coachDetails.showCoachDetails();
 }

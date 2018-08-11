@@ -1,6 +1,6 @@
 package com.lxisoft.metrov2.metro;
 import com.lxisoft.metrov2.metro.Metro;
-import com.lxisoft.metrov2.metro.station.Station;
+import com.lxisoft.metrov2.metro.station.*;
 public class MetroDetails
 {
 	Metro metro=new Metro();

@@ -1,37 +1,50 @@
 package com.lxisoft.metrov2.metro.station.train.coach.passenger;
 import com.lxisoft.metrov2.metro.station.train.coach.passenger.Passenger;
 import java.util.Scanner;
+import java.util.*;
 public class PassengerDetails
 {
-	Passenger passenger=new Passenger();
+	 ArrayList<Passenger> passengerList=new ArrayList<Passenger>();
 	public void showPassengerDetails()
 	{
 
 		Scanner scan=new Scanner(System.in);
-		String passengerName;
-		String passengerGender;
+		String passengerName,Name;
+		String passengerGender,Gender;
 		System.out.println("\nENTER PASSENGER NUMBER");
 		int passengerNumber=scan.nextInt();
-
+		
+		
 		for(int i=0; i<passengerNumber; i++)
 		{
-			System.out.println("ENTER PASSENGER NAME");
+			passengerList.add(new Passenger());
+			Passenger passenger=new Passenger();
+			
+			System.out.println("\nENTER PASSENGER NAME");
 			passengerName=scan.next();
-			passenger.setPassengerName(passengerName);
+			passengerList.get(i).setPassengerName(passengerName);
 
-			System.out.println("ENTER PASSENGER GENDER");
+			System.out.println("\nENTER PASSENGER GENDER");
 			passengerGender=scan.next();
-			passenger.setPassengerGender(passengerGender);
+			passengerList.get(i).setPassengerGender(passengerGender);
 
+			//passengerList.add(passenger);
+			
 		}
 
+		
+		for(int i=0;i<passengerNumber;i++)
+	 {
+		  Name=passengerList.get(i).getPassengerName();
+		  Gender=passengerList.get(i).getPassengerGender();
+	  System.out.println("PASSENGER NAME " +Name);
+	  System.out.println("PASSENGER GENDER " +Gender);
+	 
+	
+	 }
+	 
 	}
 	
-	public void showTicket()
-	{
-		
-		System.out.println("\n\nPASSENGER NAME:"+passenger.getPassengerName()+ "\nPASSENGER GENDER:"+passenger.getPassengerGender());
-		
-	}
+
 	
 }

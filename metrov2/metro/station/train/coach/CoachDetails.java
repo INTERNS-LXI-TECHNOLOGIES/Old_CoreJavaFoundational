@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class CoachDetails
 {
-	//PassengerDetails passengerDetails=new passengerDetails();
+	//PassengerDetails passengerDetails=new PassengerDetails();
 	public void showCoachDetails()
 	{
 		Coach coach1=new Ac();
@@ -23,7 +23,7 @@ public class CoachDetails
 		
 		Scanner scan=new Scanner(System.in);
 		
-		System.out.println("CHOOSE YOUR COACH \n 1.AC \n 2.SLEEPER \n 3.GENERAL");
+		System.out.println("\n \nCHOOSE YOUR COACH \n 1.AC \n 2.SLEEPER \n 3.GENERAL");
 
 		int choice=scan.nextInt();
 		
