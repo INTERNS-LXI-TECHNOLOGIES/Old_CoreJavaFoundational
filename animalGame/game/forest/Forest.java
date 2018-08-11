@@ -1,8 +1,9 @@
 package com.lxisoft.animalGame.game.forest;
+import com.lxisoft.animalGame.game.animal.Animal;
 public class Forest
 {
 	private String forestName;
-	int[][] forestArea=new int[50][50];
+	Animal[][] forestArea=new Animal[50][50];
 	
 	
 	public void setForestName(String name)
@@ -24,12 +25,12 @@ public class Forest
 		{
 			for(int j=0;j<n2;j++)
 			{
-		   forestArea[i][j]=0;
+		   forestArea[i][j]=null;
 		    }
 		}
 	}
 	
-	public int[][] getForestArea()
+	public Animal[][] getForestArea()
 	{
 		return forestArea;
 	}
