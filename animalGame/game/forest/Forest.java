@@ -1,7 +1,7 @@
 package com.lxisoft.animalGame.game.forest;
 public class Forest
 {
-	String forestName;
+	private String forestName;
 	int[][] forestArea=new int[50][50];
 	
 	
@@ -24,7 +24,7 @@ public class Forest
 		{
 			for(int j=0;j<n2;j++)
 			{
-		forestArea[i][j]=0;
+		   forestArea[i][j]=0;
 		    }
 		}
 	}
