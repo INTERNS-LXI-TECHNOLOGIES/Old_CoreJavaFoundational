@@ -7,7 +7,7 @@ public class ForestControl
 	Forest forest=new Forest();
 	Animal[][] animalArray;
 	int n1,n2,i,j;
-   void setForest()
+  public  void setForest()
 	{
 		System.out.println("Enter the size of forest");
 		n1=scan.nextInt();
@@ -22,9 +22,18 @@ public class ForestControl
 		j=(int)(Math.random()*n2);
 		animalArray=forest.getForestArea();
 		animalArray[i][j]=animal;
-		
+	
 	}
-	
-	
+	  public  void getForeststatus()
+	{
+	for(int i=0;i<n1;i++)
+		{
+			for(int j=0;j<n2;j++)
+			{
+		  System.out.print( animalArray[i][j]);
+		    }
+			System.out.print("\n");
+		}
+	}
 	
 }
