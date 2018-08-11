@@ -12,6 +12,8 @@ public class Station
 	int location;
 	RateEnquiry rt;
 	BookMeal bm;
+	Coach c=new Coach();
+	RemainingSeats rem=new RemainingSeats();
 	public Station(String stationName)
 	{
 		this.stationName=stationName;
@@ -27,25 +29,26 @@ public class Station
 			System.out.println("|		   MENU				    |");
 			System.out.println("****************************************");
 			System.out.println("1.BOOK TICKET                           ");
-			System.out.println("2.CANCEL TICKET                         ");
-			System.out.println("3.SEAT AVAILABILITY                     ");
-			System.out.println("4.PLATFORM DETAILS                      ");
-			System.out.println("5.BOOK MEAL                             ");
-			System.out.println("6.TIME TABLE                            ");
-			System.out.println("7.STATION LIST                          ");
-			System.out.println("8.RATE ENQUIRY                          ");
+			System.out.println("2.SEAT AVAILABILITY                     ");
+			System.out.println("3.PLATFORM DETAILS                      ");
+			System.out.println("4.BOOK MEAL                             ");
+			System.out.println("5.TIME TABLE                            ");
+			System.out.println("6.STATION LIST                          ");
+			System.out.println("7.RATE ENQUIRY                          ");
 			System.out.println("****************************************\n");
 			System.out.println("Enter your choice(1-10)");
 			choice=sc.nextInt();
 			switch(choice)
 			{
 				case 1:
+					
+					c.printDetails();
+
 					break;
 				case 2:
+					rem.printDetails(c);
 					break;
 				case 3:
-					break;
-				case 4:
 					p=new Platform();
 					//assume there is 2 platform for each station
 					do{
@@ -58,11 +61,11 @@ public class Station
 						ch1=rd.next().charAt(0);
 					}while(ch1=='y' || ch1=='Y');
 					break;
-				case 5:
+				case 4:
 					bm=new BookMeal();
 					bm.printDetails();
 					break;
-				case 6:
+				case 5:
 					do{
 						System.out.println("******************************************");
 						System.out.println("Enter the location from which you need the timetable:\n1.ALUVA\n2.KALOOR\n3.KADAVANTHRA\n4.ERNAKULAM\n");
@@ -74,7 +77,7 @@ public class Station
 						ch1=rd.next().charAt(0);
 					}while(ch1=='y' || ch1=='Y');
 					break;
-				case 7:
+				case 6:
 					System.out.println("\n****************************************");
 					System.out.println("STATION LIST");
 					System.out.println("******************************************");
@@ -84,7 +87,7 @@ public class Station
 					System.out.println("4.ERNAKULAM");
 					System.out.println("****************************************\n");
 					break;
-				case 8:
+				case 7:
 					do{
 						rt=new RateEnquiry();
 						System.out.println("\n****************************************\nRATE ENQUIRY\n****************************************");

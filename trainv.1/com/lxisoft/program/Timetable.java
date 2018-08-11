@@ -8,7 +8,7 @@ public class Timetable
 		this.location=location;
 	}
 
-	void printTimetable()
+	public void printTimetable()
 	{
 		switch(location)
 		{
