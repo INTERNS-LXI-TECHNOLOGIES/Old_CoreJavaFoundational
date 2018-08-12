@@ -1,0 +1,36 @@
+package com.lxisoft.animalgame.forest.animals;
+public class Animals
+{
+	private String animalName;
+	private int animalEnergyLevel;
+	private int animalHungryLevel;
+
+	public void setAnimalName(String name)
+	{
+		this.animalName=name;
+	}
+
+	public String getAnimalName()
+	{
+		return animalName;
+	}
+
+	public void setEnergyLevel(int energyLevel)
+	{
+		this.animalEnergyLevel=energyLevel;
+	}
+
+	public int getEnergyLevel()
+	{
+		return animalEnegyLevel;
+	}
+	public void setHungryLevel(int hungryLevel)
+	{
+		this.animalHungryLevel=hungryLevel;
+	}
+
+	public int getHungryLevel()
+	{
+		return animalHungryLevel;
+	}
+}
