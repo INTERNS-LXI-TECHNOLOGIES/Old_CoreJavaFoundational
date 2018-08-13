@@ -4,7 +4,7 @@ public class VillainController
 {
 	private Villain villain;
 	private VillainView villainview;
-	private String villainName;
+	private String villainName,villainCharaName;
 	public VillainController()
 	{
 		villainDetail();
@@ -13,9 +13,12 @@ public class VillainController
 	{
 		Scanner input=new Scanner(System.in);
 		villainview=new VillainView();
-		villainview.askName();
+		villainview.askVillainName();
 		villainName=input.nextLine();
+		villainview.askVillainCharaName();
+		villainCharaName=input.nextLine();
 		villain=new Villain();
 		villain.setVillainName(villainName);
+		villain.setVillainCharaName(villainCharaName);
 	}
 }

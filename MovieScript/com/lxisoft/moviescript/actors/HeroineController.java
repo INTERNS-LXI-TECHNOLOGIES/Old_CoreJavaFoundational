@@ -4,7 +4,7 @@ public class HeroineController
 {
 	private Heroine heroine;
 	private HeroineView heroineview;
-	private String heroineName;
+	private String heroineName,heroineCharaName;
 	public HeroineController()
 	{
 		heroineDetail();
@@ -13,9 +13,12 @@ public class HeroineController
 	{
 		Scanner input=new Scanner(System.in);
 		heroineview=new HeroineView();
-		heroineview.askName();
+		heroineview.askHeroineName();
 		heroineName=input.nextLine();
+		heroineview.askHeroineCharaName();
+		heroineCharaName=input.nextLine();
 		heroine=new Heroine();
 		heroine.setHeroineName(heroineName);
+		heroine.setHeroineCharaName(heroineCharaName);
 	}
 }

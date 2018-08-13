@@ -8,6 +8,8 @@ public class ScriptTestDrive
 		MovieScriptController mscon=new MovieScriptController();
 		HeroController herocon=new HeroController(); 
 		HeroineController heroinecon=new HeroineController(); 
-		VillainController villaincon=new VillainController(); 
+		VillainController villaincon=new VillainController();
+		ComedianController comediancon=new ComedianController();
+		
 	}
 }

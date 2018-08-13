@@ -4,7 +4,7 @@ public class HeroController
 {
 	private Hero hero;
 	private HeroView heroview;
-	private String heroName;
+	private String heroName,heroCharaName;
 	public HeroController()
 	{
 		heroDetail();
@@ -13,9 +13,12 @@ public class HeroController
 	{
 		Scanner input=new Scanner(System.in);
 		heroview=new HeroView();
-		heroview.askName();
+		heroview.askHeroName();
 		heroName=input.nextLine();
+		heroview.askHeroCharaName();
+		heroCharaName=input.nextLine();
 		hero=new Hero();
 		hero.setHeroName(heroName);
+		hero.setHeroCharaName(heroCharaName);
 	}
 }
