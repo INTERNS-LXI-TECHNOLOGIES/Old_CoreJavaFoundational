@@ -10,6 +10,7 @@ public class AnimalGame
 		forest.setForest();
 		forest.setAnimalLocation(lion);
 		forest.getForeststatus();
+		
 	}
 	
 	

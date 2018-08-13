@@ -27,10 +27,10 @@ public class ForestControl
 	  public  void getForeststatus()
 	{
 	for(int i=0;i<n1;i++)
-		{
+		{  System.out.print( "\t\t\t");
 			for(int j=0;j<n2;j++)
 			{
-		  System.out.print( animalArray[i][j]);
+		  System.out.print( animalArray[i][j]+"\t"); 
 		    }
 			System.out.print("\n");
 		}

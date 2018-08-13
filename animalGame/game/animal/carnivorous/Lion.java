@@ -4,6 +4,7 @@ public class Lion extends Animal implements Carnivorous
 {
 public void eat()
 	{
+	System.out.println(energyLevel);
 	}
 
 }
