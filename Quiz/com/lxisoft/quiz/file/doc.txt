@@ -1,5 +1,0 @@
-deepthi;1234;
-sumi;12345;
-balu;567;
-ansal;890;
-sreeraj;2345;

@@ -10,8 +10,8 @@ public class ScriptTest
 	{
 		MovieScriptController moviescriptcontroller=new MovieScriptController();
 	    HeroController herocontroller=new HeroController();
-		HeroinController heroincontroller=new HeroinController();
-		VillianController villiancontroller=new VillianController();
+		HeroineController heroinecontroller=new HeroineController();
+		VillainController villaincontroller=new VillainController();
 		ComedianController comediancontroller=new ComedianController();
 		// fw=new FileWriter("text");
 		//fw.close();

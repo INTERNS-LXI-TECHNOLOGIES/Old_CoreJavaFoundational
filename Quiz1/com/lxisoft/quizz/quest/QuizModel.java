@@ -5,5 +5,5 @@ import com.lxisoft.quizz.quest.QuestionModel;
 public class QuizModel
 {
 	private UserModel[] usermodel;
-	private QuestionModel[] questionmodel;
+	//private QuestionModel[] questionmodel;
 }

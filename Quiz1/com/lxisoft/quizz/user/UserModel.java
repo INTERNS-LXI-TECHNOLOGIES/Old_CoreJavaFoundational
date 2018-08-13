@@ -1,6 +1,7 @@
 package com.lxisoft.quizz.user;
 public class UserModel
 {
+	
 	private String username,password;
 	public void setUsername(String username)
 	{

@@ -1,12 +1,13 @@
-package com.lxisoft.quizz.quest;
+package com.lxisoft.quize.User;
+import com.lxisoft.quize.Quize.*;
+import com.lxisoft.quize.clear.*;
+import java.io.*;
 import java.util.*;
-import java.io.FileReader;
-import java.io.File;
-import java.io.BufferedReader;
 import java.io.IOException;
-public class QuestionController
-{File file1= ("./quizev1.0/Files/questions.txt");
 
+public class User{
+	private static final String FILENAME2 = "./quizev1.0/Files/questions.txt";
+	private static final String FILENAME1 = "./quizev1.0/Files/credentials.txt";
 	FileWriter fw = null;
     BufferedWriter bw = null;
 	Questions[] q = new Questions[20];
@@ -71,7 +72,7 @@ public class QuestionController
 						}
 				case 2: if(ch==1){
 					    mark+=5;break;
-						 }
+				        }
 						else if(ch==2){
 						mark+=10;break;
 						}
@@ -259,5 +260,4 @@ public void cls()
 			
 		}
 	}
-
 }

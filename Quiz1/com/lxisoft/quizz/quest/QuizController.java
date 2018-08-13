@@ -1,5 +1,6 @@
 package com.lxisoft.quizz.quest;
 import com.lxisoft.quizz.quest.*;
+import com.lxisoft.quizz.clear.*;
 import java.util.*;
 import java.io.FileReader;
 import java.io.File;
@@ -40,7 +41,7 @@ public class QuizController
 		if (count>0)
 		{
 			quizview.loginSucceed();
-			
+			cls();
 		}
 		else
 		{
@@ -52,6 +53,22 @@ public class QuizController
 			System.out.println("IOException");
 		}	
 	}
+	public void cls()
+	{
+		Cls clrscr=new Cls();
+		try
+		{
+			clrscr.cls();
+		}
+		catch (IOException e)
+		{
+			
+		}
+		catch (InterruptedException e)
+		{
+			
+		}
+	}	
 	public void loadQuestion()
 	{
 		
