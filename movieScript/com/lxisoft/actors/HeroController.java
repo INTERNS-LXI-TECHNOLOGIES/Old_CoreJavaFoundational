@@ -3,9 +3,9 @@ package com.lxisoft.actors;
 import java.util.Scanner;
 public class HeroController
 {
-	private String heroName,charactorName;
+	private String heroName,heroCharactorName;
 	private HeroView heroview;
-	private Hero hero=new Hero(heroName,charactorName);
+	private Hero hero=new Hero(heroName,heroCharactorName);
 	public HeroController()
 	{
 		heroDetails();
@@ -16,7 +16,7 @@ public class HeroController
 		heroview.askHeroName();
 		Scanner input=new Scanner(System.in);
 		heroName=input.nextLine();
-		heroview.askCharactorName();
-		charactorName=input.nextLine();
+		heroview.askHeroCharactorName();
+		heroCharactorName=input.nextLine();
 	}
 }

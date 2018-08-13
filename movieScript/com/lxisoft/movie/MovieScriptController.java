@@ -6,6 +6,7 @@ public class MovieScriptController
 	private String movieName,directorName,producerName;
 	private MovieScriptView moviescriptview=new MovieScriptView();
 	private MovieScript moviescript=new MovieScript(movieName,directorName,producerName);
+	//private Scene scene;
 	
 	
 	public MovieScriptController()	

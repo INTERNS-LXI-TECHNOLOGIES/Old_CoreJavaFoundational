@@ -5,7 +5,7 @@ public class HeroView
 	{
 		System.out.println("Enter the Hero Name:");
 	}
-	public void askCharactorName()
+	public void askHeroCharactorName()
 	{
 		System.out.println("Enter the Charactor Name:");	
 	}

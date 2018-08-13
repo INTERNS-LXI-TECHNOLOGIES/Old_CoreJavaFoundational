@@ -2,19 +2,19 @@ package com.lxisoft.actors;
 
 public class Hero
 {
-private  String heroName,charactorName;
+private  String heroName,heroCharactorName;
 public Hero(String heroName,String charactorName)
 {
 	this.heroName=heroName;
-	this.charactorName=charactorName;
+	this.heroCharactorName=heroCharactorName;
 }
 public String getHeroName()
 {
 	return heroName;
 }
-public String getCharactorName()
+public String getHeroCharactorName()
 {
-	return charactorName;
+	return heroCharactorName;
 }
  	
 }
