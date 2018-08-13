@@ -28,9 +28,9 @@ public void setForestArea(int m,int n)
 		}
 	}
 }
-/*public int[][] getForestArea()
+public Animal[][] getForestArea()
 {
 	return this.forestArea;
 	
-}*/
+}
 }
