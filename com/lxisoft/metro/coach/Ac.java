@@ -12,10 +12,5 @@ public class Ac extends Coach
 		coachPrice=1000;
 	}
 
-		
-		
-
-		
-	
 	
 }

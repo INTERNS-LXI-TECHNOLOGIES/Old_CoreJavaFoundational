@@ -61,11 +61,6 @@ public Coach()
 		}
 		setTicket(train);
 		
-		
-	
-	
-	
-		
 	}
 	
 	void setTicket(Train train)

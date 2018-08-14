@@ -12,7 +12,4 @@ public class Sleeper extends Coach
 		coachPrice=500;
 	}
 	
-	
-	
-	
 }

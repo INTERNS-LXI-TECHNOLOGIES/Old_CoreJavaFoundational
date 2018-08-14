@@ -14,16 +14,13 @@ public class Train
 		sleeper=new Sleeper();
 	}
 	
-	public  void setTrainDetails(String trainName,int trainNo,String startStation,String stopStation)
+	public  void setTrainDetails(String trainName,int trainNo)
 	{
 		this.trainName=trainName;
 		this.trainNo=trainNo;
-		this.startStation=startStation;
-		this.stopStation=stopStation;
 		
-		
-	
-		System.out.println(this.trainName);
+		System.out.print(this.trainName+" ");
+		System.out.println(this.trainNo);
 	}
 	
 	
@@ -47,7 +44,6 @@ public class Train
 					break;
 			case 3:	sleeper.vacancy(train);
 					break;
-			
 			
 			default:System.out.println("Invalid Choice");break;
 		}

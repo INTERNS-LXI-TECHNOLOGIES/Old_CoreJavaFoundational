@@ -11,7 +11,5 @@ public class General extends Coach
 		coachName="GENERAL";
 		coachPrice=100;
 	}
-	
-
 		
 }

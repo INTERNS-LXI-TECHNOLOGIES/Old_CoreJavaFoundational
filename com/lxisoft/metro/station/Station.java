@@ -7,10 +7,10 @@ public class Station
 {
 	ArrayList<Train> trains=new ArrayList<Train>();
 
-	Train maveli=new Train();
-	Train parasuram=new Train();
-	Train egmore=new Train();
-	Train gareebrath=new Train();
+	Train train1=new Train();
+	Train train2=new Train();
+	Train train3=new Train();
+	Train train4=new Train();
 	
 
 	public Station()
@@ -22,14 +22,14 @@ public class Station
 	
 	public void addTrain()
 	{
-		trains.add(maveli);
-		trains.add(parasuram);
-		trains.add(egmore);
-		trains.add(gareebrath);
-		maveli.setTrainDetails("Maveli",612358,"Shornur","Ernakulam");
-		parasuram.setTrainDetails("Parasuram",612358,"Shornur","Ernakulam");
-		egmore.setTrainDetails("Egmore",612358,"Shornur","Ernakulam");
-		gareebrath.setTrainDetails("Gareebrath",612358,"Shornur","Ernakulam");
+		trains.add(train1);
+		trains.add(train2);
+		trains.add(train3);
+		trains.add(train4);
+		train1.setTrainDetails("Train1",12345);
+		train2.setTrainDetails("Train2",12346);
+		train3.setTrainDetails("Train3",12347);
+		train4.setTrainDetails("Train4",12348);
 	}
 		
 	public void searchTrain()
@@ -39,9 +39,7 @@ public class Station
 		Scanner scan=new Scanner(System.in);
 		System.out.print("Enter train name:");
 		String trainName=scan.next();
-		//System.out.print("Source & Destination:");
-		//String source=scan.next();
-		//String destination=scan.next();
+		
 		
 		for(Train train:trains)
 		{
