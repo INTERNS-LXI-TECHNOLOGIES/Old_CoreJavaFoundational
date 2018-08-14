@@ -6,12 +6,18 @@ public class Tiger extends Animal implements Carnivorous
 {
 	AnimalLevel level=new AnimalLevel();
 	
-	public void eat()
+		public void eat()
 	{
-		level.settingLevel();
 	}
-
 	
+		public void create()
+		{
+		level.settingLevel();
+		  System.out.println(level.getHungryLevel());
+	
+		}
+	
+
 	
 	
 	

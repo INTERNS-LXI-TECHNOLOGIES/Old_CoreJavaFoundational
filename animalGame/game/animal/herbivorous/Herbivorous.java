@@ -1,4 +1,4 @@
-package com.lxisoft.animalGame.animal.herbivorous;
+package com.lxisoft.animalGame.game.animal.herbivorous;
 public interface Herbivorous
 {
 	

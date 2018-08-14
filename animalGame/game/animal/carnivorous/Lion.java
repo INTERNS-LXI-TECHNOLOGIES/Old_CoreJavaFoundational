@@ -8,10 +8,15 @@ public class Lion extends Animal implements Carnivorous
 	
 	public void eat()
 	{
-		level.settingLevel();
-	
-	
 	}
 	
+		public void create()
+		{
+		level.settingLevel();
+		 System.out.println(level.getHungryLevel());
+	
+		}
+	
+
 
 }

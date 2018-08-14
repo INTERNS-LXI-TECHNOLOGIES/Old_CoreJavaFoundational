@@ -6,9 +6,19 @@ public class AnimalLevel
 	{   int Energylevel,Hungrylevel;
 		Energylevel=(int)(Math.random()*50)+50;
 		animal.setEnergyLevel(Energylevel);
-		System.out.println(animal.getEnergyLevel());
+		
 		Hungrylevel=(int)(Math.random()*50)+50;
 		animal.setHungryLevel(Hungrylevel);
-		System.out.println(animal.getHungryLevel());
+		
+	}
+	public int getEnergyLevel()
+	{
+		int i=animal.getEnergyLevel();
+		return i;
+	}
+	public int getHungryLevel()
+	{
+		int i=animal.getHungryLevel();
+		return i;
 	}
 }
