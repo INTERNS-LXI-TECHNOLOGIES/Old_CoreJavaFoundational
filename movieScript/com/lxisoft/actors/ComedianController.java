@@ -1,21 +1,39 @@
 package com.lxisoft.actors;
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 public class ComedianController
 {
 	private String comedianName,comedianCharactorName;
 	private ComedianView comedianview;
-	private Comedian comedian=new Comedian(comedianName,comedianCharactorName);
+	private Comedian comedian;
 	public ComedianController()
 	{
 		comedianDetails();
 	}
 	public void comedianDetails()
 	{
+		try
+		{
+		File comedianfile=new File("C:/Users/Windows 10/Desktop/000-workspace/Team1/movieScript/com/lxisoft/file/Comedian.txt");
+		FileWriter comedianfw=new FileWriter(comedianfile);
+		Scanner input=new Scanner(System.in);
 		comedianview=new ComedianView();
 		comedianview.askComedianName();
-		Scanner input=new Scanner(System.in);
 		comedianName=input.nextLine();
+		comedianfw.write(comedianName);
+		String newLine=("\n");
+		comedianfw.write(newLine);
 		comedianview.askComedianCharactorName();
 		comedianCharactorName=input.nextLine();
+		comedianfw.write(comedianCharactorName);
+		comedianfw.close();
+		comedian=new Comedian(comedianName,comedianCharactorName);
+		}
+		catch(IOException e)
+		{
+			System.out.println("IOException");
+		}
 	}
 }
