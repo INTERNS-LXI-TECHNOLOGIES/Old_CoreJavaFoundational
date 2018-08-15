@@ -6,7 +6,8 @@ public class ForestControl
 	Scanner scan=new  Scanner(System.in);
 	Forest forest=new Forest();
 	Animal[][] animalArray;
-	int n1,n2,i,j;
+	int n1,n2,animalCount=0;
+	double[] distance=new double[10];
   public  void setForest()
 	{
 		System.out.println("Enter the size of forest");
@@ -17,11 +18,15 @@ public class ForestControl
 	}
 	
 	public void setAnimalLocation(Animal animal)
-	{
-		i=(int)(Math.random()*n1);
+	{  int i,j;
+		do
+		{i=(int)(Math.random()*n1);
 		j=(int)(Math.random()*n2);
 		animalArray=forest.getForestArea();
+		}
+		while(animalArray[i][j]!=null);
 		animalArray[i][j]=animal;
+		
 	
 	}
 	  public  void getForeststatus()
@@ -34,6 +39,36 @@ public class ForestControl
 		    }
 			System.out.print("\n");
 		}
+		System.out.print("\n");
 	}
+	public void setDistance(int m,int n)
+	{
+		int breadth,length;
+		for(int i=0;i<n1;i++)
+		{
+			for(int j=0;j<n2;j++)
+			{
+				if(animalArray[i][j]!=null)
+				{
+					breadth=j-n;
+					length=i-m;
+				
+				distance[animalCount]=Math.sqrt((breadth*breadth) +(length*length));
+				animalCount++;
+				}
+			}
+		}
+					
+		
+	}
+	public double[] getDistance()
+	{
+		return distance;
+	}
+	public int animalCount()
+	{
+		return animalCount;
+	}
+				
 	
 }

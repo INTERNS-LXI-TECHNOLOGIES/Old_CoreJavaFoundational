@@ -5,7 +5,10 @@ import com.lxisoft.animalGame.game.animal.carnivorous.Lion;
 import com.lxisoft.animalGame.game.animal.carnivorous.Tiger;
 import com.lxisoft.animalGame.game.animal.herbivorous.Rabbit;
 public class AnimalGame
-{   Lion lion=new Lion();
+
+{  
+	double[] distance;
+	Lion lion=new Lion();
 	Tiger tiger=new Tiger();
 	Rabbit rabbit=new Rabbit();
 	ForestControl forest=new ForestControl();
@@ -22,6 +25,11 @@ public class AnimalGame
 		forest.getForeststatus();
 		forest.setAnimalLocation(rabbit);
 		forest.getForeststatus();
+		forest.setDistance(0,0);
+		distance=forest.getDistance();
+		for(int i=0;i<forest.animalCount();i++)
+		{System.out.println("Distance="+distance[i]);
+		}
 		
 	}
 	
