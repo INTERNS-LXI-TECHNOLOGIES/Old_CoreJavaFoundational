@@ -65,9 +65,23 @@ public class ForestControl
 	{
 		return distance;
 	}
-	public int animalCount()
+	public int getanimalCount()
 	{
 		return animalCount;
+	}
+	public void getanimallocation(Animal animal)
+	{
+		for(int i=0;i<n1;i++)
+		{  
+			for(int j=0;j<n2;j++)
+			{
+				if( animalArray[i][j]==animal)
+				{
+				System.out.println( "The cordinates of the "+animal+"is "+i+j); 		  
+				}
+			}
+			
+		}
 	}
 				
 	
