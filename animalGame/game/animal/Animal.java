@@ -3,7 +3,7 @@ public class Animal
 {
 	
 	public int energyLevel,hungryLevel;
-	 
+	public String animaltype;
    public void setEnergyLevel(int level)
     {
     this.energyLevel=level;
@@ -24,6 +24,15 @@ public class Animal
     {
     return hungryLevel;
     }
+	 public void setanimaltype(String animaltype)
+    {
+    this.animaltype=animaltype;
+    }
+	
+	public String getanimaltype()
+	{
+	return animaltype;
+	}
 	
 	
 }

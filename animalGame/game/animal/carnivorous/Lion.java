@@ -5,6 +5,7 @@ import java.util.*;
 public class Lion extends Animal implements Carnivorous
 {
 	AnimalLevel level=new AnimalLevel();
+	public String type="Carnivorous";
 	
 	public void eat()
 	{
@@ -14,6 +15,7 @@ public class Lion extends Animal implements Carnivorous
 		{
 		level.settingLevel();
 		 System.out.println(level.getHungryLevel());
+		 setanimaltype(type);
 	
 		}
 	

@@ -5,6 +5,7 @@ package com.lxisoft.animalGame.game.animal.carnivorous;
 public class Tiger extends Animal implements Carnivorous 
 {
 	AnimalLevel level=new AnimalLevel();
+	public String type="Carnivorous";
 	
 		public void eat()
 	{
@@ -13,7 +14,8 @@ public class Tiger extends Animal implements Carnivorous
 		public void create()
 		{
 		level.settingLevel();
-		  System.out.println(level.getHungryLevel());
+		System.out.println(level.getHungryLevel());
+		setanimaltype(type);
 	
 		}
 	

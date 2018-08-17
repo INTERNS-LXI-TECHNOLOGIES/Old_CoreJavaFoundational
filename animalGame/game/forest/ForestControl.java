@@ -75,14 +75,60 @@ public class ForestControl
 		{  
 			for(int j=0;j<n2;j++)
 			{
+				
 				if( animalArray[i][j]==animal)
 				{
-				System.out.println( "The cordinates of the "+animal+"is "+i+j); 		  
+					
+				System.out.println( "The cordinates of the "+animal+"is "+i+j); 
+					
 				}
 			}
 			
 		}
 	}
+	public void animalFight(Animal animal1,Animal animal2)
+	 {  
+	    System.out.println( "fighting");
+		if(animal1.animaltype=="Carnivorous")
+		{
+		 if(animal2.animaltype=="Carnivorous")
+		 {
+			 if(animal1.energyLevel>animal2.energyLevel)
+			 {
+				animal1.energyLevel=animal1.energyLevel-animal2.energyLevel; 
+				kill(animal2);
+			 }
+			 else
+			 {
+				 animal2.energyLevel=animal2.energyLevel-animal1.energyLevel; 
+				 kill(animal1);
+			 }
+		 }
+		}
+		  if(animal2.animaltype=="Carnivorous")
+		 {
+			 if(animal1.energyLevel>animal2.energyLevel)
+			 {
+			 }
+		 }
+	 }
+	public void kill(Animal animal)
+	 {
+		 
+		 	for(int i=0;i<n1;i++)
+		{  
+			for(int j=0;j<n2;j++)
+			{
+				if( animalArray[i][j]==animal)
+				{
+				System.out.println( "The cordinates of the "+animal+"which dead on the fight is "+i+j); 
+					animalArray[i][j]=null;
+				}
+			}
+			
+		}
+	 }
+		
 				
 	
 }

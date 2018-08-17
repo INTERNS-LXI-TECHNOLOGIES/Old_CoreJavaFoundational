@@ -14,7 +14,7 @@ public class Deer extends Animal implements Herbivorous
 		public void create()
 		{
 		level.settingLevel();
-		 // System.out.print(level.getHungryLevel());
+		  System.out.print(level.getHungryLevel());
 	
 		}
 	
