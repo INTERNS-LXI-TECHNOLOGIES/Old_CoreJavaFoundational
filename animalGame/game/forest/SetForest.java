@@ -22,11 +22,24 @@ public class SetForest
 		
 	}
 	
-	/*public void AnimalLocation(Animal animal)
+	public void AnimalLocation(Animal animal)
 	{
 		i=(int)(Math.random()*m);
 		j=(int)(Math.random()*n);
 		animalArray=forest.getForestArea();
 		animalArray[i][j]=animal;
-	}*/
+	}
+
+	
+	public void ForestStatus()
+	{
+		for (int i=0;i<m;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
+				System.out.println(animalArray[i][j]);
+			
+			}
+		}
+	}
 }

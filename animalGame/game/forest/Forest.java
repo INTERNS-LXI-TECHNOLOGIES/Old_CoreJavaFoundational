@@ -30,7 +30,7 @@ public void setForestArea(int m,int n)
 }
 public Animal[][] getForestArea()
 {
-	return this.forestArea;
+	return forestArea;
 	
 }
 }
