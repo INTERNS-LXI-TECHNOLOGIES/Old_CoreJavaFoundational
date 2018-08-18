@@ -6,7 +6,6 @@ public class AnimalLevel
 	{   int Energylevel,Hungrylevel;
 		Energylevel=(int)(Math.random()*50)+50;
 		animal.setEnergyLevel(Energylevel);
-		
 		Hungrylevel=(int)(Math.random()*50)+50;
 		animal.setHungryLevel(Hungrylevel);
 		

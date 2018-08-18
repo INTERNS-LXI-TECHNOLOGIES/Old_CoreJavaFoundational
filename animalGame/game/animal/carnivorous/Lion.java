@@ -4,8 +4,8 @@ import com.lxisoft.animalGame.game.animal.AnimalLevel;
 import java.util.*;
 public class Lion extends Animal implements Carnivorous
 {
-	AnimalLevel level=new AnimalLevel();
-	public String type="Carnivorous";
+	
+	private String type;
 	
 	public void eat()
 	{
@@ -13,9 +13,13 @@ public class Lion extends Animal implements Carnivorous
 	
 		public void create()
 		{
-		level.settingLevel();
-		 System.out.println(level.getHungryLevel());
-		 setanimaltype(type);
+		int Energylevel,Hungrylevel;
+		Energylevel=(int)(Math.random()*50)+50;
+		setEnergyLevel(Energylevel);
+		Hungrylevel=(int)(Math.random()*50)+50;
+		setHungryLevel(Hungrylevel);
+		 System.out.println(getEnergyLevel());
+		 setanimaltype("Carnivorous");
 	
 		}
 	

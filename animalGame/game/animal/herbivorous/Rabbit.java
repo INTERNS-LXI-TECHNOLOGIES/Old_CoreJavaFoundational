@@ -1,20 +1,24 @@
 package com.lxisoft.animalGame.game.animal.herbivorous;
 import com.lxisoft.animalGame.game.animal.Animal;
-import com.lxisoft.animalGame.game.animal.AnimalLevel;
 public class Rabbit extends Animal implements Herbivorous
 {
 	
 	
-	AnimalLevel level=new AnimalLevel();
+	public String type;
 	
 	public void eaten()
 	{
 	}
 	
-		public void create()
+	public void create()
 		{
-		level.settingLevel();
-		  System.out.println(level.getHungryLevel());
+		int Energylevel,Hungrylevel;
+		Energylevel=(int)(Math.random()*50)+50;
+		setEnergyLevel(Energylevel);
+		Hungrylevel=(int)(Math.random()*50)+50;
+		setHungryLevel(Hungrylevel);
+		 System.out.println(getEnergyLevel());
+		 setanimaltype("Herbivorous");
 	
 		}
 	

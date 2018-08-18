@@ -4,18 +4,23 @@ package com.lxisoft.animalGame.game.animal.carnivorous;
  import java.util.*;
 public class Tiger extends Animal implements Carnivorous 
 {
-	AnimalLevel level=new AnimalLevel();
-	public String type="Carnivorous";
+	//public AnimalLevel level=new AnimalLevel();
+	private String type;
 	
 		public void eat()
 	{
 	}
 	
+		
 		public void create()
 		{
-		level.settingLevel();
-		System.out.println(level.getHungryLevel());
-		setanimaltype(type);
+		int Energylevel,Hungrylevel;
+		Energylevel=(int)(Math.random()*50)+50;
+		setEnergyLevel(Energylevel);
+		Hungrylevel=(int)(Math.random()*50)+50;
+		setHungryLevel(Hungrylevel);
+		 System.out.println(getEnergyLevel());
+		 setanimaltype("Carnivorous");
 	
 		}
 	

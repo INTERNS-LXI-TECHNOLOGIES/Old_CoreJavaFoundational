@@ -36,6 +36,8 @@ public class AnimalGame
 		animalLocation();
 		forest.animalFight(lion,tiger);
 		forest.getForeststatus();
+		forest.animalFight(lion,deer);
+		forest.getForeststatus();
 	}
 	 void animalLocation()
 	 {

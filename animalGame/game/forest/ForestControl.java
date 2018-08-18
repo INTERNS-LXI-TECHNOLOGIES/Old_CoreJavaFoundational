@@ -1,5 +1,7 @@
 package com.lxisoft.animalGame.game.forest;
 import com.lxisoft.animalGame.game.animal.Animal;
+import com.lxisoft.animalGame.game.animal.AnimalLevel;
+import com.lxisoft.animalGame.game.animal.carnivorous.Lion;
 import java.util.*;
 public class ForestControl
 {
@@ -88,29 +90,70 @@ public class ForestControl
 	}
 	public void animalFight(Animal animal1,Animal animal2)
 	 {  
+	 int energy=15,energyLevel1,hungryLevel1,energyLevel2,hungryLevel2;
+	 energyLevel1=animal1.getEnergyLevel();
+	 hungryLevel1= animal1.getHungryLevel();
+	 energyLevel2=animal2.getEnergyLevel();
+	 hungryLevel2= animal2.getHungryLevel();
+
 	    System.out.println( "fighting");
-		if(animal1.animaltype=="Carnivorous")
+		if(animal1.getanimaltype()=="Carnivorous")
 		{
-		 if(animal2.animaltype=="Carnivorous")
+			System.out.println(animal2.getanimaltype()+energyLevel2);
+		
+		 if(animal2.getanimaltype()=="Carnivorous")
 		 {
-			 if(animal1.energyLevel>animal2.energyLevel)
+			 if(energyLevel1> energyLevel2)
 			 {
-				animal1.energyLevel=animal1.energyLevel-animal2.energyLevel; 
+	
+				 energyLevel1=energyLevel1- energyLevel2; 
+				  hungryLevel1= hungryLevel1+( energyLevel2/2);
+				  System.out.println( "The  "+animal1+"has beaten the"+animal2);
 				kill(animal2);
+				
 			 }
 			 else
 			 {
-				 animal2.energyLevel=animal2.energyLevel-animal1.energyLevel; 
+				 energyLevel2=energyLevel2-energyLevel1; 
+				 hungryLevel2= hungryLevel2+(energyLevel1/2);
+				   System.out.println( "The  "+animal2+"has eaten the"+animal1);
 				 kill(animal1);
 			 }
 		 }
-		}
-		  if(animal2.animaltype=="Carnivorous")
+		
+		 if(animal2.getanimaltype()=="Herbivorous")
 		 {
-			 if(animal1.energyLevel>animal2.energyLevel)
-			 {
+			 System.out.println( "Herbivorous  ");
+			
+			 if(energyLevel1> energyLevel2)
+			 { System.out.println( "Herbivorous0  ");
+				 energyLevel1=energyLevel1- energyLevel2;
+				 hungryLevel1= hungryLevel1-( energyLevel2/2);
+				  System.out.println( "The  "+animal1+"has eaten the"+animal2);
+				 kill(animal2);
+				 energyLevel1=energyLevel1+energy;
 			 }
+		 
+		 else
+		 { System.out.println( "Herbivorous1  ");
+			energyLevel1=0;
+			  energyLevel2= energyLevel2-energyLevel1; 
+			  hungryLevel1=hungryLevel2+(energyLevel1/2);
+			 if(hungryLevel1>100)
+			 {
+				 System.out.println( "The animal "+animal1+"is dead due to increase in Hunger level."); 
+					
+				 kill(animal1);
+			 }
+			 else
+			 {
+				  energyLevel1=energyLevel1+energy;
+			 }
+			  System.out.println( "The animal "+animal2+"has escaped from"+animal1); 
+			  energyLevel2= energyLevel2+energy;
 		 }
+		}
+	 }
 	 }
 	public void kill(Animal animal)
 	 {

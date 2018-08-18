@@ -2,8 +2,8 @@ package com.lxisoft.animalGame.game.animal;
 public class Animal
 {
 	
-	public int energyLevel,hungryLevel;
-	public String animaltype;
+	private int energyLevel,hungryLevel;
+	private String animaltype;
    public void setEnergyLevel(int level)
     {
     this.energyLevel=level;
