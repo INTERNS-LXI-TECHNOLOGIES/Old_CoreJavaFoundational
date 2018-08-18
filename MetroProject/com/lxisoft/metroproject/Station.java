@@ -7,11 +7,12 @@ public class Station
 	int tot_platform;
 	ArrayList<Train> trains=new ArrayList<Train>();
 	Train mangaloremail=new Train();
+	Train allepey=new Train();
 	public Station()
 	{
 		stationDetails();
-		platformDetails();
 		addTrainDetails();
+		searchTrain();
 	}
 	public void stationDetails()
 	{
@@ -21,26 +22,35 @@ public class Station
 		System.out.println("Enter the Station Code:");
 		station_code=sc.nextLine();
 	}
-	public void platformDetails()
-	{
-		Scanner p=new Scanner(System.in);
-		System.out.println("Enter the total number of platforms in a station:");
-		tot_platform=p.nextInt();
-	}
 	public void addTrainDetails()
 	{
 		trains.add(mangaloremail);
-		mangaloremail.setTrainDetails("Mangalore Mail",12601,"WAP 4A","Chennai","Mangalore");
+		trains.add(allepey);
+		mangaloremail.setTrainDetails("Mangalore Mail",12601);
+		allepey.setTrainDetails("Allepey Express",22460);
 	}
+	public void searchTrain()
+	{
 		
+		Scanner t=new Scanner(System.in);
+		System.out.println("        Search the train       ");
+		System.out.println("Enter the train name:");
+		String train_name=t.nextLine();
+		for(Train train:trains)
+		{
+				
+				if(train.getTrainName().equals(train_name))
+				{
+				System.out.println("Train Found");
+				train.vacant(train);
+				break;
+				}
+		}
+			
+	}
 	public void printDetails()
 	{
 		System.out.println("Station Location:"+station_location);
 		System.out.println("Station Code:"+station_code);
-		System.out.println("Total Number of platforms are:"+tot_platform);
-		for(int i=0;i<trains.size();i++)
-		{
-		trains.get(i).printTrainDetails();
-		}
 	}
 }

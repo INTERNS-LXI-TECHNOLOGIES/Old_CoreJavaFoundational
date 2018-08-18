@@ -11,13 +11,10 @@ public class Train
 		sleeper=new Sleeper();
 		ac=new Ac();
 	}
-	public void setTrainDetails(String train_name,int train_number,String engine_number,String source,String destination)
+	public void setTrainDetails(String train_name,int train_number)
 	{
 		this.train_name=train_name;
 		this.train_number=train_number;
-		this.engine_number=engine_number;
-		this.source=source;
-		this.destination=destination;
 	}
 	public String getTrainName()
 	{
@@ -27,12 +24,24 @@ public class Train
 	{
 		return train_number;
 	}
-	public void printTrainDetails()
+	public void vacant(Train train)
 	{
-		System.out.println("Train Name:"+train_name);
-		System.out.println("Train Number:"+train_number);
-	}
-	
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Coach type:\n1.Sleeper\n2.General\n3.AC");
+		int coachType=sc.nextInt();
+		switch(coachType)
+		{
+			case 0:System.exit(0);
+			case 1:sleeper.vacancy(train);
+					break;
+			case 2:general.vacancy(train);
+					break;
+			case 3:ac.vacancy(train);
+					break;
+			default:System.out.println("Invalid Choice");
+					break;
+		}
+	}		
 }
 
 	
