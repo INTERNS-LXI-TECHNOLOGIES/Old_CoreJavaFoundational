@@ -1,6 +1,5 @@
 package com.lxisoft.animalGame.game.forest;
 import com.lxisoft.animalGame.game.animal.Animal;
-import com.lxisoft.animalGame.game.animal.AnimalLevel;
 import com.lxisoft.animalGame.game.animal.carnivorous.Lion;
 import java.util.*;
 public class ForestControl
@@ -116,7 +115,7 @@ public class ForestControl
 			 {
 				 energyLevel2=energyLevel2-energyLevel1; 
 				 hungryLevel2= hungryLevel2+(energyLevel1/2);
-				   System.out.println( "The  "+animal2+"has eaten the"+animal1);
+				   System.out.println( "The  "+animal2+"has beaten the"+animal1);
 				 kill(animal1);
 			 }
 		 }
@@ -153,6 +152,36 @@ public class ForestControl
 			  energyLevel2= energyLevel2+energy;
 		 }
 		}
+	 }
+	 	if(animal1.getanimaltype()=="Herbivorous")
+		{
+			System.out.println(animal2.getanimaltype()+energyLevel2);
+		
+		 if(animal2.getanimaltype()=="Carnivorous")
+		 {
+			 if(energyLevel1> energyLevel2)
+			 {
+	
+				 energyLevel1=energyLevel1- energyLevel2; 
+				  System.out.println( "The  "+animal1+"has beaten the"+animal2);
+				kill(animal2);
+				
+			 }
+			 else
+			 {
+				 energyLevel2=energyLevel2-energyLevel1; 
+				 hungryLevel2= hungryLevel2+(energyLevel1/2);
+				   System.out.println( "The  "+animal1+"has been eaten by the"+animal2);
+				 kill(animal1);
+			 }
+		 }
+		
+		 if(animal2.getanimaltype()=="Herbivorous")
+		 {
+			 System.out.println( "No fighting both are Herbivorous ");
+			
+			
+		 }
 	 }
 	 }
 	public void kill(Animal animal)
