@@ -1,6 +1,7 @@
 package com.lxisoft.animalGame.game.forest;
 import com.lxisoft.animalGame.game.animal.Animal;
-import com.lxisoft.animalGame.game.animal.carnivorous.Lion;
+import com.lxisoft.animalGame.game.animal.carnivorous.*;
+import com.lxisoft.animalGame.game.animal.herbivorous.*;
 import java.util.*;
 public class ForestControl
 {
@@ -8,6 +9,7 @@ public class ForestControl
 	Forest forest=new Forest();
 	Animal[][] animalArray;
 	int n1,n2,animalCount=0;
+	String animalName;
 	double[] distance=new double[10];
   public  void setForest()
 	{
@@ -21,7 +23,8 @@ public class ForestControl
 	public void setAnimalLocation(Animal animal)
 	{  int i,j;
 		do
-		{i=(int)(Math.random()*n1);
+		{
+		i=(int)(Math.random()*n1);
 		j=(int)(Math.random()*n2);
 		animalArray=forest.getForestArea();
 		}
@@ -31,16 +34,38 @@ public class ForestControl
 	
 	}
 	  public  void getForeststatus()
-	{
+	{  try{
 	for(int i=0;i<n1;i++)
 		{  System.out.print( "\t\t\t");
 			for(int j=0;j<n2;j++)
-			{
-		  System.out.print( animalArray[i][j]+"\t"); 
+			{System.out.print( "\t");
+		if(animalArray[i][j] !=null)
+		{
+		  if(animalArray[i][j] instanceof Lion)
+		  {System.out.print( "lion");
+		  }
+		   if(animalArray[i][j] instanceof Tiger)
+		  {System.out.print( "Tiger");
+		  }
+		    if(animalArray[i][j] instanceof Elephant)
+		  {System.out.print( "Elephant");
+		  }
+		   if(animalArray[i][j] instanceof Rabbit)
+		  {System.out.print( "Rabbit");
+		  }
+		   if(animalArray[i][j] instanceof Deer)
+		  {System.out.print( "Deer");
+		  }
+		}
+			else 
+			{System.out.print( "null");
+			}				
 		    }
 			System.out.print("\n");
 		}
 		System.out.print("\n");
+	}catch(NullPointerException e)
+	{System.out.print("0");}
 	}
 	public void setDistance(int m,int n)
 	{
@@ -71,7 +96,7 @@ public class ForestControl
 		return animalCount;
 	}
 	public void getanimallocation(Animal animal)
-	{
+	{	String animalName=findAnimal(animal);
 		for(int i=0;i<n1;i++)
 		{  
 			for(int j=0;j<n2;j++)
@@ -80,7 +105,7 @@ public class ForestControl
 				if( animalArray[i][j]==animal)
 				{
 					
-				System.out.println( "The cordinates of the "+animal+"is "+i+j); 
+				System.out.println( "The cordinates of the "+animalName+" is "+i+j); 
 					
 				}
 			}
@@ -91,31 +116,33 @@ public class ForestControl
 	 {  
 	 int energy=15,energyLevel1,hungryLevel1,energyLevel2,hungryLevel2;
 	 energyLevel1=animal1.getEnergyLevel();
-	 hungryLevel1= animal1.getHungryLevel();
+	 hungryLevel1=animal1.getHungryLevel();
 	 energyLevel2=animal2.getEnergyLevel();
 	 hungryLevel2= animal2.getHungryLevel();
+	 String animalOne=findAnimal(animal1);
+	 String animalTwo=findAnimal(animal2);
 
 	    System.out.println( "fighting");
 		if(animal1.getanimaltype()=="Carnivorous")
 		{
-			System.out.println(animal2.getanimaltype()+energyLevel2);
+			
 		
 		 if(animal2.getanimaltype()=="Carnivorous")
 		 {
 			 if(energyLevel1> energyLevel2)
 			 {
 	
-				 energyLevel1=energyLevel1- energyLevel2; 
+				  energyLevel1=energyLevel1- energyLevel2; 
 				  hungryLevel1= hungryLevel1+( energyLevel2/2);
-				  System.out.println( "The  "+animal1+"has beaten the"+animal2);
-				kill(animal2);
+				  System.out.println( "The  "+animalOne+" has beaten the"+animalTwo);
+				  kill(animal2);
 				
 			 }
 			 else
 			 {
 				 energyLevel2=energyLevel2-energyLevel1; 
 				 hungryLevel2= hungryLevel2+(energyLevel1/2);
-				   System.out.println( "The  "+animal2+"has beaten the"+animal1);
+				   System.out.println( "The  "+animalTwo+"has beaten the"+animalOne);
 				 kill(animal1);
 			 }
 		 }
@@ -128,7 +155,7 @@ public class ForestControl
 			 { System.out.println( "Herbivorous0  ");
 				 energyLevel1=energyLevel1- energyLevel2;
 				 hungryLevel1= hungryLevel1-( energyLevel2/2);
-				  System.out.println( "The  "+animal1+"has eaten the"+animal2);
+				  System.out.println( "The  "+animalOne+"has eaten the"+animalTwo);
 				 kill(animal2);
 				 energyLevel1=energyLevel1+energy;
 			 }
@@ -140,7 +167,7 @@ public class ForestControl
 			  hungryLevel1=hungryLevel2+(energyLevel1/2);
 			 if(hungryLevel1>100)
 			 {
-				 System.out.println( "The animal "+animal1+"is dead due to increase in Hunger level."); 
+				 System.out.println( "The animal "+animalOne+" is dead due to increase in Hunger level."); 
 					
 				 kill(animal1);
 			 }
@@ -148,14 +175,14 @@ public class ForestControl
 			 {
 				  energyLevel1=energyLevel1+energy;
 			 }
-			  System.out.println( "The animal "+animal2+"has escaped from"+animal1); 
+			  System.out.println( "The animal "+animalTwo+"has escaped from "+animalOne); 
 			  energyLevel2= energyLevel2+energy;
 		 }
 		}
 	 }
 	 	if(animal1.getanimaltype()=="Herbivorous")
-		{
-			System.out.println(animal2.getanimaltype()+energyLevel2);
+		 {
+			
 		
 		 if(animal2.getanimaltype()=="Carnivorous")
 		 {
@@ -163,7 +190,7 @@ public class ForestControl
 			 {
 	
 				 energyLevel1=energyLevel1- energyLevel2; 
-				  System.out.println( "The  "+animal1+"has beaten the"+animal2);
+				  System.out.println( "The  "+animalOne+" has beaten the "+animalTwo);
 				kill(animal2);
 				
 			 }
@@ -171,7 +198,7 @@ public class ForestControl
 			 {
 				 energyLevel2=energyLevel2-energyLevel1; 
 				 hungryLevel2= hungryLevel2+(energyLevel1/2);
-				   System.out.println( "The  "+animal1+"has been eaten by the"+animal2);
+				   System.out.println( "The  "+animalOne+" has been eaten by the "+animalTwo);
 				 kill(animal1);
 			 }
 		 }
@@ -185,7 +212,7 @@ public class ForestControl
 	 }
 	 }
 	public void kill(Animal animal)
-	 {
+	 {	String animalName=findAnimal(animal);
 		 
 		 	for(int i=0;i<n1;i++)
 		{  
@@ -193,12 +220,35 @@ public class ForestControl
 			{
 				if( animalArray[i][j]==animal)
 				{
-				System.out.println( "The cordinates of the "+animal+"which dead on the fight is "+i+j); 
-					animalArray[i][j]=null;
+				System.out.println( "The cordinates of the "+animalName+" which dead on the fight is "+i+j); 
+				animalArray[i][j]=null;
 				}
 			}
 			
 		}
+	 }
+	 public String findAnimal(Animal animal)
+	 {
+		 
+	 	
+		  if(animal instanceof Lion)
+		  {animalName= "lion";
+		  }
+		   if(animal instanceof Tiger)
+		  {animalName= "Tiger";
+		  }
+		    if(animal instanceof Elephant)
+		  {animalName="Elephant";
+		  }
+		   if(animal instanceof Rabbit)
+		  {animalName= "Rabbit";
+		  }
+		   if(animal instanceof Deer)
+		  {animalName="Deer";
+		  }
+		
+		return animalName;
+			
 	 }
 		
 				
