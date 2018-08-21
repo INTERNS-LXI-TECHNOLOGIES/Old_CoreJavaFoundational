@@ -1,8 +1,7 @@
 package com.lxisoft.animalGame.game.animal.carnivorous;
- import com.lxisoft.animalGame.game.animal.Animal;
- 
- import java.util.*;
-public class Tiger extends Animal 
+import com.lxisoft.animalGame.game.animal.Animal;
+import java.util.*;
+public class Athulya extends Animal 
 {
 	
 	    private String type;
@@ -16,7 +15,7 @@ public class Tiger extends Animal
 		setHungryLevel(Hungrylevel);
 		System.out.println(getEnergyLevel());
 		setanimaltype("Carnivorous");
-		setAnimalName("Tiger");
+		setAnimalName("Athulya");
 	
 		}
 		public String getName()

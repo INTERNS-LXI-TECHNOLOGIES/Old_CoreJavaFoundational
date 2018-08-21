@@ -1,14 +1,12 @@
 package com.lxisoft.animalGame.game.animal.carnivorous;
 import com.lxisoft.animalGame.game.animal.Animal;
 import java.util.*;
-public class Lion extends Animal implements Carnivorous
+public class Lion extends Animal 
 {
 	
-	private String type;
 	
-	public void eat()
-	{
-	}
+	
+	
 	
 		public void create()
 		{
@@ -22,11 +20,11 @@ public class Lion extends Animal implements Carnivorous
 		setAnimalName("lion");
 	
 		}
-	public String getName()
-	{
+		public String getName()
+		{
 		String name=getAnimalName();
 		return name;
-	}
+		}
 
 
 }

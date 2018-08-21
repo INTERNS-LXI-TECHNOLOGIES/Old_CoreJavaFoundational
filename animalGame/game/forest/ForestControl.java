@@ -56,6 +56,9 @@ public class ForestControl
 		   if(animalArray[i][j] instanceof Deer)
 		  {System.out.print( "Deer");
 		  }
+		  if(animalArray[i][j] instanceof Athulya)
+		  {System.out.print( "Athulya");
+		  }
 		}
 			else 
 			{System.out.print( "null");
@@ -95,6 +98,8 @@ public class ForestControl
 	{
 		return animalCount;
 	}
+	
+	
 	public void getanimallocation(Animal animal)
 	{	String animalName=findAnimal(animal);
 		for(int i=0;i<n1;i++)
@@ -190,7 +195,7 @@ public class ForestControl
 			 {
 	
 				 energyLevel1=energyLevel1- energyLevel2; 
-				  System.out.println( "The  "+animalOne+" has beaten the "+animalTwo);
+				  System.out.println( "The  "+animalOne+" has ran away from the "+animalTwo);
 				kill(animal2);
 				
 			 }
@@ -245,6 +250,9 @@ public class ForestControl
 		  }
 		   if(animal instanceof Deer)
 		  {animalName="Deer";
+		  }
+		    if(animal instanceof Athulya)
+		  {animalName="Athulya";
 		  }
 		
 		return animalName;
