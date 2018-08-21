@@ -37,9 +37,10 @@ public class SetForest
 		{
 			for(int j=0;j<n;j++)
 			{
-				System.out.println(animalArray[i][j]);
+				System.out.print(animalArray[i][j]+"\t");
 			
 			}
+			System.out.print("\n");
 		}
 	}
 }

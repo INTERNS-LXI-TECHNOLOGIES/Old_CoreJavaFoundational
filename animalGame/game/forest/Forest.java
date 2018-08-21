@@ -9,7 +9,7 @@ public Animal[][] forestArea = new Animal[10][10];
 public void setForestName(String forestName)
 {
 	this.forestName=forestName;
-	
+		
 }
 public String getForestName()
 {

@@ -10,13 +10,13 @@ public class Game
 {
 	SetForest setForest=new SetForest();
 	Lion lion=new Lion();
+	
 	Tiger tiger=new Tiger();
 	Rabbit rabbit=new Rabbit();
 	Deer deer=new Deer();
 
 	public void animalGame()
 	{
-	
 		setForest.ForestControl();
 		setForest.AnimalLocation(lion);
 		setForest.AnimalLocation(tiger);
@@ -24,4 +24,13 @@ public class Game
 		setForest.AnimalLocation(deer);
 		setForest.ForestStatus();
 	}
+	
+	public void animalCreation()
+	{
+		lion.create();
+		tiger.create();
+		rabbit.create();
+		deer.create();
+	}
+	
 }
