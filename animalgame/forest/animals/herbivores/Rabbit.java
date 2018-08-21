@@ -1,5 +1,7 @@
 package com.lxisoft.animalgame.forest.animals.herbivores;
 
-public class Rabbit extends Animal implements Herbivores
+import com.lxisoft.animalgame.forest.animals.Animal;
+public class Rabbit extends Animal 
 {
+	private String animalName="Rabbit";
 }

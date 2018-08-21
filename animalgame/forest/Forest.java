@@ -1,26 +1,41 @@
 package com.lxisoft.animalgame.forest;
+
 import com.lxisoft.animalgame.forest.animals.Animal;
 import java.util.*;
 
 public class Forest
 {
-	public void animalGrid()
+	
+	Animal[][] forestGrid = new Animal[8][8];
+	
+	
+	public void setforestGrid(int row,int column)
 	{
-		Lion lion = new Lion();
-		Tiger tiger = new Tiger();
-		Deer deer = new Deer();
-		Rabbit rabbit = new Rabbit();
-		String[][] animal = new String[4][2];
-		for(int row=0;row<4;row++)
+		
+		for(int i=0;i<row;i++)
 		{
-			for(int column=0;column<2;column++)
+			
+			for(int j=0;j<column;j++)
 			{
-			animal[row][column]=null;
-			System.out.print(animal[row][column]);
-			System.out.print("\t");
+				
+				forestGrid[i][j]=null;
+				
 			}
-			System.out.println("\n");
+			
 		}
 		
 	}
+
+	public Animal[][] getforestGrid()
+	{
+		return forestGrid;
+			
+	}
+	
+	
 }
+
+	
+	
+		
+	 
