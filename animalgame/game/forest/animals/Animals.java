@@ -1,12 +1,15 @@
 package com.lxisoft.animalgame.game.forest.animals;
 import com.lxisoft.animalgame.game.forest.animals.carnivores.lion.Lion;
+import com.lxisoft.animalgame.game.forest.animals.carnivores.tiger.Tiger;
+import com.lxisoft.animalgame.game.forest.animals.herbivores.elephant.Elephant;
+import com.lxisoft.animalgame.game.forest.animals.herbivores.deer.Deer;
 
 public class Animals
 {
 	private String animalName,animalType;
 	private int animalEnergyLevel;
 	private int animalHungryLevel;
-	public 	Animals[][] location;
+	
 	public void setAnimalName(String name)
 	{
 		this.animalName=name;
