@@ -1,7 +1,7 @@
 package com.lxisoft.animalGame.game.animal.herbivorous;
 import com.lxisoft.animalGame.game.animal.Animal;
 
-public class Deer extends Animal implements Herbivorous
+public class Deer extends Animal 
 {
 	
 
@@ -20,8 +20,8 @@ public class Deer extends Animal implements Herbivorous
 		setEnergyLevel(Energylevel);
 		Hungrylevel=(int)(Math.random()*50)+50;
 		setHungryLevel(Hungrylevel);
-		 System.out.println(getEnergyLevel());
-		 setanimaltype("Herbivorous");
+		//System.out.println(getEnergyLevel());
+		setanimaltype("Herbivorous");
 	
 		}
 	

@@ -14,7 +14,7 @@ public class Tiger extends Animal
 		setEnergyLevel(Energylevel);
 		Hungrylevel=(int)(Math.random()*50)+50;
 		setHungryLevel(Hungrylevel);
-		System.out.println(getEnergyLevel());
+		//System.out.println(getEnergyLevel());
 		setanimaltype("Carnivorous");
 		setAnimalName("Tiger");
 	

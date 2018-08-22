@@ -1,6 +1,6 @@
 package com.lxisoft.animalGame.game.animal.herbivorous;
 import com.lxisoft.animalGame.game.animal.Animal;
-public class Elephant extends Animal implements Herbivorous
+public class Elephant extends Animal 
 {
 	
 	
@@ -17,7 +17,7 @@ public class Elephant extends Animal implements Herbivorous
 		setEnergyLevel(Energylevel);
 		Hungrylevel=(int)(Math.random()*50)+50;
 		setHungryLevel(Hungrylevel);
-		 System.out.println(getEnergyLevel());
+		// System.out.println(getEnergyLevel());
 		 setanimaltype("Herbivorous");
 	
 		}

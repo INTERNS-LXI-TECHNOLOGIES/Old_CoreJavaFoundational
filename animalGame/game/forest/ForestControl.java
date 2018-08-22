@@ -110,7 +110,7 @@ public class ForestControl
 				if( animalArray[i][j]==animal)
 				{
 					
-				System.out.println( "The cordinates of the "+animalName+" is "+i+j); 
+				System.out.println( "The cordinates of the "+animalName+" is \n"+i+"\n"+j); 
 					
 				}
 			}
@@ -127,7 +127,7 @@ public class ForestControl
 	 String animalOne=findAnimal(animal1);
 	 String animalTwo=findAnimal(animal2);
 
-	    System.out.println( "fighting");
+	    System.out.println( "fighting" );
 		if(animal1.getanimaltype()=="Carnivorous")
 		{
 			
@@ -139,7 +139,7 @@ public class ForestControl
 	
 				  energyLevel1=energyLevel1- energyLevel2; 
 				  hungryLevel1= hungryLevel1+( energyLevel2/2);
-				  System.out.println( "The  "+animalOne+" has beaten the"+animalTwo);
+				  System.out.println( "The  "+animalOne+" has beaten "+animalTwo);
 				  kill(animal2);
 				
 			 }
@@ -147,7 +147,7 @@ public class ForestControl
 			 {
 				 energyLevel2=energyLevel2-energyLevel1; 
 				 hungryLevel2= hungryLevel2+(energyLevel1/2);
-				   System.out.println( "The  "+animalTwo+"has beaten the"+animalOne);
+				   System.out.println( "The  "+animalTwo+" has beaten "+animalOne);
 				 kill(animal1);
 			 }
 		 }
@@ -160,7 +160,7 @@ public class ForestControl
 			 { System.out.println( "Herbivorous0  ");
 				 energyLevel1=energyLevel1- energyLevel2;
 				 hungryLevel1= hungryLevel1-( energyLevel2/2);
-				  System.out.println( "The  "+animalOne+"has eaten the"+animalTwo);
+				  System.out.println( "The  "+animalOne+" has eaten the"+animalTwo);
 				 kill(animal2);
 				 energyLevel1=energyLevel1+energy;
 			 }
@@ -180,7 +180,7 @@ public class ForestControl
 			 {
 				  energyLevel1=energyLevel1+energy;
 			 }
-			  System.out.println( "The animal "+animalTwo+"has escaped from "+animalOne); 
+			  System.out.println( "The animal "+animalTwo+" has escaped from "+animalOne); 
 			  energyLevel2= energyLevel2+energy;
 		 }
 		}
@@ -194,9 +194,10 @@ public class ForestControl
 			 if(energyLevel1> energyLevel2)
 			 {
 	
-				 energyLevel1=energyLevel1- energyLevel2; 
-				  System.out.println( "The  "+animalOne+" has ran away from the "+animalTwo);
-				kill(animal2);
+				 energyLevel1=energyLevel1- energyLevel2;
+                 hungryLevel2= hungryLevel2+(energyLevel1/2);				 
+				  System.out.println( "The  "+animalOne+" has ran away from  "+animalTwo);
+				
 				
 			 }
 			 else
