@@ -1,9 +1,26 @@
 package com.lxisoft.animalgame.forest.animals.herbivores;
 
-public class Deer extends Animal implements Herbivores
+import com.lxisoft.animalgame.forest.animals.Animal;
+
+public class Deer extends Animal
 {
-	public void eatVeg()
+	public void create()
 	{
+		int hungerLevel,energyLevel;
+		energyLevel=(int)(Math.random()*70)+30;
+		setenergyLevel(energyLevel);
+		hungerLevel=(int)(Math.random()*40)+60;
+		sethungerLevel(hungerLevel);
+		
+		System.out.println("Current Energy level of Deer::" + getenergyLevel());
+		setanimalType("It's a Herbivore");
+		setanimalName("Deer");
 		
 	}
+	public String getName()
+	{
+		String name=getanimalName();
+		return name;
+	}
+	
 }
