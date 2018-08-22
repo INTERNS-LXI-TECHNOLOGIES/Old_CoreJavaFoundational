@@ -1,19 +1,42 @@
 package com.lxisoft.animalGame.forest;
 import java.util.*;
 import java.lang.*;
+import com.lxisoft.animalGame.animal.*;
 
 public class Animal
 {
+	
 		ArrayList<Integer> rem=new ArrayList<Integer>();
 		int next=-1;
-		int count=1;
+		int count=1,strength,hungry;
+		
 		public Animal()
 		{
-			rem.add(-1);
+			
+
 		}
 		
+	public void setStrength(int strength)
+	{
+			this.strength=strength;
+			
+	}
 	
+	public int getStrength()
+	{
+		return this.strength;
+	}
+		
+	public void setHungry(int hungry)
+	{
+		this.hungry=hungry;
+	}
 	
+	public int getHungry()
+	{
+		return this.hungry;
+	}
+	/**
 	public void fight(int firstAnimal,int secondAnimal)
 	{
 		
@@ -22,9 +45,10 @@ public class Animal
 		displayAnimal(secondAnimal);
 		if(firstAnimal==0)
 		{
+			
 		
 			if(secondAnimal==0)
-			{
+			{	
 				System.out.println("No fight\n");
 				rem.add(0);
 				
@@ -229,22 +253,9 @@ public class Animal
 					fight(3,next);
 				
 			}
-	}
+	}**/
 	
-	public void displayAnimal(int number)
-	{	
-	switch(number)
-		{
-			case 0: System.out.println("Tiger");
-					break;
-			case 1: System.out.println("Lion");
-					break;
-			case 2: System.out.println("Rabbit");
-					break;					
-			case 3: System.out.println("Deer");
-					break;
-		}
-	}
+	
 	
 	
 	
