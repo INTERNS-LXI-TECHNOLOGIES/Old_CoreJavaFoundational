@@ -10,6 +10,9 @@ public class ScriptTestDrive
 		HeroineController heroinecon=new HeroineController(); 
 		VillainController villaincon=new VillainController();
 		ComedianController comediancon=new ComedianController();
-		
+		mscon.printDetail();
+		herocon.printHeroDetail();
+		mscon.printMovieName();
+		heroinecon.printHeroineDetail();
 	}
 }

@@ -1,7 +1,10 @@
 package com.lxisoft.moviescript.actors;
+import com.lxisoft.moviescript.movie.*;
 import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
 import java.io.IOException;
 public class HeroController 
 {
@@ -38,4 +41,27 @@ public class HeroController
 			System.out.println("IO Exception");
 		}
 	}
+	public void printHeroDetail()
+	{
+		int lineNo=1;
+		String line="";
+		try
+		{
+			FileReader frho=new FileReader("./com/lxisoft/moviescript/file/hero.txt");
+			BufferedReader br=new BufferedReader(frho);
+			if(lineNo==1)
+			{
+				line=br.readLine();
+				System.out.println("\n\t\t\t"+line+"\tin");
+			}
+			else
+				br.readLine();
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+		
+	}	
 }
