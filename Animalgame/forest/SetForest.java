@@ -18,6 +18,6 @@ public class SetForest
 			column=scan.nextInt();
 			fore.setForest(row,column);
 	}
-//public void setAnimallocation(Animal)
+
 }
 			

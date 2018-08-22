@@ -1,13 +1,18 @@
 package com.lxisoft.Animalgame.forest;
+//import java.math;
+//import 
 public class Animal
 {
 String name;
-String type;
 int energyLevel;
 int healthLevel;
 
 
-public void setName(String name)
+
+
+//int k=(int)(math.random()*3)
+
+/*public void setName(String name)
 {
 	this.name=name;
 }
@@ -38,7 +43,8 @@ public int getEnergyLevel()
 public int getHealthLevel()
 {
 	return healthLevel;
-}
+}*/
+
 
 
 }

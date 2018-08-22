@@ -1,5 +1,4 @@
 package com.lxisoft.Animalgame.forest;
-public interface Carnivor
+public interface Herbivor
 {
-
 }

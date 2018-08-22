@@ -1,5 +1,7 @@
-package com.lxisoft.animalgame.forest;
-public class Lion
+package com.lxisoft.Animalgame.forest;
+public class Lion extends Animal
 {
-
+String name;
+int energyLevel;
+int healthLevel;
 }
