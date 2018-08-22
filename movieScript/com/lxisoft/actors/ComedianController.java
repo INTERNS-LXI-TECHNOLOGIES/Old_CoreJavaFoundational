@@ -16,7 +16,7 @@ public class ComedianController
 	{
 		try
 		{
-		File comedianfile=new File("C:/Users/Windows 10/Desktop/000-workspace/Team1/movieScript/com/lxisoft/file/Comedian.txt");
+		File comedianfile=new File("./com/lxisoft/file/Comedian.txt");
 		FileWriter comedianfw=new FileWriter(comedianfile);
 		Scanner input=new Scanner(System.in);
 		comedianview=new ComedianView();
@@ -33,7 +33,7 @@ public class ComedianController
 		}
 		catch(IOException e)
 		{
-			System.out.println("IOException");
+			e.printStackTrace();
 		}
 	}
 }

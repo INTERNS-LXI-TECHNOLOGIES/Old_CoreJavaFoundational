@@ -16,7 +16,7 @@ public class VillainController
 	{
 		try
 		{
-		File villainfile=new File("C:/Users/Windows 10/Desktop/000-workspace/Team1/movieScript/com/lxisoft/file/Villian.txt");
+		File villainfile=new File("./com/lxisoft/file/Villian.txt");
 		FileWriter villainfw=new FileWriter(villainfile);
 		Scanner input=new Scanner(System.in);
 		villainview=new VillainView();
@@ -33,7 +33,7 @@ public class VillainController
 		}
 		catch(IOException e)
 		{
-			System.out.println("IOException");
+			e.printStackTrace();
 		}
 	}
 }

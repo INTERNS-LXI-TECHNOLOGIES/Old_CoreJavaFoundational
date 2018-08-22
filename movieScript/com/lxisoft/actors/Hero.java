@@ -16,5 +16,4 @@ public String getHeroCharactorName()
 {
 	return heroCharactorName;
 }
- 	
 }

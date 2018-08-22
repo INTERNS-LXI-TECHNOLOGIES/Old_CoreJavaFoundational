@@ -1,6 +1,7 @@
 package com.lxisoft;
 import com.lxisoft.movie.*;
 import com.lxisoft.actors.*;
+import com.lxisoft.scenes.*;
 public class ScriptTest
 {
 	public static void main(String args[])// throws IOException
@@ -11,6 +12,7 @@ public class ScriptTest
 		HeroineController heroinecontroller=new HeroineController();
 		VillainController villaincontroller=new VillainController();
 		ComedianController comediancontroller=new ComedianController();
+		MovieSceneController moviescenecontroller=new MovieSceneController();
 		//castfw=new FileWriter("text");
 		//fw.close();
 		

@@ -20,20 +20,23 @@ public class MovieScriptController
 	{
 		try
 		{
-		File script=new File("C:/Users/Windows 10/Desktop/000-workspace/Team1/movieScript/com/lxisoft/file/MovieScript.txt");
+		File script=new File("./com/lxisoft/file/MovieScript.txt");
 		FileWriter scriptfw=new FileWriter(script);
 		Scanner input=new Scanner(System.in);
 		moviescriptview.askMovieName();
 		movieName=input.nextLine();
+		scriptfw.write("**********MOVIE SCRIPT**********\n");
 		scriptfw.write(movieName);
 		String newLine=("\n");
-		herofw.write(newLine);
+		scriptfw.write(newLine);
 		moviescriptview.askDirectorName();
 		directorName=input.nextLine();
+		scriptfw.write("DIRECTOR:\n");
 		scriptfw.write(directorName);
-		herofw.write(newLine);
+		scriptfw.write(newLine);
 		moviescriptview.askProducerName();
 		producerName=input.nextLine();
+		scriptfw.write("PRODUCER:\n");
 		scriptfw.write(producerName);
 		//scriptfw.write(newLine);
 		scriptfw.close();
@@ -41,7 +44,7 @@ public class MovieScriptController
 		}
 		catch(IOException e)
 		{
-			System.out.println("IOException");
+			e.printStackTrace();
 		}
 	}
 }

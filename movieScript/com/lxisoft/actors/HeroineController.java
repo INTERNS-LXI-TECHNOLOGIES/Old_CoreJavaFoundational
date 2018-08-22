@@ -16,7 +16,7 @@ public class HeroineController
 	{
 		try
 		{
-		File heroinefile=new File("C:/Users/Windows 10/Desktop/000-workspace/Team1/movieScript/com/lxisoft/file/Heroine.txt");
+		File heroinefile=new File("./com/lxisoft/file/Heroine.txt");
 		FileWriter heroinefw=new FileWriter(heroinefile);
 		Scanner input=new Scanner(System.in);
 		heroineview=new HeroineView();
@@ -33,7 +33,7 @@ public class HeroineController
 	    }
 		catch(IOException e)
 		{
-			System.out.println("IOException");
+			e.printStackTrace();
 		}
 	}
 }

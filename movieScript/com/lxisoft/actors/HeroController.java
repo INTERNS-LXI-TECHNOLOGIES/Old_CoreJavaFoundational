@@ -16,7 +16,7 @@ public class HeroController
 	{
 		try
 		{
-		FileWriter herofw=new FileWriter("C:/Users/Windows 10/Desktop/000-workspace/Team1/movieScript/com/lxisoft/file/Hero.txt");
+		FileWriter herofw=new FileWriter("./com/lxisoft/file/Hero.txt");
 		Scanner input=new Scanner(System.in);
 		heroview=new HeroView();
 		heroview.askHeroName();
@@ -32,7 +32,7 @@ public class HeroController
 		}
 		catch(IOException e)
 		{
-			System.out.println("IOException");
+			e.printStackTrace();
 		}
 	}
 }
