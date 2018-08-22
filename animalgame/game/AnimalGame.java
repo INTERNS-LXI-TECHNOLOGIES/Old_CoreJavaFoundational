@@ -22,6 +22,10 @@ public class AnimalGame
 	public void gameDetails()
 	{
 		forestdetail.setForest();
+		lion.create();
+		tiger.create();
+		deer.create();
+		zebra.create();
 		forestdetail.setAnimalLocation(lion);
 		forestdetail.setAnimalLocation(tiger);
 		forestdetail.setAnimalLocation(deer);

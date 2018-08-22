@@ -6,19 +6,19 @@ private int animalStrength;
 private int animalHunger;
 public Animal[][] location;
 
-	public void setAnimalName(String name)
+	public void setanimalName(String name)
 	{
 	this.animalName=name;
 	}
-	public String getAnimalName()
+	public String getanimalName()
 	{
 	return animalName;
 	}
-	public void setAnimalType(String type)
+	public void setanimalType(String type)
 	{
 		this.animalType=type;
 	}
-	public String getAnimalType()
+	public String getanimalType()
 	{
 		return animalType;
 	}
@@ -34,7 +34,7 @@ public Animal[][] location;
 	{
 		this.animalHunger=hunger;
 	}
-	public int getAnimalHunger()
+	public int getanimalHunger()
 	{
 		return animalHunger;
 	}
