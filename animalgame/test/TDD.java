@@ -1,11 +1,14 @@
 package com.lxisoft.animalgame.test;
-import com.lxisoft.animalgame.forest.Forest;
+import com.lxisoft.animalgame.game.AnimalGame;
+
 import java.util.*;
 public class TDD
 {
 	public static void main(String args[])
 	{
-		Forest forest=new Forest();
-		forest.animalGrid();
+		AnimalGame start=new AnimalGame();
+		start.gameDetails();
+		
+		
 	}
 }
