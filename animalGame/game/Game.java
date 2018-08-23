@@ -22,7 +22,8 @@ public class Game
 		setForest.AnimalLocation(tiger);
 		setForest.AnimalLocation(rabbit);
 		setForest.AnimalLocation(deer);
-		setForest.ForestStatus();
+		//setForest.ForestStatus();
+		setForest.displayForest(); 
 	}
 	
 	public void animalCreation()
@@ -31,6 +32,9 @@ public class Game
 		tiger.create();
 		rabbit.create();
 		deer.create();
+		
 	}
+	
+		
 	
 }
