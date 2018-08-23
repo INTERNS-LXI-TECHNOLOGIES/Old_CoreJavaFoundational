@@ -17,6 +17,8 @@ public class SetForest
 	Animal[][] animalArr;
 	String animalName;
 	int row,column,i,j;
+	int animalCount=0;
+	double[] space = new double[5];
 	
 	
 	public void forestControl()
@@ -99,6 +101,47 @@ public class SetForest
 		}
 	}
 	
+	public void setSpace(int i1, int j1)
+	{
+		for(i=0;i<row;i++)
+		{
+			for(j=0;j<column;j++)
+			{
+			if(animalArr[i][j]!=null)
+			{
+				space[animalCount]= Math.sqrt((i-i1)*(i-i1) + (j-j1)*(j-j1));
+				animalCount++;
+			}
+			}
+		}
+	}
+		
+	
+	public void getanimalLocation(Animal animal)
+	{
+		String animalName = printAnimal(animal);
+		
+		for(i=0;i<row;i++)
+		{
+			for(j=0;j<column;j++)
+			{
+				
+				if(animalArr[i][j]==animal)
+				{
+					System.out.print("The  "+ animalName + "  is at the position:: \t" + i +" " +j);
+				}
+			}
+		}
+	}
+	
+	
+	
+	
+	public double[] getSpace()
+	{
+		return space;
+	}
+	 
 	
 	
 	public String printAnimal(Animal animal)
@@ -134,6 +177,11 @@ public class SetForest
 			}
 			
 			return animalName; 
+	}
+	
+	public int getanimalCount()
+	{
+		return animalCount;
 	}
 	
 	

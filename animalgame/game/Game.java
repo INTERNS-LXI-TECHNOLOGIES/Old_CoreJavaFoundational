@@ -22,6 +22,11 @@ public class Game
 	Fox fox = new Fox();
 	Deer deer = new Deer();
 	
+	int row,column;
+	String enter;
+	int animalCount;
+	double[] space;
+	
 	SetForest setforest = new SetForest();
 	Scanner scan = new Scanner(System.in);
 	
@@ -46,8 +51,63 @@ public class Game
 		
 		System.out.println("--Animal Grid Created..--");
 		System.out.println("Enter to play Game!!");
+		enter = scan.nextLine();
+	
+		System.out.println("Select the animal predator::");
+		System.out.println("\n1.Tiger \n2.Lion \n3.Fox \n4.Rabbit \n5.Zebra \n6.Deer");
+		animalCount = scan.nextInt();
+		animalLocation(animalCount);
+		
+		row = scan.nextInt();
+		column = scan.nextInt();
+		space(row,column);
+		
 		
 		
 	}
 	
+	public void animalLocation(int animalCount)
+	{
+		if(animalCount==1)
+		{
+			setforest.getanimalLocation(tiger);
+		}
+		
+		if(animalCount==2)
+		{
+			setforest.getanimalLocation(lion);
+		}
+		
+		if(animalCount==3)
+		{
+			setforest.getanimalLocation(fox);
+		}
+		
+		if(animalCount==4)
+		{
+			setforest.getanimalLocation(rabbit);
+		}
+		
+		if(animalCount==5)
+		{
+			setforest.getanimalLocation(zebra);
+		}
+		
+		if(animalCount==6)
+		{
+			setforest.getanimalLocation(deer);
+		}
+	}
+	
+	public void space(int row1, int column1)
+	{
+		setforest.setSpace(row1,column1);
+		space=setforest.getSpace();
+		
+		for(int i=0;i<setforest.getanimalCount();i++)
+		{
+			System.out.println("space=" + space[i]);
+		}
+	
+	}
 }
