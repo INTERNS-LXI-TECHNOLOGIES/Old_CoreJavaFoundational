@@ -1,6 +1,10 @@
 package com.lxisoft.animalgame.game.forest;
 import com.lxisoft.animalgame.game.forest.Forest;
 import com.lxisoft.animalgame.game.forest.animals.Animals;
+import com.lxisoft.animalgame.game.forest.animals.carnivores.lion.Lion;
+import com.lxisoft.animalgame.game.forest.animals.carnivores.tiger.Tiger;
+import com.lxisoft.animalgame.game.forest.animals.herbivores.elephant.Elephant;
+import com.lxisoft.animalgame.game.forest.animals.herbivores.deer.Deer;
 import java.util.*;
 public class ForestSettings
 {
@@ -35,19 +39,53 @@ public class ForestSettings
 			animalList[i][j]=animal;
 	}
 
+	
 	public void setForestStatus()
 	{
-		for(i=1;i<=row;i++)
+		try
 		{
-			for (j=1;j<=column;j++)
-		    {
-				System.out.print(animalList[i][j]);
-				System.out.print(" ");
-			}
-			System.out.println("\n");
-		}
-	}
+			for(i=1;i<=row;i++)
+			{
+				for (j=1;j<=column;j++)
+			    {
+			    	if(animalList[i][j]!=null)
+			    	{
+			    		if(animalList[i][j] instanceof Lion)
+			    		{
+			    			System.out.print("Lion");
+			    		}
 
+			    		if(animalList[i][j] instanceof Tiger)
+			    		{
+			    			System.out.print("Tiger");
+			    		}
+
+			    		if(animalList[i][j] instanceof Elephant)
+			    		{
+			    			System.out.print("Elephant");
+			    		}
+
+			    		if(animalList[i][j] instanceof Deer)
+			    		{
+			    			System.out.print("Deer");
+			    		}
+			    	}
+					
+					else
+					{
+						System.out.print("null");
+					}
+					System.out.print("\t");
+				}
+				System.out.println("\n");
+			}
+		}
+
+		catch(NullPointerException e)
+		{
+			System.out.println("0");
+		}
+	}	
 
 
 	public void locateAnimal()
@@ -63,6 +101,7 @@ public class ForestSettings
 					for(j=1;j<=column;j++)
 					{
 						if(animalList[i][j]!=null)
+							
 						System.out.println("("+i+","+j+")");
 					}
 				}
