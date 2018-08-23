@@ -16,7 +16,7 @@ public class VillainController
 	{
 		try
 		{
-		File villainfile=new File("./com/lxisoft/file/Villian.txt");
+		File villainfile=new File("./com/lxisoft/file/Villain.txt");
 		FileWriter villainfw=new FileWriter(villainfile);
 		Scanner input=new Scanner(System.in);
 		villainview=new VillainView();
