@@ -4,7 +4,7 @@ public class Animal
 private String animalName,animalType;
 private int animalStrength;
 private int animalHunger;
-public Animal[][] location;
+//public Animal[][] location;
 
 	public void setanimalName(String name)
 	{

@@ -28,11 +28,11 @@ public class ForestSettings
 		do
 		{
 			i=(int)(Math.random()*row);
-			j=(int)(Math.random()*row);
+			j=(int)(Math.random()*column);
 			
 			animalList=forest.getForestArea();
 		}
-		while(animalList[i][j]!=null);
+		    while(animalList[i][j]!=null);
 			animalList[i][j]=animal;
 	}
 	
@@ -41,11 +41,12 @@ public class ForestSettings
 		try{
 		for(int i=0;i<row;i++)
 		{
-			System.out.print("\t\t\t");
-			for(int j=0;i<column;j++)
+
+			for(int j=0;j<column;j++)
 			{
-				System.out.print("\t");
-				if(animalList[i][j]!=null)
+				System.out.print("\t\t");
+				
+			      if(animalList[i][j]!=null)
 				{
 					if(animalList[i][j] instanceof Lion)
 					{
@@ -80,9 +81,10 @@ public class ForestSettings
 		catch(NullPointerException e)
 		{
 			System.out.println("0");
-		}		
+		}	
+	}		
 
-}
+
 }	
 		
 		

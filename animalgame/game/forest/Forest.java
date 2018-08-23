@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Forest
 {
-	Animal[][] forestArea=new Animal[8][8];
+	Animal[][] forestArea=new Animal[10][10];
 
 		public void setForestArea(int row,int column)
 		{

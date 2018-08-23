@@ -11,7 +11,7 @@ import com.lxisoft.animalgame.game.forest.animal.Animal;
 		 System.out.println("energy level of tiger is:"+getanimalStrength());
 		 animalHunger=(int)(Math.random()*50)+60;
 		 setanimalHunger(animalHunger);
-		 System.out.println("hunger level of tiger is:"+getanimalHunger());
+		 System.out.println("hunger level of tigers is:"+getanimalHunger());
 		 setanimalType("carnivorous");
 	 }
 		 
