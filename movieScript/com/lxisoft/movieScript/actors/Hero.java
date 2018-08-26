@@ -11,7 +11,7 @@ public class Hero{
 		return heroName;
 	}
 	
-	public String getheroCharacter(){
+	public String getHeroCharacter(){
 		return heroCharacter;
 	} 
 }
