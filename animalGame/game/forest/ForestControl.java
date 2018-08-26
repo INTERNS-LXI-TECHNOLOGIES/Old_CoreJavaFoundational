@@ -7,10 +7,11 @@ public class ForestControl
 {
 	Scanner scan=new  Scanner(System.in);
 	Forest forest=new Forest();
-	Animal[][] animalArray;
-	int n1,n2,animalCount=0;
-	String animalName;
 	double[] distance=new double[10];
+	Animal[][] animalArray;
+	int n1,n2,animalCount,fighterlife=1;
+	String animalName;
+String[] name=new String[10];
   public  void setForest()
 	{
 		System.out.println("Enter the size of forest");
@@ -73,26 +74,45 @@ public class ForestControl
 	public void setDistance(int m,int n)
 	{
 		int breadth,length;
+		animalCount=-1; 
+		String animalName;
+		//getForeststatus();
 		for(int i=0;i<n1;i++)
 		{
 			for(int j=0;j<n2;j++)
 			{
 				if(animalArray[i][j]!=null)
 				{
+					if(i==m&&j==n)
+					{
+						
+					}
+				    else
+					{animalCount=0; 
+					 animalName=findAnimal(animalArray[i][j]);
 					breadth=j-n;
 					length=i-m;
-				
-				distance[animalCount]=Math.sqrt((breadth*breadth) +(length*length));
-				animalCount++;
+				     name[animalCount]= animalName;
+					distance[animalCount]=Math.sqrt((breadth*breadth)+(length*length));
+					System.out.print("Name["+animalCount+"]="+name[animalCount]);
+					System.out.println("\tdistance["+animalCount+"]="+distance[animalCount]);
+					
+					animalCount++;
+					}
 				}
 			}
 		}
 					
 		
 	}
+	
 	public double[] getDistance()
 	{
 		return distance;
+	}
+	public String[] getAnimalName()
+	{
+		return name;
 	}
 	public int getanimalCount()
 	{
@@ -149,24 +169,25 @@ public class ForestControl
 				 hungryLevel2= hungryLevel2+(energyLevel1/2);
 				   System.out.println( "The  "+animalTwo+" has beaten "+animalOne);
 				 kill(animal1);
+				 fighterlife=0;
 			 }
 		 }
 		
 		 if(animal2.getanimaltype()=="Herbivorous")
 		 {
-			 System.out.println( "Herbivorous  ");
+			
 			
 			 if(energyLevel1> energyLevel2)
-			 { System.out.println( "Herbivorous0  ");
+			 {
 				 energyLevel1=energyLevel1- energyLevel2;
 				 hungryLevel1= hungryLevel1-( energyLevel2/2);
-				  System.out.println( "The  "+animalOne+" has eaten the"+animalTwo);
+				  System.out.println( "The  "+animalOne+" has eaten the "+animalTwo);
 				 kill(animal2);
 				 energyLevel1=energyLevel1+energy;
 			 }
 		 
 		 else
-		 { System.out.println( "Herbivorous1  ");
+		 { 
 			energyLevel1=0;
 			  energyLevel2= energyLevel2-energyLevel1; 
 			  hungryLevel1=hungryLevel2+(energyLevel1/2);
@@ -175,12 +196,14 @@ public class ForestControl
 				 System.out.println( "The animal "+animalOne+" is dead due to increase in Hunger level."); 
 					
 				 kill(animal1);
+				 fighterlife=0;
 			 }
 			 else
 			 {
 				  energyLevel1=energyLevel1+energy;
 			 }
 			  System.out.println( "The animal "+animalTwo+" has escaped from "+animalOne); 
+			   kill(animal2);
 			  energyLevel2= energyLevel2+energy;
 		 }
 		}
@@ -197,7 +220,7 @@ public class ForestControl
 				 energyLevel1=energyLevel1- energyLevel2;
                  hungryLevel2= hungryLevel2+(energyLevel1/2);				 
 				  System.out.println( "The  "+animalOne+" has ran away from  "+animalTwo);
-				
+				kill(animal1);
 				
 			 }
 			 else
@@ -206,6 +229,7 @@ public class ForestControl
 				 hungryLevel2= hungryLevel2+(energyLevel1/2);
 				   System.out.println( "The  "+animalOne+" has been eaten by the "+animalTwo);
 				 kill(animal1);
+				 fighterlife=0;
 			 }
 		 }
 		
@@ -226,7 +250,7 @@ public class ForestControl
 			{
 				if( animalArray[i][j]==animal)
 				{
-				System.out.println( "The cordinates of the "+animalName+" which dead on the fight is "+i+j); 
+				System.out.println( "The cordinates of the "+animalName+" which has been removed from forst is "+i+"\t"+j); 
 				animalArray[i][j]=null;
 				}
 			}
@@ -259,7 +283,10 @@ public class ForestControl
 		return animalName;
 			
 	 }
-		
+	  public int getfighterLife()
+	 {
+		 return fighterlife;
+	 }
 				
 	
 }

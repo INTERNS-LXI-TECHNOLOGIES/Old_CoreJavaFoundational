@@ -3,7 +3,7 @@ import com.lxisoft.animalGame.game.animal.Animal;
 public class Forest
 {
 	private String forestName;
-	Animal[][] forestArea=new Animal[50][50];
+	private Animal[][] forestArea=new Animal[50][50];
 	
 	
 	public void setForestName(String name)
