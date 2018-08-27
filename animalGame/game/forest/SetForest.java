@@ -49,41 +49,35 @@ public class SetForest
 			{
 				//System.out.print("\t");
 				for(int j=0;j<n;j++)
-					{
+				{
 						if(animalArray[i][j] != null)
-							{
+						{
 							if(animalArray[i][j] instanceof Lion)
-								{
-									System.out.print("LION");
-								}
-							if(animalArray[i][j] instanceof Tiger)
-								{
-									System.out.print("TIGER");
-								}
-							if(animalArray[i][j] instanceof Rabbit)
-								{
-									System.out.print("RABBIT");
-								}
-							if(animalArray[i][j] instanceof Deer)
-								{
-									System.out.print("DEER");
-								}
-				//System.out.print(animalArray[i][j]+"\t");
-							}	
-							else
 							{
-								System.out.print("null");
+									System.out.print("LION");
 							}
+							if(animalArray[i][j] instanceof Tiger)
+							{
+									System.out.print("TIGER");
+							}
+							if(animalArray[i][j] instanceof Rabbit)
+							{
+									System.out.print("RABBIT");
+							}
+							if(animalArray[i][j] instanceof Deer)
+							{
+									System.out.print("DEER");
+							}
+				//System.out.print(animalArray[i][j]+"\t");
+						}	
+						else
+						{
+								System.out.print("null");
+						}
 							System.out.print("\t");
-					}
+				}
 					
 					System.out.print("\n");
-				//}
-		/*catch(NullPointerException e)
-		{
-			System.out.println("0");
-		}*/
-		
 			}
 	
 	}		
