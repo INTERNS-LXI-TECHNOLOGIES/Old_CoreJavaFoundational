@@ -17,21 +17,13 @@ public class Forest
 	Deer[] deer=new Deer[3]; 
     private int row,column;
 	Animal[][] forestArea=new Animal[100][100];
-	public void createAnimal()
-	{
-		int k=(int)(Math.random()*3);
-		for(int i=0;i<k;i++)
-		{
-			lion[i]=new Lion();
-			insertAnimals(lion[i]);
-		}
-		
-	}
+	
 	public void setForest(int row,int column)
 	{
 		this.row=row;
 		this.column=column;
 		forestCreate();
+		createAnimal();
 	
 		
 	}
@@ -44,10 +36,11 @@ public class Forest
 				forestArea[i][j]=null;
 			}
 		}
-		printAnimals();
+        printForest();	
 	}
-	public void printAnimals()
+	public void printForest()
 	{
+		System.out.println("**Forest**");
 		for(int i=0;i<row;i++)
 		{
 			for(int j=0;j<column;j++)
@@ -58,19 +51,46 @@ public class Forest
 			System.out.println("\n");
 		}
 		
+		createAnimal();	
+		printoo();
+		}
+	
+	public void createAnimal()
+	{
+		
+		int k=(int)(Math.random()*3);
+		//System.out.println("test1");
+		for(int i=0;i<=k;i++)
+		{
+			lion[i]=new Lion();
 			
+			insertAnimals(lion[i]);
+			
+			
+		}
+		//printoo();
+		
 	}
+	
 	public  void insertAnimals(Animal a)
 	{
-		int i=(int)(Math.random()*row);
-		int j=(int)(Math.random()*column);
-	 do
+		//System.out.println("test1");
+		int i=(int)(Math.random()*3);
+		int j=(int)(Math.random()*3);
+		while(forestArea[i][j]==null)
 		{
+			//System.out.println("test123423");
+			forestArea[i][j]=a;
+		}
+	   
+	/* do
+		{
+			System.out.println("test1234");
 	    forestArea[i][j]=a;
 		}
-		while(forestArea[i][j]!=null);
+		while(forestArea[i][j]!=null);*/
 		
-		printoo();
+		//printoo();
 	}
 	public void printoo()
 	{
