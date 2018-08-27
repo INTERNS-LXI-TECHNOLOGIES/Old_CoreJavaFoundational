@@ -26,6 +26,10 @@ public class AnimalGame
 		tiger.create();
 		deer.create();
 		zebra.create();
+		System.out.println("\n");
+        System.out.println("\t\t\t\t FOREST GRID");
+		System.out.println("\n");
+		
 		forestdetail.setAnimalLocation(lion);
 		forestdetail.setAnimalLocation(tiger);
 		forestdetail.setAnimalLocation(deer);

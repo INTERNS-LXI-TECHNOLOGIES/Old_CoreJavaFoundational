@@ -74,9 +74,10 @@ public class ForestSettings
 				}
 			}
 				System.out.println("\n");
+				
 
 		}  
-		System.out.println("\n");
+		     System.out.println("Welcome to the game");
 		}
 		catch(NullPointerException e)
 		{
