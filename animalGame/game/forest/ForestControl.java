@@ -88,8 +88,11 @@ String[] name=new String[10];
 						
 					}
 				    else
-					{animalCount=0; 
-					 animalName=findAnimal(animalArray[i][j]);
+					{
+					if (animalCount==-1)
+					{	animalCount++;
+					}
+					animalName=findAnimal(animalArray[i][j]);
 					breadth=j-n;
 					length=i-m;
 				     name[animalCount]= animalName;
