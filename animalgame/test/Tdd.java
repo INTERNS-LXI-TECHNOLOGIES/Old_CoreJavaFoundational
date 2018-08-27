@@ -9,7 +9,9 @@ public class Tdd
 	public static void main(String args[])
 	{
 
-		AnimalGame start=new AnimalGame();
-		start.gameDetails();
+		AnimalGame fetch=new AnimalGame();
+		fetch.gameDetails();
+		fetch.startGame();
 	}
+
 }

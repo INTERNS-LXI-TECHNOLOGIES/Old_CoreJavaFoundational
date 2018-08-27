@@ -1,4 +1,5 @@
 package com.lxisoft.animalgame.game.forest;
+import com.lxisoft.animalgame.game.AnimalGame;
 import com.lxisoft.animalgame.game.forest.Forest;
 import com.lxisoft.animalgame.game.forest.animals.Animals;
 import com.lxisoft.animalgame.game.forest.animals.carnivores.lion.Lion;
@@ -12,6 +13,11 @@ public class ForestSettings
 	Forest forest=new Forest();
 	Animals[][] animalList;
 	int row,column,i,j;
+	int chooseAnimal;
+	int xLoc,yLoc;
+	//double distance;
+	String animalName;
+    Animals deerLocation,lionLocation,tigerLocation,elephantLocation;
 
 	public void setForest()
 	{
@@ -41,39 +47,43 @@ public class ForestSettings
 		try
 		{
 			for(i=1;i<=row;i++)
-			{
+			{	
+				System.out.print("\t\t");
 				for (j=1;j<=column;j++)
 			    {
 			    	if(animalList[i][j]!=null)
 			    	{
 			    		if(animalList[i][j] instanceof Lion)
 			    		{
-			    			System.out.print("Lion");
+			    			System.out.print("\tLion\t");
 			    		}
 
 			    		if(animalList[i][j] instanceof Tiger)
 			    		{
-			    			System.out.print("Tiger");
+			    			System.out.print("\tTiger\t");
 			    		}
 
 			    		if(animalList[i][j] instanceof Elephant)
 			    		{
-			    			System.out.print("Elephant");
+			    			System.out.print("\tElephant");
 			    		}
 
 			    		if(animalList[i][j] instanceof Deer)
 			    		{
-			    			System.out.print("Deer");
+			    			System.out.print("\tDeer\t");
 			    		}
 			    	}
 					
 					else
-					{
-						System.out.print("null");
+					{	
+
+						System.out.print("\t*\t");
 					}
-					System.out.print("\t");
+					//System.out.print("\t\t\t");
 				}
-				System.out.println("\n");
+
+				System.out.println("\n\n\n");
+
 			}
 		}
 
@@ -81,119 +91,68 @@ public class ForestSettings
 		{
 			System.out.println("0");
 		}
-	}	
+		
+	}
 
 
-	public void locateAnimal()
+
+	/*public void enterAnimalCoordinate()
 	{
-		System.out.println("1)Lion\t\t2)Tiger\n3)Elephant\t4)Deer");
-		System.out.print("Choose Animal to play: ");
-		int chooseAnimal=scan.nextInt();
-		switch(chooseAnimal)
+		System.out.println("Enter Animal Coordinte ");
+		xLoc=scan.nextInt();
+		yLoc=scan.nextInt();
+	}*/
+
+
+	public void getAnimalLocation(Animals animal)
+	{	String animalName=locateAnimal(animal);
+		boolean located=false;
+		if(animalList[i][j]!=animal)
 		{
-			case 1:
-			try
-			{
-				for (i=1;i<=row;i++)
+			for(int i=1;i<=row;i++)
+			{  
+				for(int j=1;j<=column;j++)
 				{
-					for(j=1;j<=column;j++)
+					
+					if(animalList[i][j]==animal && located==false)
 					{
-						if(animalList[i][j]!=null)
-							if(animalList[i][j] instanceof Lion)
-							{
-								System.out.println("Chosen Animal: Lion");
-								System.out.println("Location: ("+i+","+j+")");
-							}
+						located=true;
+						animalList[i][j]=animal;
+						System.out.println( "\nLocation of "+animalName+" : ("+i+","+j+")"); 
+
 					}
+					
 				}
-				
 			}
-
-			catch(Exception lionLocation)
-			{
-				System.out.println("Invalid loaction");
-			}
-			break;
-
-
-			case 2:
-			try
-			{
-				for (i=1;i<=row;i++)
-				{
-					for(j=1;j<=column;j++)
-					{
-						if(animalList[i][j]!=null)
-							if(animalList[i][j] instanceof Tiger)
-							{
-								System.out.println("Chosen Animal: Tiger");
-								System.out.println("Location: ("+i+","+j+")");
-							}
-					}
-				}
-				
-			}
-
-			catch(Exception loc)
-			{
-				System.out.println("Invalid loaction");
-			}
-			break;
-
-
-			case 3:
-			try
-			{
-				for (i=1;i<=row;i++)
-				{
-					for(j=1;j<=column;j++)
-					{
-						if(animalList[i][j]!=null)
-							if(animalList[i][j] instanceof Elephant)
-							{
-								System.out.println("Chosen Animal: Elephant");
-								System.out.println("Location: ("+i+","+j+")");
-							}
-					}
-				}
-				
-			}
-
-			catch(Exception tigerLocation)
-			{
-				System.out.println("Invalid loaction");
-			}
-			break;
-
-
-			case 4:
-			try
-			{
-				for (i=1;i<=row;i++)
-				{
-					for(j=1;j<=column;j++)
-					{
-						if(animalList[i][j]!=null)
-							if(animalList[i][j] instanceof Deer)
-							{
-								System.out.println("Chosen Animal: Deer");
-								System.out.println("Location: ("+i+","+j+")");
-							}
-					}
-				}
-				
-			}
-
-			catch(Exception loc)
-			{
-				System.out.println("Invalid loaction");
-			}
-			break;
-
-
-			default:
-				System.out.println("Invalid Choice");
-			break;		
 		}
 	}
+
+
+	public String locateAnimal(Animals animal)
+	{
+		
+		if(animal instanceof Lion)
+		  {
+		  	animalName= "Lion";
+		  }
+
+		   if(animal instanceof Tiger)
+		  {
+		  	animalName= "Tiger";
+		  }
+
+		    if(animal instanceof Elephant)
+		  {
+		  	animalName="Elephant";
+		  }
+
+		   if(animal instanceof Deer)
+		  {
+		  	animalName="Deer";
+		  }
+		  	return animalName;
+			
+	}
+
+
 }

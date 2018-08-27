@@ -6,45 +6,45 @@ import com.lxisoft.animalgame.game.forest.animals.herbivores.deer.Deer;
 
 public class Animals
 {
-	private String animalName,animalType;
-	private int animalEnergyLevel;
-	private int animalHungryLevel;
+	private String name,type;
+	private int energyLevel;
+	private int hungryLevel;
 	
 	public void setAnimalName(String name)
 	{
-		this.animalName=name;
+		this.name=name;
 	}
 
 	public String getAnimalName()
 	{
-		return animalName;
+		return name;
 	}
 	public void setAnimalType(String type)
 	{
-		this.animalType=type;
+		this.type=type;
 	}
 
 	public String getAnimalType()
 	{
-		return animalType;
+		return type;
 	}
 
 	public void setEnergyLevel(int energyLevel)
 	{
-		this.animalEnergyLevel=energyLevel;
+		this.energyLevel=energyLevel;
 	}
 
 	public int getEnergyLevel()
 	{
-		return animalEnergyLevel;
+		return energyLevel;
 	}
 	public void setHungryLevel(int hungryLevel)
 	{
-		this.animalHungryLevel=hungryLevel;
+		this.hungryLevel=hungryLevel;
 	}
 
 	public int getHungryLevel()
 	{
-		return animalHungryLevel;
+		return hungryLevel;
 	}
 }
