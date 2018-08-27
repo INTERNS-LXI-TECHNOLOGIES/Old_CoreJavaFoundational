@@ -5,6 +5,8 @@ import  com.lxisoft.animalgame.game.forest.animal.carnivorous.Lion;
 import  com.lxisoft.animalgame.game.forest.animal.carnivorous.Tiger;
 import com.lxisoft.animalgame.game.forest.animal.herbivorous.Deer;
 import com.lxisoft.animalgame.game.forest.animal.herbivorous.Zebra;
+import com.lxisoft.animalgame.game.forest.animal.herbivorous.Giraff;
+import  com.lxisoft.animalgame.game.forest.animal.carnivorous.Cheeta;
 import java.util.*;
 
 public class ForestSettings
@@ -12,6 +14,7 @@ public class ForestSettings
 	Scanner scan=new Scanner(System.in);
 	Forest forest=new Forest();
 	Animal[][] animalList;
+	String animalName;
 	
 	int row,column,i,j;
 	
@@ -67,6 +70,14 @@ public class ForestSettings
 				   {
 					   System.out.print("Zebra");
 				   }
+				    if(animalList[i][j] instanceof Cheeta)
+				   {
+					   System.out.print("Cheeta");
+				   }
+				    if(animalList[i][j] instanceof Giraff)
+				   {
+					   System.out.print("Giraff");
+				   }
 				}
 				else
 				{
@@ -83,10 +94,45 @@ public class ForestSettings
 		{
 			System.out.println("0");
 		}	
-	}		
+	}
 
-
-}	
+		public void getanimalLocation(Animal animal)
+		{
+			String animalName=findAnimal(animal);
+			for(i=0;i<row;i++)
+			{
+				for(j=0;j<column;j++)
+				{
+					if(animalList[i][j]==animal)
+					{
+						System.out.println("the coordinates of  "+animalName+"\n"+i+"\n"+j);
+						
+					}
+						
+				}
+			}
+			
+		}
+		public String findAnimal(Animal animal)
+		{
+			if(animal instanceof Lion)
+			{animalName="Lion";}
+			if(animal instanceof Tiger)
+			{animalName="Tiger";}
+			if(animal instanceof Deer)
+			{animalName="Deer";}
+		    if(animal instanceof Zebra)
+			{animalName="Zebra";}
+		    if(animal instanceof Cheeta)
+			{animalName="Cheeta";}
+		    if(animal instanceof Giraff)
+			{animalName="Giraff";}
+		return animalName;
+		}
+}
+		
+		
+	
 		
 		
 	
