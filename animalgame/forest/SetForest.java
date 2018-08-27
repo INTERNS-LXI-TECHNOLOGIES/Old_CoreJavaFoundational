@@ -18,6 +18,7 @@ public class SetForest
 	String animalName;
 	int row,column,i,j;
 	int animalCount=0;
+	
 	double[] space = new double[5];
 	
 	
@@ -47,58 +48,62 @@ public class SetForest
 	{
 		try{
 		
-		for(int i=0;i<row;i++)
-		{
-			for(int j=0;j<column;j++)
+			for(int i=0;i<row;i++)
 			{
-				
-				System.out.print("\t");
-				
-				if(animalArr[i][j]!=null)
+				for(int j=0;j<column;j++)
+			
 				{
-					if(animalArr[i][j] instanceof Lion)
+				
+					System.out.print("\t");
+				
+					if(animalArr[i][j]!=null)
 					{
-						System.out.print("Lion");
+						if(animalArr[i][j] instanceof Lion)
+						{
+							System.out.print("Lion");
+						}
+						
+						if(animalArr[i][j] instanceof Tiger)
+						{
+							System.out.print("Tiger");
+						}
+						
+						if(animalArr[i][j] instanceof Fox)
+						{
+							System.out.print("Fox");
+						}
+						
+						if(animalArr[i][j] instanceof Deer)
+						{
+							System.out.print("Deer");
+						}
+						
+						if(animalArr[i][j] instanceof Rabbit)
+						{
+							System.out.print("Rabbit");
+						}
+						
+						if(animalArr[i][j] instanceof Zebra)
+						{
+							System.out.print("Zebra");
+						}
+						
 					}
 					
-					if(animalArr[i][j] instanceof Tiger)
-					{
-						System.out.print("Tiger");
-					}
-					
-					if(animalArr[i][j] instanceof Fox)
-					{
-						System.out.print("Fox");
-					}
-					
-					if(animalArr[i][j] instanceof Deer)
-					{
-						System.out.print("Deer");
-					}
-					
-					if(animalArr[i][j] instanceof Rabbit)
-					{
-						System.out.print("Rabbit");
-					}
-					
-					if(animalArr[i][j] instanceof Zebra)
-					{
-						System.out.print("Zebra");
-					}
-					
+					else
+						{
+							System.out.print("null");
+						}
+				
 				}
-				else
-				{
-					System.out.print("null");
-				}
+				System.out.println("\n");
 			}
-			System.out.println("\n");
+			System.out.print("\n");	
 		}
-		System.out.print("\n");	
-	}	catch(NullPointerException e)
-		{
-			System.out.println("0");
-		}
+		catch(NullPointerException e)
+			{
+				System.out.println("0");
+			}
 	}
 	
 	public void setSpace(int i1, int j1)
@@ -109,13 +114,35 @@ public class SetForest
 			{
 			if(animalArr[i][j]!=null)
 			{
+				if(i==i1&&j==j1)
+				{
+				}
+				else
+				{
+					
 				space[animalCount]= Math.sqrt((i-i1)*(i-i1) + (j-j1)*(j-j1));
+				System.out.println("space to animal " + (animalCount+1) + " is::" + space[animalCount]);
 				animalCount++;
+				}
 			}
 			}
+
 		}
-	}
 		
+		
+	}
+	
+		
+	public double[] getSpace()
+	{
+		return space;
+	}
+	
+	public int getanimalCount()
+	{
+		return animalCount;
+	}
+	
 	
 	public void getanimalLocation(Animal animal)
 	{
@@ -133,15 +160,6 @@ public class SetForest
 			}
 		}
 	}
-	
-	
-	
-	
-	public double[] getSpace()
-	{
-		return space;
-	}
-	 
 	
 	
 	public String printAnimal(Animal animal)
@@ -179,10 +197,7 @@ public class SetForest
 			return animalName; 
 	}
 	
-	public int getanimalCount()
-	{
-		return animalCount;
-	}
+	
 	
 	
 

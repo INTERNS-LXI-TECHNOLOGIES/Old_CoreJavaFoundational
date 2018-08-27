@@ -58,6 +58,7 @@ public class Game
 		animalCount = scan.nextInt();
 		animalLocation(animalCount);
 		
+		
 		row = scan.nextInt();
 		column = scan.nextInt();
 		space(row,column);
@@ -106,8 +107,10 @@ public class Game
 		
 		for(int i=0;i<setforest.getanimalCount();i++)
 		{
-			System.out.println("space=" + space[i]);
+			//System.out.println("space=" + space[i]);
 		}
 	
 	}
+
+	
 }

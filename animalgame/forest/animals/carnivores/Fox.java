@@ -24,5 +24,4 @@ public class Fox extends Animal
 		return name;
 	}
 	
-}
-	
+}	
