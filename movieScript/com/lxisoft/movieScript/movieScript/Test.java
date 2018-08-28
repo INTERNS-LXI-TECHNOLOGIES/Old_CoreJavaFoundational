@@ -6,11 +6,13 @@ import java.util.*;
  
 public class Test{
 	 public static void main(String args[]){
-		 int num1,num2,num3;
+		 int num1,num2,num3,num4;
 		 Scanner sc = new Scanner(System.in);
+		 MovieScriptView msv = new MovieScriptView();
 		 HeroController hc1 = new HeroController();
 		 HeroinController hc2 = new HeroinController(); 
 		 ComedianController c = new ComedianController();
+		 VillainController vc = new VillainController();
 		 MovieScript ms = new MovieScript();
 		 System.out.println("Enter the number of heros\n");
 		 num1 = sc.nextInt();
@@ -21,6 +23,10 @@ public class Test{
 		 System.out.println("Enter the number of Comedians\n");
 		 num3 = sc.nextInt();
 		 c.comedianDetails(num3);
-		 ms.check(num1,num2,num3);
+		 System.out.println("Enter the number of Villains\n");
+		 num4 = sc.nextInt();
+		 vc.villainDetails(num4);
+		 ms.check(num1,num2,num3,num4);
+		 msv.view();
 	}
  }
