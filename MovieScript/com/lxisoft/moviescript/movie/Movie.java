@@ -26,6 +26,7 @@ public class Movie
 		comedian=new ArrayList<Comedian>();
 		villain=new ArrayList<Villain>();
 		collect();
+		scriptWriter.writeScript(hero,heroine,supportingActor,comedian,villain);
 	}
 	public void collect()
 	{
