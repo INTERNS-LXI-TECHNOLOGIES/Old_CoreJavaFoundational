@@ -20,6 +20,11 @@ public class Movie
 	
 	public Movie()
 	{
+		hero=new ArrayList<Hero>();
+		heroine=new ArrayList<Heroine>();
+		supportingActor=new ArrayList<SupportingActor>();
+		comedian=new ArrayList<Comedian>();
+		villain=new ArrayList<Villain>();
 		collect();
 	}
 	public void collect()
@@ -41,61 +46,58 @@ public class Movie
 		System.out.print("ScriptWriter : ");
 		scriptWriter=new ScriptWriter();
 		scriptWriter.setName(in.nextLine());
-		System.out.print("Enter number of heroes : ");
-		int n;
-		n=in.nextInt();
+		setList("Hero");
+		setList("Heroine");
+		setList("Comedian");
+		setList("SupportingActor");
+		setList("Villain");		
+	}
+	public void setList(String listName)
+	{
+		System.out.print("Enter number of "+listName+"s  : ");
+		Scanner in=new Scanner(System.in);
+		int n=in.nextInt();
 		in.nextLine();
-		hero=new ArrayList<Hero>();
 		for(int i=0;i<n;i++)
-		{
-			Hero h=new Hero();
-			System.out.print("Hero "+(i+1)+" : ");
-			h.setName(in.nextLine());
-			hero.add(h);
-		}
-		System.out.print("Enter number of heroines : ");
-		n=in.nextInt();
-		in.nextLine();
-		heroine=new ArrayList<Heroine>();
-		for(int i=0;i<n;i++)
-		{
-			Heroine h=new Heroine();
-			System.out.print("Heroine "+(i+1)+" : ");
-			h.setName(in.nextLine());
-			heroine.add(h);
-		}
-		System.out.print("Enter number of supporting actors : ");
-		n=in.nextInt();
-		in.nextLine();
-		supportingActor=new ArrayList<SupportingActor>();
-		for(int i=0;i<n;i++)
-		{
-			SupportingActor sa=new SupportingActor();
-			System.out.print("Supporting Actor : "+(i+1)+" : ");
-			sa.setName(in.nextLine());
-			supportingActor.add(sa);
-		}
-		System.out.print("Enter number of comedians : ");
-		n=in.nextInt();
-		in.nextLine();
-		comedian=new ArrayList<Comedian>();
-		for(int i=0;i<n;i++)
-		{
-			Comedian c=new Comedian();
-			System.out.print(" "+(i+1)+" : ");
-			c.setName(in.nextLine());
-			comedian.add(c);
-		}
-		System.out.print("Enter number of villians : ");
-		n=in.nextInt();
-		in.nextLine();
-		villain=new ArrayList<Villain>();
-		for(int i=0;i<n;i++)
-		{
-			Villain v=new Villain();
-			System.out.print("Heroine "+(i+1)+" : ");
-			v.setName(in.nextLine());
-			villain.add(v);
+		{			
+			switch(listName)
+			{
+				case "Hero"		:Hero h=new Hero();
+								System.out.print(listName+" "+(i+1)+": ");
+								h.setName(in.nextLine());
+								System.out.print("Character Name :");
+								h.setCharacterName(in.nextLine());
+								hero.add(h);
+								break;
+				case "Heroine"	:Heroine hn=new Heroine();
+								System.out.print(listName+" "+(i+1)+": ");
+								hn.setName(in.nextLine());
+								System.out.print("Character Name :");
+								hn.setCharacterName(in.nextLine());
+								heroine.add(hn);
+								break;
+				case "Comedian"	:Comedian c=new Comedian();
+								System.out.print(listName+" "+(i+1)+": ");
+								c.setName(in.nextLine());
+								System.out.print("Character Name :");
+								c.setCharacterName(in.nextLine());
+								comedian.add(c);
+								break;
+				case "SupportingActor"	:SupportingActor sa=new SupportingActor();
+								System.out.print(listName+" "+(i+1)+": ");
+								sa.setName(in.nextLine());
+								System.out.print("Character Name :");
+								sa.setCharacterName(in.nextLine());
+								supportingActor.add(sa);
+								break;
+				case "Villain"	:Villain v=new Villain();
+								System.out.print(listName+" "+(i+1)+": ");
+								v.setName(in.nextLine());
+								System.out.print("Character Name :");
+								v.setCharacterName(in.nextLine());
+								villain.add(v);
+								break;
+			}
 		}
 	}
 	

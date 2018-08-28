@@ -1,7 +1,7 @@
 package com.lxisoft.moviescript.cast;
-import com.lxisoft.moviescript.person.Person;
 
-public class Heroine extends Person
+
+public class Heroine extends Cast
 {
 	
 }
