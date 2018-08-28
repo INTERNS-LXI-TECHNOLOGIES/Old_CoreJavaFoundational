@@ -8,6 +8,7 @@ import com.lxisoft.animalgame.forest.animals.herbivores.Zebra;
 import com.lxisoft.animalgame.forest.animals.carnivores.Lion;
 import com.lxisoft.animalgame.forest.animals.herbivores.Deer;
 import com.lxisoft.animalgame.forest.animals.herbivores.Rabbit;
+//import com.lxisoft.animalgame.game.SortDistance;
 import java.util.*;
 
 public class SetForest
@@ -18,8 +19,8 @@ public class SetForest
 	String animalName;
 	int row,column,i,j;
 	int animalCount=0;
-	
-	double[] space = new double[5];
+	//SortDistance sortdistance = new SortDistance();
+	public double[] space = new double[5];
 	
 	
 	public void forestControl()
@@ -108,6 +109,8 @@ public class SetForest
 	
 	public void setSpace(int i1, int j1)
 	{
+	
+	
 		for(i=0;i<row;i++)
 		{
 			for(j=0;j<column;j++)
@@ -119,20 +122,24 @@ public class SetForest
 				}
 				else
 				{
-					
 				space[animalCount]= Math.sqrt((i-i1)*(i-i1) + (j-j1)*(j-j1));
 				System.out.println("space to animal " + (animalCount+1) + " is::" + space[animalCount]);
 				animalCount++;
 				}
 			}
 			}
-
-		}
+	    }
 		
+	   double[] distArray = {space[0],space[1],space[2],space[3],space[4]};
+	   Arrays.sort(distArray);
+	   for (int i = 0; i < distArray.length; i++) 
+		{
+			
+		}
+		System.out.println("Nearest distance to " + animalName +" is :: " + distArray[0]);
 		
 	}
 	
-		
 	public double[] getSpace()
 	{
 		return space;
