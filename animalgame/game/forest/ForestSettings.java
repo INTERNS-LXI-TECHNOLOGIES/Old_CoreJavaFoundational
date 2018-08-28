@@ -13,12 +13,10 @@ public class ForestSettings
 	Forest forest=new Forest();
 	Animals[][] animalList;
 	int row,column,i,j;
-	int chooseAnimal;
+	int animalId=1;
 	int xLoc,yLoc;
-	//double distance;
+	public double[] distance=new double[4];
 	String animalName;
-    Animals deerLocation,lionLocation,tigerLocation,elephantLocation;
-
 	public void setForest()
 	{
 		System.out.print("Enter the size of the forest: ");
@@ -46,10 +44,10 @@ public class ForestSettings
 	{
 		try
 		{
-			for(i=1;i<=row;i++)
+			for(int i=1;i<=row;i++)
 			{	
 				System.out.print("\t\t");
-				for (j=1;j<=column;j++)
+				for (int j=1;j<=column;j++)
 			    {
 			    	if(animalList[i][j]!=null)
 			    	{
@@ -79,7 +77,7 @@ public class ForestSettings
 
 						System.out.print("\t*\t");
 					}
-					//System.out.print("\t\t\t");
+					
 				}
 
 				System.out.println("\n\n\n");
@@ -95,23 +93,14 @@ public class ForestSettings
 	}
 
 
-
-	/*public void enterAnimalCoordinate()
-	{
-		System.out.println("Enter Animal Coordinte ");
-		xLoc=scan.nextInt();
-		yLoc=scan.nextInt();
-	}*/
-
-
-	public void getAnimalLocation(Animals animal)
+	public void getHunterAnimalLocation(Animals animal)
 	{	String animalName=locateAnimal(animal);
 		boolean located=false;
 		if(animalList[i][j]!=animal)
 		{
-			for(int i=1;i<=row;i++)
+			for(i=1;i<=row;i++)
 			{  
-				for(int j=1;j<=column;j++)
+				for(j=1;j<=column;j++)
 				{
 					
 					if(animalList[i][j]==animal && located==false)
@@ -124,7 +113,7 @@ public class ForestSettings
 					
 				}
 			}
-		}
+		}	
 	}
 
 
@@ -154,5 +143,47 @@ public class ForestSettings
 			
 	}
 
+
+	public void findPreyDistance(int xLoc,int yLoc)
+	{	
+		for (int i=1;i<=row;i++)
+		{
+			for (int j=1;j<=column;j++) 
+			{
+				if(animalList[i][j]!=null) 
+				{
+					if(i==xLoc && j==yLoc)
+					{
+
+					}
+					else
+					{
+						distance[animalId]=Math.sqrt((i-xLoc)*(i-xLoc)+(j-yLoc)*(j-yLoc));
+						System.out.println("Distance to Animal"+animalId+" : "+distance[animalId]);
+						animalId+=1;
+					}
+				}
+			}
+		}
+
+		double[] distanceArray={distance[1],distance[2],distance[3]};
+		Arrays.sort(distanceArray);
+
+		for(int i=1;i<=distanceArray.length;i++)
+		{
+
+		}
+
+		System.out.println("Nearest Prey for "+animalName+" is: "+distanceArray[1]);
+	}
+		public double[] getDistance()
+		{
+			return distance;
+		}
+
+		public int getAnimalId()
+		{
+			return animalId;
+		}
 
 }

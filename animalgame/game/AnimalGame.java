@@ -10,7 +10,11 @@ import com.lxisoft.animalgame.game.forest.animals.Animals;
 public class AnimalGame
 {
 	Animals animal;
-	int chooseAnimal;
+	public int chooseAnimal;
+	int xLoc,yLoc;
+	int row,column;
+	double[] distance;
+	//Animals[][] animalList=animalList[xLoc][yLoc];
 	public Lion lion=new Lion();
 	public Tiger tiger=new Tiger();
 	public Elephant elephant=new Elephant();
@@ -29,37 +33,54 @@ public class AnimalGame
 		System.out.println("\t\t*\t\t   Initial Animal Grid View \t\t         *");
 		System.out.println("\t\t******************************************************************\n\n");
 		forestDetail.setForestStatus();
+		
+
+	}
+
+	public void startGame()
+	{
+		System.out.print("\nAre you ready to hunt ? (Y/N)");
+		String play=scan.next();
+		if (play.equals("Y") || play.equals("y")) 
+		{
 		System.out.println("1)Lion\t\t2)Tiger\n3)Elephant\t4)Deer");
 		System.out.print("\nChoose Animal to play: ");
 		chooseAnimal=scan.nextInt();
 		animalLocation(chooseAnimal);
 		forestDetail.locateAnimal(animal);
-		forestDetail.getAnimalLocation(animal);
-		forestDetail.showLocation();
+		forestDetail.getHunterAnimalLocation(animal);
+		row=scan.nextInt();
+		column=scan.nextInt();
+		distance(row,column);
+		}
+		
 	}
 
 	void animalLocation(int chooseAnimal)
 	 {
 		
 		if(chooseAnimal==1)
-		{forestDetail.getAnimalLocation(lion);}
+		{forestDetail.getHunterAnimalLocation(lion);}
 		if(chooseAnimal==2)
-		{forestDetail.getAnimalLocation(tiger);}
+		{forestDetail.getHunterAnimalLocation(tiger);}
 		if(chooseAnimal==3)
-		{forestDetail.getAnimalLocation(elephant);}
+		{forestDetail.getHunterAnimalLocation(elephant);}
 		if(chooseAnimal==4)
-		{forestDetail.getAnimalLocation(deer);}
+		{forestDetail.getHunterAnimalLocation(deer);}
 		
 	 }
 
-	public void startGame()
-	{
-		System.out.print("\nDo you want to Play ? (Y/N)");
-		String play=scan.next();
-		if (play.equals("Y") || play.equals("y")) 
-		{
-			
-		}
-	}
+	 public void distance(int rowDistance,int columnDistance)
+	 {
+	 	forestDetail.findPreyDistance(rowDistance,columnDistance);
+	 	distance=forestDetail.getDistance();
+
+	 	for(int i=1;i<=forestDetail.getAnimalId();i++)
+	 	{
+
+	 	}
+	 }
+
+	
 	
 }
