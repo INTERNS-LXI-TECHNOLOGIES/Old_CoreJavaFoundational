@@ -1,7 +1,10 @@
 package com.lxisoft.Animalgame.forest;
 public class Deer extends Animal implements Herbivor
 {
-String name;
-int energyLevel;
-int healthLevel;
+	public Deer()
+	{
+		name="Deer";
+		energyLevel=5;
+		healthLevel=4;
+	}
 }

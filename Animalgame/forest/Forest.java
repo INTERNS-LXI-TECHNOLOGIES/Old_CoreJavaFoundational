@@ -11,105 +11,105 @@ import java.lang.Math.*;
 
 public class Forest
 {
-	Lion[] lion = new Lion[3];
-	Rabbit[] rabbit=new Rabbit[3];
-	Tiger[] tiger=new Tiger[3];
-	Deer[] deer=new Deer[3]; 
+	String forestStatus;
+	Lion[] lion = new Lion[10];
+	Rabbit[] rabbit=new Rabbit[10];
+	Tiger[] tiger=new Tiger[10];
+	Deer[] deer=new Deer[10]; 
     private int row,column;
 	Animal[][] forestArea=new Animal[100][100];
 	
-	public void setForest(int row,int column)
-	{
-		this.row=row;
-		this.column=column;
-		forestCreate();
-		createAnimal();
+	 public void setForest(int row,int column)
+		{
+			this.row=row;
+			this.column=column;
+			forestCreate();
+			printForest();
+			createAnimal();
+			printForest();
 	
 		
-	}
-	public void forestCreate()
-	{
-		for(int i=0;i<row;i++)
+		}
+		public void forestCreate()
 		{
-			for(int j=0;j<column;j++)
+			for(int i=0;i<row;i++)
 			{
-				forestArea[i][j]=null;
+				for(int j=0;j<column;j++)
+				{
+					forestArea[i][j]=null;
+				}
 			}
+			forestStatus="Empty Forest";
 		}
-        printForest();	
-	}
-	public void printForest()
-	{
-		System.out.println("**Forest**");
-		for(int i=0;i<row;i++)
+		public void printForest()
 		{
-			for(int j=0;j<column;j++)
+		System.out.println(forestStatus);
+			for(int i=0;i<row;i++)
 			{
-				System.out.print(forestArea[i][j]);
-				System.out.print("	");
+				for(int j=0;j<column;j++)
+				{
+					System.out.print(forestArea[i][j]);
+					System.out.print("	");
+				}
+				System.out.println("\n");
 			}
-			System.out.println("\n");
-		}
 		
-		createAnimal();	
-		printoo();
 		}
+		public  int getRandomIntegerBetweenRange(int min, int max)
+			{
+				 int x = (int)(Math.random()*((max-min)+1))+min;
+                 return x;
+			}
 	
-	public void createAnimal()
-	{
-		
-		int k=(int)(Math.random()*3);
-		//System.out.println("test1");
-		for(int i=0;i<=k;i++)
+		public void createAnimal()
 		{
-			lion[i]=new Lion();
 			
-			insertAnimals(lion[i]);
-			
-			
+
+			int k=getRandomIntegerBetweenRange(2,4);
+			for(int i=0;i<=k;i++)
+			{
+				lion[i]=new Lion();
+				lion[i].setName("Lion "+(i+1));
+				insertAnimals(lion[i]);
+			}
+			int p=getRandomIntegerBetweenRange(2,4);
+			for(int i=0;i<=p;i++)
+			{
+				tiger[i]=new Tiger();
+				tiger[i].setName("Tiger"+(i+1));
+				insertAnimals(tiger[i]);
+			}
+			int q=getRandomIntegerBetweenRange(2,4);
+			for(int i=0;i<=q;i++)
+			{
+				deer[i]=new Deer();
+				deer[i].setName("Deer"+(i+1));
+				insertAnimals(deer[i]);
+			}
+			int r=getRandomIntegerBetweenRange(2,4);	
+			for(int i=0;i<=q;i++)
+			{
+				rabbit[i]=new Rabbit();
+				rabbit[i].setName("Rabbit"+(i+1));
+				insertAnimals(rabbit[i]);
+			}
+			forestStatus=":::::::::::::::::::: Forest ::::::::::::::::::::";
 		}
-		//printoo();
-		
-	}
 	
-	public  void insertAnimals(Animal a)
-	{
-		//System.out.println("test1");
-		int i=(int)(Math.random()*3);
-		int j=(int)(Math.random()*3);
+		public  void insertAnimals(Animal a)
+		{
+		int i=(int)(Math.random()*4);
+		int j=(int)(Math.random()*4);
 		while(forestArea[i][j]==null)
-		{
-			//System.out.println("test123423");
-			forestArea[i][j]=a;
-		}
-	   
-	/* do
-		{
-			System.out.println("test1234");
-	    forestArea[i][j]=a;
-		}
-		while(forestArea[i][j]!=null);*/
-		
-		//printoo();
-	}
-	public void printoo()
-	{
-	
-	System.out.println("OUTPUT");
-	
-		for(int i=0;i<row;i++)
-		{
-			for(int j=0;j<column;j++)
 			{
-				System.out.print(forestArea[i][j]);
-				System.out.print("	");
+				forestArea[i][j]=a;
 			}
-			System.out.println("\n");
 		}
-		
+	
+	
+			
 	
 		
 	}
 	
 	
-}
