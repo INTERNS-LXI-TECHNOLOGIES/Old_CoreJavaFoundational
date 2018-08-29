@@ -17,7 +17,7 @@ abstract public class Herbivores implements Animal
 	{
 		this.hungryLevel=hungryLevel;
 	}
-	public String getName()
+	public String toString()
 	{
 		return name;
 	}

@@ -5,7 +5,7 @@ public interface Animal
 	void setName(String name);
 	void setEnergylevel(int energyLevel);
 	void setHungrylevel(int hungryLevel);
-	String getName();
+	String toString();
 	int getEnergylevel();
 	int getHungrylevel();
 }
