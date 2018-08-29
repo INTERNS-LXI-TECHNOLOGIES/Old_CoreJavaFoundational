@@ -16,7 +16,7 @@ public class Forest
 	
 	public void createGrid()
 	{
-		System.out.println("Enter the dimentions of the forest grid:");
+		System.out.println("Enter the Dimentions of the forest grid:");
 		int row=sc.nextInt();
 		int column=sc.nextInt();
 		for(int i=0;i<row;i++)
