@@ -4,6 +4,6 @@ public class Tdd
 {	
 	public static void main(String args[])
 	{	AnimalGame game=new AnimalGame();
-		game.gaming();
+		game.startGaming();
 	}
 }

@@ -12,12 +12,12 @@ public class AnimalGame
 
 {  
 	
-	int animalCount,raw,column,fighterlife;
-	double[] distance;
+	int animalCount,raw,column,fighteLife;
+	double[] animalDistance;
 	Animal animal,animalObject1,animalObject2,animalOne,animalTwo;
 	String space,animalName;
-	String[] name;
-	double smallestDistance;
+	String[] names;
+	double smallestanimalDistance;
 	Lion lion=new Lion();
 	public ArrayList<Lion> lions=new ArrayList<Lion>();
 	Tiger tiger=new Tiger();
@@ -27,7 +27,7 @@ public class AnimalGame
 	Athulya athulya=new Athulya();
 	ForestControl forest=new ForestControl();
 	Scanner scan=new Scanner(System.in);
-	public void gaming()
+	public void startGaming()
 	{
 		forest.setForest();
 	    tiger.create();
@@ -70,30 +70,30 @@ public class AnimalGame
 		animalLocation(animalCount);
 		
 		
-		fighterlife=forest.getfighterLife();
+		fighteLife=forest.getFighterLife();
 		
-		while(fighterlife==1&&forest.getanimalCount()!=-1)
+		while(fighteLife==1&&forest.getanimalCount()!=-1)
 				{
 					System.out.println("\tEnter the cordinates of selected animal\n");
 					raw=scan.nextInt();
 					column=scan.nextInt();
 		
 					animalObject1=setanimalFight(animalCount);
-					distance(raw,column);
+					animalDistance(raw,column);
 					
 					if(forest.getanimalCount()!=-1)
 					{
 					System.out.println("Nearest animal name is="+animalName);
-					System.out.println("Nearest animal distance is="+smallestDistance);
+					System.out.println("Nearest animal animalDistance is="+smallestanimalDistance);
 					animalObject2=getAnimal(animalName);
 					forest.animalFight(animalObject1,animalObject2);
-					fighterlife=forest.getfighterLife();
+					fighteLife=forest.getFighterLife();
 					forest.getForeststatus();
 					space=scan.nextLine();
 					}
 		
 				}
-				if(fighterlife!=1)
+				if(fighteLife!=1)
 				{
 					System.out.println(" yogaillya amminiye....... paya madikkiyolin!!!!(Sorry your fighter is dead)");
 				}
@@ -115,24 +115,24 @@ public class AnimalGame
 		if(animalCount==6)
 		{forest.getanimallocation(athulya);}
 	 }
-	 void distance(int r,int c)
+	 void animalDistance(int r,int c)
 	 {  
-		forest.setDistance(r,c);
-		distance=forest.getDistance();
-	    name=forest.getAnimalName();
+		forest.setAnimalDistance(r,c);
+		animalDistance=forest.getAnimalDistance();
+	   names=forest.getAnimalName();
 		if(forest.getanimalCount()!=-1)
 		{
-	    smallestDistance=distance[0];
-		animalName=name[0];
+	    smallestanimalDistance=animalDistance[0];
+		animalName=names[0];
 		for(int j=1;j<forest.getanimalCount();j++)
 		{
-			if(smallestDistance<=distance[j])
+			if(smallestanimalDistance<=animalDistance[j])
 			{
 			}
 			else
 			{
-				smallestDistance=distance[j];
-				animalName=name[j];
+				smallestanimalDistance=animalDistance[j];
+				animalName=names[j];
 			}
 		}
 		}
@@ -144,7 +144,7 @@ public class AnimalGame
 		for(int i=0;i<forest.getanimalCount();i++)
 		{
 		//System.out.println("Name="+name[i]);
-		//System.out.println("Distance="+distance[i]);
+		//System.out.println("animalDistance="+animalDistance[i]);
 		}
 		
 		

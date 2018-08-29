@@ -9,7 +9,7 @@ public class ForestControl
 	Forest forest=new Forest();
 	double[] distance=new double[10];
 	Animal[][] animalArray;
-	int n1,n2,animalCount,fighterlife=1;
+	int n1,n2,animalCount,fighteLife=1;
 	String animalName;
 String[] name=new String[10];
   public  void setForest()
@@ -71,7 +71,7 @@ String[] name=new String[10];
 	}catch(NullPointerException e)
 	{System.out.print("0");}
 	}
-	public void setDistance(int m,int n)
+	public void setAnimalDistance(int m,int n)
 	{
 		int breadth,length;
 		animalCount=-1; 
@@ -109,7 +109,7 @@ String[] name=new String[10];
 		
 	}
 	
-	public double[] getDistance()
+	public double[] getAnimalDistance()
 	{
 		return distance;
 	}
@@ -172,7 +172,7 @@ String[] name=new String[10];
 				 hungryLevel2= hungryLevel2+(energyLevel1/2);
 				   System.out.println( "The  "+animalTwo+" has beaten "+animalOne);
 				 kill(animal1);
-				 fighterlife=0;
+				 fighteLife=0;
 			 }
 		 }
 		
@@ -199,7 +199,7 @@ String[] name=new String[10];
 				 System.out.println( "The animal "+animalOne+" is dead due to increase in Hunger level."); 
 					
 				 kill(animal1);
-				 fighterlife=0;
+				 fighteLife=0;
 			 }
 			 else
 			 {
@@ -222,8 +222,8 @@ String[] name=new String[10];
 	
 				 energyLevel1=energyLevel1- energyLevel2;
                  hungryLevel2= hungryLevel2+(energyLevel1/2);				 
-				  System.out.println( "The  "+animalOne+" has ran away from  "+animalTwo);
-				kill(animal1);
+				  System.out.println( "The  "+animalOne+" has beaten  "+animalTwo);
+				kill(animal2);
 				
 			 }
 			 else
@@ -232,13 +232,30 @@ String[] name=new String[10];
 				 hungryLevel2= hungryLevel2+(energyLevel1/2);
 				   System.out.println( "The  "+animalOne+" has been eaten by the "+animalTwo);
 				 kill(animal1);
-				 fighterlife=0;
+				 fighteLife=0;
 			 }
 		 }
 		
 		 if(animal2.getanimaltype()=="Herbivorous")
 		 {
-			 System.out.println( "No fighting both are Herbivorous ");
+			// System.out.println( "No fighting both are Herbivorous ");
+			  if(energyLevel1> energyLevel2)
+			 {
+	
+				 energyLevel1=energyLevel1- energyLevel2;
+                 hungryLevel2= hungryLevel2+(energyLevel1/2);				 
+				  System.out.println( "The  "+animalTwo+" has ran away from  "+animalOne);
+				kill(animal2);
+				
+			 }
+			 else
+			 {
+				 energyLevel2=energyLevel2-energyLevel1; 
+				 hungryLevel2= hungryLevel2+(energyLevel1/2);
+				   System.out.println( "The  "+animalOne+" has lower energy than "+animalTwo);
+				 kill(animal1);
+				 fighteLife=0;
+			 }
 			
 			
 		 }
@@ -286,9 +303,9 @@ String[] name=new String[10];
 		return animalName;
 			
 	 }
-	  public int getfighterLife()
+	  public int getFighterLife()
 	 {
-		 return fighterlife;
+		 return fighteLife;
 	 }
 				
 	
