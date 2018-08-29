@@ -168,13 +168,8 @@ public class ForestSettings
 
 		double[] distanceArray={distance[1],distance[2],distance[3]};
 		Arrays.sort(distanceArray);
-
-		for(int i=1;i<=distanceArray.length;i++)
-		{
-
-		}
-
-		System.out.println("Nearest Prey for "+animalName+" is: "+distanceArray[1]);
+		double min=distanceArray[0];
+		System.out.println("Nearest Prey for "+animalName+" is: "+min);
 	}
 		public double[] getDistance()
 		{

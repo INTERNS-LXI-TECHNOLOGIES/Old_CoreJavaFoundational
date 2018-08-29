@@ -40,6 +40,7 @@ public class Animals
 	}
 	public void setHungryLevel(int hungryLevel)
 	{
+		
 		this.hungryLevel=hungryLevel;
 	}
 
