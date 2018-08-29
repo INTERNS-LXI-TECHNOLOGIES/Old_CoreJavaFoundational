@@ -5,6 +5,6 @@ public class Rabbit extends Animal implements Herbivor
 	{
 		name="Lion";
 		energyLevel=3;
-		healthLevel=2;
+		hungryLevel=2;
 	}
 }

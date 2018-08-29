@@ -27,6 +27,7 @@ public class Forest
 			printForest();
 			createAnimal();
 			printForest();
+			selectHero();
 	
 		
 		}
@@ -39,7 +40,7 @@ public class Forest
 					forestArea[i][j]=null;
 				}
 			}
-			forestStatus="Empty Forest";
+			forestStatus="::::::::::::::;Empty Forest::::::::::::::::";
 		}
 		public void printForest()
 		{
@@ -66,31 +67,31 @@ public class Forest
 			
 
 			int k=getRandomIntegerBetweenRange(2,4);
-			for(int i=0;i<=k;i++)
+			for(int i=1;i<=k;i++)
 			{
 				lion[i]=new Lion();
 				lion[i].setName("Lion "+(i+1));
 				insertAnimals(lion[i]);
 			}
 			int p=getRandomIntegerBetweenRange(2,4);
-			for(int i=0;i<=p;i++)
+			for(int i=1;i<=p;i++)
 			{
 				tiger[i]=new Tiger();
 				tiger[i].setName("Tiger"+(i+1));
 				insertAnimals(tiger[i]);
 			}
 			int q=getRandomIntegerBetweenRange(2,4);
-			for(int i=0;i<=q;i++)
+			for(int i=1;i<=q;i++)
 			{
 				deer[i]=new Deer();
-				deer[i].setName("Deer"+(i+1));
+				deer[i].setName("Deer"+i);
 				insertAnimals(deer[i]);
 			}
 			int r=getRandomIntegerBetweenRange(2,4);	
-			for(int i=0;i<=q;i++)
+			for(int i=1;i<=q;i++)
 			{
 				rabbit[i]=new Rabbit();
-				rabbit[i].setName("Rabbit"+(i+1));
+				rabbit[i].setName("Rabbit"+i);
 				insertAnimals(rabbit[i]);
 			}
 			forestStatus=":::::::::::::::::::: Forest ::::::::::::::::::::";
@@ -106,10 +107,21 @@ public class Forest
 			}
 		}
 	
+		public void selectHero()
+		{
+			System.out.println("SELECT YOUR HERO");
+			int opt=1;
+			for(int i=0;i<row;i++)
+			{
+				for(int j=0;j<column;j++)
+				{
+					System.out.println(
 	
+	 
 			
 	
 		
-	}
+		}
 	
 	
+}

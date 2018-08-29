@@ -5,7 +5,7 @@ public class Animal
 {
 String name;
 int energyLevel;
-int healthLevel;
+int hungryLevel;
 
 
 public String toString()
