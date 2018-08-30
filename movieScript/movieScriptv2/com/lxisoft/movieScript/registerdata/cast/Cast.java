@@ -19,5 +19,8 @@ public void dataInput(String temp)throws Exception
 	System.out.print("\n\n No.of Awards won:");
 	p.setProperty("award",sc.nextLine());
 	p.store(new FileWriter("com/lxisoft/movieScript/database/cast/"+name+"_"+temp+".properties"),"inserted data");
+	 FileWriter fw=new FileWriter("com/lxisoft/movieScript/database/namelist.txt",true);    
+           fw.write(name+"_"+temp+";");    
+           fw.close();    
 }
 }
