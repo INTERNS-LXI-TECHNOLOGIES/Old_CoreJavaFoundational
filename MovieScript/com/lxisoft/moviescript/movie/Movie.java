@@ -2,6 +2,7 @@ package com.lxisoft.moviescript.movie;
 import com.lxisoft.moviescript.crew.*;
 import com.lxisoft.moviescript.cast.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 public class Movie
 {
@@ -30,28 +31,27 @@ public class Movie
 	}
 	public void collect()
 	{
-		System.out.print("Movie Name : ");
-		Scanner in=new Scanner(System.in);
-		movieName=in.nextLine();
-		System.out.print("Genre : ");
-		genre=in.nextLine();
-		System.out.print("Director : ");
+		movieName=readData("Movie Name : ");
+		genre=readData("Genre : ");
 		director=new Director();
-		director.setName(in.nextLine());
-		System.out.print("Producer : ");
+		director.setName(readData("Director : "));
 		producer=new Producer();		
-		producer.setName(in.nextLine());
-		System.out.print("cameraMan : ");
+		producer.setName(readData("Producer : "));
 		cameraMan=new CameraMan();
-		cameraMan.setName(in.nextLine());
-		System.out.print("ScriptWriter : ");
+		cameraMan.setName(readData("Camera Man : "));
 		scriptWriter=new ScriptWriter();
-		scriptWriter.setName(in.nextLine());
+		scriptWriter.setName(readData("Script Writer : "));
 		setList("Hero");
 		setList("Heroine");
 		setList("Comedian");
 		setList("SupportingActor");
 		setList("Villain");		
+	}
+	public String readData(String key)
+	{
+		System.out.print(key);
+		Scanner in=new Scanner(System.in);
+		return in.nextLine();
 	}
 	public void setList(String listName)
 	{
@@ -63,43 +63,27 @@ public class Movie
 		{			
 			switch(listName)
 			{
-				case "Hero"		:Hero h=new Hero();
-								System.out.print(listName+" "+(i+1)+": ");
-								h.setName(in.nextLine());
-								System.out.print("Character Name :");
-								h.setCharacterName(in.nextLine());
-								hero.add(h);
+				case "Hero"		:fetchCastDetails(new Hero(),listName+" "+(i+1),hero);
 								break;
-				case "Heroine"	:Heroine hn=new Heroine();
-								System.out.print(listName+" "+(i+1)+": ");
-								hn.setName(in.nextLine());
-								System.out.print("Character Name :");
-								hn.setCharacterName(in.nextLine());
-								heroine.add(hn);
+				case "Heroine"	:fetchCastDetails(new Heroine(),listName+" "+(i+1),heroine);
 								break;
-				case "Comedian"	:Comedian c=new Comedian();
-								System.out.print(listName+" "+(i+1)+": ");
-								c.setName(in.nextLine());
-								System.out.print("Character Name :");
-								c.setCharacterName(in.nextLine());
-								comedian.add(c);
+				case "Comedian"	:fetchCastDetails(new Comedian(),listName+" "+(i+1),comedian);
 								break;
-				case "SupportingActor"	:SupportingActor sa=new SupportingActor();
-								System.out.print(listName+" "+(i+1)+": ");
-								sa.setName(in.nextLine());
-								System.out.print("Character Name :");
-								sa.setCharacterName(in.nextLine());
-								supportingActor.add(sa);
-								break;
-				case "Villain"	:Villain v=new Villain();
-								System.out.print(listName+" "+(i+1)+": ");
-								v.setName(in.nextLine());
-								System.out.print("Character Name :");
-								v.setCharacterName(in.nextLine());
-								villain.add(v);
+				case "SupportingActor"	:fetchCastDetails(new SupportingActor(),listName+" "+(i+1),supportingActor);
+										break;
+				case "Villain"	:fetchCastDetails(new Villain(),listName,villain);
 								break;
 			}
 		}
+	}
+	public void fetchCastDetails(Cast actor,String listName,List list)
+	{
+		System.out.print(listName+" : ");
+		Scanner in=new Scanner(System.in);
+		actor.setName(in.nextLine());
+		System.out.print("Character Name :");
+		actor.setCharacterName(in.nextLine());
+		list.add(actor);		
 	}
 	
 }
