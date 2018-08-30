@@ -13,10 +13,12 @@ public class Forest
 	Animal fighter1,fighter2;
 	Animal[][] forestGrid=new Animal[10][10];
 	Scanner sc=new Scanner(System.in);
-	Animal[] lions=new Lion[5];
-	Animal[] tigers=new Tiger[5];
-	Animal[] rabbits=new Rabbit[5];
-	Animal[] zeebras=new Zeebra[5];
+	ArrayList<Animal> animals=new ArrayList<Animal>();
+	Animal lions;
+	Animal tigers;
+	Animal rabbits;
+	Animal zeebras;
+	
 	int row,column,k;
 	
 	public void createGrid()
@@ -39,29 +41,33 @@ public class Forest
 	{
 		for(k=0;k<5;k++)
 		{
-			lions[k]=new Lion();
-			lions[k].setName("Lion"+ (k+1));
-			lions[k].setEnergylevel(50);
-			lions[k].setHungrylevel(10);
-			createAnimal(lions[k]);
 			
-			tigers[k]=new Tiger();
-			tigers[k].setName("Tiger"+ (k+1));
-			tigers[k].setEnergylevel(50);
-			tigers[k].setHungrylevel(10);
-			createAnimal(tigers[k]);
+			animals.add(new Lion());
+			animals.get(k).setName("Lion"+ (k+1));
+			animals.get(k).setEnergylevel(50);
+			animals.get(k).setHungrylevel(10);
 			
-			rabbits[k]=new Rabbit();
-			rabbits[k].setName("Rabbit"+ (k+1));
-			rabbits[k].setEnergylevel(20);
-			rabbits[k].setHungrylevel(3);
-			createAnimal(rabbits[k]);
 			
-			zeebras[k]=new Zeebra();
-			zeebras[k].setName("Zeebra"+ (k+1));
-			zeebras[k].setEnergylevel(30);
-			zeebras[k].setHungrylevel(7);
-			createAnimal(zeebras[k]);
+			animals.add(new Tiger());
+			animals.get(k).setName("Tiger"+ (k+1));
+			animals.get(k).setEnergylevel(50);
+			animals.get(k).setHungrylevel(10);
+
+			
+			animals.add(new Rabbit());
+			animals.get(k).setName("Rabbit"+ (k+1));
+			animals.get(k).setEnergylevel(20);
+			animals.get(k).setHungrylevel(3);
+			
+
+			animals.add(new Zeebra());
+			animals.get(k).setName("Zeebra"+ (k+1));
+			animals.get(k).setEnergylevel(30);
+			animals.get(k).setHungrylevel(7);
+			
+			createAnimal(animals.get(k));
+			
+			
 		}
 		
 	}
@@ -92,8 +98,15 @@ public class Forest
 	
 	public void animalFighting(Animal fighter1,Animal fighter2)
 	{
-		System.out.println("Select your fighter:");
+		System.out.println("Select your fighter from the grid:");
 		System.out.println("1.Lion\n2.Tiger\n3.Rabbit\n4.Zeebra\n");
+		int selection=sc.nextInt();
+		if(selection==1)
+		{
+			fighter1=lions;
+		}
+		System.out.println("Co-ordinates of the selected animal are:");
+		displayCoordinates(fighter1);
 		
 		for(int i=0;i<forestGrid.length;i++)
 		{
@@ -109,6 +122,21 @@ public class Forest
 				//forestGrid[i][j]=null;		
 			}	
 		}
+	}
+	
+	public void displayCoordinates(Animal fighter1)
+	{
+		
+			for(int i=1;i<=row;i++)
+			{
+				for(int j=1;j<=column;j++)
+				{
+					if(forestGrid[i][j]==fighter1)
+					{
+						System.out.println("\t"+i+"\t"+j);	
+					}
+				}
+			}
 	}
 	
 }
