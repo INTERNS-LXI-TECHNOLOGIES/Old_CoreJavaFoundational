@@ -13,6 +13,7 @@ public class SetForest
 	Forest forest=new Forest();
 	Animal[][] animalArray;
 	int m,n,i,j;
+	double distance;
 	public void ForestControl()
 	{
 		
@@ -93,4 +94,29 @@ public class SetForest
 			System.out.print("\n");
 		}
 		}
+		
+		
+		public void animalDistance(int p,int q)
+		{
+			int height,length;
+			for (int i=0;i<m;i++)
+			{
+				for(int j=0;j<n;j++)
+				{
+						if(animalArray[i][j]!=null)
+						{
+							height=i-p;
+							length=j-q;
+							distance=Math.sqrt((height*height)+(length*length));
+							System.out.print(distance);
+							System.out.print(animalArray[i][j]);
+							
+						}
+			
+				}
+
+			}
+			
+		}
+		
 }

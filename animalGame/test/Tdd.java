@@ -9,7 +9,8 @@ public static void main(String args[])
 	{
 		Game game=new Game();
 		game.animalGame();
-		game.animalCreation();
-		game.fight(game.tiger,game.deer);
+		//game.animalCreation();
+		//game.chooseAnimal();
+		//game.fight(game.animal1,game.deer);
 	}
 }
