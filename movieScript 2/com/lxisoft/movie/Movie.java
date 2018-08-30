@@ -23,6 +23,7 @@ public class Movie
 	
 	
 	public Movie() throws Exception
+
 	{
 		collectData();
 	}
@@ -58,10 +59,11 @@ public class Movie
 		
 		moviefw.close();
 		addCastData();
+		addDialogue();
 		cls();
 		dataView();
 	}
-	public void addCastData()throws Exception
+	public void addCastData() throws Exception
 	{
 		hero=new Hero();	
 		heroine= new Heroine();
@@ -69,17 +71,27 @@ public class Movie
 		villain = new Villain();
 		supportingActor=new SupportingActor();
 	}
+	public void addDialogue() throws Exception
+	{
+		hero.addHeroDialogue();
+		heroine.addHeroineDialogue();
+		comedian.addComedianDialogue();
+		villain.addVillainDialogue();
+		supportingActor.addSupportingActorDialogue();
+	}
 	public void dataView() throws Exception
 	{
 		String movie;
 		FileReader fr= new FileReader("./com/lxisoft/movie/movie.txt");
 		BufferedReader br= new BufferedReader(fr);
 		while((movie=br.readLine()) != null)
-			{
+		{
 			System.out.println(movie);
-			}
+		}
 		fr.close();
+		
 		actorDataView();
+		scene();
 		
 	}
 	public void actorDataView() throws Exception
@@ -88,6 +100,16 @@ public class Movie
 		heroine.heroineDataView();
 		comedian.comedianDataView();
 		supportingActor.supportingActorDataView();
+	}
+	public void scene() throws Exception
+	{
+		System.out.println("**************************\n");
+		hero.viewHeroDialogue();
+		heroine.viewHeroineDialogue();
+		villain.viewVillainDialogue();
+		comedian.viewComedianDialogue();
+		supportingActor.viewSupportingActorDialogue();
+		
 	}
 
 	
