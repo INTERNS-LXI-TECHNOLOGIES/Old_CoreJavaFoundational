@@ -111,11 +111,20 @@ public class Forest
 		{
 			System.out.println("SELECT YOUR HERO");
 			int opt=1;
-			for(int i=0;i<row;i++)
+		    for(int i=0;i<row;i++)
 			{
 				for(int j=0;j<column;j++)
 				{
-					System.out.println(
+					if(forestArea[i][j]!=null)
+					{
+				    System.out.print(opt+".");
+					System.out.println(forestArea[i][j]);
+					}
+					opt=opt+1;
+				}
+				
+				
+			}
 	
 	 
 			
