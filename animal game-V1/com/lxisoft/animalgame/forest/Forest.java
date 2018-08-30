@@ -13,13 +13,13 @@ public class Forest
 	Animal fighter1,fighter2;
 	Animal[][] forestGrid=new Animal[10][10];
 	Scanner sc=new Scanner(System.in);
-	ArrayList<Animal> animals=new ArrayList<Animal>();
-	Animal lions;
-	Animal tigers;
-	Animal rabbits;
-	Animal zeebras;
 	
-	int row,column,k;
+	Animal lion;
+	Animal tiger;
+	Animal rabbit;
+	Animal zeebra;
+	
+	int row,column;
 	
 	public void createGrid()
 	{
@@ -33,53 +33,59 @@ public class Forest
 				forestGrid[i][j]=null;		
 			}	
 		}
-		placeAnimal();
+		createAnimal();
 		printGrid();	
 	}
 	
-	public void placeAnimal()
+	public void createAnimal()
 	{
-		for(k=0;k<5;k++)
+		for(int k=0;k<5;k++)
 		{
-			
-			animals.add(new Lion());
-			animals.get(k).setName("Lion"+ (k+1));
-			animals.get(k).setEnergylevel(50);
-			animals.get(k).setHungrylevel(10);
-			
-			
-			animals.add(new Tiger());
-			animals.get(k).setName("Tiger"+ (k+1));
-			animals.get(k).setEnergylevel(50);
-			animals.get(k).setHungrylevel(10);
-
-			
-			animals.add(new Rabbit());
-			animals.get(k).setName("Rabbit"+ (k+1));
-			animals.get(k).setEnergylevel(20);
-			animals.get(k).setHungrylevel(3);
-			
-
-			animals.add(new Zeebra());
-			animals.get(k).setName("Zeebra"+ (k+1));
-			animals.get(k).setEnergylevel(30);
-			animals.get(k).setHungrylevel(7);
-			
-			createAnimal(animals.get(k));
-			
-			
+			lion=new Lion();
+			lion.setName("Lion"+(k+1));
+			lion.setEnergylevel(50);
+			lion.setHungrylevel(10);
+			placeAnimal(lion);
 		}
+		for(int t=0;t<5;t++)
+		{	
+			tiger=new Tiger();
+			tiger.setName("Tiger"+(t+1));
+			tiger.setEnergylevel(50);
+			tiger.setHungrylevel(10);
+			placeAnimal(tiger);
+		}
+		for(int r=0;r<5;r++)
+		{	
+			rabbit=new Rabbit();
+			rabbit.setName("Rabbit"+(r+1));
+			rabbit.setEnergylevel(20);
+			rabbit.setHungrylevel(3);
+			placeAnimal(rabbit);
+		}
+		for(int z=0;z<5;z++)
+		{
+			zeebra=new Zeebra();
+			zeebra.setName("Zeebra"+(z+1));
+			zeebra.setEnergylevel(40);
+			zeebra.setHungrylevel(7);
+			placeAnimal(zeebra);
+		}
+			
+		
 		
 	}
-	public void createAnimal(Animal animal)
+	public void placeAnimal(Animal animal)
 	{
-			int i=(int)(Math.random()*5);
-			int j=(int)(Math.random()*5);
+			int i,j;
 			do
 			{
-				forestGrid[i][j]=animal;
+				i=(int)(Math.random()*row);
+				j=(int)(Math.random()*column);
+				
 			}
-			while(forestGrid[i][j]==null);	
+			while(forestGrid[i][j]!=null);	
+			forestGrid[i][j]=animal;
 	
 	}
 	
@@ -103,7 +109,7 @@ public class Forest
 		int selection=sc.nextInt();
 		if(selection==1)
 		{
-			fighter1=lions;
+			fighter1=lion;
 		}
 		System.out.println("Co-ordinates of the selected animal are:");
 		displayCoordinates(fighter1);
