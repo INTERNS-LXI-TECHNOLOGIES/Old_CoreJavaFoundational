@@ -19,7 +19,7 @@ public class Forest
 	Animal rabbit;
 	Animal zeebra;
 	
-	int row,column;
+	int row,column,fighterLoc1,fighterLoc2;
 	
 	public void createGrid()
 	{
@@ -99,10 +99,10 @@ public class Forest
 			}
 			System.out.println(" ");
 		}
-		animalFighting(fighter1,fighter2);
+		animalSelection(fighter1);
 	}
 	
-	public void animalFighting(Animal fighter1,Animal fighter2)
+	public void animalSelection(Animal fighter1)
 	{
 		System.out.println("Select your fighter from the grid:");
 		System.out.println("1.Lion\n2.Tiger\n3.Rabbit\n4.Zeebra\n");
@@ -111,7 +111,25 @@ public class Forest
 		{
 			fighter1=lion;
 		}
-		System.out.println("Co-ordinates of the selected animal are:");
+		else if(selection==2)
+		{
+			fighter1=tiger;
+		}
+		else if(selection==3)
+		{
+			fighter1=rabbit;
+		}
+		else if(selection==4)
+		{
+			fighter1=zeebra;
+		}
+		else
+		{
+			fighter1=null;
+		}
+		System.out.println("Your fighter is:");
+		System.out.println(fighter1);
+		System.out.println("Co-ordinates of the selected animal is:");
 		displayCoordinates(fighter1);
 		
 		for(int i=0;i<forestGrid.length;i++)
@@ -133,16 +151,29 @@ public class Forest
 	public void displayCoordinates(Animal fighter1)
 	{
 		
-			for(int i=1;i<=row;i++)
+			for(int i=0;i<row;i++)
 			{
-				for(int j=1;j<=column;j++)
+				for(int j=0;j<column;j++)
 				{
 					if(forestGrid[i][j]==fighter1)
 					{
+						fighterLoc1=i;
+						fighterLoc2=j;
 						System.out.println("\t"+i+"\t"+j);	
 					}
 				}
 			}
+			findAdjacentAnimals(fighter1);
+	}
+	
+	public void findAdjacentAnimals(Animal fighter1)
+	{
+		System.out.println("Animals which are ready to fight are:");
+		System.out.println(forestGrid[fighterLoc1-1][fighterLoc2]);
+		System.out.println(forestGrid[fighterLoc1+1][fighterLoc2]);
+		System.out.println(forestGrid[fighterLoc1][fighterLoc2-1]);
+		System.out.println(forestGrid[fighterLoc1][fighterLoc2+1]);
+
 	}
 	
 }
