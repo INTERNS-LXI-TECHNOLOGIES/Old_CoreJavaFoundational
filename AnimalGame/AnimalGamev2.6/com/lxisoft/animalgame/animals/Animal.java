@@ -11,7 +11,7 @@ public abstract class Animal
 		 private int hunger;
 		 private int xLoc;
 		 private int yLoc;
-		 private String soundPath="F:/WorkSpace/Animal Game/Team1/AnimalGamev2.6/com/lxisoft/animalgame/sounds/"+this.getClass().getSimpleName()+".wav";
+		 private String soundPath="./com/lxisoft/animalgame/sounds/"+this.getClass().getSimpleName()+".wav";
 		 
 		 public void makeSound()
 			{
