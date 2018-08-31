@@ -4,19 +4,17 @@ import com.lxisoft.animalgame.game.forest.animals.Animals;
 import com.lxisoft.animalgame.game.forest.animals.herbivores.Herbivores;
 public class Deer extends Animals implements Herbivores
 {
-	int energyLevel;
-	int hungerLevel;
+	int energyLevel,hungerLevel;
+	String animalName;
 	public void setDeerDetails()
 	{
-		energyLevel=(int)(Math.random()*30)+40;
-		hungerLevel=(int)(Math.random()*100);
-	}
+		energyLevel=(int)(Math.random()*100);
+		setEnergyLevel(energyLevel);
+		hungerLevel=100-energyLevel;
+		setHungerLevel(hungerLevel);
+		animalName="Deer";
+		setAnimalName(animalName);
 
-	public void getDeerDetails()
-	{
-		System.out.println(energyLevel);
-		System.out.println(hungerLevel);
 	}
-
 
 }

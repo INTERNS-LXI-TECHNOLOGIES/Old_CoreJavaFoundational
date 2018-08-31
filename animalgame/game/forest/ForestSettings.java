@@ -2,6 +2,8 @@ package com.lxisoft.animalgame.game.forest;
 import com.lxisoft.animalgame.game.AnimalGame;
 import com.lxisoft.animalgame.game.forest.Forest;
 import com.lxisoft.animalgame.game.forest.animals.Animals;
+import com.lxisoft.animalgame.game.forest.animals.carnivores.Carnivores;
+import com.lxisoft.animalgame.game.forest.animals.herbivores.Herbivores;
 import com.lxisoft.animalgame.game.forest.animals.carnivores.lion.Lion;
 import com.lxisoft.animalgame.game.forest.animals.carnivores.tiger.Tiger;
 import com.lxisoft.animalgame.game.forest.animals.herbivores.elephant.Elephant;
@@ -12,11 +14,24 @@ public class ForestSettings
 	Scanner scan=new Scanner(System.in);
 	Forest forest=new Forest();
 	Animals[][] animalList;
+	String preyName,preyType;
+	int preyEnergy,preyHunger;
 	int row,column,i,j;
+	int playerX,playerY;
 	int animalId=1;
 	int xLoc,yLoc;
-	public double[] distance=new double[4];
+	public double[] distance=new double[10];
+	public String[] opponentName=new String[10];
+	public String[] opponentType=new String[10];
+	public int[] opponentEnergy=new int[10];
+	public int[] opponentHunger=new int[10];
 	String animalName;
+	int playerEnergy,playerHunger;
+	String playerName,playerType;
+	public Lion lion=new Lion();
+	public Tiger tiger=new Tiger();
+	public Elephant elephant=new Elephant();
+	public Deer deer=new Deer();
 	public void setForest()
 	{
 		System.out.print("Enter the size of the forest: ");
@@ -94,7 +109,8 @@ public class ForestSettings
 
 
 	public void getHunterAnimalLocation(Animals animal)
-	{	String animalName=locateAnimal(animal);
+	{	
+		String animalName=locateAnimal(animal);
 		boolean located=false;
 		if(animalList[i][j]!=animal)
 		{
@@ -152,6 +168,46 @@ public class ForestSettings
 			{
 				if(animalList[i][j]!=null) 
 				{
+
+				  if(animalList[i][j] instanceof Lion)
+				  {
+				  	preyName= "Lion";
+					lion.setLionDetails();
+					preyEnergy=lion.getEnergyLevel();
+					preyHunger=lion.getHungerLevel();
+					preyType=lion.animalType;
+					//lionName=lion.getAnimalName();
+					
+
+				  }
+
+				   if(animalList[i][j] instanceof Tiger)
+				  {
+				  	preyName= "Tiger";
+				  	tiger.setTigerDetails();
+					preyEnergy=tiger.getEnergyLevel();
+					preyHunger=tiger.getHungerLevel();
+					preyType=tiger.animalType;
+				  }
+
+				    if(animalList[i][j] instanceof Elephant)
+				  {
+				  	preyName="Elephant";
+				  	elephant.setElephantDetails();
+					preyEnergy=elephant.getEnergyLevel();
+					preyHunger=elephant.getHungerLevel();
+					preyType=elephant.animalType;
+				  }
+
+				   if(animalList[i][j] instanceof Deer)
+				  {
+				  	preyName="Deer";
+				  	deer.setDeerDetails();
+					preyEnergy=deer.getEnergyLevel();
+					preyHunger=deer.getHungerLevel();
+					preyType=deer.animalType;
+				  }
+
 					if(i==xLoc && j==yLoc)
 					{
 
@@ -159,7 +215,11 @@ public class ForestSettings
 					else
 					{
 						distance[animalId]=Math.sqrt((i-xLoc)*(i-xLoc)+(j-yLoc)*(j-yLoc));
-						System.out.println("Distance to Animal"+animalId+" : "+distance[animalId]);
+						opponentName[i]=preyName;
+						opponentType[i]=preyType;
+						opponentEnergy[i]=preyEnergy;
+						opponentHunger[i]=preyHunger;
+						System.out.println("\nOpponent "+opponentName[i]+"\nDistance : "+distance[animalId]+"\nType : "+opponentType[i]+"\nEnergy : "+opponentEnergy[i]+"\nHunger : "+opponentHunger[i]);
 						animalId+=1;
 					}
 				}
@@ -167,18 +227,227 @@ public class ForestSettings
 		}
 
 		double[] distanceArray={distance[1],distance[2],distance[3]};
-		Arrays.sort(distanceArray);
-		double min=distanceArray[0];
-		System.out.println("Nearest Prey for "+animalName+" is: "+min);
-	}
-		public double[] getDistance()
+		String[] opponentNameList={opponentName[1],opponentName[2],opponentName[3]};
+		String[] opponentTypeList={opponentType[1],opponentType[2],opponentType[3]};
+		int[] opponentEnergyList={opponentEnergy[1],opponentEnergy[2],opponentEnergy[3]};
+		int[] opponentHungerList={opponentHunger[1],opponentHunger[2],opponentHunger[3]};
+		double minimumDistance,tempDistance;
+		String tempName,tempType,opponentPlayerName,opponentPlayerType;
+		int tempEnergy,tempHunger,opponentPlayerEnergy,opponentPlayerHunger;
+		for(int i=0;i<distanceArray.length;i++)
 		{
-			return distance;
+			for(int j=i+1;j<distanceArray.length;j++)
+			{
+			
+				if(distanceArray[i]>distanceArray[j]) 
+				{
+					tempDistance=distanceArray[i];
+					distanceArray[i]=distanceArray[j];
+					distanceArray[j]=tempDistance;
+
+					tempName=opponentNameList[i];
+					opponentNameList[i]=opponentNameList[j];
+					opponentNameList[j]=tempName;
+
+					tempType=opponentTypeList[i];
+					opponentTypeList[i]=opponentTypeList[j];
+					opponentTypeList[j]=tempType;
+
+					tempEnergy=opponentEnergyList[i];
+					opponentEnergyList[i]=opponentEnergyList[j];
+					opponentEnergyList[j]=tempEnergy;
+
+					tempHunger=opponentHungerList[i];
+					opponentHungerList[i]=opponentHungerList[j];
+					opponentHungerList[j]=tempHunger;
+
+				}	
+			}
+		}
+		minimumDistance=distanceArray[0];
+		opponentPlayerName=opponentNameList[0];
+		opponentPlayerType=opponentTypeList[0];
+		opponentPlayerEnergy=opponentEnergyList[0];
+		opponentPlayerHunger=opponentHungerList[0];
+
+		System.out.println("\nNearest Prey is "+opponentPlayerName+"\nDistance to Hunt : "+minimumDistance+"\nPrey Type: "+opponentPlayerType+"\nPrey Energy: "+opponentPlayerEnergy+"\nPrey Hunger"+opponentPlayerHunger);
+	}
+
+	public double[] getDistance()
+	{
+		return distance;
+	}
+
+	public int getAnimalId()
+	{
+		return animalId;
+	}
+
+	public void getPlayerDetails(int chooseAnimal,int xLocation,int yLocation)
+	 {
+	 	playerX=xLocation;
+		playerY=yLocation;
+	 	
+	 	if(chooseAnimal==1)
+			{
+				lion.setLionDetails();
+				playerName=lion.getAnimalName();
+				playerEnergy=lion.getEnergyLevel();
+				playerHunger=lion.getHungerLevel();
+				playerType=lion.animalType;
+				System.out.println("\nAnimalName: "+playerName+"\nEnergyLevel: "+playerEnergy+"\nHungerLevel: "+playerHunger+"\nAnimalType: "+playerType+"\nPlayer Location: "+playerX+","+playerY);
+			}
+
+			else if (chooseAnimal==2) 
+			{
+
+				tiger.setTigerDetails();
+				playerName=tiger.getAnimalName();
+				playerEnergy=tiger.getEnergyLevel();
+				playerHunger=tiger.getHungerLevel();
+				playerType=tiger.animalType;
+			
+				System.out.println("\nAnimalName: "+playerName+"\nEnergyLevel: "+playerEnergy+"\nHungerLevel: "+playerHunger+"\nAnimalType: "+playerType+"\nPlayer Location: "+playerX+","+playerY);
+				
+			}
+			
+			else if (chooseAnimal==3) 
+			{
+				
+				elephant.setElephantDetails();
+				playerName=elephant.getAnimalName();
+				playerEnergy=elephant.getEnergyLevel();
+				playerHunger=elephant.getHungerLevel();
+				playerType=elephant.animalType;
+				System.out.println("AnimalName: "+playerName+"\nEnergyLevel: "+playerEnergy+"\nHungerLevel: "+playerHunger+"\nAnimalType: "+playerType+"\nPlayer Location: "+playerX+","+playerY);
+				
+			}
+
+			else if (chooseAnimal==4) 
+			{
+				
+				deer.setDeerDetails();
+				playerName=deer.getAnimalName();
+				playerEnergy=deer.getEnergyLevel();
+				playerHunger=deer.getHungerLevel();
+				playerType=deer.animalType;
+				System.out.println("\nAnimalName: "+playerName+"\nEnergyLevel: "+playerEnergy+"\nHungryLevel: "+playerHunger+"\nAnimalType: "+playerType+"\nPlayer Location: "+playerX+","+playerY);
+				
+			}
+	 }
+
+
+	/*public void combat()
+	{
+
+		if (playerEnergy>0 && playerHunger>0) 
+		{
+
+
+			if(playerType=="Herbivores" && opponentPlayerType=="Herbivores")
+			{
+
+
+				if(playerEnergy>opponentPlayerEnergy)
+				{
+
+				}
+
+
+				if(playerEnergy==opponentPlayerEnergy)
+				{
+
+				}
+
+
+				if(playerEnergy<opponentPlayerEnergy)
+				{
+
+				}
+
+
+			}
+
+
+
+			if(playerType=="Herbivores" && opponentPlayerType=="Carnivores")
+			{
+
+
+				if(playerEnergy>opponentPlayerEnergy)
+				{
+
+				}
+
+
+				if(playerEnergy==opponentPlayerEnergy)
+				{
+
+				}
+
+
+				if(playerEnergy<opponentPlayerEnergy)
+				{
+
+				}
+
+
+			}
+
+
+
+			if(playerType=="Carnivores" && opponentPlayerType=="Herbivores")
+			{
+
+
+				if(playerEnergy>opponentPlayerEnergy)
+				{
+
+				}
+
+
+				if(playerEnergy==opponentPlayerEnergy)
+				{
+
+				}
+
+
+				if(playerEnergy<opponentPlayerEnergy)
+				{
+
+				}
+
+
+			}
+
+
+
+			if(playerType=="Carnivores" && opponentPlayerType=="Carnivores")
+			{
+
+
+				if(playerEnergy>opponentPlayerEnergy)
+				{
+
+				}
+
+
+				if(playerEnergy==opponentPlayerEnergy)
+				{
+
+				}
+
+
+				if(playerEnergy<opponentPlayerEnergy)
+				{
+
+				}
+
+
+			}
+
 		}
 
-		public int getAnimalId()
-		{
-			return animalId;
-		}
+	}*/
 
 }

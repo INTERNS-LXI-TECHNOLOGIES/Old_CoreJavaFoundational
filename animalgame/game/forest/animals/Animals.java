@@ -3,49 +3,42 @@ import com.lxisoft.animalgame.game.forest.animals.carnivores.lion.Lion;
 import com.lxisoft.animalgame.game.forest.animals.carnivores.tiger.Tiger;
 import com.lxisoft.animalgame.game.forest.animals.herbivores.elephant.Elephant;
 import com.lxisoft.animalgame.game.forest.animals.herbivores.deer.Deer;
+import com.lxisoft.animalgame.game.forest.animals.herbivores.Herbivores;
+import com.lxisoft.animalgame.game.forest.animals.carnivores.Carnivores;
 
 public class Animals
 {
-	private String name,type;
-	private int energyLevel;
-	private int hungryLevel;
+	public String animalName;
+	public int energyLevel;
+	public int hungerLevel;
 	
 	public void setAnimalName(String name)
 	{
-		this.name=name;
+		this.animalName=name;
 	}
 
 	public String getAnimalName()
 	{
-		return name;
-	}
-	public void setAnimalType(String type)
-	{
-		this.type=type;
+		return animalName;
 	}
 
-	public String getAnimalType()
+	public void setEnergyLevel(int energy)
 	{
-		return type;
-	}
-
-	public void setEnergyLevel(int energyLevel)
-	{
-		this.energyLevel=energyLevel;
+		this.energyLevel=energy;
 	}
 
 	public int getEnergyLevel()
 	{
 		return energyLevel;
 	}
-	public void setHungryLevel(int hungryLevel)
+	public void setHungerLevel(int hunger)
 	{
 		
-		this.hungryLevel=hungryLevel;
+		this.hungerLevel=hunger;
 	}
 
-	public int getHungryLevel()
+	public int getHungerLevel()
 	{
-		return hungryLevel;
+		return hungerLevel;
 	}
 }

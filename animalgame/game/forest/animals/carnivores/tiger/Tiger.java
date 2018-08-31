@@ -4,18 +4,17 @@ import com.lxisoft.animalgame.game.forest.animals.Animals;
 import com.lxisoft.animalgame.game.forest.animals.carnivores.Carnivores;
 public class Tiger extends Animals implements Carnivores
 {
-	int energyLevel;
-	int hungerLevel;
-
+	int energyLevel,hungerLevel;
+	String animalName;
 	public void setTigerDetails()
 	{
-		energyLevel=(int)(Math.random()*50)+40;
-		hungerLevel=(int)(Math.random()*100);
+		energyLevel=(int)(Math.random()*100);
+		setEnergyLevel(energyLevel);
+		hungerLevel=100-energyLevel;
+		setHungerLevel(hungerLevel);
+		animalName="Tiger";
+		setAnimalName(animalName);
+
 	}
 	
-	public void getTigerDetails()
-	{
-		System.out.println(energyLevel);
-		System.out.println(hungerLevel);
-	}
 }

@@ -13,8 +13,8 @@ public class AnimalGame
 {
 	Animals animal;
 	public int chooseAnimal;
-	int xLoc,yLoc;
 	int row,column;
+	public int xLocation=row,yLocation=column;
 	double[] distance;
 	public Lion lion=new Lion();
 	public Tiger tiger=new Tiger();
@@ -46,49 +46,19 @@ public class AnimalGame
 		if (play.equals("Y") || play.equals("y")) 
 		{
 			System.out.println("1)Lion\t\t2)Tiger\n3)Elephant\t4)Deer");
-			System.out.print("\nChoose Animal to play: ");
+			System.out.print("\nChoose Animal to play: \n");
 			chooseAnimal=scan.nextInt();
+			
 			animalLocation(chooseAnimal);
 			forestDetail.locateAnimal(animal);
 			forestDetail.getHunterAnimalLocation(animal);
 			row=scan.nextInt();
 			column=scan.nextInt();
 			distance(row,column);
-			
-			if(chooseAnimal==1)
-			{
-				System.out.println(lion.animalType);
-				lion.setLionDetails();
-				lion.getLionDetails();
-			}
-
-			else if (chooseAnimal==2) 
-			{
-				System.out.println(tiger.animalType);
-				tiger.setTigerDetails();
-				tiger.getTigerDetails();
-			}
-			
-			else if (chooseAnimal==3) 
-			{
-				System.out.println(elephant.animalType);
-				elephant.setElephantDetails();
-				elephant.getElephantDetails();
-			}
-
-			else if (chooseAnimal==4) 
-			{
-				System.out.println(deer.animalType);
-				deer.setDeerDetails();
-				deer.getDeerDetails();
-			}
+			forestDetail.getPlayerDetails(chooseAnimal,row,column);
 			
 			
 			
-			
-		//System.out.println(tiger.animalType);
-		//System.out.println(elephant.animalType);
-		//System.out.println(deer.animalType);
 		}
 		
 	}
@@ -118,6 +88,6 @@ public class AnimalGame
 	 	}
 	 }
 
-	
-	
+
+
 }
