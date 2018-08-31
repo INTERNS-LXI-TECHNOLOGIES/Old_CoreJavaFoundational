@@ -20,6 +20,7 @@ abstract public class Carnivores implements Animal
 	public String toString()
 	{
 		return name;
+		
 	}
 	public int getEnergylevel()
 	{

@@ -3,6 +3,7 @@ import java.util.*;
 import java.io.*;
 import com.lxisoft.animalgame.forest.animal.Animal;
 import com.lxisoft.animalgame.forest.animal.carnivores.Carnivores;
+import com.lxisoft.animalgame.forest.animal.herbivores.Herbivores;
 import com.lxisoft.animalgame.forest.animal.carnivores.lion.Lion;
 import com.lxisoft.animalgame.forest.animal.carnivores.tiger.Tiger;
 import com.lxisoft.animalgame.forest.animal.herbivores.rabbit.Rabbit;
@@ -10,7 +11,7 @@ import com.lxisoft.animalgame.forest.animal.herbivores.zeebra.Zeebra;
 public class Forest
 {
 	Random randomNum=new Random();
-	Animal fighter1,fighter2;
+	Animal fighter1,fighter2,oponent1,oponent2,oponent3,oponent4;
 	Animal[][] forestGrid=new Animal[10][10];
 	Scanner sc=new Scanner(System.in);
 	
@@ -46,27 +47,21 @@ public class Forest
 			lion.setEnergylevel(50);
 			lion.setHungrylevel(10);
 			placeAnimal(lion);
-		}
-		for(int t=0;t<5;t++)
-		{	
+		
 			tiger=new Tiger();
-			tiger.setName("Tiger"+(t+1));
+			tiger.setName("Tiger"+(k+1));
 			tiger.setEnergylevel(50);
 			tiger.setHungrylevel(10);
 			placeAnimal(tiger);
-		}
-		for(int r=0;r<5;r++)
-		{	
+		
 			rabbit=new Rabbit();
-			rabbit.setName("Rabbit"+(r+1));
+			rabbit.setName("Rabbit"+(k+1));
 			rabbit.setEnergylevel(20);
 			rabbit.setHungrylevel(3);
 			placeAnimal(rabbit);
-		}
-		for(int z=0;z<5;z++)
-		{
+		
 			zeebra=new Zeebra();
-			zeebra.setName("Zeebra"+(z+1));
+			zeebra.setName("Zeebra"+(k+1));
 			zeebra.setEnergylevel(40);
 			zeebra.setHungrylevel(7);
 			placeAnimal(zeebra);
@@ -132,20 +127,6 @@ public class Forest
 		System.out.println("Co-ordinates of the selected animal is:");
 		displayCoordinates(fighter1);
 		
-		for(int i=0;i<forestGrid.length;i++)
-		{
-			for(int j=0;j<forestGrid[row].length;j++)
-			{
-				if(fighter1 instanceof Carnivores)
-				{
-					if(fighter2 instanceof Carnivores)
-					{
-						System.out.println("no fighting");
-					}
-				}
-				//forestGrid[i][j]=null;		
-			}	
-		}
 	}
 	
 	public void displayCoordinates(Animal fighter1)
@@ -169,11 +150,57 @@ public class Forest
 	public void findAdjacentAnimals(Animal fighter1)
 	{
 		System.out.println("Animals which are ready to fight are:");
+
 		System.out.println(forestGrid[fighterLoc1-1][fighterLoc2]);
 		System.out.println(forestGrid[fighterLoc1+1][fighterLoc2]);
 		System.out.println(forestGrid[fighterLoc1][fighterLoc2-1]);
 		System.out.println(forestGrid[fighterLoc1][fighterLoc2+1]);
+		oponent1=forestGrid[fighterLoc1-1][fighterLoc2];
+		oponent2=forestGrid[fighterLoc1+1][fighterLoc2];
+		oponent3=forestGrid[fighterLoc1][fighterLoc2-1];
+		oponent4=forestGrid[fighterLoc1][fighterLoc2+1];
+		checkAnimal(fighter1,oponent1);
+		checkAnimal(fighter1,oponent2);
+		checkAnimal(fighter1,oponent3);
+		checkAnimal(fighter1,oponent4);
 
+
+	}
+	
+	public void checkAnimal(Animal fighter1,Animal fighter2)
+	{
+		
+		for(int i=0;i<row;i++)
+		{
+			for(int j=0;j<column;j++)
+			{
+				
+				if(fighter1 instanceof Carnivores)
+				{
+					if(fighter2 instanceof Carnivores)
+					{
+						System.out.println("no fighting");
+					}
+					if(fighter2 instanceof Herbivores)
+					{
+						System.out.println("carnivores win");
+					}
+				}
+				if(fighter1 instanceof Herbivores)
+				{
+					if(fighter2 instanceof Herbivores)
+					{
+						System.out.println("no fight");
+					}
+					if(fighter2 instanceof Carnivores)
+					{
+						System.out.println("carnivores win");
+					}
+				}
+				
+				
+			}	
+		}
 	}
 	
 }
