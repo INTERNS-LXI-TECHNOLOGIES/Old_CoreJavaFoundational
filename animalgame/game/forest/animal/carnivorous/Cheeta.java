@@ -8,14 +8,15 @@ public class Cheeta extends Animal
 		int animalStrength,animalHunger;
 		animalStrength=(int)(Math.random()*50)+88;
 		setanimalStrength(animalStrength);
-		System.out.println("energy level of cheeta is :"+getanimalStrength());
+		//System.out.println("energy level of cheeta is :"+getanimalStrength());
 		animalHunger=(int)(Math.random()*50)+66;
 		setanimalHunger(animalHunger);
-		System.out.println("hunger level of cheeta is:"+getanimalHunger());
+		//System.out.println("hunger level of cheeta is:"+getanimalHunger());
 		
 		setanimalType("carnivorous");
 		
 	}
+
 		
 
 }
