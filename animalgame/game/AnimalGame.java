@@ -56,6 +56,7 @@ public class AnimalGame
 			column=scan.nextInt();
 			distance(row,column);
 			forestDetail.getPlayerDetails(chooseAnimal,row,column);
+			forestDetail.combat(animal);
 			
 			
 			

@@ -13,25 +13,39 @@ public class ForestSettings
 {
 	Scanner scan=new Scanner(System.in);
 	Forest forest=new Forest();
+
+	public Lion lion=new Lion();
+	public Tiger tiger=new Tiger();
+	public Elephant elephant=new Elephant();
+	public Deer deer=new Deer();
+
 	Animals[][] animalList;
 	String preyName,preyType;
 	int preyEnergy,preyHunger;
 	int row,column,i,j;
 	int playerX,playerY;
+	int preyXCoordinate,preyYCoordinate;
 	int animalId=1;
 	int xLoc,yLoc;
+
+	int opponentTwo,opponentThree;
+
 	public double[] distance=new double[10];
 	public String[] opponentName=new String[10];
 	public String[] opponentType=new String[10];
 	public int[] opponentEnergy=new int[10];
 	public int[] opponentHunger=new int[10];
+	public int[] opponentXCoordinate=new int[10];
+	public int[] opponentYCoordinate=new int[10];
+
 	String animalName;
 	int playerEnergy,playerHunger;
 	String playerName,playerType;
-	public Lion lion=new Lion();
-	public Tiger tiger=new Tiger();
-	public Elephant elephant=new Elephant();
-	public Deer deer=new Deer();
+
+	public double minimumDistance,tempDistance;
+	public String tempName,tempType,opponentPlayerName,opponentPlayerType;
+	public int tempEnergy,tempHunger,tempX,tempY,opponentPlayerEnergy,opponentPlayerHunger,opponentPlayerXCoordinate,opponentPlayerYCoordinate;
+
 	public void setForest()
 	{
 		System.out.print("Enter the size of the forest: ");
@@ -90,7 +104,7 @@ public class ForestSettings
 					else
 					{	
 
-						System.out.print("\t*\t");
+						System.out.print("\tnull\t");
 					}
 					
 				}
@@ -176,9 +190,8 @@ public class ForestSettings
 					preyEnergy=lion.getEnergyLevel();
 					preyHunger=lion.getHungerLevel();
 					preyType=lion.animalType;
-					//lionName=lion.getAnimalName();
-					
-
+					preyXCoordinate=i;
+					preyYCoordinate=j;
 				  }
 
 				   if(animalList[i][j] instanceof Tiger)
@@ -188,6 +201,8 @@ public class ForestSettings
 					preyEnergy=tiger.getEnergyLevel();
 					preyHunger=tiger.getHungerLevel();
 					preyType=tiger.animalType;
+					preyXCoordinate=i;
+					preyYCoordinate=j;
 				  }
 
 				    if(animalList[i][j] instanceof Elephant)
@@ -197,6 +212,8 @@ public class ForestSettings
 					preyEnergy=elephant.getEnergyLevel();
 					preyHunger=elephant.getHungerLevel();
 					preyType=elephant.animalType;
+					preyXCoordinate=i;
+					preyYCoordinate=j;
 				  }
 
 				   if(animalList[i][j] instanceof Deer)
@@ -206,6 +223,8 @@ public class ForestSettings
 					preyEnergy=deer.getEnergyLevel();
 					preyHunger=deer.getHungerLevel();
 					preyType=deer.animalType;
+					preyXCoordinate=i;
+					preyYCoordinate=j;
 				  }
 
 					if(i==xLoc && j==yLoc)
@@ -219,7 +238,9 @@ public class ForestSettings
 						opponentType[i]=preyType;
 						opponentEnergy[i]=preyEnergy;
 						opponentHunger[i]=preyHunger;
-						System.out.println("\nOpponent "+opponentName[i]+"\nDistance : "+distance[animalId]+"\nType : "+opponentType[i]+"\nEnergy : "+opponentEnergy[i]+"\nHunger : "+opponentHunger[i]);
+						opponentXCoordinate[i]=preyXCoordinate;
+						opponentYCoordinate[i]=preyYCoordinate;
+						System.out.println("\nOpponent "+opponentName[i]+"\nDistance : "+distance[animalId]+"\nType : "+opponentType[i]+"\nEnergy : "+opponentEnergy[i]+"\nHunger : "+opponentHunger[i]+"\nOpponent Coordinate : ("+opponentXCoordinate[i]+","+opponentYCoordinate[i]+")");
 						animalId+=1;
 					}
 				}
@@ -231,9 +252,9 @@ public class ForestSettings
 		String[] opponentTypeList={opponentType[1],opponentType[2],opponentType[3]};
 		int[] opponentEnergyList={opponentEnergy[1],opponentEnergy[2],opponentEnergy[3]};
 		int[] opponentHungerList={opponentHunger[1],opponentHunger[2],opponentHunger[3]};
-		double minimumDistance,tempDistance;
-		String tempName,tempType,opponentPlayerName,opponentPlayerType;
-		int tempEnergy,tempHunger,opponentPlayerEnergy,opponentPlayerHunger;
+		int[] opponentXCoordinateList={opponentXCoordinate[1],opponentXCoordinate[2],opponentXCoordinate[3]};
+		int[] opponentYCoordinateList={opponentYCoordinate[1],opponentYCoordinate[2],opponentYCoordinate[3]};
+		
 		for(int i=0;i<distanceArray.length;i++)
 		{
 			for(int j=i+1;j<distanceArray.length;j++)
@@ -261,6 +282,14 @@ public class ForestSettings
 					opponentHungerList[i]=opponentHungerList[j];
 					opponentHungerList[j]=tempHunger;
 
+					tempX=opponentXCoordinateList[i];
+					opponentXCoordinateList[i]=opponentXCoordinateList[j];
+					opponentXCoordinateList[j]=tempX;
+
+					tempY=opponentYCoordinateList[i];
+					opponentYCoordinateList[i]=opponentYCoordinateList[j];
+					opponentYCoordinateList[j]=tempY;
+
 				}	
 			}
 		}
@@ -269,8 +298,10 @@ public class ForestSettings
 		opponentPlayerType=opponentTypeList[0];
 		opponentPlayerEnergy=opponentEnergyList[0];
 		opponentPlayerHunger=opponentHungerList[0];
+		opponentPlayerXCoordinate=opponentXCoordinateList[0];
+		opponentPlayerYCoordinate=opponentYCoordinateList[0];
 
-		System.out.println("\nNearest Prey is "+opponentPlayerName+"\nDistance to Hunt : "+minimumDistance+"\nPrey Type: "+opponentPlayerType+"\nPrey Energy: "+opponentPlayerEnergy+"\nPrey Hunger"+opponentPlayerHunger);
+		System.out.println("\nNearest Prey is "+opponentPlayerName+"\nDistance to Hunt : "+minimumDistance+"\nPrey Type: "+opponentPlayerType+"\nPrey Energy: "+opponentPlayerEnergy+"\nPrey Hunger"+opponentPlayerHunger+"\nPrey Coordinate : ("+opponentPlayerXCoordinate+","+opponentPlayerYCoordinate+")");
 	}
 
 	public double[] getDistance()
@@ -284,7 +315,7 @@ public class ForestSettings
 	}
 
 	public void getPlayerDetails(int chooseAnimal,int xLocation,int yLocation)
-	 {
+	{
 	 	playerX=xLocation;
 		playerY=yLocation;
 	 	
@@ -298,7 +329,7 @@ public class ForestSettings
 				System.out.println("\nAnimalName: "+playerName+"\nEnergyLevel: "+playerEnergy+"\nHungerLevel: "+playerHunger+"\nAnimalType: "+playerType+"\nPlayer Location: "+playerX+","+playerY);
 			}
 
-			else if (chooseAnimal==2) 
+			if (chooseAnimal==2) 
 			{
 
 				tiger.setTigerDetails();
@@ -311,7 +342,7 @@ public class ForestSettings
 				
 			}
 			
-			else if (chooseAnimal==3) 
+			if (chooseAnimal==3) 
 			{
 				
 				elephant.setElephantDetails();
@@ -323,7 +354,7 @@ public class ForestSettings
 				
 			}
 
-			else if (chooseAnimal==4) 
+			if (chooseAnimal==4) 
 			{
 				
 				deer.setDeerDetails();
@@ -334,120 +365,169 @@ public class ForestSettings
 				System.out.println("\nAnimalName: "+playerName+"\nEnergyLevel: "+playerEnergy+"\nHungryLevel: "+playerHunger+"\nAnimalType: "+playerType+"\nPlayer Location: "+playerX+","+playerY);
 				
 			}
-	 }
+	}
 
 
-	/*public void combat()
+
+	public void combat(Animals animal)
 	{
-
-		if (playerEnergy>0 && playerHunger>0) 
+		int opponentCount=3;
+ 
+		do
 		{
 
-
-			if(playerType=="Herbivores" && opponentPlayerType=="Herbivores")
+			System.out.println("\n\t\t\t*******************************************************\n");
+			if (playerEnergy>0 && playerHunger>0 && playerHunger<100) 
 			{
 
 
-				if(playerEnergy>opponentPlayerEnergy)
+				if(playerType=="Herbivores" && opponentPlayerType=="Herbivores")
 				{
+
+
+					if(playerEnergy>opponentPlayerEnergy)
+					{
+						animalList[opponentPlayerXCoordinate][opponentPlayerYCoordinate]=null;
+						setAnimalLocation(animal);
+						setForestStatus();
+						opponentCount-=1;
+
+					}
+
+
+					if(playerEnergy==opponentPlayerEnergy)
+					{
+						
+						setForestStatus();
+						opponentCount=0;
+					}
+
+
+					if(playerEnergy<opponentPlayerEnergy)
+					{
+
+						animalList[playerX][playerY]=null;
+						setAnimalLocation(animal);
+						setForestStatus();
+						opponentCount=0;
+					}
+
 
 				}
 
 
-				if(playerEnergy==opponentPlayerEnergy)
+
+				if(playerType=="Herbivores" && opponentPlayerType=="Carnivores")
 				{
+
+
+					if(playerEnergy>opponentPlayerEnergy)
+					{
+						animalList[opponentPlayerXCoordinate][opponentPlayerYCoordinate]=null;
+						setAnimalLocation(animal);
+						setForestStatus();
+						opponentCount-=1;
+					}
+
+
+					if(playerEnergy==opponentPlayerEnergy)
+					{
+						
+						setForestStatus();
+						opponentCount=0;
+					}
+
+
+					if(playerEnergy<opponentPlayerEnergy)
+					{
+						animalList[playerX][playerY]=null;
+						setAnimalLocation(animal);
+						setForestStatus();
+						opponentCount=0;
+					}
+
 
 				}
 
 
-				if(playerEnergy<opponentPlayerEnergy)
+
+				if(playerType=="Carnivores" && opponentPlayerType=="Herbivores")
 				{
+
+
+					if(playerEnergy>opponentPlayerEnergy)
+					{
+						animalList[opponentPlayerXCoordinate][opponentPlayerYCoordinate]=null;
+						setAnimalLocation(animal);
+						setForestStatus();
+						opponentCount-=1;
+					}
+
+
+					if(playerEnergy==opponentPlayerEnergy)
+					{
+						
+						setForestStatus();
+						opponentCount=0;
+					}
+
+
+					if(playerEnergy<opponentPlayerEnergy)
+					{
+						animalList[playerX][playerY]=null;
+						setAnimalLocation(animal);
+						setForestStatus();
+						opponentCount=0;
+						System.out.println("Game over your Player dead...");
+					}
+
 
 				}
 
+
+
+				if(playerType=="Carnivores" && opponentPlayerType=="Carnivores")
+				{
+
+
+					if(playerEnergy>opponentPlayerEnergy)
+					{
+						animalList[opponentPlayerXCoordinate][opponentPlayerYCoordinate]=null;
+						setAnimalLocation(animal);
+						setForestStatus();
+						opponentCount-=1;
+
+					}
+
+
+					if(playerEnergy==opponentPlayerEnergy)
+					{
+						
+						setForestStatus();
+						opponentCount=0;
+					}
+
+
+					if(playerEnergy<opponentPlayerEnergy)
+					{
+						animalList[playerX][playerY]=null;
+						setAnimalLocation(animal);
+						setForestStatus();
+						opponentCount=0;
+
+					}
+
+				}
 
 			}
 
-
-
-			if(playerType=="Herbivores" && opponentPlayerType=="Carnivores")
-			{
-
-
-				if(playerEnergy>opponentPlayerEnergy)
-				{
-
-				}
-
-
-				if(playerEnergy==opponentPlayerEnergy)
-				{
-
-				}
-
-
-				if(playerEnergy<opponentPlayerEnergy)
-				{
-
-				}
-
-
-			}
-
-
-
-			if(playerType=="Carnivores" && opponentPlayerType=="Herbivores")
-			{
-
-
-				if(playerEnergy>opponentPlayerEnergy)
-				{
-
-				}
-
-
-				if(playerEnergy==opponentPlayerEnergy)
-				{
-
-				}
-
-
-				if(playerEnergy<opponentPlayerEnergy)
-				{
-
-				}
-
-
-			}
-
-
-
-			if(playerType=="Carnivores" && opponentPlayerType=="Carnivores")
-			{
-
-
-				if(playerEnergy>opponentPlayerEnergy)
-				{
-
-				}
-
-
-				if(playerEnergy==opponentPlayerEnergy)
-				{
-
-				}
-
-
-				if(playerEnergy<opponentPlayerEnergy)
-				{
-
-				}
-
-
-			}
-
+		else
+		{
+			System.out.println("Player have low Energy Level..Better luck next Time");
 		}
 
-	}*/
+	}while (opponentCount!=0);
+
+	}
 
 }
