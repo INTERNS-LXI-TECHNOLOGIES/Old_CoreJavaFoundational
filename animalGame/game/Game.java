@@ -20,16 +20,19 @@ public class Game
 
 	public void animalGame()
 	{
-		setForest.ForestControl();
-		setForest.AnimalLocation(lion);
-		setForest.AnimalLocation(tiger);
-		setForest.AnimalLocation(rabbit);
-		setForest.AnimalLocation(deer);
-		setForest.animalDistance(2,3);
+		setForest.forestControl();
+		setForest.animalLocation(lion);
+		setForest.animalLocation(tiger);
+		setForest.animalLocation(rabbit);
+		setForest.animalLocation(deer);
+		
 		setForest.displayForest(); 
 		animalCreation();
+		
 		chooseAnimal();
-		fight(fighter,deer);
+		setForest.animalDistance(3,3);
+		setForest.shortestDistance();
+		fight(fighter,lion);
 	}
 	
 	public void animalCreation()

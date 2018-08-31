@@ -1,4 +1,5 @@
 package com.lxisoft.animalGame.game.forest;
+import java.util.*;
 import com.lxisoft.animalGame.game.forest.Forest;
 import com.lxisoft.animalGame.game.animal.Animal;
 import com.lxisoft.animalGame.game.animal.carnivorous.Lion;
@@ -12,9 +13,13 @@ public class SetForest
 	Scanner scan=new Scanner(System.in);
 	Forest forest=new Forest();
 	Animal[][] animalArray;
+	String name;
+	int count;
+	double small;
+	String animalName[]=new String[10];
 	int m,n,i,j;
-	double distance;
-	public void ForestControl()
+	double distance[]=new double[10];
+	public void forestControl()
 	{
 		
 		forest.setForestName("GAME");
@@ -27,7 +32,7 @@ public class SetForest
 		
 	}
 	
-	public void AnimalLocation(Animal animal)
+	public void animalLocation(Animal animal)
 	{
 		do
 		{
@@ -44,8 +49,6 @@ public class SetForest
 	
 	public void displayForest()
 	{
-		//try
-		//{
 			for (int i=0;i<m;i++)
 			{
 				//System.out.print("\t");
@@ -82,41 +85,96 @@ public class SetForest
 			}
 	
 	}		
-		public void ForestStatus()
+		public void forestStatus()
 		{
 		for (int i=0;i<m;i++)
-		{
-			for(int j=0;j<n;j++)
 			{
-				System.out.print(animalArray[i][j]+"\t");
+				for(int j=0;j<n;j++)
+				{
+					System.out.print(animalArray[i][j]+"\t");
 			
-			}
+				}
 			System.out.print("\n");
+			}
 		}
+		
+		public String nameArray(Animal animal)
+		{
+			
+			if(animal instanceof Lion)
+			{
+				name= "LION";
+			}
+			if(animal instanceof Tiger)
+			{
+				name= "TIGER";
+			}
+		
+			if(animal instanceof Rabbit)
+			{
+				name= "RABBIT";
+			}
+			if(animal instanceof Deer)
+			{
+				name= "DEER";
+			}
+			return name;
 		}
 		
 		
 		public void animalDistance(int p,int q)
 		{
 			int height,length;
+			count=1;
 			for (int i=0;i<m;i++)
 			{
 				for(int j=0;j<n;j++)
+					
 				{
+					
 						if(animalArray[i][j]!=null)
 						{
+
+							 animalName[count]=nameArray(animalArray[i][j]);
 							height=i-p;
 							length=j-q;
-							distance=Math.sqrt((height*height)+(length*length));
-							System.out.print(distance);
-							System.out.print(animalArray[i][j]);
-							
+							distance[count]=Math.sqrt((height*height)+(length*length));
+							System.out.println("DISTANCE OF "+count+  animalName[count]+"\t" +distance[count]);
+							//System.out.print(animalArray[i][j]);
+							count=count+1;
 						}
 			
 				}
-
 			}
 			
 		}
+		public double shortestDistance()
+		{
+			/*for(int i=1;i<=4;i++)
+			{
+			System.out.println("hgfgh"+distance[i]);
+			}*/
+			int num=1;
+			small=distance[1];
+			for(num=2;num<count;num++)
+			{
+				if(distance[num]<small)
+				{
+					small= distance[num];
+					num=count+1;
+					
+				}
+				/*else
+				{
+					small=distance[num+1];
+					//System.out.println(small);
+				}*/
+		
+			}
+			System.out.println("NEAREST IS " +small);
+			return small;
+			
+		}
+		
 		
 }
