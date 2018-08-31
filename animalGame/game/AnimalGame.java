@@ -1,5 +1,7 @@
 package com.lxisoft.animalGame.game;
 import java.util.*;
+import java.io.*;
+import javax.sound.sampled.*;
 import com.lxisoft.animalGame.game.animal.Animal;
 import com.lxisoft.animalGame.game.forest.ForestControl;
 import com.lxisoft.animalGame.game.animal.carnivorous.Lion;
@@ -29,6 +31,17 @@ public class AnimalGame
 	Scanner scan=new Scanner(System.in);
 	public void startGaming()
 	{
+		try 
+		 {
+		//System.out.println ("playing");
+						String soundPath="./com/lxisoft/animalGame/sound/Kaththi-Theme-The-Sword-Of-Destiny";
+						 AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundPath).getAbsoluteFile());
+						 Clip clip = AudioSystem.getClip();
+						 clip.open(audioInputStream);
+						 clip.start();
+						// Thread.sleep(20000);
+		
+	
 		forest.setForest();
 	    tiger.create();
 		lions.add(lion);
@@ -97,6 +110,11 @@ public class AnimalGame
 				{
 					System.out.println(" yogaillya amminiye....... paya madikkiyolin!!!!(Sorry your fighter is dead)");
 				}
+		 }
+		catch(Exception e)
+		{
+		System.out.println (e);
+		}
 		}
 	
 	 void animalLocation(int animalCount)
