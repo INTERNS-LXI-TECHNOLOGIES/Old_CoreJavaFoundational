@@ -5,7 +5,7 @@ import  com.lxisoft.animalgame.game.forest.animal.carnivorous.Lion;
 import  com.lxisoft.animalgame.game.forest.animal.carnivorous.Tiger;
 import  com.lxisoft.animalgame.game.forest.animal.herbivorous.Deer;
 import   com.lxisoft.animalgame.game.forest.animal.herbivorous.Zebra;
-import com.lxisoft.animalgame.game.forest.animal.herbivorous.Giraff;
+import com.lxisoft.animalgame.game.forest.animal.herbivorous.Giraffe;
 import  com.lxisoft.animalgame.game.forest.animal.carnivorous.Cheeta;
 import com.lxisoft.animalgame.game.forest.ForestSettings;
 import java.util.*;
@@ -26,7 +26,7 @@ public class AnimalGame
 	Deer deer=new Deer();
 	Zebra zebra=new Zebra();
 	Cheeta cheeta=new Cheeta();
-	Giraff giraff=new Giraff();
+	Giraffe giraffe=new Giraffe();
 	
 	
 	ForestSettings forestdetail=new ForestSettings();
@@ -39,7 +39,7 @@ public class AnimalGame
 		tiger.create();
 		deer.create();
 		zebra.create();
-		giraff.create();
+		giraffe.create();
 		cheeta.create();
 		System.out.println("\n");
         System.out.println("\t\t\t\t FOREST GRID");
@@ -50,13 +50,13 @@ public class AnimalGame
 		forestdetail.setAnimalLocation(deer);
 		forestdetail.setAnimalLocation(zebra);
 		forestdetail.setAnimalLocation(cheeta);
-		forestdetail.setAnimalLocation(giraff);
+		forestdetail.setAnimalLocation(giraffe);
 	
 
 		forestdetail.setForestStatus();
 		
 		System.out.println("Choose your Fighter");
-		System.out.println("1.Lion,2.Tiger,3.Zebra,4.Deer,5.Cheeta,6.Giraff");
+		System.out.println("1.Lion,2.Tiger,3.Zebra,4.Deer,5.Cheeta,6.Giraffe");
 		animalcount=scan.nextInt();
 		animalLocation(animalcount);
 		
@@ -76,8 +76,8 @@ public class AnimalGame
 		
 			if(forestdetail.getanimalcount()!=-1)
 			{
-				System.out.println("nearest animal is:="+animalName);
-				System.out.println("nearest animalDistance is:="+smallestDistance);
+				System.out.println("\n nearest animal is:="+animalName+"\n");
+				System.out.println("\n nearest animalDistance is:="+smallestDistance+"\n");
 				animalObject2=getAnimal(animalName);
 
 				
@@ -89,13 +89,13 @@ public class AnimalGame
 		
 		if(fighterlife!=1)
 		{
-			System.out.println("your fighter is dead:");
-			System.out.println("GAME OVER");
+			System.out.println("\t OWWW....YOU ARE DEAD");
+			System.out.println("\t GAME OVER");
 		}
 	}
 			
 		public void animalLocation(int animalcount)
-		{
+		{ 
 			if(animalcount==1)
 			{forestdetail.getanimalLocation(lion);}
 		    if(animalcount==2)
@@ -107,7 +107,7 @@ public class AnimalGame
 		    if(animalcount==5)
 			{forestdetail.getanimalLocation(cheeta);}
 		    if(animalcount==6)
-			{forestdetail.getanimalLocation(giraff);}
+			{forestdetail.getanimalLocation(giraffe);}
 		}
 		
 		
@@ -133,12 +133,12 @@ public class AnimalGame
 					}
 					else
 					{
-						System.out.println("You have won");
+						System.out.println("\t\t\tCONGRATS YOU ARE THE WINNER");
 					}
 					for(int i=0;i<forestdetail.getanimalcount();i++)
 					{
-						System.out.println("Name=" +names[i]);
-						System.out.println("distance="+animalDistance[i]);
+						System.out.println("\t\tName=" +names[i]);
+						System.out.println("\t\tdistance="+animalDistance[i]);
 					}
 			}
 
@@ -168,7 +168,7 @@ public class AnimalGame
 			}
 			if(animalcount==6)
 			{
-				animalOne=giraff;
+				animalOne=giraffe;
 			}
 			return animalOne;
 		}
@@ -194,9 +194,9 @@ public class AnimalGame
 			{
 				animal=cheeta;
 			}
-			if(animalName=="giraff")
+			if(animalName=="giraffe")
 			{
-				animal=giraff;
+				animal=giraffe;
 			}
 			return animal;
 			

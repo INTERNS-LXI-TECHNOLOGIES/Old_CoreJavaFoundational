@@ -12,7 +12,7 @@ public class Deer extends Animal
 		animalHunger=(int)(Math.random()*50)+60;
 		setanimalHunger(animalHunger);
 		//System.out.println("hunger level of deer is:"+getanimalHunger());
-		setanimalType("Herbivorous");
+		setanimalType("herbivorous");
 	}
 
 		

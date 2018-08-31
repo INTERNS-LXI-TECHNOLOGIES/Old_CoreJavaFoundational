@@ -5,7 +5,7 @@ import  com.lxisoft.animalgame.game.forest.animal.carnivorous.Lion;
 import  com.lxisoft.animalgame.game.forest.animal.carnivorous.Tiger;
 import com.lxisoft.animalgame.game.forest.animal.herbivorous.Deer;
 import com.lxisoft.animalgame.game.forest.animal.herbivorous.Zebra;
-import com.lxisoft.animalgame.game.forest.animal.herbivorous.Giraff;
+import com.lxisoft.animalgame.game.forest.animal.herbivorous.Giraffe;
 import  com.lxisoft.animalgame.game.forest.animal.carnivorous.Cheeta;
 import java.util.*;
 
@@ -77,9 +77,9 @@ public class ForestSettings
 				   {
 					   System.out.print("Cheeta");
 				   }
-				    if(animalList[i][j] instanceof Giraff)
+				    if(animalList[i][j] instanceof Giraffe)
 				   {
-					   System.out.print("Giraff");
+					   System.out.print("Giraffe");
 				   }
 				}
 				else
@@ -91,7 +91,7 @@ public class ForestSettings
 				
 
 		}  
-		     System.out.println("Welcome to forest");
+		     //System.out.println("Welcome to forest");
 		}
 		catch(NullPointerException e)
 		{
@@ -108,7 +108,7 @@ public class ForestSettings
 				{
 					if(animalList[i][j]==animal)
 					{
-						System.out.println("the coordinates of  "+animalName+"\n"+i+"\n"+j);
+						System.out.println("\tthe coordinates of  "+animalName+"\n"+i+"\n"+j);
 						
 					}
 						
@@ -143,8 +143,7 @@ public class ForestSettings
 							length=i-m;
 							name[animalcount]=animalName; 
 							distance[animalcount]=Math.sqrt((length*length)+(breadth*breadth));
-							//System.out.println("Name["+animalName+"]="+name[animalcount]);
-							//System.out.println("\tdistance ["+animalcount+"] =" +distance[animalcount]);
+							
 							animalcount++;
 						}
 					}
@@ -203,13 +202,13 @@ public class ForestSettings
 					fighterlife=0;
 				}
 			}
-			if(animal2.getanimalType()=="Herbivorous")
+			if(animal2.getanimalType()=="herbivorous")
 			{
 				if(animalStrength1>animalStrength2)
 				{
 					animalStrength1=animalStrength1-animalStrength2;
 					animalHunger1=animalHunger1-(animalStrength2/2);
-					System.out.println("\nthe "+animalOne+" ate "+animalTwo);
+					System.out.println("\nthe "+animalOne+" ate "+animalTwo+ "\n");
 					kill(animal2);
 					animalStrength1=animalStrength1+energy;
 				}
@@ -229,7 +228,7 @@ public class ForestSettings
 					{
 						animalStrength1=animalStrength1+energy;
 					}
-					System.out.println("\nthe "+animalTwo+" escaped from "+animalOne);
+					System.out.println("\nthe "+animalTwo+" escaped from "+animalOne+ "\n");
 					kill(animal2);
 					animalStrength2=animalStrength2+energy;
 				}
@@ -237,20 +236,21 @@ public class ForestSettings
 		}
 		if(animal1.getanimalType()=="herbivorous")
 		{
+			
 			if(animal2.getanimalType()=="carnivorous")
 			{
 				if(animalStrength1>animalStrength2)
 				{
 					animalStrength1=animalStrength1-animalStrength2;
 					animalHunger2=animalHunger2+(animalHunger1/2);
-					System.out.println("\nthe "+animalOne+"  escaped from "+animalTwo);
-					kill(animal1);
+					System.out.println("\nthe "+animalOne+"  has defeated "+animalTwo+ "\n");
+					kill(animal2);
 				}
 				else
 				{
 					animalStrength2=animalStrength2-animalStrength1;
 					animalHunger2=animalHunger2-(animalStrength1/2);
-					System.out.println("\nthe "+animalOne+" has eaten "+animalTwo);
+					System.out.println("\nthe "+animalTwo+" ate "+animalOne+ "\n");
 					kill(animal1);
 					fighterlife=0;
 				}
@@ -261,15 +261,15 @@ public class ForestSettings
 				if(animalStrength1>animalStrength2)
 				{
 					animalStrength1=animalStrength1-animalStrength2;
-					animalHunger1=animalHunger1+(animalHunger2/2);
-					System.out.println("\nthe "+animalTwo+" ran away from "+animalOne);
+					animalHunger2=animalHunger2+(animalHunger1/2);
+					System.out.println("\nthe "+animalOne+" defeated  "+animalTwo+ "\n");
 					kill(animal2);
 				}
 				else
 				{
 					animalStrength2=animalStrength2-animalStrength1;
-					animalHunger2=animalHunger2+(animalHunger1/2);
-					System.out.println("\nthe "+animalOne+" ran away from "+animalTwo);
+					animalHunger1=animalHunger1+(animalHunger2/2);
+					System.out.println("\nthe "+animalTwo+" defeated" +animalOne+ "\n");
 					kill(animal1);
 					fighterlife=0;
 				}
@@ -287,7 +287,7 @@ public class ForestSettings
 			{
 				if(animalList[i][j]==animal)
 				{
-					System.out.println("the cordinates of the "+animalName+" has been removed from forest "+i+"\t"+j);
+					System.out.println("\tthe cordinates of the "+animalName+" has been removed from forest "+i+"\t"+j+ "\n");
 				    animalList[i][j]=null;
 				}
 			}
@@ -308,8 +308,8 @@ public class ForestSettings
 			{animalName="zebra";}
 		    if(animal instanceof Cheeta)
 			{animalName="cheeta";}
-		    if(animal instanceof Giraff)
-			{animalName="giraff";}
+		    if(animal instanceof Giraffe)
+			{animalName="giraffe";}
 		return animalName;
 		}
 	public int getFighterLife()

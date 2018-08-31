@@ -12,7 +12,7 @@ public class Zebra extends Animal
 		animalHunger=(int)(Math.random()*50)+66;
 		setanimalHunger(animalHunger);
 		//System.out.println("hunger level of Zebra is:"+getanimalHunger());
-		setanimalType("Herbivorous");
+		setanimalType("herbivorous");
 	}
 	
 		
