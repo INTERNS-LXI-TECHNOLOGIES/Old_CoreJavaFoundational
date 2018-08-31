@@ -91,7 +91,7 @@ public class ForestSettings
 				
 
 		}  
-		     System.out.println("Welcome to the game");
+		     System.out.println("Welcome to forest");
 		}
 		catch(NullPointerException e)
 		{
@@ -182,7 +182,7 @@ public class ForestSettings
 		String animalOne=findAnimal(animal1);
 		String animalTwo=findAnimal(animal2);
 		
-		System.out.println("fightings");
+		System.out.println("\t\tFIGHT STARTED\n");
 		if(animal1.getanimalType()=="carnivorous")
 		{
 			if(animal2.getanimalType()=="carnivorous")
@@ -191,14 +191,14 @@ public class ForestSettings
 				{
 					animalStrength1=animalStrength1-animalStrength2;
 					animalHunger1=animalHunger1+(animalStrength2/2);
-					System.out.println("animaOne won");
+					System.out.println("\t\tanimaOne is the winner\n");
 					kill(animal2);
 				}
 				else
 				{
 					animalStrength2=animalStrength2-animalStrength1;
 					animalHunger2=animalHunger2+(animalStrength1/2);
-					System.out.println("animalTwo won");
+					System.out.println("\t\tanimalTwo is the winner\n");
 					kill(animal1);
 					fighterlife=0;
 				}
@@ -209,7 +209,7 @@ public class ForestSettings
 				{
 					animalStrength1=animalStrength1-animalStrength2;
 					animalHunger1=animalHunger1-(animalStrength2/2);
-					System.out.println("the "+animalOne+" has eaten "+animalTwo);
+					System.out.println("\nthe "+animalOne+" ate "+animalTwo);
 					kill(animal2);
 					animalStrength1=animalStrength1+energy;
 				}
@@ -221,7 +221,7 @@ public class ForestSettings
 					animalHunger1=animalHunger2+(animalStrength1/2);
 					if(animalHunger1>100)
 					{
-						System.out.println("the "+animalOne+" is dead due to hunger");
+						System.out.println("\nthe "+animalOne+" is dead due to hunger");
 						kill(animal1);
 						fighterlife=0;
 					}
@@ -229,7 +229,7 @@ public class ForestSettings
 					{
 						animalStrength1=animalStrength1+energy;
 					}
-					System.out.println("paticheee "+animalTwo+"  from "+animalOne);
+					System.out.println("\nthe "+animalTwo+" escaped from "+animalOne);
 					kill(animal2);
 					animalStrength2=animalStrength2+energy;
 				}
@@ -243,33 +243,33 @@ public class ForestSettings
 				{
 					animalStrength1=animalStrength1-animalStrength2;
 					animalHunger2=animalHunger2+(animalHunger1/2);
-					System.out.println("the "+animalOne+" odipoyi from "+animalTwo);
+					System.out.println("\nthe "+animalOne+"  escaped from "+animalTwo);
 					kill(animal1);
 				}
 				else
 				{
 					animalStrength2=animalStrength2-animalStrength1;
 					animalHunger2=animalHunger2-(animalStrength1/2);
-					System.out.println("the "+animalOne+" has eaten "+animalTwo);
+					System.out.println("\nthe "+animalOne+" has eaten "+animalTwo);
 					kill(animal1);
 					fighterlife=0;
 				}
 			}
 				if(animal2.getanimalType()=="herbivorous")
 			{
-				System.out.println("both are herbivorous");
+				System.out.println("\t\tboth are herbivorous\n");
 				if(animalStrength1>animalStrength2)
 				{
 					animalStrength1=animalStrength1-animalStrength2;
 					animalHunger1=animalHunger1+(animalHunger2/2);
-					System.out.println("the "+animalTwo+" ran away from "+animalOne);
+					System.out.println("\nthe "+animalTwo+" ran away from "+animalOne);
 					kill(animal2);
 				}
 				else
 				{
 					animalStrength2=animalStrength2-animalStrength1;
 					animalHunger2=animalHunger2+(animalHunger1/2);
-					System.out.println("the "+animalOne+" ran away from "+animalTwo);
+					System.out.println("\nthe "+animalOne+" ran away from "+animalTwo);
 					kill(animal1);
 					fighterlife=0;
 				}

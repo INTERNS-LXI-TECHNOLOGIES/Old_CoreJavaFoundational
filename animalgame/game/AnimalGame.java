@@ -3,8 +3,8 @@ import com.lxisoft.animalgame.game.forest.Forest;
 import com.lxisoft.animalgame.game.forest.animal.Animal;
 import  com.lxisoft.animalgame.game.forest.animal.carnivorous.Lion;
 import  com.lxisoft.animalgame.game.forest.animal.carnivorous.Tiger;
-import com.lxisoft.animalgame.game.forest.animal.herbivorous.Deer;
-import com.lxisoft.animalgame.game.forest.animal.herbivorous.Zebra;
+import  com.lxisoft.animalgame.game.forest.animal.herbivorous.Deer;
+import   com.lxisoft.animalgame.game.forest.animal.herbivorous.Zebra;
 import com.lxisoft.animalgame.game.forest.animal.herbivorous.Giraff;
 import  com.lxisoft.animalgame.game.forest.animal.carnivorous.Cheeta;
 import com.lxisoft.animalgame.game.forest.ForestSettings;
@@ -90,6 +90,7 @@ public class AnimalGame
 		if(fighterlife!=1)
 		{
 			System.out.println("your fighter is dead:");
+			System.out.println("GAME OVER");
 		}
 	}
 			
