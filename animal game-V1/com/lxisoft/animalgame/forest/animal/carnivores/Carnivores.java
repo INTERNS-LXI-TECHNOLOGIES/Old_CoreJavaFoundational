@@ -2,9 +2,9 @@ package com.lxisoft.animalgame.forest.animal.carnivores;
 import com.lxisoft.animalgame.forest.animal.Animal;
 abstract public class Carnivores implements Animal
 {
-	public String name;
-	public int energyLevel;
-	public int hungryLevel;
+	private String name;
+	private int energyLevel;
+	private int hungryLevel;
 	public void setName(String name)
 	{
 		this.name=name;

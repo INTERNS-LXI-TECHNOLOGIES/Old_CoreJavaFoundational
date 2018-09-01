@@ -10,7 +10,7 @@ import com.lxisoft.animalgame.forest.animal.herbivores.rabbit.Rabbit;
 import com.lxisoft.animalgame.forest.animal.herbivores.zeebra.Zeebra;
 public class Forest
 {
-	Random randomNum=new Random();
+	
 	Animal fighter1,fighter2,oponent1,oponent2,oponent3,oponent4;
 	Animal[][] forestGrid=new Animal[10][10];
 	Scanner sc=new Scanner(System.in);
