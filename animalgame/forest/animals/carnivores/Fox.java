@@ -13,7 +13,7 @@ public class Fox extends Animal
 		sethungerLevel(hungerLevel);
 		
 		System.out.println("Current Energy level of Fox::" + getenergyLevel());
-		setanimalType("It's a Carnivore");
+		setanimalType("Carnivores");
 		setanimalName("Fox");
 		
 	}

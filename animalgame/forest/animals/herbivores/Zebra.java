@@ -13,7 +13,7 @@ public class Zebra extends Animal
 		sethungerLevel(hungerLevel);
 		
 		System.out.println("Current Energy level of Zebra::" + getenergyLevel());
-		setanimalType("It's a Herbivore");
+		setanimalType("Herbivores");
 		setanimalName("Zebra");
 		
 	}

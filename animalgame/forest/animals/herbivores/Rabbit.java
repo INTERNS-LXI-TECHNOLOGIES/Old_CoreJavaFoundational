@@ -15,7 +15,7 @@ public class Rabbit extends Animal
 		
 		System.out.println("Current Energy level of Rabbit::" + getenergyLevel());
 		setanimalName("Rabbit");
-		setanimalType("It's a Herbivore");
+		setanimalType("Herbivores");
 		
 		
 	}

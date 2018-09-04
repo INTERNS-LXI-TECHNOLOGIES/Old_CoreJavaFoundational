@@ -6,7 +6,7 @@ public class Animal
 	private String animalType;
 	private int energyLevel;
 	private int hungerLevel;
-	public Animal[][] locations;
+	//public Animal[][] locations;
 	
 	public void setanimalName(String animalName)
 	{

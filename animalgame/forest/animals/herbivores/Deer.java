@@ -13,7 +13,7 @@ public class Deer extends Animal
 		sethungerLevel(hungerLevel);
 		
 		System.out.println("Current Energy level of Deer::" + getenergyLevel());
-		setanimalType("It's a Herbivore");
+		setanimalType("Herbivores");
 		setanimalName("Deer");
 		
 	}

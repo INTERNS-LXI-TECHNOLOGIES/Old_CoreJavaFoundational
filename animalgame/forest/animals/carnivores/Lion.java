@@ -12,7 +12,7 @@ public class Lion extends Animal
 		sethungerLevel(hungerLevel);
 		
 		System.out.println("Current Energy level of Lion::" + getenergyLevel());
-		setanimalType("It's Carnivore");
+		setanimalType("Carnivores");
 		setanimalName("Lion");
 		
 	}

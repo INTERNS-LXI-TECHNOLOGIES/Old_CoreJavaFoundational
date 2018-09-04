@@ -13,7 +13,7 @@ public class Tiger extends Animal
 		sethungerLevel(hungerLevel);
 		
 		System.out.println("Current Energy level of Tiger::" + getenergyLevel());
-		setanimalType("It's a Carnivore");
+		setanimalType("Carnivores");
 		setanimalName("Tiger");
 		
 	}
