@@ -28,8 +28,6 @@ public class ForestSettings
 	int animalId=1;
 	int xLoc,yLoc;
 
-	int opponentTwo,opponentThree;
-
 	public double[] distance=new double[10];
 	public String[] opponentName=new String[10];
 	public String[] opponentType=new String[10];
@@ -43,9 +41,9 @@ public class ForestSettings
 	String playerName,playerType;
 
 	public double minimumDistance,tempDistance;
-	public String tempName,tempType,opponentPlayerName,opponentPlayerType;
+	public String tempName,tempType,opponentPlayerName,opponentPlayerType,opponent2Type,opponent3Type;
 	public int tempEnergy,tempHunger,tempX,tempY,opponentPlayerEnergy,opponentPlayerHunger,opponentPlayerXCoordinate,opponentPlayerYCoordinate;
-
+	public int opponentX2,opponentX3,opponentY2,opponentY3;
 	public void setForest()
 	{
 		System.out.print("Enter the size of the forest: ");
@@ -126,24 +124,19 @@ public class ForestSettings
 	{	
 		String animalName=locateAnimal(animal);
 		boolean located=false;
-		if(animalList[i][j]!=animal)
-		{
-			for(i=1;i<=row;i++)
+		
+		
+			for(int x=1;x<=row;x++)
 			{  
-				for(j=1;j<=column;j++)
+				for(int y=1;y<=column;y++)
 				{
-					
-					if(animalList[i][j]==animal && located==false)
+					if(animalList[x][y]==animal && located==false)
 					{
-						located=true;
-						animalList[i][j]=animal;
-						System.out.println( "\nLocation of "+animalName+" : ("+i+","+j+")"); 
-
+							located=true;						
+							System.out.println( "\nLocation of "+animalName+" : ("+x+","+y+")"); 
 					}
-					
 				}
 			}
-		}	
 	}
 
 
@@ -296,10 +289,16 @@ public class ForestSettings
 		minimumDistance=distanceArray[0];
 		opponentPlayerName=opponentNameList[0];
 		opponentPlayerType=opponentTypeList[0];
+		opponent2Type=opponentTypeList[1];
+		opponent3Type=opponentTypeList[2];
 		opponentPlayerEnergy=opponentEnergyList[0];
 		opponentPlayerHunger=opponentHungerList[0];
 		opponentPlayerXCoordinate=opponentXCoordinateList[0];
 		opponentPlayerYCoordinate=opponentYCoordinateList[0];
+		opponentX2=opponentXCoordinateList[1];
+		opponentY2=opponentYCoordinateList[1];
+		opponentX3=opponentXCoordinateList[2];
+		opponentY3=opponentYCoordinateList[2];
 
 		System.out.println("\nNearest Prey is "+opponentPlayerName+"\nDistance to Hunt : "+minimumDistance+"\nPrey Type: "+opponentPlayerType+"\nPrey Energy: "+opponentPlayerEnergy+"\nPrey Hunger"+opponentPlayerHunger+"\nPrey Coordinate : ("+opponentPlayerXCoordinate+","+opponentPlayerYCoordinate+")");
 	}
@@ -372,162 +371,217 @@ public class ForestSettings
 	public void combat(Animals animal)
 	{
 		int opponentCount=3;
- 
-		do
+		if (playerEnergy>0 && playerHunger<100)
 		{
-
-			System.out.println("\n\t\t\t*******************************************************\n");
-			if (playerEnergy>0 && playerHunger>0 && playerHunger<100) 
+			do
 			{
-
-
-				if(playerType=="Herbivores" && opponentPlayerType=="Herbivores")
+				if(playerType=="Herbivores" && opponentPlayerType=="Herbivores" && opponentCount>0)
 				{
-
 
 					if(playerEnergy>opponentPlayerEnergy)
 					{
-						animalList[opponentPlayerXCoordinate][opponentPlayerYCoordinate]=null;
-						setAnimalLocation(animal);
-						setForestStatus();
-						opponentCount-=1;
+								animalList[opponentPlayerXCoordinate][opponentPlayerYCoordinate]=null;
+								setAnimalLocation(animal);
+								setForestStatus();
+								System.out.println("Opponent was defeated\n");
+								if (opponentCount==0)
+								{
+									System.out.println("Congrats You have Won the game !!!");									
+								}
+								opponentCount-=1;
+								if(opponentCount==2)
+								{
+								opponentPlayerXCoordinate=opponentX2;
+								opponentPlayerYCoordinate=opponentY2;
+								opponentPlayerType=opponent2Type;
 
+								}
+								if(opponentCount==1)
+								{
+								opponentPlayerXCoordinate=opponentX3;
+								opponentPlayerYCoordinate=opponentY3;
+								opponentPlayerType=opponent3Type;
+								}
+								
+								
 					}
-
 
 					if(playerEnergy==opponentPlayerEnergy)
 					{
-						
-						setForestStatus();
-						opponentCount=0;
+								
+								setForestStatus();
+								System.out.println("Both Animals are tired");
+								System.out.println("Game Over!!! Better luck next time...");
+								opponentCount=0;
 					}
-
 
 					if(playerEnergy<opponentPlayerEnergy)
 					{
 
-						animalList[playerX][playerY]=null;
-						setAnimalLocation(animal);
-						setForestStatus();
-						opponentCount=0;
+								animalList[playerX][playerY]=null;
+								setAnimalLocation(animal);
+								setForestStatus();
+								System.out.println("You Player was killed !!!");
+								System.out.println("Game Over!!! Better luck next time...");
+								opponentCount=0;
 					}
-
-
 				}
-
-
 
 				if(playerType=="Herbivores" && opponentPlayerType=="Carnivores")
 				{
 
-
 					if(playerEnergy>opponentPlayerEnergy)
 					{
-						animalList[opponentPlayerXCoordinate][opponentPlayerYCoordinate]=null;
-						setAnimalLocation(animal);
-						setForestStatus();
-						opponentCount-=1;
+								animalList[opponentPlayerXCoordinate][opponentPlayerYCoordinate]=null;
+								setAnimalLocation(animal);
+								setForestStatus();
+								System.out.println("Oponent was defeated !!!");
+								if (opponentCount==0)
+								{
+									System.out.println("Congrats You have Won the game !!!");									
+								}
+								opponentCount-=1;
+								if(opponentCount==2)
+								{
+								opponentPlayerXCoordinate=opponentX2;
+								opponentPlayerYCoordinate=opponentY2;
+								opponentPlayerType=opponent2Type;
+								}
+								if(opponentCount==1)
+								{
+								opponentPlayerXCoordinate=opponentX3;
+								opponentPlayerYCoordinate=opponentY3;
+								opponentPlayerType=opponent3Type;
+								}
+								
 					}
-
 
 					if(playerEnergy==opponentPlayerEnergy)
 					{
-						
-						setForestStatus();
-						opponentCount=0;
+								
+								setForestStatus();
+								System.out.println("Both Animals are tired...");
+								System.out.println("Game Over!!! Better luck next time...");
+								opponentCount=0;
 					}
-
 
 					if(playerEnergy<opponentPlayerEnergy)
 					{
-						animalList[playerX][playerY]=null;
-						setAnimalLocation(animal);
-						setForestStatus();
-						opponentCount=0;
+								animalList[playerX][playerY]=null;
+								setAnimalLocation(animal);
+								setForestStatus();
+								System.out.println("Your Player was killed");
+								System.out.println("Game Over!!! Better luck next time...");
+								opponentCount=0;
 					}
-
-
 				}
-
-
 
 				if(playerType=="Carnivores" && opponentPlayerType=="Herbivores")
 				{
 
-
 					if(playerEnergy>opponentPlayerEnergy)
 					{
-						animalList[opponentPlayerXCoordinate][opponentPlayerYCoordinate]=null;
-						setAnimalLocation(animal);
-						setForestStatus();
-						opponentCount-=1;
-					}
+								animalList[opponentPlayerXCoordinate][opponentPlayerYCoordinate]=null;
+								setAnimalLocation(animal);
+								setForestStatus();
+								System.out.println("Your Player ate the Opponent...");
+								if (opponentCount==0)
+								{
+									System.out.println("Congrats You have Won the game !!!");									
+								}
+								opponentCount-=1;
 
+								if(opponentCount==2)
+								{
+								opponentPlayerXCoordinate=opponentX2;
+								opponentPlayerYCoordinate=opponentY2;
+								opponentPlayerType=opponent2Type;
+								}
+								if(opponentCount==1)
+								{
+								opponentPlayerXCoordinate=opponentX3;
+								opponentPlayerYCoordinate=opponentY3;
+								opponentPlayerType=opponent3Type;
+								}
+								
+					}
 
 					if(playerEnergy==opponentPlayerEnergy)
 					{
-						
-						setForestStatus();
-						opponentCount=0;
+								
+								setForestStatus();
+								System.out.println("Both Animals are tired...");
+								System.out.println("Game Over!!! Better luck next time...");
+								opponentCount=0;
 					}
-
 
 					if(playerEnergy<opponentPlayerEnergy)
 					{
-						animalList[playerX][playerY]=null;
-						setAnimalLocation(animal);
-						setForestStatus();
-						opponentCount=0;
-						System.out.println("Game over your Player dead...");
+								animalList[playerX][playerY]=null;
+								setAnimalLocation(animal);
+								setForestStatus();
+								System.out.println("Your Player is dead...");
+								System.out.println("Game Over!!! Better luck next time...");
+								opponentCount=0;
 					}
-
-
 				}
-
-
 
 				if(playerType=="Carnivores" && opponentPlayerType=="Carnivores")
 				{
 
-
 					if(playerEnergy>opponentPlayerEnergy)
 					{
-						animalList[opponentPlayerXCoordinate][opponentPlayerYCoordinate]=null;
-						setAnimalLocation(animal);
-						setForestStatus();
-						opponentCount-=1;
-
+								animalList[opponentPlayerXCoordinate][opponentPlayerYCoordinate]=null;
+								setAnimalLocation(animal);
+								setForestStatus();
+								System.out.println("Your Player defeated the opponent...");
+								if (opponentCount==0)
+								{
+									System.out.println("Congrats You have Won the game !!!");									
+								}
+								opponentCount-=1;
+								
+								if(opponentCount==2)
+								{
+								opponentX2=opponentPlayerXCoordinate;
+								opponentY2=opponentPlayerYCoordinate;
+								opponentPlayerType=opponent2Type;
+								}
+								if(opponentCount==1)
+								{
+								opponentX3=opponentPlayerXCoordinate;
+								opponentY3=opponentPlayerYCoordinate;
+								opponentPlayerType=opponent3Type;
+								}
+								
 					}
-
 
 					if(playerEnergy==opponentPlayerEnergy)
 					{
-						
+								
 						setForestStatus();
+						System.out.println("Both Animals are tired...");
+						System.out.println("Game Over!!! Better luck next time...");
 						opponentCount=0;
 					}
-
 
 					if(playerEnergy<opponentPlayerEnergy)
 					{
-						animalList[playerX][playerY]=null;
-						setAnimalLocation(animal);
-						setForestStatus();
-						opponentCount=0;
-
+								animalList[playerX][playerY]=null;
+								setAnimalLocation(animal);
+								setForestStatus();
+								opponentCount=0;
+								System.out.println("Your Player was killed");
+								System.out.println("Game Over!!! Better luck next time...");
 					}
-
 				}
-
-			}
-
+			}while(opponentCount>0);
+				
+		}
 		else
 		{
-			System.out.println("Player have low Energy Level..Better luck next Time");
+			System.out.println("Player have low Energy Level..\nBetter luck next Time..");
 		}
-
-	}while (opponentCount!=0);
-
+			//System.out.println("\n\t\t\t*******************************************************\n");
 	}
-
 }

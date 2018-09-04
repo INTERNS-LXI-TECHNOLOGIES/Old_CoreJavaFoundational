@@ -87,8 +87,5 @@ public class AnimalGame
 	 	{
 
 	 	}
-	 }
-
-
-
+	}
 }
