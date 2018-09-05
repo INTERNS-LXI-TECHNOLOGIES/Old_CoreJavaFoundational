@@ -14,12 +14,13 @@ public class ForestSettings
 	Scanner scan=new Scanner(System.in);
 	Forest forest=new Forest();
 
-	public Lion lion=new Lion();
-	public Tiger tiger=new Tiger();
-	public Elephant elephant=new Elephant();
-	public Deer deer=new Deer();
+	Lion lion=new Lion();
+	Tiger tiger=new Tiger();
+	Elephant elephant=new Elephant();
+	Deer deer=new Deer();
 
 	Animals[][] animalList;
+	String animalName;
 	String preyName,preyType;
 	int preyEnergy,preyHunger;
 	int row,column,i,j;
@@ -36,7 +37,7 @@ public class ForestSettings
 	public int[] opponentXCoordinate=new int[10];
 	public int[] opponentYCoordinate=new int[10];
 
-	String animalName;
+	
 	int playerEnergy,playerHunger;
 	String playerName,playerType;
 
@@ -122,17 +123,15 @@ public class ForestSettings
 
 	public void getHunterAnimalLocation(Animals animal)
 	{	
-		String animalName=locateAnimal(animal);
-		boolean located=false;
-		
+		animalName=locateAnimal(animal);	
 		
 			for(int x=1;x<=row;x++)
 			{  
 				for(int y=1;y<=column;y++)
 				{
-					if(animalList[x][y]==animal && located==false)
+					if(animalList[x][y]==animal && animalList[x][y]!=null)
 					{
-							located=true;						
+												
 							System.out.println( "\nLocation of "+animalName+" : ("+x+","+y+")"); 
 					}
 				}
@@ -371,11 +370,12 @@ public class ForestSettings
 	public void combat(Animals animal)
 	{
 		int opponentCount=3;
+		
 		if (playerEnergy>0 && playerHunger<100)
 		{
-			do
+			while(opponentCount>0)
 			{
-				if(playerType=="Herbivores" && opponentPlayerType=="Herbivores" && opponentCount>0)
+				if(playerType=="Herbivores" && opponentPlayerType=="Herbivores")
 				{
 
 					if(playerEnergy>opponentPlayerEnergy)
@@ -384,10 +384,7 @@ public class ForestSettings
 								setAnimalLocation(animal);
 								setForestStatus();
 								System.out.println("Opponent was defeated\n");
-								if (opponentCount==0)
-								{
-									System.out.println("Congrats You have Won the game !!!");									
-								}
+								
 								opponentCount-=1;
 								if(opponentCount==2)
 								{
@@ -401,8 +398,7 @@ public class ForestSettings
 								opponentPlayerXCoordinate=opponentX3;
 								opponentPlayerYCoordinate=opponentY3;
 								opponentPlayerType=opponent3Type;
-								}
-								
+								}		
 								
 					}
 
@@ -436,10 +432,7 @@ public class ForestSettings
 								setAnimalLocation(animal);
 								setForestStatus();
 								System.out.println("Oponent was defeated !!!");
-								if (opponentCount==0)
-								{
-									System.out.println("Congrats You have Won the game !!!");									
-								}
+								
 								opponentCount-=1;
 								if(opponentCount==2)
 								{
@@ -485,10 +478,7 @@ public class ForestSettings
 								setAnimalLocation(animal);
 								setForestStatus();
 								System.out.println("Your Player ate the Opponent...");
-								if (opponentCount==0)
-								{
-									System.out.println("Congrats You have Won the game !!!");									
-								}
+								
 								opponentCount-=1;
 
 								if(opponentCount==2)
@@ -535,10 +525,7 @@ public class ForestSettings
 								setAnimalLocation(animal);
 								setForestStatus();
 								System.out.println("Your Player defeated the opponent...");
-								if (opponentCount==0)
-								{
-									System.out.println("Congrats You have Won the game !!!");									
-								}
+								
 								opponentCount-=1;
 								
 								if(opponentCount==2)
@@ -575,8 +562,8 @@ public class ForestSettings
 								System.out.println("Game Over!!! Better luck next time...");
 					}
 				}
-			}while(opponentCount>0);
-				
+			}
+			System.out.println("Congrats you have won the game");	
 		}
 		else
 		{

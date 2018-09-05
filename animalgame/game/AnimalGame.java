@@ -20,7 +20,7 @@ public class AnimalGame
 	public Tiger tiger=new Tiger();
 	public Elephant elephant=new Elephant();
 	public Deer deer=new Deer();
-	String animalName;
+	//String animalName;
 	ForestSettings forestDetail=new ForestSettings();
 	Scanner scan=new Scanner(System.in);
 	public void gameDetails()
@@ -48,9 +48,7 @@ public class AnimalGame
 			System.out.println("1)Lion\t\t2)Tiger\n3)Elephant\t4)Deer");
 			System.out.print("\nChoose Animal to play: \n");
 			chooseAnimal=scan.nextInt();
-			
 			animalLocation(chooseAnimal);
-			forestDetail.locateAnimal(animal);
 			forestDetail.getHunterAnimalLocation(animal);
 			row=scan.nextInt();
 			column=scan.nextInt();
@@ -64,7 +62,7 @@ public class AnimalGame
 		
 	}
 
-	void animalLocation(int chooseAnimal)
+	public void animalLocation(int chooseAnimal)
 	 {
 		
 		if(chooseAnimal==1)
