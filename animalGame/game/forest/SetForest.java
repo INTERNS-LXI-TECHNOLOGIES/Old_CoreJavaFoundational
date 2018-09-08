@@ -12,7 +12,7 @@ public class SetForest
 {
 	Scanner scan=new Scanner(System.in);
 	Forest forest=new Forest();
-	Animal[][] animalArray;
+	public Animal[][] animalArray;
 	String name;
 	int count;
 	double small;
@@ -175,6 +175,7 @@ public class SetForest
 			return small;
 			
 		}
+
 		
 		
 }

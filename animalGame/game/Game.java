@@ -15,7 +15,9 @@ public class Game
 	Tiger tiger=new Tiger();
 	Rabbit rabbit=new Rabbit();
 	Deer deer=new Deer();
+	//Animal animal;
 	Animal fighter;
+	int i,j,m,n;
 	
 
 	public void animalGame()
@@ -33,6 +35,9 @@ public class Game
 		setForest.animalDistance(3,3);
 		setForest.shortestDistance();
 		fight(fighter,lion);
+		kill(lion);
+		setForest.displayForest();
+		
 	}
 	
 	public void animalCreation()
@@ -66,6 +71,9 @@ public class Game
 		
 	}
 	
+	
+
+	
 	public void fight(Animal animal1,Animal animal2)
 	{
 	
@@ -97,11 +105,14 @@ public class Game
 				//int hungerLevel2=animal2.getHungerLevel();
 				if(energyLevel1 > energyLevel2)
 				{
+					kill(animal1);
 					System.out.print("\n\nYOU WON!!!");
 				}
 				else
 				{
+						kill(fighter);
 						System.out.print("SORRY!!YOU LOSE!!");
+						
 				}
 			}
 		}
@@ -122,7 +133,8 @@ public class Game
 				}
 				else
 				{
-						System.out.print("\n\n NO FIGHT!! YOU LOSE!!");
+					System.out.print("\n\n NO FIGHT!! YOU LOSE!!");
+					
 				}
 			}
 			
@@ -134,15 +146,33 @@ public class Game
 				//hungerLevel2=animal2.getHungerLevel();
 				if(energyLevel1 > energyLevel2)
 				{
+					kill(animal2);
 					System.out.print("\n\nYOU WON!!!");
 				}
 				else
 				{
+						kill(fighter);
 						System.out.print("\n\n SORRY!! YOU LOSE!!");
+						
+						//setForest.forestStatus();
 				}
 			}
 		}
 	}
-		
-	
+				public void kill(Animal animal)
+	{
+		for (int i=0;i<m;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
+				if(setForest.animalArray[i][j]==animal)
+				{
+					setForest.animalArray[i][j]=null;
+				}
+			}
+		System.out.print("\n");
+		}
+			
+	}
+
 }
