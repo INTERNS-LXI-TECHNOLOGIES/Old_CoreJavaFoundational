@@ -1,18 +1,27 @@
-package com.lxisoft.animalGamev2.game.animals;
+package com.lxisoft.animalGamev2.animals;
 public class Animal
 {
 	
-	private int energyLevel,hungryLevel;
+	private int energyLevel,hungryLevel,id;
 	private String animaltype;
 	private String animalName;
-   public void setEnergyLevel(int level)
+	 public void setAnimalId(int id)
+    {
+    this.id=id;
+    }
+	 public int getAnimalId()
+    {
+		return this.id;
+	}
+
+    public void setEnergyLevel(int level)
     {
     this.energyLevel=level;
     }
 	
 	public int getEnergyLevel()
 	{
-	return energyLevel;
+	return this.energyLevel;
 	}
 
       public void setHungryLevel(int level)

@@ -1,7 +1,7 @@
 package com.lxisoft.animalGamev2.animals;
- import com.lxisoft.animalGame.game.animal.Animal;
+ import com.lxisoft.animalGamev2.animals.Animal;
  import java.util.*;
-public class Tiger extends Animal 
+public class Tiger extends  CarnivorousAnimal
 {
 	
 	    private String type;
@@ -15,6 +15,13 @@ public class Tiger extends Animal
 		setAnimalName("Tiger");
 	
 		}
+		public int animalId(int id)
+		{
+		setAnimalId(id);
+	    int animalId=getAnimalId();
+		return animalId;
+		}
+		
 		public String getName()
 		{
 		String name=getAnimalName();

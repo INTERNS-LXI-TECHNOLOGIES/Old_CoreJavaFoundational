@@ -1,7 +1,7 @@
 package com.lxisoft.animalGamev2.animals;
-import com.lxisoft.animalGame.game.animal.Animal;
+//import com.lxisoft.animalGamev2.animals.CarnivorousAnimal;
 import java.util.*;
-public class Athulya extends Animal 
+public class Athulya extends CarnivorousAnimal
 {
 	
 	    private String type;
@@ -14,6 +14,13 @@ public class Athulya extends Animal
 		setAnimalName("Athulya");
 	
 		}
+		public int animalId(int id)
+		{
+		setAnimalId(id);
+	    int animalId=getAnimalId();
+		return animalId;
+		}
+		
 		public String getName()
 		{
 		String name=getAnimalName();

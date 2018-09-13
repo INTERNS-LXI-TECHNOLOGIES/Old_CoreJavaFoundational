@@ -1,7 +1,7 @@
-package com.lxisoft.animalGame.game.animal.herbivorous;
-import com.lxisoft.animalGame.game.animal.Animal;
+package com.lxisoft.animalGamev2.animals;
+import com.lxisoft.animalGamev2.animals.Animal;
 
-public class Deer extends Animal 
+public class Deer extends HerbivorousAnimal 
 {
 	
 
@@ -14,6 +14,12 @@ public class Deer extends Animal
 		setHungryLevel((int)(Math.random()*50)+50);
 		setanimaltype("Herbivorous");
 	    setAnimalName("Deer");
+		}
+		public int animalId(int id)
+		{
+		setAnimalId(id);
+	    int animalId=getAnimalId();
+		return animalId;
 		}
 		public String getName()
 		{
