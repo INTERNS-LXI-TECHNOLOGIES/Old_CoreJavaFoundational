@@ -13,6 +13,15 @@ public class Animal
     {
 		return this.id;
 	}
+	 public void setAnimalName(String name)
+    {
+    this.animalName=name;
+    }
+	
+	public String getAnimalName()
+	{
+	return animalName;
+	}
 
     public void setEnergyLevel(int level)
     {
@@ -24,13 +33,13 @@ public class Animal
 	return this.energyLevel;
 	}
 
-      public void setHungryLevel(int level)
+     public void setHungryLevel(int level)
     {
     this.hungryLevel=level;
     }
     
 	
-      public int getHungryLevel()
+     public int getHungryLevel()
     {
     return hungryLevel;
     }
@@ -43,15 +52,6 @@ public class Animal
 	{
 	return animaltype;
 	}
-	 public void setAnimalName(String name)
-    {
-    this.animalName=name;
-    }
-	
-	public String getAnimalName()
-	{
-	return animalName;
-	}
-	
+
 	
 }
