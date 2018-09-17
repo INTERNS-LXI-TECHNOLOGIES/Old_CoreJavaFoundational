@@ -3,8 +3,9 @@ import com.lxisoft.moviescript.person.Person;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
+import java.util.HashSet;
 import com.lxisoft.moviescript.cast.*;
+import com.lxisoft.moviescript.dialogue.Dialogue;
 import com.lxisoft.moviescript.exception.RepeatDialogueException;
 
 public class ScriptWriter extends Person
@@ -21,7 +22,7 @@ public class ScriptWriter extends Person
 		for(int i=1;i<=5;i++)
 		{
 			System.out.println("__________________________SCENE "+i+"__________________________\n\n");
-			Set<String> dialogues=new TreeSet<String>();
+			Set<Dialogue> dialogues=new HashSet<Dialogue>();
 			//List<String> dialogues= new ArrayList<String>();
 			int rand1=(int)(Math.random()*actors.size());
 			int rand2;
@@ -32,8 +33,8 @@ public class ScriptWriter extends Person
 			int exchanges=(int)(Math.random()*5)+2;
 			while(exchanges!=0)
 			{
-				String dialogue1=fetchDialogue(actors.get(rand1),dialogues);
-				String dialogue2=fetchDialogue(actors.get(rand2),dialogues);
+				Dialogue dialogue1=fetchDialogue(actors.get(rand1),dialogues);
+				Dialogue dialogue2=fetchDialogue(actors.get(rand2),dialogues);
 				System.out.println(actors.get(rand1).getCharacterName()+" : "+dialogue1+"\n\n\n");
 				System.out.println(actors.get(rand2).getCharacterName()+" : "+dialogue2+"\n\n\n");
 				exchanges--;
@@ -45,11 +46,11 @@ public class ScriptWriter extends Person
 		int size=list.size();
 		return (Cast)(list.get((int)(Math.random()*size-1)));
 	}
-	public String fetchDialogue(Cast actor,Set<String>dialogues)
+	public Dialogue fetchDialogue(Cast actor,Set<Dialogue>dialogues)
 	{
 		int size=dialogues.size();
 		int currentSize;
-		String dialogue;
+		Dialogue dialogue;
 		do
 		{
 			dialogue=actor.getDialogue();

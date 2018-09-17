@@ -1,5 +1,6 @@
 package com.lxisoft.moviescript.cast;
 import com.lxisoft.moviescript.person.Person;
+import com.lxisoft.moviescript.dialogue.Dialogue;
 import java.sql.*;
 import java.util.Random;
 
@@ -33,7 +34,7 @@ public class Cast extends Person
 	{
 		this.tableSize=tableSize;
 	}
-	public String getDialogue()
+	public Dialogue getDialogue()
 	{
 		Connection con=null;
 		Statement stmt=null;
@@ -48,7 +49,9 @@ public class Cast extends Person
 			stmt=con.createStatement();
 			result=stmt.executeQuery(query);
 			result.next();
-			return result.getString("dialogue");
+			Dialogue dialogue=new Dialogue();
+			dialogue.setDialogue(result.getString("dialogue"));
+			return dialogue;
 		}
 		catch(SQLException se)
 		{
