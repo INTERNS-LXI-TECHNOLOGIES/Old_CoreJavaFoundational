@@ -1,5 +1,5 @@
 package com.lxisoft.animalGamev2.forest;
-import com.lxisoft.animalGamev2.animals.Animal;
+import com.lxisoft.animalGamev2.animals.*;
 
 public class Forest
 {

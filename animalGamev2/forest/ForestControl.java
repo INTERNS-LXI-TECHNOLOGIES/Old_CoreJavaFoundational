@@ -1,12 +1,14 @@
-package com.lxisoft.animalGame.game.forest;
-import com.lxisoft.animalGame.game.animal.Animal;
+package com.lxisoft.animalGamev2.forest;
+import com.lxisoft.animalGamev2.forest.Forest;
+import com.lxisoft.animalGamev2.animals.*;
 import java.util.*;
 public class ForestControl
 {
 	Forest forest=new Forest();
-	Animal[][] animalArray;
-	String[] name=new String[10];
-	int raw,column,animalCount;
+	public Animal[][] animalArray;
+	String[] animalName=new String[10];
+	double[] animalDistance=new double[10];
+	public int raw,column,animalPosition;
 	public  void setForest()
 	{	Scanner scan=new  Scanner(System.in);
 		System.out.println("Enter the size of forest");
@@ -52,8 +54,8 @@ public class ForestControl
 	public void calculateAnimalDistance(int m,int n)
 	{
 		int breadth,length;
-		animalCount=-1; 
-		String animalName;
+		animalPosition=-1; 
+		String name;
 		//getForeststatus();
 		for(int i=0;i<raw;i++)
 		{
@@ -67,18 +69,18 @@ public class ForestControl
 					}
 				    else
 					{
-					if (animalCount==-1)
-					{	animalCount++;
+					if (animalPosition==-1)
+					{	animalPosition++;
 					}
-					animalName=findAnimal(animalArray[i][j]);
+					name=findAnimal(animalArray[i][j]);
 					breadth=j-n;
 					length=i-m;
-				    name[animalCount]= animalName;
-					distance[animalCount]=Math.sqrt((breadth*breadth)+(length*length));
-					System.out.print("Name["+animalCount+"]="+name[animalCount]);
-					System.out.println("\tdistance["+animalCount+"]="+distance[animalCount]);
+				    animalName[animalPosition]= name;
+					animalDistance[animalPosition]=Math.sqrt((breadth*breadth)+(length*length));
+					System.out.print("Name["+animalPosition+"]="+animalName[animalPosition]);
+					System.out.println("\tdistance["+animalPosition+"]="+animalDistance[animalPosition]);
 					
-					animalCount++;
+					animalPosition++;
 					}
 				}
 			}
@@ -86,4 +88,30 @@ public class ForestControl
 					
 		
 	}
+	 public String findAnimal(Animal animal)
+	 {
+		 String animalName=null;
+	 	
+		  if(animal instanceof Lion)
+		  {animalName= animal.getAnimalName();
+		  }
+		   if(animal instanceof Tiger)
+		  {animalName= animal.getAnimalName();
+		  }
+		    if(animal instanceof Elephant)
+		  {animalName= animal.getAnimalName();
+		  }
+		   if(animal instanceof Rabbit)
+		  {animalName=  animal.getAnimalName();
+		  }
+		   if(animal instanceof Deer)
+		  {animalName= animal.getAnimalName();
+		  }
+		    if(animal instanceof Athulya)
+		  {animalName= animal.getAnimalName();
+		  }
+		
+		return animalName;
+			
+	 }
 }
