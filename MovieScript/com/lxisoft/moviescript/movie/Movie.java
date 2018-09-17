@@ -63,16 +63,21 @@ public class Movie
 		{			
 			switch(listName)
 			{
-				case "Hero"		:fetchCastDetails(new Hero(),listName+" "+(i+1),hero);
-								break;
-				case "Heroine"	:fetchCastDetails(new Heroine(),listName+" "+(i+1),heroine);
-								break;
-				case "Comedian"	:fetchCastDetails(new Comedian(),listName+" "+(i+1),comedian);
-								break;
-				case "SupportingActor"	:fetchCastDetails(new SupportingActor(),listName+" "+(i+1),supportingActor);
-										break;
-				case "Villain"	:fetchCastDetails(new Villain(),listName,villain);
-								break;
+				case "Hero"		:
+					fetchCastDetails(new Hero(),listName+" "+(i+1),hero);
+					break;
+				case "Heroine"	:
+					fetchCastDetails(new Heroine(),listName+" "+(i+1),heroine);
+					break;
+				case "Comedian"	:
+					fetchCastDetails(new Comedian(),listName+" "+(i+1),comedian);
+					break;
+				case "SupportingActor"	:
+					fetchCastDetails(new SupportingActor(),listName+" "+(i+1),supportingActor);
+					break;
+				case "Villain"	:
+					fetchCastDetails(new Villain(),listName,villain);
+					break;
 			}
 		}
 	}
@@ -85,5 +90,4 @@ public class Movie
 		actor.setCharacterName(in.nextLine());
 		list.add(actor);		
 	}
-	
 }
