@@ -15,7 +15,7 @@ public class Deer extends HerbivorousAnimal
 		setanimaltype("Herbivorous");
 	    setAnimalName("Deer");
 		}
-		public int animalId(int id)
+		/*public int animalId(int id)
 		{
 		setAnimalId(id);
 	    int animalId=getAnimalId();
@@ -25,7 +25,7 @@ public class Deer extends HerbivorousAnimal
 		{
 		String name=getAnimalName();
 		return name;
-		}
+		}*/
 
 	
 

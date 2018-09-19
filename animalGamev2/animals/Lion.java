@@ -17,7 +17,7 @@ public class Lion extends  CarnivorousAnimal
 	
 		}
 		
-		public int animalId(int id)
+	/*	public int animalId(int id)
 		{
 		setAnimalId(id);
 	    int animalId=getAnimalId();
@@ -28,7 +28,7 @@ public class Lion extends  CarnivorousAnimal
 		{
 		String name=getAnimalName();
 		return name;
-		}
+		}*/
 
 
 }
