@@ -1,0 +1,11 @@
+@echo off
+javac com/lxisoft/animalgame/forest/animal/herbivore/zeebra/Zeebra.java
+javac com/lxisoft/animalgame/forest/animal/herbivore/rabbit/Rabbit.java
+javac com/lxisoft/animalgame/forest/animal/carnivore/tiger/Tiger.java
+javac com/lxisoft/animalgame/forest/animal/carnivore/lion/Lion.java
+javac com/lxisoft/animalgame/forest/animal/carnivore/Carnivores.java
+javac com/lxisoft/animalgame/forest/animal/herbivore/Herbivores.java
+javac com/lxisoft/animalgame/forest/animal/Animal.java
+javac com/lxisoft/animalgame/forest/Forest.java
+javac com/lxisoft/animalgame/test/TDD.java
+java com/lxisoft/animalgame/test/TDD
