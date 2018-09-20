@@ -1,10 +1,15 @@
 package com.lxisoft.animalGamev2.game;
 import com.lxisoft.animalGamev2.animals.*;
-import  com.lxisoft.animalGamev2.forest.ForestControl;
+import  com.lxisoft.animalGamev2.forest.*;
 public class AnimalGame
 {
-	ForestControl ForestControl=new ForestControl();
+	ForestControl forestControl=new ForestControl();
 	int fighteLife=1;
+	public void game()
+	{
+		forestControl.setForest();
+		forestControl.getForeststatus();
+	}
 	public void animalFight( CarnivorousAnimal animal1,HerbivorousAnimal  animal2)
 	 {  
 	 int energy=15,energyLevel1,hungryLevel1,energyLevel2,hungryLevel2;
@@ -12,8 +17,8 @@ public class AnimalGame
 	 hungryLevel1=animal1.getHungryLevel();
 	 energyLevel2=animal2.getEnergyLevel();
 	 hungryLevel2= animal2.getHungryLevel();
-	 String animalOne=ForestControl.findAnimal(animal1);
-	 String animalTwo=ForestControl.findAnimal(animal2);
+	 String animalOne=forestControl.findAnimal(animal1);
+	 String animalTwo=forestControl.findAnimal(animal2);
 
 	    System.out.println( "fighting" );
 		if(animal1.getanimaltype()=="Carnivorous")
@@ -127,16 +132,16 @@ public class AnimalGame
 	 }
 	 }
 	 public void kill(Animal animal)
-	 {	String animalName= ForestControl.findAnimal(animal);
+	 {	String animalName= forestControl.findAnimal(animal);
 		 
-		 	for(int i=0;i<ForestControl.raw;i++)
+		 	for(int i=0;i<forestControl.raw;i++)
 		{  
-			for(int j=0;j<ForestControl.column;j++)
+			for(int j=0;j<forestControl.column;j++)
 			{
-				if( ForestControl.animalArray[i][j]==animal)
+				if( forestControl.animalArray[i][j]==animal)
 				{
 				System.out.println( "The cordinates of the "+animalName+" which has been removed from forst is "+i+"\t"+j); 
-				ForestControl.animalArray[i][j]=null;
+				forestControl.animalArray[i][j]=null;
 				}
 			}
 			

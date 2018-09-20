@@ -7,6 +7,7 @@ public class ForestControl
 	Forest forest=new Forest();
 	public Animal[][] animalArray;
 	String[] animalName=new String[10];
+	int noOfLions,noOfTigers,noOfAthulyas,noOfElephants,noOfDeers,noOfRabbits;
 	double[] animalDistance=new double[10];
 	public int raw,column,animalPosition;
 	public  void setForest()
@@ -30,7 +31,7 @@ public class ForestControl
 		animalArray[i][j]=animal;
 	}
 	 public  void getForeststatus()
-	{  
+	{   animalArray=forest.getForestArea();
 		for(int i=0;i<raw;i++)
 		{  
 		System.out.print( "\t\t\t");
@@ -50,6 +51,56 @@ public class ForestControl
 		  
 		}
 		}
+	}
+	public void  animalCreation()
+	{
+		noOfLions=getRandomNo();
+		forest.lionCreation(noOfLions);
+		noOfTigers=getRandomNo();
+		forest.tigerCreation(noOfTigers);
+		noOfAthulyas=getRandomNo();
+		forest.athulyaCreation(noOfAthulyas);
+		noOfElephants=getRandomNo();
+		forest.elephantCreation(noOfElephants);
+		noOfDeers=getRandomNo();
+		forest.deerCreation(noOfDeers);
+		noOfRabbits=getRandomNo();
+	    forest.rabbitCreation(noOfRabbits);
+		
+			
+	}
+	public int getRandomNo()
+	{
+		int j=(int)(Math.random()*5); 
+		return j;
+	}
+	public void placeingAnimals()
+	{
+		for(int i=0;i< noOfLions;i++)
+		{
+		setAnimalLocation( forest.lions.get(i));
+		}
+		for(int i=0;i< noOfTigers;i++)
+		{
+		setAnimalLocation( forest.tigers.get(i));
+		}
+		for(int i=0;i< noOfAthulyas;i++)
+		{
+		setAnimalLocation( forest.athulyas.get(i));
+		}
+		for(int i=0;i< noOfDeers;i++)
+		{
+		setAnimalLocation( forest.deers.get(i));
+		}
+		for(int i=0;i< noOfRabbits;i++)
+		{
+		setAnimalLocation( forest.rabbits.get(i));
+		}
+		for(int i=0;i< noOfElephants;i++)
+		{
+		setAnimalLocation( forest.elephants.get(i));
+		}
+		
 	}
 	public void calculateAnimalDistance(int m,int n)
 	{

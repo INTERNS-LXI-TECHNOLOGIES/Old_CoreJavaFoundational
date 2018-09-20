@@ -12,18 +12,7 @@ public class Elephant extends HerbivorousAnimal
 		setanimaltype("Herbivorous");
 	    setAnimalName("Elephant");
 		}
-		public int animalId(int id)
-		{
-		setAnimalId(id);
-	    int animalId=getAnimalId();
-		return animalId;
-		}
-		public String getName()
-		{
-		String name=getAnimalName();
-		return name;
-		}
-
+	
 	
 
 }

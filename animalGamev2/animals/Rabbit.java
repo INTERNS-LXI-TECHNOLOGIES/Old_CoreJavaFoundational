@@ -14,18 +14,7 @@ public class Rabbit extends HerbivorousAnimal
 		setanimaltype("Herbivorous");
 	    setAnimalName("Rabbit");
 		}
-		public int animalId(int id)
-		{
-		setAnimalId(id);
-	    int animalId=getAnimalId();
-		return animalId;
-		}
-		
-		public String getName()
-		{
-		String name=getAnimalName();
-		return name;
-		}
+	
 
 	
 
