@@ -6,24 +6,22 @@ public class ForestController
 	private Forest model;
 	private ForestView view;
 
-	public ForestController(Forest model,ForestView view)
+	public ForestController(Forest model, ForestView view)
 	{
 		this.model=model;
 		this.view=view;
 	}
 
-	public void setForestName(String name)
+	public void setForestName()
 	{
-		model.setName(name);
+		model.setName(view.askName());
+
 	}
 
-	public String getForestName()
+	public void getForestName()
 	{
-		return model.getName();
+		view.printName(model.getName());
 	}
 
-	public void updateView()
-	{
-		view.printForestDetails(model.getName());
-	}
+
 }
