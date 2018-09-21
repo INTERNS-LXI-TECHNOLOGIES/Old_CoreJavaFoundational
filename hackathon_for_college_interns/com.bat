@@ -1,0 +1,9 @@
+@echo off
+javac com/lxisoft/arya/test/Tdd.java
+javac com/lxisoft/arya/forest/Forest.java
+javac com/lxisoft/arya/forest/animals/Animal.java
+javac com/lxisoft/arya/forest/animals/Carnivorous.java
+javac com/lxisoft/arya/forest/animals/Herbivore.java
+javac com/lxisoft/arya/forest/animals/Lion.java
+javac com/lxisoft/arya/forest/animals/Rabbit.java
+java com/lxisoft/arya/test/Tdd
