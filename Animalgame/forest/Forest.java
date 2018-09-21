@@ -27,15 +27,16 @@ public class Forest
 			printForest();
 			createAnimal();
 			printForest();
-			selectHero();
+			int option=selectHeroPrintMenu();
+	    	Animal hero=selectHero(option);
 	
 		
 		}
 		public void forestCreate()
 		{
-			for(int i=0;i<row;i++)
+			for(int i=1;i<=row;i++)
 			{
-				for(int j=0;j<column;j++)
+				for(int j=1;j<=column;j++)
 				{
 					forestArea[i][j]=null;
 				}
@@ -45,9 +46,9 @@ public class Forest
 		public void printForest()
 		{
 		System.out.println(forestStatus);
-			for(int i=0;i<row;i++)
+			for(int i=1;i<=row;i++)
 			{
-				for(int j=0;j<column;j++)
+				for(int j=1;j<=column;j++)
 				{
 					System.out.print(forestArea[i][j]);
 					System.out.print("	");
@@ -107,13 +108,15 @@ public class Forest
 			}
 		}
 	
-		public void selectHero()
+		public int selectHeroPrintMenu()
 		{
-			System.out.println("SELECT YOUR HERO");
+			int option;
+			Scanner op=new Scanner(System.in);
+			System.out.println("SELECT YOUR HERO:");
 			int opt=1;
-		    for(int i=0;i<row;i++)
+		    for(int i=1;i<=row;i++)
 			{
-				for(int j=0;j<column;j++)
+				for(int j=1;j<=column;j++)
 				{
 					if(forestArea[i][j]!=null)
 					{
@@ -125,12 +128,53 @@ public class Forest
 				
 				
 			}
-	
-	 
+			System.out.println("Option:");
+				option=op.nextInt();
+				return option;
 			
-	
-		
+			//int row=i;
+			//int column=j;
+		  
+				
 		}
+		public Animal selectHero(int x)
+		{
+		int ki=0;
+		for(int i=1;i<=row;i++)
+			{
+				for(int j=1;j<=column;j++)
+				{
+					ki++;
+					if(ki==x)
+					{
+						//System.out.println("*****************");
+						Animal hero=forestArea[i][j];
+						System.out.println("selected"+hero);
+						return hero;
+					}
+				}
+			}return null;
+		}
+		
+			//for(int frow=0;frow<=row;row++)
+			//{
+				//for(int fcolumn=0;fcolumn<=column;column++)
+				//{
+					//return Animal[frow][
+			/*if (x==1)
+			{
+				return i=0,j=0;
+			}
+			if(x==2)
+			{
+				return i=0,j=1;
+			}
+			if(x==3)
+			{
+				return i=0,j=3;
+			}
+			*/
+		
 	
 	
 }

@@ -1,7 +1,7 @@
 package com.lxisoft.Animalgame.forest;
 //import java.math;
 //import 
-public class Animal
+public abstract class Animal
 {
 String name;
 int energyLevel;
