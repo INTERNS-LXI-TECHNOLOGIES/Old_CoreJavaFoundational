@@ -17,7 +17,7 @@ public class SetForest
 	int count;
 	double small;
 	String animalName[]=new String[10];
-	int m,n,i,j;
+	public int m,n,i,j;
 	double distance[]=new double[10];
 	public void forestControl()
 	{
@@ -148,19 +148,22 @@ public class SetForest
 			}
 			
 		}
+		
+		
+		
 		public double shortestDistance()
 		{
-			/*for(int i=1;i<=4;i++)
+			for(i=1;i<count;i++)
 			{
-			System.out.println("hgfgh"+distance[i]);
-			}*/
+				System.out.println("gfdg"+distance[i]);
+			}
 			int num=1;
 			small=distance[1];
 			for(num=2;num<count;num++)
 			{
 				if(distance[num]<small)
 				{
-					small= distance[num];
+					small=distance[num];
 					num=count+1;
 					
 				}
