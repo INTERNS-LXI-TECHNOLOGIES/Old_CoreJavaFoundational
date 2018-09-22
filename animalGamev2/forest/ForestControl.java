@@ -21,6 +21,7 @@ public class ForestControl
 		
 	public void setAnimalLocation(Animal animal)
 	{  int i,j;
+	   animalArray=forest.getForestArea();
 		do
 		{
 		i=(int)(Math.random()*raw);
@@ -31,25 +32,26 @@ public class ForestControl
 		animalArray[i][j]=animal;
 	}
 	 public  void getForeststatus()
-	{   animalArray=forest.getForestArea();
+	{  
 		for(int i=0;i<raw;i++)
 		{  
-		System.out.print( "\t\t\t");
+		//System.out.print( "\t\t\t");
 		for(int j=0;j<column;j++)
 		{
 		System.out.print( "\t");
-			if(animalArray[i][j] !=null)
-			{
+			//if(animalArray[i][j] !=null)
+			//{
 		  
-			  System.out.print(animalArray[i][j].getAnimalName());
+			  System.out.print(animalArray[i][j]);
 		  
-			}
-			else 
-			{
-				System.out.print( "**");
-			}
+			//}
+			//else 
+			//{
+			 System.out.print( "**");
+			//}
 		  
 		}
+		System.out.print( "\n");
 		}
 	}
 	public void  animalCreation()
@@ -71,7 +73,7 @@ public class ForestControl
 	}
 	public int getRandomNo()
 	{
-		int j=(int)(Math.random()*5); 
+		int j=(int)(Math.random()*4)+1; 
 		return j;
 	}
 	public void placeingAnimals()
@@ -82,7 +84,7 @@ public class ForestControl
 		}
 		for(int i=0;i< noOfTigers;i++)
 		{
-		setAnimalLocation( forest.tigers.get(i));
+		setAnimalLocation(forest.tigers.get(i));
 		}
 		for(int i=0;i< noOfAthulyas;i++)
 		{

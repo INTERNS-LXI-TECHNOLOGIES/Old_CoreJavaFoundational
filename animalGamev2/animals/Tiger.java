@@ -6,7 +6,7 @@ public class Tiger extends  CarnivorousAnimal
 	
 	    private String type;
 	
-		public void Tiger()
+		public  Tiger()
 		{
 	
 		setEnergyLevel((int)(Math.random()*50)+50);
@@ -15,18 +15,7 @@ public class Tiger extends  CarnivorousAnimal
 		setAnimalName("Tiger");
 	
 		}
-		public int animalId(int id)
-		{
-		setAnimalId(id);
-	    int animalId=getAnimalId();
-		return animalId;
-		}
-		
-		public String getName()
-		{
-		String name=getAnimalName();
-		return name;
-		}
+	
 	
 
 	

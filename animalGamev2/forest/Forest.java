@@ -12,12 +12,12 @@ public class Forest
 	public ArrayList<Deer> deers=new ArrayList<Deer>();
 	public ArrayList<Rabbit> rabbits=new ArrayList<Rabbit>();
 	public ArrayList<Elephant> elephants=new ArrayList<Elephant>();
-	Lion lion=new Lion();
-	Tiger tiger=new Tiger();
-	Rabbit rabbit=new Rabbit();
-	Deer deer=new Deer();
-	Elephant elephant=new Elephant();
-	Athulya athulya=new Athulya();
+	Lion lion;
+	Tiger tiger;
+	Rabbit rabbit;
+	Deer deer;
+	Elephant elephant;
+	Athulya athulya;
 	
 	
 	public void setForestName(String name)
@@ -52,48 +52,50 @@ public class Forest
 	
 	public void lionCreation(int noOflion)
 	{
-		for (int i=0;i<=noOflion;i++)
-		{
+		for (int i=0;i<noOflion;i++)
+		{   lion=new Lion();
 			lions.add(lion);
 			lions.get(i).setAnimalId(i);
 		}
 	}
 	public void tigerCreation(int noOftiger)
 	{
-		for (int i=0;i<=noOftiger;i++)
-		{
+		for (int i=0;i<noOftiger;i++)
+		{	tiger=new Tiger();
 			tigers.add(tiger);
 			tigers.get(i).setAnimalId(i);
 		}
 	}
 	public void athulyaCreation(int noOfathulya)
 	{
-		for (int i=0;i<=noOfathulya;i++)
+		for (int i=0;i<noOfathulya;i++)
 		{
+			athulya=new Athulya();
 			athulyas.add(athulya);
 			athulyas.get(i).setAnimalId(i);
 		}
 	}
 	public void deerCreation(int noOfdeer)
 	{
-		for (int i=0;i<=noOfdeer;i++)
-		{
+		for (int i=0;i<noOfdeer;i++)
+		{	deer=new Deer();
 			deers.add(deer);
 			deers.get(i).setAnimalId(i);
+			System.out.println(deers.get(i).getAnimalId());
 		}
 	}
 	public void elephantCreation(int noOfelephant)
 	{
-		for (int i=0;i<=noOfelephant;i++)
-		{
+		for (int i=0;i<noOfelephant;i++)
+		{	elephant=new Elephant();
 			elephants.add(elephant);
 			elephants.get(i).setAnimalId(i);
 		}
 	}
 	public void rabbitCreation(int noOfrabbit)
 	{
-		for (int i=0;i<=noOfrabbit;i++)
-		{
+		for (int i=0;i<noOfrabbit;i++)
+		{   rabbit=new Rabbit();
 			rabbits.add(rabbit);
 			rabbits.get(i).setAnimalId(i);
 		}

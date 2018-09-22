@@ -6,7 +6,7 @@ public class Athulya extends CarnivorousAnimal
 	
 	    private String type;
 	
-		public void Athulya()
+		public  Athulya()
 		{
 		setEnergyLevel((int)(Math.random()*50)+50);
 		setHungryLevel((int)(Math.random()*50)+50);

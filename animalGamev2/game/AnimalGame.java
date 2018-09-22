@@ -8,6 +8,8 @@ public class AnimalGame
 	public void game()
 	{
 		forestControl.setForest();
+		forestControl.animalCreation();
+		forestControl.placeingAnimals();
 		forestControl.getForeststatus();
 	}
 	public void animalFight( CarnivorousAnimal animal1,HerbivorousAnimal  animal2)

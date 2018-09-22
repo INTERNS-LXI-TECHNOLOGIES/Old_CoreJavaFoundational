@@ -7,7 +7,7 @@ public class Rabbit extends HerbivorousAnimal
 	public String type;
 	
 		
-		public void Rabbit()
+		public  Rabbit()
 		{
 		setEnergyLevel((int)(Math.random()*50)+50);
 		setHungryLevel((int)(Math.random()*50)+50);

@@ -20,7 +20,7 @@ public class Animal
 	
 	public String getAnimalName()
 	{
-	return animalName;
+	return this.animalName;
 	}
 
     public void setEnergyLevel(int level)

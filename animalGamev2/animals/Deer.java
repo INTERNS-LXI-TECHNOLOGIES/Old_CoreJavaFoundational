@@ -8,7 +8,7 @@ public class Deer extends HerbivorousAnimal
 	
 	
 		
-		public void Deer()
+		public  Deer()
 		{
 		setEnergyLevel((int)(Math.random()*50)+50);
 		setHungryLevel((int)(Math.random()*50)+50);

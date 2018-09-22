@@ -8,7 +8,7 @@ public class Lion extends  CarnivorousAnimal
 	
 	
 	
-		public void Lion()
+		public Lion()
 		{
 		setEnergyLevel((int)(Math.random()*50)+50);
 		setHungryLevel((int)(Math.random()*50)+50);

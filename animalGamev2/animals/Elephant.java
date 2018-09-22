@@ -5,7 +5,7 @@ public class Elephant extends HerbivorousAnimal
 	
 
 	
-	public void Elephant()
+	public  Elephant()
 		{
 		setEnergyLevel((int)(Math.random()*50)+50);
 		setHungryLevel((int)(Math.random()*50)+50);
