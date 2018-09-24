@@ -41,7 +41,7 @@ public class TDD {
 		
 		while(true)
 		{
-			System.out.print("Enter Car number to add : ");
+			System.out.print("Enter Car number to add [ Enter 0 tp stop adding ] :");
 			choice = scanner.nextInt();
 			
 			if(choice <= Garage.slot_no)
