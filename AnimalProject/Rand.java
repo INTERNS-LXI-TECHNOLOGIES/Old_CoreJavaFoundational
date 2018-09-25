@@ -2,7 +2,7 @@ import java.util.*;
 
 /*
 
-	static int randNumber(int min , int max) -> 
+	static int randNumber(int min , int max) -> returns a random number
 
 */
 

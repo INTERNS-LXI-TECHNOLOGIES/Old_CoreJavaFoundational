@@ -1,0 +1,14 @@
+else
+{
+	if(((Carnivore)animals[i]).isHungry())
+	{
+		prey = ((Carnivore)animals[i]).closestPrey(animals ,coords);
+		((Carnivore)animals[i]).moveTo(coords);
+		((Carnivore)animals[i]).eatAnimal(((Herbivore)prey));
+		killAnimal(prey,prey.id);
+	}
+	else
+	{
+		// Fight with closest carnivore
+	}
+}
