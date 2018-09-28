@@ -1,16 +1,20 @@
 package com.lxisoft.deepthi.controller;
+import com.lxisoft.deepthi.model.*;
 
 
-class SaleController {
+public class SaleControllerDee 
+{
 
-
-
-
-
-amount  sell(Product productShopped, quantity) ;
-
-
-totalAmount() ;
+public void sell(ProductDee productShopped, int quantity)
+	{
+		System.out.println("Item sold :"+productShopped+"\n"+"Quantity : "+quantity);
+		double cost=totalAmount(productShopped,quantity);
+		System.out.println("Total cost : "+cost);
+	}
+	public double totalAmount(ProductDee productShopped,int quantity)
+	{
+		return productShopped.getPrice()*quantity;
+	}
 
 
 

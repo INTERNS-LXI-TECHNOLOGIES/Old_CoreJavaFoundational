@@ -4,18 +4,17 @@ package com.lxisoft.deepthi.model;
 // @TODO Add java doc comments
 
 
-class Part {
+public interface PartDee 
+{
 
-
-@override
+//@override
 public double getPrice() ;
 
-
-@override
+//@override
 public String getName() ;
 
-@override
-public double isProductAvailableinStock() ;
+//@override
+public boolean isProductAvailableinStock() ;
 
 
 }

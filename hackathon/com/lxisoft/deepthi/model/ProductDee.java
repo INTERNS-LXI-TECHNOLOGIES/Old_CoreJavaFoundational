@@ -1,37 +1,72 @@
-
 package com.lxisoft.deepthi.model;
+import java.util.List;
 //package com.yourname.modulename ;
 
 
 // @TODO Add proper java doc comments
 
-Class Product is a Part {
+public class ProductDee implements PartDee 
+{
 
+  //private string name = null ;
+  private String description;
 
-  private string name = null ;
+  private boolean display=true;
 
+  private int id;
 
-  private String description = null;
+  private double maximumStockLevel=10;
 
-  private TrueOrFalse display = null;
+  private String name;
 
-  private 1ong id = null;
+  private double reOrderLevel=5;
 
+  private String reference;
 
+  private String searchKey;
+  
+  private double price;
 
-  private d0ub1e maximumStockLevel = null;
+  //private List<ProductDee> parts = new ArrayList<ProductDee>();
+   public ProductDee(int id,String name,String description,double price)
+   {
+	   this.name=name;
+	   this.id=id;
+	   this.price=price;
+	   this.description=description;
+	   reference=description+" "+name+" "+id;
+	   searchKey=description+" "+name+" "+id;
+	   
+   }
 
-
-  private String name = null;
-
-  private Double reOrderLevel = null;
-
-  private String reference = null;
-
-  private String searchkey = null;
-
-  private List<Product> parts = new ArrayList<Product>();
-
-
+  
+  public String getName()
+  {
+    return name;
+  }
+  
+  public int getId()
+  {
+	  return id;
+  }
+  
+  public String getDescription()
+  {
+	  return description;
+  }
+  
+  public double getPrice()
+  {
+	  return price;
+  }
+  
+  public boolean isProductAvailableinStock()
+  {
+    return display;
+  }
+  public String toString()
+  {
+    return name;
+  }
 
 }

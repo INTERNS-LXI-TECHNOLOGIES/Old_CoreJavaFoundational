@@ -3,10 +3,8 @@ package com.lxisoft.deepthi.model;
 
 public class CustomerDee
 {
-
-
 private String name ;
-private int cashInHand ;
+private double cashInHand ;
 
 public void setName(String name)
 {
@@ -18,14 +16,17 @@ public String getName()
 	return name;
 }
 
-public void setCashInHand(int cashInHand)
+public void setCashInHand(double cashInHand)
 {
 	this.cashInHand = cashInHand;
 }
 
-public int getCashInHand()
+public double getCashInHand()
 {
 	return cashInHand;
 }
+
+
+
 
 }
