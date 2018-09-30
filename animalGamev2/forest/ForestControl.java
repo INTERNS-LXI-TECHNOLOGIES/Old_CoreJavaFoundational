@@ -40,15 +40,15 @@ public class ForestControl
 		{
 		System.out.print( "\t");
 			//if(animalArray[i][j] !=null)
-			//{
+			try{
 		  
-			  System.out.print(animalArray[i][j]);
+			  System.out.print(animalArray[i][j].getAnimalName()+animalArray[i][j].getAnimalId());
 		  
-			//}
-			//else 
-			//{
-			 System.out.print( "**");
-			//}
+			}
+			catch(Exception e) 
+			{
+			 System.out.print("*");
+			}
 		  
 		}
 		System.out.print( "\n");
@@ -166,5 +166,22 @@ public class ForestControl
 		
 		return animalName;
 			
+	 }
+	 public int noOfAnimals(int animalCount)
+	 {
+		int noOfAnimals=0;
+		if(animalCount==1)
+		{noOfAnimals=noOfTigers;}
+		if(animalCount==2)
+		{noOfAnimals=noOfLions;}
+		if(animalCount==3)
+		{noOfAnimals=noOfRabbits;}
+		if(animalCount==4)
+		{noOfAnimals=noOfDeers;}
+		if(animalCount==5)
+		{noOfAnimals=noOfElephants;}
+		if(animalCount==6)
+		{noOfAnimals=noOfAthulyas;}
+	return noOfAnimals;
 	 }
 }

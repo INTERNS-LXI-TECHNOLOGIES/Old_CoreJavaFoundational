@@ -1,16 +1,40 @@
 package com.lxisoft.animalGamev2.game;
+import java.util.*;
 import com.lxisoft.animalGamev2.animals.*;
 import  com.lxisoft.animalGamev2.forest.*;
 public class AnimalGame
 {
 	ForestControl forestControl=new ForestControl();
-	int fighteLife=1;
+	int fighteLife=1,chosenAnimalId;
 	public void game()
-	{
+	{	Scanner scan=new Scanner(System.in);
+		String space;
 		forestControl.setForest();
 		forestControl.animalCreation();
 		forestControl.placeingAnimals();
 		forestControl.getForeststatus();
+		System.out.println("-------------------------!!!!!!!!!!!!!!!!!!!!!!!Welcome to jungle!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-------------------");
+		space=scan.nextLine();
+		System.out.println("Let's just walk through the forest");
+		space=scan.nextLine();
+		System.out.println("\t\t\t\tLion-\tLion the king of beasts\n");
+		space=scan.nextLine();
+		System.out.println("\t\t\t\tTiger-\tA Tiger does not shout its tigritude, it acts\n");
+		space=scan.nextLine();
+		System.out.println("\t\t\t\tAthulya-\tThe animal born to define the word 'Fear'\n ");
+		space=scan.nextLine();
+		System.out.println("\t\t\t\tElephant-\tNature's greatest masterpiece, an Elephant\n");
+		space=scan.nextLine();
+		System.out.println("\t\t\t\tRabbit-\tFights with  brain not with size\n");
+		space=scan.nextLine();
+		System.out.println("\t\t\t\tDeer-\tCatch me if you can\n");
+		space=scan.nextLine();
+		System.out.println("\tNow select your fighter\n");
+		System.out.println("...........................let's Rockkkkkkkkk");
+		System.out.println("(1-Tiger,2-Lion,3-Rabbit,4-Deer,5-Elephant,6-Athulya)");
+		chosenAnimalId=scan.nextInt();
+		
+		System.out.println("Totally there are "+forestControl.noOfAnimals(chosenAnimalId)+" no of same animal ");
 	}
 	public void animalFight( CarnivorousAnimal animal1,HerbivorousAnimal  animal2)
 	 {  
