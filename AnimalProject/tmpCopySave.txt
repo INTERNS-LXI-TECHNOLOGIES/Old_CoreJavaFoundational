@@ -9,6 +9,6 @@ else
 	}
 	else
 	{
-		// Fight with closest carnivore
+		/* Fight with closest carnivore */
 	}
 }
