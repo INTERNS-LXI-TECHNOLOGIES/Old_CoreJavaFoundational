@@ -46,6 +46,9 @@ public class Forest
 	{
 		int rand = 0;
 		
+		System.out.println("\nCreating Animals.....");
+		
+		
 		for(int i = 0;i<max_no_animals;i++)
 		{
 			rand = Rand.randNumber(85,65);
@@ -115,6 +118,10 @@ public class Forest
 		{
 			// Animals of same herd move to close each other (x,y) points
 			
+			
+			
+			System.out.println("-------------------------------------------------");
+			
 			for(int i = 0;i < max_no_animals;i++)
 			{
 				if(animals[i] != null )
@@ -127,7 +134,7 @@ public class Forest
 						
 						((Herbivore)animals[i]).printDetails();
 							
-						try{ Thread.sleep(1000);}catch(Exception e){}
+						try{ Thread.sleep(400);}catch(Exception e){}
 						
 						
 					}
