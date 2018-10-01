@@ -60,19 +60,23 @@ public class Herbivore extends Animal
 		
 			if(this.stype == HerbivoreType.ZEBRA)
 			{
-				coords[0] = x1;
-				coords[1] = y1;
+				coords[0] = Rand.randNumber(1,15);
+				coords[1] = Rand.randNumber(1,15);
 			}
 			else if(this.stype == HerbivoreType.ELEPHANT)
 			{
-				coords[0] = 20;
-				coords[1] = 20;
+				coords[0] = Rand.randNumber(20,30);
+				coords[1] = Rand.randNumber(20,30);
 			}
 			else if(this.stype == HerbivoreType.RHINO)
 			{
+				coords[0] = Rand.randNumber(30,40);
+				coords[1] = Rand.randNumber(30,40);
 			}
 			else if(this.stype == HerbivoreType.BUFFALO)
 			{
+				coords[0] = Rand.randNumber(40,50);
+				coords[1] = Rand.randNumber(40,50);
 			}
 		}
 	}

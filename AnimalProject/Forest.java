@@ -127,7 +127,7 @@ public class Forest
 						
 						((Herbivore)animals[i]).printDetails();
 							
-						try{ Thread.sleep(10);}catch(Exception e){}
+						try{ Thread.sleep(1000);}catch(Exception e){}
 						
 						
 					}
@@ -141,7 +141,7 @@ public class Forest
 						{
 							((Carnivore )animals[i]).strength++;
 							killAnimal(prey , prey.id);
-							System.out.println(animals[i].id + ":" + ((Carnivore )animals[i]).stype + "killed ->" + prey.id + ":"  + ((Herbivore )prey).stype);
+							System.out.println("\n\t"+animals[i].id + ":" + ((Carnivore )animals[i]).stype + " [ killed ]->" + prey.id + ":"  + ((Herbivore )prey).stype);
 						}
 						else
 						{
@@ -149,8 +149,8 @@ public class Forest
 						
 							if(anim != null)
 							{	
-								System.out.println(anim[0].id + ":" + anim[0].stype + " fights->" + anim[1].id +":"+((Carnivore)anim[1]).stype);
-								System.out.println(anim[0].id + ":" +anim[0].stype + "won");
+								System.out.println("\n\t"+anim[0].id + ":" + anim[0].stype + "[ fights ]->" + anim[1].id +":"+((Carnivore)anim[1]).stype);
+								System.out.println("\t[ "+anim[0].id + ":" +anim[0].stype + " Won ]");
 								killAnimal(anim[1] , anim[1].id);
 							
 							}
