@@ -28,5 +28,11 @@ public abstract class Animal
 		pos_y = coords[1];
 	}
 	
+	public void walk(int randx , int randy)
+	{
+		pos_x = randx;
+		pos_y = randy;
+	}
+	
 	abstract void printDetails();
 }	

@@ -62,8 +62,11 @@ public class Forest
 			}
 			
 			animals[animal_tag].id = animal_tag;
+
+			increaseStrength(animals[animal_tag] , animals[animal_tag].id);
 			
 			animal_tag++;
+			
 		}
 			
 		System.out.println("----Carnivore : " + ecosystemDetails(AnimalType.CARNIVORE));
@@ -104,7 +107,9 @@ public class Forest
 	{
 		int[] coords = new int[2];
 		
-		Animal prey;
+		Animal prey , dead = null;
+		
+		Carnivore[] anim = new Carnivore[2];
 		
 		while(true)
 		{
@@ -122,9 +127,41 @@ public class Forest
 						
 						((Herbivore)animals[i]).printDetails();
 							
-						try{ Thread.sleep(100);}catch(Exception e){}
+						try{ Thread.sleep(10);}catch(Exception e){}
 						
 						
+					}
+					else
+					{
+						prey = ((Carnivore )animals[i]).closestPrey(animals);
+						
+						
+						
+						if(prey != null)
+						{
+							((Carnivore )animals[i]).strength++;
+							killAnimal(prey , prey.id);
+							System.out.println(animals[i].id + ":" + ((Carnivore )animals[i]).stype + "killed ->" + prey.id + ":"  + ((Herbivore )prey).stype);
+						}
+						else
+						{
+							anim = ((Carnivore )animals[i]).fight(animals);
+						
+							if(anim != null)
+							{	
+								System.out.println(anim[0].id + ":" + anim[0].stype + " fights->" + anim[1].id +":"+((Carnivore)anim[1]).stype);
+								System.out.println(anim[0].id + ":" +anim[0].stype + "won");
+								killAnimal(anim[1] , anim[1].id);
+							
+							}
+							else
+							{
+								System.exit(0);
+							}
+							
+							anim = null;
+							
+						}
 					}
 					
 				}
@@ -137,6 +174,14 @@ public class Forest
 			}
 		}
 
+	}
+	public void increaseStrength(Animal a , int tag_no)
+	{
+		if(a instanceof Carnivore)
+		{
+			
+			animals[tag_no].strength += (double)Rand.randNumber(1,10);
+		}
 	}
 	
 	public void killAnimal(Animal a , int tag_no)

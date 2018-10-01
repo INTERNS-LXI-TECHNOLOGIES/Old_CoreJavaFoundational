@@ -5,7 +5,7 @@
 	
 	void printDetails() -> Prints the details of the animal
 	
-	Animal closestPrey(Animals[] animal , int[] coords) -> returns the closest Animal
+	Animal closestPrey(Animals[] animal) -> returns the closest Animal
 	
 	boolean isHungry() -> check if the animal is hungry
 	
@@ -20,6 +20,7 @@ enum CarnivoreType
 
 public class Carnivore extends Animal
 {
+	static int static_i = 0;
 	CarnivoreType stype;
 	
 	Carnivore()
@@ -55,9 +56,47 @@ public class Carnivore extends Animal
 		}
 	}
 	
-	public Animal closestPrey(Animal[] animal , int[] coords)
+	public Carnivore[] fight(Animal[] animals)
 	{
-		return animal[0];
+		Carnivore[] car = new Carnivore[2];
+		for(int i =0;i < animals.length;i++)
+		{
+			if(animals[i] != null && animals[i] instanceof Carnivore && animals[i].id != this.id)
+			{
+				if(this.strength < animals[i].strength)
+				{
+					car[0] = this;
+					car[1] = ((Carnivore)animals[i]);
+					
+					return car;
+				}
+				else
+				{
+					car[0] = ((Carnivore)animals[i]);;
+					car[1] = this;
+					
+					return car;
+				}
+				
+			}
+		}
+		
+		return null;
+	}
+	
+	public Animal closestPrey(Animal[] animals )
+	{
+		for(int i = static_i;i<animals.length;i++)
+		{
+			if(animals[i] != null && animals[i] instanceof Herbivore)
+			{
+				static_i++;
+				return animals[i];
+			}
+		}
+		
+		return null;
+		
 	}
 
 	public void printDetails()
