@@ -46,8 +46,7 @@ public class Forest
 	{
 		int rand = 0;
 		
-		System.out.println("\nCreating Animals.....");
-		
+		System.out.println("\n[ Creating Animals..... ]\n");
 		
 		for(int i = 0;i<max_no_animals;i++)
 		{
@@ -72,8 +71,13 @@ public class Forest
 			
 		}
 			
-		System.out.println("----Carnivore : " + ecosystemDetails(AnimalType.CARNIVORE));
-		System.out.println("----Herbivore : " + ecosystemDetails(AnimalType.HERBIVORE));
+		System.out.println("----------------Carnivore : " + ecosystemDetails(AnimalType.CARNIVORE));
+		System.out.println("----------------Herbivore : " + ecosystemDetails(AnimalType.HERBIVORE));
+		
+		System.out.println("\n[ Press Enter to start ]");
+		
+		new java.util.Scanner(System.in).nextLine();
+		
 		
 	}
 	
@@ -114,6 +118,8 @@ public class Forest
 		
 		Carnivore[] anim = new Carnivore[2];
 		
+		Carnivore winner = null;
+		
 		while(true)
 		{
 			// Animals of same herd move to close each other (x,y) points
@@ -134,7 +140,7 @@ public class Forest
 						
 						((Herbivore)animals[i]).printDetails();
 							
-						try{ Thread.sleep(400);}catch(Exception e){}
+						try{ Thread.sleep(100);}catch(Exception e){}
 						
 						
 					}
@@ -159,10 +165,12 @@ public class Forest
 								System.out.println("\n\t"+anim[0].id + ":" + anim[0].stype + "[ fights ]->" + anim[1].id +":"+((Carnivore)anim[1]).stype);
 								System.out.println("\t[ "+anim[0].id + ":" +anim[0].stype + " Won ]");
 								killAnimal(anim[1] , anim[1].id);
+								winner = anim[0];
 							
 							}
 							else
 							{
+								System.out.println("\n\n\tSurviving :" + winner.id + ":" + winner.stype + "\n");
 								System.exit(0);
 							}
 							
