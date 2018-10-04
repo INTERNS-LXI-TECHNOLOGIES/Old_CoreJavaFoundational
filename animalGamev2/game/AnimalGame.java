@@ -1,5 +1,7 @@
 package com.lxisoft.animalGamev2.game;
 import java.util.*;
+import java.io.*;
+import javax.sound.sampled.*;
 import com.lxisoft.animalGamev2.animals.*;
 import  com.lxisoft.animalGamev2.forest.*;
 public class AnimalGame
@@ -9,28 +11,47 @@ public class AnimalGame
 	public void game()
 	{	Scanner scan=new Scanner(System.in);
 		String space;
+		Clip clip,clip1;
 		forestControl.setForest();
 		forestControl.animalCreation();
 		forestControl.placeingAnimals();
 		forestControl.getForeststatus();
 		System.out.println("-------------------------!!!!!!!!!!!!!!!!!!!!!!!Welcome to jungle!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-------------------");
 		space=scan.nextLine();
+		clip=playSound("./com/lxisoft/animalGamev2/sound/sound.wav");
 		System.out.println("Let's just walk through the forest");
 		space=scan.nextLine();
+		
+		//System.out.println ("playing");
+		clip1=playSound("./com/lxisoft/animalGamev2/sound/lion.wav");			
 		System.out.println("\t\t\t\tLion-\tLion the king of beasts\n");
 		space=scan.nextLine();
+		clip1.stop();
+		clip1=playSound("./com/lxisoft/animalGamev2/sound/tiger.wav");	
 		System.out.println("\t\t\t\tTiger-\tA Tiger does not shout its tigritude, it acts\n");
 		space=scan.nextLine();
+		clip1.stop();
+		clip1=playSound("./com/lxisoft/animalGamev2/sound/dog.wav");
 		System.out.println("\t\t\t\tAthulya-\tThe animal born to define the word 'Fear'\n ");
 		space=scan.nextLine();
+		clip1.stop();
+		clip1=playSound("./com/lxisoft/animalGamev2/sound/elephant.wav");	
 		System.out.println("\t\t\t\tElephant-\tNature's greatest masterpiece, an Elephant\n");
 		space=scan.nextLine();
+		clip1.stop();
+		clip1=playSound("./com/lxisoft/animalGamev2/sound/rabbit.wav");
 		System.out.println("\t\t\t\tRabbit-\tFights with  brain not with size\n");
 		space=scan.nextLine();
+		clip1.stop();
+		clip1=playSound("./com/lxisoft/animalGamev2/sound/Deer.wav");
 		System.out.println("\t\t\t\tDeer-\tCatch me if you can\n");
 		space=scan.nextLine();
+		clip1.stop();
 		System.out.println("\tNow select your fighter\n");
+		 
+		
 		System.out.println("...........................let's Rockkkkkkkkk");
+		clip1.stop();
 		System.out.println("(1-Tiger,2-Lion,3-Rabbit,4-Deer,5-Elephant,6-Athulya)");
 		chosenAnimalId=scan.nextInt();
 		
@@ -172,5 +193,22 @@ public class AnimalGame
 			}
 			
 		}
+	 }
+	Clip playSound(String filePath)
+	 {   Clip clip =null;
+		 try 
+		 {
+						String soundPath=filePath;
+						 AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundPath).getAbsoluteFile());
+						 
+						 clip= AudioSystem.getClip();
+						 clip.open(audioInputStream);
+						 clip.start();
+		 }
+		  catch(Exception e)
+		{
+		System.out.println (e);
+		}
+		return clip; 
 	 }
 }
