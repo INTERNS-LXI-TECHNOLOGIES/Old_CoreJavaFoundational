@@ -7,6 +7,7 @@ public class ForestControl
 	Forest forest=new Forest();
 	public Animal[][] animalArray;
 	String[] animalName=new String[10];
+	String animal;
 	int noOfLions,noOfTigers,noOfAthulyas,noOfElephants,noOfDeers,noOfRabbits;
 	double[] animalDistance=new double[10];
 	public int raw,column,animalPosition;
@@ -98,7 +99,7 @@ public class ForestControl
 		{
 		setAnimalLocation( forest.rabbits.get(i));
 		}
-		for(int i=0;i< noOfElephants;i++)
+		for(int i=0;i<noOfElephants;i++)
 		{
 		setAnimalLocation( forest.elephants.get(i));
 		}
@@ -169,19 +170,64 @@ public class ForestControl
 	 }
 	 public int noOfAnimals(int animalCount)
 	 {
-		int noOfAnimals=0;
+		int animalNo=0;
 		if(animalCount==1)
-		{noOfAnimals=noOfTigers;}
+		{animalNo=chooseFighter(noOfTigers,"Tiger");
+		animal="Tiger";}
 		if(animalCount==2)
-		{noOfAnimals=noOfLions;}
+		{animalNo=chooseFighter(noOfLions,"Lion");
+		animal="Lion";
+		}
 		if(animalCount==3)
-		{noOfAnimals=noOfRabbits;}
+		{animalNo=chooseFighter(noOfRabbits,"Rabbit");
+		animal="Rabbit";}
 		if(animalCount==4)
-		{noOfAnimals=noOfDeers;}
+		{animalNo=chooseFighter(noOfDeers,"Deer");
+		animal="Deer";}
 		if(animalCount==5)
-		{noOfAnimals=noOfElephants;}
+		{animalNo=chooseFighter(noOfElephants,"Elephant");
+		animal="Elephant";}
 		if(animalCount==6)
-		{noOfAnimals=noOfAthulyas;}
-	return noOfAnimals;
+		{animalNo=chooseFighter(noOfAthulyas,"Athulya");
+		animal="Athulya";}
+	    return animalNo;
 	 }
+	 public String getAnimalName()
+	 {
+		 return this.animal;
+	 }
+	int chooseFighter(int noOfAvailableAnimals,String animalName)
+	{
+		Scanner scan=new Scanner(System.in);
+		int fighterNo,noOfAnimals=noOfAvailableAnimals;
+		System.out.println("Totally there are "+noOfAnimals+" no of same animal  Choose your fighter among these");
+		for(int i=0;i<noOfAnimals;i++)
+		{
+			System.out.println(i+". "+animalName+i);
+		}
+		fighterNo=scan.nextInt();
+		return fighterNo;
+	}
+	public Animal getAnimal(String animalName,int animalNo)
+	{	Animal animal=null;
+      if(animalName=="lion")
+	  {animal=forest.lions.get(animalNo);
+	  }
+	  if(animalName=="Tiger")
+	  {animal=forest.tigers.get(animalNo);
+	  }
+	  if(animalName=="Athulya")
+	  {animal=forest.athulyas.get(animalNo);
+	  }
+	  if(animalName=="Rabbit")
+	  {animal=forest.rabbits.get(animalNo);
+	  }
+	   if(animalName=="Elephant")
+	  {animal=forest.elephants.get(animalNo);
+	  }
+	   if(animalName=="Deer")
+	  {animal=forest.deers.get(animalNo);
+	  }
+	  return animal;
+	}
 }

@@ -7,7 +7,8 @@ import  com.lxisoft.animalGamev2.forest.*;
 public class AnimalGame
 {
 	ForestControl forestControl=new ForestControl();
-	int fighteLife=1,chosenAnimalId;
+	int fighteLife=1,fighterNo,chosenAnimalId;
+	Animal fighter;
 	public void game()
 	{	Scanner scan=new Scanner(System.in);
 		String space;
@@ -31,7 +32,7 @@ public class AnimalGame
 		System.out.println("\t\t\t\tTiger-\tA Tiger does not shout its tigritude, it acts\n");
 		space=scan.nextLine();
 		clip1.stop();
-		clip1=playSound("./com/lxisoft/animalGamev2/sound/dog.wav");
+		clip1=playSound("./com/lxisoft/animalGamev2/sound/athu.wav");
 		System.out.println("\t\t\t\tAthulya-\tThe animal born to define the word 'Fear'\n ");
 		space=scan.nextLine();
 		clip1.stop();
@@ -54,8 +55,11 @@ public class AnimalGame
 		clip1.stop();
 		System.out.println("(1-Tiger,2-Lion,3-Rabbit,4-Deer,5-Elephant,6-Athulya)");
 		chosenAnimalId=scan.nextInt();
+		//fighterNo=forestControl.noOfAnimals(chosenAnimalId);
+		fighter=forestControl.getAnimal(forestControl.getAnimalName(),forestControl.noOfAnimals(chosenAnimalId));
+		System.out.println("Your fighter is "+fighter);
 		
-		System.out.println("Totally there are "+forestControl.noOfAnimals(chosenAnimalId)+" no of same animal ");
+		
 	}
 	public void animalFight( CarnivorousAnimal animal1,HerbivorousAnimal  animal2)
 	 {  
