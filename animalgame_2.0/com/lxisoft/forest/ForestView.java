@@ -19,7 +19,6 @@ public class ForestView
 	public int[] setSize()
 	{
 		Scanner scan=new Scanner(System.in);
-		//int[] rowCol=new int[2];
 		System.out.println("Enter the no of rows : ");
 		rowCol[0]=scan.nextInt();
 		System.out.println("Enter the no of column : ");

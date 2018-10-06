@@ -3,6 +3,17 @@ public class Animal
 {
 	private String animalCategory,animalName;
 	private int hungerLevel,energyLevel;
+	private int animalId;
+
+	public void setAnimalId(int animalId)
+	{
+		this.animalId=animalId;
+	} 
+
+	public void getAnimalId()
+	{
+		return animalId;
+	}
 
 	public void setAnimalName(String animalName)
 	{
