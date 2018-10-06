@@ -1,3 +1,4 @@
+package com.lxisoft.animal;
 public class Animal
 {
 	private String animalCategory,animalName;

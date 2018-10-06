@@ -11,5 +11,9 @@ public class Tdd
 		ForestController controller=new ForestController(model,view);
 		controller.setForestName();
 		controller.getForestName();
+		controller.setForestSize();
+		controller.getForestSize();
+		controller.setForestGrid();
+		controller.getForestGrid();
 	}
 }

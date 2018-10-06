@@ -1,9 +1,4 @@
 javac com/lxisoft/Tdd.java
 javac com/lxisoft/Forest.java
-javac com/lxisoft/Animal.java
-javac com/lxisoft/Carnivore.java
-javac com/lxisoft/Herbivore.java
-javac com/lxisoft/Deer.java
-javac com/lxisoft/Elephant.java
-javac com/lxisoft/Lion.java
-javac com/lxisoft/Tiger.java
+javac com/lxisoft/ForestController.java
+javac com/lxisoft/ForestView.java
