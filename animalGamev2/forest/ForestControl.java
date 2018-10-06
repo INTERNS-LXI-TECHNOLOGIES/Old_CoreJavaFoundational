@@ -6,10 +6,10 @@ public class ForestControl
 {
 	Forest forest=new Forest();
 	public Animal[][] animalArray;
-	String[] animalName=new String[10];
+	String[] animalName=new String[30];
 	String animal;
 	int noOfLions,noOfTigers,noOfAthulyas,noOfElephants,noOfDeers,noOfRabbits;
-	double[] animalDistance=new double[10];
+	double[] animalDistance=new double[30];
 	public int raw,column,animalPosition;
 	public  void setForest()
 	{	Scanner scan=new  Scanner(System.in);
@@ -105,6 +105,23 @@ public class ForestControl
 		}
 		
 	}
+	public void getanimallocation(Animal animal)
+	{	String animalName=findAnimal(animal);
+		for(int i=0;i<raw;i++)
+		{  
+			for(int j=0;j<column;j++)
+			{
+				
+				if( animalArray[i][j]==animal)
+				{
+					
+				System.out.println( "The cordinates of the "+animalName+" is \n"+i+"\n"+j); 
+					
+				}
+			}
+			
+		}
+	}
 	public void calculateAnimalDistance(int m,int n)
 	{
 		int breadth,length;
@@ -126,7 +143,7 @@ public class ForestControl
 					if (animalPosition==-1)
 					{	animalPosition++;
 					}
-					name=findAnimal(animalArray[i][j]);
+					name=animalArray[i][j].getAnimalName();
 					breadth=j-n;
 					length=i-m;
 				    animalName[animalPosition]= name;
@@ -139,8 +156,7 @@ public class ForestControl
 				}
 			}
 		}
-					
-		
+						
 	}
 	 public String findAnimal(Animal animal)
 	 {

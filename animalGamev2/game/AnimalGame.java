@@ -55,11 +55,22 @@ public class AnimalGame
 		clip1.stop();
 		System.out.println("(1-Tiger,2-Lion,3-Rabbit,4-Deer,5-Elephant,6-Athulya)");
 		chosenAnimalId=scan.nextInt();
-		//fighterNo=forestControl.noOfAnimals(chosenAnimalId);
-		fighter=forestControl.getAnimal(forestControl.getAnimalName(),forestControl.noOfAnimals(chosenAnimalId));
-		System.out.println("Your fighter is "+fighter);
+		fighterNo=forestControl.noOfAnimals(chosenAnimalId);
+		fighter=forestControl.getAnimal(forestControl.getAnimalName(),fighterNo);
+		System.out.println("Your fighter is "+fighter.getAnimalName()+fighterNo);
+		forestControl.getanimallocation(fighter);
+		calculateDistance();
 		
 		
+		
+	}
+	void calculateDistance()
+	{   int raw,column;
+		Scanner scan=new Scanner(System.in);
+		System.out.println("\tEnter the cordinates of selected animal\n");
+		raw=scan.nextInt();
+		column=scan.nextInt();
+		forestControl.calculateAnimalDistance(raw,column);
 	}
 	public void animalFight( CarnivorousAnimal animal1,HerbivorousAnimal  animal2)
 	 {  
@@ -202,7 +213,7 @@ public class AnimalGame
 	 {   Clip clip =null;
 		 try 
 		 {
-						String soundPath=filePath;
+						 String soundPath=filePath;
 						 AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundPath).getAbsoluteFile());
 						 
 						 clip= AudioSystem.getClip();
