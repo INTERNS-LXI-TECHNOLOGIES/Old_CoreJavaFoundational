@@ -1,3 +1,16 @@
+/*
+ * Class AnimalGame
+ *
+ * ->	AnimalGame(int px , int py , int pno_of_animals) [ Creates a forest with px , py and pno_of_animals as Maximum number of animals ]
+ *
+ *  ->  int createAnimals(int phcount , int pccount)	[ Creates phcount no of Herbivore and pccount of Carnivore ]
+ *
+ *  ->	void startGame()	[Starts Threads AnimalBehaviour and AnimalFight ]
+ *
+ *  ->	void printDetails()	[ Iterarte over Animals in Forest f and print their Details ]
+ *
+ */
+
 
 public class AnimalGame
 {

@@ -1,3 +1,25 @@
+
+/*
+ * Class Forest
+ *
+ * 	->	Forest(int px , int py , int pmax_support_animals)  [ Creates an Forest with px , py as Coordinates And set Maximum number of animals allowed ]
+ *
+ * 	->	Forest(int px , py)	[ Creates an Forest with px , py as Coordinates ]
+ *
+ * 	->  int setCoordinates(int px , py)	 [ Set x and y Coordinates | Returns 1 on success and 0 on failure ]
+ *
+ * 	->	void setMaxAnimals(int pmax_support_animals)	[ Set the Maximum supported animals in Forest ]
+ *
+ * 	->	void insertAnimal(Animal animal)	[ Insert animal to this forest ]
+ *
+ * 	->	int removeAnimal(int pid)	[ Remove animal with id = pid  | Returns 1 on success and 0 on failure ]
+ *
+ * 	->	int count()		[ Returns the current total number of animals in this forest ]
+ *
+ * 	->	void printDetails()   [ Prints the Details about forest ]
+ *
+ */
+
 public class Forest
 {
 	public int x = 0;

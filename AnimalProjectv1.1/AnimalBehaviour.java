@@ -1,3 +1,10 @@
+/*
+ * Class AnimalBehaviour
+ *
+ * -> Thread [ Iterate Over animals in Forest f and calls huntPrey on Carnivore and closestHerd on Herbivore ]
+ *
+ */
+
 public class  AnimalBehaviour extends Thread
 {
 	Forest f = null;

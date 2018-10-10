@@ -1,3 +1,11 @@
+/*
+ * Class AnimalFight
+ *
+ * -> Thread [ Iterate Over animals ( Carnivores ) in Forest f and calls fight() method on them ]
+ *
+ */
+
+
 public class AnimalFight extends Thread
 {
 	Forest f = null;
@@ -11,12 +19,12 @@ public class AnimalFight extends Thread
 	{
 		try
 		{
-				Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
+			Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
 			while(true)
 			{
 				if(this.f.count() == 1)
 				{
-										Thread.currentThread().interrupt();
+					Thread.currentThread().interrupt();
 					System.exit(0);
 				}
 				this.sleep(100);
