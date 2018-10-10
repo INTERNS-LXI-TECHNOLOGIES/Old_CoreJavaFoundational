@@ -14,7 +14,7 @@ public class Animal
 	{
 		if(pid < 0)
 		{
-			System.err.println("Invalid id > 0");
+			System.err.println("Error : Invalid id > 0");
 		}
 		
 		this.id = pid;
