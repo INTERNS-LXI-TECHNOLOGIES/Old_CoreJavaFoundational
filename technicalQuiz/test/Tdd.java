@@ -9,7 +9,6 @@ public class Tdd
 	 UserController userController=new UserController();
 	 ResultSet result;
 	 result=userController.getAllUserDetails();
-	 System.out.println(result);
 	 userController.databaseValues(result);
 	}
 }

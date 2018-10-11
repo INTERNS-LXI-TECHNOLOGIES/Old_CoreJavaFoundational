@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.*; 
 public class UserController
 {
 	public ResultSet getAllUserDetails()
@@ -12,9 +13,16 @@ public class UserController
 		Statement  stmt=DAO.getStatement(con);
 		String query=" select * from userdata ";
 		
+		
 		try
 		{
-		 return DAO.getResult(stmt,query);
+		//DAO.getResult(stmt,query1);
+		PreparedStatement ps = con.prepareStatement("INSERT INTO userData VALUES ( ?, ?, ?)");
+		ps.setString(1, "4");
+        ps.setString(2,"manoj2");
+        ps.setString(3,"1893");
+        int i = ps.executeUpdate();
+		return DAO.getResult(stmt,query);
 		}
 		
 		catch(Exception se)
