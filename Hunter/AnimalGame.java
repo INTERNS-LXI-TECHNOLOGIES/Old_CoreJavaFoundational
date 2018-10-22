@@ -4,6 +4,7 @@
  *  -  void initGame()  -> init the resources needed for the game
  *
  *  -  void setGameConfigForest(int px , int py , int pmax_no_animals , String pforest_name)
+ * 
  *  -  void startGame()
  *
  */

@@ -1,3 +1,9 @@
+/**
+ * Class Point
+ *  
+ *  static int getDistance(int[] x1y1 , int[] x2y2)  ->  Gets the distance between two (x,y) Coordinates
+ *
+ */
 package animal.extras;
 
 public class Point

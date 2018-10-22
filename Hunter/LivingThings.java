@@ -12,6 +12,8 @@
  *  -   void setCoordinates(int posx , int posy)
  *
  */
+
+ 
 public interface LivingThings
 {
     // Setters

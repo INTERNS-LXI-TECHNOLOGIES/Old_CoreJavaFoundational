@@ -1,3 +1,4 @@
+#!/bin/sh
 
 javac animal/extras/Console.java animal/extras/Rand.java animal/extras/Point.java
 javac animal/exceptions/ForestException.java

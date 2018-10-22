@@ -8,12 +8,44 @@
  * -  void setArrow(int arrows) -> Sets the no of arrows
  *
  * -  void setCoordinates(int posx , int posy) -> Sets x and y coordinates for hunter
+ * 
+ * -  void setDestination(int posx , int posy)  -> Sets a Destination for hunter
+ * 
+ * -  void setPosX(int posx)   ->  Set the X coordinates position of Animal
+ * 
+ * -  void setPosY(int posy)    ->  Set the Y coordinates position of Animal
+ * 
+ * -  void setView(int view)   -> Sets how far can the hunter see
+ * 
+ * -  void setHitPoint(int point)   -> Sets a hitpoints of the hunter
+ * 
+ * -  void setKillCount(int kills)  ->  Sets the kill count for hunter
  *
+ * -  int getView() ->  Returns How far the hunter can see
+ * 
  * -  int getArrows()   -> Returns the number of arrows
  *
  * -  String getName()  -> Returns the name of hunter
  *
- * -  int[] setCoordinates(int posx , int posy) -> Gets x and y coordinates for hunter as Array
+ * -  int[] getCoordinates(void) -> Gets x and y coordinates for hunter as Array
+ * 
+ * -  int getPosX() ->  Returns x coordinate of HUNTER
+ * 
+ * -  int getPosY() ->  Returns y coordinate of HUNTER
+ * 
+ * -  int getHitPoint() ->  Returns the hitpoint of hunter
+ * 
+ * -  int getKillCount() ->  Returns the kill count
+ * 
+ * -  void walk()   -> Move the hunter from current position to destination point
+ * 
+ * -  view(Animal animal)   -> See animal is in hunters view
+ * 
+ * -  Animal closestAnimal(Forest f)   ->  Returns the closest animal
+ * 
+ * -  boolean fireArrow(Animal animal)  -> Fires the arrow
+ * 
+ * -  @Override String toString()
  *
  */
 

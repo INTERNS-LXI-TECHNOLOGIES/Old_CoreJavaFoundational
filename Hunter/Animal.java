@@ -10,12 +10,24 @@
  *  -   void setType(Animals type)   -. sets the type of animal
  *
  *  -   void setCategory(AnimalCategory category) -> Set category HERBIVORE or CARNIVORE
+ * 
+ *  -   void setDestination(int posx , int posy)  -> Sets a Destination for animal
+ * 
+ *  -   void setCoordinates(int posx , int posy) -> Set the current coordinates of animal
+ * 
+ *  -   void setPosX(int posx)  -> Set the X coordinates position of Animal
+ * 
+ *  -   void setPosY(int posy)  ->  Set the Y coordinates position of Animal
  *
- *  -   int getId()    -> Returns the id of the animal
+ *  -   int getId()  -> Returns the id of the animal
  *
  *  -   double getStrength()    -> Returns the strength of animal
  *
  *  -   double getSpeed()   -> Returns animal speed
+ * 
+ *  -   AnimalCategory getCategory()    -> Returns the Category Of animal
+ * 
+ *  -   int[] getCoordinates()  -> Returns x/y Coordinates of animal
  *
  *  -   void getPosX(int posx)  -> Returns x coordinate of animal
  *
@@ -24,6 +36,14 @@
  *  -   Animals getType()    -> Returns Type of animal
  *
  *  -   AnimalCategory getCategory() -> get Animal category HERBIVORE or CARNIVORE
+ * 
+ *  -   void walk() -> Move Animal from current position todestination point
+ * 
+ *  -   boolean view(Hunter hunter) -> Checks if the hunter is in view of Animal
+ * 
+ *  -   void run()  ->  Move Animal from current position todestination point
+ * 
+ *  -   @Override String toString()
  *
  */
 
@@ -197,10 +217,6 @@ public class Animal implements LivingThings
         Console.log(" [ Running -> " , this.toString() , " ]");
     }
 
-    public void makeSound()
-    {
-
-    }
 
     @Override
     public String toString()

@@ -1,5 +1,8 @@
 /**
  * Class AnimalWorker
+ * 
+ *  This is a Thread which iterates over the Animal array and randomly moves the 
+ *  animals and calls the run method of animals if the hunter is in view.
  *
  */
 

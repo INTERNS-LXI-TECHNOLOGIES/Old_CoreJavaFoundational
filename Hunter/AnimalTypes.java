@@ -1,3 +1,18 @@
+/**
+ * Enum AnimalCategory
+ * 
+ * Enum AnimalTypes
+ *
+ *  -  static AnimalTypes randomType()  -> Randomly return a type
+ * 
+ *  -  int getStrength()    -> Returns the strength according to type
+ * 
+ *  -  int getSpeed()   ->  Returns the speed according to type
+ * 
+ *  -  AnimalCategory getCategory() ->  Returns AnimalCategory ( HERBIVORE , CARNIVORE ) accoording to type
+ *
+ */
+
 
  import animal.extras.*;
  import animal.exceptions.*;

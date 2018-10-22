@@ -1,7 +1,12 @@
 /**
- * Class HunterWorker - Thread
+ * Class HunterWorker
+ * 
+ *  This is a Thread
+ *
  */
 
+
+ 
 import animal.extras.*;
 import animal.exceptions.*;
 

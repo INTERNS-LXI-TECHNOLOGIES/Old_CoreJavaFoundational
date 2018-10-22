@@ -27,7 +27,7 @@
  *
  *  -  String getName(void) -> Returns the fr_name of Forest
  *
- *  -  int[] getPos(void)    -> returns the fr_x and fr_y as array
+ *  -  int[] getCoordinates(void)    -> returns the fr_x and fr_y as array
  *
  *  -  int getPosX(void)    -> Returns the fr_x of Forest
  *
@@ -38,6 +38,8 @@
  *  -  Animal getAnimal(int id) -> Returns animal with an_id = id
  *
  *  -  Animal[] getAnimals() -> Returns all animals
+ * 
+ *  -  void printDetails()  ->  Prints all the details of the animals in the forest
  *
  *
  */

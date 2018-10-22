@@ -2,19 +2,26 @@
 /**
  * Class Console
  *
- *    ->    static void setErrDisplay(boolean state)
+ *    ->    static void setErrDisplay(boolean state)  ->  Set Error Display State on/off
  *
- *    ->    static void log(T value1)
+ *    ->    static void log(T value1)   ->  Prints value1 to stdout
  *
- *    ->    static void log(T ...value1)
+ *    ->    static void log(T ...value1)   ->  Prints value1 to stdout
  *
- *    ->    static void vardump(T obj)
+ *    ->    static void vardump(T obj)  ->  Prints all the fields of obj
  *
- *    ->    static void exit(int status)
+ *    ->    static void exit(int status)  -> Exit the current Program
  *
  *    ->    static void printT(final char str)
+ * 
+ *    ->    static void sleep(long ms)  -> Sleeps the current thread
+ * 
+ *    ->    static void cls()   -> Clears the screen
+ *  
+ *    ->    static void exit(final int status)  -> Exit the current program
  */
 
+ 
 package animal.extras;
 
 import java.lang.reflect.*;
