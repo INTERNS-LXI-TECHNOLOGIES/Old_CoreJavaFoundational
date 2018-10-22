@@ -161,9 +161,6 @@ public class Animal implements LivingThings
             return this.an_category;
     }
 
-    ///////////////////TODO/////////////////////
-
-
     public void walk()
     {
 
