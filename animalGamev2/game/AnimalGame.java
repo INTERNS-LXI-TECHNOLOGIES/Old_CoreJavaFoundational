@@ -57,20 +57,21 @@ public class AnimalGame
 		chosenAnimalId=scan.nextInt();
 		fighterNo=forestControl.noOfAnimals(chosenAnimalId);
 		fighter=forestControl.getAnimal(forestControl.getAnimalName(),fighterNo);
+			//System.out.println("Your fighter is "+fighterNo);
 		System.out.println("Your fighter is "+fighter.getAnimalName()+fighterNo);
-		forestControl.getanimallocation(fighter);
-		calculateDistance();
+		//forestControl.getanimallocation(fighter);
+		//calculateDistance();
 		
 		
 		
 	}
 	void calculateDistance()
-	{   int raw,column;
+	{   int row,column;
 		Scanner scan=new Scanner(System.in);
 		System.out.println("\tEnter the cordinates of selected animal\n");
-		raw=scan.nextInt();
+		row=scan.nextInt();
 		column=scan.nextInt();
-		forestControl.calculateAnimalDistance(raw,column);
+		forestControl.calculateAnimalDistance(row,column);
 	}
 	public void animalFight( CarnivorousAnimal animal1,HerbivorousAnimal  animal2)
 	 {  
@@ -196,7 +197,7 @@ public class AnimalGame
 	 public void kill(Animal animal)
 	 {	String animalName= forestControl.findAnimal(animal);
 		 
-		 	for(int i=0;i<forestControl.raw;i++)
+		 	for(int i=0;i<forestControl.row;i++)
 		{  
 			for(int j=0;j<forestControl.column;j++)
 			{

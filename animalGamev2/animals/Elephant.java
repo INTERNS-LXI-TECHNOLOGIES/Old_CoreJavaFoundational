@@ -11,6 +11,8 @@ public class Elephant extends HerbivorousAnimal
 		setHungryLevel((int)(Math.random()*50)+50);
 		setanimaltype("Herbivorous");
 	    setAnimalName("Elephant");
+		
+		//System.out.println("Elephant");
 		}
 	
 	

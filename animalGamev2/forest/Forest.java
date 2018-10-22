@@ -81,7 +81,7 @@ public class Forest
 		{	deer=new Deer();
 			deers.add(deer);
 			deers.get(i).setAnimalId(i);
-			System.out.println(deers.get(i).getAnimalId());
+		
 		}
 	}
 	public void elephantCreation(int noOfelephant)

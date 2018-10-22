@@ -10,13 +10,13 @@ public class ForestControl
 	String animal;
 	int noOfLions,noOfTigers,noOfAthulyas,noOfElephants,noOfDeers,noOfRabbits;
 	double[] animalDistance=new double[30];
-	public int raw,column,animalPosition;
+	public int row,column,animalPosition;
 	public  void setForest()
 	{	Scanner scan=new  Scanner(System.in);
 		System.out.println("Enter the size of forest");
-		raw=scan.nextInt();
+		row=scan.nextInt();
 		column=scan.nextInt();
-		forest.setForestArea(raw,column);
+		forest.setForestArea(row,column);
 
 	}
 		
@@ -25,7 +25,7 @@ public class ForestControl
 	   animalArray=forest.getForestArea();
 		do
 		{
-		i=(int)(Math.random()*raw);
+		i=(int)(Math.random()*row);
 		j=(int)(Math.random()*column);
 		animalArray=forest.getForestArea();
 		}
@@ -34,7 +34,7 @@ public class ForestControl
 	}
 	 public  void getForeststatus()
 	{  
-		for(int i=0;i<raw;i++)
+		for(int i=0;i<row;i++)
 		{  
 		//System.out.print( "\t\t\t");
 		for(int j=0;j<column;j++)
@@ -107,7 +107,7 @@ public class ForestControl
 	}
 	public void getanimallocation(Animal animal)
 	{	String animalName=findAnimal(animal);
-		for(int i=0;i<raw;i++)
+		for(int i=0;i<row;i++)
 		{  
 			for(int j=0;j<column;j++)
 			{
@@ -128,7 +128,7 @@ public class ForestControl
 		animalPosition=-1; 
 		String name;
 		//getForeststatus();
-		for(int i=0;i<raw;i++)
+		for(int i=0;i<row;i++)
 		{
 			for(int j=0;j<column;j++)
 			{
@@ -192,8 +192,7 @@ public class ForestControl
 		animal="Tiger";}
 		if(animalCount==2)
 		{animalNo=chooseFighter(noOfLions,"Lion");
-		animal="Lion";
-		}
+		animal="Lion";}
 		if(animalCount==3)
 		{animalNo=chooseFighter(noOfRabbits,"Rabbit");
 		animal="Rabbit";}
@@ -244,6 +243,7 @@ public class ForestControl
 	   if(animalName=="Deer")
 	  {animal=forest.deers.get(animalNo);
 	  }
+	 // System.out.println(animal);
 	  return animal;
 	}
 }
