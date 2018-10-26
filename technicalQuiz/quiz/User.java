@@ -1,4 +1,4 @@
-package com.lxisoft.technicalQuiz.Quiz;
+package com.lxisoft.technicalQuiz.quiz;
 public class User
 {   private String userId,userName,userPassword;
 	

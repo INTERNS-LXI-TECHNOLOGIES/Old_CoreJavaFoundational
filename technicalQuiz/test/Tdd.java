@@ -7,8 +7,7 @@ public class Tdd
 	public static void main(String args[])
 	{
 	 UserController userController=new UserController();
-	 ResultSet result;
-	 result=userController.getAllUserDetails();
-	 userController.databaseValues(result);
+	
+	 userController.passwordAuthentication(userController.getAllUserDetails());
 	}
 }
