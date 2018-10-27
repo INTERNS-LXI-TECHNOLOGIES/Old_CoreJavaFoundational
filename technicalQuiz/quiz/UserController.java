@@ -14,20 +14,25 @@ public class UserController
 	{	
 		Connection con=DAO.getConnection();
 		Statement  stmt=DAO.getStatement(con);
+		Connection con1=DAO.getConnection();
 		String query=" select * from userdata ";
 		
 		
 		try
 		{
-		//DAO.getResult(stmt,query1);
+	
 		PreparedStatement ps = con.prepareStatement("INSERT INTO userData VALUES ( ?, ?, ?)");
 		ps.setString(1, "4");
-        ps.setString(2,"manoj2");
+        ps.setString(2,"manoj3");
         ps.setString(3,"1893");
-        int i = ps.executeUpdate();
-		//PreparedStatement ps1 = con.prepareStatement("select userPassword from userData where userName= ?)");
-	    //ps.setString(1,"manoj2");
-		// int j = ps.executeUpdate();
+       // int i = ps.executeUpdate();
+	    PreparedStatement ps1 = con1.prepareStatement("select userPassword from userData where userName= ?");
+		ps1.setString(1,"manoj2");
+		ResultSet rs= ps1.executeQuery();
+		rs.next();
+		String pass=rs.getString("userPassword");
+		//System.out.println(pass);
+		
 		return DAO.getResult(stmt,query);
 		}
 		
@@ -72,6 +77,7 @@ public class UserController
 				}
 				
 			}
+			
 		
 		}
 		catch(SQLException se)

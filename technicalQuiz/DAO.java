@@ -37,8 +37,7 @@ public class DAO
 	{
 		if(stmt!=null)
 		{
-		 
-		//getResult=stmt.executeQuery(query);
+		 //getResult=stmt.executeQuery(query);
 		return stmt.executeQuery(query);
 		}
 		return null;
