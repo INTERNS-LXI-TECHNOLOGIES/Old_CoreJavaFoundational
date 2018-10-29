@@ -1,6 +1,15 @@
-package com.lxisoft.technicalQuiz.Quiz;
+package com.lxisoft.technicalQuiz.quiz;
 public class Question
 {   String stringQuestion,option1,option2,option3,option4,correctOption;
+	int questionNo;
+	public void setQuestionNo(int questionNo)
+	{
+		this.questionNo=questionNo;
+	}
+	public int getQuestionNo()
+	{
+		return this.questionNo;
+	}
 	public void setQuestion(String question)
 	{
 		this.stringQuestion=question;
