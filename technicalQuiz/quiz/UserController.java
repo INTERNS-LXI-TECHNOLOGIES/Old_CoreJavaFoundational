@@ -5,6 +5,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
+import com.lxisoft.technicalQuiz.quiz.QuestionController;
 import java.sql.*;
 import com.lxisoft.technicalQuiz.quiz.User; 
 public class UserController
@@ -12,6 +13,7 @@ public class UserController
 		User user;
 	public ResultSet getAllUserDetails()
 	{	
+		
 		Connection con=DAO.getConnection();
 		Statement  stmt=DAO.getStatement(con);
 		Connection con1=DAO.getConnection();
@@ -46,6 +48,7 @@ public class UserController
 	public void passwordAuthentication(ResultSet result)
 	{
 		user=new User();
+		QuestionController questionController=new QuestionController();
 		Scanner scan =new Scanner(System.in);
 		System.out.println("enter user name");
 		String userName=scan.next();
@@ -68,6 +71,9 @@ public class UserController
 				if(userPassword.equals(user.getUserPassword()))
 					{
 						System.out.println("Successfully logged in");
+						int noOfQuestions=questionController.noOfQuestion();
+						System.out.println(noOfQuestions);
+						
 					}
 					else
 					{

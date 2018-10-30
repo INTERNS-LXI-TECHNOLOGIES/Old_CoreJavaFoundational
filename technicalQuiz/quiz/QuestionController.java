@@ -1,4 +1,4 @@
-package com.lxisoft.technicalQuiz.Quiz;
+package com.lxisoft.technicalQuiz.quiz;
 import com.lxisoft.technicalQuiz.quiz.Question;
 import com.lxisoft.technicalQuiz.DAO;
 import java.sql.Connection;
@@ -18,13 +18,14 @@ public class QuestionController
 	ResultSet result;
 	String query="select * from Questions";
 	
-	public void quiz()
+	public int noOfQuestion()
 	{
+		int i=0;
 		try
 		{
 			ResultSet result=stmt.executeQuery(query);
 			while(result.next())
-		{	int i=0;
+		{	
 			question=new Question();
 			questions.add(question);
 			questions.get(i).setQuestionNo(i);
@@ -39,7 +40,7 @@ public class QuestionController
 			System.out.println(e);
 		}
 		
-		
+		return i;
 	}
 	
 }
