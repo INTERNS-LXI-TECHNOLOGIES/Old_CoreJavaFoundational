@@ -71,9 +71,18 @@ public class UserController
 				if(userPassword.equals(user.getUserPassword()))
 					{
 						System.out.println("Successfully logged in");
-						int noOfQuestions=questionController.noOfQuestion();
-						System.out.println(noOfQuestions);
+					
+						System.out.println("Totally there are "+questionController.noOfQuestion()+ " no of Questions");
+						for(int i=0;i<questionController.noOfQuestion();i++)
+						{
+							System.out.println("\t"+questionController.questions.get(0).getQuestion());
 						
+							System.out.print("\t\t\t1.\t"+questionController.questions.get(i).getOption1());
+							System.out.print("\t\t2.\t"+questionController.questions.get(i).getOption2());
+							System.out.print("\t\t3.\t"+questionController.questions.get(i).getOption3());
+							System.out.println("\t\t4.\t"+questionController.questions.get(i).getOption4());
+							//questions.get(i).setCorrectOption(result.getString("correctOption"));
+						}
 					}
 					else
 					{

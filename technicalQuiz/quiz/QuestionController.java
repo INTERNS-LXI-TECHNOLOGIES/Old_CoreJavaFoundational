@@ -30,6 +30,13 @@ public class QuestionController
 			questions.add(question);
 			questions.get(i).setQuestionNo(i);
 			questions.get(i).setQuestion(result.getString("Question"));
+			
+				questions.get(i).setOption1(result.getString("option1"));
+				questions.get(i).setOption2(result.getString("option2"));
+				questions.get(i).setOption3(result.getString("option3"));
+				questions.get(i).setOption4(result.getString("option4"));
+				questions.get(i).setCorrectOption(result.getString("correctOption"));
+			
 			i=i+1;
 			
 		
