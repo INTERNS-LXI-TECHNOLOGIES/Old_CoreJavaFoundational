@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 import com.lxisoft.technicalQuiz.quiz.QuestionController;
 import java.sql.*;
+import java.util.*;
 import com.lxisoft.technicalQuiz.quiz.User; 
 public class UserController
 {
@@ -59,7 +60,7 @@ public class UserController
 			{
 				
 				String id=result.getString("userId");
-				String name=result.getString("userName");
+				String correctOption,enteredOption,name=result.getString("userName");
 				String password=result.getString("userPassword");
 		
 				if(name.equals(user.getUserName()))
@@ -71,17 +72,31 @@ public class UserController
 				if(userPassword.equals(user.getUserPassword()))
 					{
 						System.out.println("Successfully logged in");
-					
+						boolean flag=true;
 						System.out.println("Totally there are "+questionController.noOfQuestion()+ " no of Questions");
+					
 						for(int i=0;i<questionController.noOfQuestion();i++)
-						{
-							System.out.println("\t"+questionController.questions.get(0).getQuestion());
+						{ 
+							if(flag==true)
+							{
+							System.out.println("\t"+questionController.questions.get(i).getQuestion());
 						
 							System.out.print("\t\t\t1.\t"+questionController.questions.get(i).getOption1());
 							System.out.print("\t\t2.\t"+questionController.questions.get(i).getOption2());
 							System.out.print("\t\t3.\t"+questionController.questions.get(i).getOption3());
 							System.out.println("\t\t4.\t"+questionController.questions.get(i).getOption4());
-							//questions.get(i).setCorrectOption(result.getString("correctOption"));
+							correctOption=questionController.questions.get(i).getCorrectOption();
+							System.out.println("Type the correct option");
+							enteredOption=scan.next();
+								if(enteredOption.equals(correctOption))
+								{flag=true;
+							System.out.println("Answer is correct");
+								}
+								else
+								{flag=false;
+							System.out.println("sorry wrong answer");
+								}
+							}
 						}
 					}
 					else
