@@ -300,8 +300,10 @@ public class ContactController
             {
                 if(contact.getId() == contactId)
                 {
+                    this.deleteContactRepo(contactId + "");
                     synchronized(this.getLocalContactList())
                     {
+                        
                         this.getLocalContactList().clear();
 
                         synchronized(this.getLocalContactStrings())
@@ -310,7 +312,7 @@ public class ContactController
                             if(this.getLocalContactList().remove(contact))
                             {
                                 this.loadContacts();
-                                this.deleteContactRepo(contactId + "");
+                                
                             }
                         }
 
