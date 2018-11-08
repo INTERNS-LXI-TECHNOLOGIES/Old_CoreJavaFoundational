@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+
+
+<Pane xmlns:fx="http://javafx.com/fxml" fx:controller="contact.view.controller.ContactDetailController" fx:id="rootNode" >
+   
+    <stylesheets>
+        <URL value="@../css/main.css" />
+        <URL value="@../css/detail.css" />
+    </stylesheets>
+  
+    <children>
+            <VBox fx:id="Container">
+                <children>
+                
+                    <StackPane fx:id="ContactPhotoBox">
+                        <children>
+                            <Pane>
+                                <children>
+                                <HBox layoutY="80" fx:id="ContactPhotoBoxDetail">
+                                    <children>
+                                        <Circle layoutY="30" layoutX="30" radius="30"  fx:id="ContactImage"></Circle>
+                                        <Text layoutX="100" layoutY="180.0" fx:id="ContactName"></Text>
+                                    </children>
+                                </HBox>
+                                </children>
+                            </Pane>
+                        </children>
+                    </StackPane>
+
+                    <VBox fx:id="ContactDetailBox">
+
+                        <children>
+            
+                        </children>
+
+                    </VBox>
+
+                </children>
+            </VBox>
+
+        <Circle layoutY="40" layoutX="30" radius="20" fx:id="BackButton" ></Circle>
+        <Circle layoutY="40" layoutX="290" radius="20" fx:id="DeleteButton" ></Circle>
+        <Circle layoutY="40" layoutX="250" radius="23" fx:id="EditButton" ></Circle>
+    </children>
+  </Pane>

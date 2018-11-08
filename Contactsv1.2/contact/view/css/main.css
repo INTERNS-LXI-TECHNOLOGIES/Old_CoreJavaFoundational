@@ -1,0 +1,98 @@
+Text
+{
+    -fx-fill:white;
+    -fx-font-size:20;
+}
+
+ScrollPane
+{
+    -fx-padding:0;
+    -fx-font-size:1;
+    -fx-pref-height:430;
+}
+
+#Container
+{
+    -fx-pref-height:430;
+    -fx-pref-width:330;
+    -fx-background-color:rgba(0, 0, 0, 0.808); 
+    -fx-background-image:url("../assets/icons/background.png");
+}
+
+#searchBox
+{
+    -fx-pref-width:330;
+}
+
+#searchInput
+{
+    -fx-pref-width:330;
+    -fx-pref-height:50;
+    -fx-text-fill:rgb(3, 1, 1);
+    -fx-font-size:20;
+    -fx-border-radius:0;
+    -fx-background-color:rgba(0, 0, 0, 0.408);
+    -fx-border-radius:0%;
+    -fx-background-radius:0%;
+}
+.ContactBox
+{
+    -fx-pref-width:330;
+    -fx-pref-height:60;
+
+    -fx-background-color:rgba(0, 0, 0, 0.408);   
+    -fx-padding:10;
+    -fx-spacing:20;
+    -fx-border-style:solid;
+    -fx-border-width:0 0 1 0;
+    -fx-border-color:rgba(0, 0, 0);
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+.ContactPhotoBox
+{
+    -fx-pref-width:45;
+    -fx-pref-height:60;
+    -fx-border-radius:100%;
+    -fx-background-radius:100%;
+    -fx-alignment:center;
+}
+
+.FirstLetterOfName
+{
+    -fx-text-fill:black;
+    -fx-font-size:30;
+}
+
+.ContactName {   -fx-font-size:20; }
+.ContactNumber { -fx-font-size:10;}
+
+.ContactSimpleDetailBox
+{
+    -fx-spacing:10;
+}
+
+.ContactBox:hover
+{
+    -fx-background-color:rgb(161, 29, 29); 
+    -fx-effect: dropshadow( gaussian , rgba(85, 68, 68, 0.863) , 2,2,1,1 );
+}
+
+.ContactBox:hover  .ContactPhotoBox
+{
+    -fx-border-style:solid;
+    -fx-border-color:black;
+}
+
+.ContactPhotoBox
+{
+    -fx-border-style:solid;
+    -fx-border-color:white;
+}
+
+#AddContactButton:hover
+{
+    -fx-border-style:solid;
+    -fx-border-color:black;
+}
+

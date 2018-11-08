@@ -18,23 +18,32 @@ import javafx.scene.text.*;
 import javafx.scene.shape.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 
-import contact.controller.ContactController;
-import contact.model.Contact;
-import contact.view.ContactOnClick;
 import contact.extras.Console;
+import contact.model.Contact;
+import contact.controller.ContactController;
+import contact.view.ContactOnClick;
+import contact.view.ContactHeader;
 
 
 import java.util.List;
-import java.util.Set;
 
 
 public class ContactListForm 
 {
     private static ContactOnClick contactOnClick;
+
+    private static StackPane header;
+
+    public static void setHeader(StackPane pheader)
+    {
+        header = pheader;
+        header.setStyle("-fx-font-size: 20px;");
+    }
 
     public static void setContactClickMethod(ContactOnClick pcontactOnClick)
     {
@@ -43,14 +52,40 @@ public class ContactListForm
 
     public static Scene createForm(List<Contact> t)
     {
+        Pane absoluteContainer = new Pane();
+
         ScrollPane mainContainer = new ScrollPane();
-        mainContainer.setHbarPolicy(ScrollBarPolicy.NEVER);
+        mainContainer.setPrefSize(330, 480);
+        mainContainer.setFitToWidth(true);
+       
         mainContainer.setVbarPolicy(ScrollBarPolicy.ALWAYS);
         mainContainer.setStyle("-fx-font-size: 1px;");
 
         VBox container = new VBox();
         container.setPadding(new Insets(1,0,1,0));
         container.setSpacing(3);
+
+        HBox searchBoxContainer = new HBox();
+        TextField searchBox = new TextField();
+
+        searchBox.setPrefWidth(320);
+        searchBox.setFont(new Font(20));
+        searchBoxContainer.setPadding(new Insets(5,5,5,5));
+        searchBoxContainer.getChildren().add(searchBox);
+
+        searchBox.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->{
+
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Not complete");
+            alert.setContentText("Not yet implemented");
+    
+            alert.showAndWait();
+
+        });
+
+  
+        
+        absoluteContainer.getChildren().add(searchBoxContainer);
 
         HBox singleContactList = null;
         VBox singleContactListDetails;
@@ -59,7 +94,8 @@ public class ContactListForm
         StackPane contactImageHolder;
         Image contactImage;
         Circle contactImageBackground;
-
+        
+    
         for(Contact tmp : t)
         {
             Font contactNameFont = new Font("Aerial" , 15);
@@ -73,6 +109,8 @@ public class ContactListForm
             singleContactList.setPrefWidth(400);
             singleContactList.setPadding(new Insets(10,10,10,10));
             singleContactList.setSpacing(20);
+            singleContactList.setBackground(new Background(new BackgroundFill(Color.color(1, 1 ,1), CornerRadii.EMPTY, Insets.EMPTY)));
+    
          
             singleContactListDetails.setSpacing(5);
             
@@ -86,9 +124,11 @@ public class ContactListForm
                 tmpSingleContactList.setBackground(new Background(new BackgroundFill(Color.BURLYWOOD, CornerRadii.EMPTY, Insets.EMPTY)));      
             });
 
+            
+
             singleContactList.addEventHandler(MouseEvent.MOUSE_EXITED,(MouseEvent e)->
             {  
-                tmpSingleContactList.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+                tmpSingleContactList.setBackground(new Background(new BackgroundFill(Color.color(1, 1 ,1), CornerRadii.EMPTY, Insets.EMPTY)));
             });
 
             singleContactList.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->
@@ -104,7 +144,7 @@ public class ContactListForm
             contactEmail.setFont(contactEmailFont);
 
             contactImageBackground = new Circle(30);
-            contactImage = new Image("contact/view/contact.png");
+            contactImage = new Image("contact/view/assets/png/contact.png");
             contactImageHolder = new StackPane();
 
             contactImageBackground.setFill(new ImagePattern(contactImage));        
@@ -116,9 +156,13 @@ public class ContactListForm
             singleContactList.getChildren().add(singleContactListDetails);
             container.getChildren().add(singleContactList); 
 
-            mainContainer.setContent(container);
         }
 
-        return new Scene(mainContainer , 330,480);
+       
+        mainContainer.setContent(container);
+        mainContainer.setLayoutY(40);
+        absoluteContainer.getChildren().addAll(mainContainer , header);
+
+        return new Scene(absoluteContainer , 330,520);
     }
 }

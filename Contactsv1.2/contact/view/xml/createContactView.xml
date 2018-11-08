@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+
+
+<Pane  xmlns:fx="http://javafx.com/fxml" fx:controller="contact.view.controller.CreateContactController" fx:id="rootNode">
+    <stylesheets>
+        <URL value="@../css/main.css" />
+        <URL value="@../css/create.css" />
+    </stylesheets>
+    <children>
+
+       
+        <VBox  layoutY="50" fx:id="Container">
+            <children>
+
+                 <HBox fx:id="TitleContainer">
+                        <children>
+                         <Circle radius="20" fx:id="ContactImageBox"></Circle>
+                            <Text fx:id="TypeHeader"></Text>
+                        </children>
+                </HBox>
+
+                <HBox fx:id="EditBoxContainer">
+                   
+                    <VBox fx:id="EditBox">
+                        
+                        <TextField fx:id="NameField" ></TextField>
+                        <TextField fx:id="Number1Field"></TextField>
+                        <TextField fx:id="Number2Field"></TextField>
+                        <TextField fx:id="Email1Field"></TextField>
+                        <TextField fx:id="Email2Field"></TextField>
+
+                    </VBox>
+
+                </HBox>
+
+            </children>
+
+        </VBox>
+                  
+        <Pane fx:id="menu"> 
+            <children>
+                <Button layoutX="20" layoutY="10"  text="Cancel" fx:id="CancelButton"></Button>
+                <Button layoutX="260" layoutY="10" text="Save" fx:id="SaveButton"></Button>
+            </children>
+        </Pane>
+
+    </children>
+</Pane>

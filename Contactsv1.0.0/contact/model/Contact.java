@@ -21,14 +21,28 @@ public class Contact
         this.name = Name;
     }
 
-    public void setNumber(String Number)
+    public int setNumber(String Number)
     {
+        if(this.phone_numbers.contains(Number))
+        {
+            return -1;
+        }
+
         this.phone_numbers.add(Number);
+
+        return 1;
     }
 
-    public void setEmail(String Email)
+    public int setEmail(String Email)
     {
+        if(this.emails.contains(Email))
+        {
+            return -1;
+        }
+
         this.emails.add(Email);
+
+        return 1;
     }
 
     public String getName()

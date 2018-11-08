@@ -29,9 +29,16 @@ public class ContactController<T>
         return 1;
     }
 
-    public void remove(T contact)
+    public int remove(T contact)
     {
+        if(!this.contacts.contains(contact))
+        {
+            return -1;
+        }
+
         this.contacts.remove(contact);
+
+        return -1;
     }
 
 }

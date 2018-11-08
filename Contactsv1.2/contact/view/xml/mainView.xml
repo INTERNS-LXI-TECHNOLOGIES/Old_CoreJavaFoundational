@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+
+
+<Pane xmlns:fx="http://javafx.com/fxml" fx:controller="contact.view.controller.MainViewController" fx:id="rootNode">
+    <stylesheets>
+        <URL value="@../css/main.css" />
+    </stylesheets>
+  <children>
+    <VBox>
+
+        <children>
+          <HBox fx:id="searchBox">
+            <children>
+                <TextField fx:id="searchInput"/>
+            </children>
+          </HBox>
+          <ScrollPane fx:id="ContactScrollPane">  
+            <content>
+                    <VBox fx:id="Container">  
+
+                        <children>
+                        </children>
+                        
+                  </VBox>
+            </content>
+          </ScrollPane>
+        </children>
+    </VBox>
+    <Circle layoutY="25" layoutX="305" radius="20" fx:id="AddContactButton" ></Circle>
+  </children>
+  
+</Pane>

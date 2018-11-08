@@ -1,0 +1,76 @@
+Pane
+{
+    -fx-pref-width:330;
+    -fx-pref-height:480;
+}
+
+#Container
+{
+    -fx-padding:10;
+    -fx-spacing:10;
+    -fx-pref-height:480;
+    -fx-background-image:url("../assets/icons/background2.jpg");
+ 
+}
+#ContactPhotoBox
+{
+    -fx-pref-height:160;
+    -fx-pref-width:200;
+    -fx-effect: dropshadow( gaussian , rgba(26, 15, 15, 0.5) , 1,2,1,2 );
+
+}
+#ContactPhotoBoxDetail
+{
+    -fx-padding:10;
+    -fx-alignment:CENTER;
+    -fx-spacing:10;
+}
+
+#ContactImage
+{
+    -fx-pref-width:60;
+    -fx-pref-height:60;
+    -fx-border-radius:60;
+    -fx-border-style:solid;
+    -fx-border-width:1;
+    -fx-border-color:rgba(0, 0, 0);
+ 
+}
+#ContactDetailBox
+{
+    -fx-alignment:CENTER;
+    -fx-spacing:10;
+}
+#ContactName
+{
+
+}
+
+.NumberBox , .EmailBox
+{
+    -fx-padding:10;
+    -fx-spacing:10;
+    -fx-background-color:rgba(158, 148, 148, 0.459);
+    -fx-effect: dropshadow( gaussian , rgba(19, 16, 16, 0.521) , 1,1,1,1 );
+
+}
+
+.TxtNumber , .TxtEmail
+{
+    -fx-fill:rgb(216, 205, 205);
+}
+
+
+
+#BackButton
+{
+    -fx-pref-width:60;
+    -fx-pref-height:60;
+}
+
+
+
+#BackButton:hover , #EditButton:hover , #DeleteButton:hover
+{
+    -fx-effect: dropshadow( gaussian , rgba(7, 6, 6, 0.863) , 1,1,1,1 );
+}

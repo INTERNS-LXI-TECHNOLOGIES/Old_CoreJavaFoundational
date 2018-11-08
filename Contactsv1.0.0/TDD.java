@@ -1,32 +1,26 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.collections.ObservableList;
-import javafx.geometry.Pos;
-import javafx.geometry.Insets;
-import javafx.scene.paint.Color;
+import javafx.scene.input.MouseEvent;
 
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Box;
-import javafx.scene.layout.*;
-import javafx.scene.control.*;
-
-import contact.controller.ContactController;
-import contact.model.Contact;
 import contact.extras.Console;
+import contact.model.Contact;
+import contact.controller.ContactController;
+import contact.view.ContactOnClick;
 import contact.view.ContactListForm;
+import contact.view.ContactAddForm;
+import contact.view.ContactHeader;
 import contact.view.ContactInfoForm;
 
 import java.util.List;
+
 
 public class TDD extends Application
 {
     @Override
     public void start(Stage stage)
     {
-        ContactController<Contact> contactsController = new ContactController<>();
+        final ContactController<Contact> contactsController = new ContactController<>();
         List<Contact> contacts = contactsController.getContacts();
         
         Contact one = new Contact();
@@ -66,14 +60,43 @@ public class TDD extends Application
         contactsController.add(two3);
         contactsController.add(two4);
 
-        Scene viewContacts = ContactListForm.createForm(contacts);
+        ContactAddForm.setController(contactsController);
 
-        Scene singleContact = ContactListForm.setContactClickMethod((Contact contact)->
+ 
+        ContactListForm.setContactClickMethod((Contact contact)->
         {   
-            ContactInfoForm.viewContact(contact);
+            ContactInfoForm.viewContact(contact , stage);
 
         });
 
+        ContactHeader.getAddContactButton().addEventHandler(MouseEvent.MOUSE_CLICKED , (MouseEvent e)->
+        {
+            stage.setScene(ContactAddForm.createForm());
+        });
+
+        ContactListForm.setHeader(ContactHeader.getAddContactButton());
+
+        Scene viewContacts = ContactListForm.createForm(contacts);
+
+        
+        ContactInfoForm.setHeader(ContactHeader.getAddBackButton());
+      
+        ContactInfoForm.getHeader().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->
+        {
+            Scene tmp = viewContacts;
+            List<Contact> tmpcontacts = contactsController.getContacts();
+            stage.setScene(ContactListForm.createForm(tmpcontacts));
+        });
+
+        ContactAddForm.getSaveButton().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->
+        {
+           
+            ContactAddForm.saveContact();
+            List<Contact> tmpcontacts = contactsController.getContacts();
+            stage.setScene(ContactListForm.createForm(tmpcontacts));
+
+        });
+        
         stage.setResizable(false);
         stage.setScene(viewContacts);
         stage.setTitle("People");
