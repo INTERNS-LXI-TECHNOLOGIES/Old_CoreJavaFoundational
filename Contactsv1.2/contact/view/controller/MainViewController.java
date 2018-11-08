@@ -72,14 +72,21 @@ public class MainViewController
         Text txtNumber = null;
         Label firstLetterOfName = null;
 
+
+
         try {
             
             id = this.getContactController().stringToContact(contactString).getId();
             name = this.getContactController().stringToContact(contactString).getName();
 
-           
-            numbers = "00000000000";
+            if(this.getContactController().stringToContact(contactString).getNumbers().getNumbers().size() > 0)
+            {
+                numbers = this.getContactController().stringToContact(contactString).getNumbers().getNumbers().toArray()[0].toString();
 
+            }
+            
+           
+           
             contactBox = new HBox();
             contactPhotoBox = new HBox();
             contactSimpleDetailBox = new VBox();
