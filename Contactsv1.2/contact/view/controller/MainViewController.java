@@ -147,7 +147,8 @@ public class MainViewController
         {
             if(newValue.length() > 0 || newValue != " ")
             {
-                // Turn to  case Insesnsitive
+                //TODO - Turn to  case Insesnsitive
+
                 this.getSearch(newValue);
             }
             else
@@ -157,7 +158,7 @@ public class MainViewController
         });
 
 
-      // Change Event Type to OnFocus or something..........
+      //TODO - Change Event Type to OnFocus or something..........
 
       this.getContainer().addEventHandler(MouseEvent.ANY, (MouseEvent e)->
         {
