@@ -15,7 +15,7 @@ public class SetForest
 	public Animal[][] animalArray;
 	String name;
 	int count;
-	double small;
+	//double small;
 	String animalName[]=new String[10];
 	public int m,n,i,j;
 	double distance[]=new double[10];
@@ -49,6 +49,8 @@ public class SetForest
 	
 	public void displayForest()
 	{
+		try
+		{
 			for (int i=0;i<m;i++)
 			{
 				//System.out.print("\t");
@@ -83,7 +85,11 @@ public class SetForest
 					
 					System.out.print("\n");
 			}
-	
+		}
+		catch(NullPointerException e)
+		{
+			System.out.print("0");
+		}
 	}		
 		public void forestStatus()
 		{
@@ -155,10 +161,10 @@ public class SetForest
 		{
 			for(i=1;i<count;i++)
 			{
-				System.out.println("gfdg"+distance[i]);
+				System.out.println("distance of "+count+" "+distance[i]);
 			}
 			int num=1;
-			small=distance[1];
+			double small=distance[1];
 			for(num=2;num<count;num++)
 			{
 				if(distance[num]<small)
