@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<style>
+		.loading{
+			background-color: #;
+			height: 100%;
+			width: 100%;
+			position: fixed;
+			z-index: 1;
+			margin-top: 0px;
+			top: 0px;
+			left: 0px;
+		}
+		.loading-center{
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+		.loading-center-absolute {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			height: 200px;
+			width: 200px;
+			margin-top: -100px;
+			margin-left: -100px;
+		}
+		.align{
+	
+		position: center;
+		transform:translate(0px,20px);
+		}
+		
+		.redbtn:hover
+		{
+		background-color:#E71B1B;
+		border:none;
+		}
+		.redbtn
+		{
+		background-color:#F34129;
+		border-color:silver;
+		width:250px;
+		height:80px;
+		font-size:bolder;
+		font-size:23px;
+
+		}
+		.orangebtn:hover
+		{
+		background-color:#F36C29;
+		border:none;
+		}
+		.orangebtn
+		{
+		background-color:#FFA500;
+		border-color:silver;
+		width:250px;
+		height:80px;
+		font-size:bolder;
+		font-size:23px;
+		
+		}
+		
+		.greenbtn:hover
+		{
+		background-color:green;
+		border:none;
+		}
+		.greenbtn
+		{
+		background-color:#00FF00;
+		border-color:silver;
+		width:250px;
+		height:80px;
+		font-size:23px;
+		}
+		
+		.bgimage
+		{
+		opacity:0.75;
+		}
+		
+
+</style>
+<body>
+<div class="loading">
+		<div class="loading-center">
+		  <img src="https://ak3.picdn.net/shutterstock/videos/5049083/thumb/1.jpg" class="bgimage" height="100%" width="100%">
+		  <div class="loading-center-absolute">
+		
+<form action ="game2" method = "POST">
+<div class="align" >
+<center>
+<button type="submit" class="redbtn"><strong>RED</strong></button><br><br>
+<button type="submit"class="orangebtn"><strong>ORANGE</strong></button><br><br>
+<button type="submit" class="greenbtn"><strong> GREEN</strong></button>
+</center>
+</div>
+</form>
+</div>
+</div>
+</div>
+</body>
+</html>
