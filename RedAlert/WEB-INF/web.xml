@@ -1,0 +1,12 @@
+
+<web-app>
+<servlet>
+<servlet-name>RedAlert</servlet-name>
+<servlet-class>WomanRegServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>RedAlert</servlet-name>
+<url-pattern>/WomanRegistration</url-pattern>
+</servlet-mapping>
+
+</web-app>
