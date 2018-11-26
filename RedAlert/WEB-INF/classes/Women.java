@@ -1,10 +1,11 @@
-public class WomenReg
+public class Women
 {
 	private String name;
 	private int age;
 	private int phNum;
 	private String locality;
 	private String eMail;
+	private String password;
 	private String nameOne;
 	private String nameTwo;
 	private String nameThree;
@@ -65,6 +66,14 @@ public class WomenReg
 	public String getEmail()
 	{
 		return eMail;
+	}
+		public void setPassword(String password)
+	{
+		this.password=password;
+	}
+	public String getPassword()
+	{
+		return this.password;
 	}
 	
 	public void setNameOne(String nameOne)

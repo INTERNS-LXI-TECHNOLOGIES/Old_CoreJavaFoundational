@@ -8,7 +8,7 @@ import java.util.*;
 public class WomanRegController
 {
 		
-	public void saveWomanDetails(int age)
+	public void saveWomanDetails(String name,String location,int age,String email,String password)
 	{	
 		
 		Connection con=DAO.getConnection();
@@ -21,10 +21,12 @@ public class WomanRegController
 		{
 		WomanRegServlet wrs=new WomanRegServlet();
 		
-		PreparedStatement ps = con.prepareStatement("INSERT INTO woman(name,age,location) VALUES ( ?, ?, ?)");
+		PreparedStatement ps = con.prepareStatement("INSERT INTO woman(name,age,location,email,password) VALUES ( ?, ?, ?,?,?)");
 		ps.setInt(2, age);
-        ps.setString(1,"manu");
-        ps.setString(3,"palakkad");
+        ps.setString(1,name);
+        ps.setString(3,location);
+		ps.setString(4,email);
+		ps.setString(5,password);
         int i = ps.executeUpdate();
 
 		

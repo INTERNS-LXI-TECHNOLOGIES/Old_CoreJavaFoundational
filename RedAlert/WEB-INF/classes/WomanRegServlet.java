@@ -8,8 +8,17 @@ throws ServletException,IOException
 {	
 WomanRegController wrc=new WomanRegController();
 PrintWriter out=response.getWriter();
-int age=Integer.parseInt(request.getParameter("username"));
-wrc.saveWomanDetails(age);
-out.println(age);
+Women women=new Women();
+//int age=Integer.parseInt(request.getParameter("age"));
+women.setName(request.getParameter("name"));
+//String name=request.getParameter("name");
+women.setLocality(request.getParameter("location"));
+women.setAge(Integer.parseInt(request.getParameter("age")));
+women.setEmail(request.getParameter("email"));
+women.setPassword(request.getParameter("password"));
+
+wrc.saveWomanDetails(women.getName(),women.getLocality(),women.getAge(),women.getEmail(),women.getPassword());
+out.println(women.getEmail());
+out.println(women.getPassword());
 }
 }
