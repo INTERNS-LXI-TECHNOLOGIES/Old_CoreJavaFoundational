@@ -1,0 +1,11 @@
+<web-app>
+<servlet>
+   <servlet-name>athulya</servlet-name>
+   <servlet-class>Sample</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>athulya</servlet-name>
+   <url-pattern>/athulya</url-pattern>
+</servlet-mapping>
+</web-app>
