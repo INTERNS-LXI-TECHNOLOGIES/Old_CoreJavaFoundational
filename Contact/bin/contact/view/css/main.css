@@ -1,0 +1,61 @@
+
+.container-fluid { padding:0px;}
+			
+.otherContainers { 
+
+	display: none;
+}
+
+#buttonContainer { display: block;}
+#contactListContainer { height:100%;overflow-y: scroll;overflow-x: hidden;}
+#contactListContainer li { height:130px;}
+
+.firstLetter { width:50px;height:50px;border-radius: 50%;
+
+	padding: 10px;	
+	border:1px solid black;
+	color:white;
+}
+
+
+#contactDetailContainer {
+
+	display: none;
+}
+
+.edit , .back {
+
+	position: absolute;
+}
+.edit {
+
+	left:10px;
+	top:10px;
+}
+.back {
+	right:10px;
+	top:10px;
+}
+
+#detailsButtonContainer {
+
+	position: fixed;
+	top:0px;
+	width:100%;
+}
+
+::-webkit-scrollbar {
+
+	width:1px;
+}
+
+.list-group-item :hover {
+
+	background-color:rgb(184, 164, 164)
+}
+
+.menuContainer { display:none; }
+
+.data {
+	color:black;
+}

@@ -50,7 +50,7 @@ public class AnimalWorker extends Thread
 
                     if(Rand.randNumber(1,4) > 1)
                     {
-                        a.makeSound();
+                        // a.makeSound();
                     }
     
                     if(a.view(this.hunter))

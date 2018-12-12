@@ -16,7 +16,6 @@ public class Tyre
 	Tyre(int sno , double sz , String company , String mfd , String expd)
 	{
 		this.id = sno;
-		this.size = size;
 		this.company = company;
 		this.mfd = mfd;
 		this.expd = expd;

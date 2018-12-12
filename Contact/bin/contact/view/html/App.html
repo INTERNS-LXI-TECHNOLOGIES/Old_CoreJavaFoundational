@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<script src="../scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+		<link href="../css/bootstrap/bootstrap.css" rel="stylesheet"/>
+
+		<script src="../scripts/main.js" type="text/javascript"></script>		
+		<link href="../css/main.css" rel="stylesheet"/>
+	</head>
+	
+	<body>
+        <div class="container-fluid">
+
+            <!-- Contains List Container and Details Container-->
+
+            <div class="row">
+
+                <div class="col-12">
+
+                        <table class="table table-stripped table-hover table-dark" style="margin-bottom:0em;">
+
+								<!-- Contact List Container -->
+								<!-- Shown by default -->
+
+                                <tbody id = "contactListContainer">
+													
+                                    <tr  class="contactListTemplate">
+										
+										<td style="width:20%;">
+											<div class="firstLetter"></div>
+										</td>
+
+										<td style="width:50%;">
+												<h5 class="name">Jishnu</h5>
+												<p class="small number">7298339388938</p>
+										</td>
+                                    </tr>								 
+                                    
+                               </tbody>
+
+							   <!--End-->
+
+                        </table>
+
+                        <!-- Contact Detail Container -->
+                        <!-- Hidden By default -->
+
+                           <div id="contactDetailContainer" >
+
+								<div class="card" style="overflow-y:scroll;height:500px;">
+									
+									<div class="card dataContainer" >
+
+											<div id="detailsButtonContainer">
+												<button class="edit">Edit</button>
+												<button class="back">Back</button>		
+											</div>
+
+											<img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">
+										
+											<div class="card-body detailTemplate">
+											  <h4 class="card-title data">John Doe</h4>
+											</div>
+									</div>
+								</div>
+
+							</div>
+
+							<!--End-->
+                </div>
+
+                <!-- End -->
+
+                <!-- Contains ButtonContainer Settings Container and Create Contact Form-->
+
+                <div class="col-12 menuContainer">
+
+                        <div class="otherContainers" id="buttonContainer" >
+			
+                                <button id="createContactBtn">Create Contact</button>
+                                <button id="settingsBtn">SETTINGS</button>
+                                    
+                            </div>
+        
+                            <div class="otherContainers" id="createContactContainer">
+                    
+                                <form>
+                    
+                                    <input placeholder="Name" />
+                                    <input placeholder="Mobile Number" />
+                                    <input placeholder="LandLine" />
+                                    <input placeholder="Work Mail" />
+                                    <input placeholder="Home Mail" />
+                    
+                                    <button >Save</button>
+                    
+                                </form>		
+                    
+                            </div>
+        
+        
+                            <div class="otherContainers" id="settingsContainer">
+                    
+                                    SETTINGS CONTAINER
+                    
+                            </div>
+                </div>
+                <!-- End -->
+
+            </div>
+
+        </div>
+    </body>
+
+    <script type="text/javascript">
+
+		try
+		{
+			var app = new ContactApp();
+			
+		}catch(err) {
+
+			alert(err);
+		}
+		
+	</script>
+
+</html>
