@@ -5,6 +5,6 @@ public class Tdd
 	public static void main(String arg[])
 	{
 		QuestionPaperService qService=new QuestionPaperService();
-		qService.createQuestionpaper();
+		qService.selectCategory();
 	}
 }

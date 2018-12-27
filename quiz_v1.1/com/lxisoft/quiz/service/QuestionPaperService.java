@@ -13,7 +13,12 @@ public class QuestionPaperService
 	Scanner sc=new Scanner(System.in);
 	Scanner stringInput=new Scanner(System.in);
 	int count,Mark=0;
-	public void createQuestionpaper()
+	/**
+	*This method is used for selecting the category for the user
+	*
+	*
+	*/
+	public void selectCategory()
 	{
 		qP=new QuestionPaper();
 		System.out.println();
@@ -24,7 +29,7 @@ public class QuestionPaperService
 		int n=sc.nextInt();
 		switch(n)
 		{
-			case 1:setQuestionpaper();
+			case 1:createQuestionpaper();
 					break;
 			case 2:attendQuiz();
 					break;
@@ -32,7 +37,11 @@ public class QuestionPaperService
 	
 		
 	}
-	public void setQuestionpaper()
+	
+	/**
+	*This method is used for create Questionpaper
+	*/
+	public void createQuestionpaper()
 	{
 		try
 		{
@@ -48,21 +57,35 @@ public class QuestionPaperService
 				System.out.println("Enter the question:\n");
 				String question=stringInput.nextLine();
 				qP.setQuestion(question); 
+				
 				bw.write(qP.getQuestion());
 				
 				System.out.println("Enter the options:");
-				for(int i=0;i<4;i++)
-				{
-					String option=stringInput.nextLine();
-					
-					bw.append(',');
-					bw.write(option);
-					
-				}
+				String option1=stringInput.nextLine();
+				qP.setOption1(option1);
+				bw.append(',');
+				bw.write(qP.getOption1());
+				
+				String option2=stringInput.nextLine();
+				qP.setOption2(option2);
+				bw.append(',');
+				bw.write(qP.getOption2());
+				
+				String option3=stringInput.nextLine();
+				qP.setOption3(option3);
+				bw.append(',');
+				bw.write(qP.getOption3());
+				
+				String option4=stringInput.nextLine();
+				qP.setOption4(option4);
+				bw.append(',');
+				bw.write(qP.getOption4());
+				
 				System.out.println("Enter the correct answer:\n");
 				String answer=stringInput.nextLine();
+				qP.setAnswer(answer);
 				bw.append(',');
-				bw.write(answer);
+				bw.write(qP.getAnswer());
 				
 				bw.append("\n");
 			}
@@ -76,6 +99,10 @@ public class QuestionPaperService
 			
 		}
 	}
+	
+	/**
+	*This method is used for the user to attend the quiz
+	*/
 	public void attendQuiz()
 	{
 		System.out.println();
@@ -92,6 +119,10 @@ public class QuestionPaperService
 		}
 		
 	}
+	
+	/**
+	*This method is used to display the Questionpaper
+	*/
 	public void displayQuestionpaper()
 	{
 		try
