@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="appContainer" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lxisoft.view.controller.MenuController">
+   <children>
+      <VBox style="-fx-background-color: #2ECC71;">
+         <children>
+            <ToolBar fx:id="toolBar" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-color: rgb(10,10,10);">
+              <items>
+                  <ImageView id="powerButton" fitHeight="20.0" fitWidth="24.0" onMouseClicked="#closeWindow" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../power.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="16.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" translateX="10.0">
+                     <image>
+                        <Image url="@../info.png" />
+                     </image>
+                  </ImageView>
+              </items>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ToolBar>
+         </children>
+         <effect>
+            <Glow />
+         </effect>
+      </VBox>
+      <BorderPane fx:id="menuContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#initHandlers" prefHeight="${menuContainer.parent.height}" prefWidth="${menuContainer.parent.width}" style="-fx-background-color: linear-gradient(#2ECC71 0%, #2ECC81 25%, #2ECC71 85%, #2ECC91 100%);" stylesheets="@menu.css">
+         <effect>
+            <Glow />
+         </effect>
+         <center>
+            <VBox alignment="CENTER" prefHeight="437.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="title" text="Snake and Ladders" textAlignment="CENTER" translateY="-21.0">
+                     <font>
+                        <Font name="NanumGothicBold" size="48.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#c30101" />
+                              <Stop color="#722929" offset="0.007407407407407408" />
+                              <Stop color="#38433a" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+                  <ImageView id="playButton" fx:id="playButton" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../play.png" />
+                     </image>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </ImageView>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</VBox>

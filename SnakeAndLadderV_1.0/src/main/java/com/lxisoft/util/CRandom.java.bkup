@@ -1,0 +1,32 @@
+package com.lxisoft.util;
+
+import java.util.*;
+import org.slf4j.*;
+
+public class CRandom {
+
+    private static final Logger log = LoggerFactory.getLogger(CRandom.class);
+
+    public static int getRemove(List<Integer> coords) {
+
+        int rand = new Random().nextInt((coords.size()/2));
+
+        int start = coords.get(rand);
+
+        coords.remove(rand);
+
+        CRandom.log.info(start + " ");
+
+        return start;
+    
+    }
+
+    public static int getRemove(List<Integer> coords , int start) {
+
+        int rand = new Random().nextInt((coords.size()/2));
+
+        int start = coords.get(rand);
+
+        return 0;
+    }
+}

@@ -1,0 +1,9 @@
+#playButton:hover
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(185, 172, 172, 0.8), 10, 0, 0, 0);
+}
+
+#powerButton:hover {
+
+    -fx-effect: dropshadow(three-pass-box, rgba(185, 172, 172, 0.8), 10, 0, 0, 0);
+}
