@@ -624,7 +624,7 @@ public class BoardViewController {
 
                 if (nPlayer.getCurrentPos() + roll <= 100) {
 
-                    this.movePlayer(nPlayer, 79);
+                    this.movePlayer(nPlayer, roll);
 
                     log.info(nPlayer.getName() + " -> Moved " + nPlayer.getCurrentPos());
 
