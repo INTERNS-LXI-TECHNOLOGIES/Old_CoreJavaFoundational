@@ -624,7 +624,7 @@ public class BoardViewController {
 
                 if (nPlayer.getCurrentPos() + roll <= 100) {
 
-                    this.movePlayer(nPlayer, roll);
+                    this.movePlayer(nPlayer, 79);
 
                     log.info(nPlayer.getName() + " -> Moved " + nPlayer.getCurrentPos());
 
@@ -825,11 +825,16 @@ public class BoardViewController {
                 this.boardContainer.getScene().addEventFilter(KeyEvent.KEY_PRESSED, kevent);
 
                 if (BoardViewController.gameInitController.getBoardController().getPlayers()
-                        .size() > BoardViewController.currentPlayerId) {
-                    Player pc = BoardViewController.gameInitController.getBoardController().getPlayers()
-                            .get(BoardViewController.currentPlayerId);
+                        .size() >= BoardViewController.currentPlayerId) {
 
-                    if (player.getCurrentPos() == 100) {
+
+                    Player pc = BoardViewController.gameInitController.getBoardController().getPlayers()
+                            .get(BoardViewController.currentPlayerId - 1);
+
+
+                    log.info("Player Exists");
+
+                    if (player.getCurrentPos() >= 100) {
 
                         BoardViewController.gameInitController.addWinner(player);
 
