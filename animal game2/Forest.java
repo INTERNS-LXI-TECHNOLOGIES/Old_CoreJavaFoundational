@@ -10,7 +10,7 @@ public void Fight()
 {
 	if(fox.strength>=deer.strength)
 	{
-		System.out.println("fox eats deer");
+		System.out.println("fox eats deer****");
 	}
 	if(fox.strength>=rabbit.strength)
 	{
