@@ -10,6 +10,7 @@ int i;
 	public void setStudentDetails(int i)
 	{
 		i++;
+		
 		System.out.println ("enter the name of the "+i+" student");
 			name=scan.next();
 		System.out.println("enter the register numberof the "+i+" student");
@@ -53,7 +54,7 @@ int i;
 		j++;
 		System.out.println("************************");
 		System.out.println("Name          registerNumber      s clas       subject               mark          ");
-	System.out.println(    ""+name+     "" +registerNumber+ ""+clas+ ""+subject+ ""+mark       );
+	System.out.println(    " "+name+     " " +registerNumber+ " "+clas+ " "+subject+ " "+mark       );
 		
 	}
 }

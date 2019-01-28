@@ -1,38 +1,22 @@
- import java.util.Scanner;
-public class Tdd
+import java.util.Scanner;
+public class Train
 {
+	Scanner scan=new Scanner(System.in);
 
-		
-public static void main(String args[])
-{
+	Seat[] seats=new Seat[10];
 	
- Scanner scan=new Scanner(System.in);
-	
-
-	
-	
+    int number;
+	String name;
+	       					
+	int d;
+	public void setTrainDetails()
+	{
+            	
+	    do{
+		    String place;
 			System.out.println("                           ");
 			System.out.println("WELCOME TO E-TICKET SERVICE");
 			System.out.println("                           ");	
-			
-	 Train[] train  = new Train[2];
-	 
-	     
-		   
-		
-		      
-	 
-		    train[0] = new Train();
-			train[0].name = "shatabdi express";
-			train[0].no=1234;
-			
-		    train[1] = new Train();
-			train[1].name = "sowparnika express";
-			train[1].no=9876;
-			int d;
-			
-	do{
-		    String place;
 		    System.out.println("All TRAIN START RUNNING FROM PALAKKAD STATION");
 			
 			
@@ -61,8 +45,33 @@ public static void main(String args[])
 				System.out.println("do you want to continue then press the key 1 or 0");
 			    d=scan.nextInt();
 			
-	}while(d==1);
+			}while(d==1);
 				
-		  } 
-
+     } 
 }
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+       
+
+

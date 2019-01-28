@@ -3,22 +3,25 @@ public class Tdd
 {
 public static void main(String args[])
 {
-		int i,c;
 		Scanner scan=new Scanner(System.in);
+		int n;
+        
+		int i,c;
+		System.out.println("how many class do you want to entry");
+		n=scan.nextInt();
+		ClassRoom[] classRooms=new ClassRoom[n];
 		
-		
-     
-        System.out.println("how many class do you want to entry");
-        c=scan.nextInt();
-		
-	Clas[] clases=new Clas[c];
-		
-        for(i=0;i<c;i++)
+		for(i=0;i<n;i++)
 		{
-			clases[i]=new Clas();
 			
-			clases[i].setClasDetails(i);
-		 }			 
-			 
-}
+		 classRooms[i]=new ClassRoom();
+		classRooms[i].setClassDetails();
+		}
+		for(i=0;i<n;i++)
+		{
+			classRooms[i].printClassDetails();
+			
+		}
+}		
+
 }

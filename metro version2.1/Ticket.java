@@ -41,7 +41,7 @@ Scanner scan=new Scanner(System.in);
 									
 									case 4:clas="Three-tier AC Sleeper";printDetails();break;
 									
-									default:System.out.println("invalide  
+									default:System.out.println("invalide");
 									
 							
 								}
