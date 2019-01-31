@@ -1,17 +1,10 @@
 package com.lxisoft.animalgame.animal;
-public class Animal{
+public abstract class Animal{
 	private int hunger;
 	private int anger;
-	private int location;
 	private String name;
-	int x;
-	int y;
-	public void setLocation(int location){
-		this.location = location;
-	}
-	public int getLocation(){
-		return location;
-	}
+	private int x;
+	private int y;
 	public void setName(String name){
 		this.name = name;
 	}
@@ -42,14 +35,17 @@ public class Animal{
 	public int getY(){
 		return y;
 	}
-	public int strength(){
+	public Animal(){
+		strength();
+		x();
+		y();
+	}
+	public void strength(){
 		setAnger((int)(Math.random()*100));
 		setHunger((int)(Math.random()*100));
-		return getAnger()+getHunger();
 	}
-	public int location(){
-		setLocation((int)(Math.random()*3));
-		return getLocation();
+	public int getStrength(){
+		return getAnger()+getHunger();
 	}
 	public int x(){
 		setX((int)(Math.random()*50));

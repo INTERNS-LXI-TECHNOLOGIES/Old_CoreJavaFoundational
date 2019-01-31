@@ -43,54 +43,51 @@ public class Forest{
 		}
 	}
 	public void fight(){
-		int randomAnimalOne = (int)(Math.random()*30);
-		int randomAnimalTwo = (int)(Math.random()*30);
-		int animalOne = getAnimal().get(randomAnimalOne).strength();
-		int animalTwo = getAnimal().get(randomAnimalTwo).strength();
-		int animalOneXLocation = getAnimal().get(randomAnimalOne).x();
-		int animalOneYLocation = getAnimal().get(randomAnimalOne).y();
-		int animalTwoXLocation = getAnimal().get(randomAnimalTwo).x();
-		int animalTwoYLocation = getAnimal().get(randomAnimalTwo).y();
-		if(Math.abs(animalOneXLocation - animalTwoXLocation) <10 && Math.abs(animalOneYLocation - animalTwoYLocation) <10){
-		System.out.println(getAnimal().get(randomAnimalOne).getName()+" : "+animalOne+" X : "+animalOneXLocation+" Y : "+animalOneYLocation);
-		System.out.println(getAnimal().get(randomAnimalTwo).getName()+" : "+animalTwo+" X : "+animalTwoXLocation+" Y : "+animalTwoYLocation);
-		if(getAnimal().get(randomAnimalOne) instanceof Herbivores && getAnimal().get(randomAnimalTwo) instanceof Herbivores){
-			System.out.println(getAnimal().get(randomAnimalOne).getName()+" And "+getAnimal().get(randomAnimalTwo).getName()+" Are Herbivores So They Won't fight");
+		for(Animal test : animal){
+			System.out.println(test.getName()+" "+test.getStrength()+" "+test.getX()+" "+test.getY());
 		}
-
-		if(getAnimal().get(randomAnimalOne) instanceof Carnivores && getAnimal().get(randomAnimalTwo) instanceof Carnivores){
-		if(animalOne>animalTwo){
-			System.out.println(getAnimal().get(randomAnimalOne).getName()+" Wins");
-		}
-		else if(animalOne<animalTwo){
-			System.out.println(getAnimal().get(randomAnimalTwo).getName()+" Wins");
-		}
-		}
-		if(getAnimal().get(randomAnimalOne) instanceof Carnivores && getAnimal().get(randomAnimalTwo) instanceof Herbivores){
-		if(((Herbivores)getAnimal().get(randomAnimalTwo)).luck()>75 ){
-			System.out.println(getAnimal().get(randomAnimalTwo).getName()+" Has Luck");
-		}
-		else if(getAnimal().get(randomAnimalOne).getHunger()>50){
-			System.out.println(getAnimal().get(randomAnimalOne).getName()+" Eats "+getAnimal().get(randomAnimalTwo).getName());
-		}
-		else{
-			System.out.println(getAnimal().get(randomAnimalOne).getName()+" chased And Leaves "+getAnimal().get(randomAnimalTwo).getName());
-		}
-		}
-		if(getAnimal().get(randomAnimalTwo) instanceof Carnivores && getAnimal().get(randomAnimalOne) instanceof Herbivores){
-		if(((Herbivores)getAnimal().get(randomAnimalOne)).luck()>75 ){
-			System.out.println(getAnimal().get(randomAnimalOne).getName()+" Has Luck");
-		}
-		else if(getAnimal().get(randomAnimalTwo).getHunger()>50){
-			System.out.println(getAnimal().get(randomAnimalTwo).getName()+" Eats "+getAnimal().get(randomAnimalOne).getName());
-		}
-		else{
-			System.out.println(getAnimal().get(randomAnimalTwo).getName()+" chased And Leaves "+getAnimal().get(randomAnimalOne).getName());
-		}
-		}
-		}
-		else {
-			System.out.println("No Nearby Animals");
+		System.out.println("\nFights In Forest\n");
+		for(Animal test : animal){
+			int randomAnimal = (int)(Math.random()*30);
+				if(Math.abs(getAnimal().get(randomAnimal).getX()-test.getX())<10 && Math.abs(test.getY()-getAnimal().get(randomAnimal).getY())<10){
+					if(getAnimal().get(randomAnimal) instanceof Herbivores && test instanceof Herbivores){
+						if(getAnimal().get(randomAnimal) != test)
+						System.out.println(getAnimal().get(randomAnimal).getName()+" And "+test.getName()+" Are Herbivores So They Won't fight");
+					}
+					else if(getAnimal().get(randomAnimal) instanceof Carnivores && test instanceof Carnivores){
+						if(getAnimal().get(randomAnimal) != test)
+						if(getAnimal().get(randomAnimal).getStrength()>test.getStrength()){
+						System.out.println(getAnimal().get(randomAnimal).getName()+" Defeat "+test.getName());
+						}
+						else{
+						System.out.println(test.getName()+" Defeat "+getAnimal().get(randomAnimal).getName());
+						}
+					}
+					else if(getAnimal().get(randomAnimal) instanceof Carnivores && test instanceof Herbivores){
+						if(getAnimal().get(randomAnimal).getStrength()>test.getStrength())
+						if(((Herbivores)test).luck()>75 ){
+							System.out.println(test.getName()+" Has Luck So Escaped From "+getAnimal().get(randomAnimal).getName());
+						}
+						else if(getAnimal().get(randomAnimal).getHunger()>50){
+							System.out.println(getAnimal().get(randomAnimal).getName()+" Eats "+test.getName());
+						}
+						else{
+						System.out.println(getAnimal().get(randomAnimal).getName()+" chased And Leaves "+test.getName());
+						}
+					}
+					else if(getAnimal().get(randomAnimal) instanceof Herbivores && test instanceof Carnivores){
+						if(getAnimal().get(randomAnimal).getStrength()<test.getStrength())
+						if(((Herbivores)getAnimal().get(randomAnimal)).luck()>75 ){
+							System.out.println(getAnimal().get(randomAnimal).getName()+" Has Luck So Escaped From "+test.getName());
+						}
+						else if(test.getHunger()>50){
+							System.out.println(test.getName()+" Eats "+getAnimal().get(randomAnimal).getName());
+						}
+						else{
+						System.out.println(test.getName()+" chased And Leaves "+getAnimal().get(randomAnimal).getName());
+						}
+					}
+				}
 		}
 	}
 }
