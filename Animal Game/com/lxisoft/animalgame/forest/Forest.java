@@ -1,55 +1,53 @@
 package com.lxisoft.animalgame.forest;
+import com.lxisoft.animalgame.hunter.Hunter;
 import com.lxisoft.animalgame.animal.*;
 import com.lxisoft.animalgame.animal.carnivores.*;
 import com.lxisoft.animalgame.animal.herbivores.*;
 import java.util.ArrayList;
 public class Forest{
-	private ArrayList<Animal> animal;
-	private Animal tiger;
-	private Animal lion;
-	public void setAnimal(ArrayList<Animal> animal){
-		this.animal = animal;
+	private ArrayList<Animal> animals;
+	private Hunter hunter
+	;
+	public void setAnimal(ArrayList<Animal> animals){
+		this.animals = animals;
 	}
 	public ArrayList<Animal> getAnimal(){
-		return animal;
+		return animals;
+	}
+	public void setHunter(Hunter hunter){
+		this.hunter = hunter;
+	}
+	public Hunter getHunter(){
+		return hunter;
 	}
 	public Forest(){
+		setHunter(new Hunter());
 		setAnimal(new ArrayList<Animal>());
-		for(int i=0;i<30;i++){
-			if(i<5){
+		int a=0;
+		for(int i=1;i<6;i++){
 			getAnimal().add(new Tiger());
-			getAnimal().get(i).setName("Tiger "+(i+1));
-			}
-			else if(i>4&&i<10){
+			getAnimal().get(a).setName("Tiger "+i);
 			getAnimal().add(new Lion());
-			getAnimal().get(i).setName("Lion "+((i-5)+1));
-			}
-			else if(i>9&&i<15){
+			getAnimal().get(a+1).setName("Lion "+i);
 			getAnimal().add(new Bear());
-			getAnimal().get(i).setName("Bear "+((i-10)+1));
-			}
-			else if(i>14&&i<20){
+			getAnimal().get(a+2).setName("Bear "+i);
 			getAnimal().add(new Deer());
-			getAnimal().get(i).setName("Deer "+((i-15)+1));
-			}
-			else if(i>19&&i<25){
+			getAnimal().get(a+3).setName("Deer "+i);
 			getAnimal().add(new Rabbit());
-			getAnimal().get(i).setName("Rabbit "+((i-20)+1));
-			}
-			else if(i>24&&i<30){
+			getAnimal().get(a+4).setName("Rabbit "+i);
 			getAnimal().add(new Zebra());
-			getAnimal().get(i).setName("Zebra "+((i-25)+1));
-			}
+			getAnimal().get(a+5).setName("Zebra "+i);
+			a=a+6;
 		}
 	}
 	public void fight(){
-		for(Animal test : animal){
-			System.out.println(test.getName()+" "+test.getStrength()+" "+test.getX()+" "+test.getY());
+		for(Animal test : animals){
+			System.out.println(test.getName()+" "+test.getStrength()+" "+test.getLocationX()+" "+test.getLocationY());
 		}
 		System.out.println("\nFights In Forest\n");
-		for(Animal test : animal){
+		for(Animal test : animals){
 			int randomAnimal = (int)(Math.random()*30);
-				if(Math.abs(getAnimal().get(randomAnimal).getX()-test.getX())<10 && Math.abs(test.getY()-getAnimal().get(randomAnimal).getY())<10){
+				if(Math.abs(getAnimal().get(randomAnimal).getLocationX()-test.getLocationX())<10 && Math.abs(test.getLocationY()-getAnimal().get(randomAnimal).getLocationY())<10){
 					if(getAnimal().get(randomAnimal) instanceof Herbivores && test instanceof Herbivores){
 						if(getAnimal().get(randomAnimal) != test)
 						System.out.println(getAnimal().get(randomAnimal).getName()+" And "+test.getName()+" Are Herbivores So They Won't fight");

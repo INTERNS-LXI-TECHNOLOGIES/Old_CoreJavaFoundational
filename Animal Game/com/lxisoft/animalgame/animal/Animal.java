@@ -1,10 +1,10 @@
 package com.lxisoft.animalgame.animal;
 public abstract class Animal{
 	private int hunger;
-	private int anger;
+	private int strength;
 	private String name;
-	private int x;
-	private int y;
+	private int locationX;
+	private int locationY;
 	public void setName(String name){
 		this.name = name;
 	}
@@ -17,42 +17,36 @@ public abstract class Animal{
 	public int getHunger(){
 		return hunger;
 	}
-	public void setAnger(int anger){
-		this.anger = anger;
+	public void setLocationX(int locationX){
+		this.locationX = locationX;
 	}
-	public int getAnger(){
-		return anger;
+	public int getLocationX(){
+		return locationX;
 	}
-	public void setX(int x){
-		this.x = x;
+	public void setLocationY(int locationY){
+		this.locationY = locationY;
 	}
-	public int getX(){
-		return x;
-	}
-	public void setY(int y){
-		this.y = y;
-	}
-	public int getY(){
-		return y;
+	public int getLocationY(){
+		return locationY;
 	}
 	public Animal(){
-		strength();
+		setStrength((int)(Math.random()*100));
+		setHunger((int)(Math.random()*100));
 		x();
 		y();
 	}
-	public void strength(){
-		setAnger((int)(Math.random()*100));
-		setHunger((int)(Math.random()*100));
+	public void setStrength(int strength){
+		this.strength = strength;
 	}
 	public int getStrength(){
-		return getAnger()+getHunger();
+		return strength;
 	}
 	public int x(){
-		setX((int)(Math.random()*50));
-		return getX();
+		setLocationX((int)(Math.random()*50));
+		return getLocationX();
 	}
 	public int y(){
-		setY((int)(Math.random()*50));
-		return getY();
+		setLocationY((int)(Math.random()*50));
+		return getLocationY();
 	}
 }
