@@ -4,4 +4,7 @@ public class Rabbit extends Animal implements Herbivores{
 	public int luck(){
 		return luck;
 	}
+	public String eat(String animalOne,String animalTwo){
+		return "0";
+	}
 }

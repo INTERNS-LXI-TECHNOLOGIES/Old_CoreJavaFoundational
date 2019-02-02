@@ -55,10 +55,10 @@ public class Forest{
 					else if(getAnimal().get(randomAnimal) instanceof Carnivores && test instanceof Carnivores){
 						if(getAnimal().get(randomAnimal) != test)
 						if(getAnimal().get(randomAnimal).getStrength()>test.getStrength()){
-						System.out.println(getAnimal().get(randomAnimal).getName()+" Defeat "+test.getName());
+						System.out.println(((Carnivores)getAnimal().get(randomAnimal)).kills(getAnimal().get(randomAnimal).getName(),test.getName()));
 						}
 						else{
-						System.out.println(test.getName()+" Defeat "+getAnimal().get(randomAnimal).getName());
+						System.out.println(((Carnivores)getAnimal().get(randomAnimal)).kills(test.getName(),getAnimal().get(randomAnimal).getName()));
 						}
 					}
 					else if(getAnimal().get(randomAnimal) instanceof Carnivores && test instanceof Herbivores){
@@ -67,10 +67,10 @@ public class Forest{
 							System.out.println(test.getName()+" Has Luck So Escaped From "+getAnimal().get(randomAnimal).getName());
 						}
 						else if(getAnimal().get(randomAnimal).getHunger()>50){
-							System.out.println(getAnimal().get(randomAnimal).getName()+" Eats "+test.getName());
+							System.out.println(getAnimal().get(randomAnimal).eat(getAnimal().get(randomAnimal).getName(),test.getName()));
 						}
 						else{
-						System.out.println(getAnimal().get(randomAnimal).getName()+" chased And Leaves "+test.getName());
+						System.out.println(((Carnivores)getAnimal().get(randomAnimal)).hunt(getAnimal().get(randomAnimal).getName(),test.getName()));
 						}
 					}
 					else if(getAnimal().get(randomAnimal) instanceof Herbivores && test instanceof Carnivores){
@@ -79,10 +79,10 @@ public class Forest{
 							System.out.println(getAnimal().get(randomAnimal).getName()+" Has Luck So Escaped From "+test.getName());
 						}
 						else if(test.getHunger()>50){
-							System.out.println(test.getName()+" Eats "+getAnimal().get(randomAnimal).getName());
+							System.out.println(test.eat(getAnimal().get(randomAnimal).getName(),test.getName()));
 						}
 						else{
-						System.out.println(test.getName()+" chased And Leaves "+getAnimal().get(randomAnimal).getName());
+						System.out.println(((Carnivores)test).hunt(test.getName(),getAnimal().get(randomAnimal).getName()));
 						}
 					}
 				}
