@@ -1,4 +1,4 @@
-package com.lxisoft.forestv4.forest.animals;
+package com.lxisoft.forestv4.animal;
 import java.util.ArrayList;
 public abstract class Animal 
 {
@@ -6,6 +6,7 @@ public abstract class Animal
 	private String name;
 	private int locationx;
 	private int locationy;
+	private int hunger;
 	public void setStrength(int strength)
 	{
 		this.strength=strength;
@@ -38,6 +39,14 @@ public abstract class Animal
 	{
 		return locationy;
 	}
+	public void setHunger(int hunger)
+	{
+		this.hunger=hunger;
+	}
+	public int getHunger()
+	{
+		return hunger;
+	}
 	public int strength()
 	{
 	setStrength((int)(Math.random()*100));
@@ -56,8 +65,14 @@ public abstract class Animal
 		return getLocationy();
 		
 	}
-	
-	
-	
-	
+	public int eat()
+	{
+		setHunger((int)(Math.random()*100));
+		return getHunger();
+	}
+		
+			
 }
+	
+	
+	
