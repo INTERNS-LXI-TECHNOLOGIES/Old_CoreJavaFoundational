@@ -72,8 +72,48 @@ int locationX1=animals[animal1].locationX();
 int locationY1=animals[animal1].locationY();
 int locationX2=animals[animal2].locationX();
 int locationY2=animals[animal2].locationY();
+int d1=Math.abs(locationX1-locationX2);
+int d2=Math.abs(locationY1-locationY2);
 System.out.println("Animal="+animals[animal1].getName()+" strength="+strength1+" location="+locationX1+","+locationY1);
 System.out.println("Animal="+animals[animal2].getName()+" strength="+strength2+" location="+locationX2+","+locationY2);
+System.out.println(d1);
+System.out.println(d2);
+
+if(d1<=10 && d2<=10)
+{
+	
+	if(strength1>strength2)
+{
+	System.out.println("Will fight");
+	System.out.println(animals[animal1].getName()+" win....");
+}
+else
+{
+	System.out.println(animals[animal2].getName()+" win....");
+}
+
+}
+else
+{
+	System.out.println("Will not fight");
+}
+/*if(d1<0 && d2<0)
+{
+	d1=-(d1);
+	d2=-(d2);
+	System.out.println(d1);
+	System.out.println(d2);
+}
+else if(d1<0 || d2>0)
+{
+	d1=-(d1);
+	System.out.println(d1);
+}
+else if(d2<0 || d1>0)
+{
+	d2=-(d2);
+	System.out.println(d2);
+}*/
 }
 /*
 if(strength1>strength2)
