@@ -3,6 +3,7 @@ import com.lxisoft.animalgame.animal.omnivore.Hunter;
 import com.lxisoft.animalgame.animal.*;
 import com.lxisoft.animalgame.animal.carnivores.*;
 import com.lxisoft.animalgame.animal.herbivores.*;
+import com.lxisoft.animalgame.animal.omnivore.*;
 import java.util.ArrayList;
 public class Forest{
 	private int area = 50;
@@ -85,7 +86,7 @@ public class Forest{
 					else if(animals.get(randomAnimal) instanceof Herbivore && animals.get(i) instanceof Carnivore){
 						if(animals.get(randomAnimal).getStrength()<animals.get(i).getStrength())
 						if(((Herbivore)animals.get(randomAnimal)).luck()>75 ){
-							System.out.println(animals.get(randomAnimal).getName()+" Has Luck So Escaped From "+animals.get(i).getName());
+							System.out.println(animals.get(randomAnimal).getName()+" Escaped From "+animals.get(i).getName());
 						}
 						if(animals.get(i).getHunger()>50){
 							System.out.println(animals.get(i).eat(animals.get(i).getName(),animals.get(randomAnimal).getName()));
@@ -96,8 +97,74 @@ public class Forest{
 						animals.remove(animals.get(randomAnimal));
 						}
 					}
+					else if(animals.get(randomAnimal) instanceof Omnivore && animals.get(i) instanceof Carnivore){
+						if(animals.get(i).getStrength()>90){
+							System.out.println(((Carnivore)animals.get(i)).kills(animals.get(i).getName(),animals.get(randomAnimal).getName()));
+							animals.remove(animals.get(randomAnimal));
+						}
+						else if(((Omnivore)animals.get(randomAnimal)).getBullets()!= 0){
+							System.out.println(((Omnivore)animals.get(randomAnimal)).hunt(animals.get(randomAnimal).getName(),animals.get(i).getName()));
+							((Omnivore)animals.get(randomAnimal)).setBullets(((Omnivore)animals.get(randomAnimal)).getBullets()-1);
+							animals.remove(animals.get(i));
+						}
+						else if(((Omnivore)animals.get(randomAnimal)).getBullets()== 0){
+							if(((Omnivore)animals.get(randomAnimal)).luck()>80){
+								System.out.println(animals.get(randomAnimal).getName()+" Escaped From "+animals.get(i).getName());
+							}
+							else{
+								System.out.println(((Carnivore)animals.get(i)).kills(animals.get(i).getName(),animals.get(randomAnimal).getName()));
+								animals.remove(animals.get(randomAnimal));
+							}
+						}
 					}
-		
+					else if(animals.get(randomAnimal) instanceof Carnivore && animals.get(i) instanceof Omnivore){
+						if(animals.get(randomAnimal).getStrength()>90){
+							System.out.println(((Carnivore)animals.get(randomAnimal)).kills(animals.get(randomAnimal).getName(),animals.get(i).getName()));
+							animals.remove(animals.get(i));
+						}
+						else if(((Omnivore)animals.get(i)).getBullets()!= 0){
+							System.out.println(((Omnivore)animals.get(i)).hunt(animals.get(i).getName(),animals.get(randomAnimal).getName()));
+							((Omnivore)animals.get(i)).setBullets(((Omnivore)animals.get(i)).getBullets()-1);
+							animals.remove(animals.get(randomAnimal));
+						}
+						else if(((Omnivore)animals.get(i)).getBullets()== 0){
+							if(((Omnivore)animals.get(i)).luck()>80){
+								System.out.println(((Omnivore)animals.get(i)).luck());
+								System.out.println(animals.get(i).getName()+" Escaped From "+animals.get(randomAnimal).getName());
+							}
+							else{
+								System.out.println(((Carnivore)animals.get(randomAnimal)).kills(animals.get(randomAnimal).getName(),animals.get(i).getName()));
+								animals.remove(animals.get(i));
+							}
+						}
+					}
+					else if(animals.get(randomAnimal) instanceof Omnivore && animals.get(i) instanceof Herbivore){
+						if(((Herbivore)animals.get(i)).luck()>75 ){
+							System.out.println(animals.get(i).getName()+" Escaped From "+animals.get(randomAnimal).getName());
+						}
+						else if(((Omnivore)animals.get(randomAnimal)).getBullets()!= 0){
+							System.out.println(((Omnivore)animals.get(randomAnimal)).hunt(animals.get(randomAnimal).getName(),animals.get(i).getName()));
+							((Omnivore)animals.get(randomAnimal)).setBullets(((Omnivore)animals.get(randomAnimal)).getBullets()-1);
+							animals.remove(animals.get(i));
+						}
+						else if(((Omnivore)animals.get(randomAnimal)).getBullets()== 0){
+							System.out.println(animals.get(randomAnimal).getName()+" Leaves "+animals.get(i).getName());
+						}
+					}
+					else if(animals.get(randomAnimal) instanceof Herbivore && animals.get(i) instanceof Omnivore){
+						if(((Herbivore)animals.get(randomAnimal)).luck()>75 ){
+							System.out.println(animals.get(randomAnimal).getName()+" Escaped From "+animals.get(i).getName());
+						}
+						else if(((Omnivore)animals.get(i)).getBullets()!= 0){
+							System.out.println(((Omnivore)animals.get(i)).hunt(animals.get(i).getName(),animals.get(randomAnimal).getName()));
+							((Omnivore)animals.get(i)).setBullets(((Omnivore)animals.get(i)).getBullets()-1);
+							animals.remove(animals.get(randomAnimal));
+						}
+						else if(((Omnivore)animals.get(i)).getBullets()== 0){
+							System.out.println(animals.get(i).getName()+" Leaves "+animals.get(randomAnimal).getName());
+						}
+					}
+					}
 			}
 		if(area>10){
 		area = area - 10;

@@ -8,7 +8,7 @@ public class Tdd{
 		System.out.println("\nFights In Forest Round "+rounds+"\n");
 		forest.startFight();
 		rounds++;
-		}while(forest.getAnimal().size()>2);
+		}while(forest.getAnimal().size()>1);
 		forest.winner();	
 	}
 }
