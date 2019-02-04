@@ -1,5 +1,5 @@
 package com.lxisoft.animalgame.forest;
-import com.lxisoft.animalgame.hunter.Hunter;
+import com.lxisoft.animalgame.animal.omnivore.Hunter;
 import com.lxisoft.animalgame.animal.*;
 import com.lxisoft.animalgame.animal.carnivores.*;
 import com.lxisoft.animalgame.animal.herbivores.*;
@@ -40,6 +40,9 @@ public class Forest{
 			animals.get(a+5).setName("Zebra "+i);
 			a=a+6;
 		}
+			animals.add(hunter);
+			hunter.setName("Hunter");
+
 	}
 	public void startFight(){
 			for(Animal test : animals){
@@ -75,7 +78,7 @@ public class Forest{
 							animals.remove(i);
 						}
 						else{
-							System.out.println(((Carnivore)animals.get(randomAnimal)).hunt(animals.get(randomAnimal).getName(),animals.get(i).getName()));
+							System.out.println(((Carnivore)animals.get(randomAnimal)).kills(animals.get(randomAnimal).getName(),animals.get(i).getName()));
 							animals.remove(i);
 						}
 					}
@@ -89,11 +92,11 @@ public class Forest{
 							animals.remove(animals.get(randomAnimal));
 						}
 						else{
-						System.out.println(((Carnivore)animals.get(i)).hunt(animals.get(i).getName(),animals.get(randomAnimal).getName()));
+						System.out.println(((Carnivore)animals.get(i)).kills(animals.get(i).getName(),animals.get(randomAnimal).getName()));
 						animals.remove(animals.get(randomAnimal));
 						}
 					}
-				}
+					}
 		
 			}
 		if(area>10){

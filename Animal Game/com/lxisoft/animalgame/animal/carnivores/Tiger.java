@@ -7,7 +7,4 @@ public class Tiger extends Animal implements Carnivore{
 	public String eat(String animalOne,String animalTwo){
 		return animalOne+" Eats "+animalTwo;
 	}
-	public String hunt(String animalOne,String animalTwo){
-		return animalOne+" Hunts "+animalTwo;
-	}
 }
