@@ -1,6 +1,6 @@
 package com.lxisoft.animalgame.animal.carnivores;
 import com.lxisoft.animalgame.animal.*;
-public class Tiger extends Animal implements Carnivores{
+public class Tiger extends Animal implements Carnivore{
 	public String kills(String animalOne ,String animalTwo){
 		return animalOne+" Kills "+animalTwo;
 	}

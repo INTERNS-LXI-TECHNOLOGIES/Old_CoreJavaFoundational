@@ -6,8 +6,6 @@ public abstract class Animal{
 	private int locationX;
 	private int locationY;
 	public Animal(){
-		setLocationX();
-		setLocationY();
 		setHunger();
 		setStrength();
 	}
@@ -23,14 +21,14 @@ public abstract class Animal{
 	public int getHunger(){
 		return hunger;
 	}
-	public void setLocationX(){
-		this.locationX = (int)(Math.random()*50);
+	public void setLocationX(int meters){
+		this.locationX = (int)(Math.random()*meters);
 	}
 	public int getLocationX(){
 		return locationX;
 	}
-	public void setLocationY(){
-		this.locationY = (int)(Math.random()*50);
+	public void setLocationY(int meters){
+		this.locationY = (int)(Math.random()*meters);
 	}
 	public int getLocationY(){
 		return locationY;
