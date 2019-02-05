@@ -39,6 +39,6 @@ public abstract class Animal{
 	public int getStrength(){
 		return strength;
 	}
-	public abstract String eat(String animalOne,String animalTwo);
+	public abstract String eat(String animal);
 	public abstract String sound();
 }

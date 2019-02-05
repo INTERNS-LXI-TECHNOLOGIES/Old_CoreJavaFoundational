@@ -11,11 +11,11 @@ public class Hunter extends Animal implements Omnivore{
 	public int luck(){
 		return (int)(Math.random()*100);
 	}
-	public String hunt(String hunter,String animalTwo){
-		return hunter+" Hunts "+animalTwo;
+	public String hunt(String animal){
+		return " Hunts "+animal;
 	}
-	public String eat(String animalOne,String animalTwo){
-		return"0";
+	public String eat(String animal){
+		return " ";
 	}
 	public String sound(){
 		return "Yeahh!!";
