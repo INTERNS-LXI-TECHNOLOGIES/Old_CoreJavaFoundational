@@ -25,32 +25,76 @@ public class Forest{
 	public Forest(){
 		hunter = new Hunter();
 		animals = new ArrayList<Animal>();
-		int a=0;
-		for(int i=1;i<6;i++){
+		for(int i=0;i<((int)(Math.random()*5)+5);i++){
 			animals.add(new Tiger());
-			animals.get(a).setName("Tiger "+i);
+		}
+		for(int i=0;i<((int)(Math.random()*5)+5);i++){
 			animals.add(new Lion());
-			animals.get(a+1).setName("Lion "+i);
+		}
+		for(int i=0;i<((int)(Math.random()*5)+5);i++){
 			animals.add(new Bear());
-			animals.get(a+2).setName("Bear "+i);
+		}
+		for(int i=0;i<((int)(Math.random()*5)+5);i++){
 			animals.add(new Deer());
-			animals.get(a+3).setName("Deer "+i);
+		}
+		for(int i=0;i<((int)(Math.random()*5)+5);i++){
 			animals.add(new Rabbit());
-			animals.get(a+4).setName("Rabbit "+i);
+		}
+		for(int i=0;i<((int)(Math.random()*5)+5);i++){
 			animals.add(new Zebra());
-			animals.get(a+5).setName("Zebra "+i);
-			a=a+6;
+		}	
+		int a = 1;
+		for(int i = 0 ;i<animals.size();i++){
+			if(animals.get(i) instanceof Tiger){
+				animals.get(i).setName("Tiger "+a);
+				a++;
+			}
+		}
+		int b = 1;
+		for(int i = 0 ;i<animals.size();i++){
+			if(animals.get(i) instanceof Lion){
+				animals.get(i).setName("Lion "+b);
+				b++;	
+			}
+		}
+		int c = 1;
+		for(int i = 0 ;i<animals.size();i++){
+			if(animals.get(i) instanceof Bear){
+				animals.get(i).setName("Bear "+c);
+				c++;	
+			}	
+		}
+		int d = 1;
+		for(int i = 0 ;i<animals.size();i++){
+			if(animals.get(i) instanceof Deer){
+				animals.get(i).setName("Deer "+d);
+				d++;	
+			}
+		}
+		int e = 1;
+		for(int i = 0 ;i<animals.size();i++){
+			if(animals.get(i) instanceof Rabbit){
+				animals.get(i).setName("Rabbit "+e);
+				e++;
+			}
+		}
+		int f = 1;
+		for(int i = 0 ;i<animals.size();i++){			
+			if(animals.get(i) instanceof Zebra){
+				animals.get(i).setName("Zebra "+f);
+				f++;
+			}
 		}
 			animals.add(hunter);
 			hunter.setName("Hunter");
-
+			System.out.println(animals.size());
 	}
 	public void startFight(){
 			for(Animal test : animals){
 				test.setLocationX(area);
 				test.setLocationY(area);
 			}
-		for(int i = 0 ;i< animals.size();i++){
+		for(int i = 0 ;i<animals.size();i++){
 			int randomAnimal = (int)(Math.random()*animals.size());
 				if(Math.abs(animals.get(randomAnimal).getLocationX()-animals.get(i).getLocationX())<10 && Math.abs(animals.get(i).getLocationY()-animals.get(randomAnimal).getLocationY())<10){
 					if(animals.get(randomAnimal) instanceof Herbivore && animals.get(i) instanceof Herbivore){
@@ -62,10 +106,12 @@ public class Forest{
 						if(animals.get(randomAnimal) != animals.get(i))
 						if(animals.get(randomAnimal).getStrength()>animals.get(i).getStrength()){
 							System.out.println(((Carnivore)animals.get(randomAnimal)).kills(animals.get(randomAnimal).getName(),animals.get(i).getName()));
+							System.out.println(animals.get(randomAnimal).sound());
 							animals.remove(i);
 						}
 						else{
 							System.out.println(((Carnivore)animals.get(randomAnimal)).kills(animals.get(i).getName(),animals.get(randomAnimal).getName()));
+							System.out.println(animals.get(i).sound());
 							animals.remove(animals.get(randomAnimal));
 						}
 					}
@@ -76,10 +122,12 @@ public class Forest{
 						}
 						if(animals.get(randomAnimal).getHunger()>50){
 							System.out.println(animals.get(randomAnimal).eat(animals.get(randomAnimal).getName(),animals.get(i).getName()));
+							System.out.println(animals.get(randomAnimal).sound());
 							animals.remove(i);
 						}
 						else{
 							System.out.println(((Carnivore)animals.get(randomAnimal)).kills(animals.get(randomAnimal).getName(),animals.get(i).getName()));
+							System.out.println(animals.get(randomAnimal).sound());
 							animals.remove(i);
 						}
 					}
@@ -90,21 +138,25 @@ public class Forest{
 						}
 						if(animals.get(i).getHunger()>50){
 							System.out.println(animals.get(i).eat(animals.get(i).getName(),animals.get(randomAnimal).getName()));
+							System.out.println(animals.get(i).sound());
 							animals.remove(animals.get(randomAnimal));
 						}
 						else{
 						System.out.println(((Carnivore)animals.get(i)).kills(animals.get(i).getName(),animals.get(randomAnimal).getName()));
+						System.out.println(animals.get(i).sound());
 						animals.remove(animals.get(randomAnimal));
 						}
 					}
 					else if(animals.get(randomAnimal) instanceof Omnivore && animals.get(i) instanceof Carnivore){
 						if(animals.get(i).getStrength()>90){
 							System.out.println(((Carnivore)animals.get(i)).kills(animals.get(i).getName(),animals.get(randomAnimal).getName()));
+							System.out.println(animals.get(i).sound());
 							animals.remove(animals.get(randomAnimal));
 						}
 						else if(((Omnivore)animals.get(randomAnimal)).getBullets()!= 0){
 							System.out.println(((Omnivore)animals.get(randomAnimal)).hunt(animals.get(randomAnimal).getName(),animals.get(i).getName()));
 							((Omnivore)animals.get(randomAnimal)).setBullets(((Omnivore)animals.get(randomAnimal)).getBullets()-1);
+							System.out.println(animals.get(randomAnimal).sound());
 							animals.remove(animals.get(i));
 						}
 						else if(((Omnivore)animals.get(randomAnimal)).getBullets()== 0){
@@ -113,6 +165,7 @@ public class Forest{
 							}
 							else{
 								System.out.println(((Carnivore)animals.get(i)).kills(animals.get(i).getName(),animals.get(randomAnimal).getName()));
+								System.out.println(animals.get(i).sound());
 								animals.remove(animals.get(randomAnimal));
 							}
 						}
@@ -120,11 +173,13 @@ public class Forest{
 					else if(animals.get(randomAnimal) instanceof Carnivore && animals.get(i) instanceof Omnivore){
 						if(animals.get(randomAnimal).getStrength()>90){
 							System.out.println(((Carnivore)animals.get(randomAnimal)).kills(animals.get(randomAnimal).getName(),animals.get(i).getName()));
+							System.out.println(animals.get(randomAnimal).sound());
 							animals.remove(animals.get(i));
 						}
 						else if(((Omnivore)animals.get(i)).getBullets()!= 0){
 							System.out.println(((Omnivore)animals.get(i)).hunt(animals.get(i).getName(),animals.get(randomAnimal).getName()));
 							((Omnivore)animals.get(i)).setBullets(((Omnivore)animals.get(i)).getBullets()-1);
+							System.out.println(animals.get(i).sound());
 							animals.remove(animals.get(randomAnimal));
 						}
 						else if(((Omnivore)animals.get(i)).getBullets()== 0){
@@ -134,6 +189,7 @@ public class Forest{
 							}
 							else{
 								System.out.println(((Carnivore)animals.get(randomAnimal)).kills(animals.get(randomAnimal).getName(),animals.get(i).getName()));
+								System.out.println(animals.get(randomAnimal).sound());
 								animals.remove(animals.get(i));
 							}
 						}
@@ -145,6 +201,7 @@ public class Forest{
 						else if(((Omnivore)animals.get(randomAnimal)).getBullets()!= 0){
 							System.out.println(((Omnivore)animals.get(randomAnimal)).hunt(animals.get(randomAnimal).getName(),animals.get(i).getName()));
 							((Omnivore)animals.get(randomAnimal)).setBullets(((Omnivore)animals.get(randomAnimal)).getBullets()-1);
+							System.out.println(animals.get(randomAnimal).sound());
 							animals.remove(animals.get(i));
 						}
 						else if(((Omnivore)animals.get(randomAnimal)).getBullets()== 0){
@@ -158,6 +215,7 @@ public class Forest{
 						else if(((Omnivore)animals.get(i)).getBullets()!= 0){
 							System.out.println(((Omnivore)animals.get(i)).hunt(animals.get(i).getName(),animals.get(randomAnimal).getName()));
 							((Omnivore)animals.get(i)).setBullets(((Omnivore)animals.get(i)).getBullets()-1);
+							System.out.println(animals.get(i).sound());
 							animals.remove(animals.get(randomAnimal));
 						}
 						else if(((Omnivore)animals.get(i)).getBullets()== 0){

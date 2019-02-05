@@ -17,4 +17,7 @@ public class Hunter extends Animal implements Omnivore{
 	public String eat(String animalOne,String animalTwo){
 		return"0";
 	}
+	public String sound(){
+		return "Yeahh!!";
+	}
 }

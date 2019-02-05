@@ -7,4 +7,7 @@ public class Bear extends Animal implements Carnivore{
 	public String eat(String animalOne,String animalTwo){
 		return animalOne+" Eats "+animalTwo;
 	}
+	public String sound(){
+		return "oorrrrw...";
+	}
 }

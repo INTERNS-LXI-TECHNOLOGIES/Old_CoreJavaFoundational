@@ -7,4 +7,7 @@ public class Zebra extends Animal implements Herbivore{
 	public String eat(String animalOne,String animalTwo){
 		return "0";
 	}
+	public String sound(){
+		return " ";
+	}
 }

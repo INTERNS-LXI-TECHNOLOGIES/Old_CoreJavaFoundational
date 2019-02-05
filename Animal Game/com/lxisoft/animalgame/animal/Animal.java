@@ -40,5 +40,5 @@ public abstract class Animal{
 		return strength;
 	}
 	public abstract String eat(String animalOne,String animalTwo);
-
+	public abstract String sound();
 }
