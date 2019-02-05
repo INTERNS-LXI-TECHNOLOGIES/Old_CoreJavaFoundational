@@ -9,10 +9,12 @@ public class Forest
 	{
 		this.animals=animals;
 	}
+	
 	public ArrayList <Animal> getAnimals()
 	{
 		return animals;
 	} 
+	
 	public void forestFight()
 	{
 
