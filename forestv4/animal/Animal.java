@@ -47,24 +47,26 @@ public abstract class Animal
 	{
 		return hunger;
 	}
-	public int strength()
+	/*public int strength()
 	{
 	setStrength((int)(Math.random()*100));
 	return getStrength();
 	
 	}
 	public int locationx()
-	{
+	{ 
+	int meter=50;
 		setLocationx((int)(Math.random()*50));
 		return getLocationx();
 		
 	}
 	public int locationy()
 	{
+		int meter=50;
 		setLocationy((int)(Math.random()*50));
 		return getLocationy();
 		
-	}
+	}*/
 	public int eat()
 	{
 		setHunger((int)(Math.random()*100));
