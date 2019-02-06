@@ -93,13 +93,24 @@ public class Forest{
 			for(Animal test : animals){
 				test.setLocationX(area);
 				test.setLocationY(area);
+				test.setSpeed((int)(Math.random()*100));
 			}
 		for(int i = 0 ;i<animals.size();i++){
 			int randomAnimal = (int)(Math.random()*animals.size());
 				if(Math.abs(animals.get(randomAnimal).getLocationX()-animals.get(i).getLocationX())<10 && Math.abs(animals.get(i).getLocationY()-animals.get(randomAnimal).getLocationY())<10){
 					if(animals.get(randomAnimal) instanceof Herbivore && animals.get(i) instanceof Herbivore){
 						if(animals.get(randomAnimal) != animals.get(i)){
+							if(animals.get(randomAnimal).getSpeed()<30){
+								System.out.println(animals.get(randomAnimal).getName()+" Died In Fire");
+								animals.remove(randomAnimal);
+							}
+							else if(animals.get(i).getSpeed()<30){
+								System.out.println(animals.get(i).getName()+" Died In Fire");
+								animals.remove(i);
+							}
+							else{
 							System.out.println(animals.get(randomAnimal).getName()+" And "+animals.get(i).getName()+" Won't Fight");
+						}
 						}
 						}
 					else if(animals.get(randomAnimal) instanceof Carnivore && animals.get(i) instanceof Carnivore){
@@ -120,6 +131,9 @@ public class Forest{
 						if(((Herbivore)animals.get(i)).luck()>75 ){
 							System.out.println(animals.get(i).getName()+" Has Luck So Escaped From "+animals.get(randomAnimal).getName());
 						}
+						else if(animals.get(i).getSpeed()>animals.get(randomAnimal).getSpeed()){
+							System.out.println(animals.get(i).getName()+" Run Away From "+animals.get(randomAnimal).getName());
+						}
 						if(animals.get(randomAnimal).getHunger()>50){
 							System.out.println(animals.get(randomAnimal).getName()+animals.get(randomAnimal).eat(animals.get(i).getName()));
 							System.out.println(animals.get(randomAnimal).sound());
@@ -135,6 +149,9 @@ public class Forest{
 						if(animals.get(randomAnimal).getStrength()<animals.get(i).getStrength())
 						if(((Herbivore)animals.get(randomAnimal)).luck()>75 ){
 							System.out.println(animals.get(randomAnimal).getName()+" Escaped From "+animals.get(i).getName());
+						}
+						else if(animals.get(randomAnimal).getSpeed()>animals.get(i).getSpeed()){
+							System.out.println(animals.get(randomAnimal).getName()+" Run Away From "+animals.get(i).getName());
 						}
 						if(animals.get(i).getHunger()>50){
 							System.out.println(animals.get(i).getName()+animals.get(i).eat(animals.get(randomAnimal).getName()));
@@ -152,6 +169,9 @@ public class Forest{
 							System.out.println(animals.get(i).getName()+((Carnivore)animals.get(i)).kills(animals.get(randomAnimal).getName()));
 							System.out.println(animals.get(i).sound());
 							animals.remove(animals.get(randomAnimal));
+						}
+						else if(animals.get(i).getSpeed()>50){
+							System.out.println(animals.get(i).getName()+" Run Away From "+animals.get(randomAnimal).getName());
 						}
 						else if(((Hunter)animals.get(randomAnimal)).getBullets()!= 0){
 							System.out.println(animals.get(randomAnimal).getName()+((Omnivore)animals.get(randomAnimal)).hunt(animals.get(i).getName()));
@@ -176,6 +196,9 @@ public class Forest{
 							System.out.println(animals.get(randomAnimal).sound());
 							animals.remove(animals.get(i));
 						}
+						else if(animals.get(randomAnimal).getSpeed()>50){
+							System.out.println(animals.get(randomAnimal).getName()+" Run Away From "+animals.get(i).getName());
+						}
 						else if(((Hunter)animals.get(i)).getBullets()!= 0){
 							System.out.println(animals.get(i).getName()+((Omnivore)animals.get(i)).hunt(animals.get(randomAnimal).getName()));
 							((Hunter)animals.get(i)).setBullets(((Hunter)animals.get(i)).getBullets()-1);
@@ -198,6 +221,9 @@ public class Forest{
 						if(((Herbivore)animals.get(i)).luck()>75 ){
 							System.out.println(animals.get(i).getName()+" Escaped From "+animals.get(randomAnimal).getName());
 						}
+						else if(animals.get(i).getSpeed()>50){
+							System.out.println(animals.get(i).getName()+" Run Away From "+animals.get(randomAnimal).getName());
+						}
 						else if(((Hunter)animals.get(randomAnimal)).getBullets()!= 0){
 							System.out.println(animals.get(randomAnimal).getName()+((Omnivore)animals.get(randomAnimal)).hunt(animals.get(i).getName()));
 							((Hunter)animals.get(randomAnimal)).setBullets(((Hunter)animals.get(randomAnimal)).getBullets()-1);
@@ -211,6 +237,9 @@ public class Forest{
 					else if(animals.get(randomAnimal) instanceof Herbivore && animals.get(i) instanceof Omnivore){
 						if(((Herbivore)animals.get(randomAnimal)).luck()>75 ){
 							System.out.println(animals.get(randomAnimal).getName()+" Escaped From "+animals.get(i).getName());
+						}
+						else if(animals.get(randomAnimal).getSpeed()>50){
+							System.out.println(animals.get(randomAnimal).getName()+" Run Away From "+animals.get(i).getName());
 						}
 						else if(((Hunter)animals.get(i)).getBullets()!= 0){
 							System.out.println(animals.get(i).getName()+((Omnivore)animals.get(i)).hunt(animals.get(randomAnimal).getName()));
@@ -227,6 +256,9 @@ public class Forest{
 		if(area>10){
 		area = area - 10;
 		}
+		/*for(Animal test : animals){
+		System.out.println(test.getName());
+		}*/
 	}
 	public void winner(){
 		for(Animal test : animals){
