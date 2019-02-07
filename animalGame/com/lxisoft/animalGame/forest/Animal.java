@@ -6,17 +6,17 @@ public class Animal
 	private int strength,locationX,locationY;
 	
 	
-	public void setLocationX(int locationX)
+	public void setLocationX()
 	{
-		this.locationX=locationX;
+		this.locationX=(int)(Math.random()*30);
 	}
 	public int getLocationX()
 	{
 		return locationX;
 	}
-	public void setLocationY(int locationY)
+	public void setLocationY()
 	{
-		this.locationY=locationY;
+		this.locationY=(int)(Math.random()*50);
 	}
 	public int getLocationY()
 	{
@@ -29,28 +29,13 @@ public class Animal
 	public String getName()
 	{
 		return name;
-	} public void  setStrength(int strength)
+	} public void  setStrength()
 	{
-		this.strength=strength;
+		this.strength=(int)(Math.random()*100);
 	}
 	public int getStrength()
 	{
 		return strength; 
 	}
-	public int returnStrength()
-   { 
-	setStrength((int)(Math.random()*100));
-	return  getStrength();
-   }
-  public int location1()
-   {
-	   setLocationX((int)(Math.random()*60));
-	   return getLocationX();
-	   
-   }
-  public int location2()
-   {
-       setLocationY((int)(Math.random()*100));
-	   return getLocationY();
-   }
+
 }
