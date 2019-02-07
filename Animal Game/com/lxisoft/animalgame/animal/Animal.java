@@ -10,7 +10,6 @@ public abstract class Animal{
 		setHunger();
 		setStrength();
 	}
-	
 	public void setName(String name){
 		this.name = name;
 	}
