@@ -63,8 +63,8 @@ public class Forest
 		{	
 		 if(animals.get(random1) instanceof Herbivore&&animals.get(l) instanceof Carnivore)
 		 {
-		// System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
-		//System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());
+		System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
+		System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());
 			int luckFactor=((Herbivore)animals.get(random1)).checkLuck();
 			if(luckFactor>=75)
 			{
@@ -95,8 +95,8 @@ public class Forest
 		 }
 		 else if(animals.get(random1) instanceof Carnivore&&animals.get(l) instanceof Herbivore)
 		 {
-			//System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
-		 // System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());
+			System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
+		  System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());
 			int luckFactor=((Herbivore)animals.get(l)).checkLuck();
 			if(luckFactor>=75)
 			{
@@ -127,8 +127,8 @@ public class Forest
 		{
 		 if(animals.get(random1)!=animals.get(l))
 			{
-			//System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
-		   // System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());
+			System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
+		    System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());
 			  if(animals.get(random1).getStrength()>animals.get(l).getStrength())
 			  {
 				System.out.println(animals.get(random1).getName()+" kills "+animals.get(l).getName());
@@ -145,8 +145,8 @@ public class Forest
 		{
 			if(animals.get(random1)!=animals.get(l))
 			{
-			//System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
-		    //System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());	
+			System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
+		    System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());	
 			System.out.println("not fighting");
 			}
 		}
@@ -156,7 +156,7 @@ public class Forest
 		System.out.println(test.getName());
 	}*/
 		}
-		System.out.println(random1+"   "+l);
+		//System.out.println(random1+"   "+l);
 		}
 		}
 
