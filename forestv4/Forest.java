@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Forest
 {
 	private ArrayList <Animal> animals;
+	private Hunter hunter;
 	public void setAnimals(ArrayList <Animal> animals)
 	{
 		this.animals=animals;
@@ -13,6 +14,14 @@ public class Forest
 	{
 		return animals;
 	} 
+	public void setHunter(Hunter hunter)
+	{
+		this.hunter=hunter;
+	}
+	public Hunter getHunter()
+	{
+		return hunter;
+	}
 	public void animalFight()
 	{
 
@@ -38,33 +47,35 @@ public class Forest
 	j=j+6;
 	}
 		int r=1;
-		int meters=50;
-		for(int i=0;i<animals.size();i++)
+		int meters=60;
+		do
 		{
+			if(meters>10){
+			meters =meters-10;
+			}
+			
 			System.out.println("   ***Fight on forest round"+r+"***");	
 			r++;
 		for(Animal anim:animals)
 		{ 
-		anim.setLocationx((int)(Math.random()*(meters-10)));
-		anim.setLocationy((int)(Math.random()*(meters-10)));
+		anim.setLocationx((int)(Math.random()*(meters)));
+		anim.setLocationy((int)(Math.random()*(meters)));
 		anim.setStrength((int)(Math.random()*100));
 		}
-		int random1 =(int)(Math.random()*(animals.size()));
-		/*for(Animal anim:animals)
-		{
-			System.out.println(anim.getName()+" "+anim.getStrength()+" "+anim.getLocationx()+" "+anim.getLocationy());
-		}*/
-		//int random2 =(int)(Math.random()*30);
+		//hunter.setLocationx((int)(Math.random()*(meters)));
+		//hunter.setLocationy((int)(Math.random()*(meters)));
 		for(int l=0;l<animals.size();l++)
 		{
+			int random1 =(int)(Math.random()*animals.size()-1);
 		if(animals.get(random1).getLocationx()>0&&animals.get(l).getLocationx()>0&&animals.get(random1).getLocationy()>0&&animals.get(l).getLocationy()>0)
 		{	
 		if(Math.abs((animals.get(random1).getLocationx())-(animals.get(l).getLocationx()))<10&&Math.abs((animals.get(random1).getLocationy())-(animals.get(l).getLocationy()))<10)
 		{	
 		 if(animals.get(random1) instanceof Herbivore&&animals.get(l) instanceof Carnivore)
 		 {
-		System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
-		System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());
+			
+		//System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
+		//System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());
 			int luckFactor=((Herbivore)animals.get(random1)).checkLuck();
 			if(luckFactor>=75)
 			{
@@ -80,11 +91,6 @@ public class Forest
 				
 				//System.out.println(animals.get(l).getName()+" wins");
 				}
-				else if(((Carnivore)animals.get(l)).kill()>50)
-				{
-					System.out.println(animals.get(l).getName()+" kills "+animals.get(random1).getName());
-					animals.remove(random1);
-				}
 				else
 				{
 					System.out.println(animals.get(l).getName()+" kills "+animals.get(random1).getName());
@@ -95,8 +101,8 @@ public class Forest
 		 }
 		 else if(animals.get(random1) instanceof Carnivore&&animals.get(l) instanceof Herbivore)
 		 {
-			System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
-		  System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());
+			//System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
+		  //System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());
 			int luckFactor=((Herbivore)animals.get(l)).checkLuck();
 			if(luckFactor>=75)
 			{
@@ -111,11 +117,6 @@ public class Forest
 					animals.remove(l);
 				//System.out.println(animals.get(random1).getName()+" wins");
 				}
-				else if(((Carnivore)animals.get(random1)).kill()>50)
-				{
-					System.out.println(animals.get(random1).getName()+" kills "+animals.get(l).getName());
-					animals.remove(l);
-				}
 				else
 				{
 					System.out.println(animals.get(random1).getName()+" kills "+animals.get(l).getName());
@@ -127,8 +128,8 @@ public class Forest
 		{
 		 if(animals.get(random1)!=animals.get(l))
 			{
-			System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
-		    System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());
+			//System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
+		    //System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());
 			  if(animals.get(random1).getStrength()>animals.get(l).getStrength())
 			  {
 				System.out.println(animals.get(random1).getName()+" kills "+animals.get(l).getName());
@@ -145,20 +146,30 @@ public class Forest
 		{
 			if(animals.get(random1)!=animals.get(l))
 			{
-			System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
-		    System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());	
+			//System.out.println(animals.get(random1).getName()+" Strength:"+animals.get(random1).getStrength()+" Location x:"+animals.get(random1).getLocationx()+" Location y:"+animals.get(random1).getLocationy());
+		    //System.out.println(animals.get(l).getName()+" Strength:"+animals.get(l).getStrength()+" Location x:"+animals.get(l).getLocationx()+" Location y:"+animals.get(l).getLocationy());	
 			System.out.println("not fighting");
 			}
 		}
 		}
-	/*for(Animal test:animals)
-	{
-		System.out.println(test.getName());
-	}*/
+		/*else if(Math.abs((animals.get(random1).getLocationx())-(hunter.getLocationx()))<10&&Math.abs((animals.get(random1).getLocationy())-(hunter.getLocationy()))<10)
+		{
+			hunter.gun();
+			if(hunter.getBullets>0)
+			{
+			 System.out.println("Hunter hunts "+animals.get(random1).getName());
+				animals.remove(random1);
+				hunter.getBullets=hunter.getBullets-1;
+			}
+			else{
+				 System.out.println(animals.get(random1).getName()+" kills hunter");
+				animals.remove(hunter);	
+			}
+			
+		}*/
 		}
-		//System.out.println(random1+"   "+l);
 		}
-		}
+		}while(animals.size()>1);
 
     }
 		
