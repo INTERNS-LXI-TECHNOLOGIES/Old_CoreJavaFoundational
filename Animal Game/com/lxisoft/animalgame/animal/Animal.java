@@ -22,14 +22,14 @@ public abstract class Animal{
 	public int getHunger(){
 		return hunger;
 	}
-	public void setLocationX(int meters){
-		locationX = (int)(Math.random()*meters);
+	public void setLocationX(int locationX){
+		this.locationX = locationX;
 	}
 	public int getLocationX(){
 		return locationX;
 	}
-	public void setLocationY(int meters){
-		locationY = (int)(Math.random()*meters);
+	public void setLocationY(int locationY){
+		this.locationY =locationY;
 	}
 	public int getLocationY(){
 		return locationY;
