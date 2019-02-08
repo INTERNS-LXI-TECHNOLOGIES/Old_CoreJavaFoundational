@@ -55,22 +55,44 @@ System.out.println(animals.get(i).getName());
 }
 
 System.out.println("   ");
+}
+public void fight()
+{
 System.out.println("AVAILABLE ANIMALS WHO IS READY TO FIGHT AND THEIR STRENGTH LEVELS");
 System.out.println("_________________________________________________________________");
-
-for(int i=0;i<12;i++)
+int k,i,j;
+for(j=1,k=1;j<animals.size();)
+{
+	
+	System.out.println("Round "+k);
+	System.out.println("------------");
+	
+for(i=0;i<animals.size();i++)
 {
 	int random1=(int)(Math.random()*animals.size());
 	int random2=(int)(Math.random()*animals.size());
 	int strength1=animals.get(random1).strength();
 int strength2=animals.get(random2).strength();
+
+int locationX1=animals.get(random1).locationX();
+int locationY1=animals.get(random1).locationY();
+int locationX2=animals.get(random2).locationX();
+int locationY2=animals.get(random2).locationY();
+int d1=Math.abs(locationX1-locationX2);
+int d2=Math.abs(locationY1-locationY2);
 	
-		System.out.println("Animal="+animals.get(random1).getName()+" Strength="+strength1);
-	System.out.println("Animal="+animals.get(random2).getName()+" Strength="+strength2);
 		
-	
 	if(animals.get(random1).getName()!=animals.get(random2).getName())
 	{
+	if(d1<=10 && d2<=10)
+      {
+		  
+	    System.out.println("Animal="+animals.get(random1).getName()+" Strength="+strength1+" location="+locationX1+","+locationY1);
+	    System.out.println("Animal="+animals.get(random2).getName()+" Strength="+strength2+" location="+locationX2+","+locationY2);
+		
+		System.out.println(d1);
+        System.out.println(d2);
+
 	
 		if(strength1>strength2)
 		{
@@ -83,11 +105,16 @@ int strength2=animals.get(random2).strength();
 		System.out.println(animals.get(random2).getName()+" win...");
 		System.out.println("  ");
 		animals.remove(random1);
-		
-	}
+	    }
 	
+    }
+  }
+
 }
+k++;
+
 }
+
 System.out.println("  ");
 System.out.println("ALIVE ANIMALS");
 System.out.println("_____________");
