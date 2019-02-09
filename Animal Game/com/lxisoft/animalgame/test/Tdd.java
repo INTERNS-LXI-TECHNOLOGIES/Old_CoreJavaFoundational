@@ -1,7 +1,7 @@
 package com.lxisoft.animalgame.test;
 import com.lxisoft.animalgame.forest.Forest;
 public class Tdd{
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException,InterruptedException{
 		Forest forest = new Forest();
 		int rounds = 1;
 		do{

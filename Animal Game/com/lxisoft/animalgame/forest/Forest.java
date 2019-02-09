@@ -4,8 +4,10 @@ import com.lxisoft.animalgame.animal.carnivores.*;
 import com.lxisoft.animalgame.animal.herbivores.*;
 import com.lxisoft.animalgame.animal.omnivore.*;
 import java.util.ArrayList;
+import java.io.*;
 public class Forest{
-	private int area = 50;
+	private int area = 40;
+	String[][] grid = new String[40][40];
 	private ArrayList<Animal> animals;
 	private Hunter hunter;
 	private int[] pitLocationX = new int[4];
@@ -61,6 +63,7 @@ public class Forest{
 			for(Animal test : animals){
 				test.setLocationX((int)(Math.random()*area));
 				test.setLocationY((int)(Math.random()*area));
+				
 			}
 			for(int i=0;i<4;i++){
 				pitLocationX[i] = (int)(Math.random()*50);
@@ -68,13 +71,28 @@ public class Forest{
 			}
 			
 	}
-	public void startFight(){
+	public void startFight() throws IOException,InterruptedException{
 		/*for(Animal test : animals){
 			System.out.println(test.getName()+" "+test.getStrength()+" "+test.getLocationX()+" "+test.getLocationY());	
 		}
 		for(int i = 0;i<4;i++){
 			System.out.println(pitLocationX[i]+" "+pitLocationY[i]);	
 		}*/
+		for(Animal test : animals){
+		grid[test.getLocationX()][test.getLocationY()] = test.getName();
+		}
+		for(int i=0;i<40;i++){
+				for(int j=0;j<40;j++){
+					if(grid[i][j] == null){
+						grid[i][j] = "   ";
+					}
+					System.out.print(grid[i][j]);
+				}
+				System.out.print("\n");
+			}
+		for(Animal test : animals){
+		grid[test.getLocationX()][test.getLocationY()] = "   ";
+		}
 		for(int i = 0 ;i<animals.size();i++){
 			int randomAnimal = (int)(Math.random()*animals.size());
 				if(Math.abs(animals.get(randomAnimal).getLocationX()-animals.get(i).getLocationX())<10 && Math.abs(animals.get(i).getLocationY()-animals.get(randomAnimal).getLocationY())<10){
@@ -82,6 +100,7 @@ public class Forest{
 						herbivoreFight(animals.get(randomAnimal),animals.get(i));
 					}
 					else if(animals.get(randomAnimal) instanceof Carnivore && animals.get(i) instanceof Carnivore){
+
 						carnivoreFight(animals.get(randomAnimal),animals.get(i));
 					}
 					else if(animals.get(randomAnimal) instanceof Carnivore && animals.get(i) instanceof Herbivore){
@@ -108,9 +127,8 @@ public class Forest{
 		area = area - 5;
 		}
 		locationSetter();
-	}
-	public void pit(){
-		
+		Thread.sleep(2500);
+		new ProcessBuilder("cmd ","/c"," cls").inheritIO().start().waitFor();
 	}
 	public void locationSetter(){
 		int oldX;
@@ -202,6 +220,7 @@ public class Forest{
 		locationSetter();
 		if(animalOne != animalTwo)
 			if(animalTwo.getStrength()>animalTwo.getStrength()){
+
 				System.out.println(animalOne.getName()+((Carnivore)animalOne).kills(animalTwo.getName()));
 				//System.out.println(animalOne.sound());
 				animalOne.setLocationX(animalTwo.getLocationX());
