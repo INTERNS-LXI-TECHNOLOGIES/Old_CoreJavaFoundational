@@ -70,7 +70,7 @@ public class Forest{
 	}
 	public void startFight(){
 		/*for(Animal test : animals){
-			System.out.println(test.getName()+" "+test.getLocationX()+" "+test.getLocationY());	
+			System.out.println(test.getName()+" "+test.getStrength()+" "+test.getLocationX()+" "+test.getLocationY());	
 		}
 		for(int i = 0;i<4;i++){
 			System.out.println(pitLocationX[i]+" "+pitLocationY[i]);	
@@ -204,16 +204,20 @@ public class Forest{
 			if(animalTwo.getStrength()>animalTwo.getStrength()){
 				System.out.println(animalOne.getName()+((Carnivore)animalOne).kills(animalTwo.getName()));
 				//System.out.println(animalOne.sound());
-				//animalOne.setLocationX(animalTwo.getLocationX());
-				//animalOne.setLocationY(animalTwo.getLocationY());
+				animalOne.setLocationX(animalTwo.getLocationX());
+				animalOne.setLocationY(animalTwo.getLocationY());
 				animals.remove(animalTwo);
+				animalOne.setStrength(animalOne.getStrength()-5);
+				animalOne.setHunger(animalOne.getHunger()+5);
 			}
 			else{
 				System.out.println(animalTwo.getName()+((Carnivore)animalTwo).kills(animalOne.getName()));
 				//System.out.println(animalTwo.sound());
-				//animalTwo.setLocationX(animalOne.getLocationX());
-				//animalTwo.setLocationY(animalOne.getLocationY());
+				animalTwo.setLocationX(animalOne.getLocationX());
+				animalTwo.setLocationY(animalOne.getLocationY());
 				animals.remove(animalOne);
+				animalTwo.setStrength(animalTwo.getStrength()-5);
+				animalTwo.setHunger(animalTwo.getHunger()+5);
 			}
 	}
 	public void carnivoreHerbivoreFight(Animal animalOne,Animal animalTwo){
@@ -227,16 +231,20 @@ public class Forest{
 		else if(animalOne.getHunger()>50){
 			System.out.println(animalOne.getName()+animalOne.eat(animalTwo.getName()));
 			//System.out.println(animalOne.sound());
-			//animalOne.setLocationX(animalTwo.getLocationX());
-			//animalOne.setLocationY(animalTwo.getLocationY());
+			animalOne.setLocationX(animalTwo.getLocationX());
+			animalOne.setLocationY(animalTwo.getLocationY());
 			animals.remove(animalTwo);
+			animalOne.setStrength(animalOne.getStrength()+5);
+			animalOne.setHunger(animalOne.getHunger()-5);
 		}
 		else{
 			System.out.println(animalOne.getName()+((Carnivore)animalOne).kills(animalTwo.getName()));
 			//System.out.println(animalOne.sound());
-			//animalOne.setLocationX(animalTwo.getLocationX());
-			//animalOne.setLocationY(animalTwo.getLocationY());
+			animalOne.setLocationX(animalTwo.getLocationX());
+			animalOne.setLocationY(animalTwo.getLocationY());
 			animals.remove(animalTwo);
+			animalOne.setStrength(animalOne.getStrength()-5);
+			animalOne.setHunger(animalOne.getHunger()+5);
 			}
 	}
 	public void carnivoreOmnivoreFight(Animal animalOne,Animal animalTwo){
@@ -244,9 +252,11 @@ public class Forest{
 		if(animalOne.getStrength()>90){
 			System.out.println(animalOne.getName()+((Carnivore)animalOne).kills(animalTwo.getName()));
 			//System.out.println(animalOne.sound());
-			//animalOne.setLocationX(animalTwo.getLocationX());
-			//animalOne.setLocationY(animalTwo.getLocationY());
+			animalOne.setLocationX(animalTwo.getLocationX());
+			animalOne.setLocationY(animalTwo.getLocationY());
 			animals.remove(animalTwo);
+			animalOne.setStrength(animalOne.getStrength()-5);
+			animalOne.setHunger(animalOne.getHunger()+5);
 		}
 		else if(animalOne.getSpeed()>50){
 			System.out.println(animalOne.getName()+" Run Away From "+animalTwo.getName());
@@ -255,8 +265,8 @@ public class Forest{
 			System.out.println(animalTwo.getName()+((Omnivore)animalTwo).hunt(animalOne.getName()));
 			((Hunter)animalTwo).setBullets(((Hunter)animalTwo).getBullets()-1);
 			//System.out.println(animalTwo.sound());
-			//animalTwo.setLocationX(animalOne.getLocationX());
-			//animalTwo.setLocationY(animalOne.getLocationY());
+			animalTwo.setLocationX(animalOne.getLocationX());
+			animalTwo.setLocationY(animalOne.getLocationY());
 			animals.remove(animalOne);
 		}
 		else if(((Hunter)animalTwo).getBullets()== 0){
@@ -266,9 +276,11 @@ public class Forest{
 			else{
 				System.out.println(animalOne.getName()+((Carnivore)animalOne).kills(animalTwo.getName()));
 				//System.out.println(animalOne.sound());
-				//animalOne.setLocationX(animalTwo.getLocationX());
-				//animalOne.setLocationY(animalTwo.getLocationY());
+				animalOne.setLocationX(animalTwo.getLocationX());
+				animalOne.setLocationY(animalTwo.getLocationY());
 				animals.remove(animalTwo);
+				animalOne.setStrength(animalOne.getStrength()-5);
+				animalOne.setHunger(animalOne.getHunger()+5);
 			}
 		}
 	}
@@ -284,8 +296,8 @@ public class Forest{
 			System.out.println(animalTwo.getName()+((Omnivore)animalTwo).hunt(animalOne.getName()));
 			((Hunter)animalTwo).setBullets(((Hunter)animalTwo).getBullets()-1);
 			//System.out.println(animalTwo.sound());
-			//animalTwo.setLocationX(animalOne.getLocationX());
-			//animalTwo.setLocationY(animalOne.getLocationY());
+			animalTwo.setLocationX(animalOne.getLocationX());
+			animalTwo.setLocationY(animalOne.getLocationY());
 			animals.remove(animalOne);
 		}
 		else if(((Hunter)animalTwo).getBullets()== 0){

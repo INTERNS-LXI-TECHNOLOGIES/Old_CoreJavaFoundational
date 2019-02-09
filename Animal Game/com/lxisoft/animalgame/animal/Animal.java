@@ -1,23 +1,19 @@
 package com.lxisoft.animalgame.animal;
 public abstract class Animal{
-	private int hunger;
-	private int strength;
+	private int hunger = (int)(Math.random()*100);
+	private int strength = (int)(Math.random()*100);
 	private String name;
 	private int locationX;
 	private int locationY;
 	private int speed;
-	public Animal(){
-		setHunger();
-		setStrength();
-	}
 	public void setName(String name){
 		this.name = name;
 	}
 	public String getName(){
 		return name;
 	}
-	public void setHunger(){
-		hunger = (int)(Math.random()*100);
+	public void setHunger(int hunger){
+		this.hunger = hunger;
 	}
 	public int getHunger(){
 		return hunger;
@@ -34,8 +30,8 @@ public abstract class Animal{
 	public int getLocationY(){
 		return locationY;
 	}
-	public void setStrength(){
-		strength = (int)(Math.random()*100);
+	public void setStrength(int strength){
+		this.strength = strength;
 	}
 	public int getStrength(){
 		return strength;
