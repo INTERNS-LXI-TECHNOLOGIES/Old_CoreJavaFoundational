@@ -1,4 +1,4 @@
-package com.lxisoft.animalGame.forest;
+ package com.lxisoft.animalGame.forest;
 public class Deer extends Animal
 {
 	
