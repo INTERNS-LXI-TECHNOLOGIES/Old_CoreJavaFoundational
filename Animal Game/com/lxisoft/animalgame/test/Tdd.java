@@ -1,5 +1,6 @@
 package com.lxisoft.animalgame.test;
 import com.lxisoft.animalgame.forest.Forest;
+import java.io.*;
 public class Tdd{
 	public static void main(String[] args) throws IOException,InterruptedException{
 		Forest forest = new Forest();
