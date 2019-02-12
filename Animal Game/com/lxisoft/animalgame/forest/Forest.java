@@ -67,8 +67,10 @@ public class Forest{
 			
 	}
 	public void startFight() throws IOException,InterruptedException{
-		/*for(Animal test : animals){
+		for(Animal test : animals){
 			test.setSpeed((int)(Math.random()*6)+5);
+		}
+		/*for(Animal test : animals){
 			System.out.println(test.getName()+" "+test.getStrength()+" "+test.getLocationX()+" "+test.getLocationY()+" "+test.getSpeed());	
 		}
 		for(int i = 0;i<4;i++){
