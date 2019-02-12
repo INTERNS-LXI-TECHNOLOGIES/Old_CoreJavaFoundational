@@ -63,8 +63,7 @@ public class Forest{
 			for(int i=0;i<4;i++){
 				pitLocationX[i] = (int)(Math.random()*50);
 				pitLocationY[i] = (int)(Math.random()*50);
-			}
-			
+			}			
 	}
 	public void startFight() throws IOException,InterruptedException{
 		for(Animal test : animals){
@@ -94,67 +93,18 @@ public class Forest{
 		for(int i = 0 ;i<animals.size();i++){
 			int randomAnimal = (int)(Math.random()*animals.size());
 				if(Math.abs(animals.get(randomAnimal).getLocationX()-animals.get(i).getLocationX())<10 && Math.abs(animals.get(i).getLocationY()-animals.get(randomAnimal).getLocationY())<10){
-					if(animals.get(randomAnimal) instanceof Herbivore && animals.get(i) instanceof Herbivore){
-						herbivoreFight(animals.get(randomAnimal),animals.get(i));
+						Animal a = animals.get(randomAnimal).fight(animals.get(randomAnimal),animals.get(i));
+						if(a!=animals.get(randomAnimal).b){
+							animals.remove(a);
+						}
 					}
-					else if(animals.get(randomAnimal) instanceof Carnivore && animals.get(i) instanceof Carnivore){
-
-						carnivoreFight(animals.get(randomAnimal),animals.get(i));
-					}
-					else if(animals.get(randomAnimal) instanceof Carnivore && animals.get(i) instanceof Herbivore){
-						carnivoreHerbivoreFight(animals.get(randomAnimal),animals.get(i));
-					}
-					else if(animals.get(randomAnimal) instanceof Herbivore && animals.get(i) instanceof Carnivore){
-						carnivoreHerbivoreFight(animals.get(i),animals.get(randomAnimal));
-					}
-					else if(animals.get(randomAnimal) instanceof Omnivore && animals.get(i) instanceof Carnivore){
-						carnivoreOmnivoreFight(animals.get(i),animals.get(randomAnimal));
-					}
-					else if(animals.get(randomAnimal) instanceof Carnivore && animals.get(i) instanceof Omnivore){
-						carnivoreOmnivoreFight(animals.get(randomAnimal),animals.get(i));
-					}
-					else if(animals.get(randomAnimal) instanceof Omnivore && animals.get(i) instanceof Herbivore){
-						herbivoreOmnivoreFight(animals.get(i),animals.get(randomAnimal)); 
-					}
-					else if(animals.get(randomAnimal) instanceof Herbivore && animals.get(i) instanceof Omnivore){
-						herbivoreOmnivoreFight(animals.get(randomAnimal),animals.get(i));
-					} 
 				}
-			}
-		if(area>5){
-		area = area - 5;
-		}
 		locationSetter();
 		Thread.sleep(1000);
 		new ProcessBuilder("cmd ","/c"," cls").inheritIO().start().waitFor();
 	}
-	public void locationSetter(Animal animal){
-		int oldX;
-		int newX;
-		int oldY;
-		int newY;
-		if(animal.getLocationX()<25){
 
-			oldX = animal.getLocationX();
-			newX = animal.getLocationX()+animal.getSpeed();
-			animal.setLocationX(newX);
-		}
-		else{
-			oldX = animal.getLocationX();
-			newX = animal.getLocationX()-animal.getSpeed();
-			animal.setLocationX(newX);
-		}
-		if(animal.getLocationY()<25){
-			oldY = animal.getLocationY();
-			newY = animal.getLocationY()+animal.getSpeed();
-			animal.setLocationY(newY);
-		}
-		else{
-			oldY = animal.getLocationY();
-			newY = animal.getLocationY()-animal.getSpeed();
-			animal.setLocationY(newY);
-		}
-	}
+	
 	public void locationSetter(){
 		int oldX;
 		int newX;
@@ -193,186 +143,7 @@ public class Forest{
 				}
 			}
 	}
-	public void herbivoreFight(Animal animalOne,Animal animalTwo){
-		
-		if(animalOne != animalTwo)
-		if(animalOne.getSpeed()<3){
-			System.out.println(animalOne.getName()+" Died In Fire");
-			animals.remove(animalOne);
-		}
-		else if(animalTwo.getSpeed()<3){
-			System.out.println(animalTwo.getName()+" Died In Fire");
-			animals.remove(animalTwo);
-		}
-		else{
-			System.out.println(animalOne.getName()+" And "+animalTwo.getName()+" Won't Fight");
-		}
-		locationSetter();				
-	}
-	public void carnivoreFight(Animal animalOne,Animal animalTwo){
-		int a=1;
-		if(animalOne != animalTwo)
-			if(animalOne.getStrength()>animalTwo.getStrength()){
-				do{
-					locationSetter(animalOne);
-					locationSetter(animalTwo);
-					a++;
-				}while(a==5);
-				if(animalOne.getLocationX()>=animalTwo.getLocationX()&&animalOne.getLocationY()>=animalTwo.getLocationY()){
-				System.out.println(animalOne.getName()+((Carnivore)animalOne).kills(animalTwo.getName()));
-				//System.out.println(animalOne.sound());
-				animalOne.setLocationX(animalTwo.getLocationX());
-				animalOne.setLocationY(animalTwo.getLocationY());
-				animals.remove(animalTwo);
-				animalOne.setStrength(animalOne.getStrength()-5);
-				animalOne.setHunger(animalOne.getHunger()+5);
-				}
-				else{
-					System.out.println(animalTwo.getName()+" Run Away From "+animalOne.getName());
-					locationSetter(animalOne);
-					locationSetter(animalTwo);
-				}
-			}
-			else{
-				do{
-					locationSetter(animalOne);
-					locationSetter(animalTwo);
-					a++;
-				}while(a==5);
-				if(animalOne.getLocationX()>=animalTwo.getLocationX()&&animalOne.getLocationY()>=animalTwo.getLocationY()){
-				System.out.println(animalOne.getName()+((Carnivore)animalOne).kills(animalTwo.getName()));
-				System.out.println(animalTwo.getName()+((Carnivore)animalTwo).kills(animalOne.getName()));
-				//System.out.println(animalTwo.sound());
-				animalTwo.setLocationX(animalOne.getLocationX());
-				animalTwo.setLocationY(animalOne.getLocationY());
-				animals.remove(animalOne);
-				animalTwo.setStrength(animalTwo.getStrength()-5);
-				animalTwo.setHunger(animalTwo.getHunger()+5);
-				}
-				else{
-					System.out.println(animalOne.getName()+" Run Away From "+animalTwo.getName());
-					locationSetter(animalOne);
-					locationSetter(animalTwo);
-				}
-			}
-			//locationSetter();
-
-	}
-	public void carnivoreHerbivoreFight(Animal animalOne,Animal animalTwo){
-		int a=1;
-		if(((Herbivore)animalTwo).luck()>75 ){
-			System.out.println(animalTwo.getName()+" Escaped From "+animalOne.getName());
-			}
-		//else if(animalTwo.getSpeed()>animalOne.getSpeed()){
-		do{
-			locationSetter(animalOne);
-			locationSetter(animalTwo);
-			a++;
-		}while(a==5);
-		if(animalOne.getLocationX()>=animalTwo.getLocationX()&&animalOne.getLocationY()>=animalTwo.getLocationY()){
-			//System.out.println(animalTwo.getName()+" Run Away From "+animalOne.getName());
-			if(animalOne.getHunger()>50){
-				System.out.println(animalOne.getName()+animalOne.eat(animalTwo.getName()));
-				//System.out.println(animalOne.sound());
-				animalOne.setLocationX(animalTwo.getLocationX());
-				animalOne.setLocationY(animalTwo.getLocationY());
-				animals.remove(animalTwo);
-				animalOne.setStrength(animalOne.getStrength()+5);
-				animalOne.setHunger(animalOne.getHunger()-5);
-			}
-			else{
-				System.out.println(animalOne.getName()+((Carnivore)animalOne).kills(animalTwo.getName()));
-				//System.out.println(animalOne.sound());
-				animalOne.setLocationX(animalTwo.getLocationX());
-				animalOne.setLocationY(animalTwo.getLocationY());
-				animals.remove(animalTwo);
-				animalOne.setStrength(animalOne.getStrength()-5);
-				animalOne.setHunger(animalOne.getHunger()+5);
-				}
-			}
-		else{
-			System.out.println(animalTwo.getName()+" Run Away From "+animalOne.getName());
-			locationSetter(animalOne);
-			locationSetter(animalTwo);
-			}
-		//locationSetter();
-	}
-	public void carnivoreOmnivoreFight(Animal animalOne,Animal animalTwo){
-		int a=1;
-		if(animalOne.getStrength()>90){
-			do{
-			locationSetter(animalOne);
-			locationSetter(animalTwo);
-			a++;
-		}while(a==5);
-		if(animalOne.getLocationX()>=animalTwo.getLocationX()&&animalOne.getLocationY()>=animalTwo.getLocationY()){
-			System.out.println(animalOne.getName()+((Carnivore)animalOne).kills(animalTwo.getName()));
-			//System.out.println(animalOne.sound());
-			animalOne.setLocationX(animalTwo.getLocationX());
-			animalOne.setLocationY(animalTwo.getLocationY());
-			animals.remove(animalTwo);
-			animalOne.setStrength(animalOne.getStrength()-5);
-			animalOne.setHunger(animalOne.getHunger()+5);
-		}
-		else{
-			System.out.println(animalTwo.getName()+" Run Away From "+animalOne.getName());
-			locationSetter(animalOne);
-			locationSetter(animalTwo);
-		}
-		}
-		else if(((Hunter)animalTwo).getBullets()!= 0){
-			System.out.println(animalTwo.getName()+((Omnivore)animalTwo).hunt(animalOne.getName()));
-			((Hunter)animalTwo).setBullets(((Hunter)animalTwo).getBullets()-1);
-			//System.out.println(animalTwo.sound());
-			animalTwo.setLocationX(animalOne.getLocationX());
-			animalTwo.setLocationY(animalOne.getLocationY());
-			animals.remove(animalOne);
-		}
-		else if(((Hunter)animalTwo).getBullets()== 0){
-			if(((Omnivore)animalTwo).luck()>80){
-				System.out.println(animalTwo.getName()+" Escaped From "+animalOne.getName());
-			}
-				do{
-					locationSetter(animalOne);
-					locationSetter(animalTwo);
-					a++;
-				}while(a==5);
-				if(animalOne.getLocationX()>=animalTwo.getLocationX()&&animalOne.getLocationY()>=animalTwo.getLocationY()){
-				System.out.println(animalOne.getName()+((Carnivore)animalOne).kills(animalTwo.getName()));
-				//System.out.println(animalOne.sound());
-				animalOne.setLocationX(animalTwo.getLocationX());
-				animalOne.setLocationY(animalTwo.getLocationY());
-				animals.remove(animalTwo);
-				animalOne.setStrength(animalOne.getStrength()-5);
-				animalOne.setHunger(animalOne.getHunger()+5);
-			}
-		}
-		else{
-			System.out.println(animalTwo.getName()+" Run Away From "+animalOne.getName());
-			locationSetter(animalOne);
-			locationSetter(animalTwo);
-		}
-
-	}
-		//locationSetter();
-	public void herbivoreOmnivoreFight(Animal animalOne,Animal animalTwo){
-		
-		if(((Herbivore)animalOne).luck()>75 ){
-			System.out.println(animalOne.getName()+" Escaped From "+animalTwo.getName());
-		}
-		else if(((Hunter)animalTwo).getBullets()!= 0){
-			System.out.println(animalTwo.getName()+((Omnivore)animalTwo).hunt(animalOne.getName()));
-			((Hunter)animalTwo).setBullets(((Hunter)animalTwo).getBullets()-1);
-			//System.out.println(animalTwo.sound());
-			animalTwo.setLocationX(animalOne.getLocationX());
-			animalTwo.setLocationY(animalOne.getLocationY());
-			animals.remove(animalOne);
-		}
-		else if(((Hunter)animalTwo).getBullets()== 0){
-			System.out.println(animalTwo.getName()+" Leaves "+animalOne.getName());
-		}
-		//locationSetter();
-	}
+	
 	public void winner(){
 		for(Animal test : animals){
 		System.out.println("\n"+"*****"+test.getName()+" Wins*****");
