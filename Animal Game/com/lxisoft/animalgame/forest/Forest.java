@@ -6,7 +6,6 @@ import com.lxisoft.animalgame.animal.omnivore.*;
 import java.util.ArrayList;
 import java.io.*;
 public class Forest{
-	private int area = 40;
 	String[][] grid = new String[40][40];
 	private ArrayList<Animal> animals;
 	private Hunter hunter;
@@ -55,26 +54,20 @@ public class Forest{
 			hunter.setName("Hunter");
 			hunter.setSpeed(4);
 			for(Animal test : animals){
-				test.setLocationX((int)(Math.random()*area));
-				test.setLocationY((int)(Math.random()*area));
+				test.setLocationX((int)(Math.random()*40));
+				test.setLocationY((int)(Math.random()*40));
 				
 				
 			}
 			for(int i=0;i<4;i++){
-				pitLocationX[i] = (int)(Math.random()*50);
-				pitLocationY[i] = (int)(Math.random()*50);
+				pitLocationX[i] = (int)(Math.random()*40);
+				pitLocationY[i] = (int)(Math.random()*40);
 			}
 	}
 	public void startFight() throws IOException,InterruptedException{
 		for(Animal test : animals){
 			test.setSpeed((int)(Math.random()*6)+5);
 		}
-		/*for(Animal test : animals){
-			System.out.println(test.getName()+" "+test.getStrength()+" "+test.getLocationX()+" "+test.getLocationY()+" "+test.getSpeed());	
-		}
-		for(int i = 0;i<4;i++){
-			System.out.println(pitLocationX[i]+" "+pitLocationY[i]);	
-		}*/
 		for(Animal test : animals){
 		grid[test.getLocationX()][test.getLocationY()] = test.getName();
 		}
@@ -103,8 +96,6 @@ public class Forest{
 		Thread.sleep(1000);
 		new ProcessBuilder("cmd ","/c"," cls").inheritIO().start().waitFor();
 	}
-
-	
 	public void locationSetter(){
 		int oldX;
 		int newX;

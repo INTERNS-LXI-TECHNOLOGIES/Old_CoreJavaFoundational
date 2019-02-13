@@ -79,7 +79,7 @@ public abstract class Animal{
 		Animal b = null;
 		int a=1;
 		if(animalOne instanceof Herbivore && animalTwo instanceof Herbivore){
-			if(animalOne != animalTwo)
+		if(animalOne != animalTwo)
 			if(animalOne.speed<3){
 			System.out.println(animalOne.name+" Died In Fire");
 			return animalOne;
@@ -103,10 +103,8 @@ public abstract class Animal{
 				if(animalOne.locationX>=animalTwo.locationX&&animalOne.locationY>=animalTwo.locationY){
 				System.out.println(animalOne.name+((Carnivore)animalOne).kills(animalTwo.name));
 				//System.out.println(animalOne.sound());
-				animalOne.locationX = animalTwo.locationX;
-				animalOne.locationY = animalTwo.locationY;
-				animalOne.strength = animalOne.strength-5;
-				animalOne.hunger = animalOne.hunger+5;
+				locationChanger(animalOne,animalTwo);
+				strengthChanger(animalOne);
 				return animalTwo;
 				}
 				else{
@@ -124,10 +122,8 @@ public abstract class Animal{
 				if(animalOne.locationX>=animalTwo.locationX&&animalOne.locationY>=animalTwo.locationY){
 				System.out.println(animalOne.name+((Carnivore)animalOne).kills(animalTwo.name));
 				//System.out.println(animalTwo.sound());
-				animalTwo.locationX = animalOne.locationX;
-				animalTwo.locationY = animalOne.locationY;
-				animalTwo.strength = animalTwo.strength-5;
-				animalTwo.hunger = animalTwo.hunger+5;
+				locationChanger(animalTwo,animalOne);
+				strengthChanger(animalTwo);
 				return animalOne;
 				}
 				else{
@@ -136,36 +132,34 @@ public abstract class Animal{
 					locationSetter(animalTwo);
 				}
 			}
-			return b;
 		}
-		else if(animalOne instanceof Carnivore && animalTwo instanceof Herbivore){
+		else if((animalOne instanceof Carnivore && animalTwo instanceof Herbivore)||(animalOne instanceof Herbivore && animalTwo instanceof Carnivore)){
+			if(animalOne instanceof Herbivore && animalTwo instanceof Carnivore){
+				Animal temp = animalOne;
+				animalOne = animalTwo;
+				animalTwo = temp;
+			}
 			if(((Herbivore)animalTwo).luck()>75 ){
 			System.out.println(animalTwo.name+" Escaped From "+animalOne.name);
 			}
-		//else if(animalTwo.getSpeed()>animalOne.getSpeed()){
 		do{
 			locationSetter(animalOne);
 			locationSetter(animalTwo);
 			a++;
 		}while(a==5);
 		if(animalOne.locationX>=animalTwo.locationX&&animalOne.locationY>=animalTwo.locationY){
-			//System.out.println(animalTwo.getName()+" Run Away From "+animalOne.getName());
 			if(animalOne.hunger>50){
 				System.out.println(animalOne.name+animalOne.eat(animalTwo.name));
 				//System.out.println(animalOne.sound());
-				animalOne.locationX = animalTwo.locationX;
-				animalOne.locationY = animalTwo.locationY;
-				animalOne.strength = animalOne.strength+5;
-				animalOne.hunger = animalOne.hunger-5;
+				locationChanger(animalOne,animalTwo);
+				strengthChanger(animalOne);
 				return animalTwo;
 			}
 			else{
 				System.out.println(animalOne.name+((Carnivore)animalOne).kills(animalTwo.name));
 				//System.out.println(animalOne.sound());
-				animalOne.locationX = animalTwo.locationX;
-				animalOne.locationY = animalTwo.locationY;
-				animalOne.strength = animalOne.strength-5;
-				animalOne.hunger = animalOne.hunger+5;
+				locationChanger(animalOne,animalTwo);
+				strengthChanger(animalOne);
 				return animalTwo;
 				}
 			}
@@ -174,47 +168,13 @@ public abstract class Animal{
 			locationSetter(animalOne);
 			locationSetter(animalTwo);
 			}
-			return b;
 		}
-		else if(animalOne instanceof Herbivore && animalTwo instanceof Carnivore){
-			if(((Herbivore)animalOne).luck()>75 ){
-			System.out.println(animalOne.name+" Escaped From "+animalTwo.name);
+		else if((animalTwo instanceof Omnivore && animalOne instanceof Carnivore)||(animalTwo instanceof Carnivore && animalOne instanceof Omnivore)){
+			if(animalTwo instanceof Carnivore && animalOne instanceof Omnivore){
+				Animal temp = animalOne;
+				animalOne = animalTwo;
+				animalTwo = temp;
 			}
-		//else if(animalTwo.getSpeed()>animalOne.getSpeed()){
-		do{
-			locationSetter(animalTwo);
-			locationSetter(animalOne);
-			a++;
-		}while(a==5);
-		if(animalTwo.locationX>=animalOne.locationX&&animalTwo.locationY>=animalOne.locationY){
-			//System.out.println(animalTwo.getName()+" Run Away From "+animalOne.getName());
-			if(animalTwo.hunger>50){
-				System.out.println(animalTwo.name+animalTwo.eat(animalOne.name));
-				//System.out.println(animalOne.sound());
-				animalTwo.locationX = animalOne.locationX;
-				animalTwo.locationY = animalOne.locationY;
-				animalTwo.strength = animalTwo.strength+5;
-				animalTwo.hunger = animalTwo.hunger-5;
-				return animalOne;
-			}
-			else{
-				System.out.println(animalTwo.name+((Carnivore)animalTwo).kills(animalOne.name));
-				//System.out.println(animalOne.sound());
-				animalTwo.locationX = animalOne.locationX;
-				animalTwo.locationY = animalOne.locationY;
-				animalTwo.strength = animalTwo.strength+5;
-				animalTwo.hunger = animalTwo.hunger-5;
-				return animalOne;
-				}
-			}
-		else{
-			System.out.println(animalOne.name+" Run Away From "+animalTwo.name);
-			locationSetter(animalOne);
-			locationSetter(animalTwo);
-			}
-			return b;
-		}
-		else if(animalTwo instanceof Omnivore && animalOne instanceof Carnivore){
 			if(animalOne.strength>90){
 			do{
 			locationSetter(animalOne);
@@ -224,10 +184,8 @@ public abstract class Animal{
 		if(animalOne.locationX>=animalTwo.locationX&&animalOne.locationY>=animalTwo.locationY){
 			System.out.println(animalOne.name+((Carnivore)animalOne).kills(animalTwo.name));
 			//System.out.println(animalOne.sound());
-			animalOne.locationX = animalTwo.locationX;
-			animalOne.locationY = animalTwo.locationY;
-			animalOne.strength = animalOne.strength-5;
-			animalOne.hunger = animalOne.hunger+5;
+			locationChanger(animalTwo,animalOne);
+			strengthChanger(animalTwo);
 			return animalTwo;
 		}
 		else{
@@ -240,8 +198,7 @@ public abstract class Animal{
 			System.out.println(animalTwo.name+((Omnivore)animalTwo).hunt(animalOne.name));
 			((Hunter)animalTwo).setBullets(((Hunter)animalTwo).getBullets()-1);
 			//System.out.println(animalTwo.sound());
-			animalTwo.locationX = animalOne.locationX;
-			animalTwo.locationY = animalOne.locationY;
+			locationChanger(animalTwo,animalOne);
 			return animalOne;
 		}
 		else if(((Hunter)animalTwo).getBullets()== 0){
@@ -256,10 +213,8 @@ public abstract class Animal{
 				if(animalOne.locationX>=animalTwo.locationX&&animalOne.locationY>=animalTwo.locationY){
 				System.out.println(animalOne.name+((Carnivore)animalOne).kills(animalTwo.name));
 				//System.out.println(animalOne.sound());
-				animalOne.locationX = animalTwo.locationX;
-				animalOne.locationY = animalTwo.locationY;
-				animalOne.strength = animalOne.strength-5;
-				animalOne.hunger = animalOne.hunger+5;
+				locationChanger(animalOne,animalTwo);
+				strengthChanger(animalOne);
 				return animalTwo;
 			}
 		}
@@ -268,66 +223,13 @@ public abstract class Animal{
 			locationSetter(animalOne);
 			locationSetter(animalTwo);
 		}
-		return b;
-
 		}
-		else if(animalTwo instanceof Carnivore && animalOne instanceof Omnivore){
-			if(animalTwo.strength>90){
-			do{
-			locationSetter(animalTwo);
-			locationSetter(animalOne);
-			a++;
-		}while(a==5);
-		if(animalTwo.locationX>=animalOne.locationX&&animalTwo.locationY>=animalOne.locationY){
-			System.out.println(animalTwo.name+((Carnivore)animalTwo).kills(animalOne.name));
-			//System.out.println(animalOne.sound());
-			animalTwo.locationX = animalOne.locationX;
-			animalTwo.locationY = animalOne.locationY;
-			animalTwo.strength = animalTwo.strength+5;
-			animalTwo.hunger = animalTwo.hunger-5;
-			return animalOne;
-		}
-		else{
-			System.out.println(animalOne.name+" Run Away From "+animalTwo.name);
-			locationSetter(animalOne);
-			locationSetter(animalTwo);
-		}
-		}
-		else if(((Hunter)animalOne).getBullets()!= 0){
-			System.out.println(animalOne.name+((Omnivore)animalOne).hunt(animalTwo.name));
-			((Hunter)animalOne).setBullets(((Hunter)animalOne).getBullets()-1);
-			//System.out.println(animalTwo.sound());
-			animalOne.locationX = animalTwo.locationX;
-			animalOne.locationY = animalTwo.locationY;
-			return animalTwo;
-		}
-		else if(((Hunter)animalOne).getBullets()== 0){
-			if(((Omnivore)animalOne).luck()>80){
-				System.out.println(animalOne.name+" Escaped From "+animalTwo.name);
+		else if((animalTwo instanceof Omnivore && animalOne instanceof Herbivore)||(animalTwo instanceof Herbivore && animalOne instanceof Omnivore)){
+			if(animalTwo instanceof Herbivore && animalOne instanceof Omnivore){
+				Animal temp = animalOne;
+				animalOne = animalTwo;
+				animalTwo = temp;
 			}
-				do{
-					locationSetter(animalOne);
-					locationSetter(animalTwo);
-					a++;
-				}while(a==5);
-				if(animalTwo.locationX>=animalOne.locationX&&animalTwo.locationY>=animalOne.locationY){
-				System.out.println(animalTwo.name+((Carnivore)animalTwo).kills(animalOne.name));
-				//System.out.println(animalOne.sound());
-				animalTwo.locationX = animalOne.locationX;
-				animalTwo.locationY = animalOne.locationY;
-				animalTwo.strength = animalTwo.strength+5;
-				animalTwo.hunger = animalTwo.hunger-5;
-				return animalOne;
-			}
-		}
-		else{
-			System.out.println(animalOne.name+" Run Away From "+animalTwo.name);
-			locationSetter(animalTwo);
-			locationSetter(animalOne);
-		}
-		return b;
-		}
-		else if(animalTwo instanceof Omnivore && animalOne instanceof Herbivore){
 			if(((Herbivore)animalOne).luck()>75 ){
 			System.out.println(animalOne.name+" Escaped From "+animalTwo.name);
 		}
@@ -335,35 +237,22 @@ public abstract class Animal{
 			System.out.println(animalTwo.name+((Omnivore)animalTwo).hunt(animalOne.name));
 			((Hunter)animalTwo).setBullets(((Hunter)animalTwo).getBullets()-1);
 			//System.out.println(animalTwo.sound());
-			animalTwo.locationX = animalOne.locationX;
-			animalTwo.locationY = animalOne.locationY;
+			locationChanger(animalTwo,animalOne);
 			return animalOne;
 		}
 		else if(((Hunter)animalTwo).getBullets()== 0){
 			System.out.println(animalTwo.name+" Leaves "+animalOne.name);
 			
 		}
-		//locationSetter();
-		return b;
-		}
-		else if(animalTwo instanceof Herbivore && animalOne instanceof Omnivore){
-			if(((Herbivore)animalTwo).luck()>75 ){
-			System.out.println(animalTwo.name+" Escaped From "+animalOne.name);
-		}
-		else if(((Hunter)animalOne).getBullets()!= 0){
-			System.out.println(animalOne.name+((Omnivore)animalOne).hunt(animalTwo.name));
-			((Hunter)animalOne).setBullets(((Hunter)animalOne).getBullets()-1);
-			//System.out.println(animalTwo.sound());
-			animalOne.locationX = animalTwo.locationX;
-			animalOne.locationY = animalTwo.locationY;
-			return animalTwo;
-		}
-		else if(((Hunter)animalOne).getBullets()== 0){
-			System.out.println(animalTwo.name+" Leaves "+animalOne.name);
-			
-		}
-		//locationSetter();
 		}
 		return b;
+	}
+	public void strengthChanger(Animal animal){
+		animal.strength = animal.strength+5;
+		animal.hunger = animal.hunger-5;
+	}
+	public void locationChanger(Animal animalOne,Animal animalTwo){
+		animalOne.locationX = animalTwo.locationX;
+		animalOne.locationY = animalTwo.locationY;
 	}
 }
