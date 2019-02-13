@@ -2,10 +2,11 @@ package com.lxisoft.animal;
 public class Animal
 {
 	private String name;
-	private int strength;
+	private int strength; 
+	/*
 	private int hungryLevel;
 	private int locationX;
-	private int locationY;
+	private int locationY;*/
 	
 	public void setName(String name)
 	{
@@ -24,7 +25,7 @@ public class Animal
 	{
 		return strength;
 	}
-	
+	/*
 	public void setHungryLevel(int hungryLevel)
 	{
 		this.hungryLevel=hungryLevel;
@@ -33,6 +34,12 @@ public class Animal
 	{
 		return hungryLevel;
 	} 
+	public int strength()
+	{
+		setStrength((int)(Math.random()*100));
+		return getStrength();
+	}
+	
 	
 	public void setLocationX(int locationX)
 	{
@@ -52,13 +59,7 @@ public class Animal
 		return locationY;
 	}
 	
-	public int strength()
-	{
-		setStrength((int)(Math.random()*100));
-		return getStrength();
-	}
-	
-    public int locationX()
+	 public int locationX()
 	{
 		setLocationX((int)(Math.random()*50));
 		return getLocationX();
@@ -68,5 +69,6 @@ public class Animal
 	{
 		setLocationY((int)(Math.random()*50));
 		return getLocationY();
-	}
+	}*/
+    
 }

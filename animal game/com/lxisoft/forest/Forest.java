@@ -1,62 +1,101 @@
 package com.lxisoft.forest;
 import com.lxisoft.animal.*;
-import java.util.ArrayList;
+import java.util.*;
 public class Forest
 {
+private List<Animal>animals;
 
-ArrayList<Animal> animals=new ArrayList<Animal>();
+public void setAnimals(List<Animal> animals)
+{
+	this.animals=animals;
+}
+public List<Animal> getAnimals()
+{
+	return animals;
+}
 
+public void animalDetails()
+{
+	System.out.println("ANIMALS");
+	System.out.println("-------");
+	for(Animal a:animals)
+	{
+	
+	System.out.println(a.getName()+" Strength="+a.getStrength());
+	
+}
+}
+
+/*ArrayList<Animal> animals=new ArrayList<Animal>();*/
+/*
+public void setAnimals(List<Animal> animals)
+{
+	this.animals=animals;
+}
+public List<Animal> getAnimals()
+{
+	return animals;
+}*/
+
+/*
 public void setAnimalDetails()
 {
 for(int i=0;i<3;i++)
 {
 	animals.add(new Tiger());
 	animals.get(i).setName("Tiger"+(i+1));
+	animals.get(i).setStrength(100);
 }
 
 for(int i=3;i<6;i++)
 {
 	animals.add(new Lion());
 	animals.get(i).setName("Lion"+(i-2));
+	animals.get(i).setStrength(105);
 }
 
 for(int i=6;i<9;i++)
 {
 	animals.add(new Rabbit());
 	animals.get(i).setName("Rabbit"+(i-5));
+	animals.get(i).setStrength(50);
 }
 
 for(int i=9;i<12;i++)
 {
 	animals.add(new Deer());
 	animals.get(i).setName("Deer"+(i-8));
+	animals.get(i).setStrength(80);
 }
-System.out.println("AVAILABLE ANIMALS");
-System.out.println("_________________");
+System.out.println("AVAILABLE ANIMALS & STRENGTH LEVELS");
+System.out.println("___________________________________");
 
 for(int i=0;i<3;i++)
 {
-	System.out.println(animals.get(i).getName());
+	System.out.println(animals.get(i).getName()+" Strength="+animals.get(i).getStrength());
 }
 
 for(int i=3;i<6;i++)
 {
-	System.out.println(animals.get(i).getName());
+	System.out.println(animals.get(i).getName()+" Strength="+animals.get(i).getStrength());
 }
 
 for(int i=6;i<9;i++)
 {
-System.out.println(animals.get(i).getName());
+System.out.println(animals.get(i).getName()+" Strength="+animals.get(i).getStrength());
 }	
 
 for(int i=9;i<12;i++)
 {
-System.out.println(animals.get(i).getName());
+System.out.println(animals.get(i).getName()+" Strength="+animals.get(i).getStrength());
 }
 
 System.out.println("   ");
 }
-public void fight()
+*/
+
+/*
+ public void fight()
 {
 System.out.println("AVAILABLE ANIMALS WHO IS READY TO FIGHT AND THEIR STRENGTH LEVELS");
 System.out.println("_________________________________________________________________");
@@ -81,8 +120,7 @@ int locationY2=animals.get(random2).locationY();
 int d1=Math.abs(locationX1-locationX2);
 int d2=Math.abs(locationY1-locationY2);
 	
-		
-	if(animals.get(random1).getName()!=animals.get(random2).getName())
+		if(animals.get(random1).getName()!=animals.get(random2).getName())
 	{
 	if(d1<=10 && d2<=10)
       {
@@ -119,12 +157,13 @@ System.out.println("  ");
 System.out.println("ALIVE ANIMALS");
 System.out.println("_____________");
 for(Animal a:animals)
-{
+	{
 	
 	System.out.println(a.getName());
 	
 }
 
 
+}*/
+
 }
-}	
