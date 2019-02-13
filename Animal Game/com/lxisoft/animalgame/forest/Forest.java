@@ -63,7 +63,7 @@ public class Forest{
 			for(int i=0;i<4;i++){
 				pitLocationX[i] = (int)(Math.random()*50);
 				pitLocationY[i] = (int)(Math.random()*50);
-			}			
+			}
 	}
 	public void startFight() throws IOException,InterruptedException{
 		for(Animal test : animals){
@@ -94,7 +94,7 @@ public class Forest{
 			int randomAnimal = (int)(Math.random()*animals.size());
 				if(Math.abs(animals.get(randomAnimal).getLocationX()-animals.get(i).getLocationX())<10 && Math.abs(animals.get(i).getLocationY()-animals.get(randomAnimal).getLocationY())<10){
 						Animal a = animals.get(randomAnimal).fight(animals.get(randomAnimal),animals.get(i));
-						if(a!=animals.get(randomAnimal).b){
+						if(a!= null){
 							animals.remove(a);
 						}
 					}
