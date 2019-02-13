@@ -1,4 +1,5 @@
  package com.lxisoft.animalGame.forest;
+
 public class Deer extends Animal implements Herbivorous
 {
 	public void eat()

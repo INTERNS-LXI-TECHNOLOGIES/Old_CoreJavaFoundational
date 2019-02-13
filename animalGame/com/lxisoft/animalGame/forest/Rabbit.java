@@ -1,4 +1,5 @@
 package com.lxisoft.animalGame.forest;
+
 public class Rabbit extends Animal implements Herbivorous
 {
    public void eat()
@@ -18,4 +19,7 @@ public class Rabbit extends Animal implements Herbivorous
 		  System.out.println("rabbit traped");
 	  }		  
    }   
+
+	
+
 }
