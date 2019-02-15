@@ -1,8 +1,8 @@
 package com.lxisoft.hotel;
-public class Cashear
+public class Cashier
 {
    public void printDetails()
    {
-	   //System.out.println("..");
+	   System.out.println("");
    }
 }
