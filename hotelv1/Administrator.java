@@ -27,11 +27,12 @@ public class Administrator
 		password="admin";
 	}
 	public void addFoods()
+	{	
+		System.out.println("Enter the food details");	
+	}
+	public void deleteFoods()
 	{
-		int noOfFood;
-		System.out.println("Enter the number of food items:");
-		//noOfFood=scan.next();
-		System.out.println("Enter the food details:");
+		System.out.print("which one you want to delete:");
 		
 	}
 }

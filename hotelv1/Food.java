@@ -2,8 +2,17 @@ package com.lxisoft.hotelv1;
 import java.util.Scanner;
 public class Food
 {
+	private int sNo;
 	private String foodName;
 	private int foodPrice;
+	public void setSNo(int sNo)
+	{
+		this.sNo=sNo;
+	}
+	public int getSNo()
+	{
+		return sNo;
+	}
 	public void setFoodName(String foodName)
 	{
 		this.foodName=foodName;
