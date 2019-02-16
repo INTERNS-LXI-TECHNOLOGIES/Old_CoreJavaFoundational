@@ -1,14 +1,31 @@
 package com.lxisoft.hotel.hotel;
 import com.lxisoft.hotel.hotel.Food;
 import com.lxisoft.hotel.hotel.Bill;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 public class Hotel{
+	public Hotel() throws Exception{
+		//ObjectInputStream foodDetails = new ObjectInputStream(new FileInputStream("FoodDetails.txt"));
+		BufferedReader foodDetails = new BufferedReader(new FileReader(new File("FoodDetails.txt")));
+			int c=0;
+			String a;
+			while((a=foodDetails.readLine()) != null){
+				foods.add(new Food());
+				String b[] = a.split(",");
+				foods.get(c).setName(b[0]);
+				foods.get(c).setPrice(Integer.parseInt(b[1]));
+				foods.get(c).setNos(Integer.parseInt(b[2]));
+				noOfFoodTypes++;
+				c++;
+			}
+	}
 	Scanner scan = new Scanner(System.in);
 	private ArrayList<Food> foods = new ArrayList<Food>();
 	private Bill bill;
 	private int noOfFoodTypes;
-	public void addFood(){
+	public void addFood() throws Exception{
+		BufferedWriter foodDetails = new BufferedWriter(new FileWriter(new File("FoodDetails.txt")));
+		//ObjectOutputStream foodDetails = new ObjectOutputStream(new FileOutputStream("FoodDetails.txt"));
 		int temp;
 		do{
 		foods.add(new Food());
@@ -22,12 +39,35 @@ public class Hotel{
 		temp = scan.nextInt();
 		noOfFoodTypes++;
 		}while(temp == 1);
+		for(Food food : foods){
+			String a = food.getName()+","+food.getPrice()+","+food.getNos()+"\n";
+			foodDetails.write(a);
+		}
+		foodDetails.close();
 	}
-	public void sellFood(){
+	public void editFood() throws Exception{
+		int no = 1;
+		int selectedFood;
+		System.out.println("	Available Foods");
+		for(Food food : foods){
+			System.out.printf("%-2s	%-12s	%-5s	%-4s\n",no,food.getName(),food.getPrice(),food.getNos());
+			no++;
+		}
+		System.out.print("Select Your Food To Edit : ");
+		selectedFood = scan.nextInt();
+		System.out.print("Food Name : ");
+		foods.get(selectedFood-1).setName(scan.next());
+		System.out.print("Food Price : ");
+		foods.get(selectedFood-1).setPrice(scan.nextInt());
+		System.out.print("Food Nos : ");
+		foods.get(selectedFood-1).setNos(scan.nextInt());
+	}
+	public void sellFood() throws Exception{
 		int no = 1;
 		int selectedFood;
 		int cont;
 		int nos;
+		BufferedReader foodDetails = new BufferedReader(new FileReader(new File("FoodDetails.txt")));
 		bill = new Bill();
 		do{
 		System.out.println("	Available Foods");
