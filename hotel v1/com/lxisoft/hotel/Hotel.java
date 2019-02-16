@@ -1,88 +1,94 @@
 package com.lxisoft.hotel;
-import com.lxisoft.hotel.Admin;
-import com.lxisoft.hotel.Food;
-import java.util.ArrayList;
+import com.lxisoft.hotel.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Hotel
 {
-Scanner scan=new Scanner(System.in);
-private Cashier cashier=new Cashier();
-private Admin admin=new Admin();
-private String name;
-private Worker workers=new Worker();
-private ArrayList<Food>food=new ArrayList();
-
-
-    public void setFood (ArrayList <Food> food)
-	{
-		this.food=food;
-	}
-	public ArrayList <Food> getFood()
-	{
-		return food;
-	}
-	
-	
-	
-	public void setName(String name)
-	{
-	   this.name=name;
-	}
-	public String getName()
-	{
-	   return name;
-	}
-	public void setAdmin(Admin admin)
-	{
-		this.admin=admin;
-	}
-	public Admin getAdmin()
-	{
-		return admin;
-	}
-	public void setCashear (Cashier cashier)
-	{
-		this.cashier=cashier;
-	}
-	public Cashier getCashier()
-	{
-		return cashier;
-	}
-	
-		   /*for(int i=0;i<3;i++)
-				{
-				  food.add(new pizza);
-				}
-				for(int j=3;j<6;j++)
-				{
-				 food.add(new burger());
-				}
-				for(int k=6;k<9;k++)
-				{
-					food.add(new alfam());
-				}*/
-
-	
-	
-	
-	
-	    public void selecting()
-		{
+	static Scanner scan=new Scanner(System.in);
+	private Cashier cashier=new Cashier();
+	private Worker workers=new Worker();
+	private Customer customers=new Customer();
+	private Admin admin=new Admin();
+	private String name;
+	private ArrayList<Food>food=new ArrayList();
+            public void setCashear (Cashier cashier)
+			{
+				this.cashier=cashier;
+			}
+			public Cashier getCashier()
+			{
+				return cashier;
+			}
 			
-				
-			//workers.selectingFood();
-		System.out.println("do you want admin or cashier\nadmin=1\ncashier=0");
-		int s=scan.nextInt();
+			
+
+            public void setWorkers (Worker workers)    
+			{
+				this.workers=workers;
+			}
+			public Worker getWorkers()
+			{
+				return workers;
+			}
+			
+
+           public void setCustomers(Customer customers)
+			{
+			   this.customers=customers;
+			}
+			public Customer getCoustemers()
+			{
+				return customers;
+			}
+			
+
+           public void setAdmin(Admin admin)
+			{
+				this.admin=admin;
+			}
+			public Admin getAdmin()
+			{
+				return admin;
+			}
+			
+
+		   public void setName(String name)
+			{
+			   this.name=name;
+			}
+			public String getName()
+			{
+			   return name;
+			}
+
+
+
+
+            public void setFood (ArrayList <Food> food)
+			{
+				this.food=food;
+			}
+			public ArrayList <Food> getFood()
+			{
+				return food;
+			}
+			
+			
+
+	
+	    public void authendication()
+		  {
+		    System.out.println("do you want admin or cashier\nadmin=1\ncashier=0");
+		    int s=scan.nextInt();
 			if(s==1)	
 			{
 				System.out.println("enter the admin password");
 				int i=scan.nextInt();
 				if(i==1234)
 				{
-					admin.addFood();
-					workers.selectingFood();
-					
+			        admin.inventoryOptions();
+					admin.printFoodDetails();
 				}
 				else 
 				{
@@ -96,7 +102,8 @@ private ArrayList<Food>food=new ArrayList();
 				int j=scan.nextInt();
 				if(j==7787)
 				{
-			       cashier.printDetails();
+			       cashier.printDetails( customers.getFood());
+				  
 				}
 				else
 				{
@@ -107,6 +114,5 @@ private ArrayList<Food>food=new ArrayList();
 			{
 				System.out.println("not fount");
 			}
-	
-}
+       }
 }

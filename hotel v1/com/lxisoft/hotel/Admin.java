@@ -3,22 +3,37 @@ import java.util.Scanner;
 public class Admin 
 {
 Scanner scan=new Scanner(System.in);
-
-	public void addFood()
+String [] availableFoods;
+int w;
+   public void inventoryOptions()
 	{
-		System.out.println("how many food add you want");
-		int numOfFood=scan.nextInt();
-		System.out.println("enter the available Food");
-		for(int w=0;w<numOfFood;w++)
+		System.out.println("CHOOSE\n 1)DELETE\n 2)EDITE\n 3)ADD");
+		int c=scan.nextInt();
+		if(c==3)
 		{
-		String availableFood=scan.next();
-		printFoodDetails(availableFood);
-		}
+			System.out.println("how many food add you want");
+			int numOfFood=scan.nextInt();
+			availableFoods=new  String [numOfFood];
+				
+			System.out.println("enter the available Food");
+			
+			for( w=0;w<numOfFood;w++)
+			{
+			  availableFoods[w]=scan.next();
+			}
+	    }
+	
 	}
-	public void printFoodDetails(String availableFood)
+	
+	public void printFoodDetails()
 	{
+		int numOfFood=availableFoods.length;
+		System.out.println(""+numOfFood);
 		System.out.println("AVILABLE FOOD");
-		System.out.println(availableFood);
+		for( w=0;w<numOfFood;w++)
+		{
+			System.out.println("food="+availableFoods[w]);
+		}
 	}
 		
 }
