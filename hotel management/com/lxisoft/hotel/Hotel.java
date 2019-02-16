@@ -1,10 +1,12 @@
 package com.lxisoft.hotel;
 import com.lxisoft.admin.*;
+import com.lxisoft.customer.*;
 import java.util.Scanner;
 public class Hotel
 {
 
 Admin admin=new Admin();
+Customer customer=new Customer();
 
 Scanner scan=new Scanner(System.in);
 
@@ -28,7 +30,7 @@ Scanner scan=new Scanner(System.in);
 			  {
 				  case 1:admin.adminLogin();
 				  break;
-				  case 2:System.out.println("Temperarly not reachable");
+				  case 2:customer.customerLogin();
 				  break;
 			      default:System.out.println("Invalid choice made...please try again...!!!");
 			
