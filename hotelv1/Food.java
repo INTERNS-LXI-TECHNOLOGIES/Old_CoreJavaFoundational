@@ -4,6 +4,7 @@ public class Food
 {
 	private int sNo;
 	private String foodName;
+	private int foodCount;
 	private int foodPrice;
 	public void setSNo(int sNo)
 	{
@@ -20,6 +21,14 @@ public class Food
 	public String getFoodName()
 	{
 		return foodName;
+	}
+	public void setFoodCount(int foodCount)
+	{
+		this.foodCount=foodCount;
+	}
+	public int getFoodCount()
+	{
+		return foodCount;
 	}
 	public void setFoodPrice(int foodPrice)
 	{

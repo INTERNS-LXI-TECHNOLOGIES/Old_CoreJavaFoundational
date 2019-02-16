@@ -25,4 +25,10 @@ public class Cashier
 		username="cashier";
 		password="user";
 	}
+	public void printBill()
+	{
+		System.out.println("\t\t\tFOOD PALACE\t\t\t");
+		System.out.println("SNo\t\tFood items\t\t Count\t\tPrice");
+		
+	}
 }

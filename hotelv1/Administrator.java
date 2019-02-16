@@ -26,9 +26,18 @@ public class Administrator
 		username="administ";
 		password="admin";
 	}
-	public void addFoods()
+	public Food addFood()
 	{	
-		System.out.println("Enter the food details");	
+	Food foods=new Food();
+			System.out.print("Serial no:");
+			foods.setSNo(scan.nextInt());
+			System.out.print("Food item:");
+			foods.setFoodName(scan.next());
+			System.out.print("Count:");
+			foods.setFoodCount(scan.nextInt());
+			System.out.print("Price:");
+			foods.setFoodPrice(scan.nextInt());
+			return foods;
 	}
 	public void deleteFoods()
 	{

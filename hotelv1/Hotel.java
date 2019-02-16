@@ -8,6 +8,7 @@ public class Hotel
 	private Cashier cashier;
 	private ArrayList <Food> foods;
 	private ArrayList <Customer> customers;
+	//private Bill bill;
 	public void setAdministrator(Administrator administrator)
 	{
 		this.administrator=administrator;
@@ -40,11 +41,20 @@ public class Hotel
 	{
 		return customers;
 	}
+	/*public void setBill(Bill bill)
+	{
+		this.bill=bill;
+	}
+	public Bill getBill()
+	{
+		return bill;
+	}*/
 	
 	public void hotelDetails()
 	{	
 	int noOfFood;
 	int noOfCustomers;
+	int con;
 	System.out.println("FOOD PALACE");
 	setAdministrator(new Administrator());
 	setCashier(new Cashier());
@@ -52,7 +62,9 @@ public class Hotel
 	switch(scan.nextInt())
 	{
 	case 1:
-	getAdministrator().adminDetails();	
+	getAdministrator().adminDetails();
+	do
+	{
 	System.out.print("Username :");
 	if(scan.next().equals(getAdministrator().getUsername()))
 	{
@@ -63,25 +75,19 @@ public class Hotel
 		switch(scan.nextInt())
 		{
 		case 1:	
-		getAdministrator().addFoods();
+		setFoods(new ArrayList <Food>());
+		System.out.println("Enter the food details");
 		System.out.print("Enter the number of food items:");
 		noOfFood=scan.nextInt();
 		System.out.println("   Food Details   ");
-		setFoods(new ArrayList <Food>());
 		for(int i=0;i<noOfFood;i++)
 		{
-			getFoods().add(new Food());
-			System.out.print("Food no:");
-			getFoods().get(i).setSNo(scan.nextInt());
-			System.out.print("Food item:");
-			getFoods().get(i).setFoodName(scan.next());
-			System.out.print("Price:");
-			getFoods().get(i).setFoodPrice(scan.nextInt());
+		getFoods().add(getAdministrator().addFood());
 		}
-		System.out.println("SNo    Food items     Price");
+		System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");
 		for(int i=0;i<noOfFood;i++)
 		{
-		System.out.print(getFoods().get(i).getFoodName()+"     "+getFoods().get(i).getFoodName()+"             "+getFoods().get(i).getFoodPrice()+"\n");
+		System.out.print(getFoods().get(i).getSNo()+"\t\t"+getFoods().get(i).getFoodName()+"\t\t\t\t"+getFoods().get(i).getFoodCount()+"\t\t\t\t"+getFoods().get(i).getFoodPrice()+"\n");
 		}
 		break;
 		case 2:
@@ -95,22 +101,28 @@ public class Hotel
 		}
 		}
 		break;*/
+		default:System.out.println("Wrong choice");
+		break;
 		}
 		}
 		else
 		{
-			System.out
-			.println("Password is incorrect");
+			System.out.println("Password is incorrect");
+			System.out.println("Do you want to continue press 1");
 		}
 	}
 	else
 	{
 		System.out.println("Username is incorrect");
+		System.out.println("Do you want to continue press 1");
 	}
-	//System.out.println("Do you want to continue press 1");
+	con=scan.nextInt();
+	}while(con==1);
 	break;
 	case 2:
 	getCashier().userDetails();
+	do
+	{
 	System.out.print("Username :");
 	if(scan.next().equals(getCashier().getUsername()))
 	{
@@ -122,25 +134,40 @@ public class Hotel
 		else
 		{
 			System.out.println("Password is incorrect");
+			System.out.println("Do you want to continue press 1");
 		}
 	}
 	else
 	{
 		System.out.println("Username is incorrect");
+		System.out.println("Do you want to continue press 1");
 	}
+	con=scan.nextInt();
+	}while(con==1);
 	break;
 	default:System.out.println("Wrong choice");
 	break;
 	}
-	/*setCustomers(new ArrayList <Customer>());
-	System.out.println("number of customers:");
-	noOfCustomers=scan.
+	System.out.print("number of customers:");
+	noOfCustomers=scan.nextInt();
+	setCustomers(new ArrayList <Customer>());
+	System.out.print("Which food you want:");
 	for(int j=0;j<noOfCustomers;j++)
 	{
 	getCustomers().add(new Customer());	
-	setCustomers().selectFood();*/
-	
-	
+	//getCustomers().get(j).selectFood();
+	}
+	/*for(int j=0;j<noOfCustomers;j++)
+	{
+		for(int i=0;i<noOfFood;i++)
+		{
+			if(getCustomers().get(j).selectFood()==getFoods().get(i).getFoodName())
+			{
+			cashier.printBill();
+			System.out.print(getFoods().get(i).getSNo()+"\t\t"+getFoods().get(i).getFoodName()+"\t\t\t\t"+getFoods().get(i).getFoodCount()+"\t\t\t\t"+getFoods().get(i).getFoodPrice()+"\n");
+			}
+		}
+	}*/
 	}
 	
 	

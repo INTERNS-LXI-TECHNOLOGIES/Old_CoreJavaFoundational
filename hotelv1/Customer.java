@@ -3,10 +3,9 @@ import java.util.Scanner;
 public class Customer
 {
 	Scanner scan=new Scanner(System.in);
-	public void selectFood()
+	public String selectFood(String food)
 	{
-		String food;
-		System.out.print("Which food you want:");
 		food=scan.next();
+		return food;
 	}
 }
