@@ -1,6 +1,7 @@
 package com.lxisoft.admin;
 import com.lxisoft.fooditem.*;
-import java.util.Scanner;
+/*import com.lxisoft.hotel;*/
+import java.util.*;
 public class Admin
 {
 
@@ -9,7 +10,9 @@ public class Admin
 	
 	Scanner scan= new Scanner(System.in);
 	
-	FoodItem item=new FoodItem();
+	/*Arraylist<foodItem> foodItems= new ArrayList<FoodItem>();*/
+	
+	FoodItem item;
 	
 	public void adminLogin()
 	{
@@ -34,9 +37,9 @@ public class Admin
 			  System.out.println("  ");
 			  System.out.println("1.ADD ITEM");
 			  System.out.println("2.VIEW FOOD MENU");
-			  System.out.println("2.VIEW ORDERS");
-			  System.out.println("3.CALULATE TOTALBILL");
-			  System.out.println("4.VIEW BILLS");
+			  System.out.println("3.VIEW ORDERS");
+			  System.out.println("4.CALULATE TOTALBILL");
+			  System.out.println("5.VIEW BILLS");
 			  System.out.println("  ");
 			  System.out.print("Enter your choice:");
 			  n=scan.nextInt();
@@ -49,20 +52,21 @@ public class Admin
 				  s=scan.nextInt();
 				  for(int i=0;i<s;i++)
 				  {*/
-				  item.addItem();
+				  addItem();
 				  
-				  System.out.println(" ");
 				  
-		          System.out.println("ITEM DETAILS");
+				  
+		         /* System.out.println("ITEM DETAILS");
 		          System.out.println("------------");
 				  
-				  item.viewItem();
+				  item.viewItem();*/
 				  
 				  
 				  break;
 				  case 2:/*System.out.println("FOOD MENU");
 		                 System.out.println("------------------------------------------------------------------");*/
 						 System.out.println("Temporarly not reachable....!!!");
+						/* item.viewItem();*/
 				  break;
 				  case 3:System.out.println("Temporarly not reachable....!!!");
 				  break;
@@ -70,10 +74,12 @@ public class Admin
 				  break;
 				  case 5:System.out.println("Temporarly not reachable....!!!");
 				  break;
-				  default:System.out.println("Invalid choice made...please try again...!!!");
+				  default:System.out.println("Invalid choice made..!!!");
 			
 			  }
-			}while(n>5);
+			  System.out.print("Do you want to continue...?Yes=1/No=0:");
+			  s=scan.nextInt();
+			}while(s==1);
 	
 	}
 	else if(u!=userName && p.equals(password))
@@ -89,6 +95,32 @@ public class Admin
 		System.out.println("Invalid username & password...Please try again...!!!");
 	}
 	}
+	
+	public void addItem()
+	{
+		
+		int m;
+		
+		ArrayList<FoodItem> items=new ArrayList<FoodItem>();
+		
+		System.out.print("No.of Items..?:");
+		m=scan.nextInt();
+		
+		for(int i=0;i<m;i++)
+		{
+			FoodItem item=new FoodItem();
+		System.out.print("FoodItem:");
+		item.setName(scan.next());
+		System.out.print("Price:");
+		item.setPrice(scan.nextInt());
+		items.add(item);
+		}
+	
+		System.out.println("Record saved.....");
+		
+		
+	}
+	
 	}
 	
 	

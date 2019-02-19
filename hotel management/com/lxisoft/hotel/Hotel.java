@@ -1,7 +1,8 @@
 package com.lxisoft.hotel;
 import com.lxisoft.admin.*;
 import com.lxisoft.customer.*;
-import java.util.Scanner;
+import com.lxisoft.fooditem.*;
+import java.util.*;
 public class Hotel
 {
 
@@ -9,6 +10,18 @@ Admin admin=new Admin();
 Customer customer=new Customer();
 
 Scanner scan=new Scanner(System.in);
+
+private ArrayList<FoodItem> items=new ArrayList<FoodItem>();
+
+public void setFoodItem(ArrayList<FoodItem> items)
+{
+	this.items=items;
+}
+
+public ArrayList<FoodItem> getFoodItem()
+{
+	return items;
+}
 
 	public void homePage()
 		{

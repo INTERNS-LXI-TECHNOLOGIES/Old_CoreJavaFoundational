@@ -24,23 +24,21 @@ public class FoodItem
 			{
 					return price;
 			}
-			
-	public void addItem()
-	{
-		
-		
-		
-		System.out.print("FoodItem:");
-		setName(scan.next());
-		System.out.print("Price:");
-		setPrice(scan.nextInt());
-		
-	}
 	
+	
+/*	
 	public void viewItem()
 	{
+		int i;
+		
+		System.out.println(" ");
+		System.out.println("ITEM DETAILS");
+		System.out.println("------------");
+		for(i=0;i<no_record;i++)
+		{
 		System.out.println("FoodItem:"+getName());
 		System.out.println("Price:"+getPrice()+".00 Rs");
-	}
+		}
+	}*/
 	
 }
