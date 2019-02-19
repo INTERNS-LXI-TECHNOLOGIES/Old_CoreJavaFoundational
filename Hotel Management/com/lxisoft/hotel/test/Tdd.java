@@ -26,6 +26,9 @@ public class Tdd{
 					case 2:
 					hotel.editFood();
 					break;
+					case 3:
+					hotel.deleteFood();
+					break;
 				}
 			}
 			else{

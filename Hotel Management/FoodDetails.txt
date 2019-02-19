@@ -1,3 +1,3 @@
-Idly,5,50
-Chappathi,10,50
-Dosa,10,50
+CBiriyani,110,10
+Idly,5,20
+MBiriyani,120,10
