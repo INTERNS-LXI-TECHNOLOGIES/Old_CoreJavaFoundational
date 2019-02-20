@@ -14,7 +14,7 @@ private String food;
    }
    
 
-		   public void choose()
+		   public void choosing()
 		   {
 			System.out.println("choose any food");
 			food=scan.next();	

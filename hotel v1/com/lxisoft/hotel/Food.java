@@ -26,8 +26,8 @@ public class Food
 	
 	public void foodDetails()
 	{
-	
-	
+	    
 	}
+	
 	
 }
