@@ -39,10 +39,25 @@ public class Administrator
 			foods.setFoodPrice(scan.nextInt());
 			return foods;
 	}
-	public void deleteFoods()
+	public int deleteFood()
 	{
+		//Food foods=new Food(); 
 		System.out.print("which one you want to delete:");
+		int n=scan.nextInt();
+		/*if((n)==(foods.getSNo()))
+		{
+			System.out.println("delete food");
+			
+		}*/
+		return n;
 		
+	}
+	public String editFood()
+	{
+		System.out.print("which one you want to edit:");
+		String edit=scan.next();
+			
+		return edit;
 	}
 }
 		
