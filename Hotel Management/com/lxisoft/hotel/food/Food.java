@@ -1,6 +1,6 @@
-package com.lxisoft.hotel.hotel;
+package com.lxisoft.hotel.food;
 import java.io.*;
-public class Food implements Serializable{
+public class Food{
 	private String name;
 	private int price;
 	private int nos;
