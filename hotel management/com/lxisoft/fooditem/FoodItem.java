@@ -26,19 +26,6 @@ public class FoodItem
 			}
 	
 	
-/*	
-	public void viewItem()
-	{
-		int i;
-		
-		System.out.println(" ");
-		System.out.println("ITEM DETAILS");
-		System.out.println("------------");
-		for(i=0;i<no_record;i++)
-		{
-		System.out.println("FoodItem:"+getName());
-		System.out.println("Price:"+getPrice()+".00 Rs");
-		}
-	}*/
+
 	
 }

@@ -1,33 +1,38 @@
 package com.lxisoft.admin;
 import com.lxisoft.fooditem.*;
-/*import com.lxisoft.hotel;*/
 import java.util.*;
 public class Admin
 {
 
-	String userName="admin";
-	String password="admin123";
+	private String userName="admin";
+	private String password="admin123";
+	
+	public void setUserName(String userName)
+	{
+		this.userName=userName;
+	}
+	public String getUserName()
+	{
+		return userName;
+	}
+	
+	public void setPassword(String password)
+	{
+		this.password=password;
+	}
+	public String getPassword()
+	{
+		return password;
+	}
 	
 	Scanner scan= new Scanner(System.in);
 	
-	/*Arraylist<foodItem> foodItems= new ArrayList<FoodItem>();*/
 	
-	FoodItem item;
 	
-	public void adminLogin()
-	{
-		
-	int n,s;
 	
-	System.out.print("Username:");
-	String u=scan.next();
-	System.out.print("Password:");
-	String p=scan.next();
-	if(u.equals(userName) && p.equals(password))
-	{
-		System.out.println(" ");
-		System.out.println("Access granted");
-		System.out.println(" ");
+		public void adminPage(FoodItem [] foodItems)
+		{
+			int n,s;
 		do
 			{
 			  System.out.println("------------------------------------------------------------------");
@@ -48,25 +53,14 @@ public class Admin
 			  {
 				  case 1:System.out.println("You can add now...");
 				  System.out.println(" ");
-				 /* System.out.print("No.of Items:");
-				  s=scan.nextInt();
-				  for(int i=0;i<s;i++)
-				  {*/
-				  addItem();
-				  
-				  
-				  
-		         /* System.out.println("ITEM DETAILS");
-		          System.out.println("------------");
-				  
-				  item.viewItem();*/
-				  
+				  foodItems=addItem(foodItems);
+				
 				  
 				  break;
-				  case 2:/*System.out.println("FOOD MENU");
-		                 System.out.println("------------------------------------------------------------------");*/
-						 System.out.println("Temporarly not reachable....!!!");
-						/* item.viewItem();*/
+				  case 2:System.out.println("   ");
+				         System.out.println("FOOD MENU");
+		                 System.out.println("------------------------------------------------------------------");
+						 viewItem(foodItems);
 				  break;
 				  case 3:System.out.println("Temporarly not reachable....!!!");
 				  break;
@@ -82,43 +76,39 @@ public class Admin
 			}while(s==1);
 	
 	}
-	else if(u!=userName && p.equals(password))
-	{
-		System.out.println("Invalid username...!!!");
-	}
-	else if(p!=password && u.equals(userName))
-	{
-		System.out.println("Incorrect password");
-	}
-	else
-	{
-		System.out.println("Invalid username & password...Please try again...!!!");
-	}
-	}
 	
-	public void addItem()
+	int m;
+	public FoodItem[] addItem(FoodItem[] foodItems)
 	{
 		
-		int m;
 		
-		ArrayList<FoodItem> items=new ArrayList<FoodItem>();
 		
+		/*ArrayList<FoodItem> items=new ArrayList<FoodItem>();*/
+		System.out.println("   ");
 		System.out.print("No.of Items..?:");
 		m=scan.nextInt();
-		
+		System.out.println("   ");
+		foodItems=new FoodItem[m];
 		for(int i=0;i<m;i++)
 		{
-			FoodItem item=new FoodItem();
+			foodItems[i]=new FoodItem();
 		System.out.print("FoodItem:");
-		item.setName(scan.next());
+		foodItems[i].setName(scan.next());
 		System.out.print("Price:");
-		item.setPrice(scan.nextInt());
-		items.add(item);
+		foodItems[i].setPrice(scan.nextInt());
+		System.out.println("   ");
 		}
-	
+	    System.out.println("   ");
 		System.out.println("Record saved.....");
 		
-		
+		return foodItems;
+	}
+	public void viewItem(FoodItem[] foodItems)
+	{
+		for(int i=0;i<m;i++)
+		{
+		System.out.println(foodItems[i].getName()+"                                      "+foodItems[i].getPrice());
+		}
 	}
 	
 	}

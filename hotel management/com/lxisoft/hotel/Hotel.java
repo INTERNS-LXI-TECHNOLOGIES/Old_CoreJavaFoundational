@@ -10,7 +10,7 @@ Admin admin=new Admin();
 Customer customer=new Customer();
 
 Scanner scan=new Scanner(System.in);
-
+/*
 private ArrayList<FoodItem> items=new ArrayList<FoodItem>();
 
 public void setFoodItem(ArrayList<FoodItem> items)
@@ -21,7 +21,9 @@ public void setFoodItem(ArrayList<FoodItem> items)
 public ArrayList<FoodItem> getFoodItem()
 {
 	return items;
-}
+}*/
+
+FoodItem[] foodItems;
 
 	public void homePage()
 		{
@@ -41,7 +43,7 @@ public ArrayList<FoodItem> getFoodItem()
 			  
 			  switch(ch)
 			  {
-				  case 1:admin.adminLogin();
+				  case 1:adminLogin();
 				  break;
 				  case 2:customer.customerLogin();
 				  break;
@@ -49,6 +51,36 @@ public ArrayList<FoodItem> getFoodItem()
 			
 			  }
 			}while(ch>2);
+			
 		}
-		
+		public void adminLogin()
+		{
+						
+				System.out.print("Username:");
+				String u=scan.next();
+				System.out.print("Password:");
+				String p=scan.next();
+				if(u.equals(admin.getUserName()) && p.equals(admin.getPassword()))
+						{
+							System.out.println(" ");
+							System.out.println("Access granted");
+							System.out.println(" ");
+							admin.adminPage(foodItems);
+							
+						}
+			   else if(u!=admin.getUserName() && p.equals(admin.getPassword()))
+							{
+								System.out.println("Invalid username...!!!");
+							}
+			   else if(p!=admin.getPassword() && u.equals(admin.getUserName()))
+							{
+								System.out.println("Incorrect password");
+							}
+			   else
+							{
+								System.out.println("Invalid username & password...Please try again...!!!");
+							}
+	}
+	
+										
 }
