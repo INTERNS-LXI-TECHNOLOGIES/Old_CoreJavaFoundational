@@ -5,5 +5,6 @@ public class Tdd
 	{
 		Hotel hotel=new Hotel();
 		hotel.hotelDetails();
+		hotel.dealCustomers();
 	}
 }

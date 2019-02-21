@@ -29,8 +29,6 @@ public class Administrator
 	public Food addFood()
 	{	
 	Food foods=new Food();
-			System.out.print("Serial no:");
-			foods.setSNo(scan.nextInt());
 			System.out.print("Food item:");
 			foods.setFoodName(scan.next());
 			System.out.print("Count:");
