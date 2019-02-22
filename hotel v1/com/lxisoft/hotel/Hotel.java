@@ -96,89 +96,66 @@ public class Hotel
 			
  
 	
-	    public void authendication()
-		  {
+   public void authendication()
+   {
 		    System.out.println("do you want admin or cashier or customer\ncashier=0\nadmin=1\ncustomer=2");
 		    int s=scan.nextInt();
-				if(s==1)	
-				{
+		 
+		 if(s==1)	
+		  {
 				System.out.println("enter the admin password");
 				int i=scan.nextInt();
 						if(i==1234)
 						{
 							admin.inventoryOptions(foods);
-							menuList.listOfFood(foods);
-                          /*System.out.println("1)menulist\n2)bill");
-						    int ch=scan.nextInt();
-							switch(ch)
-							{
-								case 1:
-								 
-								 menuList.listOfFood(admin.availableFoods);
-								 //admin.printFoodDetails();
-								 break;
-								 case 2:
-								 bill.printBill();
-								 break;
-								 
-								default:
-								System.out.println("invalid entry");
-								
-							 }*/
+							
 						}
 						else
 						{
 							System.out.println("not found");
 						}
 					
-			   }
+			}
 					
-		
-				
-				
-			
-			else if(s==0)
+	    else if(s==0)
 			{
 					System.out.println("enter cashier password");
 					int j=scan.nextInt();
 					if(j==7787)
 					{
-						customers.choosing();
-					   cashier.printDetails( customers.getFood());
-					   
+				
+					   customers.choosing(foods);
+					    customers.deleteOrderedFood(foods);
 					  
 					}
 					else
 					{
-						System.out.println("not found");
+						System.out.println("not founds");
 					}
 			}
-			else if(s==2)
+		else if(s==2)
 			{
 				   System.out.println("enter the customer password");
 				   int j=scan.nextInt();
 				   if(j==55555)
 				   {
-					     customers.choosing();
-					     System.out.println("1)menulist\n2)bill");
+					  System.out.println("1)menulist\n2)bill");
 						 int choice=scan.nextInt();
 							switch(choice)
 							{
 								case 1:
-								//menuList.listOfFood(admin.foods);
-								 //admin.printFoodDetails();
-								 break;
+								 menuList.listOfFood(foods);
+							   break;
 								 case 2:
 								
-								 bill.printBill(customers.getFood());
+								 bill.printBill(customers.orderedFood);
 								 break;
 								 
 								default:
 								System.out.println("invalid entry");
 								
 							 }
-					   
-				   }
+					}
 				   else 
 				   {
 					   System.out.println("not fount");
@@ -189,5 +166,5 @@ public class Hotel
 				System.out.println("not found");
 			}
 			
-       }
+    }
 }
