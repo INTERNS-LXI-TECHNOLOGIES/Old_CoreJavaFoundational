@@ -1,11 +1,11 @@
-package com.lxisoft.hotel.hotel;
-import com.lxisoft.hotel.food.Food;
+package com.lxisoft.hotel.repo;
+import com.lxisoft.hotel.model.*;
 import java.io.*;
 import java.util.*;
-public class HotelController{
+public class HotelRepoImpl implements HotelRepo{
 	Hotel hotelModel = new Hotel();
-	public void hotelController() throws Exception{
-		BufferedReader foodDetails = new BufferedReader(new FileReader(new File("FoodDetails.txt")));		
+	public void hotelRepo() throws Exception{
+		BufferedReader foodDetails = new BufferedReader(new FileReader(new File("FoodDetails.txt")));
 		String a;
 			while((a=foodDetails.readLine()) != null){
 				Food food = new Food();
@@ -16,7 +16,7 @@ public class HotelController{
 				hotelModel.getFoods().add(food);
 			}
 	}
-	public void addFood(Food food) throws Exception{
+	public void add(Food food) throws Exception{
 		hotelModel.getFoods().add(food);
 		BufferedWriter addFoodDetails = new BufferedWriter(new FileWriter(new File("FoodDetails.txt")));
 		for(Food foods : hotelModel.getFoods()){
@@ -25,7 +25,7 @@ public class HotelController{
 		}
 		addFoodDetails.close();
 	}
-	public void editFood() throws Exception{
+	public void edit() throws Exception{
 		File f = new File("FoodDetails.txt");
 		BufferedWriter addFoodDetails = new BufferedWriter(new FileWriter(f));
 		if(f.exists() == true){
@@ -37,7 +37,7 @@ public class HotelController{
 		}
 		addFoodDetails.close();
 	}
-	public void deleteFood(int selectedFood) throws Exception{
+	public void delete(int selectedFood) throws Exception{
 		File f = new File("FoodDetails.txt");
 		BufferedWriter addFoodDetails = new BufferedWriter(new FileWriter(f));
 		if(f.exists() == true){

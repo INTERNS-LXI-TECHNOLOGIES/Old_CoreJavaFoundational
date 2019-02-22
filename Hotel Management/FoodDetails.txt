@@ -1,3 +1,5 @@
 Chappathi,10,20
 Idly,5,30
 Dosa,10,20
+CBiriyani,80,10
+MBiriyani,120,10

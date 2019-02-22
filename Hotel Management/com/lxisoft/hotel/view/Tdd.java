@@ -1,20 +1,19 @@
-package com.lxisoft.hotel.test;
-import com.lxisoft.hotel.hotel.*;
-import com.lxisoft.hotel.bill.*;
-import com.lxisoft.hotel.food.Food;
+package com.lxisoft.hotel.view;
+import com.lxisoft.hotel.controller.*;
+import com.lxisoft.hotel.model.*;
+import com.lxisoft.hotel.services.*;
 import java.util.*;
 import java.io.*;
 public class Tdd{
 	static Scanner scan = new Scanner(System.in);
-	static HotelController hotel = new HotelController();
-	static Hotel hotelModel = new Hotel();
-	static Bill bill = new Bill();
+	static HotelController hotelController = new HotelController();
+	static BillController bill = new BillController();
 	public static void main(String[] args) throws Exception{
 		administrator();
 	}
 	public static void administrator() throws Exception{
 		Console c = System.console();
-		hotel.hotelController();
+		hotelController.callHotelRepo();
 		int cont;
 		char[] p;
 		do{
@@ -71,7 +70,7 @@ public class Tdd{
 		food.setPrice(scan.nextInt());
 		System.out.print("Food Nos : ");
 		food.setNos(scan.nextInt());
-		hotel.addFood(food);
+		hotelController.addFood(food);
 		System.out.println("Press 1 For Add More Food");
 		temp = scan.nextInt();
 		}while(temp == 1);
@@ -79,17 +78,17 @@ public class Tdd{
 	public static void editFoodView() throws Exception{
 		int selectedFood = foodSelecting();
 		System.out.print("Food Name : ");
-		hotelModel.getFoods().get(selectedFood).setName(scan.next());
+		hotelController.getFoods().get(selectedFood).setName(scan.next());
 		System.out.print("Food Price : ");
-		hotelModel.getFoods().get(selectedFood).setPrice(scan.nextInt());
+		hotelController.getFoods().get(selectedFood).setPrice(scan.nextInt());
 		System.out.print("Food Nos : ");
-		hotelModel.getFoods().get(selectedFood).setNos(scan.nextInt());
-		hotel.editFood();
+		hotelController.getFoods().get(selectedFood).setNos(scan.nextInt());
+		hotelController.editFood();
 	}
 	public static void deleteFoodView() throws Exception{
 		int selectedFood = foodSelecting();
 		System.out.println("	Selected Food Was deleted!!");
-		hotel.deleteFood(selectedFood);
+		hotelController.deleteFood(selectedFood);
 	}
 	public static void sellFoodView() throws Exception{
 		Map<Integer,Food> selectedFoods = new HashMap<Integer,Food>();
@@ -101,13 +100,13 @@ public class Tdd{
 		do{
 			System.out.print("Enter Nos : ");
 			nos = scan.nextInt();
-			if(nos>hotelModel.getFoods().get(selectedFood).getNos()){
+			if(nos>hotelController.getFoods().get(selectedFood).getNos()){
 				System.out.println("No Of Food Exceed");
 			}
-		}while(nos>hotelModel.getFoods().get(selectedFood).getNos());
+		}while(nos>hotelController.getFoods().get(selectedFood).getNos());
 		bill.getFoodNos().add(nos);
-		selectedFoods.put(i,hotelModel.getFoods().get(selectedFood));
-		hotelModel.getFoods().get(selectedFood).setNos(hotelModel.getFoods().get(selectedFood).getNos()-nos);
+		selectedFoods.put(i,hotelController.getFoods().get(selectedFood));
+		hotelController.getFoods().get(selectedFood).setNos(hotelController.getFoods().get(selectedFood).getNos()-nos);
 		System.out.println("Press 1 To Select Again");
 		cont = scan.nextInt();
 		i++;
@@ -120,7 +119,7 @@ public class Tdd{
 		int no = 1;
 		int selectedFood;
 		System.out.println("	Available Foods");
-		for(Food food : hotelModel.getFoods()){
+		for(Food food : hotelController.getFoods()){
 			System.out.printf("%-2s	%-12s	%-5s	%-4s\n",no,food.getName(),food.getPrice(),food.getNos());
 			no++;
 		}
@@ -137,10 +136,9 @@ public class Tdd{
 		System.out.printf("%-5s	%-12s	%-5s	%-5s\n","Sl.No","Name","Rate","Prize");
 		System.out.printf("%-5s	%-12s	%-5s	%-5s\n","-----","----","----","-----");
 		for(int i=0;i<selectedfoods.size();i++){
-			System.out.printf("%-5s	%-12s	%-5s	%-5s\n",i+1,selectedfoods.get(i).getName(),selectedfoods.get(i).getPrice(),selectedfoods.get(i).getPrice()*bill.getFoodNos().get(i));
-			totalPrice = totalPrice+bill.getFoodNos().get(i)*selectedfoods.get(i).getPrice();
+			System.out.printf("%-5s	%-12s	%-5s	%-5s\n",i+1,selectedfoods.get(i).getName(),selectedfoods.get(i).getPrice(),bill.foodPrice(selectedfoods.get(i).getPrice(),bill.getFoodNos().get(i)));
 		}
-		System.out.printf("\n%-15s	%-5s\n","Total Amount : 		",totalPrice);
+		System.out.printf("\n%-15s	%-5s\n","Total Amount : 		",bill.totalBill(selectedfoods));
 		System.out.println("--------------------------------------");
 	}
 }

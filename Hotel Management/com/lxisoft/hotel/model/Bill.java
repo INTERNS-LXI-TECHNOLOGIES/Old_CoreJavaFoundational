@@ -1,9 +1,9 @@
-package com.lxisoft.hotel.bill;
-import com.lxisoft.hotel.food.Food;
+package com.lxisoft.hotel.model;
+import com.lxisoft.hotel.model.Food;
 import java.util.*;
 public class Bill{
 	private String buyerName;
-	private ArrayList<Integer> foodNos = new ArrayList<Integer>();
+	private static ArrayList<Integer> foodNos = new ArrayList<Integer>();
 	public void setBuyerName(String buyerName){
 		this.buyerName = buyerName;
 	}

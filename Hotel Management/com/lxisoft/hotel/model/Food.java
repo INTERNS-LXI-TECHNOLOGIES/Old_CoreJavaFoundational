@@ -1,4 +1,4 @@
-package com.lxisoft.hotel.food;
+package com.lxisoft.hotel.model;
 import java.io.*;
 public class Food{
 	private String name;
