@@ -43,15 +43,16 @@ public class Hotel
 	{
 		return customers;
 	}
-	public void hotelDetails()
+	public void hotelDetails() throws Exception
 	{	
 		//int noOfCustomers;
-		int con;
 		//int total=0;
 		//int noOfOrder;
 		System.out.println("FOOD PALACE");
 		setAdministrator(new Administrator());
 		setCashier(new Cashier());
+		do
+		{
 		System.out.println("Login \n 1.Admin \n 2.User \n");
 		switch(scan.nextInt())
 		{
@@ -69,6 +70,7 @@ public class Hotel
 			switch(scan.nextInt())
 			{
 			case 1:	
+			do{
 			setFoods(new ArrayList <Food>());
 			System.out.println("Enter the food details");
 			System.out.print("Enter the number of food items:");
@@ -78,6 +80,8 @@ public class Hotel
 			{
 			foods.add(administrator.addFood());
 			}
+			System.out.println("Do you want to add again press 1");
+			}while(scan.nextInt()==1);
 			System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");
 			for(int i=0;i<foods.size();i++)
 			{
@@ -86,11 +90,11 @@ public class Hotel
 			break;
 			case 2:
 			int pos=0;
-			int num=administrator.deleteFood();
-			System.out.println(num);
+			String n=administrator.deleteFood();
+			System.out.println(n);
 			for(int i=0;i<foods.size();i++)
 			{
-			if(num==(foods.get(i).getSNo()))
+			if(n.equals(foods.get(i).getFoodName()))
 			{
 				// pos=i;
 			foods.remove(i);
@@ -157,8 +161,7 @@ public class Hotel
 			System.out.println("Username is incorrect");
 			System.out.println("Do you want to continue press 1");
 		}
-		con=scan.nextInt();
-		}while(con==1);
+		}while(scan.nextInt()==1);
 		break;
 		case 2:
 		getCashier().userDetails();
@@ -170,7 +173,44 @@ public class Hotel
 			System.out.print("Password :");
 			if(scan.next().equals(getCashier().getPassword()))
 			{
+				int noOfCustomers;
+				int total=0;
+				int noOfOrder;
+				setCustomers(new ArrayList <Customer>());
+				System.out.print("number of customers:");
+				noOfCustomers=scan.nextInt();
+				System.out.print("number of order:");
+				noOfOrder=scan.nextInt();
+				System.out.print("Which food you want:");
+				for(int j=0;j<noOfCustomers;j++)
+				{
+					
+				getCustomers().add(new Customer());	
+				if(foods.size()!=0)
+				{
+				for(int i=0;i<foods.size();i++)
+					{
+				if((customers.get(j).selectFood()).equals(foods.get(i).getFoodName()))
+						{
+						System.out.println("Food available");
+						cashier.printBill();
+						System.out.printf((i+1)+"\t\t"+foods.get(i).getFoodName()+"\t\t"+noOfOrder+"\t\t"+foods.get(i).getFoodPrice()+"\n");
+						
+						total=total+(noOfOrder*foods.get(i).getFoodPrice());
+						System.out.print("Total\t\t\t\t:"+total);
+						foods.get(i).setFoodCount(foods.get(i).getFoodCount()-noOfOrder);
+						}
+				}
+				System.out.println("SNo\t\tFood items\t\tNos\t\tPrice");
+					for(int i=0;i<foods.size();i++)
+					{
+						System.out.print((i+1)+"\t\t"+foods.get(i).getFoodName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
+					
+					}
+				}
+				else{System.out.println("No food");}
 				
+			}
 			}
 			else
 			{
@@ -183,53 +223,15 @@ public class Hotel
 			System.out.println("Username is incorrect");
 			System.out.println("Do you want to continue press 1");
 		}
-		con=scan.nextInt();
-		}while(con==1);
+		}while(scan.nextInt()==1);
 		break;
 		default:System.out.println("Wrong choice");
 		break;
 		}
-	}
-	public void dealCustomers()
-	{
-		int noOfCustomers;
-		int total=0;
-		int noOfOrder;
-		setCustomers(new ArrayList <Customer>());
-		System.out.print("number of customers:");
-		noOfCustomers=scan.nextInt();
-		System.out.print("number of order:");
-		noOfOrder=scan.nextInt();
-		System.out.print("Which food you want:");
-		for(int j=0;j<noOfOrder;j++)
-		{
-			
-		getCustomers().add(new Customer());	
-		if(foods.size()!=0)
-		{
-		for(int i=0;i<foods.size();i++)
-			{
-		if((customers.get(j).selectFood()).equals(foods.get(i).getFoodName()))
-				{
-				System.out.println("Food available");
-				cashier.printBill();
-				System.out.printf((i+1)+"\t\t"+foods.get(i).getFoodName()+"\t\t"+noOfOrder+"\t\t"+foods.get(i).getFoodPrice()+"\n");
-				
-				total=total+(noOfOrder*foods.get(i).getFoodPrice());
-				System.out.print("Total\t\t\t\t:"+total);
-				
-				}
-				foods.get(i).setFoodCount(foods.get(i).getFoodCount()-noOfOrder);
-		}
-		System.out.println("SNo\t\tFood items\t\tNos\t\tPrice");
-			for(int i=0;i<foods.size();i++)
-			{	
-			System.out.print((i+1)+"\t\t"+foods.get(i).getFoodName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
-			}
-		}
-		else{System.out.println("No food");}
-		}		
-	}
+		System.out.println("To order food press 2");
+		}while(scan.nextInt()==2);
+		}	
+	
 	
 	
 }

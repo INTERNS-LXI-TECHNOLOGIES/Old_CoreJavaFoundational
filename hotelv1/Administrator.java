@@ -1,5 +1,6 @@
 package com.lxisoft.hotelv1;
 import java.util.Scanner;
+import java.io.*;
 public class Administrator
 {
 	Scanner scan=new Scanner(System.in);
@@ -26,8 +27,10 @@ public class Administrator
 		username="administ";
 		password="admin";
 	}
-	public Food addFood()
+	public Food addFood() throws Exception
 	{	
+	File file=new File("fooddetails.txt");
+	FileWriter fw=new FileWriter(file);
 	Food foods=new Food();
 			System.out.print("Food item:");
 			foods.setFoodName(scan.next());
@@ -37,11 +40,11 @@ public class Administrator
 			foods.setFoodPrice(scan.nextInt());
 			return foods;
 	}
-	public int deleteFood()
+	public String deleteFood()
 	{
 		//Food foods=new Food(); 
 		System.out.print("which one you want to delete:");
-		int n=scan.nextInt();
+		String  n=scan.next();
 		/*if((n)==(foods.getSNo()))
 		{
 			System.out.println("delete food");
