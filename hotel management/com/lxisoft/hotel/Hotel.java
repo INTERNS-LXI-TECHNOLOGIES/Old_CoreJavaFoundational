@@ -23,7 +23,8 @@ public ArrayList<FoodItem> getFoodItem()
 	return items;
 }*/
 
-FoodItem[] foodItems;
+/*FoodItem[] foodItems;*/
+public ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 
 	public void homePage()
 		{
@@ -65,7 +66,8 @@ FoodItem[] foodItems;
 							System.out.println(" ");
 							System.out.println("Access granted");
 							System.out.println(" ");
-							admin.adminPage(foodItems);
+							admin.adminPage();
+							admin.viewItem(foodItems);
 							
 						}
 			   else if(u!=admin.getUserName() && p.equals(admin.getPassword()))

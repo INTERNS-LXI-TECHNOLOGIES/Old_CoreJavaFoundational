@@ -1,5 +1,6 @@
 package com.lxisoft.admin;
 import com.lxisoft.fooditem.*;
+import com.lxisoft.hotel.*;
 import java.util.*;
 public class Admin
 {
@@ -30,7 +31,7 @@ public class Admin
 	
 	
 	
-		public void adminPage(FoodItem [] foodItems)
+		public void adminPage()
 		{
 			int n,s;
 		do
@@ -53,14 +54,15 @@ public class Admin
 			  {
 				  case 1:System.out.println("You can add now...");
 				  System.out.println(" ");
-				  foodItems=addItem(foodItems);
+				  addItem();
 				
 				  
 				  break;
 				  case 2:System.out.println("   ");
-				         System.out.println("FOOD MENU");
+				         /*System.out.println("FOOD MENU");
 		                 System.out.println("------------------------------------------------------------------");
-						 viewItem(foodItems);
+						 viewItem();*/
+						 System.out.println("Temporarly not reachable....!!!");
 				  break;
 				  case 3:System.out.println("Temporarly not reachable....!!!");
 				  break;
@@ -78,7 +80,7 @@ public class Admin
 	}
 	
 	int m;
-	public FoodItem[] addItem(FoodItem[] foodItems)
+	public void addItem()
 	{
 		
 		
@@ -87,27 +89,34 @@ public class Admin
 		System.out.println("   ");
 		System.out.print("No.of Items..?:");
 		m=scan.nextInt();
+		 Hotel h=new Hotel();
 		System.out.println("   ");
-		foodItems=new FoodItem[m];
+		/*foodItems=new FoodItem[m];*/
 		for(int i=0;i<m;i++)
 		{
-			foodItems[i]=new FoodItem();
-		System.out.print("FoodItem:");
-		foodItems[i].setName(scan.next());
+			
+			/*foodItems[i]=new FoodItem();*/
+		/*foodItems.add(new FoodItem());*/
+       
+        h.foodItems.add(new FoodItem());		
+		System.out.print("FoodItem:"); 
+		h.foodItems.get(i).setName(scan.next());
+		/*foodItems[i].setName(scan.next());*/
 		System.out.print("Price:");
-		foodItems[i].setPrice(scan.nextInt());
+		h.foodItems.get(i).setPrice(scan.nextInt());
+		/*foodItems[i].setPrice(scan.nextInt());*/
 		System.out.println("   ");
 		}
 	    System.out.println("   ");
 		System.out.println("Record saved.....");
 		
-		return foodItems;
+		/*return foodItems;*/
 	}
-	public void viewItem(FoodItem[] foodItems)
+	public void viewItem(ArrayList<FoodItem> foodItems)
 	{
 		for(int i=0;i<m;i++)
 		{
-		System.out.println(foodItems[i].getName()+"                                      "+foodItems[i].getPrice());
+		System.out.println(foodItems.get(i).getName()+"                                      "+foodItems.get(i).getPrice());
 		}
 	}
 	
