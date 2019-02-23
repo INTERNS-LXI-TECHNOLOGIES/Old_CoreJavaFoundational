@@ -29,37 +29,35 @@ ArrayList<Food>  orderedFood=new ArrayList<Food>();
                String order=scan.next();
                  for(int j=0;j<foods.size();j++)
                    {
-						if(foods.get(j).getName()==order)
-							{
-							 orderedFood.add(new Food());
-						//orderedFood.get(i).setName(scan.next());
-							}
+					       
+								if(foods.get(j).getName().equals(order))
+									{
+										orderedFood.add(foods.get(j));
+									}
+									
                     }
 			}
+			
 		    
 		   }
 			
 			
-	public void deleteOrderedFood(ArrayList<Food> foods)
+	   public void deleteOrderedFood(ArrayList<Food> foods)
 	      {	
+		      System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+		      System.out.println("fff"+foods.size());
 				for(int i=0;i<foods.size();i++)
 				{
 				   if(food==foods.get(i).getName())	
 				   {
+					   
 					   foods.remove(i);
 				   }
 				}
 		  }
 	 
 
-   
-   
-   
-   
-   
-   
-   
-		  /* public void choosing(ArrayList<Food> foods)
+    /* public void choosing(ArrayList<Food> foods)
 		   {
 			   
 			System.out.println("choose any food");

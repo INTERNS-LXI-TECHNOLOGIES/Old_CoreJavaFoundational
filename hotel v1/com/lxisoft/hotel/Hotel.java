@@ -98,6 +98,8 @@ public class Hotel
 	
    public void authendication()
    {
+	   
+	         customers.deleteOrderedFood(foods);
 		    System.out.println("do you want admin or cashier or customer\ncashier=0\nadmin=1\ncustomer=2");
 		    int s=scan.nextInt();
 		 
@@ -108,6 +110,7 @@ public class Hotel
 						if(i==1234)
 						{
 							admin.inventoryOptions(foods);
+							
 							
 						}
 						else
@@ -124,8 +127,15 @@ public class Hotel
 					if(j==7787)
 					{
 				
-					   customers.choosing(foods);
+					 
 					    customers.deleteOrderedFood(foods);
+						bill.printBill(customers.orderedFood);
+						System.out.println("do you want see the balence food details \n*)yes=1\n*)no=2");
+						int d=scan.nextInt();
+						/*if(d==1)
+						{
+							
+						}*/
 					  
 					}
 					else
@@ -139,22 +149,9 @@ public class Hotel
 				   int j=scan.nextInt();
 				   if(j==55555)
 				   {
-					  System.out.println("1)menulist\n2)bill");
-						 int choice=scan.nextInt();
-							switch(choice)
-							{
-								case 1:
-								 menuList.listOfFood(foods);
-							   break;
-								 case 2:
-								
-								 bill.printBill(customers.orderedFood);
-								 break;
-								 
-								default:
-								System.out.println("invalid entry");
-								
-							 }
+					       menuList.listOfFood(foods);
+						   customers.choosing(foods);
+					   
 					}
 				   else 
 				   {
