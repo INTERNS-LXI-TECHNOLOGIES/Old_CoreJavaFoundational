@@ -28,7 +28,7 @@ public ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 
 	public void homePage()
 		{
-			int ch;
+			int ch,y;
 			do
 			{
 			  System.out.println("------------------------------------------------------------------");
@@ -38,20 +38,31 @@ public ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 			  System.out.println("  ");
 			  System.out.println("1.ADMIN LOGIN");
 			  System.out.println("2.CUSTOMER LOGIN");
+			  System.out.println("3.FOOD MENU");
 			  System.out.println("  ");
 			  System.out.print("Enter your choice:");
 			  ch=scan.nextInt();
+			  if(ch==1){
+			  adminLogin();
+				  foodItems.add(admin.a());
+			  }
 			  
-			  switch(ch)
+			/*  switch(ch)
 			  {
 				  case 1:adminLogin();
+				  foodItems.add(admin.a());
+				  		
 				  break;
 				  case 2:customer.customerLogin();
 				  break;
+				  case 3:food();
+				  break;
 			      default:System.out.println("Invalid choice made...please try again...!!!");
 			
-			  }
-			}while(ch>2);
+			  }*/
+			  System.out.print("Do you want to continue...?Yes=1/No=0:");
+			  y=scan.nextInt();
+			}while(y==1);
 			
 		}
 		public void adminLogin()
@@ -67,7 +78,7 @@ public ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 							System.out.println("Access granted");
 							System.out.println(" ");
 							admin.adminPage();
-							admin.viewItem(foodItems);
+							
 							
 						}
 			   else if(u!=admin.getUserName() && p.equals(admin.getPassword()))
@@ -84,5 +95,11 @@ public ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 							}
 	}
 	
+	public void food()
+	{
+    // foodItems.add(admin.addItem());		
+	//admin.viewItem(foodItems);
+	System.out.println("Not available");
+	}
 										
 }

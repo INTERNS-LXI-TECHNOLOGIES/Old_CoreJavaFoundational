@@ -33,6 +33,7 @@ public class Admin
 	
 		public void adminPage()
 		{
+			Hotel h = new Hotel();
 			int n,s;
 		do
 			{
@@ -54,14 +55,14 @@ public class Admin
 			  {
 				  case 1:System.out.println("You can add now...");
 				  System.out.println(" ");
-				  addItem();
+					addItem();
 				
 				  
 				  break;
 				  case 2:System.out.println("   ");
-				         /*System.out.println("FOOD MENU");
+				         System.out.println("FOOD MENU");
 		                 System.out.println("------------------------------------------------------------------");
-						 viewItem();*/
+						 viewItem();
 						 System.out.println("Temporarly not reachable....!!!");
 				  break;
 				  case 3:System.out.println("Temporarly not reachable....!!!");
@@ -80,6 +81,7 @@ public class Admin
 	}
 	
 	int m;
+	FoodItem f; 
 	public void addItem()
 	{
 		
@@ -89,7 +91,7 @@ public class Admin
 		System.out.println("   ");
 		System.out.print("No.of Items..?:");
 		m=scan.nextInt();
-		 Hotel h=new Hotel();
+		f=new FoodItem();
 		System.out.println("   ");
 		/*foodItems=new FoodItem[m];*/
 		for(int i=0;i<m;i++)
@@ -98,25 +100,32 @@ public class Admin
 			/*foodItems[i]=new FoodItem();*/
 		/*foodItems.add(new FoodItem());*/
        
-        h.foodItems.add(new FoodItem());		
+       	
 		System.out.print("FoodItem:"); 
-		h.foodItems.get(i).setName(scan.next());
+		f.setName(scan.next());
 		/*foodItems[i].setName(scan.next());*/
 		System.out.print("Price:");
-		h.foodItems.get(i).setPrice(scan.nextInt());
+		f.setPrice(scan.nextInt());
 		/*foodItems[i].setPrice(scan.nextInt());*/
 		System.out.println("   ");
 		}
+		
 	    System.out.println("   ");
 		System.out.println("Record saved.....");
 		
+		
 		/*return foodItems;*/
 	}
-	public void viewItem(ArrayList<FoodItem> foodItems)
+	public FoodItem a(){
+		return f;
+	}
+	public void viewItem()
 	{
+		Hotel h = new Hotel();
+		
 		for(int i=0;i<m;i++)
 		{
-		System.out.println(foodItems.get(i).getName()+"                                      "+foodItems.get(i).getPrice());
+		System.out.println(h.foodItems.get(i).getName()+"                                      "+h.foodItems.get(i).getPrice());
 		}
 	}
 	
