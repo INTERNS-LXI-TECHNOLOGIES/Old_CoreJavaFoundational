@@ -3,3 +3,4 @@ Idly,5,30
 Dosa,10,20
 CBiriyani,80,10
 MBiriyani,120,10
+Pizza,180,10
