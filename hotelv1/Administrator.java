@@ -29,11 +29,10 @@ public class Administrator
 	}
 	public Food addFood() throws Exception
 	{	
-	File file=new File("fooddetails.txt");
-	FileWriter fw=new FileWriter(file);
+	
 	Food foods=new Food();
 			System.out.print("Food item:");
-			foods.setFoodName(scan.next());
+			foods.setName(scan.next());
 			System.out.print("Count:");
 			foods.setFoodCount(scan.nextInt());
 			System.out.print("Price:");

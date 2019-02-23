@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Food
 {
 	private int sNo;
-	private String foodName;
+	private String name;
 	private int foodCount;
 	private int foodPrice;
 	public void setSNo(int sNo)
@@ -14,13 +14,13 @@ public class Food
 	{
 		return sNo;
 	}
-	public void setFoodName(String foodName)
+	public void setName(String name)
 	{
-		this.foodName=foodName;
+		this.name=name;
 	}
-	public String getFoodName()
+	public String getName()
 	{
-		return foodName;
+		return name;
 	}
 	public void setFoodCount(int foodCount)
 	{
