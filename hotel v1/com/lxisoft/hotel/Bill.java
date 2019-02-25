@@ -9,8 +9,6 @@ public class Bill
 			int total=0;
 			System.out.println("\nOLYMPIC\n********\n");
 			System.out.println("18/8/2019");
-			System.out.println(""+orderedFood.size());
-			System.out.println(""+orderedFood.get(0).getName());
 			for(int i=0;i<orderedFood.size();i++)
 			{
 			

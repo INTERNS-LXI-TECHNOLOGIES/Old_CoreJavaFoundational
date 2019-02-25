@@ -24,10 +24,5 @@ public class Food
 		return price;
 	}
 	
-	public void foodDetails()
-	{
-	    
-	}
-	
 	
 }

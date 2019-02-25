@@ -98,9 +98,7 @@ public class Hotel
 	
    public void authendication()
    {
-	   
-	         customers.deleteOrderedFood(foods);
-		    System.out.println("do you want admin or cashier or customer\ncashier=0\nadmin=1\ncustomer=2");
+	   System.out.println("do you want admin or cashier or customer\ncashier=0\nadmin=1\ncustomer=2\nworkers=3");
 		    int s=scan.nextInt();
 		 
 		 if(s==1)	
@@ -110,8 +108,6 @@ public class Hotel
 						if(i==1234)
 						{
 							admin.inventoryOptions(foods);
-							
-							
 						}
 						else
 						{
@@ -130,13 +126,7 @@ public class Hotel
 					 
 					    customers.deleteOrderedFood(foods);
 						bill.printBill(customers.orderedFood);
-						System.out.println("do you want see the balence food details \n*)yes=1\n*)no=2");
-						int d=scan.nextInt();
-						/*if(d==1)
-						{
-							
-						}*/
-					  
+						
 					}
 					else
 					{
@@ -151,6 +141,8 @@ public class Hotel
 				   {
 					       menuList.listOfFood(foods);
 						   customers.choosing(foods);
+						   customers.deleteOrderedFood(foods);
+							printing();
 					   
 					}
 				   else 
@@ -158,10 +150,35 @@ public class Hotel
 					   System.out.println("not fount");
 				   }
 			}
-			else
+       else if(s==3)
+		    {   
+			    
+                System.out.println("do you want see the balence food details \n*)yes=1\n*)no=2");
+			    int d=scan.nextInt();
+				if(d==1)
+				{
+					printing();
+				}
+				else 
+				{
+					System.out.println("you cant see");
+				}
+				
+			}
+		else
 			{
 				System.out.println("not found");
 			}
 			
     }
+	 public void printing()
+			{
+				System.out.println("BALENCE FOOD\n**********");
+					for(int i=0;i<foods.size();i++)
+					{
+						
+						System.out.println(foods.get(i).getName());
+					}	
+			}
+							
 }
