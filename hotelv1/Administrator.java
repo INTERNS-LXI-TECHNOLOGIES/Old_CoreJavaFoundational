@@ -31,9 +31,6 @@ public class Administrator
 	}
 	public Food addFood() throws Exception
 	{	
-	//System.out.println("Enter the food details");
-	//System.out.print("Enter the number of food items:");
-	//noOfFood=scan.nextInt();
 	System.out.println("   Food Details   ");
 	Food foods=new Food();
 			System.out.print("Food item:");
@@ -46,32 +43,65 @@ public class Administrator
 	}
 	public void deleteFood(ArrayList <Food> foods) throws Exception
 	{
-		//Food foods=new Food(); 
-		
 		System.out.print("which one you want to delete:");
 		String  n=scan.next();
-		//String n=administrator.deleteFood();
 				for(int i=0;i<foods.size();i++)
 				{
 				if(n.equals(foods.get(i).getName()))
 				{
-					// pos=i;
 				foods.remove(i);
 				}
 				}
-				//foods.remove(pos
-		/*if((n)==(foods.getSNo()))
-		{
-			System.out.println("delete food");
-			
-		}*/
 	}
-	public String editFood()
+	public void editFood(ArrayList <Food> foods)
 	{
-		System.out.print("which one you want to edit:");
-		String edit=scan.next();
+		System.out.println("To edit\n1.Food name\n2.Food Count\n3.Food price");
+				switch(scan.nextInt()){
+				case 1:
+				System.out.print("which one you want to edit:");
+				String edit=scan.next();
+				for(int i=0;i<foods.size();i++)
+				{	
 			
-		return edit;
+					if(edit.equals(foods.get(i).getName()))
+					{
+						String name=foods.get(i).getName();
+						System.out.print("add food:");
+						foods.get(i).setName(scan.next());
+					}
+				}
+				break;
+				case 2:
+				System.out.print("which one you want to edit:");
+				String edit1=scan.next();
+				for(int i=0;i<foods.size();i++)
+				{	
+					if(Integer.parseInt(edit1)==(foods.get(i).getFoodCount()))
+					{
+						int count=foods.get(i).getFoodCount();
+						System.out.print("add count:");
+						foods.get(i).setFoodCount(scan.nextInt());
+					}
+				}
+				break;
+				case 3:
+				System.out.print("which one you want to edit:");
+				String edit2=scan.next();
+				for(int i=0;i<foods.size();i++)
+				{	
+					if(Integer.parseInt(edit2)==(foods.get(i).getFoodPrice()))
+					{
+						int price=foods.get(i).getFoodPrice();
+						System.out.print("add price:");
+						foods.get(i).setFoodPrice(scan.nextInt());
+					}
+				}
+				break;
+				default:System.out.println("Wrong choice");
+				break;
+				}	
+		
+	
 	}
 }
 		

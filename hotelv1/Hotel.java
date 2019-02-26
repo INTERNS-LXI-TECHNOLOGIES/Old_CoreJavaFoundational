@@ -114,7 +114,7 @@ public void authentication()throws Exception
 				default:System.out.println("Wrong choice");
 				break;
 				}
-				System.out.println("To order food press 2");
+				System.out.println("Login page press 2");
 		}while(scan.nextInt()==2);
 }	
 public void adminOptions()throws Exception
@@ -126,6 +126,7 @@ public void adminOptions()throws Exception
 		BufferedReader br=new BufferedReader(fr);
 		
 		foods=new ArrayList <Food>();
+		do{
 			System.out.println("1.Add \n2.Delete\n3.Edit");
 			switch(scan.nextInt())
 			{
@@ -176,73 +177,36 @@ public void adminOptions()throws Exception
 				}
 				break;
 			case 3:
+				administrator.editFood(foods);
 				if(foods.size()!=0)
 				{
-				System.out.println("To edit\n1.Food name\n2.Food Count\n3.Food price");
-				switch(scan.nextInt()){
-				case 1:
-				String edit1=administrator.editFood();
-				for(int i=0;i<foods.size();i++)
-				{	
-			
-					if(edit1.equals(foods.get(i).getName()))
-					{
-						String name=foods.get(i).getName();
-						System.out.print("add food:");
-						foods.get(i).setName(scan.next());
-					}
+					foodDetails();
 				}
-				foodDetails();
-				break;
-				case 2:
-				String edit2=administrator.editFood();
-				for(int i=0;i<foods.size();i++)
-				{	
-					if(Integer.parseInt(edit2)==(foods.get(i).getFoodCount()))
-					{
-						int count=foods.get(i).getFoodCount();
-						System.out.print("add count:");
-						foods.get(i).setFoodCount(scan.nextInt());
-					}
+				else
+				{
+					System.out.println("No food");
 				}
-				foodDetails();
-				break;
-				case 3:
-				String edit3=administrator.editFood();
-				for(int i=0;i<foods.size();i++)
-				{	
-					if(Integer.parseInt(edit3)==(foods.get(i).getFoodPrice()))
-					{
-						int price=foods.get(i).getFoodPrice();
-						System.out.print("add price:");
-						foods.get(i).setFoodPrice(scan.nextInt());
-					}
-				}
-				foodDetails();
-				break;
+				break;	
 				default:System.out.println("Wrong choice");
-				break;
-				}	
-				}else{System.out.println("No food");}				
+				break;				
 			}
+			System.out.println("Again do any operation press 1");
+		}while(scan.nextInt()==1);
+		
 }
 public void foodOrdering()
 {
-			
-				int noOfCustomers;
 				int noOfOrder;
 				
 				//System.out.print("number of customers:");
 				//noOfCustomers=scan.nextInt();
 				foodDetails();
 				do{
-				int total=0;
+				
 				//do{
 					//int c=0;
 				System.out.print("Which food you want:");
 				String nameOfFood=customer.selectFood();
-				System.out.print("number of order:");
-				noOfOrder=scan.nextInt();
 				//c++;
 				//System.out.print("order next item press 1");
 				//}while(scan.nextInt()==1);
@@ -253,21 +217,14 @@ public void foodOrdering()
 				if((nameOfFood).equals(foods.get(i).getName()))
 						{
 						System.out.println("Food available");
-						cashier.printBill();
-						System.out.printf((i+1)+"\t\t"+foods.get(i).getName()+"\t\t"+noOfOrder+"\t\t"+foods.get(i).getFoodPrice()+"\n");
-						
-						total=total+(noOfOrder*foods.get(i).getFoodPrice());
-						System.out.print("Total\t\t\t\t:"+total);
-						foods.get(i).setFoodCount(foods.get(i).getFoodCount()-noOfOrder);
+						cashier.printBill(foods);
 						}
 				}
 				}
 				else{System.out.println("No food");}
-				System.out.println("again order food press 1");
-				break;
+				System.out.println("\n again order food press 1");
 				}while(scan.nextInt()==1);
 				
-			
 }
 public void foodDetails()
 {
