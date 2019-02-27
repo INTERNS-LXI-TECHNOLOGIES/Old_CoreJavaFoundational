@@ -2,52 +2,47 @@ package com.lxisoft.hotel.repo;
 import com.lxisoft.hotel.model.*;
 import java.io.*;
 import java.util.*;
+import java.sql.*;
 public class HotelRepoImpl implements HotelRepo{
+
 	Hotel hotelModel = new Hotel();
 	public void hotelRepo() throws Exception{
-		BufferedReader foodDetails = new BufferedReader(new FileReader(new File("FoodDetails.txt")));
-		String a;
-			while((a=foodDetails.readLine()) != null){
-				Food food = new Food();
-				String b[] = a.split(",");
-				food.setName(b[0]);
-				food.setPrice(Integer.parseInt(b[1]));
-				food.setNos(Integer.parseInt(b[2]));
-				hotelModel.getFoods().add(food);
-			}
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
+		Statement s = c.createStatement();
+		s.execute("CREATE TABLE IF NOT EXISTS foodDetails(name TEXT , price INT , nos INT )");
+		ResultSet r = s.executeQuery("SELECT * FROM foodDetails");
+		while(r.next()){
+			Food food = new Food();
+			food.setName(r.getString(1));
+			food.setPrice(r.getInt(2));
+			food.setNos(r.getInt(3));
+			hotelModel.getFoods().add(food);
+		}
 	}
 	public void add(Food food) throws Exception{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
 		hotelModel.getFoods().add(food);
-		BufferedWriter addFoodDetails = new BufferedWriter(new FileWriter(new File("FoodDetails.txt")));
-		for(Food foods : hotelModel.getFoods()){
-			String a = foods.getName()+","+foods.getPrice()+","+foods.getNos()+"\n";
-			addFoodDetails.write(a);
-		}
-		addFoodDetails.close();
+		PreparedStatement p = c.prepareStatement("INSERT INTO foodDetails(name,price,nos) VALUES(?,?,?)");
+		p.setString(1,food.getName());
+		p.setInt(2,food.getPrice());
+		p.setInt(3,food.getNos());
 	}
-	public void edit() throws Exception{
-		File f = new File("FoodDetails.txt");
-		BufferedWriter addFoodDetails = new BufferedWriter(new FileWriter(f));
-		if(f.exists() == true){
-			f.delete();
-		}
-		for(Food food : hotelModel.getFoods()){
-			String a = food.getName()+","+food.getPrice()+","+food.getNos()+"\n";
-			addFoodDetails.write(a);
-		}
-		addFoodDetails.close();
+	public void edit(String foodName,int foodPrice,int nos,String name) throws Exception{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
+		PreparedStatement p = c.prepareStatement("UPDATE foodDetails SET name = ?,price = ?,nos = ? WHERE name = ?");
+		p.setString(1,foodName);
+		p.setInt(2,foodPrice);
+		p.setInt(3,nos);
+		p.setString(4,name);
 	}
-	public void delete(int selectedFood) throws Exception{
-		File f = new File("FoodDetails.txt");
-		BufferedWriter addFoodDetails = new BufferedWriter(new FileWriter(f));
-		if(f.exists() == true){
-			f.delete();
-		}
+	public void delete(Food selectedFood) throws Exception{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
+		PreparedStatement s = c.prepareStatement("DELETE FROM foodDetails Where name = ?");
+		s.setString(1,selectedFood.getName());
 		hotelModel.getFoods().remove(selectedFood);
-		for(Food food : hotelModel.getFoods()){
-			String a = food.getName()+","+food.getPrice()+","+food.getNos()+"\n";
-			addFoodDetails.write(a);
-		}
-		addFoodDetails.close();
 	}
 }

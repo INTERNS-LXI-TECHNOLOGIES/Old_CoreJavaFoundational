@@ -76,17 +76,18 @@ public class Tdd{
 		}while(temp == 1);
 	}
 	public static void editFoodView() throws Exception{
-		int selectedFood = foodSelecting();
+		Food selectedFood = foodSelecting();
+		String temp = selectedFood.getName();
 		System.out.print("Food Name : ");
-		hotelController.getFoods().get(selectedFood).setName(scan.next());
+		selectedFood.setName(scan.next());
 		System.out.print("Food Price : ");
-		hotelController.getFoods().get(selectedFood).setPrice(scan.nextInt());
+		selectedFood.setPrice(scan.nextInt());
 		System.out.print("Food Nos : ");
-		hotelController.getFoods().get(selectedFood).setNos(scan.nextInt());
-		hotelController.editFood();
+		selectedFood.setNos(scan.nextInt());
+		hotelController.editFood(selectedFood.getName(),selectedFood.getPrice(),selectedFood.getNos(),temp);
 	}
 	public static void deleteFoodView() throws Exception{
-		int selectedFood = foodSelecting();
+		Food selectedFood = foodSelecting();
 		System.out.println("	Selected Food Was deleted!!");
 		hotelController.deleteFood(selectedFood);
 	}
@@ -96,17 +97,17 @@ public class Tdd{
 		int i=0;
 		int cont = 0;
 		do{
-		int selectedFood = foodSelecting();
+		Food selectedFood = foodSelecting();
 		do{
 			System.out.print("Enter Nos : ");
 			nos = scan.nextInt();
-			if(nos>hotelController.getFoods().get(selectedFood).getNos()){
+			if(nos>selectedFood.getNos()){
 				System.out.println("No Of Food Exceed");
 			}
-		}while(nos>hotelController.getFoods().get(selectedFood).getNos());
+		}while(nos>selectedFood.getNos());
 		bill.getFoodNos().add(nos);
-		selectedFoods.put(i,hotelController.getFoods().get(selectedFood));
-		hotelController.getFoods().get(selectedFood).setNos(hotelController.getFoods().get(selectedFood).getNos()-nos);
+		selectedFoods.put(i,selectedFood);
+		selectedFood.setNos(selectedFood.getNos()-nos);
 		System.out.println("Press 1 To Select Again");
 		cont = scan.nextInt();
 		i++;
@@ -115,7 +116,7 @@ public class Tdd{
 		bill.setBuyerName(scan.next());
 		printBill(selectedFoods);
 	}
-	public static int foodSelecting(){
+	public static Food foodSelecting(){
 		int no = 1;
 		int selectedFood;
 		System.out.println("	Available Foods");
@@ -126,7 +127,7 @@ public class Tdd{
 		no = 1;
 		System.out.print("Select Your Food : ");
 		selectedFood = scan.nextInt();
-		return selectedFood-1;
+		return  hotelController.getFoods().get(selectedFood-1);
 	}
 	public static void printBill(Map<Integer,Food> selectedfoods){
 		int totalPrice = 0;

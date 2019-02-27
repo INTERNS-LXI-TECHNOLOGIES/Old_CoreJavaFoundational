@@ -9,10 +9,10 @@ public class HotelService{
 	public void getfoods(Food food) throws Exception{
 		hotelRepo.add(food);
 	}
-	public void getfoods() throws Exception{
-		hotelRepo.edit();
+	public void getfoods(String foodName,int foodPrice,int nos,String name) throws Exception{
+		hotelRepo.edit(foodName,foodPrice,nos,name);
 	}
-	public void getfoods(int selectedFood) throws Exception{
-		hotelRepo.delete(selectedFood);
+	public void deleteFood(Food food) throws Exception{
+		hotelRepo.delete(food);
 	}
 }

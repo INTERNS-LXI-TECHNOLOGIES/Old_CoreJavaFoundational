@@ -12,11 +12,11 @@ public class HotelController{
 	public void addFood(Food food) throws Exception{
 		hotelService.getfoods(food);
 	}
-	public void editFood() throws Exception{
-		hotelService.getfoods();
+	public void editFood(String foodName,int foodPrice,int nos,String name) throws Exception{
+		hotelService.getfoods(foodName,foodPrice,nos,name);
 	}
-	public void deleteFood(int selectedFood) throws Exception{
-		hotelService.getfoods(selectedFood);
+	public void deleteFood(Food selectedFood) throws Exception{
+		hotelService.deleteFood(selectedFood);
 	}
 	public ArrayList<Food> getFoods(){
 		return hotel.getFoods();
