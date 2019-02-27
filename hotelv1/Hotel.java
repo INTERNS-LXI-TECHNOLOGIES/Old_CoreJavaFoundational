@@ -108,7 +108,6 @@ public void adminOptions()throws Exception
 		BufferedWriter bw=new BufferedWriter(fw);
 		FileReader fr=new FileReader(file);
 		BufferedReader br=new BufferedReader(fr);
-		
 		foods=new ArrayList <Food>();
 		do{
 			System.out.println("1.Add \n2.Delete\n3.Edit");
@@ -119,34 +118,25 @@ public void adminOptions()throws Exception
 				foods.add(administrator.addFood());
 				System.out.println("To add food again press 1");
 				}while(scan.nextInt()==1);
-				/*for(int i=0;i<foods.size();i++)
+				for(int i=0;i<foods.size();i++)
 				{
 				
 				bw.write(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
-				}*/
-				//bw.flush();
-				//bw.close();
+				}
+				bw.flush();
+				bw.close();
 				
-				/*for(int l=0;l<noOfFood;l++)
+				for(int l=0;l<foods.size();l++)
 				{
 				String data=br.readLine();
 				System.out.println(data);
-				for(int i=0;i<noOfFood;i++)
-				{
-					foods.add(new Food());
 				for(int k=0;k<3;k++)
 				{
-					
-				
 				String item[]=data.split(",");
 					System.out.println(item[k]);
-					//foods.get(i).setFoodName(item[k]);
-				//foods.get(i).setFoodCount(item[k+1]);
-				//foods.get(i).setFoodPrice(item[k+2]);
-				}	
 				}
-				}
-				br.close();*/
+				}				
+				br.close();
 				foodDetails();
 				break;
 			case 2:
@@ -201,6 +191,10 @@ public void foodDetails()
 			for(int i=0;i<foods.size();i++)
 			{
 			System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
+			/*for(int k=0;k<3;k++)
+				{
+					System.out.print((i+1)+"\t\t"+item[k+i]+"\t\t\t"i"
+				}*/
 			}
 	
 }
