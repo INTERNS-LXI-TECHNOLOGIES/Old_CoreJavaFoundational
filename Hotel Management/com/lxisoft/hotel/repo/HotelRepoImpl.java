@@ -11,7 +11,7 @@ public class HotelRepoImpl implements HotelRepo{
 		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
 		Statement s = c.createStatement();
 		s.execute("CREATE TABLE IF NOT EXISTS foodDetails(name TEXT , price INT , nos INT )");
-		ResultSet r = s.executeQuery("SELECT * FROM foodDetails");
+		ResultSet r = s.executeQuery("select * from foodDetails");
 		while(r.next()){
 			Food food = new Food();
 			food.setName(r.getString(1));
@@ -24,25 +24,28 @@ public class HotelRepoImpl implements HotelRepo{
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
 		hotelModel.getFoods().add(food);
-		PreparedStatement p = c.prepareStatement("INSERT INTO foodDetails(name,price,nos) VALUES(?,?,?)");
+		PreparedStatement p = c.prepareStatement("insert into foodDetails(name,price,nos) values(?,?,?)");
 		p.setString(1,food.getName());
 		p.setInt(2,food.getPrice());
 		p.setInt(3,food.getNos());
+		p.execute();
 	}
 	public void edit(String foodName,int foodPrice,int nos,String name) throws Exception{
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
-		PreparedStatement p = c.prepareStatement("UPDATE foodDetails SET name = ?,price = ?,nos = ? WHERE name = ?");
+		PreparedStatement p = c.prepareStatement("update foodDetails set name = ?,price = ?,nos = ? WHERE name = ?");
 		p.setString(1,foodName);
 		p.setInt(2,foodPrice);
 		p.setInt(3,nos);
 		p.setString(4,name);
+		p.execute();
 	}
 	public void delete(Food selectedFood) throws Exception{
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
-		PreparedStatement s = c.prepareStatement("DELETE FROM foodDetails Where name = ?");
-		s.setString(1,selectedFood.getName());
+		PreparedStatement p = c.prepareStatement("delete from foodDetails Where name = ?");
+		p.setString(1,selectedFood.getName());
 		hotelModel.getFoods().remove(selectedFood);
+		p.execute();
 	}
 }
