@@ -9,7 +9,6 @@ public class Hotel
 	private Cashier cashier;
 	private ArrayList <Food> foods;
 	private Customer customer;
-	//private Bill bill;
 	int noOfFood;
 	public void setAdministrator(Administrator administrator)
 	{
@@ -45,11 +44,6 @@ public class Hotel
 	}
 public void authentication()throws Exception
 {	
-			//int noOfCustomers;
-			//int total=0;
-			//int noOfOrder;
-			
-			
 		//System.out.println(file.exists());
 		//bw.write("pizza");
 			System.out.println("FOOD PALACE");
@@ -61,8 +55,6 @@ public void authentication()throws Exception
 			switch(scan.nextInt())
 			{
 			case 1:
-				do
-				{
 				administrator.adminDetails();
 				System.out.print("Username :");
 				if(scan.next().equals(administrator.getUsername()))
@@ -75,19 +67,14 @@ public void authentication()throws Exception
 				else
 				{
 					System.out.println("Password is incorrect");
-					System.out.println("Do you want to continue press 1");
 				}
 				}
 				else
 				{
 				System.out.println("Username is incorrect");
-				System.out.println("Do you want to continue press 1");
 				}
-				}while(scan.nextInt()==1);
 				break;
 			case 2:
-				do
-				{
 				setCustomer(new Customer());
 				customer.userDetails();
 				System.out.print("Username :");
@@ -101,15 +88,12 @@ public void authentication()throws Exception
 				else
 				{
 					System.out.println("Password is incorrect");
-					System.out.println("Do you want to continue press 1");
 				}
 				}
 				else
 				{
 				System.out.println("Username is incorrect");
-				System.out.println("Do you want to continue press 1");
 				}
-				}while(scan.nextInt()==1);
 				break;
 				default:System.out.println("Wrong choice");
 				break;
@@ -197,29 +181,14 @@ public void adminOptions()throws Exception
 public void foodOrdering()
 {
 				int noOfOrder;
-				
-				//System.out.print("number of customers:");
-				//noOfCustomers=scan.nextInt();
 				foodDetails();
 				do{
-				
-				//do{
-					//int c=0;
 				System.out.print("Which food you want:");
 				String nameOfFood=customer.selectFood();
-				//c++;
-				//System.out.print("order next item press 1");
-				//}while(scan.nextInt()==1);
 				if(foods.size()!=0)
 				{
-				for(int i=0;i<foods.size();i++)
-					{
-				if((nameOfFood).equals(foods.get(i).getName()))
-						{
 						System.out.println("Food available");
-						cashier.printBill(foods);
-						}
-				}
+						cashier.printBill(foods,nameOfFood);
 				}
 				else{System.out.println("No food");}
 				System.out.println("\n again order food press 1");
