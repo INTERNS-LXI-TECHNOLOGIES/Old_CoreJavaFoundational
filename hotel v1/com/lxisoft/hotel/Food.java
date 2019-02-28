@@ -5,7 +5,7 @@ public class Food
 	
 	Scanner scan=new Scanner(System.in);
 	private String name;
-	private int price;
+	private int price,count;
 	
 	public void setName(String name)
 	{
@@ -22,6 +22,14 @@ public class Food
 	public int getPrice()
 	{
 		return price;
+	}
+	public void setCount(int count)
+	{
+		this.count=count;
+	}
+	public int getCount()
+	{
+		return count;
 	}
 	
 	

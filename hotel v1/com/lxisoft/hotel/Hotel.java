@@ -14,6 +14,7 @@ public class Hotel
 	private ArrayList<Food> foods=new ArrayList<Food>();
 	private MenuList menuList=new MenuList();
 	private Bill bill=new Bill();
+	
 	        public void setBill(Bill bill)
 			{
 				this.bill=bill;
@@ -22,6 +23,7 @@ public class Hotel
 			{
 				return bill;
 			}
+			
 	        public void setMenuList (MenuList menuList)
 			{
 				this.menuList=menuList;
@@ -39,10 +41,8 @@ public class Hotel
 			{
 				return cashier;
 			}
-			
-			
-
-            public void setWorkers (Worker workers)    
+		   
+		   public void setWorkers (Worker workers)    
 			{
 				this.workers=workers;
 			}
@@ -81,10 +81,7 @@ public class Hotel
 			   return name;
 			}
 
-
-
-
-            public void setFood (ArrayList <Food> food)
+           public void setFood (ArrayList <Food> food)
 			{
 				this.foods=foods;
 			}
@@ -93,69 +90,50 @@ public class Hotel
 				return foods;
 			}
 			
-			
- 
-	
-   public void authendication()
-   {
-	   System.out.println("do you want admin or cashier or customer\ncashier=0\nadmin=1\ncustomer=2\nworkers=3");
-		    int s=scan.nextInt();
+
+	public void authendication()
+    {
+	     System.out.println("do you want admin or cashier or customer\ncashier=0\nadmin=1\ncustomer=2\nworkers=3");
+		 int login=scan.nextInt();
 		 
-		 if(s==1)	
+		 if(login==1)	
 		  {
-				System.out.println("enter the admin password");
-				int i=scan.nextInt();
-						if(i==1234)
-						{
-							admin.inventoryOptions(foods);
-						}
-						else
-						{
-							System.out.println("not found");
-						}
-					
-			}
-					
-	    else if(s==0)
-			{
-					System.out.println("enter cashier password");
-					int j=scan.nextInt();
-					if(j==7787)
+			  System.out.println("enter the admin password");
+			  int adminPassword=scan.nextInt();
+			  if(adminPassword==1234)
 					{
-				
-					 
-					    customers.deleteOrderedFood(foods);
-						bill.printBill(customers.orderedFood);
-						
+						admin.inventoryOptions(foods);
+					}
+			  else
+					{
+						System.out.println("not found");
+					}
+		  }
+		 else if(login==0)
+		  {
+					System.out.println("enter cashier password");
+					int cashierPassword=scan.nextInt();
+					if(cashierPassword==7787)
+					{
+				      bill.printBill(customers.orderedFood);
 					}
 					else
 					{
 						System.out.println("not founds");
 					}
 			}
-		else if(s==2)
+		else if(login==2)
 			{
-				   System.out.println("enter the customer password");
-				   int j=scan.nextInt();
-				   if(j==55555)
-				   {
-					       menuList.listOfFood(foods);
-						   customers.choosing(foods);
-						   customers.deleteOrderedFood(foods);
-							printing();
-					   
-					}
-				   else 
-				   {
-					   System.out.println("not fount");
-				   }
+				  menuList.listOfFood(foods);
+				   customers.choosing(foods);
+				   printing();
 			}
-       else if(s==3)
+       else if(login==3)
 		    {   
 			    
-                System.out.println("do you want see the balence food details \n*)yes=1\n*)no=2");
-			    int d=scan.nextInt();
-				if(d==1)
+                System.out.println("do you want see the balance food details \n*)yes=1\n*)no=2");
+			    int choice=scan.nextInt();
+				if(choice==1)
 				{
 					printing();
 				}
@@ -163,22 +141,19 @@ public class Hotel
 				{
 					System.out.println("you cant see");
 				}
-				
 			}
 		else
 			{
 				System.out.println("not found");
 			}
-			
-    }
-	 public void printing()
+	 }
+     public void printing()
 			{
-				System.out.println("BALENCE FOOD\n**********");
+				System.out.println("BALANCE FOOD\n**********");
 					for(int i=0;i<foods.size();i++)
 					{
 						
-						System.out.println(foods.get(i).getName());
+						System.out.println("  name"+foods.get(i).getName()+"  count"+foods.get(i).getCount());
 					}	
 			}
-							
 }

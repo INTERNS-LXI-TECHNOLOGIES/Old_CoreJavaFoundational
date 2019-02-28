@@ -16,44 +16,36 @@ ArrayList<Food>  orderedFood=new ArrayList<Food>();
 	   return food;
    }
    
-int n=0;
-   
-   
-    public void choosing(ArrayList<Food> foods)
+   public void choosing(ArrayList<Food> foods)
 		   {
-                System.out.println("how many food do you want");
-                  n=scan.nextInt();
-			   System.out.println("choose any food");
-		   for(int i=0;i<n;i++)
-			 {			
+			   int n=0;
+               System.out.println("how many food do you want");
+			   int numOfFood=scan.nextInt();    
+		   for(int i=0;i<numOfFood;i++)
+			 {
                
+			   System.out.println("choose any food");				 
                String order=scan.next();
+			  
+			   System.out.println("how many"+  order  + "want");
+			    n=scan.nextInt();
+				
+			    if(n<=foods.get(i).getCount()) 
+				{
                  for(int j=0;j<foods.size();j++)
                    {
 				   
 						  if(foods.get(j).getName().equals(order))
 							{
 								orderedFood.add(foods.get(j));
+								foods.get(j).setCount(foods.get(j).getCount()-n);
 							}
 				   }
+				}
 			}
+			 
 		 }
 			
-			
-	   public void deleteOrderedFood(ArrayList<Food> foods)
-	      {	
-			  
-			   for(int i=0;i<foods.size();i++)
-			      {	
-                   			  
-                   for(int j=0;j<orderedFood.size();j++)
-                       {
-						  if(foods.get(i).getName().equals(orderedFood.get(j).getName()))
-								{										
-									 foods.remove(i);
-							    }
-					  }
-			      }
-			 }
-}	 
+}		
+	  
 

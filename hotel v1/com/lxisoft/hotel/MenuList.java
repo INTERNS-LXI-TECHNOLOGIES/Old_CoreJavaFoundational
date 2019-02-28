@@ -6,11 +6,11 @@ public class MenuList
 	{
 		System.out.println("AVILABLE FOOD");
 	    System.out.println("***************");
-		System.out.println(" FOOD PRICE");
+		System.out.println("   FOOD    "+"    PRICE    "+"    COUNT");
 	    for( int i=0;i<foods.size();i++)
 		{
 	     
-		   System.out.println(""+foods.get(i).getName()+"    :"+foods.get(i).getPrice());
+		   System.out.println("   "+foods.get(i).getName()+"               "+foods.get(i).getPrice()+"             "+foods.get(i).getCount());
 		}
 	}
 }
