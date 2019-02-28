@@ -44,6 +44,11 @@ public class Hotel
 	}
 public void authentication()throws Exception
 {	
+		File file=new File("fooddetails.txt");
+		FileWriter fw=new FileWriter(file);
+		BufferedWriter bw=new BufferedWriter(fw);
+		FileReader fr=new FileReader(file);
+		BufferedReader br=new BufferedReader(fr);
 		//System.out.println(file.exists());
 		//bw.write("pizza");
 			System.out.println("FOOD PALACE");
@@ -82,7 +87,7 @@ public void authentication()throws Exception
 				{
 				System.out.print("Password :");
 				if(scan.next().equals(getCustomer().getPassword()))
-				{
+				{	
 				foodOrdering();
 				}
 				else
@@ -116,28 +121,19 @@ public void adminOptions()throws Exception
 			case 1:	
 				do{
 				foods.add(administrator.addFood());
-				System.out.println("To add food again press 1");
-				}while(scan.nextInt()==1);
 				for(int i=0;i<foods.size();i++)
 				{
 				
 				bw.write(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
-				}
-				bw.flush();
-				bw.close();
 				
-				for(int l=0;l<foods.size();l++)
-				{
-				String data=br.readLine();
-				System.out.println(data);
-				for(int k=0;k<3;k++)
-				{
-				String item[]=data.split(",");
-					System.out.println(item[k]);
 				}
-				}				
-				br.close();
+				System.out.println("To add food again press 1");
+				}while(scan.nextInt()==1);
+				
+				bw.flush();
+				//bw.close();
 				foodDetails();
+				
 				break;
 			case 2:
 				administrator.deleteFood(foods);
@@ -166,9 +162,8 @@ public void adminOptions()throws Exception
 			}
 			System.out.println("Again do any operation press 1");
 		}while(scan.nextInt()==1);
-		
 }
-public void foodOrdering()
+public void foodOrdering()throws Exception
 {
 				int noOfOrder;
 				foodDetails();
@@ -185,18 +180,29 @@ public void foodOrdering()
 				}while(scan.nextInt()==1);
 				
 }
-public void foodDetails()
+public void foodDetails()throws Exception
 {
+	File file=new File("fooddetails.txt");
+	FileReader fr=new FileReader(file);
+		BufferedReader br=new BufferedReader(fr);
 	System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");
-			for(int i=0;i<foods.size();i++)
+			/*for(int i=0;i<foods.size();i++)
 			{
 			System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
-			/*for(int k=0;k<3;k++)
+			}*/
+			for(int i=0;i<foods.size();i++)
 				{
-					System.out.print((i+1)+"\t\t"+item[k+i]+"\t\t\t"i"
-				}*/
-			}
-	
+				String data=br.readLine();
+				//System.out.println(data);
+				System.out.print((i+1));
+				for(int k=0;k<3;k++)
+				{
+				String item[]=data.split(",");
+					System.out.print("\t\t"+item[k]+"\t");
+				}
+				System.out.println("\n");
+				}
+				br.close();	
 }
 	
 	
