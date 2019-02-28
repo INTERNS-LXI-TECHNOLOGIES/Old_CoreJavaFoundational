@@ -28,8 +28,8 @@ public void remove()
 {
 	admin.removeItem(foodItems);
 }
-public void order()
+public void placeOrderAndBillPrinting()
 {
-	customer.placeOrder(foodItems);
+	customer.placeOrderAndBillPrinting(foodItems);
 }
 }

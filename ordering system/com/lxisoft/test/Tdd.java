@@ -9,6 +9,6 @@ Hotel hotel=new Hotel();
 hotel.adminPage();
 hotel.foodMenu();
 hotel.remove();
-hotel.order();
+hotel.placeOrderAndBillPrinting();
 }
 }
