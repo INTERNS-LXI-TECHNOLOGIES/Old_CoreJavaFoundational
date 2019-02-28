@@ -1,6 +1,6 @@
 Dosa,10,20
-idly,6,25
+idly,5,20
 chappathi,10,20
 BBiriyani,90,10
 pizza,150,10
-MBiriyani,130,15
+MBiriyani,120,10

@@ -15,22 +15,15 @@ public class HotelRepoImpl implements HotelRepo{
 		}
 	}
 	public void viewAll() throws Exception{
-		File f = new File("FoodDetails.txt");
-		BufferedWriter bw = new BufferedWriter(new FileWriter(f));
 		Statement s = c.createStatement();
 		ResultSet r = s.executeQuery("select * from foodDetails");
 		while(r.next()){
 			Food food = new Food();
 			food.setName(r.getString(2));
 			food.setPrice(r.getInt(3));
-			food.setNos(r.getInt(4));
-			if(f.exists()){
-				f.delete();
-				bw.write(food.getName()+","+food.getPrice()+","+food.getNos()+"\n");
-			}
+			food.setNos(r.getInt(4));	
 			hotelModel.getFoods().add(food);
 		}
-		bw.close();
 	}
 	public void add(Food food) throws Exception{
 		PreparedStatement p = c.prepareStatement("insert into foodDetails(name,price,nos) values(?,?,?)");
@@ -38,14 +31,12 @@ public class HotelRepoImpl implements HotelRepo{
 		p.setInt(2,food.getPrice());
 		p.setInt(3,food.getNos());
 		p.execute();
-		viewAll();
 	}
 	public void delete(Food selectedFood) throws Exception{
 		PreparedStatement p = c.prepareStatement("delete from foodDetails Where name = ?");
 		p.setString(1,selectedFood.getName());
 		hotelModel.getFoods().remove(selectedFood);
 		p.execute();
-		viewAll();
 	}
 	public void searchByName(String name) throws Exception{
 		Statement s = c.createStatement();

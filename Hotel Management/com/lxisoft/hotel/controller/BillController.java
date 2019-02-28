@@ -20,5 +20,4 @@ public class BillController{
 	public String getBuyerName(){
 		return billModel.getBuyerName();
 	}
-
 }

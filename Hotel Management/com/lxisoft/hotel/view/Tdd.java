@@ -32,6 +32,7 @@ public class Tdd{
 			if(password.equals("admin")){
 				System.out.println("1.Add Food\n2.Edit Food\n3.Delete Food");
 				int select = scan.nextInt();
+				hotelController.callHotelRepo();
 				switch(select){
 					case 1:
 					addFoodView();
