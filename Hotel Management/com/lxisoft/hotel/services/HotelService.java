@@ -17,6 +17,7 @@ public class HotelService{
 		p.setInt(3,nos);
 		p.setString(4,name);
 		p.execute();
+		hotelRepo.viewAll();
 	}
 	public void deleteFood(Food food) throws Exception{
 		hotelRepo.delete(food);

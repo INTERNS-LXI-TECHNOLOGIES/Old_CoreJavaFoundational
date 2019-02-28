@@ -15,10 +15,17 @@ public class Tdd{
 		Console c = System.console();
 		int cont;
 		char[] p;
+		File f = new File("up.properties");
+		Properties up = new Properties();
+		up.setProperty("adminusername","admin");
+		up.setProperty("adminpassword","ADMIN");
+		up.setProperty("userusername","user");
+		up.setProperty("userpassword","USER");
+		up.store(new FileWriter(f),"Properties");
 		do{
 		System.out.println("	Select From Below\n"+" Admin\n"+" User");
 		String user = scan.next();
-		if(user.toUpperCase().equals("ADMIN")){
+		if(user.toUpperCase().equals(up.getProperty("adminpassword"))){
 			System.out.print("Password : ");
 			p = c.readPassword();
 			String password = String.valueOf(p);
@@ -41,7 +48,7 @@ public class Tdd{
 				System.out.println("	Wrong Password");
 			}
 		}
-		else if(user.toUpperCase().equals("USER")){
+		else if(user.toUpperCase().equals(up.getProperty("userpassword"))){
 			System.out.print("Password : ");
 			p = c.readPassword();
 			String password = String.valueOf(p);
