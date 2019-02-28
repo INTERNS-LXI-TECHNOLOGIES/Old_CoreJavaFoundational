@@ -13,7 +13,6 @@ public class Tdd{
 	}
 	public static void administrator() throws Exception{
 		Console c = System.console();
-		hotelController.callHotelRepo();
 		int cont;
 		char[] p;
 		do{
@@ -47,7 +46,27 @@ public class Tdd{
 			p = c.readPassword();
 			String password = String.valueOf(p);
 			if(password.equals("user")){
-				sellFoodView();
+				System.out.println("1.View All\n2.Search By Name\n3.Search By Price\n4.Search By Contains");
+				int select = scan.nextInt();
+				switch(select){
+					case 1:
+					hotelController.callHotelRepo();
+					sellFoodView();
+					hotelController.getFoods().clear();
+					break;
+					case 2:
+					searchByNameView();
+					hotelController.getFoods().clear();
+					break;
+					case 3:
+					searchByPriceView();
+					hotelController.getFoods().clear();
+					break;
+					case 4:
+					searchByContainsView();
+					hotelController.getFoods().clear();
+					break;
+				}
 			}
 			else{
 				System.out.println("	Wrong Password");
@@ -115,6 +134,26 @@ public class Tdd{
 		System.out.print("Enter Your Name : ");
 		bill.setBuyerName(scan.next());
 		printBill(selectedFoods);
+	}
+	public static void searchByNameView() throws Exception{
+		System.out.print("Enter Food Name : ");
+		String name = scan.next();
+		hotelController.searchByName(name);
+		sellFoodView();
+	}
+	public static void searchByContainsView() throws Exception{
+		System.out.print("Enter Food Name : ");
+		String name = scan.next();
+		hotelController.searchByContains(name);
+		sellFoodView();
+	}
+	public static void searchByPriceView() throws Exception{
+		System.out.print("Enter Price From ");
+		int a = scan.nextInt();
+		System.out.print("Enter Price To ");
+		int b = scan.nextInt();
+		hotelController.searchByPrice(a,b);
+		sellFoodView();
 	}
 	public static Food foodSelecting(){
 		int no = 1;

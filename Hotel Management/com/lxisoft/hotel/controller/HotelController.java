@@ -18,6 +18,15 @@ public class HotelController{
 	public void deleteFood(Food selectedFood) throws Exception{
 		hotelService.deleteFood(selectedFood);
 	}
+	public void searchByName(String name) throws Exception{
+		hotelService.searchByName(name);
+	}
+	public void searchByPrice(int from,int to) throws Exception{
+		hotelService.searchByPrice(from,to);
+	}
+	public void searchByContains(String name) throws Exception{
+		hotelService.searchByContains(name);
+	}
 	public ArrayList<Food> getFoods(){
 		return hotel.getFoods();
 	}

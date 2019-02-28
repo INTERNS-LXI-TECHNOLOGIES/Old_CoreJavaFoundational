@@ -6,23 +6,27 @@ import java.sql.*;
 public class HotelRepoImpl implements HotelRepo{
 
 	Hotel hotelModel = new Hotel();
-	public void hotelRepo() throws Exception{
+	public Connection c;
+	public HotelRepoImpl(){
+		try{
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
+		c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	public void viewAll() throws Exception{
 		Statement s = c.createStatement();
-		s.execute("CREATE TABLE IF NOT EXISTS foodDetails(name TEXT , price INT , nos INT )");
 		ResultSet r = s.executeQuery("select * from foodDetails");
 		while(r.next()){
 			Food food = new Food();
-			food.setName(r.getString(1));
-			food.setPrice(r.getInt(2));
-			food.setNos(r.getInt(3));
+			food.setName(r.getString(2));
+			food.setPrice(r.getInt(3));
+			food.setNos(r.getInt(4));
 			hotelModel.getFoods().add(food);
 		}
 	}
 	public void add(Food food) throws Exception{
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
 		hotelModel.getFoods().add(food);
 		PreparedStatement p = c.prepareStatement("insert into foodDetails(name,price,nos) values(?,?,?)");
 		p.setString(1,food.getName());
@@ -30,22 +34,43 @@ public class HotelRepoImpl implements HotelRepo{
 		p.setInt(3,food.getNos());
 		p.execute();
 	}
-	public void edit(String foodName,int foodPrice,int nos,String name) throws Exception{
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
-		PreparedStatement p = c.prepareStatement("update foodDetails set name = ?,price = ?,nos = ? WHERE name = ?");
-		p.setString(1,foodName);
-		p.setInt(2,foodPrice);
-		p.setInt(3,nos);
-		p.setString(4,name);
-		p.execute();
-	}
 	public void delete(Food selectedFood) throws Exception{
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
 		PreparedStatement p = c.prepareStatement("delete from foodDetails Where name = ?");
 		p.setString(1,selectedFood.getName());
 		hotelModel.getFoods().remove(selectedFood);
 		p.execute();
+	}
+	public void searchByName(String name) throws Exception{
+		Statement s = c.createStatement();
+		ResultSet r = s.executeQuery("select * from foodDetails where name = '"+name+"'");
+		while(r.next()){
+			Food food = new Food();
+			food.setName(r.getString(2));
+			food.setPrice(r.getInt(3));
+			food.setNos(r.getInt(4));
+			hotelModel.getFoods().add(food);
+		}
+	}
+	public void searchByPrice(int from,int to) throws Exception{
+		Statement s = c.createStatement();
+		ResultSet r = s.executeQuery("select * from foodDetails where price between "+from+" and "+to);
+		while(r.next()){
+			Food food = new Food();
+			food.setName(r.getString(2));
+			food.setPrice(r.getInt(3));
+			food.setNos(r.getInt(4));
+			hotelModel.getFoods().add(food);
+		}
+	}
+	public void searchByContains(String name) throws Exception{
+		Statement s = c.createStatement();
+		ResultSet r = s.executeQuery("select * from foodDetails where name like '%"+name+"%'");
+		while(r.next()){
+			Food food = new Food();
+			food.setName(r.getString(2));
+			food.setPrice(r.getInt(3));
+			food.setNos(r.getInt(4));
+			hotelModel.getFoods().add(food);
+		}
 	}
 }
