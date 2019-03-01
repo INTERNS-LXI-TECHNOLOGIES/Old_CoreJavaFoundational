@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-03-01T16:57:14</date>
+  <millis>1551439634043</millis>
+  <sequence>0</sequence>
+  <logger>com.lxisoft.hotel.view.View</logger>
+  <level>INFO</level>
+  <class>com.lxisoft.hotel.view.View</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>***Entered main method***</message>
+</record>
+<record>
+  <date>2019-03-01T16:57:14</date>
+  <millis>1551439634049</millis>
+  <sequence>1</sequence>
+  <logger>com.lxisoft.hotel.view.View</logger>
+  <level>INFO</level>
+  <class>com.lxisoft.hotel.view.View</class>
+  <method>administrator</method>
+  <thread>1</thread>
+  <message>***Entered Aniministrator method***</message>
+</record>
+<record>
+  <date>2019-03-01T16:57:28</date>
+  <millis>1551439648873</millis>
+  <sequence>2</sequence>
+  <logger>com.lxisoft.hotel.view.View</logger>
+  <level>INFO</level>
+  <class>com.lxisoft.hotel.view.View</class>
+  <method>administrator</method>
+  <thread>1</thread>
+  <message>***Exited Aniministrator method***</message>
+</record>
+<record>
+  <date>2019-03-01T16:57:28</date>
+  <millis>1551439648876</millis>
+  <sequence>3</sequence>
+  <logger>com.lxisoft.hotel.view.View</logger>
+  <level>INFO</level>
+  <class>com.lxisoft.hotel.view.View</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>***Exited main method***</message>
+</record>
+</log>

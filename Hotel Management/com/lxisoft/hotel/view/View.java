@@ -2,16 +2,39 @@ package com.lxisoft.hotel.view;
 import com.lxisoft.hotel.controller.*;
 import com.lxisoft.hotel.model.*;
 import com.lxisoft.hotel.services.*;
-import java.util.*;
+import java.util.Scanner;
+import java.util.Map;
+import java.util.Properties;
+import java.util.HashMap;
 import java.io.*;
+import java.util.logging.*;
 public class View{
 	static Scanner scan = new Scanner(System.in);
 	static HotelController hotelController = new HotelController();
 	static BillController bill = new BillController();
+	public static final Logger log = Logger.getLogger(View.class.getName());
 	public static void main(String[] args) throws Exception{
+		File f = new File("log.properties");
+		Properties p = new Properties();
+		p.load(new FileReader(f));
+		Handler fh = new FileHandler("Log.log");
+		Handler ch = new ConsoleHandler();
+		XMLFormatter xmlFormatter = new XMLFormatter();
+		SimpleFormatter simpleFormatter = new SimpleFormatter();
+		log.addHandler(fh);
+		fh.setLevel(Level.ALL);
+		if(p.getProperty("formatter").equals("xmlFormatter"))
+			fh.setFormatter(xmlFormatter);
+		else{
+			fh.setFormatter(simpleFormatter);
+		}
+		log.setLevel(Level.ALL);
+		log.info("***Entered main method***");
 		administrator();
+		log.info("***Exited main method***");
 	}
 	public static void administrator() throws Exception{
+		log.info("***Entered Aniministrator method***");
 		Console c = System.console();
 		int cont;
 		char[] p;
@@ -89,6 +112,7 @@ public class View{
 		System.out.println("Press 1 To Continue");
 		cont = scan.nextInt();
 		}while(cont == 1);
+		log.info("***Exited Aniministrator method***");
 	}
 	public static void addFoodView() throws Exception{
 		int temp;
