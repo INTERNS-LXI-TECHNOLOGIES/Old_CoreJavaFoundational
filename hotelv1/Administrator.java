@@ -44,32 +44,17 @@ public class Administrator
 	}
 	public void deleteFood(ArrayList <Food> foods) throws Exception
 	{
-		File file=new File("fooddetails.txt");
-		FileReader fr=new FileReader(file);
-		BufferedReader br=new BufferedReader(fr);
 		System.out.print("which one you want to delete:");
 		String  n=scan.next();
 				for(int i=0;i<foods.size();i++)
 				{
-				String data=br.readLine();
-				//System.out.println(data);
-				String item[]=data.split(",");
-				for(int k=0;k<3;k=k+3)
+				if(n.equals(foods.get(i).getName()))
 				{
-				
-				if(n.equals(item[k]))
-				{
-					for(int l=k;l<3;l++){
-						
-				String dup=item[l];	
-					foods.remove(i);
-					}
-					}
+				foods.remove(i);
 				}
 				}
-			
 	}
-	public void editFood(ArrayList <Food> foods)
+	public void editFood(ArrayList <Food> foods)throws Exception
 	{
 		System.out.println("To edit\n1.Food name\n2.Food Count\n3.Food price");
 				switch(scan.nextInt()){
@@ -78,7 +63,6 @@ public class Administrator
 				String edit=scan.next();
 				for(int i=0;i<foods.size();i++)
 				{	
-			
 					if(edit.equals(foods.get(i).getName()))
 					{
 						String name=foods.get(i).getName();
