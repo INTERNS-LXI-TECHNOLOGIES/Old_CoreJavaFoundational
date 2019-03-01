@@ -4,7 +4,7 @@ import com.lxisoft.hotel.model.*;
 import com.lxisoft.hotel.services.*;
 import java.util.*;
 import java.io.*;
-public class Tdd{
+public class View{
 	static Scanner scan = new Scanner(System.in);
 	static HotelController hotelController = new HotelController();
 	static BillController bill = new BillController();
@@ -30,7 +30,7 @@ public class Tdd{
 			p = c.readPassword();
 			String password = String.valueOf(p);
 			if(password.equals("admin")){
-				System.out.println("1.Add Food\n2.Edit Food\n3.Delete Food");
+				System.out.println("1.Add Food\n2.Edit Food\n3.Delete Food\n4.View Bill");
 				int select = scan.nextInt();
 				hotelController.callHotelRepo();
 				switch(select){
@@ -42,6 +42,9 @@ public class Tdd{
 					break;
 					case 3:
 					deleteFoodView();
+					break;
+					case 4:
+					getPrevBillName();
 					break;
 				}
 			}
@@ -176,17 +179,55 @@ public class Tdd{
 		selectedFood = scan.nextInt();
 		return  hotelController.getFoods().get(selectedFood-1);
 	}
-	public static void printBill(Map<Integer,Food> selectedfoods){
+	public static void printBill(Map<Integer,Food> selectedfoods) throws Exception{
+		File f = new File("billNo.properties");
+		Properties billNo = new Properties();
+		billNo.load(new FileReader(f));
 		int totalPrice = 0;
+		String foodName = "," ;
+		String foodPrice = ",";
+		String foodNos = ",";
 		System.out.println("--------------------------------------");
 		System.out.println("\n\n	Hotel White Sand\n 	   Pathripala\n");
 		System.out.println("Coustemer Name : "+bill.getBuyerName()+"\n");
+		System.out.println("Bill No : "+billNo.getProperty("LastBillNo")+"\n");
 		System.out.printf("%-5s	%-12s	%-5s	%-5s\n","Sl.No","Name","Rate","Prize");
 		System.out.printf("%-5s	%-12s	%-5s	%-5s\n","-----","----","----","-----");
 		for(int i=0;i<selectedfoods.size();i++){
 			System.out.printf("%-5s	%-12s	%-5s	%-5s\n",i+1,selectedfoods.get(i).getName(),selectedfoods.get(i).getPrice(),bill.foodPrice(selectedfoods.get(i).getPrice(),bill.getFoodNos().get(i)));
+			foodName = foodName+selectedfoods.get(i).getName()+",";
+			foodPrice = foodPrice+selectedfoods.get(i).getPrice()+",";
+			foodNos = foodNos+bill.getFoodNos().get(i)+",";
 		}
 		System.out.printf("\n%-15s	%-5s\n","Total Amount : 		",bill.totalBill(selectedfoods));
+		System.out.println("--------------------------------------");
+		int newBillNo = Integer.parseInt(billNo.getProperty("LastBillNo"))+1;
+		String a = ""+newBillNo;
+		bill.prevBill(bill.getBuyerName(),foodName,foodPrice,foodNos,Integer.parseInt(billNo.getProperty("LastBillNo")));
+		billNo.setProperty("LastBillNo",a);
+		billNo.store(new FileWriter(f),"Properties");
+	}
+	public static void getPrevBillName() throws Exception{
+		System.out.println("enter Bill NO :");
+		int billno = scan.nextInt();
+		bill.setprevBill(billno);
+	}
+	public static void prevBillView(String name,String foodName,String foodPrice,String foodNos,int id) throws Exception{
+		String a[] = foodName.split(",");
+		String b[] = foodPrice.split(",");
+		String c[] = foodNos.split(",");
+		int t = 0;
+		System.out.println("--------------------------------------");
+		System.out.println("\n\n	Hotel White Sand\n 	   Pathripala\n");
+		System.out.println("Coustemer Name : "+name+"\n");
+		System.out.println("Bill No : "+id+"\n");
+		System.out.printf("%-5s	%-12s	%-5s	%-5s\n","Sl.No","Name","Rate","Prize");
+		System.out.printf("%-5s	%-12s	%-5s	%-5s\n","-----","----","----","-----");
+		for(int i=1;i<a.length;i++){
+			System.out.printf("%-5s	%-12s	%-5s	%-5s\n",i,a[i],b[i],Integer.parseInt(b[i])*Integer.parseInt(c[i]));
+			t = t+Integer.parseInt(b[i])*Integer.parseInt(c[i]);
+		}
+		System.out.printf("\n%-15s	%-5s\n","Total Amount : 		",t);
 		System.out.println("--------------------------------------");
 	}
 }

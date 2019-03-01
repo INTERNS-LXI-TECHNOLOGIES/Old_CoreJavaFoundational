@@ -20,4 +20,10 @@ public class BillController{
 	public String getBuyerName(){
 		return billModel.getBuyerName();
 	}
+	public void prevBill(String name,String foodName,String foodPrice,String foodNos,int id) throws Exception{
+		bill.prevBill(name,foodName,foodPrice,foodNos,id);
+	}
+	public void setprevBill(int id) throws Exception{
+		bill.setprevBill(id);
+	}
 }

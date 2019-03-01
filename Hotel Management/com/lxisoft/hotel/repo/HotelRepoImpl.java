@@ -57,7 +57,7 @@ public class HotelRepoImpl implements HotelRepo{
 			food.setName(r.getString(2));
 			food.setPrice(r.getInt(3));
 			food.setNos(r.getInt(4));
-			hotelModel.getFoods().add(food);
+			hotelModel.getFoods().add(food); 
 		}
 	}
 	public void searchByContains(String name) throws Exception{
