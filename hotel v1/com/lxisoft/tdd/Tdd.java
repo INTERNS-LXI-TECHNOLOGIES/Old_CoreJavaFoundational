@@ -10,8 +10,6 @@ int d;
 Hotel hotel=new Hotel();
 		do
 	      {
-			
-			
 			hotel.authendication();
 			System.out.println("do you want to continue\nyes=1 \n no=0");
 			d=scan.nextInt();

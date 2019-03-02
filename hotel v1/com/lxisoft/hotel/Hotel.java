@@ -5,24 +5,15 @@ import java.util.ArrayList;
 
 public class Hotel
 {
-	static Scanner scan=new Scanner(System.in);
-	private Cashier cashier=new Cashier();
-	private Worker workers=new Worker();
-	private Customer customers=new Customer();
-	private Admin admin=new Admin();
 	private String name;
+	static Scanner scan=new Scanner(System.in);
+	private Admin admin=new Admin();
+	private Cashier cashier=new Cashier();
+	private Customer customers=new Customer();
+	private ArrayList<Worker> workers=new ArrayList<Worker>();
 	private ArrayList<Food> foods=new ArrayList<Food>();
 	private MenuList menuList=new MenuList();
-	private Bill bill=new Bill();
 	
-	        public void setBill(Bill bill)
-			{
-				this.bill=bill;
-			}
-			public Bill getBill()
-			{
-				return bill;
-			}
 			
 	        public void setMenuList (MenuList menuList)
 			{
@@ -42,11 +33,11 @@ public class Hotel
 				return cashier;
 			}
 		   
-		   public void setWorkers (Worker workers)    
+		   public void setWorkers (ArrayList<Worker> workers)    
 			{
 				this.workers=workers;
 			}
-			public Worker getWorkers()
+			public ArrayList<Worker> getWorkers()
 			{
 				return workers;
 			}
@@ -102,7 +93,7 @@ public class Hotel
 			  int adminPassword=scan.nextInt();
 			  if(adminPassword==1234)
 					{
-						admin.inventoryOptions(foods);
+						admin.choose(foods);
 					}
 			  else
 					{
@@ -115,7 +106,8 @@ public class Hotel
 					int cashierPassword=scan.nextInt();
 					if(cashierPassword==7787)
 					{
-				      bill.printBill(customers.orderedFood);
+				      cashier.callingBill(customers.orderedFood);
+					
 					}
 					else
 					{
@@ -125,8 +117,8 @@ public class Hotel
 		else if(login==2)
 			{
 				  menuList.listOfFood(foods);
-				   customers.choosing(foods);
-				   printing();
+				   customers.foodChoosing(foods);
+				   balanceFoodPrinting();
 			}
        else if(login==3)
 		    {   
@@ -135,7 +127,7 @@ public class Hotel
 			    int choice=scan.nextInt();
 				if(choice==1)
 				{
-					printing();
+					balanceFoodPrinting();
 				}
 				else 
 				{
@@ -147,13 +139,12 @@ public class Hotel
 				System.out.println("not found");
 			}
 	 }
-     public void printing()
+     public void balanceFoodPrinting()
 			{
-				System.out.println("BALANCE FOOD\n**********");
+				System.out.println("BALANCE FOOD\n**************");
 					for(int i=0;i<foods.size();i++)
 					{
-						
-						System.out.println("  name"+foods.get(i).getName()+"  count"+foods.get(i).getCount());
+						System.out.println("  name"+foods.get(i).getName()+"  count"+foods.get(i).getCount()+"     price"+foods.get(i).getPrice());
 					}	
 			}
 }

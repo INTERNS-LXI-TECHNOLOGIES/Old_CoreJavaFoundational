@@ -16,36 +16,33 @@ ArrayList<Food>  orderedFood=new ArrayList<Food>();
 	   return food;
    }
    
-   public void choosing(ArrayList<Food> foods)
+   public void foodChoosing(ArrayList<Food> foods)
 		   {
-			   int n=0;
-               System.out.println("how many food do you want");
-			   int numOfFood=scan.nextInt();    
-		   for(int i=0;i<numOfFood;i++)
-			 {
-               
-			   System.out.println("choose any food");				 
-               String order=scan.next();
-			  
-			   System.out.println("how many"+  order  + "want");
-			    n=scan.nextInt();
-				
-			    if(n<=foods.get(i).getCount()) 
-				{
-                 for(int j=0;j<foods.size();j++)
-                   {
-				   
-						  if(foods.get(j).getName().equals(order))
+				int countOfFood=0;
+				System.out.println("how many food do you want");
+				int numOfFood=scan.nextInt();    
+				   for(int i=0;i<numOfFood;i++)
+					 {
+					      System.out.println("choose any food");				 
+						   String order=scan.next();
+						  
+						   System.out.println("how many"+  order  + "want");
+							countOfFood=scan.nextInt();
+							
+							if(countOfFood<=foods.get(i).getCount()) 
 							{
-								orderedFood.add(foods.get(j));
-								foods.get(j).setCount(foods.get(j).getCount()-n);
-							}
-				   }
-				}
-			}
-			 
-		 }
-			
+								 for(int j=0;j<foods.size();j++)
+								   {
+								   
+										  if(foods.get(j).getName().equals(order))
+											{
+												orderedFood.add(foods.get(j));
+												foods.get(j).setCount(foods.get(j).getCount()-countOfFood);
+											}
+								   }
+							 }
+					 }
+	          }
 }		
 	  
 

@@ -30,7 +30,5 @@ public class Food
 	public int getCount()
 	{
 		return count;
-	}
-	
-	
+	}	
 }

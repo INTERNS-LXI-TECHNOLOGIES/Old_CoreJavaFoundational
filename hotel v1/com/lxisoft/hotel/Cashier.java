@@ -1,13 +1,20 @@
 package com.lxisoft.hotel;
 import com.lxisoft.hotel.Customer;
+import java.util.ArrayList;
 public class Cashier
 {
-	
-   public void  printDetails(String food,int price)
+	private Bill bill=new Bill();
+    public void setBill(Bill bill)
+			{
+				this.bill=bill;
+			}
+	public Bill getBill()
+			{
+				return bill;
+			}
+     
+  public void callingBill(ArrayList<Food> orderedFood)
    {
-	   
-	   System.out.println("odered Food\n............");
-	   
-	   System.out.println("food:  "+food+"price"+price);
+				bill.printBill(orderedFood);
    }
 }
