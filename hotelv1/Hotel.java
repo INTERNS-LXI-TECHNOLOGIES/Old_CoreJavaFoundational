@@ -9,7 +9,7 @@ public class Hotel
 	private Cashier cashier;
 	private ArrayList <Food> foods;
 	private Customer customer;
-	int noOfFood;
+	ArrayList <String> foodItems=new ArrayList <String>();
 	public void setAdministrator(Administrator administrator)
 	{
 		this.administrator=administrator;
@@ -124,7 +124,7 @@ public void adminOptions()throws Exception
 				
 				break;
 			case 2:
-				administrator.deleteFood(foods);
+				administrator.deleteFood(foodItems);
 				if(foods.size()!=0)
 				{
 				foodDetails();
@@ -172,45 +172,60 @@ public void foodOrdering()throws Exception
 }
 public void foodDetails()throws Exception
 {
+	System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");
+			for(int i=0;i<foods.size();i++)
+			{
+			System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
+			}
+}
+public void writeToFile()throws Exception
+{
 	
 	File file=new File("fooddetails.txt");
 	FileWriter fw=new FileWriter(file,true);
 		BufferedWriter bw=new BufferedWriter(fw);
 	FileReader fr=new FileReader(file);
 		BufferedReader br=new BufferedReader(fr);
-		char[] in=new char[50];
-		int size=0;
-		size=fr.read(in);
-		System.out.println(size);
+	for(int i=0;i<foods.size();i++)
+	{			
+	bw.write(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
+	}
+	bw.close();
 	
-	
-			/*for(int i=0;i<foods.size();i++)
-			{
-			System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
-			}*/
-			for(int i=0;i<foods.size();i++)
+}	
+public void readFromFile()throws Exception
+{
+	File file=new File("fooddetails.txt");
+	FileWriter fw=new FileWriter(file,true);
+		BufferedWriter bw=new BufferedWriter(fw);
+	FileReader fr=new FileReader(file);
+		BufferedReader br=new BufferedReader(fr);
+		
+int i=0;
+System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");	
+
+			
+				String data;	
+				while((data=br.readLine())!=null)
 				{
-				
-				bw.write(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
-				size++;
-				}
-				bw.close();
-			System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");
-			for(int i=0;i<foods.size();i++)
-				{
-				String data=br.readLine();	
-				String dup=data;
+				//String dup=data;
 				System.out.print((i+1));
 				
 				for(int k=0;k<3;k++)
 				{
 				String item[]=data.split(",");
 					System.out.print("\t\t"+item[k]+"\t");
-				
+				foodItems.add(item[k]);
 				}
 				System.out.println("\n");	
+				i++;
 				}
+				System.out.println(foodItems.size());
+				for(int l=0;l<foodItems.size();l++)
+				{
+				System.out.print(foodItems.get(l));	
+				}
+				//int size=foods.size();
 				br.close();
 }
-}	
-	
+}				
