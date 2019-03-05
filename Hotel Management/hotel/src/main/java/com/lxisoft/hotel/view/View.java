@@ -20,7 +20,7 @@ public class View{
 	}
 	public static void administrator() throws Exception{
 		log.log.info("***Entered Aniministrator method***");
-		log.log.warning("***May cause Exception***");
+		log.log.warn("***May cause Exception***");
 		Console c = System.console();
 		int cont;
 		char[] p;
@@ -102,7 +102,7 @@ public class View{
 	}
 	public static void addFoodView() throws Exception{
 		log.log.info("***Entered addFoodView method***");
-		log.log.warning("***May cause Exception***");
+		log.log.warn("***May cause Exception***");
 		int temp;
 		do{
 		Food food = new Food();
@@ -120,7 +120,7 @@ public class View{
 	}
 	public static void editFoodView() throws Exception{
 		log.log.info("***Entered editFoodView method***");
-		log.log.warning("***May cause Exception***");
+		log.log.warn("***May cause Exception***");
 		Food selectedFood = foodSelecting();
 		String temp = selectedFood.getName();
 		System.out.print("Food Name : ");
@@ -134,7 +134,7 @@ public class View{
 	}
 	public static void deleteFoodView() throws Exception{
 		log.log.info("***Entered deleteFoodView method***");
-		log.log.warning("***May cause Exception***");
+		log.log.warn("***May cause Exception***");
 		Food selectedFood = foodSelecting();
 		System.out.println("	Selected Food Was deleted!!");
 		hotelController.deleteFood(selectedFood);
@@ -142,7 +142,7 @@ public class View{
 	}
 	public static void sellFoodView() throws Exception{
 		log.log.info("***Entered sellFoodView method***");
-		log.log.warning("***May cause Exception***");
+		log.log.warn("***May cause Exception***");
 		Map<Integer,Food> selectedFoods = new HashMap<Integer,Food>();
 		int nos;
 		int i=0;
@@ -170,7 +170,7 @@ public class View{
 	}
 	public static void searchByNameView() throws Exception{
 		log.log.info("***Entered searchByNameView method***");
-		log.log.warning("***May cause Exception***");
+		log.log.warn("***May cause Exception***");
 		System.out.print("Enter Food Name : ");
 		String name = scan.next();
 		hotelController.searchByName(name);
@@ -179,7 +179,7 @@ public class View{
 	}
 	public static void searchByContainsView() throws Exception{
 		log.log.info("***Entered searchByContainsView method***");
-		log.log.warning("***May cause Exception***");
+		log.log.warn("***May cause Exception***");
 		System.out.print("Enter Food Name : ");
 		String name = scan.next();
 		hotelController.searchByContains(name);
@@ -188,7 +188,7 @@ public class View{
 	}
 	public static void searchByPriceView() throws Exception{
 		log.log.info("***Entered searchByPriceView method***");
-		log.log.warning("***May cause Exception***");
+		log.log.warn("***May cause Exception***");
 		System.out.print("Enter Price From ");
 		int a = scan.nextInt();
 		System.out.print("Enter Price To ");
@@ -214,7 +214,7 @@ public class View{
 	}
 	public static void printBill(Map<Integer,Food> selectedfoods) throws Exception{
 		log.log.info("***Entered printBill method***");
-		log.log.warning("***May cause Exception***");
+		log.log.warn("***May cause Exception***");
 		File f = new File("billNo.properties");
 		Properties billNo = new Properties();
 		billNo.load(new FileReader(f));
@@ -245,7 +245,7 @@ public class View{
 	}
 	public static void getPrevBillName() throws Exception{
 		log.log.info("***Entered getPrevBillName method***");
-		log.log.warning("***May cause Exception***");
+		log.log.warn("***May cause Exception***");
 		System.out.println("enter Bill NO :");
 		int billno = scan.nextInt();
 		bill.setprevBill(billno);
@@ -253,7 +253,7 @@ public class View{
 	}
 	public static void prevBillView(String name,String foodName,String foodPrice,String foodNos,int id) throws Exception{
 		log.log.info("***Entered prevBillView method***");
-		log.log.warning("***May cause Exception***");
+		log.log.warn("***May cause Exception***");
 		String a[] = foodName.split(",");
 		String b[] = foodPrice.split(",");
 		String c[] = foodNos.split(",");
