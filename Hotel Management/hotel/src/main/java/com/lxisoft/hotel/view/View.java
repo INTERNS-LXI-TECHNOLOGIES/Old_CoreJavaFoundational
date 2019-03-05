@@ -2,39 +2,25 @@ package com.lxisoft.hotel.view;
 import com.lxisoft.hotel.controller.*;
 import com.lxisoft.hotel.model.*;
 import com.lxisoft.hotel.services.*;
+import com.lxisoft.hotel.logger.*;
 import java.util.Scanner;
 import java.util.Map;
 import java.util.Properties;
 import java.util.HashMap;
 import java.io.*;
-import java.util.logging.*;
 public class View{
 	static Scanner scan = new Scanner(System.in);
 	static HotelController hotelController = new HotelController();
 	static BillController bill = new BillController();
-	public static final Logger log = Logger.getLogger(View.class.getName());
+	static Log log = new Log();
 	public static void main(String[] args) throws Exception{
-		File f = new File("log.properties");
-		Properties p = new Properties();
-		p.load(new FileReader(f));
-		Handler fh = new FileHandler("Log.log");
-		Handler ch = new ConsoleHandler();
-		XMLFormatter xmlFormatter = new XMLFormatter();
-		SimpleFormatter simpleFormatter = new SimpleFormatter();
-		log.addHandler(fh);
-		fh.setLevel(Level.ALL);
-		if(p.getProperty("formatter").equals("xmlFormatter"))
-			fh.setFormatter(xmlFormatter);
-		else{
-			fh.setFormatter(simpleFormatter);
-		}
-		log.setLevel(Level.ALL);
-		log.info("***Entered main method***");
+		log.log.info("***Entered main method***");
 		administrator();
-		log.info("***Exited main method***");
+		log.log.info("***Exited main method***");
 	}
 	public static void administrator() throws Exception{
-		log.info("***Entered Aniministrator method***");
+		log.log.info("***Entered Aniministrator method***");
+		log.log.warning("***May cause Exception***");
 		Console c = System.console();
 		int cont;
 		char[] p;
@@ -112,9 +98,11 @@ public class View{
 		System.out.println("Press 1 To Continue");
 		cont = scan.nextInt();
 		}while(cont == 1);
-		log.info("***Exited Aniministrator method***");
+		log.log.info("***Exited Aniministrator method***");
 	}
 	public static void addFoodView() throws Exception{
+		log.log.info("***Entered addFoodView method***");
+		log.log.warning("***May cause Exception***");
 		int temp;
 		do{
 		Food food = new Food();
@@ -128,8 +116,11 @@ public class View{
 		System.out.println("Press 1 For Add More Food");
 		temp = scan.nextInt();
 		}while(temp == 1);
+		log.log.info("***Exited addFoodView method***");
 	}
 	public static void editFoodView() throws Exception{
+		log.log.info("***Entered editFoodView method***");
+		log.log.warning("***May cause Exception***");
 		Food selectedFood = foodSelecting();
 		String temp = selectedFood.getName();
 		System.out.print("Food Name : ");
@@ -139,13 +130,19 @@ public class View{
 		System.out.print("Food Nos : ");
 		selectedFood.setNos(scan.nextInt());
 		hotelController.editFood(selectedFood.getName(),selectedFood.getPrice(),selectedFood.getNos(),temp);
+		log.log.info("***Exited editFoodView method***");
 	}
 	public static void deleteFoodView() throws Exception{
+		log.log.info("***Entered deleteFoodView method***");
+		log.log.warning("***May cause Exception***");
 		Food selectedFood = foodSelecting();
 		System.out.println("	Selected Food Was deleted!!");
 		hotelController.deleteFood(selectedFood);
+		log.log.info("***Exited deleteFoodView method***");
 	}
 	public static void sellFoodView() throws Exception{
+		log.log.info("***Entered sellFoodView method***");
+		log.log.warning("***May cause Exception***");
 		Map<Integer,Food> selectedFoods = new HashMap<Integer,Food>();
 		int nos;
 		int i=0;
@@ -169,28 +166,39 @@ public class View{
 		System.out.print("Enter Your Name : ");
 		bill.setBuyerName(scan.next());
 		printBill(selectedFoods);
+		log.log.info("***Exited sellFoodView method***");
 	}
 	public static void searchByNameView() throws Exception{
+		log.log.info("***Entered searchByNameView method***");
+		log.log.warning("***May cause Exception***");
 		System.out.print("Enter Food Name : ");
 		String name = scan.next();
 		hotelController.searchByName(name);
 		sellFoodView();
+		log.log.info("***Exited searchByNameView method***");
 	}
 	public static void searchByContainsView() throws Exception{
+		log.log.info("***Entered searchByContainsView method***");
+		log.log.warning("***May cause Exception***");
 		System.out.print("Enter Food Name : ");
 		String name = scan.next();
 		hotelController.searchByContains(name);
 		sellFoodView();
+		log.log.info("***Exited searchByContainsView method***");
 	}
 	public static void searchByPriceView() throws Exception{
+		log.log.info("***Entered searchByPriceView method***");
+		log.log.warning("***May cause Exception***");
 		System.out.print("Enter Price From ");
 		int a = scan.nextInt();
 		System.out.print("Enter Price To ");
 		int b = scan.nextInt();
 		hotelController.searchByPrice(a,b);
 		sellFoodView();
+		log.log.info("***Exited searchByPriceView method***");
 	}
 	public static Food foodSelecting(){
+		log.log.info("***Entered foodSelecting method***");
 		int no = 1;
 		int selectedFood;
 		System.out.println("	Available Foods");
@@ -201,9 +209,12 @@ public class View{
 		no = 1;
 		System.out.print("Select Your Food : ");
 		selectedFood = scan.nextInt();
+		log.log.info("***Exited foodSelecting method***");
 		return  hotelController.getFoods().get(selectedFood-1);
 	}
 	public static void printBill(Map<Integer,Food> selectedfoods) throws Exception{
+		log.log.info("***Entered printBill method***");
+		log.log.warning("***May cause Exception***");
 		File f = new File("billNo.properties");
 		Properties billNo = new Properties();
 		billNo.load(new FileReader(f));
@@ -230,13 +241,19 @@ public class View{
 		bill.prevBill(bill.getBuyerName(),foodName,foodPrice,foodNos,Integer.parseInt(billNo.getProperty("LastBillNo")));
 		billNo.setProperty("LastBillNo",a);
 		billNo.store(new FileWriter(f),"Properties");
+		log.log.info("***Exited printBill method***");
 	}
 	public static void getPrevBillName() throws Exception{
+		log.log.info("***Entered getPrevBillName method***");
+		log.log.warning("***May cause Exception***");
 		System.out.println("enter Bill NO :");
 		int billno = scan.nextInt();
 		bill.setprevBill(billno);
+		log.log.info("***Exited getPrevBillName method***");
 	}
 	public static void prevBillView(String name,String foodName,String foodPrice,String foodNos,int id) throws Exception{
+		log.log.info("***Entered prevBillView method***");
+		log.log.warning("***May cause Exception***");
 		String a[] = foodName.split(",");
 		String b[] = foodPrice.split(",");
 		String c[] = foodNos.split(",");
@@ -253,5 +270,6 @@ public class View{
 		}
 		System.out.printf("\n%-15s	%-5s\n","Total Amount : 		",t);
 		System.out.println("--------------------------------------");
+		log.log.info("***Exited prevBillView method***");
 	}
 }

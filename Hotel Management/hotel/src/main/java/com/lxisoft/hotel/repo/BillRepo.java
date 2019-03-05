@@ -21,7 +21,6 @@ public class BillRepo{
 		p.execute();
 	}
 	public void setPrevBill(int id) throws Exception{
-		View v = new View();
 		Statement s = c.createStatement();
 		ResultSet r = s.executeQuery("select * from bill where id = '"+id+"'");
 		r.next();
@@ -30,6 +29,6 @@ public class BillRepo{
 		String foodName = r.getString(3);
 		String foodPrice = r.getString(4);
 		String foodNos = r.getString(5);
-		v.prevBillView(buyername,foodName,foodPrice,foodNos,billNo);
+		View.prevBillView(buyername,foodName,foodPrice,foodNos,billNo);
 	}
 }

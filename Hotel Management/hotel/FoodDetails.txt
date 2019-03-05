@@ -4,3 +4,4 @@ chappathi,10,20
 BBiriyani,90,10
 pizza,150,10
 MBiriyani,120,10
+Burger,100,10
