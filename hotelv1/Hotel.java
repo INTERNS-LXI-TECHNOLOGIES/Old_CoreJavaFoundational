@@ -63,6 +63,8 @@ public void authentication()throws Exception
 				if(scan.next().equals(administrator.getPassword()))
 				{	
 				adminOptions();
+				//writeToFile();
+		//readFromFile();
 				}
 				else
 				{
@@ -100,6 +102,7 @@ public void authentication()throws Exception
 				}
 				System.out.println("Login page press 2");
 		}while(scan.nextInt()==2);
+
 }	
 public void adminOptions()throws Exception
 {
@@ -109,7 +112,7 @@ public void adminOptions()throws Exception
 		FileReader fr=new FileReader(file);
 		BufferedReader br=new BufferedReader(fr);
 		foods=new ArrayList <Food>();
-		
+		readFromFile();
 		do{
 			System.out.println("1.Add \n2.Delete\n3.Edit");
 			switch(scan.nextInt())
@@ -124,17 +127,36 @@ public void adminOptions()throws Exception
 				
 				break;
 			case 2:
+				//readFromFile();
 				administrator.deleteFood(foodItems);
-				if(foods.size()!=0)
+				for(int i=0;i<foodItems.size();i++)
 				{
-				foodDetails();
+					System.out.println(foodItems.get(i));
+					
 				}
-				else
+				fileEmpty();
+				//if(foodItems.size()!=0)
+				
+				
+				arraylistToFile();
+				fileRead();
+				
+					//System.out.println(foodItems.size());
+					
+					/*for(int i=0;i<foodItems.size();i++)
 				{
-					System.out.println("No food");
-				}
+					bw.write(foodItems.get(i));
+					
+				}*/
+					
+					
+			/*else{
+				System.out.println("no food");
+			}*/
+				
 				break;
 			case 3:
+				readFromFile();		
 				administrator.editFood(foods);
 				if(foods.size()!=0)
 				{
@@ -151,7 +173,8 @@ public void adminOptions()throws Exception
 			
 			System.out.println("Again do any operation press 1");
 		}while(scan.nextInt()==1);
-		
+		//writeToFile();
+		//readFromFile();
 }
 public void foodOrdering()throws Exception
 {
@@ -168,7 +191,8 @@ public void foodOrdering()throws Exception
 				else{System.out.println("No food");}
 				System.out.println("\n again order food press 1");
 				}while(scan.nextInt()==1);
-				
+				writeToFile();
+				readFromFile();
 }
 public void foodDetails()throws Exception
 {
@@ -192,7 +216,7 @@ public void writeToFile()throws Exception
 	}
 	bw.close();
 	
-}	
+}
 public void readFromFile()throws Exception
 {
 	File file=new File("fooddetails.txt");
@@ -221,11 +245,60 @@ System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");
 				i++;
 				}
 				System.out.println(foodItems.size());
-				for(int l=0;l<foodItems.size();l++)
+				/*for(int j=0;j<foodItems.size();j++)
 				{
-				System.out.print(foodItems.get(l));	
-				}
-				//int size=foods.size();
+					System.out.println(foodItems.get(j));
+					
+				}*/
 				br.close();
+}
+public void arraylistToFile()throws Exception
+{
+	File file=new File("fooddetails.txt");
+	FileWriter fw=new FileWriter(file,true);
+		BufferedWriter bw=new BufferedWriter(fw);
+	FileReader fr=new FileReader(file);
+		BufferedReader br=new BufferedReader(fr);
+		System.out.println(foodItems.size());
+	for(int i=0;i<foodItems.size();i++)
+				{
+					//System.out.println(foodItems.get(i));
+					bw.write(foodItems.get(i));
+				}
+}
+public void fileRead()throws Exception
+{
+	File file=new File("fooddetails.txt");
+	FileWriter fw=new FileWriter(file,true);
+		BufferedWriter bw=new BufferedWriter(fw);
+	FileReader fr=new FileReader(file);
+		BufferedReader br=new BufferedReader(fr);
+
+		int j=0;
+System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");	
+
+			
+				String data;	
+				while((data=br.readLine())!=null)
+				{
+				//String dup=data;
+				System.out.print((j+1));
+				for(int i=0;i<3;i++)
+				{
+				String item[]=data.split(",");
+					System.out.print("\t\t"+item[i]+"\t");
+				}
+				System.out.println("\n");	
+				j++;
+				}				
+}
+public void fileEmpty()throws Exception
+{
+	File file=new File("fooddetails.txt");
+	FileWriter fw=new FileWriter(file);
+		BufferedWriter bw=new BufferedWriter(fw);
+	FileReader fr=new FileReader(file);
+		BufferedReader br=new BufferedReader(fr);
+	
 }
 }				

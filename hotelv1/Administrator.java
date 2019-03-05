@@ -44,18 +44,25 @@ public class Administrator
 	}
 	public void deleteFood(ArrayList <String> foodItems) throws Exception
 	{
+		
 		System.out.print("which one you want to delete:");
 		String  n=scan.next();
+		//System.out.println(n);
 		System.out.println(foodItems.size());
-				for(int i=0;i<foodItems.size();i=i+3)
+		//System.out.println(foodItems.get(0));
+				
+				for(int i=0;i<foodItems.size();i++)
 				{
 				if(n.equals(foodItems.get(i)))
 				{
+					for(int j=0;j<3;j++){
 				foodItems.remove(i);
-				foodItems.remove(i+1);
-				foodItems.remove(i+2);
+					}
+					
 				}
 				}
+			//System.out.println(foodItems.size());
+			
 	}
 	public void editFood(ArrayList <Food> foods)throws Exception
 	{
