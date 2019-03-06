@@ -5,6 +5,7 @@ import java.sql.*;
 public class HotelService{
 	HotelRepoImpl hotelRepo = new HotelRepoImpl();
 	HotelRepoImplFile hotelRepoFile = new HotelRepoImplFile();
+	Repo r = new Repo();
 	public void getFoodDetails() throws Exception{
 		hotelRepo.viewAll();
 		hotelRepoFile.viewAll();
@@ -14,7 +15,7 @@ public class HotelService{
 		hotelRepoFile.add(food);
 	}
 	public void getfoods(String foodName,int foodPrice,int nos,String name) throws Exception{
-		PreparedStatement p = hotelRepo.c.prepareStatement("update foodDetails set name = ?,price = ?,nos = ? WHERE name = ?");
+		PreparedStatement p = r.c.prepareStatement("update foodDetails set name = ?,price = ?,nos = ? WHERE name = ?");
 		p.setString(1,foodName);
 		p.setInt(2,foodPrice);
 		p.setInt(3,nos);

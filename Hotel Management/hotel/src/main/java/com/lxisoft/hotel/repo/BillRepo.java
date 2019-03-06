@@ -2,17 +2,9 @@ package com.lxisoft.hotel.repo;
 import java.sql.*;
 import com.lxisoft.hotel.view.*;
 public class BillRepo{
-	public Connection c;
-	public BillRepo(){
-		try{
-			Class.forName("com.mysql.jdbc.Driver");
-			c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
-		}catch(Exception e){
-
-		}
-	}
+	Repo r = new Repo();
 	public void prevBill(String name,String foodName,String foodPrice,String foodNos,int id) throws Exception{
-		PreparedStatement p = c.prepareStatement("insert into bill(id,name,foodname,foodprice,foodnos) values(?,?,?,?,?)");
+		PreparedStatement p = r.c.prepareStatement("insert into bill(id,name,foodname,foodprice,foodnos) values(?,?,?,?,?)");
 		p.setInt(1,id);
 		p.setString(2,name);
 		p.setString(3,foodName);
@@ -21,7 +13,7 @@ public class BillRepo{
 		p.execute();
 	}
 	public void setPrevBill(int id) throws Exception{
-		Statement s = c.createStatement();
+		Statement s = r.c.createStatement();
 		ResultSet r = s.executeQuery("select * from bill where id = '"+id+"'");
 		r.next();
 		int billNo = Integer.parseInt(r.getString(1));

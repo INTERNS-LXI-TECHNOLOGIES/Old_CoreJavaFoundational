@@ -1,8 +1,8 @@
 package com.lxisoft.hotel.repo;
 import java.sql.*;
 public class Repo{
-	public Connection c;
-	public Repo(){
+	public static Connection c;
+	static{
 		try{
 		Class.forName("com.mysql.jdbc.Driver");
 		c = DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
