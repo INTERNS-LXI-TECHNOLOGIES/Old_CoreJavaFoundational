@@ -64,54 +64,26 @@ public class Administrator
 			//System.out.println(foodItems.size());
 			
 	}
-	public void editFood(ArrayList <Food> foods)throws Exception
+	public void editFood(ArrayList <String> foodItems)throws Exception
 	{
-		System.out.println("To edit\n1.Food name\n2.Food Count\n3.Food price");
-				switch(scan.nextInt()){
-				case 1:
+		System.out.println(foodItems.size());
 				System.out.print("which one you want to edit:");
 				String edit=scan.next();
-				for(int i=0;i<foods.size();i++)
+				//System.out.println(edit);
+				for(int i=0;i<foodItems.size();i++)
 				{	
-					if(edit.equals(foods.get(i).getName()))
+					if(edit.equals(foodItems.get(i)))
 					{
-						String name=foods.get(i).getName();
-						System.out.print("add food:");
-						foods.get(i).setName(scan.next());
+						//System.out.println(foodItems.get(i));
+						//String name=foodItems.get(i);
+						System.out.print("changed one:");
+						String n=scan.next();
+						
+						foodItems.set(foodItems.indexOf(foodItems.get(i)),n);
+						System.out.println(foodItems.get(i));
+						break;
 					}
 				}
-				break;
-				case 2:
-				System.out.print("which one you want to edit:");
-				String edit1=scan.next();
-				for(int i=0;i<foods.size();i++)
-				{	
-					if(Integer.parseInt(edit1)==(foods.get(i).getFoodCount()))
-					{
-						int count=foods.get(i).getFoodCount();
-						System.out.print("add count:");
-						foods.get(i).setFoodCount(scan.nextInt());
-					}
-				}
-				break;
-				case 3:
-				System.out.print("which one you want to edit:");
-				String edit2=scan.next();
-				for(int i=0;i<foods.size();i++)
-				{	
-					if(Integer.parseInt(edit2)==(foods.get(i).getFoodPrice()))
-					{
-						int price=foods.get(i).getFoodPrice();
-						System.out.print("add price:");
-						foods.get(i).setFoodPrice(scan.nextInt());
-					}
-				}
-				break;
-				default:System.out.println("Wrong choice");
-				break;
-				}	
-		
-	
 	}
 }
 		

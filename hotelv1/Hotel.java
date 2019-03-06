@@ -140,16 +140,16 @@ public void adminOptions()throws Exception
 				//readFile();
 				break;
 			case 3:
-				readFromFile();		
-				administrator.editFood(foods);
-				if(foods.size()!=0)
+				//readFromFile();		
+				administrator.editFood(foodItems);
+				for(int i=0;i<foodItems.size();i++)
 				{
-					foodDetails();
+					System.out.println(foodItems.get(i));
+					
 				}
-				else
-				{
-					System.out.println("No food");
-				}
+				file.delete();
+				arraylistToFile();
+				
 				break;	
 				default:System.out.println("Wrong choice");
 				break;				
@@ -270,36 +270,5 @@ System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");
 				j++;
 				}
 			br.close();				
-}
-/*public void readFile()throws Exception
-{
-	File file=new File("foodsdetail.txt");
-	FileWriter fw=new FileWriter(file,true);
-		BufferedWriter bw=new BufferedWriter(fw);
-	FileReader fr=new FileReader(file);
-		BufferedReader br=new BufferedReader(fr);
-
-		int j=0;
-System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");	
-
-			
-				String data;	
-				while((data=br.readLine())!=null)
-				{
-				//String dup=data;
-				System.out.print((j+1));
-				for(int i=0;i<3;i++)
-				{
-				String item[]=data.split(",");
-					System.out.print("\t\t"+item[i]+"\t");
-				}
-				System.out.println("\n");	
-				j++;
-				}				
-}*/
-public void fileEmpty()throws Exception
-{
-	File file=new File("fooddetails.txt");
-	
 }
 }				
