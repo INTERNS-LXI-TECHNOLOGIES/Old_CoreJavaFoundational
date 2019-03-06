@@ -12,6 +12,7 @@ public class View{
 	static Scanner scan = new Scanner(System.in);
 	static HotelController hotelController = new HotelController();
 	static BillController bill = new BillController();
+	static UserController uc = new UserController();
 	static Log log = new Log();
 	public static void main(String[] args) throws Exception{
 		log.log.info("***Entered main method***");
@@ -26,15 +27,15 @@ public class View{
 		char[] p;
 		File f = new File("up.properties");
 		Properties up = new Properties();
-		up.setProperty("adminusername","admin");
+		up.setProperty("adminusername","USER");
 		up.setProperty("adminpassword","ADMIN");
-		up.setProperty("userusername","user");
+		up.setProperty("userusername","USER");
 		up.setProperty("userpassword","USER");
 		up.store(new FileWriter(f),"Properties");
 		do{
 		System.out.println("	Select From Below\n"+" Admin\n"+" User");
 		String user = scan.next();
-		if(user.toUpperCase().equals(up.getProperty("adminpassword"))){
+		if(user.equalsIgnoreCase("admin")){
 			System.out.print("Password : ");
 			p = c.readPassword();
 			String password = String.valueOf(p);
@@ -61,11 +62,62 @@ public class View{
 				System.out.println("	Wrong Password");
 			}
 		}
-		else if(user.toUpperCase().equals(up.getProperty("userpassword"))){
-			System.out.print("Password : ");
-			p = c.readPassword();
-			String password = String.valueOf(p);
-			if(password.equals("user")){
+		else if(user.equalsIgnoreCase("user")){
+			System.out.println("1.Register\n2.Log in");
+			int choice = scan.nextInt();
+			switch(choice){
+				case 1:
+				registerUser();
+				break;
+				case 2:
+				login();
+				break;
+			}	
+		}
+		else{
+			System.out.println("	Invalid Entry");
+		}
+		System.out.println("Press 1 To Continue");
+		cont = scan.nextInt();
+		}while(cont == 1);
+		log.log.info("***Exited Aniministrator method***");
+	}
+	public static void registerUser() throws Exception{
+		User user = new User();
+		boolean a;
+		do{
+		System.out.print("Enter emai id :");
+		user.setEmailid(scan.next());
+		System.out.print("Enter Mobile No : ");
+		user.setMobno(scan.next());
+		System.out.print("Enter password : ");
+		user.setPassword(scan.next());
+		a = uc.registerUser(user.getEmailid(),user.getMobno(),user.getPassword());
+		if(a==false){
+			System.out.println("Entered details Doesn't match ");
+		}
+		else{
+			System.out.println("Registration Succes ");
+		}
+		}while(a == false);
+	}
+	public static void login() throws Exception{
+		 Console c = System.console();
+		 char[] p;
+		 String email;
+		 String a;
+	do{
+		 System.out.print("Enter email id :");
+		 email = scan.next();
+		 a = uc.login(email);
+		 if(a == null ){
+		 	System.out.println("Wrong Email Id Try Again");
+		 }
+		}while(a == null);
+		 System.out.print("Enter password :");
+		 p = c.readPassword();
+		 String password = String.valueOf(p);
+		 if(a.equals(password)){
 				System.out.println("1.View All\n2.Search By Name\n3.Search By Price\n4.Search By Contains");
 				int select = scan.nextInt();
 				switch(select){
@@ -91,14 +143,6 @@ public class View{
 			else{
 				System.out.println("	Wrong Password");
 			}
-		}
-		else{
-			System.out.println("	Invalid Entry");
-		}
-		System.out.println("Press 1 To Continue");
-		cont = scan.nextInt();
-		}while(cont == 1);
-		log.log.info("***Exited Aniministrator method***");
 	}
 	public static void addFoodView() throws Exception{
 		log.log.info("***Entered addFoodView method***");
