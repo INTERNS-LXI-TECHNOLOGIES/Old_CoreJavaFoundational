@@ -26,23 +26,21 @@ Scanner scan=new Scanner(System.in);
   
      public void add(ArrayList<Food> foods)
 	   {   
-	       int c=0;
-           int w;
+	       
            System.out.println("how many foods do you want to add");
-		   int numOfFood=scan.nextInt()+foods.size();
-		   
-		   for(w=foods.size();w<numOfFood;w++)
+		   int numOfFood=scan.nextInt();
+		   for(int w=0;w<numOfFood;w++)
 				 {
-					  foods.add(new Food());
+					  Food food=new Food();
 					  System.out.println("enter the name of the food");
-					  foods.get(w).setName(scan.next());
+					  food.setName(scan.next());
 					  System.out.println("enter the price of the food");
-					  foods.get(w).setPrice(scan.nextInt());
+					  food.setPrice(scan.nextInt());
 					  System.out.println("enter the count of the food");
-					  foods.get(w).setCount(scan.nextInt());
-					
+					  food.setCount(scan.nextInt());
+					foods.add(food);
 				 }
-			printFoodDetails(foods,w);
+			printFoodDetails(foods);
        }
     
 	 public void deletion(ArrayList<Food> foods)
@@ -91,7 +89,7 @@ Scanner scan=new Scanner(System.in);
 				}
 				else if(edit==3)
 				{       
-			        System.out.println("which count is replace");
+			        System.out.println("which foodcount is replace");
 		            String replace=scan.next();
 					for(int s=0;s<foods.size();s++)
 			        {
@@ -104,11 +102,11 @@ Scanner scan=new Scanner(System.in);
 				}		
 		}
 	
-   public void printFoodDetails(ArrayList<Food> foods,int w)
+   public void printFoodDetails(ArrayList<Food> foods)
 	{
 	    int numOfFood=foods.size();
 		
-		for( w=0;w<numOfFood;w++)
+		for(int w=0;w<numOfFood;w++)
 		{
 			
 			System.out.println("NAME : "+foods.get(w).getName()+"        PRICE : "+foods.get(w).getPrice()+"         COUNT : "+foods.get(w).getCount());

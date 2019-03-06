@@ -15,8 +15,7 @@ ArrayList<Food>  orderedFood=new ArrayList<Food>();
    {
 	   return food;
    }
-   
-   public void foodChoosing(ArrayList<Food> foods)
+		public void foodChoosing(ArrayList<Food> foods)
 		   {
 				int countOfFood=0;
 				System.out.println("how many food do you want");
@@ -28,21 +27,28 @@ ArrayList<Food>  orderedFood=new ArrayList<Food>();
 						  
 						   System.out.println("how many"+  order  + "want");
 							countOfFood=scan.nextInt();
-							
-							if(countOfFood<=foods.get(i).getCount()) 
-							{
+					       
 								 for(int j=0;j<foods.size();j++)
 								   {
-								   
-										  if(foods.get(j).getName().equals(order))
-											{
+								         
+									  if(foods.get(j).getName().equals(order))
+										{
+										  if(countOfFood<=foods.get(j).getCount()) 
+							                  {
 												orderedFood.add(foods.get(j));
 												foods.get(j).setCount(foods.get(j).getCount()-countOfFood);
-											}
-								   }
-							 }
-					 }
-	          }
+											  }
+										}
+								}
+					  }
+	           }	  
+			  
+			  
+			  
+			  
+			  
+			  
 }		
+
 	  
 
