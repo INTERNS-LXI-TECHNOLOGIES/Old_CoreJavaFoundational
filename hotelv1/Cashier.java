@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Cashier
 {
 	Scanner scan=new Scanner(System.in);
-	public void printBill(ArrayList <Food> foods,String nameOfFood)
+	public void printBill(ArrayList <String> foodItems,String nameOfFood)
 	{
 		int total=0;
 		System.out.print("number of order:");
@@ -12,18 +12,21 @@ public class Cashier
 		System.out.println("\t\t\t\tFOOD PALACE\t\t\t\t");
 		System.out.println("\t\t\t\tBILL\t\t\t\t");
 		System.out.println("\t\t---------------------------------------\t\t");
-		System.out.println("SNo\t\t\t\tFood items\t\t\t\tCount\t\t\t\tPrice");
-		for(int i=0;i<foods.size();i++)
+		System.out.println("SNo\t\t\t\tFood items\t\t\t\tNo\t\t\t\tPrice");
+		for(int i=0;i<foodItems.size();i++)
 		{
-			if((nameOfFood).equals(foods.get(i).getName()))
+			if((nameOfFood).equals(foodItems.get(i)))
 			{
-				if((foods.get(i).getFoodCount())!=0)
+				if((foodItems.get(i+1))!=null)
 				{
-				System.out.printf((i+1)+"\t\t"+foods.get(i).getName()+"\t\t"+noOfOrder+"\t\t"+foods.get(i).getFoodPrice()+"\n");
+				System.out.printf((i+1)+"\t\t"+foodItems.get(i)+"\t\t"+noOfOrder+"\t\t"+foodItems.get(i+2)+"\n");
 						
-				total=total+(noOfOrder*foods.get(i).getFoodPrice());
+				total=total+((noOfOrder)*Integer.parseInt(foodItems.get(i+2)));
 				System.out.print("Total\t\t\t\t:"+total);
-				foods.get(i).setFoodCount(foods.get(i).getFoodCount()-noOfOrder);
+				int c=Integer.parseInt(foodItems.get(i+1))-noOfOrder;
+				String count=Integer.toString(c);
+				//System.out.println(count);
+				foodItems.set((i+1),(count));
 				}
 				else
 				{

@@ -5,7 +5,7 @@ public class Tdd
 	{
 		Hotel hotel=new Hotel();
 		hotel.authentication();
-		hotel.writeToFile();
-		hotel.readFromFile();
+		//hotel.writeToFile();
+		//hotel.readFromFile();
 	}
 }

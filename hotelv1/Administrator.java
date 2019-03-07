@@ -61,12 +61,9 @@ public class Administrator
 					
 				}
 				}
-			//System.out.println(foodItems.size());
-			
 	}
 	public void editFood(ArrayList <String> foodItems)throws Exception
 	{
-		System.out.println(foodItems.size());
 				System.out.print("which one you want to edit:");
 				String edit=scan.next();
 				//System.out.println(edit);
@@ -80,7 +77,7 @@ public class Administrator
 						String n=scan.next();
 						
 						foodItems.set(foodItems.indexOf(foodItems.get(i)),n);
-						System.out.println(foodItems.get(i));
+						//System.out.println(foodItems.get(i));
 						break;
 					}
 				}
