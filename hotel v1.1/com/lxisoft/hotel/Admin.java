@@ -109,13 +109,13 @@ Scanner scan=new Scanner(System.in);
    public void printFoodDetails(ArrayList<Food> foods) throws Exception
 	{
 	    int numOfFood=foods.size();
-		fw=new FileWriter(f);
+		fw=new FileWriter(f,true);
 		bw = new BufferedWriter(fw);
 		for(int w=0;w<numOfFood;w++)
 		{
 			
 			System.out.println("NAME : "+foods.get(w).getName()+"        PRICE : "+foods.get(w).getPrice()+"         COUNT : "+foods.get(w).getCount());
-		bw.write(""+foods.get(w).getName()+"   ,  "+foods.get(w).getPrice()+"  ,  "+foods.get(w).getCount());				
+		bw.write("added food="+foods.get(w).getName()+"    ,   price="+foods.get(w).getPrice()+"  ,   count="+foods.get(w).getCount()+"\n");				
        
 		}
 	 bw.close();

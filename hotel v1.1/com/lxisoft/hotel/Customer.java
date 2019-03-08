@@ -1,8 +1,12 @@
 package com.lxisoft.hotel;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.*;
 public class Customer
 {
+	File f=new File("A.Txt");
+	FileWriter fw;
+	BufferedWriter bw;
 Scanner scan=new Scanner(System.in);
 private String food;
 ArrayList<Food>  orderedFood=new ArrayList<Food>();  
@@ -15,7 +19,7 @@ ArrayList<Food>  orderedFood=new ArrayList<Food>();
    {
 	   return food;
    }
-		public void foodChoosing(ArrayList<Food> foods)
+		public void foodChoosing(ArrayList<Food> foods)throws Exception
 		   {
 				int countOfFood=0;
 				System.out.println("how many food do you want");
@@ -35,20 +39,15 @@ ArrayList<Food>  orderedFood=new ArrayList<Food>();
 										{
 										  if(countOfFood<=foods.get(j).getCount()) 
 							                  {
-												orderedFood.add(foods.get(j));
-												foods.get(j).setCount(foods.get(j).getCount()-countOfFood);
+												fw=new FileWriter(f,true);
+												bw=new BufferedWriter(fw);
+											    orderedFood.add(foods.get(j));
+											    foods.get(j).setCount(foods.get(j).getCount()-countOfFood);
+												bw.write("ordered food="+foods.get(j).getName()+" ,  "+foods.get(j).getCount()+"\n");
 											  }
+											  bw.close();
 										}
 								}
 					  }
 	           }	  
-			  
-			  
-			  
-			  
-			  
-			  
 }		
-
-	  
-

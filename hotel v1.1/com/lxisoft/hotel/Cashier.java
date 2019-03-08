@@ -13,7 +13,7 @@ public class Cashier
 				return bill;
 			}
      
-  public void callingBill(ArrayList<Food> orderedFood)
+   public void callingBill(ArrayList<Food> orderedFood)
    {
 				bill.printBill(orderedFood);
    }
