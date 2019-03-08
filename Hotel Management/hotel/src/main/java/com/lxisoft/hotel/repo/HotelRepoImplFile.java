@@ -15,7 +15,7 @@ public class HotelRepoImplFile implements HotelRepo{
 		for(Food food : hotelModel.getFoods()){
 			if(f.exists()){
 				f.delete();
-				bw.write(food.getName()+","+food.getPrice()+","+food.getNos()+"\n");
+				bw.write(food+"\n");
 			}
 		}
 		bw.close();

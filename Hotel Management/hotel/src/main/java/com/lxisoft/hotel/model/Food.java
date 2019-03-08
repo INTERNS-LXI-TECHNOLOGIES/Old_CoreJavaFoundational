@@ -1,6 +1,6 @@
 package com.lxisoft.hotel.model;
 import java.io.*;
-public class Food{
+public class Food implements Comparable<Food>{
 	private String name;
 	private int price;
 	private int nos;
@@ -21,5 +21,11 @@ public class Food{
 	}
 	public int getNos(){
 		return nos;
+	}
+	public String toString(){
+		return name+","+price+","+nos;
+	}
+	public int compareTo(Food a){
+		return this.name.compareTo(a.name);
 	}
 }

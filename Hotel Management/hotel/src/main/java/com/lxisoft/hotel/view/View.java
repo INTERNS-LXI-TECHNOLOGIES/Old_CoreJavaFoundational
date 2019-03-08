@@ -3,10 +3,7 @@ import com.lxisoft.hotel.controller.*;
 import com.lxisoft.hotel.model.*;
 import com.lxisoft.hotel.services.*;
 import com.lxisoft.hotel.logger.*;
-import java.util.Scanner;
-import java.util.Map;
-import java.util.Properties;
-import java.util.HashMap;
+import java.util.*;
 import java.io.*;
 public class View{
 	static Scanner scan = new Scanner(System.in);
@@ -243,10 +240,14 @@ public class View{
 	}
 	public static Food foodSelecting(){
 		log.log.info("***Entered foodSelecting method***");
+		TreeSet<Food> foods = new TreeSet<Food>((Food a,Food b)->{return a.getName().compareTo(b.getName());});
+		for(Food food : hotelController.getFoods()){
+			foods.add(food);
+		}
 		int no = 1;
 		int selectedFood;
 		System.out.println("	Available Foods");
-		for(Food food : hotelController.getFoods()){
+		for(Food food : foods){
 			System.out.printf("%-2s	%-12s	%-5s	%-4s\n",no,food.getName(),food.getPrice(),food.getNos());
 			no++;
 		}
