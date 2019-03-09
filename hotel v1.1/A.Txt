@@ -1,7 +1,6 @@
-added food=pizza    ,   price=123  ,   count=2323
-added food=fcf    ,   price=123  ,   count=998
-added food=dd    ,   price=123  ,   count=999
-added food=pizza    ,   price=123  ,   count=10
-added food=burger    ,   price=190  ,   count=20
-added food=alfam    ,   price=112  ,   count=30
-added food=biriyani    ,   price=156  ,   count=60
+
+added food=pizza    ,   price=123  ,   count=22
+added food=burger    ,   price=1223  ,   count=1
+ordered food=pizza ,  0
+added food=wer    ,   price=123  ,   count=12
+added food=sdf    ,   price=23  ,   count=23
