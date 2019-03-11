@@ -22,7 +22,7 @@ public class Cashier
 				System.out.printf((i+1)+"\t\t"+foodItems.get(i)+"\t\t"+noOfOrder+"\t\t"+foodItems.get(i+2)+"\n");
 						
 				total=total+((noOfOrder)*Integer.parseInt(foodItems.get(i+2)));
-				System.out.print("Total\t\t\t\t:"+total);
+				System.out.print("Total\t\t\t\t:"+total+"\n");
 				int c=Integer.parseInt(foodItems.get(i+1))-noOfOrder;
 				String count=Integer.toString(c);
 				//System.out.println(count);
