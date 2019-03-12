@@ -1,6 +1,7 @@
 package com.lxisoft.hotelv1;
 import java.util.Scanner;
-public class Food
+import java.util.Comparator;
+public class Food 
 {
 	private int sNo;
 	private String name;
@@ -38,4 +39,5 @@ public class Food
 	{
 		return foodPrice;
 	}
+	
 }

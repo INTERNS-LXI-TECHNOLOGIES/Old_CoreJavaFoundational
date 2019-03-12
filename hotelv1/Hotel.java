@@ -1,9 +1,10 @@
 package com.lxisoft.hotelv1;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.*;
 import java.util.Comparator;
 import java.io.*;
-public class Hotel
+public class Hotel 
 {
 	Scanner scan=new Scanner(System.in);
 	private Administrator administrator;
@@ -46,6 +47,7 @@ public class Hotel
 public void authentication()throws Exception
 {	
 File file=new File("foodsdetail.txt");
+FileWriter fw=new FileWriter(file,true);
 		//System.out.println(file.exists());
 		//bw.write("pizza");
 			System.out.println("FOOD PALACE");
@@ -108,6 +110,7 @@ File file=new File("foodsdetail.txt");
 public void adminOptions()throws Exception
 {
 		File file=new File("foodsdetail.txt");
+		FileWriter fw=new FileWriter(file,true);
 		foods=new ArrayList <Food>();
 		readFromFile();
 		do{
@@ -121,15 +124,22 @@ public void adminOptions()throws Exception
 				file.delete();
 				//foods.set(0);
 				//writeToFile();
+				Collections.sort(foods,new Sorting());
+			for(int i=0;i<foods.size();i++)
+		{
+		System.out.println(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
+			
+		}
 				System.out.println("To add food again press 1");
 				}while(scan.nextInt()==1);
 				
 				//foodDetails();
+				
 			
 				writeToFile();
 				
 				readFromFile();
-			
+			  //foods.clear();
 				break;
 			case 2:
 				
@@ -195,23 +205,28 @@ public void writeToFile()throws Exception
 	File file=new File("foodsdetail.txt");
 	FileWriter fw=new FileWriter(file,true);
 		BufferedWriter bw=new BufferedWriter(fw);
-	ArrayList <String> f=new ArrayList <String>();
-	/*for(int i=0;i<foods.size();i++)
-	{	
-		for(int j=i+1;j<foods.size();j++){
-			if((foods.get(i).getName()).compareTo(foods.get(j).getName())>0){
-			f.add(i,foods.get(i));
-			foods.add(j,foods.get(j));
-			foods.add(i,f.get(i));}}}*/
+	//ArrayList <String> f=new ArrayList <String>();
+	//Formatter f=new Formatter("foodsdetail.txt");
+	//Scanner s=new Scanner("foodsdetail.txt");
+			/*Collections.sort(foods,new Sorting());
+		//Iterator itr=foods.iterator();
+		//while(itr.hasNext()){
+			for(int i=0;i<foods.size();i++)
+		{
+		System.out.println(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
 			
+		}*/
+		//while(s.hasNext())
+		//{f.format("");}
+	
 	for(int i=0;i<foods.size();i++)
 	{
-		ArrayList.sort(foods);
+		
 	bw.write(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
 		
 	}
 	bw.close();
-	foods.clear();
+	//foods.clear();
 	//System.out.println(foods.size());
 	
 	
@@ -219,6 +234,7 @@ public void writeToFile()throws Exception
 public void readFromFile()throws Exception
 {
 	File file=new File("foodsdetail.txt");
+	FileWriter fw=new FileWriter(file,true);
 	FileReader fr=new FileReader(file);
 		BufferedReader br=new BufferedReader(fr);
 	foodItems.clear();	
@@ -254,32 +270,31 @@ public void arraylistToFile()throws Exception
 	FileWriter fw=new FileWriter(file);
 		BufferedWriter bw=new BufferedWriter(fw);
 		//System.out.println(foodItems.size());
+		//int j=0;
+		/*Collections.sort(foodItems,new Sorting());
+		for(int i=0;i<foodItems.size();i=i+3)
+		{
+		System.out.println(foodItems.get(i)+","+foodItems.get(i+1)+","+foodItems.get(i+2));
+		}*/
+		/*for(int i=0;i<foodItems.size();i=i+3)
+		{
+			Collections.sort(foodItems);
+		System.out.println(foodItems.get(i)+","+foodItems.get(i+1)+","+foodItems.get(i+2));
+		}*/
 	for(int i=0;i<foodItems.size();i=i+3)
 				{
+					
+					
 					bw.write(foodItems.get(i)+","+foodItems.get(i+1)+","+foodItems.get(i+2));
 					bw.write("\n");
+					//j=j+2;
 				}
-				bw.close();
-				/*for(int i=0;i<foodItems.size();i=i+3)
-				{
-				foodItems.clear();
-				}*/
-			/*	int j=0;
-System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");	
-				String data;	
-				while((data=br.readLine())!=null)
-				{
-				//String dup=data;
-			
-				System.out.print((j+1));
-				for(int i=0;i<3;i++)
-				{
-				String item[]=data.split(",");
-					System.out.print("\t\t"+item[i]+"\t");
-				}
-				System.out.println("\n");	
-				j++;
-				}
-			br.close();	*/			
+				bw.close();		
 }
+public void findAll()throws Exception
+{
+	
+	
+}
+
 }				
