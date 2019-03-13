@@ -42,8 +42,9 @@ ArrayList<Food>  orderedFood=new ArrayList<Food>();
 												fw=new FileWriter(f,true);
 												bw=new BufferedWriter(fw);
 											    orderedFood.add(foods.get(j));
-											    foods.get(j).setCount(foods.get(j).getCount()-countOfFood);
 												bw.write("ordered food="+foods.get(j).getName()+" ,  "+foods.get(j).getCount()+"\n");
+											    foods.get(j).setCount(foods.get(j).getCount()-countOfFood);
+												
 											  }
 											  bw.close();
 										}

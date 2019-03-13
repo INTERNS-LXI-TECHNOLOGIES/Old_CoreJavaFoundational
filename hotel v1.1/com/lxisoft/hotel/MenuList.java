@@ -15,12 +15,10 @@ public class MenuList
 	   
 			fr=new FileReader(f);
 			br=new BufferedReader(fr);
-	     //	System.out.println("          "+foods.get(i).getName()+"               "+foods.get(i).getPrice()+"             "+foods.get(i).getCount());
-		    while((s=br.readLine())!=null){
+		    while((s=br.readLine())!= null)  
+			{
+				
 			   System.out.println(">>>>>"+s);
-		   }
-		    
-		
+			}
 	}
 }
-//""+foods.get(i).getName()+""+foods.get(i).getPrice()+""+foods.get(i).getCount()

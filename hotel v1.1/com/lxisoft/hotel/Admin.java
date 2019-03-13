@@ -114,7 +114,7 @@ Scanner scan=new Scanner(System.in);
 		for(int w=0;w<numOfFood;w++)
 		{
 			
-			System.out.println("NAME : "+foods.get(w).getName()+"        PRICE : "+foods.get(w).getPrice()+"         COUNT : "+foods.get(w).getCount());
+		System.out.println("NAME : "+foods.get(w).getName()+"        PRICE : "+foods.get(w).getPrice()+"         COUNT : "+foods.get(w).getCount());
 		bw.write("added food="+foods.get(w).getName()+"    ,   price="+foods.get(w).getPrice()+"  ,   count="+foods.get(w).getCount()+"\n");				
        
 		}

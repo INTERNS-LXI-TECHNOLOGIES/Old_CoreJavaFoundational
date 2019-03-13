@@ -13,9 +13,7 @@ Hotel hotel=new Hotel();
 			hotel.authendication();
 			System.out.println("do you want to continue\nyes=1 \n no=0");
 			d=scan.nextInt();
-				 
 		  }
         while(d==1);		 
-	
 }
 }
