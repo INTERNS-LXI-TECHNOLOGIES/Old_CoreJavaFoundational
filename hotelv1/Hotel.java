@@ -124,12 +124,6 @@ public void adminOptions()throws Exception
 				file.delete();
 				//foods.set(0);
 				//writeToFile();
-				Collections.sort(foods,new Sorting());
-			for(int i=0;i<foods.size();i++)
-		{
-		System.out.println(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
-			
-		}
 				System.out.println("To add food again press 1");
 				}while(scan.nextInt()==1);
 				
@@ -137,21 +131,21 @@ public void adminOptions()throws Exception
 				
 			
 				writeToFile();
-				
+				foods.clear();
 				readFromFile();
-			  //foods.clear();
+			  
 				break;
 			case 2:
 				
-				administrator.deleteFood(foodItems);
-				file.delete();
+				administrator.deleteFood(foods);
+				//file.delete();
 				arraylistToFile();
 				readFromFile();
 				//foodItems.clear();
 				break;
 			case 3:
 						
-				administrator.editFood(foodItems);
+				administrator.editFood(foods);
 				file.delete();
 				arraylistToFile();
 				readFromFile();
@@ -166,7 +160,7 @@ public void adminOptions()throws Exception
 		
 }
 public void foodOrdering()throws Exception
-{System.out.println(foodItems.size());
+{System.out.println(foods.size());
 	File file=new File("foodsdetail.txt");
 		FileWriter fw=new FileWriter(file,true);
 				int noOfOrder;
@@ -178,9 +172,9 @@ public void foodOrdering()throws Exception
 				do{
 				System.out.print("Which food you want:");
 				String nameOfFood=customer.selectFood();
-				if(foodItems!=null){
+				if(foods!=null){
 						//System.out.println("Food available");
-						cashier.printBill(foodItems,nameOfFood);
+						cashier.printBill(foods,nameOfFood);
 						arraylistToFile();
 						readFromFile();
 				}
@@ -206,19 +200,15 @@ public void writeToFile()throws Exception
 	FileWriter fw=new FileWriter(file,true);
 		BufferedWriter bw=new BufferedWriter(fw);
 	//ArrayList <String> f=new ArrayList <String>();
-	//Formatter f=new Formatter("foodsdetail.txt");
-	//Scanner s=new Scanner("foodsdetail.txt");
-			/*Collections.sort(foods,new Sorting());
+			Collections.sort(foods,new Sorting());
 		//Iterator itr=foods.iterator();
 		//while(itr.hasNext()){
 			for(int i=0;i<foods.size();i++)
 		{
 		System.out.println(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
 			
-		}*/
-		//while(s.hasNext())
-		//{f.format("");}
-	
+		}
+		
 	for(int i=0;i<foods.size();i++)
 	{
 		
@@ -237,32 +227,30 @@ public void readFromFile()throws Exception
 	FileWriter fw=new FileWriter(file,true);
 	FileReader fr=new FileReader(file);
 		BufferedReader br=new BufferedReader(fr);
-	foodItems.clear();	
-int i=0;
-System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");	
+				foods.clear();
+				//int i=0;
+				int k=0;	
 				String data;	
 				while((data=br.readLine())!=null)
 				{
 				//String dup=data;
-				System.out.print((i+1));
+				//System.out.print((i+1));
 				
-				for(int k=0;k<3;k++)
-				{
+				Food f=new Food();
 				String item[]=data.split(",");
-					System.out.print("\t\t"+item[k]+"\t");
-				foodItems.add(item[k]);
+				f.setName(item[k]);
+				f.setFoodCount(Integer.parseInt(item[k+1]));
+				f.setFoodPrice(Integer.parseInt(item[k+2]));
+				foods.add(f);
+				//k=k+3;
+				//System.out.println("\n");
 				}
-				System.out.println("\n");	
-				i++;
-				//System.out.println(foodItems.size());
-				}
-				//System.out.println(foodItems.size());
-				/*for(int j=0;j<foodItems.size();j++)
-				{
-					System.out.println(foodItems.get(j));
-					
-				}*/
-				br.close();
+				System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");
+			for(int i=0;i<foods.size();i++)
+			{
+			System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
+			}
+			foods.clear();
 }
 public void arraylistToFile()throws Exception
 {
@@ -276,20 +264,20 @@ public void arraylistToFile()throws Exception
 		{
 		System.out.println(foodItems.get(i)+","+foodItems.get(i+1)+","+foodItems.get(i+2));
 		}*/
-		/*for(int i=0;i<foodItems.size();i=i+3)
+		/*Collections.sort(foodItems);
+		for(int i=0;i<foodItems.size();i=i+3)
 		{
-			Collections.sort(foodItems);
-		System.out.println(foodItems.get(i)+","+foodItems.get(i+1)+","+foodItems.get(i+2));
+			
+		System.out.println(foodItems.get(i));
 		}*/
-	for(int i=0;i<foodItems.size();i=i+3)
-				{
-					
-					
-					bw.write(foodItems.get(i)+","+foodItems.get(i+1)+","+foodItems.get(i+2));
-					bw.write("\n");
-					//j=j+2;
-				}
-				bw.close();		
+		
+	for(int i=0;i<foods.size();i++)
+	{
+		Collections.sort(foods,new Sorting());
+	bw.write(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
+		
+	}
+	bw.close();	
 }
 public void findAll()throws Exception
 {

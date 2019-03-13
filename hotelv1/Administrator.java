@@ -42,43 +42,56 @@ public class Administrator
 			return foods;
 			
 	}
-	public void deleteFood(ArrayList <String> foodItems) throws Exception
+	public void deleteFood(ArrayList <Food> foods) throws Exception
 	{
 		
 		System.out.print("which one you want to delete:");
 		String  n=scan.next();
 		//System.out.println(n);
-		System.out.println(foodItems.size());
-		//System.out.println(foodItems.get(0));
+		System.out.println(foods.size());
+		//System.out.println(foods.get(0).getName());
 				
-				for(int i=0;i<foodItems.size();i++)
+				for(int i=0;i<foods.size();i++)
 				{
-				if(n.equals(foodItems.get(i)))
+				//System.out.println(foods.get(i).getName());	
+				if(n.equals(foods.get(i).getName()))
 				{
-					for(int j=0;j<3;j++){
-				foodItems.remove(i);
-					}
+					
+				foods.remove(i);
 					
 				}
 				}
 	}
-	public void editFood(ArrayList <String> foodItems)throws Exception
+	public void editFood(ArrayList <Food> foods)throws Exception
 	{
 				System.out.print("which one you want to edit:");
 				String edit=scan.next();
+				System.out.println(foods.size());
 				//System.out.println(edit);
-				for(int i=0;i<foodItems.size();i++)
+				for(int i=0;i<foods.size();i++)
 				{	
-					if(edit.equals(foodItems.get(i)))
+					if(edit.equals(foods.get(i).getName()))
 					{
 						//System.out.println(foodItems.get(i));
 						//String name=foodItems.get(i);
-						System.out.print("changed one:");
+						System.out.println("change name press 1");
+						while(scan.nextInt()==1){
+						System.out.print("changed food name:");
 						String n=scan.next();
-						
-						foodItems.set(foodItems.indexOf(foodItems.get(i)),n);
-						//System.out.println(foodItems.get(i));
-						break;
+						foods.get(i).setName(n);}
+					
+					System.out.println("change food count press 2");
+						while(scan.nextInt()==2){
+						System.out.print("changed food count:");
+						int c=scan.nextInt();
+						foods.get(i).setFoodCount(c);
+						}
+					System.out.println("change name press 3");
+						while(scan.nextInt()==3){
+						System.out.print("changed food price:");
+						int p=scan.nextInt();
+						foods.get(i).setFoodPrice(p);
+						}
 					}
 				}
 	}
