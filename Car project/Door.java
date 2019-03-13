@@ -1,39 +1,21 @@
-import java.util.Scanner;
+import java.util.*;
 public class Door
 {
-    String company;
-	String color;
-	String mfd;
-	String position;
-	
-	Door(){}
-	
-	Door(String company,String color,String mfd,String position)
+	String doorMfd;
+	public void getDoor()
 	{
-	this.position=position;	
-	this.company=company;
-	this.color=color;
-	this.mfd=mfd;
+		
+		Scanner in=new Scanner(System.in);
+			System.out.print("Enter the Manufacturing Date of Door : ");
+			doorMfd=in.next();
+
+		
 	}
+		public void printDoor()
+		{
+				
+			System.out.println(doorMfd);
+		
+		}
 	
-	public void printDetails()
-	{
-	System.out.println("Position:" +this.position);
-	System.out.println("Company name:" +this.company);
-	System.out.println("Color:" +this.color);
-	System.out.println("mfd:" +this.mfd);
-	System.out.println(" ");
-	}
-	public void getDetails()
-	{
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Door Position");
-		this.position = scan.next();
-		System.out.println("Type the company:");
-		this.company = scan.next();
-		System.out.println("Type the color:");
-		this.color = scan.next();
-		System.out.println("Type the MFD:");
-		this.mfd = scan.next();
-	}
-}	
+}

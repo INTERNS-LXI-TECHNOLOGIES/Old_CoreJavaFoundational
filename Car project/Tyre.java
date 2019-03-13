@@ -1,35 +1,23 @@
-import java.util.Scanner;
+import java.util.*;
 public class Tyre
- {
-	
-	String brandName;
-	String mfd;
-	String position;
-	
-	Tyre(){}
-	Tyre(String brandName,String mfd,String position)
+{
+	String tyreName;
+	String tyreSize;
+	public void getTyre()
 	{
-	 this.position=position;
-	 this.brandName=brandName;
-	 this.mfd=mfd;
-	}
-	public void printDetails()
-	{
-	System.out.println("Tyre Position:" + this.position);
-	System.out.println("Brand Name:" + this.brandName);
-	System.out.println("mfd:" + this.mfd);
-	System.out.println(" ");
-	}	
-	public void getDetails()
-	{
-		Scanner scan=new Scanner(System.in);
-		System.out.println("Tyre Position");
-		this.position = scan.next();
-		System.out.println("Type the Brandname:");
-		this.brandName = scan.next();
-		System.out.println("Type the MFD:");
-		this.mfd = scan.next();
+		int i;
+		Scanner in=new Scanner(System.in);
+		System.out.print("Enter the Tyre Name: ");
+		tyreName=in.next();
+		System.out.print("Enter the Size of the Tyre: ");
+		tyreSize=in.next();
 		
 	}
-
- }
+	public void printTyre()
+	{
+	
+		
+		System.out.println(tyreName+"  "+tyreSize);
+			
+	}
+}

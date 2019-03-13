@@ -1,75 +1,59 @@
-import java.util.Scanner;
+import java.util.*;
 public class Car
 {
-String brandName;
-String modelName;
-  String modelNum;
- 
-Tyre t1,t2,t3,t4;
-Door d1,d2,d3,d4;
-Stearing s;
 
-Car(){}
-
-Car(String brandName,String modelName,String modelNum)
-{
-	this.brandName=brandName;
-	this.modelName=modelName;
-	this.modelNum=modelNum;
-}
-
-public void fixDoor(Door d1,Door d2,Door d3,Door d4)
-{
-	this.d1=d1;
-	this.d2=d2;
-	this.d3=d3;
-	this.d4=d4;
-}
-public void fixTyre(Tyre t1,Tyre t2,Tyre t3,Tyre t4)
-{
-	this.t1=t1; 
-	this.t2=t2; 
-	this.t3=t3; 
-	this.t4=t4;
-}
-public void fixStearing(Stearing s)
-{
-	this.s=s;
-} 
-public void printDetails()
-{
-	System.out.println("Brandname:" +this.brandName);
-	System.out.println("Modelname:" +this.modelName);
-	System.out.println("Modelnumber:" +this.modelNum);
-	System.out.println(" ");
-
-
-
-	System.out.println("Tyre details");	
-	this.t1.printDetails();
-	this.t2.printDetails();
-	this.t3.printDetails();
-	this.t4.printDetails();
+	String brandName;
+	String modelName;
+	String regNo;
+	string mfd;
+	Tyre tyres[]= new Tyre[4];
+	Door doors[]= new Door[4];
 	
-	System.out.println("Door details");
-	this.d1.printDetails();
-	this.d2.printDetails();
-	this.d3.printDetails();
-	this.d4.printDetails();
-	
-	this.s.printDetails();
-}	
+	public void getDetails()
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.print("Enter the Barand Name of the Car:");
+		brandName=in.next();
+		System.out.print("Enter the Model Name : ");
+		modelName=in.next();
+		System.out.print("Enter the Reg.No of the Vechile : ");
+		regNo=in.next();
+		System.out.print("Enter the Manufacture Date of the Vechile : ");
+		mfd=in.next();
+		for(int i=0;i<4;i++)
+		{
+			tyres[i]=new Tyre();
+		}
+		for(int i=0;i<4;i++)
+		{
+			doors[i]=new Door();
+		}
 
-public void getDetails()
-{
-	Scanner scan = new Scanner(System.in);
-	System.out.println("Car Details");
-	System.out.println("Type Brandname:");
-	this.brandName = scan.next();
-	System.out.println("Type Modelname:");
-	this.modelName = scan.next();
-	System.out.println("Type Modelnumber:");
-	this.modelNum = scan.next();
-}	
-}	
-	
+	}
+
+	public void printDetails() 
+	{  
+		for(int i=0;i<4;i++)
+		{
+			doors[i].getDoor();
+		}
+        for(int i=0;i<4;i++)
+        {
+        	tyres[i].getTyre();
+        }
+        System.out.println("\nDetails Of The Car");
+		System.out.println("Brand Name:"+brandName+"\nModel Name:"+modelName+
+			"\nRegistration No."+regNo+"\nManufacture Date of the Vehicle : "+mfd);
+        for(int i=0;i<4;i++)
+		{
+			System.out.print("\nManufacturing date of door "+(i+1)+":");
+			doors[i].printDoor();
+		}
+        for(int i=0;i<4;i++)
+        {
+        	System.out.print("\nDetails of the Tyre"+(i+1));
+        	tyres[i].printTyre();
+        }
+      }
+
+}
