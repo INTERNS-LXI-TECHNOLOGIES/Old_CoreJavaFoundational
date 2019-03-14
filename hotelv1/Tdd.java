@@ -5,6 +5,5 @@ public class Tdd
 	{
 		Hotel hotel=new Hotel();
 		hotel.authentication();
-		hotel.findAll();
 	}
 }

@@ -13,13 +13,15 @@ public class Cashier
 		System.out.println("\t\t\t\tBILL\t\t\t\t");
 		System.out.println("\t\t---------------------------------------\t\t");
 		System.out.println("SNo\t\t\t\tFood items\t\t\t\tNo\t\t\t\tPrice");
+		//System.out.println(foods.size());
+		int j=0;
 		for(int i=0;i<foods.size();i++)
 		{
 			if((nameOfFood).equals(foods.get(i).getName()))
 			{
 				if(foods.get(i).getFoodCount()!=0)
 				{
-				System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+noOfOrder+"\t\t"+foods.get(i).getFoodPrice()+"\n");
+				System.out.print((j)+"\t\t"+foods.get(i).getName()+"\t\t\t"+noOfOrder+"\t\t"+foods.get(i).getFoodPrice()+"\n");
 						
 				total=total+((noOfOrder)*(foods.get(i).getFoodPrice()));
 				System.out.print("Total\t\t\t\t:"+total+"\n");
@@ -33,6 +35,7 @@ public class Cashier
 					System.out.println("no food");
 				}
 			}
+			j++;
 		}
 		
 	}

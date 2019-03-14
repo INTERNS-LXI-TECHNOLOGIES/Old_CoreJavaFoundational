@@ -53,6 +53,8 @@ FileWriter fw=new FileWriter(file,true);
 			System.out.println("FOOD PALACE");
 			setAdministrator(new Administrator());
 			setCashier(new Cashier());
+			foods=new ArrayList <Food>();
+		readFromFile();
 		do
 		{
 			System.out.println("Login \n 1.Admin \n 2.User \n");
@@ -88,7 +90,8 @@ FileWriter fw=new FileWriter(file,true);
 				{
 				System.out.print("Password :");
 				if(scan.next().equals(getCustomer().getPassword()))
-				{	
+				{
+					//readFromFile();
 				foodOrdering();
 				}
 				else
@@ -111,8 +114,8 @@ public void adminOptions()throws Exception
 {
 		File file=new File("foodsdetail.txt");
 		FileWriter fw=new FileWriter(file,true);
-		foods=new ArrayList <Food>();
-		readFromFile();
+		//foods=new ArrayList <Food>();
+		//readFromFile();
 		do{
 			System.out.println("1.Add \n2.Delete\n3.Edit");
 			switch(scan.nextInt())
@@ -133,13 +136,14 @@ public void adminOptions()throws Exception
 				writeToFile();
 				foods.clear();
 				readFromFile();
-			  
+			 // foods.clear();
 				break;
 			case 2:
 				
 				administrator.deleteFood(foods);
 				//file.delete();
 				arraylistToFile();
+				foods.clear();
 				readFromFile();
 				//foodItems.clear();
 				break;
@@ -148,6 +152,7 @@ public void adminOptions()throws Exception
 				administrator.editFood(foods);
 				file.delete();
 				arraylistToFile();
+				foods.clear();
 				readFromFile();
 			//	foodItems.clear();
 				break;	
@@ -160,22 +165,30 @@ public void adminOptions()throws Exception
 		
 }
 public void foodOrdering()throws Exception
-{System.out.println(foods.size());
+{
+	
+	//System.out.println(foods.size());
 	File file=new File("foodsdetail.txt");
 		FileWriter fw=new FileWriter(file,true);
+		//readFromFile();
 				int noOfOrder;
-				//foodDetails();
-				//file.delete();
-				//arraylistToFile();
-				readFromFile();
+				//foods.clear();
+				
 				//System.out.println(foodItems.size());
 				do{
+					//readFromFile();
+			/*System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");
+			for(int i=0;i<foods.size();i++)
+			{
+			System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
+			}*/
 				System.out.print("Which food you want:");
 				String nameOfFood=customer.selectFood();
 				if(foods!=null){
 						//System.out.println("Food available");
 						cashier.printBill(foods,nameOfFood);
 						arraylistToFile();
+						foods.clear();
 						readFromFile();
 				}
 				else{System.out.println("No food");}
@@ -197,7 +210,7 @@ public void writeToFile()throws Exception
 {
 	
 	File file=new File("foodsdetail.txt");
-	FileWriter fw=new FileWriter(file,true);
+	FileWriter fw=new FileWriter(file);
 		BufferedWriter bw=new BufferedWriter(fw);
 	//ArrayList <String> f=new ArrayList <String>();
 			Collections.sort(foods,new Sorting());
@@ -227,7 +240,7 @@ public void readFromFile()throws Exception
 	FileWriter fw=new FileWriter(file,true);
 	FileReader fr=new FileReader(file);
 		BufferedReader br=new BufferedReader(fr);
-				foods.clear();
+				//foods.clear();
 				//int i=0;
 				int k=0;	
 				String data;	
@@ -250,39 +263,23 @@ public void readFromFile()throws Exception
 			{
 			System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
 			}
-			foods.clear();
+			//foods.clear();
 }
 public void arraylistToFile()throws Exception
 {
 	File file=new File("foodsdetail.txt");
 	FileWriter fw=new FileWriter(file);
 		BufferedWriter bw=new BufferedWriter(fw);
-		//System.out.println(foodItems.size());
-		//int j=0;
-		/*Collections.sort(foodItems,new Sorting());
-		for(int i=0;i<foodItems.size();i=i+3)
-		{
-		System.out.println(foodItems.get(i)+","+foodItems.get(i+1)+","+foodItems.get(i+2));
-		}*/
-		/*Collections.sort(foodItems);
-		for(int i=0;i<foodItems.size();i=i+3)
-		{
-			
-		System.out.println(foodItems.get(i));
-		}*/
 		
+		Collections.sort(foods,new Sorting());
 	for(int i=0;i<foods.size();i++)
 	{
-		Collections.sort(foods,new Sorting());
+		
 	bw.write(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
 		
 	}
 	bw.close();	
 }
-public void findAll()throws Exception
-{
-	
-	
-}
+
 
 }				
