@@ -4,18 +4,43 @@ import com.lxisoft.hotel.model.*;
 import com.lxisoft.hotel.services.*;
 import com.lxisoft.hotel.logger.*;
 import java.util.*;
+import java.text.*;
 import java.io.*;
+/**
+*<h1>View Class For Hotel Managemet</h1>
+<p>
+*This class is used for view and getting inputs from user.
+*@author Mohammed Anish
+*@version 1.1
+*/
 public class View{
 	static Scanner scan = new Scanner(System.in);
 	static HotelController hotelController = new HotelController();
 	static BillController bill = new BillController();
 	static UserController uc = new UserController();
 	static Log log = new Log();
+	/**
+	*This is a main method which makes use of administrater method
+	*@param args unused
+	*@exception Exception
+	*/
 	public static void main(String[] args) throws Exception{
 		log.log.info("***Entered main method***");
 		administrator();
 		log.log.info("***Exited main method***");
 	}
+	/**
+	*This method is used for displaying login menu 
+	*it will show two options:
+	*1.Admin
+	*2.User
+	*<p>If you select admin it will display 4 options that is
+	*for add food,edit food,delete food and getting previous bills
+	*the method for given options are addFoodView,editFoodView,
+	*deleteFoodView,getPrevBillname this method are for only calling the
+	*front end of the admin page.
+	*@exception Exception
+	*/
 	public static void administrator() throws Exception{
 		log.log.info("***Entered Aniministrator method***");
 		log.log.warn("***May cause Exception***");
@@ -79,6 +104,13 @@ public class View{
 		}while(cont == 1);
 		log.log.info("***Exited Aniministrator method***");
 	}
+	/**
+	*This method is for Registering User.
+	*every time you call this method it will create new User 
+	*and sent datas to registerUser method in UserController class
+	*@see UserController
+	*@exception Exception
+	*/
 	public static void registerUser() throws Exception{
 		User user = new User();
 		boolean a;
@@ -98,6 +130,17 @@ public class View{
 		}
 		}while(a == false);
 	}
+	/**
+	*This method is for login User.
+	*this method will get email as a input from user and sent it to 
+	*login method in UserController for checking whether it,s correct or 
+	*not and if correct it will ask for password and if password also true,
+	*will display user login page that contains sellFoodView, searchByNameView,
+	*searchByPriceView and searchByContainsView method
+	*@see UserController
+	*@exception Exception
+	*@see Exception 
+	*/
 	public static void login() throws Exception{
 		 Console c = System.console();
 		 char[] p;
@@ -141,6 +184,11 @@ public class View{
 				System.out.println("	Wrong Password");
 			}
 	}
+	/**
+	*This method is used for add foods to foods array in HotelController class
+	*@see HotelController
+	*@exception Exception
+	*/
 	public static void addFoodView() throws Exception{
 		log.log.info("***Entered addFoodView method***");
 		log.log.warn("***May cause Exception***");
@@ -159,6 +207,11 @@ public class View{
 		}while(temp == 1);
 		log.log.info("***Exited addFoodView method***");
 	}
+	/**
+	*This method is used for edit foods on ArrayList in HotelController class
+	*@see HotelController
+	*@exception Exception
+	*/
 	public static void editFoodView() throws Exception{
 		log.log.info("***Entered editFoodView method***");
 		log.log.warn("***May cause Exception***");
@@ -173,6 +226,11 @@ public class View{
 		hotelController.editFood(selectedFood.getName(),selectedFood.getPrice(),selectedFood.getNos(),temp);
 		log.log.info("***Exited editFoodView method***");
 	}
+	/**
+	*This method is used for delete foods in foods ArrayList in HotelController class
+	*@see HotelController
+	*@exception Exception
+	*/
 	public static void deleteFoodView() throws Exception{
 		log.log.info("***Entered deleteFoodView method***");
 		log.log.warn("***May cause Exception***");
@@ -181,6 +239,13 @@ public class View{
 		hotelController.deleteFood(selectedFood);
 		log.log.info("***Exited deleteFoodView method***");
 	}
+	/**
+	*This method is used for sell foods.
+	*this method using foodSelecting method for seleting foods,
+	*and store selected foods in  selectedFoods HashMap and also sent
+	*selectedFoods HashMap to printBill method as parameter
+	*@exception Exception
+	*/
 	public static void sellFoodView() throws Exception{
 		log.log.info("***Entered sellFoodView method***");
 		log.log.warn("***May cause Exception***");
@@ -209,6 +274,13 @@ public class View{
 		printBill(selectedFoods);
 		log.log.info("***Exited sellFoodView method***");
 	}
+	/**
+	*This method is view for searching foods by its name this method
+	*gets food name from user and sent food name to searchByName 
+	*method in HotelController class
+	*@see HotelController
+	*@exception Exception
+	*/
 	public static void searchByNameView() throws Exception{
 		log.log.info("***Entered searchByNameView method***");
 		log.log.warn("***May cause Exception***");
@@ -218,6 +290,13 @@ public class View{
 		sellFoodView();
 		log.log.info("***Exited searchByNameView method***");
 	}
+	/**
+	*This method is view for searching foods by its name that cntains given string. this method
+	*gets food string  from user and sent food that string to searchByContains 
+	*method in HotelController class
+	*@see HotelController
+	*@exception Exception
+	*/
 	public static void searchByContainsView() throws Exception{
 		log.log.info("***Entered searchByContainsView method***");
 		log.log.warn("***May cause Exception***");
@@ -227,6 +306,13 @@ public class View{
 		sellFoodView();
 		log.log.info("***Exited searchByContainsView method***");
 	}
+	/**
+	*This method is view for searching foods by its price this method
+	*gets food starting price and ending from user and sent that prices to searchByPrice 
+	*method in HotelController class
+	*@see HotelController
+	*@exception Exception
+	*/
 	public static void searchByPriceView() throws Exception{
 		log.log.info("***Entered searchByPriceView method***");
 		log.log.warn("***May cause Exception***");
@@ -238,6 +324,14 @@ public class View{
 		sellFoodView();
 		log.log.info("***Exited searchByPriceView method***");
 	}
+	/**
+	*This method is view for food Selecting,
+	*this method prints all available foods from foods array in HotelController
+	*class and gets a int from user an convert it into corresponting foods and retun that
+	*food
+	*@return Food
+	*@see HotelController
+	*/
 	public static Food foodSelecting(){
 		log.log.info("***Entered foodSelecting method***");
 		TreeSet<Food> foods = new TreeSet<Food>((Food a,Food b)->{return a.getName().compareTo(b.getName());});
@@ -257,7 +351,18 @@ public class View{
 		log.log.info("***Exited foodSelecting method***");
 		return  hotelController.getFoods().get(selectedFood-1);
 	}
+	/**
+	*This method is for printing bill
+	*
+	*@see HotelController
+	*@exception Exception
+	*/
 	public static void printBill(Map<Integer,Food> selectedfoods) throws Exception{
+		Date date = new Date();
+		SimpleDateFormat d = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat t = new SimpleDateFormat("hh:mm:ss");
+		String da = d.format(date);
+		String ti = t.format(date);
 		log.log.info("***Entered printBill method***");
 		log.log.warn("***May cause Exception***");
 		File f = new File("billNo.properties");
@@ -270,6 +375,8 @@ public class View{
 		System.out.println("--------------------------------------");
 		System.out.println("\n\n	Hotel White Sand\n 	   Pathripala\n");
 		System.out.println("Coustemer Name : "+bill.getBuyerName()+"\n");
+		System.out.println("Date : "+da+"\n");
+		System.out.println("Time : "+ti+"\n");
 		System.out.println("Bill No : "+billNo.getProperty("LastBillNo")+"\n");
 		System.out.printf("%-5s	%-12s	%-5s	%-5s\n","Sl.No","Name","Rate","Prize");
 		System.out.printf("%-5s	%-12s	%-5s	%-5s\n","-----","----","----","-----");
@@ -283,11 +390,18 @@ public class View{
 		System.out.println("--------------------------------------");
 		int newBillNo = Integer.parseInt(billNo.getProperty("LastBillNo"))+1;
 		String a = ""+newBillNo;
-		bill.prevBill(bill.getBuyerName(),foodName,foodPrice,foodNos,Integer.parseInt(billNo.getProperty("LastBillNo")));
+		bill.prevBill(bill.getBuyerName(),foodName,foodPrice,foodNos,Integer.parseInt(billNo.getProperty("LastBillNo")),da,ti);
 		billNo.setProperty("LastBillNo",a);
 		billNo.store(new FileWriter(f),"Properties");
 		log.log.info("***Exited printBill method***");
 	}
+	/**
+	*This method is for getting privious bill from database
+	*it will get bill no from user and set it to BillController
+	*class's setPrevBill method
+	*@see HotelController
+	*@exception Exception
+	*/
 	public static void getPrevBillName() throws Exception{
 		log.log.info("***Entered getPrevBillName method***");
 		log.log.warn("***May cause Exception***");
@@ -296,7 +410,17 @@ public class View{
 		bill.setprevBill(billno);
 		log.log.info("***Exited getPrevBillName method***");
 	}
-	public static void prevBillView(String name,String foodName,String foodPrice,String foodNos,int id) throws Exception{
+	/**
+	*This method is for printing previous bill
+	*@param name Coustmer name
+	*@param foodName Food name
+	*@param foodPrice Food price
+	*@param foodNos No.of foods
+	*@param id Bill no
+	*@see HotelController
+	*@exception Exception
+	*/
+	public static void prevBillView(String name,String foodName,String foodPrice,String foodNos,int id,String date,String time) throws Exception{
 		log.log.info("***Entered prevBillView method***");
 		log.log.warn("***May cause Exception***");
 		String a[] = foodName.split(",");
@@ -306,6 +430,8 @@ public class View{
 		System.out.println("--------------------------------------");
 		System.out.println("\n\n	Hotel White Sand\n 	   Pathripala\n");
 		System.out.println("Coustemer Name : "+name+"\n");
+		System.out.println("Date : "+date+"\n");
+		System.out.println("Time : "+time+"\n");
 		System.out.println("Bill No : "+id+"\n");
 		System.out.printf("%-5s	%-12s	%-5s	%-5s\n","Sl.No","Name","Rate","Prize");
 		System.out.printf("%-5s	%-12s	%-5s	%-5s\n","-----","----","----","-----");
