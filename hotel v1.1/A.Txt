@@ -1,4 +1,2 @@
-
-added food=alfam    ,   price=123  ,   count=34
-added food=burger    ,   price=765  ,   count=50
-ordered food=alfam ,  34
+added food=alfam    ,   price=1234  ,   count=90
+added food=pizza    ,   price=978  ,   count=80

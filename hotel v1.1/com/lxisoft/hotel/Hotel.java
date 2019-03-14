@@ -2,9 +2,13 @@ package com.lxisoft.hotel;
 import com.lxisoft.hotel.*;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.*;
 
 public class Hotel
 {
+	File f=new File("A.Txt");
+	FileReader fr;
+	BufferedReader br;
 	private String name;
 	static Scanner scan=new Scanner(System.in);
 	private Admin admin=new Admin();
@@ -139,12 +143,17 @@ public class Hotel
 				System.out.println("not found");
 			}
 	 }
-     public void balanceFoodPrinting()
+     public void balanceFoodPrinting()throws Exception
 			{
+				String s;
 				System.out.println("BALANCE FOOD\n**************");
-					for(int i=0;i<foods.size();i++)
-					{
-						System.out.println("  name"+foods.get(i).getName()+"  count"+foods.get(i).getCount()+"     price"+foods.get(i).getPrice());
-					}	
+					
+						fr=new FileReader(f);
+						br=new BufferedReader(fr);
+						while((s=br.readLine())!= null)
+						{	
+							System.out.println(s);
+						}
+				
 			}
 }

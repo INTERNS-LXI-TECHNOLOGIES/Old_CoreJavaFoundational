@@ -1,5 +1,0 @@
-import java.io.*;
-public class FileOperations
-{
-file file
-}
