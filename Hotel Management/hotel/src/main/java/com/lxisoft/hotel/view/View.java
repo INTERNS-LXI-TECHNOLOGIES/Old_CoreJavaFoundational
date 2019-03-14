@@ -18,6 +18,7 @@ public class View{
 	static HotelController hotelController = new HotelController();
 	static BillController bill = new BillController();
 	static UserController uc = new UserController();
+	static RoomController room = new RoomController();
 	static Log log = new Log();
 	/**
 	*This is a main method which makes use of administrater method
@@ -158,6 +159,9 @@ public class View{
 		 p = c.readPassword();
 		 String password = String.valueOf(p);
 		 if(a.equals(password)){
+		 	System.out.println("1.Room Booking\n 2.Sell Food");
+		 	int s = scan.nextInt();
+		 	if(s==2){
 				System.out.println("1.View All\n2.Search By Name\n3.Search By Price\n4.Search By Contains");
 				int select = scan.nextInt();
 				switch(select){
@@ -179,6 +183,10 @@ public class View{
 					hotelController.getFoods().clear();
 					break;
 				}
+			}
+			else if(s==1){
+				roomView();
+			}
 			}
 			else{
 				System.out.println("	Wrong Password");
@@ -442,5 +450,28 @@ public class View{
 		System.out.printf("\n%-15s	%-5s\n","Total Amount : 		",t);
 		System.out.println("--------------------------------------");
 		log.log.info("***Exited prevBillView method***");
+	}
+	/**
+	*this method is for room booking view
+	*/
+	public static void roomView()throws Exception{
+		int a = 0;
+		do{
+		System.out.print("	Available Rooms\n"+room.roomCreation()+"\nSelect Room No :");
+		int roomNo = scan.nextInt();
+		System.out.print("Check In Date : ");
+		String inDate = scan.next();
+		System.out.print("Check Out Date : ");
+		String outDate = scan.next();
+		if(room.checkingRoom(roomNo,inDate,outDate)==true){
+			room.roomBooking(roomNo,inDate,outDate);
+			System.out.println("Booking Succes");
+		}
+		else{
+			System.out.println("Already booked on that date!!");
+			System.out.println("Press 1 to Try Again");
+			a = scan.nextInt();
+		}
+		}while(a==1);
 	}
 }
