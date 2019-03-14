@@ -122,6 +122,8 @@ public class Hotel
 			{
 				  menuList.listOfFood(foods);
 				   customers.foodChoosing(foods);
+				   System.out.println("size***="+foods.size());
+				
 				   balanceFoodPrinting();
 			}
        else if(login==3)
@@ -145,14 +147,21 @@ public class Hotel
 	 }
      public void balanceFoodPrinting()throws Exception
 			{
-				String s;
+				
+		          //String [] item=new String[3];
+				String k;
 				System.out.println("BALANCE FOOD\n**************");
 					
 						fr=new FileReader(f);
 						br=new BufferedReader(fr);
-						while((s=br.readLine())!= null)
+						int i=0;
+						while((k=br.readLine())!= null)
 						{	
-							System.out.println(s);
+							String item[]=k.split(",");
+							
+							System.out.println(k);
+							System.out.println(item[i]);
+							
 						}
 				
 			}

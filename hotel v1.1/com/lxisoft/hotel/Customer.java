@@ -16,8 +16,7 @@ ArrayList<Food>  orderedFood=new ArrayList<Food>();
 	   return food;
    }
 		public void foodChoosing(ArrayList<Food> foods)throws Exception
-		   {
-				int countOfFood=0;
+		   {   int countOfFood=0;
 				System.out.println("how many food do you want");
 				int numOfFood=scan.nextInt();    
 				   for(int i=0;i<numOfFood;i++)
