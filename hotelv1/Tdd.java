@@ -3,7 +3,8 @@ public class Tdd
 {
 	public static void main(String[] args) throws Exception
 	{
-		Hotel hotel=new Hotel();
-		hotel.authentication();
+		HotelController controller=new HotelController();
+		controller.hotel();
+		
 	}
 }
