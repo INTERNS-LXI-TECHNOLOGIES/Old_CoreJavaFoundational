@@ -1,22 +1,18 @@
 import java.util.*;
 class Tyre
 {
-String tmfgDate,tBrand;
-int i;
+String mfgDate,Brand;
 Scanner n=new Scanner(System.in);
-void getdata()
+void setData()
 {
-for(i=1;i<=4;i++)
-{
-tyre[i]=new Tyre();
+
 System.out.println("Enter the manufacturing date of tyre ");
-tyre[i].tmfgDate=n.nextLine();
+mfgDate=n.nextLine();
 System.out.println("Enter the Brand of tyre");
-tyre[i].tBrand=n.nextLine();
+Brand=n.nextLine();
 }
-}
-void display()
+void displayDetails()
 {
-System.out.println("\nmanufacturing date of tyre:"+tmfgDate+"\nBrand of tyre:"+tBrand);
+System.out.println("manufacturing date of tyre:"+mfgDate+"\nBrand of tyre:"+Brand);
 }
 }

@@ -1,22 +1,18 @@
 import java.util.*;
 class Door
 {
-String dmfgDate,dBrand;
-int i;
+String mfgDate,Brand;
 Scanner n=new Scanner(System.in);
-void getdata()
+void setData()
 {
-for(i=1;i<=4;i++)
-{
-door[i]=new Door();
-System.out.println("Enter the manufacturing date of door");
-door[i].dmfgDate=n.nextLine();
-System.out.println("Enter the Brand of door");
-door[i].dBrand=n.nextLine();
+System.out.println("Enter the manufacturing date of doors");
+mfgDate=n.nextLine();
+System.out.println("Enter the Brand of doors");
+Brand=n.nextLine();
 }
-}
-void display()
+
+void displayDetails()
 {
-System.out.println("\nManufacturing date of door:"+dmfgDate+"\nBrand of door:"+dBrand);
+System.out.println("\nManufacturing date of doors:"+mfgDate+"\nBrand of doors:"+Brand);
 }
 }
