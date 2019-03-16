@@ -25,49 +25,21 @@ public class HotelController
 	{
 		return view;
 	}
-	public void setAdministrator(Administrator administrator)
+
+	/*public HotelController()
 	{
-		hotel.setAdministrator(administrator);
-	}
-	public Administrator getAdministrator()
+	
+
+	}*/
+	public void authentication()throws Exception
 	{
-		return hotel.getAdministrator();
-	}
-	public void setCashier(Cashier cashier)
-	{
-		hotel.setCashier(cashier);
-	}
-	public Cashier getCashier()
-	{
-		return hotel.getCashier();
-	}
-	public void setFoods(ArrayList <Food> foods)
-	{
-		hotel.setFoods(foods);
-	}
-	public ArrayList <Food> getFoods()
-	{
-		return hotel.getFoods();
-	}
-	public void setCustomer(Customer customer)
-	{
-		hotel.setCustomer(customer);
-	}
-	public Customer getCustomer()
-	{
-		return hotel.getCustomer();
-	}
-	public HotelController()
-	{
-	setAdministrator(new Administrator());
-setCashier(new Cashier());
-setCustomer(new Customer());
-setFoods(new ArrayList <Food>());
- hotel=new Hotel();
-	}
-	public void hotel()throws Exception
-	{
-		view.authentication();
+		setView(new HotelView());
+		setHotel(new Hotel());
+		
+		
+		//setFoods(new ArrayList <Food>());
+		
+		view.authentication(hotel.getAdministrator(),hotel.getCustomer());
 	}
 	
 public void foodOrdering()throws Exception
@@ -79,7 +51,7 @@ public void foodOrdering()throws Exception
 		//readFromFile();
 				int noOfOrder;
 				//foods.clear();
-				
+				//setCashier(new Cashier());
 				//System.out.println(foodItems.size());
 				do{
 					//readFromFile();
