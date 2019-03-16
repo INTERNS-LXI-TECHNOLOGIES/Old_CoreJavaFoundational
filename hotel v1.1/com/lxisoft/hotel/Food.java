@@ -31,4 +31,11 @@ public class Food
 	{
 		return count;
 	}	
+	
+	
+	public String toString()
+	{
+		return "Food Name :"+name;
+	}
+
 }

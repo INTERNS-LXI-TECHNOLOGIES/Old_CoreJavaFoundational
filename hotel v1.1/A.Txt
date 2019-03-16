@@ -1,2 +1,4 @@
-1added food=pizza    ,   price=123  ,   count=23
-added food=burger    ,   price=167  ,   count=90
+added food=pizza    ,   price=123  ,   count=900
+added food=burger    ,   price=190  ,   count=100
+added food=biriyani    ,   price=2123  ,   count=100
+odered foodpizza count=  100odered foodbiriyani count=  0

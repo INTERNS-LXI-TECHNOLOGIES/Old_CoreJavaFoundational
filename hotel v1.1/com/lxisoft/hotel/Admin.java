@@ -43,7 +43,9 @@ Scanner scan=new Scanner(System.in);
 					  System.out.println("enter the count of the food");
 					  food.setCount(scan.nextInt());
 					  foods.add(food);
+					  
 				}
+				System.out.println("333333"+foods);
 			printFoodDetails(foods);
        }
     
@@ -73,7 +75,7 @@ Scanner scan=new Scanner(System.in);
 			        {
 						if(foods.get(s).getName().equals(replace))
 						{
-							System.out.println("enter the currect name of the food");
+							System.out.println("enter the currect name of the food");                              
 							foods.get(s).setName(scan.next());
 						}       
 			         }

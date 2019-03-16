@@ -159,8 +159,8 @@ public class Hotel
 						{	
 							String item[]=k.split(",");
 							
-							System.out.println(k);
-							System.out.println(item[i]);
+							System.out.println(""+k);
+							System.out.println("item==="+item[i]);
 							
 						}
 				
