@@ -7,24 +7,24 @@ import java.io.*;
 public class Hotel 
 {
 	Scanner scan=new Scanner(System.in);
-	private Administrator administrator;
-	private Cashier cashier;
+	private AdministratorController ac;
+	private CashierView cashier;
 	private ArrayList <Food> foods;
-	private Customer customer;
+	private CustomerController cc;
 	//ArrayList <String> foodItems=new ArrayList <String>();
-	public void setAdministrator(Administrator administrator)
+	public void setAc(AdministratorController ac)
 	{
-		this.administrator=administrator;
+		this.ac=ac;
 	}
-	public Administrator getAdministrator()
+	public AdministratorController getAc()
 	{
-		return administrator;
+		return ac;
 	}
-	public void setCashier(Cashier cashier)
+	public void setCashier(CashierView cashier)
 	{
 		this.cashier=cashier;
 	}
-	public Cashier getCashier()
+	public CashierView getCashier()
 	{
 		return cashier;
 	}
@@ -36,13 +36,13 @@ public class Hotel
 	{
 		return foods;
 	}
-	public void setCustomer(Customer customer)
+	public void setCc(CustomerController cc)
 	{
-		this.customer=customer;
+		this.cc=cc;
 	}
-	public Customer getCustomer()
+	public CustomerController getCc()
 	{
-		return customer;
+		return cc;
 	}
 
 }				

@@ -8,32 +8,34 @@ public class HotelView
 {
 Scanner scan=new Scanner(System.in);
 
-public void authentication(Administrator administrator,Customer customer)throws Exception
+public void authentication(AdministratorController ac,CustomerController cc,HotelController controller,ArrayList <Food> foods,CashierView cashier)throws Exception
 {	
 File file=new File("foodsdetail.txt");
 FileWriter fw=new FileWriter(file,true);
 		//System.out.println(file.exists());
 		//bw.write("pizza");
 			System.out.println("FOOD PALACE");
-			administrator=new Administrator();
-			customer=new Customer();
-		//controller.readFromFile();
+			ac=new AdministratorController();
+		cc=new CustomerController();
+			foods=new ArrayList <Food>();
+			//controller=new HotelController();
+		controller.readFromFile(foods);
 		do
 		{
 			System.out.println("Login \n 1.Admin \n 2.User \n");
 			switch(scan.nextInt())
 			{
 			case 1:
-				administrator.adminDetails();
+				ac.adminDetails();
 				System.out.print("Username :");
-				if(scan.next().equals(administrator.getUsername()))
+				if(scan.next().equals(ac.getAdministrator().getUsername()))
 				{
 				System.out.print("Password :");
-				if(scan.next().equals(administrator.getPassword()))
+				if(scan.next().equals(ac.getAdministrator().getPassword()))
 				{	
 			//readFromFile();
 			
-				//adminOptions(administrator);
+				adminOptions(controller,foods,ac);
 				}
 				else
 				{
@@ -46,16 +48,16 @@ FileWriter fw=new FileWriter(file,true);
 				}
 				break;
 			case 2:
-				
-				customer.userDetails();
+			
+				cc.userDetails();
 				System.out.print("Username :");
-				if(scan.next().equals(customer.getUsername()))
+				if(scan.next().equals(cc.getCustomer().getUsername()))
 				{
 				System.out.print("Password :");
-				if(scan.next().equals(customer.getPassword()))
+				if(scan.next().equals(cc.getCustomer().getPassword()))
 				{
 					//readFromFile();
-				//controller.foodOrdering();
+				controller.foodOrdering(foods,cc,cashier);
 				}
 				else
 				{
@@ -73,11 +75,12 @@ FileWriter fw=new FileWriter(file,true);
 				System.out.println("Login page press 2");
 		}while(scan.nextInt()==2);
 }	
-/*public void adminOptions()throws Exception
+public void adminOptions(HotelController controller,ArrayList <Food> foods,AdministratorController ac)throws Exception
 {
 		File file=new File("foodsdetail.txt");
 		FileWriter fw=new FileWriter(file,true);
-		//foods=new ArrayList <Food>();
+		//controller=new HotelController();
+		
 		//readFromFile();
 		do{
 			System.out.println("1.Add \n2.Delete\n3.Edit");
@@ -85,8 +88,7 @@ FileWriter fw=new FileWriter(file,true);
 			{
 			case 1:	
 				do{
-				
-				controller.getHotel().getFoods().add(dministrator().addFood());
+				foods.add(ac.getAv().addFood());
 				file.delete();
 				//foods.set(0);
 				//writeToFile();
@@ -96,27 +98,27 @@ FileWriter fw=new FileWriter(file,true);
 				//foodDetails();
 				
 			
-				controller.writeToFile();
-				controller.getHotel().getFoods().clear();
-				controller.readFromFile();
+				controller.writeToFile(foods);
+				foods.clear();
+				controller.readFromFile(foods);
 			 // foods.clear();
 				break;
 			case 2:
 				
-				controller.getHotel().getAdministrator().deleteFood(controller.getHotel().getFoods());
+				ac.deleteFood(foods);
 				//file.delete();
-				controller.arraylistToFile();
-				controller.getHotel().getFoods().clear();
-				controller.readFromFile();
+				controller.arraylistToFile(foods);
+				foods.clear();
+				controller.readFromFile(foods);
 				//foodItems.clear();
 				break;
 			case 3:
 						
-				controller.getHotel().getAdministrator().editFood(controller.getHotel().getFoods());
+				ac.editFood(foods);
 				file.delete();
-				controller.arraylistToFile();
-				controller.getHotel().getFoods().clear();
-				controller.readFromFile();
+				controller.arraylistToFile(foods);
+				foods.clear();
+				controller.readFromFile(foods);
 			//	foodItems.clear();
 				break;	
 				default:System.out.println("Wrong choice");
@@ -126,5 +128,5 @@ FileWriter fw=new FileWriter(file,true);
 			System.out.println("Again do any operation press 1");
 		}while(scan.nextInt()==1);
 		
-}*/
+}	
 }

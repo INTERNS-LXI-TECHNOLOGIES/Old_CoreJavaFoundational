@@ -31,18 +31,17 @@ public class HotelController
 	
 
 	}*/
-	public void authentication()throws Exception
+	public void authentication(HotelController controller)throws Exception
 	{
 		setView(new HotelView());
 		setHotel(new Hotel());
-		
-		
 		//setFoods(new ArrayList <Food>());
 		
-		view.authentication(hotel.getAdministrator(),hotel.getCustomer());
+		view.authentication(hotel.getAc(),hotel.getCc(),controller,hotel.getFoods(),hotel.getCashier());
 	}
+
 	
-public void foodOrdering()throws Exception
+public void foodOrdering(ArrayList <Food> foods,CustomerController cc,CashierView cashier)throws Exception
 {
 	
 	//System.out.println(foods.size());
@@ -51,18 +50,19 @@ public void foodOrdering()throws Exception
 		//readFromFile();
 				int noOfOrder;
 				//foods.clear();
-				//setCashier(new Cashier());
+				cashier=new CashierView();
+				
 				//System.out.println(foodItems.size());
 				do{
 					//readFromFile();
 				System.out.print("Which food you want:");
-				String nameOfFood=hotel.getCustomer().selectFood();
-				if(hotel.getFoods()!=null){
+				String nameOfFood=cc.selectFood();
+				if(foods!=null){
 						//System.out.println("Food available");
-						hotel.getCashier().printBill(hotel.getFoods(),nameOfFood);
-						arraylistToFile();
-						hotel.getFoods().clear();
-						readFromFile();
+						cashier.printBill(foods,nameOfFood);
+						arraylistToFile(foods);
+						foods.clear();
+						readFromFile(foods);
 				}
 				else{System.out.println("No food");}
 				System.out.println("\n again order food press 1");
@@ -71,26 +71,26 @@ public void foodOrdering()throws Exception
 				
 				//readFromFile();
 }
-public void writeToFile()throws Exception
+public void writeToFile(ArrayList <Food> foods)throws Exception
 {
 	
 	File file=new File("foodsdetail.txt");
 	FileWriter fw=new FileWriter(file);
 		BufferedWriter bw=new BufferedWriter(fw);
 	//ArrayList <String> f=new ArrayList <String>();
-			Collections.sort(hotel.getFoods(),new Sorting());
+			Collections.sort(foods,new Sorting());
 		//Iterator itr=foods.iterator();
 		//while(itr.hasNext()){
-			for(int i=0;i<hotel.getFoods().size();i++)
+			for(int i=0;i<foods.size();i++)
 		{
-		System.out.println(hotel.getFoods().get(i).getName()+","+hotel.getFoods().get(i).getFoodCount()+","+hotel.getFoods().get(i).getFoodPrice()+"\n");
+		System.out.println(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
 			
 		}
 		
-	for(int i=0;i<hotel.getFoods().size();i++)
+	for(int i=0;i<foods.size();i++)
 	{
 		
-	bw.write(hotel.getFoods().get(i).getName()+","+hotel.getFoods().get(i).getFoodCount()+","+hotel.getFoods().get(i).getFoodPrice()+"\n");
+	bw.write(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
 		
 	}
 	bw.close();
@@ -99,12 +99,13 @@ public void writeToFile()throws Exception
 	
 	
 }
-public void readFromFile()throws Exception
+public void readFromFile(ArrayList <Food> foods)throws Exception
 {
 	File file=new File("foodsdetail.txt");
 	FileWriter fw=new FileWriter(file,true);
 	FileReader fr=new FileReader(file);
 		BufferedReader br=new BufferedReader(fr);
+		//foods=new ArrayList <Food>();
 				//foods.clear();
 				//int i=0;
 				int k=0;	
@@ -119,28 +120,28 @@ public void readFromFile()throws Exception
 				f.setName(item[k]);
 				f.setFoodCount(Integer.parseInt(item[k+1]));
 				f.setFoodPrice(Integer.parseInt(item[k+2]));
-				hotel.getFoods().add(f);
+				foods.add(f);
 				//k=k+3;
 				//System.out.println("\n");
 				}
 				System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");
-			for(int i=0;i<hotel.getFoods().size();i++)
+			for(int i=0;i<foods.size();i++)
 			{
-			System.out.print((i+1)+"\t\t"+hotel.getFoods().get(i).getName()+"\t\t\t"+hotel.getFoods().get(i).getFoodCount()+"\t\t"+hotel.getFoods().get(i).getFoodPrice()+"\n");
+			System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
 			}
 			//foods.clear();
 }
-public void arraylistToFile()throws Exception
+public void arraylistToFile(ArrayList <Food> foods)throws Exception
 {
 	File file=new File("foodsdetail.txt");
 	FileWriter fw=new FileWriter(file);
 		BufferedWriter bw=new BufferedWriter(fw);
 		
-		Collections.sort(hotel.getFoods(),new Sorting());
-	for(int i=0;i<hotel.getFoods().size();i++)
+		Collections.sort(foods,new Sorting());
+	for(int i=0;i<foods.size();i++)
 	{
 		
-	bw.write(hotel.getFoods().get(i).getName()+","+hotel.getFoods().get(i).getFoodCount()+","+hotel.getFoods().get(i).getFoodPrice()+"\n");
+	bw.write(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
 		
 	}
 	bw.close();	

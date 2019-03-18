@@ -21,15 +21,5 @@ public class Customer
 	{
 		return password;
 	}
-	public void userDetails()
-	{
-		username="user";
-		password="user";
-	}
-	public String selectFood()
-	{
 	
-	String food=scan.next();
-	return food;
-	}
 }
