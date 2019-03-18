@@ -1,0 +1,6 @@
+pizza;150
+pizza;140
+burger;150
+pizza;140
+burger;150
+sanvich;120
