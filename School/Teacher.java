@@ -4,7 +4,6 @@ class Teacher
 	String name, subject;
 	int joinYear;
 	Scanner n=new Scanner(System.in);
-	Teacher teachers[]=new Teacher[4];
 
 void setData()
 {

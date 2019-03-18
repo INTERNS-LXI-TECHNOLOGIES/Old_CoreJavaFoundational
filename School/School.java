@@ -1,17 +1,19 @@
 import java.util.*;
 class School
 {
-	private String Schoolname;
+	private String schoolName;
 	Classroom[] classes=new Classroom[4];
+	Principal principal=new Principal();
+	Teacher[] teachers=new Teacher[4];
 	 
-public void setname(String Schoolname)
+public void setSchoolName(String schoolName)
 {
-	this.Schoolname=Schoolname;
+	this.schoolName=schoolName;
 }
-public String getname()
+public String getSchoolName()
 {
-	return Schoolname;
-	System.out.println("school name is: "+school.Schoolname);
+	return schoolName;
+	
 }
 
 void setData()
@@ -23,17 +25,32 @@ void setData()
 		System.out.print("Classroom:"+(i+1));
 		classes[i].setData();	
 	}
+	for(int i=0;i<1;i++)
+	{
+		teachers[i]=new Teacher();
+		System.out.print("Teacher: "+(i+1));
+		teachers[i].setData();
+	}
+	principal.setData();
+
 	
 }
 
 void getData()
 {
-	System.out.println("\nShool name is:Sree sankara vidhya peetam.\nSchool formation year:25-06-1994.");
+	System.out.println("\nShool name is:"+schoolName+"\nSchool formation year:25-06-1994.");
 	for(int i=0;i<1;i++)
 	{
-		System.out.print("Classroom:"+(i+1));
+		System.out.print("\nClassroom:"+(i+1));
 		classes[i].getData();	
 	}
+	for(int i=0;i<1;i++)
+	{
+		
+		System.out.print("\nTeacher: "+(i+1));
+		teachers[i].getData();
+	}
+	principal.getData();
 	
 }
 }
