@@ -38,14 +38,14 @@ ArrayList<Food>  orderedFood=new ArrayList<Food>();
 										{
 										  if(countOfFood<=foods.get(j).getCount()) 
 							                  {
-												       System.out.println(" %%%%%%%%%%%%%%%%% "); 
+												       
 											    fw=new FileWriter(f,true);
 												BufferedWriter bw=new BufferedWriter(fw);
 											    orderedFood.add(foods.get(j));
 											    foods.get(j).setCount(foods.get(j).getCount()-countOfFood);
-											bw.write("odered food"+foods.get(j).getName()+" count=  "+ foods.get(j).getCount());	
+											//bw.write("odered food"+foods.get(j).getName()+" count=  "+ foods.get(j).getCount());	
 											System.out.println("odered food"+foods.get(j).getName()+" count=  "+ foods.get(j).getCount()+"\n");
-											bw.close();
+											//bw.close();
 											  }
 									
 											

@@ -117,7 +117,7 @@ Scanner scan=new Scanner(System.in);
 		{
 			
 		System.out.println("NAME : "+foods.get(w).getName()+"        PRICE : "+foods.get(w).getPrice()+"         COUNT : "+foods.get(w).getCount());
-		bw.write("added food="+foods.get(w).getName()+"    ,   price="+foods.get(w).getPrice()+"  ,   count="+foods.get(w).getCount()+"\n");				
+		bw.write(""+foods.get(w).getName()+"    ,   "+foods.get(w).getPrice()+"  ,   "+foods.get(w).getCount()+"\n");				
        
 		}
 	 bw.close();

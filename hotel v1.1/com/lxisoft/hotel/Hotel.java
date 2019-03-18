@@ -151,16 +151,25 @@ public class Hotel
 		          //String [] item=new String[3];
 				String k;
 				System.out.println("BALANCE FOOD\n**************");
-					
+		        //System.out.println(">>>>>>>>>>>>>>>>>>"+f.delete());
+		       //f.createnew File();
 						fr=new FileReader(f);
 						br=new BufferedReader(fr);
 						int i=0;
 						while((k=br.readLine())!= null)
 						{	
+					    
 							String item[]=k.split(",");
 							
-							System.out.println(""+k);
-							System.out.println("item==="+item[i]);
+							System.out.println("k="+k);
+							for(int j=0;j<3;j++)
+							{
+					             System.out.println("item====="+item[j]);
+								 System.out.println("foods"+foods);
+						        // foods.add(item);
+							}
+						//System.out.println("count"+item[i].getCount);
+						i++;
 							
 						}
 				

@@ -18,7 +18,9 @@ public class MenuList
 		    while((s=br.readLine())!= null)  
 			{
 				
-			   System.out.println(">>>>>"+s);
+			   System.out.println(""+s);
 			}
+			br.close();
 	}
+	
 }
