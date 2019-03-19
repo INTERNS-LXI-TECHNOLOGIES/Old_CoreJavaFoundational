@@ -8,7 +8,7 @@ public class Hotel
 {
 	Scanner scan=new Scanner(System.in);
 	private AdministratorController ac;
-	private CashierView cashier;
+	private CashierController cashier;
 	private ArrayList <Food> foods;
 	private CustomerController cc;
 	//ArrayList <String> foodItems=new ArrayList <String>();
@@ -20,11 +20,11 @@ public class Hotel
 	{
 		return ac;
 	}
-	public void setCashier(CashierView cashier)
+	public void setCashier(CashierController cashier)
 	{
 		this.cashier=cashier;
 	}
-	public CashierView getCashier()
+	public CashierController getCashier()
 	{
 		return cashier;
 	}
