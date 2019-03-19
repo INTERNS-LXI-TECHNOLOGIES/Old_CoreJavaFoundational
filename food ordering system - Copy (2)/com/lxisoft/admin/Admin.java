@@ -35,9 +35,13 @@ public class Admin
 		int num;
 	    String item;
 		
-		File f=new File("foodItems.txt");
-		FileWriter fw=new FileWriter(f);
+		/*File s=new File("foodItems.txt");
+		FileWriter fw=new FileWriter(s,true);
 		BufferedWriter bw=new BufferedWriter(fw);
+		
+		FileReader fr=new FileReader(s);
+		BufferedReader br=new BufferedReader(fr);
+        String b=null;*/
 		
         System.out.println("                          ADMIN LOGGIN                           ");
 		System.out.println("-----------------------------------------------------------------");
@@ -98,7 +102,18 @@ public class Admin
 		}
 		value++;
 		}
-				
+		
+		/*for(FoodItem f:foodItems)
+		{
+		bw.write(f.getName()+";"+f.getPrice());
+		bw.newLine();
+		}
+        bw.close();	
+
+        while((b=br.readLine())!=null)
+			 {
+				 System.out.println(">>>"+b);
+			 }*/		
 		}
 		 else if(userName!=getUserName() && password.equals(getPassword()))
 							{
