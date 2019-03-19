@@ -1,44 +1,32 @@
 import java.util.*;
-class Animal
+public class Animal
 {
 	String name;
 	int animalStrength;
-void fight(Tiger tiger,Rabbit rabbit,Bear bear,Lion lion)
+	
+public void fight(Tiger tiger,Rabbit rabbit,Bear bear,Lion lion)
 {
-	if(tiger.animalStrength>rabbit.animalStrength)
-	{
-		if(tiger.animalStrength>lion.animalStrength)
-		{
-			if(tiger.animalStrength>bear.animalStrength)
-			{
-				System.out.println("tiger wins");
-			}
-	            else
-	        {
-	            System.out.println("bear wins");
-			}
-		}
-		else if(rabbit.animalStrength>lion.animalStrength)
-		{
-			if(rabbit.animalStrength>bear.animalStrength)
-			{
-				System.out.println("rabbit wins");
-			}
-				else
-			{
-				System.out.println("bear wins");
-			}
-
-			}
-		}
-	else if(lion.animalStrength>bear.animalStrength)
-	{
-		System.out.println("lion wins");
-	}
-	else 
-	{
-		System.out.println("bear wins");
-	}
+	int l1,l2,l3;
+	l1=(tiger.animalStrength>rabbit.animalStrength)?tiger.animalStrength:rabbit.animalStrength;
+	l2=(bear.animalStrength>lion.animalStrength)?bear.animalStrength:lion.animalStrength;
+	l3=l1>l2?l1:l2;
+    System.out.println("largest is :"+l3);
+    if(l3==tiger.animalStrength)
+    {
+    	System.out.println("tiger wins");
+    }
+    else if(l3==rabbit.animalStrength)
+    {
+    	System.out.println("rabbit wins");
+    }
+    else if(l3==bear.animalStrength)
+    {
+    	System.out.println("bear wins");
+    }
+    else
+    {
+    	System.out.println("lion wins");
+    }
 }
-
 }
+	

@@ -1,7 +1,5 @@
 import java.util.*;
-class Tiger extends Animal
+public class Tiger extends Animal
 {
-	
-
 	
 }

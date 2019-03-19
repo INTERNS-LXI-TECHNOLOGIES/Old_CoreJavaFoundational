@@ -1,4 +1,5 @@
 import java.util.*;
-class Rabbit extends Animal
-{	
+public class Rabbit extends Animal
+{
+
 }
