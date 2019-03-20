@@ -9,38 +9,39 @@ public class Tdd
 	Scanner scan=new Scanner(System.in);
 	public static void main(String[] args) throws Exception
 	{
+		Service service=new Service();
 		HotelController controller=new HotelController();
-		controller.authentication(controller);
-		
+		ArrayList <Food> foods=new ArrayList <Food>();
+		controller.display(controller,foods,service);
+		//controller.printDetails(service,controller,foods);
 	}
-public void authentication(AdministratorController ac,CustomerController cc,HotelController controller,ArrayList <Food> foods,CashierController cashier)throws Exception
+public void authentication(HotelController controller,ArrayList <Food> foods,Service service)throws Exception
 {	
-File file=new File("foodsdetail.txt");
-FileWriter fw=new FileWriter(file,true);
+//File file=new File("foodsdetail.txt");
+//FileWriter fw=new FileWriter(file,true);
 		//System.out.println(file.exists());
 		//bw.write("pizza");
 			System.out.println("FOOD PALACE");
-			ac=new AdministratorController();
-		cc=new CustomerController();
-			foods=new ArrayList <Food>();
+			
+			
 			//controller=new HotelController();
-		controller.readFromFile(foods);
+		controller.service.repository.readFromFile(foods);
 		do
 		{
 			System.out.println("Login \n 1.Admin \n 2.User \n");
 			switch(scan.nextInt())
 			{
 			case 1:
-				ac.adminDetails();
+				controller.adminDetails();
 				System.out.print("Username :");
-				if(scan.next().equals(ac.getAdministrator().getUsername()))
+				if(scan.next().equals(controller.getAdministrator().getUsername()))
 				{
 				System.out.print("Password :");
-				if(scan.next().equals(ac.getAdministrator().getPassword()))
+				if(scan.next().equals(controller.getAdministrator().getPassword()))
 				{	
 			//readFromFile();
 			
-				adminOptions(controller,foods,ac);
+				adminOptions(controller,foods);
 				}
 				else
 				{
@@ -54,15 +55,15 @@ FileWriter fw=new FileWriter(file,true);
 				break;
 			case 2:
 			
-				cc.userDetails();
+				controller.userDetails();
 				System.out.print("Username :");
-				if(scan.next().equals(cc.getCustomer().getUsername()))
+				if(scan.next().equals(controller.getCustomer().getUsername()))
 				{
 				System.out.print("Password :");
-				if(scan.next().equals(cc.getCustomer().getPassword()))
+				if(scan.next().equals(controller.getCustomer().getPassword()))
 				{
 					//readFromFile();
-				foodOrdering(controller,foods,cc,cashier);
+				foodOrdering(controller,foods);
 				}
 				else
 				{
@@ -80,10 +81,10 @@ FileWriter fw=new FileWriter(file,true);
 				System.out.println("Login page press 2");
 		}while(scan.nextInt()==2);
 }	
-public void adminOptions(HotelController controller,ArrayList <Food> foods,AdministratorController ac)throws Exception
+public void adminOptions(HotelController controller,ArrayList <Food> foods)throws Exception
 {
-		File file=new File("foodsdetail.txt");
-		FileWriter fw=new FileWriter(file,true);
+		//File file=new File("foodsdetail.txt");
+		//FileWriter fw=new FileWriter(file,true);
 		//controller=new HotelController();
 		
 		//readFromFile();
@@ -94,7 +95,7 @@ public void adminOptions(HotelController controller,ArrayList <Food> foods,Admin
 			case 1:	
 				do{
 				foods.add(addFood());
-				file.delete();
+				//file.delete();
 				//foods.set(0);
 				//writeToFile();
 				System.out.println("To add food again press 1");
@@ -103,27 +104,27 @@ public void adminOptions(HotelController controller,ArrayList <Food> foods,Admin
 				//foodDetails();
 				
 			
-				controller.writeToFile(foods);
+				controller.service.repository.writeToFile(foods);
 				foods.clear();
-				controller.readFromFile(foods);
+				controller.service.repository.readFromFile(foods);
 			 // foods.clear();
 				break;
 			case 2:
 				
 				deleteFood(foods);
 				//file.delete();
-				controller.arraylistToFile(foods);
+				controller.service.repository.arraylistToFile(foods);
 				foods.clear();
-				controller.readFromFile(foods);
+				controller.service.repository.readFromFile(foods);
 				//foodItems.clear();
 				break;
 			case 3:
 						
 				editFood(foods);
-				file.delete();
-				controller.arraylistToFile(foods);
+				//file.delete();
+				controller.service.repository.arraylistToFile(foods);
 				foods.clear();
-				controller.readFromFile(foods);
+				controller.service.repository.readFromFile(foods);
 			//	foodItems.clear();
 				break;	
 				default:System.out.println("Wrong choice");
@@ -134,28 +135,26 @@ public void adminOptions(HotelController controller,ArrayList <Food> foods,Admin
 		}while(scan.nextInt()==1);
 		
 }	
-public void foodOrdering(HotelController controller,ArrayList <Food> foods,CustomerController cc,CashierController cashier)throws Exception
+public void foodOrdering(HotelController controller,ArrayList <Food> foods)throws Exception
 {
 	
 	//System.out.println(foods.size());
-	File file=new File("foodsdetail.txt");
-		FileWriter fw=new FileWriter(file,true);
+	//File file=new File("foodsdetail.txt");
+		//FileWriter fw=new FileWriter(file,true);
 		//readFromFile();
 				int noOfOrder;
 				//foods.clear();
-				cashier=new CashierController();
-				
 				//System.out.println(foodItems.size());
 				do{
 					//readFromFile();
 				System.out.print("Which food you want:");
-				String nameOfFood=cc.selectFood();
+				String nameOfFood=controller.selectFood();
 				if(foods!=null){
 						//System.out.println("Food available");
 						printBill(foods,nameOfFood);
-						controller.arraylistToFile(foods);
+						controller.service.repository.arraylistToFile(foods);
 						foods.clear();
-						controller.readFromFile(foods);
+						controller.service.repository.readFromFile(foods);
 				}
 				else{System.out.println("No food");}
 				System.out.println("\n again order food press 1");
