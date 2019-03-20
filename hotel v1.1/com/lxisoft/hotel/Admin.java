@@ -43,13 +43,12 @@ Scanner scan=new Scanner(System.in);
 					  System.out.println("enter the count of the food");
 					  food.setCount(scan.nextInt());
 					  foods.add(food);
-					  
 				}
-				System.out.println("333333"+foods);
+				//System.out.println("333333"+foods);
 			printFoodDetails(foods);
        }
     
-	 public void deletion(ArrayList<Food> foods)
+	 public void deletion(ArrayList<Food> foods)throws Exception
 	  {
 		   System.out.println("which food you want to delete");
 		   String d=scan.next();
@@ -57,8 +56,20 @@ Scanner scan=new Scanner(System.in);
 			     {
 						if(foods.get(k).getName().equals(d))
 						{
+							System.out.println("qqqqqqqqqqqqqqqqqqqq");
+							FileWriter fw=new FileWriter(f);
+							BufferedWriter bw=new BufferedWriter(fw);
+							//System.out.println(foods);
 							foods.remove(k);
+							
+							System.out.println("foods.size"+foods.size());
+							bw.write(".........."+foods.get(k).getName()+"    ,   "+foods.get(k).getPrice()+"  ,   "+foods.get(k).getCount()+"\n");
+							
+						//bw.write(foods);
+				
+								bw.close();
 						}
+						
 			     }
 	  } 
 	  

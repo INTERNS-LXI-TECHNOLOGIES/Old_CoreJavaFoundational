@@ -122,7 +122,6 @@ public class Hotel
 			{
 				  menuList.listOfFood(foods);
 				   customers.foodChoosing(foods);
-				   System.out.println("size***="+foods.size());
 				
 				   balanceFoodPrinting();
 			}
@@ -145,10 +144,12 @@ public class Hotel
 				System.out.println("not found");
 			}
 	 }
-     public void balanceFoodPrinting()throws Exception
+    
+		
+			public void balanceFoodPrinting()throws Exception
 			{
 				
-		          //String [] item=new String[3];
+		        // String [] item=new String[3];
 				String k;
 				System.out.println("BALANCE FOOD\n**************");
 		        //System.out.println(">>>>>>>>>>>>>>>>>>"+f.delete());
@@ -158,20 +159,24 @@ public class Hotel
 						int i=0;
 						while((k=br.readLine())!= null)
 						{	
-					    
+					          
 							String item[]=k.split(",");
+							//System.out.println("k="+k);
 							
-							System.out.println("k="+k);
+							//oder=k;
+							//if(k==)
 							for(int j=0;j<3;j++)
 							{
-					             System.out.println("item====="+item[j]);
-								 System.out.println("foods"+foods);
-						        // foods.add(item);
-							}
+								//System.out.println(foods);
+								  //foods.add(k);
+					          System.out.println("item=="+item[j]);
+							   //foods.add(item[j]);
+						    }
 						//System.out.println("count"+item[i].getCount);
 						i++;
 							
 						}
 				
 			}
+			
 }
