@@ -29,19 +29,19 @@ return password;
 Scanner scan=new Scanner(System.in);
 /*Bill bill=new Bill();*/
 
-public void logUser(ArrayList<FoodItem> foodItems)throws Exception
+public void logUser(ArrayList<FoodItem> foodItems)/*throws Exception*/
 	{
 		String password;
 		/*Hotel hotel=new Hotel();*/
 		
-		File s=new File("foodItems.txt");
+		/*File s=new File("foodItems.txt");
 		FileWriter fw=new FileWriter(s,true);
 		BufferedWriter bw=new BufferedWriter(fw);
 		
 		
 		FileReader fr=new FileReader(s);
 		BufferedReader br=new BufferedReader(fr);
-        String b=null;
+        String b=null;*/
 		
 		System.out.println(" ");
 		System.out.println("                         CUSTOMER LOGGIN                          ");
@@ -62,7 +62,7 @@ public void logUser(ArrayList<FoodItem> foodItems)throws Exception
 	         System.out.println("FoodItem                                                           Price");
 	         System.out.println("-----------------------------------------------------------------------");
 			 
-			 for(FoodItem f:foodItems)
+			/* for(FoodItem f:foodItems)
 		{
 		bw.write(f.getName()+";"+f.getPrice());
 		bw.newLine();
@@ -72,13 +72,13 @@ public void logUser(ArrayList<FoodItem> foodItems)throws Exception
 			 while((b=br.readLine())!=null)
 			 {
 				
-				 System.out.println(">>>"+b);
+				/* System.out.println(">>>"+b);
 				  String a[]=b.split(";");
 				  foodItems.add(new FoodItem());
 				  foodItems.get(i).setName(a[0]);
 				  foodItems.get(i).setPrice(Integer.parseInt(a[1]));
 				  i++;
-			 }
+			 }*/
 			
 	
 			 for(FoodItem f:foodItems)
@@ -86,7 +86,7 @@ public void logUser(ArrayList<FoodItem> foodItems)throws Exception
 		
 		System.out.println(f.getName()+"                                          "+f.getPrice());
 	}
-		/*hotel.placeOrder();*/
+		
 		placeOrder();
 		
 	    }

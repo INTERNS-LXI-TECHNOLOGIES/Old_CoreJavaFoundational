@@ -51,13 +51,43 @@ public void homePage()throws Exception
 
 	
 	
-	public void foodMenu()
+	public void foodMenu()throws Exception
 	{
+		File s=new File("foodItems.txt");
+		FileWriter fw=new FileWriter(s,true);
+		BufferedWriter bw=new BufferedWriter(fw);
+		
+		
+		FileReader fr=new FileReader(s);
+		BufferedReader br=new BufferedReader(fr);
+        String b=null;
+		
+		
 	System.out.println(" ");
 	System.out.println("                               FOOD MENU                               ");
 	System.out.println("-----------------------------------------------------------------------");
 	System.out.println("FoodItem                                                           Price");
 	System.out.println("-----------------------------------------------------------------------");
+	
+	
+		 
+			 for(FoodItem f:foodItems)
+		{
+		bw.write(f.getName()+";"+f.getPrice());
+		bw.newLine();
+		}
+        bw.close();	
+			 int i=0;
+			 while((b=br.readLine())!=null)
+			 {
+				
+				 System.out.println(">>>"+b);
+				  String a[]=b.split(";");
+				  foodItems.add(new FoodItem());
+				  foodItems.get(i).setName(a[0]);
+				  foodItems.get(i).setPrice(Integer.parseInt(a[1]));
+				  i++;
+			 }
 	
 	for(FoodItem f:foodItems)
 	{

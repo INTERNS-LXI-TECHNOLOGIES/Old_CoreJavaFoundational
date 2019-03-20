@@ -1,4 +1,7 @@
 pizza;140
-sanvich;140
 burger;150
-dhosha;120
+sanvich;120
+burger;150
+null;0
+null;0
+null;0
