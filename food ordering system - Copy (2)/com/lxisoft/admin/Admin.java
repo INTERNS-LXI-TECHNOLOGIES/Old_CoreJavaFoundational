@@ -71,10 +71,19 @@ public class Admin
 		System.out.println("   ");
         System.out.println("                         ADDED ITEMS                          ");
 	    System.out.println("--------------------------------------------------------------");
-		for(int i=0;i<foodItems.size();i++)
+		
+		/*for(int i=0;i<foodItems.size();i++)
 		{
 		    System.out.println(foodItems.get(i).getName()+"                                      "+foodItems.get(i).getPrice());
-		}
+		}*/
+		
+		
+			 for(FoodItem f:foodItems)
+	{
+		
+		System.out.println(f.getName()+"                                          "+f.getPrice());
+	}
+		
 		
 		System.out.println("     ");
 		System.out.print("Do you want to delete anything....?yes=1/no=0:");

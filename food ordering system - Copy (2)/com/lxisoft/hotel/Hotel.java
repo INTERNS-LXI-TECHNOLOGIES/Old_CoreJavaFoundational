@@ -77,6 +77,11 @@ public void homePage()throws Exception
 		bw.newLine();
 		}
         bw.close();	
+		System.out.println("******************Old food*************");
+		for(FoodItem fff:foodItems){
+			
+			System.out.println("********"+fff.getName());
+		}
 			 int i=0;
 			 while((b=br.readLine())!=null)
 			 {

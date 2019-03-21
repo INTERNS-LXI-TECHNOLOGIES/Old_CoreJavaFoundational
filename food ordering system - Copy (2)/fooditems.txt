@@ -1,7 +1,5 @@
 pizza;140
 burger;150
-sanvich;120
+sanvich;140
 burger;150
-null;0
-null;0
 null;0
