@@ -1,48 +1,86 @@
 import java.util.Random;
+import java.util.Scanner;
 public class Forest
 {
+	Animal[] animal=new Animal[5];
 
- Random rand=new Random();
- Lion lion= new Lion();
- Tiger tiger=new Tiger();
- Snake snake=new Snake();
- Rabbit rabbit=new Rabbit();
- Eagle eagle=new Eagle();
-
-int lio = rand.nextInt(60);
-int tig = rand.nextInt(40);
-int sna = rand.nextInt(30);
-int rabbi=rand.nextInt(15);
-int eagi= rand.nextInt(30);
+ public void setDetails()
+ {
  
- 	/*lion.setStrengthLevel(lio);
- 	tiger.setStrengthLevel(tig);
- 	snake.setStrengthLevel(sna);
-    rabbit.setStrengthLevel(rabbi);
-    eagle.setStrengthLevel(eagi);*/
-public void forestDisplay()
-{
-	System.out.print("Fight BEGINS...");
-    if(lio>tig&&lio>sna&&lio>rabbi&&lio>eagi)
-    {
-    	System.out.println("\nLion Wins !");
-    } 
-      else if(tig>lio&&tig>sna&&tig>rabbi&&tig>eagi)
-      {
-      	System.out.println("\nTiger Wins!");
-      }
-      else if(sna>lio&&sna>tig&&tig>rabbi&&sna>eagi)
-      {
-      	System.out.println("\nSnake Wins!");
-      }
-      else if(eagi>lio&&eagi>tig&&eagi>sna&&eagi>rabbi)
-      {
-      	System.out.println("\nEagle Wins!");
-      }
-      
- 
+ 	animal[0]=new Lion();
+ 	animal[1]=new Tiger();
+ 	animal[2]=new Bear();
+ 	animal[3]=new Deer(); 
+ 	animal[4]=new Rabbit();
 
+ 	animal[0].setName("Lion");
+ 	animal[1].setName("Tiger");
+ 	animal[2].setName("Bear");
+ 	animal[3].setName("Deer");
+ 	animal[4].setName("Rabbit");
 
+	 	animal[0].setStrengthLevel((int)(Math.random()*100));
+	 	animal[1].setStrengthLevel((int)(Math.random()*100));
+	 	animal[2].setStrengthLevel((int)(Math.random()*100));
+	 	animal[3].setStrengthLevel((int)(Math.random()*100));
+	 	animal[4].setStrengthLevel((int)(Math.random()*100));
 
-} 
+		animal[0].setHungerLevel((int)(Math.random()*10));
+ 	    animal[1].setHungerLevel((int)(Math.random()*10));
+ 		animal[2].setHungerLevel((int)(Math.random()*10));
+ 		animal[3].setHungerLevel((int)(Math.random()*10));
+ 		animal[4].setHungerLevel((int)(Math.random()*10));
 }
+ public void fight()
+ {	
+ 	Scanner in=new Scanner(System.in);
+ 	String fight;
+ 	boolean a = false;
+ 	int count = 0;
+ 	System.out.println("FIGHT BEGIN IN THE FOREST "+"\n **********************");
+
+ 	do{
+ 	        int j=(int)(Math.random()*5);
+ 			int k=(int)(Math.random()*5);
+ 			if(animal[k]!=null&&animal[j]!=null)
+ 			{
+
+ 			if(j!=k)
+ 			{
+ 			a = animal[j].fight(animal[k]);
+ 			if(a==true)
+ 			{
+ 			animal[j] = null;
+ 			}
+ 			else
+ 			{
+ 			animal[k] = null;
+ 			}
+ 			}
+ 			count = 0;
+ 			for(int i=0;i<5;i++)
+ 			{
+ 				if(animal[i]==null){
+ 					count++;
+ 				}
+
+ 			}
+ 			
+	 	}
+
+	 }
+	while(count<4);
+	for(int i=0;i<5;i++)
+	{
+		if(animal[i]!=null)
+		{  
+			System.out.println("*************************************");
+		   System.out.println("*"+animal[i].getName()+" "+"Roaming Around In The Forest !*"+
+				            "\n*************************************");
+		}
+	}
+	
+}
+}
+
+ 			
