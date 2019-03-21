@@ -31,7 +31,7 @@ ArrayList<Food>  orderedFood=new ArrayList<Food>();
 					      System.out.println("choose any food");				 
 						   String order=scan.next();
 						  
-						   System.out.println("how many"+  order  + "want");
+						   System.out.println("how many"+  order  +"want");
 							countOfFood=scan.nextInt();
 					       System.out.println("size="+foods.size());
 						   if(f.exists())

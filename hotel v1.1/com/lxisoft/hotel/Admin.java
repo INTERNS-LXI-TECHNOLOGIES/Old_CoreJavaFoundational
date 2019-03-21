@@ -28,11 +28,13 @@ Scanner scan=new Scanner(System.in);
 		 while(con==1);
 	   }
   
+  
+  int numOfFood;
      public void add(ArrayList<Food> foods)throws Exception
 	   {   
 	       
            System.out.println("how many foods do you want to add");
-		   int numOfFood=scan.nextInt();
+		    numOfFood=scan.nextInt();
 		   for(int w=0;w<numOfFood;w++)
 				 {
 					  Food food=new Food();
@@ -52,25 +54,37 @@ Scanner scan=new Scanner(System.in);
 	  {
 		   System.out.println("which food you want to delete");
 		   String d=scan.next();
+		   FileWriter fw=new FileWriter(f,false);
+		   BufferedWriter bw=new BufferedWriter(fw);
+		   Food foodToDelete=null;
 		   for(int k=0;k<foods.size();k++)
 			     {
+					
 						if(foods.get(k).getName().equals(d))
 						{
-							System.out.println("qqqqqqqqqqqqqqqqqqqq");
-							FileWriter fw=new FileWriter(f);
-							BufferedWriter bw=new BufferedWriter(fw);
+							
+							
 							//System.out.println(foods);
-							foods.remove(k);
+							foodToDelete=foods.get(k);
+							//foods.remove(k);
 							
-							System.out.println("foods.size"+foods.size());
-							bw.write(".........."+foods.get(k).getName()+"    ,   "+foods.get(k).getPrice()+"  ,   "+foods.get(k).getCount()+"\n");
 							
+							
+						    System.out.println("\n fffff"+foods+"\n");
 						//bw.write(foods);
-				
-								bw.close();
+				//bw.write(foods.get(k).getName()+"    ,   "+foods.get(k).getPrice()+"  ,   "+foods.get(k).getCount()+"\n");
+						//bw.flush();
+							
 						}
+				 }
+				 foods.remove(foodToDelete);
+				 for(Food ff:foods)
+				 {
+						bw.append(ff.getName()+"    ,   "+ff.getPrice()+"  ,   "+ff.getCount()+"\n");
+						//bw.flush();
 						
 			     }
+				 bw.close();
 	  } 
 	  
 	 public void edit(ArrayList<Food> foods)
