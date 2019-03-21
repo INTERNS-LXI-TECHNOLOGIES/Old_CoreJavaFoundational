@@ -6,15 +6,14 @@ import java.util.Comparator;
 import java.io.*;
 public class Service
 {
-	Repository repository;
-	public void storeFood(HotelController controller,ArrayList <Food> foods,Service service)throws Exception
+	public void storeFood(HotelController controller,ArrayList <Food> foods,Service service,Repository repository)throws Exception
 	{
-		controller.storeFood(controller,foods,service);
+		controller.storeFood(controller,foods,service,repository);
 	}
-	public void display(HotelController controller,ArrayList <Food> foods,Service service)throws Exception
+	public void display(HotelController controller,ArrayList <Food> foods,Service service,Repository repository)throws Exception
 	{
-		 repository=new Repository();
-		repository.storeFood(controller,foods,service);
+		 //repository=new Repository();
+		repository.storeFood(controller,foods,service,repository);
 	}
 	/*public void printDetails(ArrayList <Food> foods)throws Exception
 	{

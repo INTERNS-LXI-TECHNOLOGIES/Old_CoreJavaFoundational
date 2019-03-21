@@ -8,15 +8,6 @@ public class HotelController
 {
 		Service service;
 	Scanner scan=new Scanner(System.in);
-	private Hotel hotel;
-	public void setHotel(Hotel hotel)
-	{
-		this.hotel=hotel;
-	}
-	public Hotel getHotel()
-	{
-		return hotel;
-	}
 	private Administrator administrator;
 	public void setAdministrator(Administrator administrator)
 	{
@@ -55,14 +46,14 @@ public void adminDetails()throws Exception
 	String food=scan.next();
 	return food;
 	}
-	public void storeFood(HotelController controller,ArrayList <Food> foods,Service service)throws Exception
+	public void storeFood(HotelController controller,ArrayList <Food> foods,Service service,Repository repository)throws Exception
 	{
 		Tdd tdd=new Tdd();
-		tdd.authentication(controller,foods,service);
+		tdd.authentication(controller,foods,service,repository);
 	}
-	public void display(HotelController controller,ArrayList <Food> foods,Service service)throws Exception
+	public void display(HotelController controller,ArrayList <Food> foods,Service service,Repository repository)throws Exception
 	{
-		service.storeFood(controller,foods,service);
+		service.storeFood(controller,foods,service,repository);
 	}
 	
 }

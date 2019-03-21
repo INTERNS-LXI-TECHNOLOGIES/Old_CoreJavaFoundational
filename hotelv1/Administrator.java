@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.ArrayList;
 public class Administrator
 {
-	Scanner scan=new Scanner(System.in);
 	private String username;
 	private String password;
 	int noOfFood;

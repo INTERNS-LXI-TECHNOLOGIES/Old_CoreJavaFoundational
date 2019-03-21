@@ -6,9 +6,9 @@ import java.util.Comparator;
 import java.io.*;
 public class Repository
 {
-	public void storeFood(HotelController controller,ArrayList <Food> foods,Service service)throws Exception
+	public void storeFood(HotelController controller,ArrayList <Food> foods,Service service,Repository repository)throws Exception
 	{
-		service.storeFood(controller,foods,service);
+		service.storeFood(controller,foods,service,repository);
 	}
 
 public void writeToFile(ArrayList <Food> foods)throws Exception

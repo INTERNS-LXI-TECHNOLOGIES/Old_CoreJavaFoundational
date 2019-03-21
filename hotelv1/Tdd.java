@@ -10,12 +10,13 @@ public class Tdd
 	public static void main(String[] args) throws Exception
 	{
 		Service service=new Service();
+		Repository repository=new Repository();
 		HotelController controller=new HotelController();
 		ArrayList <Food> foods=new ArrayList <Food>();
-		controller.display(controller,foods,service);
-		//controller.printDetails(service,controller,foods);
+		controller.display(controller,foods,service,repository);
+		//controller.printDetails(service,controller,foods,repository);
 	}
-public void authentication(HotelController controller,ArrayList <Food> foods,Service service)throws Exception
+public void authentication(HotelController controller,ArrayList <Food> foods,Service service,Repository repository)throws Exception
 {	
 //File file=new File("foodsdetail.txt");
 //FileWriter fw=new FileWriter(file,true);
@@ -25,7 +26,7 @@ public void authentication(HotelController controller,ArrayList <Food> foods,Ser
 			
 			
 			//controller=new HotelController();
-		controller.service.repository.readFromFile(foods);
+		repository.readFromFile(foods);
 		do
 		{
 			System.out.println("Login \n 1.Admin \n 2.User \n");
@@ -41,7 +42,7 @@ public void authentication(HotelController controller,ArrayList <Food> foods,Ser
 				{	
 			//readFromFile();
 			
-				adminOptions(controller,foods);
+				adminOptions(controller,foods,repository);
 				}
 				else
 				{
@@ -63,7 +64,7 @@ public void authentication(HotelController controller,ArrayList <Food> foods,Ser
 				if(scan.next().equals(controller.getCustomer().getPassword()))
 				{
 					//readFromFile();
-				foodOrdering(controller,foods);
+				foodOrdering(controller,foods,repository);
 				}
 				else
 				{
@@ -81,7 +82,7 @@ public void authentication(HotelController controller,ArrayList <Food> foods,Ser
 				System.out.println("Login page press 2");
 		}while(scan.nextInt()==2);
 }	
-public void adminOptions(HotelController controller,ArrayList <Food> foods)throws Exception
+public void adminOptions(HotelController controller,ArrayList <Food> foods,Repository repository)throws Exception
 {
 		//File file=new File("foodsdetail.txt");
 		//FileWriter fw=new FileWriter(file,true);
@@ -104,27 +105,27 @@ public void adminOptions(HotelController controller,ArrayList <Food> foods)throw
 				//foodDetails();
 				
 			
-				controller.service.repository.writeToFile(foods);
+				repository.writeToFile(foods);
 				foods.clear();
-				controller.service.repository.readFromFile(foods);
+				repository.readFromFile(foods);
 			 // foods.clear();
 				break;
 			case 2:
 				
 				deleteFood(foods);
 				//file.delete();
-				controller.service.repository.arraylistToFile(foods);
+				repository.arraylistToFile(foods);
 				foods.clear();
-				controller.service.repository.readFromFile(foods);
+				repository.readFromFile(foods);
 				//foodItems.clear();
 				break;
 			case 3:
 						
 				editFood(foods);
 				//file.delete();
-				controller.service.repository.arraylistToFile(foods);
+				repository.arraylistToFile(foods);
 				foods.clear();
-				controller.service.repository.readFromFile(foods);
+				repository.readFromFile(foods);
 			//	foodItems.clear();
 				break;	
 				default:System.out.println("Wrong choice");
@@ -135,7 +136,7 @@ public void adminOptions(HotelController controller,ArrayList <Food> foods)throw
 		}while(scan.nextInt()==1);
 		
 }	
-public void foodOrdering(HotelController controller,ArrayList <Food> foods)throws Exception
+public void foodOrdering(HotelController controller,ArrayList <Food> foods,Repository repository)throws Exception
 {
 	
 	//System.out.println(foods.size());
@@ -152,9 +153,9 @@ public void foodOrdering(HotelController controller,ArrayList <Food> foods)throw
 				if(foods!=null){
 						//System.out.println("Food available");
 						printBill(foods,nameOfFood);
-						controller.service.repository.arraylistToFile(foods);
+						repository.arraylistToFile(foods);
 						foods.clear();
-						controller.service.repository.readFromFile(foods);
+						repository.readFromFile(foods);
 				}
 				else{System.out.println("No food");}
 				System.out.println("\n again order food press 1");
