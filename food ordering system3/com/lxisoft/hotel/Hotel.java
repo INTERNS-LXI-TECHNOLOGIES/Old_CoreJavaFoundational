@@ -32,11 +32,11 @@ public void homePage()
 				  break;
 				  case 2:foodMenu();
 				  break;
-				  case 3:customer.logUser(foodItems);
+				 /* case 3:customer.logUser(foodItems);
 				    price=admin.calculateBill(customer.item,customer.value,foodItems);
 					bill.setTotalPrice(price);
 					bill.viewBill(customer.item,customer.value,foodItems);
-				  break;
+				  break;*/
 				   default:System.out.println("Invalid choice made...please try again...!!!");
 			
 			  }
