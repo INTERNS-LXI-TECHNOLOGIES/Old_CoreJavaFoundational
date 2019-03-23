@@ -169,7 +169,7 @@ public class Hotel
 							{
 								//System.out.println(foods);
 								  //foods.add(k);
-					          System.out.println("item=="+item[j]);
+					          System.out.println(item[j]);
 							   //foods.add(item[j]);
 						    }
 						//System.out.println("count"+item[i].getCount);

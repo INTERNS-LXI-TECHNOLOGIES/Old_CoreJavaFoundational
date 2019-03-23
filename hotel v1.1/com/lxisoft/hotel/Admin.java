@@ -87,11 +87,13 @@ Scanner scan=new Scanner(System.in);
 				 bw.close();
 	  } 
 	  
-	 public void edit(ArrayList<Food> foods)
+	 public void edit(ArrayList<Food> foods)throws Exception
 	 {
 		  System.out.println("which one is edit choose any options\n1)food\n2)price\n3)count");
 		  int edit=scan.nextInt();
-			
+		  FileWriter fw=new FileWriter(f);
+		   BufferedWriter bw=new BufferedWriter(fw);
+		   		
 	           if(edit==1)
 				{
 					System.out.println("which name is replace");
@@ -100,11 +102,22 @@ Scanner scan=new Scanner(System.in);
 			        {
 						if(foods.get(s).getName().equals(replace))
 						{
-							System.out.println("enter the currect name of the food");                              
-							foods.get(s).setName(scan.next());
-						}       
+							System.out.println("enter the currect name of the food");
+                            foods.get(s).setName(scan.next());						
+							
+						}
+                      					
 			         }
-		         }
+					 
+					 for(int s=0;s<foods.size();s++)
+			        {
+					   bw.write(foods.get(s).getName()+"  "+foods.get(s).getPrice()+"  "+foods.get(s).getCount()+"\n");
+						   
+					}
+                      bw.close();					
+		          }
+				 
+		 
 				 if(edit==2)
 				{
 			        System.out.println("which food price is replace");
@@ -117,7 +130,14 @@ Scanner scan=new Scanner(System.in);
 						foods.get(s).setPrice(scan.nextInt());
 						}
 					}
-				}
+				 for(int s=0;s<foods.size();s++)
+			        {
+					   bw.write(foods.get(s).getName()+"  "+foods.get(s).getPrice()+"  "+foods.get(s).getCount()+"\n");
+						   
+					}
+                      bw.close();					
+		          }
+				
 				else if(edit==3)
 				{       
 			        System.out.println("which foodcount is replace");
@@ -128,12 +148,18 @@ Scanner scan=new Scanner(System.in);
 				        {
 						System.out.println("enter the currect count of the food");
 						foods.get(s).setCount(scan.nextInt());
-				        }
-				     }
-				}		
-		}
-	
-   public void printFoodDetails(ArrayList<Food> foods) throws Exception
+	                    }
+				
+					}
+					 for(int s=0;s<foods.size();s++)
+			        {
+					   bw.write(foods.get(s).getName()+"  "+foods.get(s).getPrice()+"  "+foods.get(s).getCount()+"\n");
+						   
+					}
+                      bw.close();		
+				}
+	 }				
+   public void printFoodDetails(ArrayList<Food> foods)throws Exception 
 	{
 	    int numOfFood=foods.size();
 		fw=new FileWriter(f,true);
