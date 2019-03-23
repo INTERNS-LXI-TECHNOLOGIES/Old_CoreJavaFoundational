@@ -6,54 +6,51 @@ import java.util.Comparator;
 import java.io.*;
 public class HotelController
 {
-		Service service;
-	Scanner scan=new Scanner(System.in);
-	private Administrator administrator;
-	public void setAdministrator(Administrator administrator)
+	private AdministratorController ac;
+	private CustomerController cc;
+	private FoodController fc;
+	//private HotelService hs;
+	public void setAc(AdministratorController ac)
 	{
-		this.administrator=administrator;
+		this.ac=ac;
 	}
-	public Administrator getAdministrator()
+	public AdministratorController getAc()
 	{
-		return administrator;
+		return ac;
 	}
-	private Customer customer;
-public void setCustomer(Customer customer)
-{
- this.customer=customer;
-}
-public Customer getCustomer()
-{
-return customer;
+	public void setCc(CustomerController cc)
+	{
+		this.cc=cc;
+	}
+	public CustomerController getCc()
+	{
+		return cc;
+	}
+	public void setFc(FoodController fc)
+	{
+		this.fc=fc;
+	}
+	public FoodController getFc()
+	{
+		return fc;
+	}
+	/*public void setHs(HotelService hs)
+	{
+		this.hs=hs;
+	}
+	public HotelService getHs()
+	{
+		return hs;
+	}*/
+	public void storeDetails(ArrayList <Food> foods)throws Exception
+	{
+		HotelService hs=new HotelService();
+		hs.storeDetails(foods);
+	}
+	public void displayDetails(ArrayList <Food> foods)throws Exception
+	{
+		HotelService hs=new HotelService();
+		hs.displayDetails(foods);
+	}
+	
 }	
-
-public void adminDetails()throws Exception
-	{
-		administrator=new Administrator();
-		//av=new AdministratorView();
-		administrator.setUsername("administ");
-		administrator.setPassword("admin");
-	}
-	public void userDetails()
-	{
-		customer=new Customer();
-		customer.setUsername("user");
-		customer.setPassword("user");
-	}
-	public String selectFood()
-	{
-	
-	String food=scan.next();
-	return food;
-	}
-	public void storeFood(HotelController controller,ArrayList <Food> foods,Service service,Repository repository)throws Exception
-	{
-		Tdd tdd=new Tdd();
-		tdd.authentication(controller,foods,service,repository);
-	}
-	public void display(HotelController controller,ArrayList <Food> foods,Service service,Repository repository)throws Exception
-	{
-		service.storeFood(controller,foods,service,repository);
-	}
-	
-}

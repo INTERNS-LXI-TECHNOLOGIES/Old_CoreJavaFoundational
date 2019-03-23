@@ -6,10 +6,10 @@ import java.util.Comparator;
 import java.io.*;
 public class Repository
 {
-	public void storeFood(HotelController controller,ArrayList <Food> foods,Service service,Repository repository)throws Exception
+	/*public void storeFood(HotelController controller,ArrayList <Food> foods,Service service,Repository repository)throws Exception
 	{
 		service.storeFood(controller,foods,service,repository);
-	}
+	}*/
 
 public void writeToFile(ArrayList <Food> foods)throws Exception
 {
@@ -19,13 +19,11 @@ public void writeToFile(ArrayList <Food> foods)throws Exception
 		BufferedWriter bw=new BufferedWriter(fw);
 	//ArrayList <String> f=new ArrayList <String>();
 			Collections.sort(foods,new Sorting());
-		//Iterator itr=foods.iterator();
-		//while(itr.hasNext()){
-			for(int i=0;i<foods.size();i++)
+			/*for(int i=0;i<foods.size();i++)
 		{
 		System.out.println(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
 			
-		}
+		}*/
 		
 	for(int i=0;i<foods.size();i++)
 	{
@@ -45,33 +43,24 @@ public void readFromFile(ArrayList <Food> foods)throws Exception
 	FileWriter fw=new FileWriter(file,true);
 	FileReader fr=new FileReader(file);
 		BufferedReader br=new BufferedReader(fr);
-		//foods=new ArrayList <Food>();
-				//foods.clear();
-				//int i=0;
 				int k=0;	
 				String data;	
 				while((data=br.readLine())!=null)
 				{
-				//String dup=data;
-				//System.out.print((i+1));
-				
 				Food f=new Food();
 				String item[]=data.split(",");
 				f.setName(item[k]);
 				f.setFoodCount(Integer.parseInt(item[k+1]));
 				f.setFoodPrice(Integer.parseInt(item[k+2]));
 				foods.add(f);
-				//k=k+3;
-				//System.out.println("\n");
 				}
 				System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");
 			for(int i=0;i<foods.size();i++)
 			{
 			System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
 			}
-			//foods.clear();
 }
-public void arraylistToFile(ArrayList <Food> foods)throws Exception
+/*public void arraylistToFile(ArrayList <Food> foods)throws Exception
 {
 	File file=new File("foodsdetail.txt");
 	FileWriter fw=new FileWriter(file);
@@ -85,5 +74,5 @@ public void arraylistToFile(ArrayList <Food> foods)throws Exception
 		
 	}
 	bw.close();	
-}
+}*/
 }

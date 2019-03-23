@@ -1,4 +1,4 @@
-package com.lxisoft.hotelv1;
+/*package com.lxisoft.hotelv1;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.*;
@@ -20,4 +20,4 @@ public class Service
 		Repository repository;
 		repository.readFromFile(foods);
 	}*/
-}
+//}
