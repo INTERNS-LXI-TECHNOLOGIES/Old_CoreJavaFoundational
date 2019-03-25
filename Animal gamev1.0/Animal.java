@@ -3,6 +3,7 @@ public class Animal
 {
 	private String name;
 	private int strengthLevel;
+	private int position;
 	private int hungerLevel;
 	public void setName(String name)
 	{
@@ -20,6 +21,10 @@ public class Animal
 		this.hungerLevel=hungerLevel;
 
 	}
+	public void setPosition(int position)
+	{
+		this.position=position;
+	}
 	public String getName()
 	{
 		return this.name;
@@ -32,23 +37,29 @@ public class Animal
 	{
 		return this.hungerLevel;
 	}
+	public int getPosition()
+	{
+		return this.position;
+	}
 
 	public boolean fight(Animal animal)
 	{
+		
 
-		if(animal.getStrengthLevel()>strengthLevel)
+		if((animal.getStrengthLevel()>strengthLevel)&&(animal.getHungerLevel()>hungerLevel))
 		{
-			System.out.println(animal.getName()+" "+"Fights With"+name);
+			System.out.println(animal.getName()+" "+"Fights With"+" "+name);
 			System.out.println(animal.getName()+"  "+"Wins !");
 			System.out.println(name+"  "+" Dead !"+"\n--------------");
-			return true;
+			return false;
+
 	    }
-		else if(strengthLevel>animal.getStrengthLevel())
+		else if((strengthLevel>animal.getStrengthLevel())&&(hungerLevel>animal.getHungerLevel()))
 		{
-			System.out.println(animal.getName()+" "+"Fights With"+name);
+			System.out.println(animal.getName()+" "+"Fights With"+" "+name);
 			System.out.println(name+"  "+"Wins !");
 			System.out.println(animal.getName()+"  "+" Dead !"+"\n--------------");
-			return false;
+			return true;
 	    }
 		return false;
 		
