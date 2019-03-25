@@ -1,8 +1,9 @@
-package com.lxisoft.hotelv1;
+package com.lxisoft.hotelv1.model;
 import java.util.Scanner;
-public class Customer
-{	
-	Scanner scan=new Scanner(System.in);
+import java.io.*;
+import java.util.ArrayList;
+public class Administrator
+{
 	private String username;
 	private String password;
 	public void setUsername(String username)
@@ -23,3 +24,4 @@ public class Customer
 	}
 	
 }
+		

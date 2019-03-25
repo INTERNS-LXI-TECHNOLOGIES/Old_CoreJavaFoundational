@@ -1,4 +1,5 @@
-package com.lxisoft.hotelv1;
+package com.lxisoft.hotelv1.controller;
+import com.lxisoft.hotelv1.model.Customer;
 import java.util.Scanner;
 public class CustomerController
 {

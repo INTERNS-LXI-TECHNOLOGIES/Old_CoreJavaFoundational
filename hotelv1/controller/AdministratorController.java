@@ -1,4 +1,6 @@
-package com.lxisoft.hotelv1;
+package com.lxisoft.hotelv1.controller;
+import com.lxisoft.hotelv1.model.Administrator;
+import com.lxisoft.hotelv1.service.AdministratorService;
 import java.util.Scanner;
 import java.io.*;
 import java.util.ArrayList;
@@ -33,12 +35,5 @@ public void adminDetails()throws Exception
 		administrator.setUsername("administ");
 		administrator.setPassword("admin");
 	}
-	/*public void details()
-	{
-		as=new AdministratorService();
-		as.addFood();
-		as.deleteFood();
-		
-	}*/
 		
 }

@@ -1,4 +1,5 @@
-package com.lxisoft.hotelv1;
+package com.lxisoft.hotelv1.repository;
+import com.lxisoft.hotelv1.model.Food;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.*;
@@ -6,11 +7,6 @@ import java.util.Comparator;
 import java.io.*;
 public class Repository
 {
-	/*public void storeFood(HotelController controller,ArrayList <Food> foods,Service service,Repository repository)throws Exception
-	{
-		service.storeFood(controller,foods,service,repository);
-	}*/
-
 public void writeToFile(ArrayList <Food> foods)throws Exception
 {
 	
@@ -19,11 +15,6 @@ public void writeToFile(ArrayList <Food> foods)throws Exception
 		BufferedWriter bw=new BufferedWriter(fw);
 	//ArrayList <String> f=new ArrayList <String>();
 			Collections.sort(foods,new Sorting());
-			/*for(int i=0;i<foods.size();i++)
-		{
-		System.out.println(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
-			
-		}*/
 		
 	for(int i=0;i<foods.size();i++)
 	{
@@ -60,19 +51,4 @@ public void readFromFile(ArrayList <Food> foods)throws Exception
 			System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
 			}
 }
-/*public void arraylistToFile(ArrayList <Food> foods)throws Exception
-{
-	File file=new File("foodsdetail.txt");
-	FileWriter fw=new FileWriter(file);
-		BufferedWriter bw=new BufferedWriter(fw);
-		
-		Collections.sort(foods,new Sorting());
-	for(int i=0;i<foods.size();i++)
-	{
-		
-	bw.write(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
-		
-	}
-	bw.close();	
-}*/
 }

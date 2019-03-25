@@ -1,4 +1,5 @@
-package com.lxisoft.hotelv1;
+package com.lxisoft.hotelv1.service;
+import com.lxisoft.hotelv1.model.Food;
 import java.util.Scanner;
 import java.io.*;
 import java.util.ArrayList;

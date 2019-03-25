@@ -1,4 +1,5 @@
-package com.lxisoft.hotelv1;
+package com.lxisoft.hotelv1.repository;
+import com.lxisoft.hotelv1.model.Food;
 import java.util.Comparator;
 public class Sorting implements Comparator <Food>
 {
