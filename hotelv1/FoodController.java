@@ -12,11 +12,4 @@ public class FoodController
 	{
 		return foods;
 	}
-	/*public void foodDetails()
-	{
-		foods=new Food();
-		foods.setName(scan.next());
-		foods.setFoodCount(scan.nextInt());
-		foods.setFoodPrice(scan.nextInt());
-	}*/
 }

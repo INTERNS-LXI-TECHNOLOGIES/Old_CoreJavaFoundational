@@ -22,6 +22,10 @@ public class AdministratorController
 	{
 		return as;
 	}
+	public AdministratorController()
+	{
+		as=new AdministratorService();
+	}
 	
 public void adminDetails()throws Exception
 	{

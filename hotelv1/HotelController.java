@@ -9,6 +9,7 @@ public class HotelController
 	private AdministratorController ac;
 	private CustomerController cc;
 	private FoodController fc;
+	private HotelService hs;
 	//private HotelService hs;
 	public void setAc(AdministratorController ac)
 	{
@@ -34,17 +35,25 @@ public class HotelController
 	{
 		return fc;
 	}
-	/*public void setHs(HotelService hs)
+	public void setHs(HotelService hs)
 	{
 		this.hs=hs;
 	}
 	public HotelService getHs()
 	{
 		return hs;
-	}*/
+	}
+	
+	public HotelController()
+	{
+		 ac=new AdministratorController();
+		 cc=new CustomerController();
+		 hs=new HotelService();
+	}
+	
 	public void storeDetails(ArrayList <Food> foods)throws Exception
 	{
-		HotelService hs=new HotelService();
+		//HotelService hs=new HotelService();
 		hs.storeDetails(foods);
 	}
 	public void displayDetails(ArrayList <Food> foods)throws Exception

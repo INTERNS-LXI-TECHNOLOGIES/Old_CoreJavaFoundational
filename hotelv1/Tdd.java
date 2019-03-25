@@ -20,7 +20,7 @@ public class Tdd
 			switch(scan.nextInt())
 			{
 			case 1:
-				controller.getAc().adminDetails();
+			controller.getAc().adminDetails();
 				System.out.print("Username :");
 				if(scan.next().equals(controller.getAc().getAdministrator().getUsername()))
 				{
@@ -43,7 +43,8 @@ public class Tdd
 										food.setFoodCount(scan.nextInt());
 										System.out.print("Price:");
 										food.setFoodPrice(scan.nextInt());			
-										foods.add(food);
+										//foods.add(food);
+										controller.getAc().getAs().addFood(foods,food);
 							System.out.println("To add food again press 1");
 							}while(scan.nextInt()==1);
 							controller.storeDetails(foods);
@@ -55,54 +56,40 @@ public class Tdd
 							//deleteFood(foods);
 								System.out.print("which one you want to delete:");
 								String  n=scan.next();
-								System.out.println(foods.size());
-								//controller.getAc().getAs().deleteFood(n,foods);
-										for(int i=0;i<foods.size();i++)
-										{	
-										if(n.equals(foods.get(i).getName()))
-										{
-											
-										foods.remove(i);
-											
-										}
-										}
-							controller.storeDetails(foods);
-							foods.clear();
-							controller.displayDetails(foods);
-							break;
+								controller.getAc().getAs().deleteFood(n,foods);
+								controller.storeDetails(foods);
+								foods.clear();
+								controller.displayDetails(foods);
+								break;
 						case 3:
 									
 							//editFood(foods);
 								System.out.print("which one you want to edit:");
 								String edit=scan.next();
-								System.out.println(foods.size());
-								//System.out.println(edit);
-								for(int i=0;i<foods.size();i++)
-								{	
-									if(edit.equals(foods.get(i).getName()))
-									{
 										//System.out.println(foodItems.get(i));
 										//String name=foodItems.get(i);
 										System.out.println("change name press 1");
 										while(scan.nextInt()==1){
 										System.out.print("changed food name:");
 										String nam=scan.next();
-										foods.get(i).setName(nam);}
+										//foods.get(i).setName(nam);
+										controller.getAc().getAs().editFoodName(edit,foods,nam);
+										}
 									
 									System.out.println("change food count press 2");
 										while(scan.nextInt()==2){
 										System.out.print("changed food count:");
 										int c=scan.nextInt();
-										foods.get(i).setFoodCount(c);
+										//foods.get(i).setFoodCount(c);
+										controller.getAc().getAs().editFoodCount(edit,foods,c);
 										}
 									System.out.println("change name press 3");
 										while(scan.nextInt()==3){
 										System.out.print("changed food price:");
 										int p=scan.nextInt();
-										foods.get(i).setFoodPrice(p);
+										//foods.get(i).setFoodPrice(p);
+										controller.getAc().getAs().editFoodPrice(edit,foods,p);
 										}
-									}
-								}
 							//file.delete();
 							controller.storeDetails(foods);
 							foods.clear();
@@ -138,14 +125,12 @@ public class Tdd
 				if(scan.next().equals(controller.getCc().getCustomer().getPassword()))
 				{
 				//foodOrdering(controller,foods,repository);
-						int noOfOrder;
 				do{
 				System.out.print("Which food you want:");
 				String nameOfFood=controller.getCc().selectFood();
 				if(foods!=null){
 						//System.out.println("Food available");
 						//printBill(foods,nameOfFood);
-					/*int total=0;
 						System.out.print("number of order:");
 						int noOfOrder=scan.nextInt();
 						System.out.println("\t\t\t\tFOOD PALACE\t\t\t\t");
@@ -153,21 +138,17 @@ public class Tdd
 						System.out.println("\t\t---------------------------------------\t\t");
 						System.out.println("SNo\t\t\t\tFood items\t\t\t\tNo\t\t\t\tPrice");
 						//System.out.println(foods.size());
-						for(int i=0;i<controller.getFc().getFoods().size();i++)
+						for(int i=0;i<foods.size();i++)
 						{
 							int j=0;
-							if((nameOfFood).equals(controller.getFc().getFoods().get(i).getName()))
+							if((nameOfFood).equals(foods.get(i).getName()))
 							{
-								if(controller.getFc().getFoods().get(i).getFoodCount()!=0)
+								if(foods.get(i).getFoodCount()!=0)
 								{
-								System.out.print((j+1)+"\t\t"+controller.getFc().getFoods().get(i).getName()+"\t\t\t"+noOfOrder+"\t\t"+controller.getFc().getFoods().get(i).getFoodPrice()+"\n");
+								System.out.print((j+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+noOfOrder+"\t\t"+foods.get(i).getFoodPrice()+"\n");
 										
-								total=total+((noOfOrder)*(controller.getFc().getFoods().get(i).getFoodPrice()));
+								int total=controller.getHs().printBill(nameOfFood,noOfOrder,foods);
 								System.out.print("Total\t\t\t\t:"+total+"\n");
-								//int c=(foods.get(i).getFoodCount())-noOfOrder;
-								//String count=Integer.toString(c);
-								//System.out.println(count);
-								controller.getFc().getFoods().get(i).setFoodCount(controller.getFc().getFoods().get(i).getFoodCount()-noOfOrder);
 								}
 								else
 								{
@@ -175,7 +156,7 @@ public class Tdd
 								}
 							}
 							j++;
-						}	*/
+						}	
 						controller.storeDetails(foods);
 						foods.clear();
 						controller.displayDetails(foods);

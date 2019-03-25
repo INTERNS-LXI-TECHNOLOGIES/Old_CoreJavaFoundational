@@ -6,7 +6,6 @@ public class Administrator
 {
 	private String username;
 	private String password;
-	int noOfFood;
 	public void setUsername(String username)
 	{
 		this.username=username;
