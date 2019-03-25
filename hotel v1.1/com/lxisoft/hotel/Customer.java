@@ -47,8 +47,9 @@ ArrayList<Food>  orderedFood=new ArrayList<Food>();
 												       
 											    
 											    orderedFood.add(foods.get(j));
-												orderedFood.clear();
-												
+												System.out.println(",,,,,,,,,,,,"+orderedFood);
+												//orderedFood.clear();
+												System.out.println(",,,,,,,,,,,,"+orderedFood);
 											    foods.get(j).setCount(foods.get(j).getCount()-countOfFood);
 												System.out.println("........."+foods.get(j));
 											
