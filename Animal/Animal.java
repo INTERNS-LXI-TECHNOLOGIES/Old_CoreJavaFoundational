@@ -4,7 +4,22 @@ public class Animal
 	String name;
 	int animalStrength;
 	int l1,l2,l3,i;
-
+public void setName(String name)
+{
+	this.name=name;
+}
+public void setAnimalStrength(int animalStrength)
+{
+	this.animalStrength=animalStrength;
+}
+public String getName()
+{
+	return name;
+}
+public int getAnimalStrength()
+{
+	return animalStrength;
+}
 public boolean fight(Animal animal)
 {
 
@@ -24,6 +39,7 @@ public boolean fight(Animal animal)
 		return false;
 	}
 	return false;
+
 
 	
 }
