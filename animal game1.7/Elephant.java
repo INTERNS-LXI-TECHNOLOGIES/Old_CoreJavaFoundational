@@ -1,9 +1,9 @@
 public class Elephant extends Animal implements Herbivorous{
-public void eat()
+public void Eat()
 {
 	System.out.println("elephant is herbivorous");
 }
-public void sound()
+public void Sound()
 {
 	System.out.println("Trumpeting");
 }
