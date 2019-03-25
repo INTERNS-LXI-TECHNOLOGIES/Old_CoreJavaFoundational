@@ -1,0 +1,5 @@
+pizza;140
+burger;150
+sanvich;150
+cheese;120
+dhosha;120

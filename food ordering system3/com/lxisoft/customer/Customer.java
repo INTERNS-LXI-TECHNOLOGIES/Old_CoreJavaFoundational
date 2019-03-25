@@ -1,6 +1,5 @@
 package com.lxisoft.customer;
 import com.lxisoft.fooditem.*;
-/*import com.lxisoft.bill.*;*/
 import java.util.*;
 public class Customer
 {
@@ -26,12 +25,11 @@ return password;
 }
 
 Scanner scan=new Scanner(System.in);
-/*Bill bill=new Bill();*/
 
 public void logUser(ArrayList<FoodItem> foodItems)
 	{
 		String password;
-		/*Hotel hotel=new Hotel();*/
+		
 		System.out.println(" ");
 		System.out.println("                         CUSTOMER LOGGIN                          ");
 		System.out.println("------------------------------------------------------------------");
@@ -56,7 +54,7 @@ public void logUser(ArrayList<FoodItem> foodItems)
 		
 		System.out.println(f.getName()+"                                          "+f.getPrice());
 	}
-		/*hotel.placeOrder();*/
+		
 		placeOrder();
 		
 	    }

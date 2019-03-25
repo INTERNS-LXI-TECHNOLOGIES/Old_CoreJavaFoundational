@@ -4,6 +4,7 @@ import com.lxisoft.fooditem.*;
 import com.lxisoft.customer.*;
 import com.lxisoft.bill.*;
 import java.util.*;
+import java.io.*;
 public class Hotel
 {
 Admin admin=new Admin();
@@ -12,7 +13,7 @@ public ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 
 Scanner scan=new Scanner(System.in);
 
-public void homePage()
+public void homePage()throws Exception
 {
 	int ch,y,price;
 	Bill bill=new Bill();
@@ -32,11 +33,11 @@ public void homePage()
 				  break;
 				  case 2:foodMenu();
 				  break;
-				 /* case 3:customer.logUser(foodItems);
+				  case 3:customer.logUser(foodItems);
 				    price=admin.calculateBill(customer.item,customer.value,foodItems);
 					bill.setTotalPrice(price);
 					bill.viewBill(customer.item,customer.value,foodItems);
-				  break;*/
+				  break;
 				   default:System.out.println("Invalid choice made...please try again...!!!");
 			
 			  }
