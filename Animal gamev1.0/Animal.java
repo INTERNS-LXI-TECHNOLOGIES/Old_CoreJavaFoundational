@@ -44,27 +44,54 @@ public class Animal
 
 	public boolean fight(Animal animal)
 	{
-		
-
-		if((animal.getStrengthLevel()>strengthLevel)&&(animal.getHungerLevel()>hungerLevel))
+		if(this instanceof Carnivore)
 		{
 			System.out.println(animal.getName()+" "+"Fights With"+" "+name);
-			System.out.println(animal.getName()+"  "+"Wins !");
-			System.out.println(name+"  "+" Dead !"+"\n--------------");
-			return false;
 
-	    }
-		else if((strengthLevel>animal.getStrengthLevel())&&(hungerLevel>animal.getHungerLevel()))
-		{
-			System.out.println(animal.getName()+" "+"Fights With"+" "+name);
-			System.out.println(name+"  "+"Wins !");
-			System.out.println(animal.getName()+"  "+" Dead !"+"\n--------------");
-			return true;
-	    }
+			if(animal instanceof Carnivore)
+			{
+
+				if((animal.getStrengthLevel()>strengthLevel)&&(animal.getHungerLevel()>hungerLevel))
+				{
+					
+					System.out.println(animal.getName()+"  "+"Wins !");
+					System.out.println(name+"  "+" loose!"+"\n--------------");
+					return false;
+
+			    }
+				else 
+				{
+					System.out.println(name+"  "+"Wins !");
+					System.out.println(animal.getName()+"  "+" loose !"+"\n--------------");
+					return true;
+			    }
+			}
+
+		}
+
 		return false;
-		
-
 			
+	}
+
+	public boolean eat(Animal animal)
+	{
+		if(animal instanceof Herbivore)
+		{
+			System.out.println(this.getName()+" try to eat " + animal.getName() );
+
+			if(this.getStrengthLevel()>animal.getStrengthLevel()&&this.getHungerLevel()>animal.getHungerLevel()) {
+
+					System.out.println(this.name+" ate "+animal.getName()+"\n----------");
+				return true;
+			}
+			else {
+				System.out.println(animal.getName()+" "+" Escape from "+" "+this.name+"\n-----------");
+				animal.setStrengthLevel(animal.getStrengthLevel() - 10);
+				this.setHungerLevel(this.getHungerLevel() + 5);				
+				return false;
+			}
+		}
+     return true;
 	}
 
 		

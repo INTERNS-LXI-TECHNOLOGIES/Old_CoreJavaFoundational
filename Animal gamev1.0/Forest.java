@@ -45,17 +45,43 @@ public class Forest
  	do{
  	        int j=(int)(Math.random()*animal.size());
  			int k=(int)(Math.random()*animal.size());
- 			if(j!=k&&animal.get(j)!=null&&animal.get(k)!=null)
+ 			if(j!=k && animal.get(j)!=null && animal.get(k)!=null)
  			{
- 			a = animal.get(j).fight(animal.get(k));
- 			if(a==true)
- 			{
- 			animal.remove(k);
- 			}
- 			else
- 			{
- 			animal.remove(j);
-	 	    }
+ 				if (animal.get(j) instanceof Carnivore &&animal.get(k) instanceof Carnivore) 
+ 				{
+ 					
+ 					boolean status = animal.get(j).fight(animal.get(k));
+
+ 					if(status == true)
+ 					 {
+ 					 	animal.remove(k);
+ 					 }
+ 					else
+ 					 {
+ 						animal.remove(j);
+
+ 					 }
+ 				}
+ 				else if(animal.get(j) instanceof Carnivore && animal.get(k) instanceof Herbivore )
+ 				 {
+ 				 	boolean s= animal.get(j).eat(animal.get(k));
+ 				 if(s==true)
+ 				 {
+ 				 	animal.remove(k);
+ 				}
+
+ 				}
+ 				else if(animal.get(k) instanceof Carnivore && animal.get(j) instanceof Herbivore )
+ 				 {
+
+ 					boolean s= animal.get(k).eat(animal.get(j));
+ 				 if(s==true)
+ 				 {
+ 				 	animal.remove(j);
+ 				 }
+ 				}
+
+	 			
 	 	    }
  
         }
