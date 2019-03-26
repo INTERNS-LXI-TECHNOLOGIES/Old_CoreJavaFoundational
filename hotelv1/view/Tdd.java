@@ -15,20 +15,29 @@ public class Tdd
 		Scanner scan=new Scanner(System.in);
 		ArrayList <Food> foods=new ArrayList <Food>();
 		HotelController controller=new HotelController();
+		FileWriter writer=new FileWriter("Data.properties");
+		FileReader reader=new FileReader("Data.properties");
 		System.out.println("FOOD PALACE");
 		controller.displayDetails(foods);
+		Properties prop=new Properties();
+		prop.setProperty("adminusername","administ");
+		prop.setProperty("adminpassword","admin");
+		prop.setProperty("userusername","user");
+		prop.setProperty("userpassword","user");
+		prop.store(writer,"java");
+			prop.load(reader);
 		do
 		{
 			System.out.println("Login \n 1.Admin \n 2.User \n");
 			switch(scan.nextInt())
 			{
 			case 1:
-			controller.getAc().adminDetails();
+			//controller.getAc().adminDetails();
 				System.out.print("Username :");
-				if(scan.next().equals(controller.getAc().getAdministrator().getUsername()))
+				if(scan.next().equals(prop.getProperty("adminusername")))
 				{
 				System.out.print("Password :");
-				if(scan.next().equals(controller.getAc().getAdministrator().getPassword()))
+				if(scan.next().equals(prop.getProperty("adminpassword")))
 				{	
 			//readFromFile();
 						do{
@@ -120,12 +129,12 @@ public class Tdd
 				break;
 			case 2:
 			
-				controller.getCc().userDetails();
+				//controller.getCc().userDetails();
 				System.out.print("Username :");
-				if(scan.next().equals(controller.getCc().getCustomer().getUsername()))
+				if(scan.next().equals(prop.getProperty("userusername")))
 				{
 				System.out.print("Password :");
-				if(scan.next().equals(controller.getCc().getCustomer().getPassword()))
+				if(scan.next().equals(prop.getProperty("userpassword")))
 				{
 				//foodOrdering(controller,foods,repository);
 				do{
