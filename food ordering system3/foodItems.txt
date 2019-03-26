@@ -3,3 +3,5 @@ burger;150
 sanvich;150
 cheese;120
 dhosha;120
+paneer;100
+paalak;130

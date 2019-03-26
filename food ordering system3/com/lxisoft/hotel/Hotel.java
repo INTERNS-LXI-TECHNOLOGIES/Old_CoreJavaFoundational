@@ -51,14 +51,14 @@ public void homePage()throws Exception
 
 	
 	
-	public void foodMenu()
+	public void foodMenu()throws Exception
 	{
 	System.out.println(" ");
 	System.out.println("                               FOOD MENU                               ");
 	System.out.println("-----------------------------------------------------------------------");
 	System.out.println("FoodItem                                                           Price");
 	System.out.println("-----------------------------------------------------------------------");
-	
+	admin.reader();
 	for(FoodItem f:foodItems)
 	{
 		
