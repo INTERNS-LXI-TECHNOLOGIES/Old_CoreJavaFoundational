@@ -3,6 +3,8 @@ public class Animal
 {
 	String name;
 	int animalStrength;
+	int locationX;
+	int locationY;
 	int l1,l2,l3,i;
 public void setName(String name)
 {
@@ -12,6 +14,14 @@ public void setAnimalStrength(int animalStrength)
 {
 	this.animalStrength=animalStrength;
 }
+public void setLocationX(int locationX)
+{
+	this.locationX=locationX;
+}
+public void setLocationY(int locationY)
+{
+	this.locationY=locationY;
+}
 public String getName()
 {
 	return name;
@@ -20,10 +30,18 @@ public int getAnimalStrength()
 {
 	return animalStrength;
 }
+public int getLocationX()
+{
+	return locationX;
+}
+public int getLocationY()
+{
+	return locationY;
+}
+
 	public boolean fight(Animal animal)
 	{
 		
-			
 			System.out.println(name+ " and " +animal.name+ " are fighting ");
 			if(animal instanceof Carnivores)
 			{
