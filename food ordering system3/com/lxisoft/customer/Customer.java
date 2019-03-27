@@ -26,7 +26,7 @@ return password;
 
 Scanner scan=new Scanner(System.in);
 
-public void logUser(ArrayList<FoodItem> foodItems)
+/*public void logUser(ArrayList<FoodItem> foodItems)
 	{
 		String password;
 		
@@ -62,7 +62,7 @@ public void logUser(ArrayList<FoodItem> foodItems)
 		{
 			System.out.println("Incorrect password....Please try again...!!!");
 		}
-	}
+	}*/
 	public String item;
 	public int value;
 	public void placeOrder()

@@ -16,7 +16,7 @@ Scanner scan=new Scanner(System.in);
 public void homePage()throws Exception
 {
 	int ch,y,price;
-	Bill bill=new Bill();
+	/*Bill bill=new Bill();*/
 	do
 	{
 		
@@ -33,10 +33,11 @@ public void homePage()throws Exception
 				  break;
 				  case 2:foodMenu();
 				  break;
-				  case 3:customer.logUser(foodItems);
+				  case 3:/*customer.logUser(foodItems);
 				    price=admin.calculateBill(customer.item,customer.value,foodItems);
 					bill.setTotalPrice(price);
-					bill.viewBill(customer.item,customer.value,foodItems);
+					bill.viewBill(customer.item,customer.value,foodItems);*/
+					logUser();
 				  break;
 				   default:System.out.println("Invalid choice made...please try again...!!!");
 			
@@ -58,7 +59,8 @@ public void homePage()throws Exception
 	System.out.println("-----------------------------------------------------------------------");
 	System.out.println("FoodItem                                                           Price");
 	System.out.println("-----------------------------------------------------------------------");
-	admin.reader();
+	admin.reader(foodItems);
+	
 	for(FoodItem f:foodItems)
 	{
 		
@@ -66,5 +68,37 @@ public void homePage()throws Exception
 	}
 	}
 	
+public void logUser()throws Exception
+	{
+		String password;
+		Bill bill=new Bill();
+		int price;
+		System.out.println(" ");
+		System.out.println("                         CUSTOMER LOGGIN                          ");
+		System.out.println("------------------------------------------------------------------");
+		System.out.print("Username:");
+		customer.setUserName(scan.next());
+		System.out.print("Password:");
+		customer.setPassword(scan.next());
+		System.out.print("Confirm password:");
+		password=scan.next();
+		if(password.equals(customer.getPassword()))
+		{
+			 System.out.println(" ");
+		     System.out.println("Access granted");
+		     System.out.println(" ");
+			 foodMenu();
+		     customer.placeOrder();
+		     price=admin.calculateBill(customer.item,customer.value,foodItems);
+			 bill.setTotalPrice(price);
+			 bill.viewBill(customer.item,customer.value,foodItems);
+		
+	    }
+		else
+		{
+			System.out.println("Incorrect password....Please try again...!!!");
+		}
+		
+	}
 	
 }

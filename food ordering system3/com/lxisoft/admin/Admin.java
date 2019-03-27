@@ -9,7 +9,7 @@ public class Admin
 
 	private String userName="admin";
 	private String password="admin123";
-	private static File s=new File("foodItems.txt");
+	private static File s=new File("foods.txt");
 	
 	public void setUserName(String userName)
 	{
@@ -178,7 +178,7 @@ public void delete(ArrayList<FoodItem> foodItems)
 		return price;
 	}
 	
-	public void reader()throws Exception
+	public void reader(ArrayList<FoodItem> foodItems)throws Exception
 	{
 		FileReader fr=new FileReader(s);
 		BufferedReader br=new BufferedReader(fr);
@@ -188,11 +188,11 @@ public void delete(ArrayList<FoodItem> foodItems)
 			 {
 				
 				 System.out.println(">>>"+b);
-				 /* String a[]=b.split(";");
+				 String a[]=b.split(";");
 				  	  foodItems.add(new FoodItem());
 				  foodItems.get(i).setName(a[0]);
 				  foodItems.get(i).setPrice(Integer.parseInt(a[1]));
-				  i++;*/
+				  i++;
 			 }
 			 fr.close();
 	}
