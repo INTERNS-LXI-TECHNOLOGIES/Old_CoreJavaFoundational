@@ -10,7 +10,7 @@ public class MenuList
 	public  void listOfFood( ArrayList<Food> foods) throws Exception
 	{
 		System.out.println("AVILABLE FOOD");
-	    System.out.println("***************");
+	    System.out.println("**************");
 		System.out.println("   FOOD    "+"    PRICE    "+"    COUNT");
 	   
 			fr=new FileReader(f);

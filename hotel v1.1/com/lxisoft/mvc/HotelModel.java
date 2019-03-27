@@ -1,7 +1,12 @@
-public class HotelModel
-{
-    private String name;
-	static Scanner scan=new Scanner(System.in);
+ package com.lxisoft.mvc;
+ import com.lxisoft.mvc.*;
+ import com.lxisoft.hotel.*;
+ import java.util.Scanner;
+ import java.util.ArrayList;
+ public class HotelModel
+ { 
+	private String name;
+    Scanner scan=new Scanner(System.in);
 	private Admin admin=new Admin();
 	private Cashier cashier=new Cashier();
 	private Customer customers=new Customer();
@@ -9,7 +14,8 @@ public class HotelModel
 	private ArrayList<Food> foods=new ArrayList<Food>();
 	private MenuList menuList=new MenuList();
 	
-	 public void setMenuList (MenuList menuList)
+			
+	        public void setMenuList (MenuList menuList)
 			{
 				this.menuList=menuList;
 			}
@@ -74,5 +80,5 @@ public class HotelModel
 			{
 				return foods;
 			}
+ }
 			
-}

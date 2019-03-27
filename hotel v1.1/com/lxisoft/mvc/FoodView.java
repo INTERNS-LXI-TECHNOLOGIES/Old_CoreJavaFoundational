@@ -1,3 +1,0 @@
-publlic class FoodView
-{
-}
