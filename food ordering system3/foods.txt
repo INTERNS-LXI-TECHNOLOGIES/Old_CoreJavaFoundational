@@ -1,5 +1,5 @@
 pizza;140
 burger;150
 sanvich;120
-burger;150
-null;0
+cheese;140
+paneer;110

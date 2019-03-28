@@ -59,7 +59,7 @@ public void homePage()throws Exception
 	System.out.println("-----------------------------------------------------------------------");
 	System.out.println("FoodItem                                                           Price");
 	System.out.println("-----------------------------------------------------------------------");
-	admin.reader(foodItems);
+	admin.reader();
 	
 	for(FoodItem f:foodItems)
 	{
