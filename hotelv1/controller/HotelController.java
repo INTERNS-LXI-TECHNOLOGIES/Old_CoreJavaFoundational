@@ -1,10 +1,7 @@
 package com.lxisoft.hotelv1.controller;
 import com.lxisoft.hotelv1.service.HotelService;
 import com.lxisoft.hotelv1.model.Food;
-import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.*;
-import java.util.Comparator;
 import java.io.*;
 public class HotelController
 {
@@ -52,6 +49,9 @@ public class HotelController
 		 cc=new CustomerController();
 		 hs=new HotelService();
 	}
+	public void a()throws Exception{
+		HotelService hs=new HotelService();
+		hs.a();}
 	
 	public void storeDetails(ArrayList <Food> foods)throws Exception
 	{

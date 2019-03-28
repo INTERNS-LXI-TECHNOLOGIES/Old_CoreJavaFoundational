@@ -2,14 +2,10 @@ package com.lxisoft.hotelv1.view;
 import com.lxisoft.hotelv1.controller.HotelController;
 import com.lxisoft.hotelv1.repository.Repository;
 import com.lxisoft.hotelv1.model.Food;
-import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.*;
-import java.util.Comparator;
 import java.io.*;
 public class Tdd
 {
-	
 	public static void main(String[] args) throws Exception
 	{
 		Scanner scan=new Scanner(System.in);
@@ -17,6 +13,7 @@ public class Tdd
 		HotelController controller=new HotelController();
 		FileWriter writer=new FileWriter("Data.properties");
 		FileReader reader=new FileReader("Data.properties");
+		controller.a();
 		System.out.println("FOOD PALACE");
 		controller.displayDetails(foods);
 		Properties prop=new Properties();
@@ -195,4 +192,5 @@ public class Tdd
 		}while(scan.nextInt()==2);
 		//controller.display(controller,foods,service,repository);
 	}
+	
 }

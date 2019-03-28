@@ -1,21 +1,32 @@
 package com.lxisoft.hotelv1.service;
 import com.lxisoft.hotelv1.model.Food;
 import com.lxisoft.hotelv1.repository.Repository;
-import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.*;
-import java.util.Comparator;
 import java.io.*;
 public class HotelService
 {
+	 private Repository repository;
+	 public void setRepository(Repository repository)
+	 {
+		 this.repository=repository;
+	 }
+	 public Repository getRepository()
+	 {
+		 return repository;
+	 }
+	 public void a()throws Exception
+	 {
+		 repository=new Repository();
+		 repository.connectWithDb();
+	 }
 	public void storeDetails(ArrayList <Food> foods)throws Exception
 	{
-	Repository repository=new Repository();
+	repository=new Repository();
 	repository.writeToFile(foods);
 	}
 	public void displayDetails(ArrayList <Food> foods)throws Exception
 	{
-		Repository repository=new Repository();
+		repository=new Repository();
 		repository.readFromFile(foods);
 	}
 	public int printBill(String nameOfFood,int noOfOrder,ArrayList <Food> foods)
