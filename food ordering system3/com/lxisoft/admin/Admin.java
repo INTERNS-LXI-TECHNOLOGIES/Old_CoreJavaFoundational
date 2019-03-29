@@ -177,7 +177,7 @@ public void delete(ArrayList<FoodItem> foodItems)
 		}
 		return price;
 	}
-	
+	//public ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 	public void reader()throws Exception
 	{
 		ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
@@ -189,13 +189,14 @@ public void delete(ArrayList<FoodItem> foodItems)
 			 while((b=br.readLine())!=null)
 			 {
 				
-				 System.out.println(">>>"+b);
+				 //System.out.println(">>>"+b);
 				 String a[]=b.split(";");
-				 System.out.println(a[0]);
+				// System.out.println(a[0]);
 				 FoodItem food=new FoodItem();
 				 food.setName(a[0]);
 				 food.setPrice(Integer.parseInt(a[1]));
 				 foodItems.add(food);
+				 
 				/* foodItems.add(new FoodItem());
 				 foodItems.get(i).food.setName(a[0]);
 				  foodItems.get(i).food.setPrice(Integer.parseInt(a[1]));*/
@@ -206,11 +207,11 @@ public void delete(ArrayList<FoodItem> foodItems)
 				  i++;*/
 			 }
 			 //fr.close();
-			 System.out.println("content of arraylist:");
+			// System.out.println("content of arraylist:");
 			//System.out.println(foodItems);
 			for(FoodItem f:foodItems)
 			{
-				System.out.println(f.getName()+"   "+f.getPrice());
+				System.out.println(f.getName()+"                                                              "+f.getPrice());
 			}
 	}
 	}

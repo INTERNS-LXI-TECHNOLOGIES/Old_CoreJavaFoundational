@@ -10,7 +10,7 @@ public class Hotel
 Admin admin=new Admin();
 Customer customer=new Customer();
 public ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
-
+//public ArrayList<FoodItem> foods=new ArrayList<FoodItem>();
 Scanner scan=new Scanner(System.in);
 
 public void homePage()throws Exception
@@ -61,11 +61,11 @@ public void homePage()throws Exception
 	System.out.println("-----------------------------------------------------------------------");
 	admin.reader();
 	
-	for(FoodItem f:foodItems)
+	/*for(FoodItem f:foodItems)
 	{
 		
 		System.out.println(f.getName()+"                                          "+f.getPrice());
-	}
+	}*/
 	}
 	
 public void logUser()throws Exception
@@ -88,6 +88,15 @@ public void logUser()throws Exception
 		     System.out.println("Access granted");
 		     System.out.println(" ");
 			 foodMenu();
+			
+			
+			/*for(FoodItem f:foods)
+	{
+		
+		System.out.println(f.getName()+"                                          "+f.getPrice());
+	}*/
+			
+			
 		     customer.placeOrder();
 		     price=admin.calculateBill(customer.item,customer.value,foodItems);
 			 bill.setTotalPrice(price);
