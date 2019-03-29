@@ -10,8 +10,7 @@ public class Repository
 	static final String USER="root";
 	static final String PASS="root";
 	public void connectWithDb() throws Exception
-	{
-	System.out.println("connecting to database");	
+	{	
 	Connection con=null;
 	Statement stmt=null;
 	try
@@ -30,12 +29,12 @@ public class Repository
 		String FOODNAME=rs.getString("foodname");
 		int FOODCOUNT=rs.getInt("foodcount");
 		int FOODPRICE=rs.getInt("foodprice");
-		String DATE=rs.getString("date");
+		//String DATE=rs.getString("date");
 	System.out.println("SI_NO:"+SI_NO);
 	System.out.println("Food name:"+FOODNAME);
 	System.out.println("Food count:"+FOODCOUNT);
 	System.out.println("Food price:"+FOODPRICE);
-	System.out.println("date:"+DATE);
+	//System.out.println("date:"+DATE);
 	}
 	rs.close();
 	stmt.close();
