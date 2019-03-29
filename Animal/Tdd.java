@@ -5,6 +5,6 @@ public class Tdd
 	{
 		Forest forest=new Forest();
 		forest.fighters();
-		System.out.flush();
+
 	}
 }
