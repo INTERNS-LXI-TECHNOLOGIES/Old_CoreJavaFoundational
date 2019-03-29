@@ -1,4 +1,4 @@
-package com.lxisoft.hotel;
+package com.lxisoft.mvc;
 import com.lxisoft.hotel.*;
 import com.lxisoft.mvc.*;
 import java.util.Scanner;

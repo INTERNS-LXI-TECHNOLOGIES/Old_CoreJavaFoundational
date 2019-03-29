@@ -62,7 +62,6 @@
 				return admin;
 			}
 			
-
 		   public void setName(String name)
 			{
 			   this.name=name;
@@ -80,5 +79,8 @@
 			{
 				return foods;
 			}
+			
+		
+			
  }
 			

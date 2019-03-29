@@ -1,17 +1,20 @@
 package com.lxisoft.mvc;
- import com.lxisoft.hotel.*;
+import com.lxisoft.hotel.*;
+import com.lxisoft.hotel.Admin;
 import com.lxisoft.mvc.*;
 import java.util.Scanner;
 import java.io.*;
 import java.util.ArrayList;
 public class HotelView
 {
+	
 	File f=new File("A.Txt");
 	FileReader fr;
 	BufferedReader br;
 	Scanner scan=new Scanner(System.in);
 	public void authendication(Admin admin,Cashier cashier,Customer customers,ArrayList<Food> foods)throws Exception
     {
+	
 	     System.out.println("do you want admin or cashier or customer\ncashier=0\nadmin=1\ncustomer=2\nworkers=3");
 		 int login=scan.nextInt();
 		 
@@ -19,8 +22,10 @@ public class HotelView
 		  {
 			  System.out.println("enter the admin password");
 			  int adminPassword=scan.nextInt();
+			
 			  if(adminPassword==1234)
-					{
+					{      
+						  System.out.println("pass="+adminPassword);
 						admin.choose(foods);
 					}
 			  else
