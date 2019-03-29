@@ -2,45 +2,36 @@ import java.util.*;
 
 public class Forest
 {
-	
+	ArrayList<Animal> animal = new ArrayList<>();
+	String[][] array=new String[10][10];
 
+	public void create(Animal hunt,String name,int animalStrength)
+	{
+		animal.add(hunt);
+		hunt.setName(name);
+		hunt.setAnimalStrength(animalStrength);
+		hunt.setLocationX((int)(Math.random()*10));
+		hunt.setLocationY((int)(Math.random()*10));
+	}
+	public void setDetails()
+	{
+	for(int i=0;i<6;i++)
+	{
+		create(new Lion(),"Lion"+(i+1),(int)(Math.random()*200));
+		create(new Tiger(),"Tiger"+(i+1),(int)(Math.random()*100));
+		create(new Rabbit(),"Rabbit"+(i+1),(int)(Math.random()*80));
+		create(new Deer(),"Deer"+(i+1),(int)(Math.random()*80));
+	}
+	}
 public void fighters()
 {	
 	int i,j,k;
+	setDetails();
 	int count=0;
 	boolean x=false;
-	Animal winner=null;
-	ArrayList<Animal> animal = new ArrayList<>();
-	
-		animal.add(new Lion());
-		animal.get(0).setName("Lion");
-		animal.get(0).setAnimalStrength((int)(Math.random()*100));
-		animal.get(0).setLocationX((int)(Math.random()*10));
-		animal.get(0).setLocationY((int)(Math.random()*10));
-
-		animal.add(new Tiger());
-		animal.get(1).setName("Tiger");
-		animal.get(1).setAnimalStrength((int)(Math.random()*200));
-		animal.get(1).setLocationX((int)(Math.random()*10));
-		animal.get(1).setLocationY((int)(Math.random()*10));
-
-		animal.add(new Deer());
-		animal.get(2).setName("Deer");
-		animal.get(2).setAnimalStrength((int)(Math.random()*80));
-		animal.get(2).setLocationX((int)(Math.random()*10));
-		animal.get(2).setLocationY((int)(Math.random()*10));
-
-		animal.add(new Rabbit());
-		animal.get(3).setName("Rabbit");
-		animal.get(3).setAnimalStrength((int)(Math.random()*80));
-		animal.get(3).setLocationX((int)(Math.random()*10));
-		animal.get(3).setLocationY((int)(Math.random()*10));
-		System.out.println("FIGHT BEGINS..........");
-
-
     do
     {
-		String[][] array=new String[10][10];
+		
 		for(i=0;i<10;i++)
 		{
 			for(j=0;j<10;j++)
@@ -61,11 +52,11 @@ public void fighters()
 				System.out.print(" ");
 				if(array[i][j]!=null)
 				{
-					System.out.print(array[i][j]+" "+i+" "+j+" \n ");
-
+					System.out.print("\t"+array[i][j]+" "+i+" "+j+" \n\t ");
 				}
 			}
 		}
+
 		for(i=0;i<10;i++)
 		{
 			for(j=0;j<10;j++)
@@ -120,4 +111,5 @@ public void fighters()
 	System.out.println("\n**"+animal.get(0).getName() +" wins the fight**");
 		
 }
+	
 }

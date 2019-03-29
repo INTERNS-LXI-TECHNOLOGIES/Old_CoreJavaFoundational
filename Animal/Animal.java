@@ -92,7 +92,7 @@ public int getLocationY()
 				}
 			}
 		}
-	return true;
+		return true;
 	}
 	public boolean meet(Animal animal)
 	{
