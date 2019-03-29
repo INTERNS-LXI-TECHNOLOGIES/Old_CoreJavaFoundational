@@ -5,7 +5,7 @@ public class Tdd
 	{
 		Forest forest=new Forest();
 		forest.print();
-		//forest.initiatingFight();
+		forest.initiatingFight();
 
 	}
 }
