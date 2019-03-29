@@ -1,8 +1,8 @@
 import java.util.*;
-public class Rabbit extends Animal implements Herbivor
+public class Rabbit extends AnimalHerbivor
 {
-	public void eat()
+	/*public void eat()
 	{
 		System.out.print("Grass");
-	}
+	}*/
 }

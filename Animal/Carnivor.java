@@ -1,4 +1,4 @@
-public interface Carnivor
+interface Carnivor
 {
 	public void eat();
 	

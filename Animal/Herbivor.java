@@ -1,4 +1,4 @@
-public interface Herbivor
+interface Herbivor
 {
 	public void eat();
 }

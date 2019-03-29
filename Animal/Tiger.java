@@ -1,8 +1,8 @@
 import java.util.*;
-public class Tiger extends Animal implements Carnivor
+public class Tiger extends AnimalCarnivor
 {
-	public void eat()
+	/*public void eat()
 	{
 		System.out.print("Meat");
-	}
+	}*/
 }
