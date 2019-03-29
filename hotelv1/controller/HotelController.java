@@ -57,6 +57,7 @@ public class HotelController
 	{
 		//HotelService hs=new HotelService();
 		hs.storeDetails(foods);
+	
 	}
 	public void displayDetails(ArrayList <Food> foods)throws Exception
 	{

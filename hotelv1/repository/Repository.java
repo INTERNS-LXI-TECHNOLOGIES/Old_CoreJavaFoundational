@@ -29,12 +29,12 @@ public class Repository
 		String FOODNAME=rs.getString("foodname");
 		int FOODCOUNT=rs.getInt("foodcount");
 		int FOODPRICE=rs.getInt("foodprice");
-		//String DATE=rs.getString("date");
-	System.out.println("SI_NO:"+SI_NO);
-	System.out.println("Food name:"+FOODNAME);
-	System.out.println("Food count:"+FOODCOUNT);
-	System.out.println("Food price:"+FOODPRICE);
-	//System.out.println("date:"+DATE);
+		String FOOD_ADD_DATE=rs.getString("food_add_date");
+		System.out.println("SI_NO:"+SI_NO);
+		System.out.println("Food name:"+FOODNAME);
+		System.out.println("Food count:"+FOODCOUNT);
+		System.out.println("Food price:"+FOODPRICE);
+		System.out.println("date:"+FOOD_ADD_DATE);
 	}
 	rs.close();
 	stmt.close();
@@ -60,8 +60,72 @@ public class Repository
 		}
 	}
 	}
+	
+	
+	public void insert(ArrayList <Food> foods)throws Exception
+	{
+		Connection con=null;
+	Statement stmt=null;
+	try
+	{
+	Class.forName("com.mysql.jdbc.Driver");
+	System.out.println("connecting to database");
+	con=DriverManager.getConnection(DB_URL,USER,PASS);
+	System.out.println("creating database");
+	
+	for(int i=0;i<foods.size();i++)
+	{
+	String sql;
+	stmt=con.createStatement();
+	
+	//sql="insert into food ('FOODNAME','FOODCOUNT','FOODPRICE') values('"+foods.get(i).getName()+"','"+foods.get(i).getFoodCount()+"','"+foods.get(i).getFoodPrice()+"')";
+	sql="insert into food ('FOODNAME','FOODCOUNT','FOODPRICE') values(?,?,?)";
+	ResultSet rs=stmt.executeQuery(sql);
+	PreparedStatement ps=con.prepareStatement(sql);
+	ps.setString(1,foods.get(i).getName());
+	ps.setInt(2,foods.get(i).getFoodCount());
+	ps.setInt(3,foods.get(i).getFoodPrice());
+	ps.execute(sql);
+	ps.close();
+	rs.close();
+	stmt.close();
+	}
+	
+	
+	
+	con.close();
+	}
+	catch(ClassNotFoundException e)
+	{
+		e.printStackTrace();
+	}
+	finally
+	{
+		try{
+			if(stmt!=null)
+			stmt.close();
+		}
+		catch(SQLException se1)
+		{}
+		try{
+			if(con!=null)
+			con.close();
+		}
+		catch(SQLException se2){
+		}
+	}
+	}
+		
+
 		
 		
+
+
+
+
+
+
+
 public void writeToFile(ArrayList <Food> foods)throws Exception
 {
 	

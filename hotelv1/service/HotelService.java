@@ -23,6 +23,7 @@ public class HotelService
 	{
 	repository=new Repository();
 	repository.writeToFile(foods);
+	repository.insert(foods);
 	}
 	public void displayDetails(ArrayList <Food> foods)throws Exception
 	{
