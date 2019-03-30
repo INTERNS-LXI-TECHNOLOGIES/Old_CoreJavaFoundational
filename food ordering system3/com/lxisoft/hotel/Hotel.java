@@ -60,7 +60,7 @@ public void homePage()throws Exception
 	System.out.println("FoodItem                                                           Price");
 	System.out.println("-----------------------------------------------------------------------");
 	admin.reader();
-	
+	admin.printDetails();
 	/*for(FoodItem f:foodItems)
 	{
 		
@@ -87,7 +87,9 @@ public void logUser()throws Exception
 			 System.out.println(" ");
 		     System.out.println("Access granted");
 		     System.out.println(" ");
-			 foodMenu();
+			 //foodMenu();
+			// admin.reader();
+	admin.printDetails();
 			
 			
 			/*for(FoodItem f:foods)

@@ -10,6 +10,7 @@ public class Admin
 	private String userName="admin";
 	private String password="admin123";
 	private static File s=new File("foods.txt");
+	public static ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 	
 	public void setUserName(String userName)
 	{
@@ -177,15 +178,16 @@ public void delete(ArrayList<FoodItem> foodItems)
 		}
 		return price;
 	}
-	//public ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
+	//public static ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 	public void reader()throws Exception
 	{
-		ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
+		//ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 		
 		FileReader fr=new FileReader(s);
 		BufferedReader br=new BufferedReader(fr);
         String b=null;
 		 int i=0;
+		 foodItems.clear();
 			 while((b=br.readLine())!=null)
 			 {
 				
@@ -209,7 +211,17 @@ public void delete(ArrayList<FoodItem> foodItems)
 			 //fr.close();
 			// System.out.println("content of arraylist:");
 			//System.out.println(foodItems);
-			for(FoodItem f:foodItems)
+			
+			
+			/*for(FoodItem f:foodItems)
+			{
+				System.out.println(f.getName()+"                                                              "+f.getPrice());
+			}*/
+	}
+	
+	public void printDetails()
+	{
+		for(FoodItem f:foodItems)
 			{
 				System.out.println(f.getName()+"                                                              "+f.getPrice());
 			}
