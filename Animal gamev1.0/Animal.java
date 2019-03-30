@@ -1,10 +1,12 @@
 import java.util.Random;
+import java.util.*;
 public class Animal
 {
 	private String name;
 	private int strengthLevel;
-	private int position;
 	private int hungerLevel;
+	private int locationX;
+	private int locationY;
 	public void setName(String name)
 	{
 		this.name=name;
@@ -13,7 +15,6 @@ public class Animal
 	public void setStrengthLevel(int strengthLevel)
 	{
 		this.strengthLevel=strengthLevel;
-		
 
 	}
 	public void setHungerLevel(int hungerLevel)
@@ -21,9 +22,13 @@ public class Animal
 		this.hungerLevel=hungerLevel;
 
 	}
-	public void setPosition(int position)
+	public void setLocationX(int locationX)
 	{
-		this.position=position;
+		this.locationX=locationX;
+	}
+	public void setLocationY(int locationY)
+	{
+		this.locationY=locationY;
 	}
 	public String getName()
 	{
@@ -37,61 +42,81 @@ public class Animal
 	{
 		return this.hungerLevel;
 	}
-	public int getPosition()
+	public int getLocationX()
 	{
-		return this.position;
+		return this.locationX;
+	}
+	public int getLocationY()
+	{
+		return this.locationY;
 	}
 
-	public boolean fight(Animal animal)
+	public boolean fight(Animal animals)
 	{
-		if(this instanceof Carnivore)
-		{
-			System.out.println(animal.getName()+" "+"Fights With"+" "+name);
+				
 
-			if(animal instanceof Carnivore)
-			{
+				if((animals.getLocationX()-locationX<=5) && (animals.getLocationY()-locationY<=5))
+				{
+					System.out.println(animals.getName()+" "+"Fights With"+" "+name);
 
-				if((animal.getStrengthLevel()>strengthLevel)&&(animal.getHungerLevel()>hungerLevel))
+				if((animals.getStrengthLevel()>strengthLevel)&&(animals.getHungerLevel()>hungerLevel))
 				{
 					
-					System.out.println(animal.getName()+"  "+"Wins !");
+					System.out.println(animals.getName()+"  "+"Wins !");
 					System.out.println(name+"  "+" loose!"+"\n--------------");
-					return false;
+					animals.setStrengthLevel(animals.getStrengthLevel() - 10);
+					this.setHungerLevel(this.getHungerLevel() + 5);	
+					return true;
+
 
 			    }
 				else 
 				{
 					System.out.println(name+"  "+"Wins !");
-					System.out.println(animal.getName()+"  "+" loose !"+"\n--------------");
-					return true;
+					System.out.println(animals.getName()+"  "+" loose !"+"\n--------------");
+					animals.setStrengthLevel(animals.getStrengthLevel() - 10);
+					this.setHungerLevel(this.getHungerLevel() + 5);	
+					return false;
 			    }
-			}
-
-		}
+			  }
+		
 
 		return false;
 			
 	}
 
-	public boolean eat(Animal animal)
+	public boolean eat(Animal animals)
 	{
-		if(animal instanceof Herbivore)
-		{
-			System.out.println(this.getName()+" try to eat " + animal.getName() );
+			if((animals.getLocationX()-locationX<=5) && (animals.getLocationY()-locationY<=5))
+			{
+			System.out.println(this.getName()+" try to eat " + animals.getName() );
 
-			if(this.getStrengthLevel()>animal.getStrengthLevel()&&this.getHungerLevel()>animal.getHungerLevel()) {
+			if(this.getStrengthLevel()>animals.getStrengthLevel()&&this.getHungerLevel()>animals.getHungerLevel()) {
 
-					System.out.println(this.name+" ate "+animal.getName()+"\n----------");
+					System.out.println(this.name+" ate "+animals.getName()+"\n----------");
 				return true;
 			}
 			else {
-				System.out.println(animal.getName()+" "+" Escape from "+" "+this.name+"\n-----------");
-				animal.setStrengthLevel(animal.getStrengthLevel() - 10);
+				System.out.println(animals.getName()+" "+" Escape from "+" "+this.name+"\n-----------");
+				animals.setStrengthLevel(animals.getStrengthLevel() - 10);
 				this.setHungerLevel(this.getHungerLevel() + 5);				
 				return false;
 			}
-		}
+		  }
+		
      return true;
+     	}
+	public void meet(Animal animals)
+	{
+		if((animals.getLocationX()-locationX<=5)&&(animals.getLocationY()-locationY<=5))
+			{
+				if(this.getHungerLevel()>animals.getHungerLevel())
+				{
+					System.out.println(this.name+" 'I am HUngry !'\n Searching for Grass\n Are you coming..."+animals.getName());
+				}
+			}
+
+
 	}
 
 		
