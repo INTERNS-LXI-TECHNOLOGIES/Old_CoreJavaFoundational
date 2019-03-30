@@ -2,8 +2,9 @@ import java.util.*;
 
 public class Forest
 {
-	 ArrayList<Animal> animal = new ArrayList<>();
-	Animal[][] array=new Animal[20][20];
+	 ArrayList<Animal> animals = new ArrayList<>();
+   	Animal[][] array=new Animal[20][20];
+
 
 	public Forest(){
 		for(int i=0;i<10;i++)
@@ -16,12 +17,12 @@ public class Forest
 		setDetails();
 	}
 
-	public void create(Animal animal,String name,int animalStrength)
+	public void create(Animal animals,String name,int animalStrength)
 	{
-		animal.setName(name);
-		animal.setAnimalStrength(animalStrength);
-		position(animal);
-		this.animal.add(animal);
+		animals.setName(name);
+		animals.setAnimalStrength(animalStrength);
+		position(animals);
+		this.animals.add(animals);
 		
 	}
 	public void setDetails()
@@ -34,7 +35,7 @@ public class Forest
 			create(new Deer(),"Deer"+(i+1),(int)(Math.random()*80));
 		}
 	}
-	public void position(Animal animal)
+	public void position(Animal animals)
 	{
 		int x,y;		
 		do
@@ -43,9 +44,9 @@ public class Forest
 		y=(int)(Math.random()*10);	
 		}	
 		while(array[x][y]!=null);
-		animal.setLocationX(x);
-		animal.setLocationY(y);
-		array[animal.getLocationX()][animal.getLocationY()]=animal;
+		animals.setLocationX(x);
+		animals.setLocationY(y);
+		array[animals.getLocationX()][animals.getLocationY()]=animals;
 		
 	}
  public void initiatingFight()
@@ -53,52 +54,62 @@ public class Forest
  	
  	
  	boolean x=false;
-     do
-     {
- 		int a=(int)(Math.random()*animal.size());
- 		int b=(int)(Math.random()*animal.size());
+ 	do{
+ 		int a=(int)(Math.random()*animals.size());
+ 		int b=(int)(Math.random()*animals.size());
  	//	System.out.println(">>>>>>>>>>>>>>>>>"+Math.random()*animal.size());
- 		if(animal.get(a)!=null && animal.get(b)!=null)
+ 		if(animals.get(a)!=null && animals.get(b)!=null)
  		{
  			if(a!=b)
  			{
- 				if(animal.get(b) instanceof Herbivores && animal.get(a) instanceof Herbivores)
+ 				if(animals.get(b) instanceof Herbivores && animals.get(a) instanceof Herbivores)
 				{
- 					boolean m=animal.get(a).meet(animal.get(b));				
+ 					boolean m=animals.get(a).meet(animals.get(b));				
  				}
- 				else if(animal.get(a) instanceof Carnivores && animal.get(b) instanceof Carnivores)
+ 				else if(animals.get(a) instanceof Carnivores && animals.get(b) instanceof Carnivores)
 				{
-					x=animal.get(a).fight(animal.get(b));
+					x=animals.get(a).fight(animals.get(b));
+					System.out.println(x);
 					if(x==true)
  					{
- 						animal.remove(b);
+ 						animals.remove(b);
+ 					
+ 						System.out.println("++");
  					}
  					else
  					{
- 						animal.remove(a);
+ 						animals.remove(a);
+ 						
+ 						System.out.println("++");
  					}
+ 					print();
+ 					
  				}
- 				else if(animal.get(a) instanceof Carnivores && animal.get(b) instanceof Herbivores)
+ 				else if(animals.get(a) instanceof Carnivores && animals.get(b) instanceof Herbivores)
  				{
- 					boolean s=animal.get(a).eat(animal.get(b));
+ 					boolean s=animals.get(a).eat(animals.get(b));
  					if(s==true)
  					{
- 						animal.remove(b);
+ 						animals.remove(b);
  					}
+ 					print();
  				}
- 				else if(animal.get(b) instanceof Carnivores && animal.get(a) instanceof Herbivores)
+ 				else if(animals.get(b) instanceof Carnivores && animals.get(a) instanceof Herbivores)
  				{
- 					boolean s=animal.get(b).eat(animal.get(a));
+ 					boolean s=animals.get(b).eat(animals.get(a));
  					if(s==true)
  					{
- 						animal.remove(a);
+ 						animals.remove(a);
  					}
+ 					print();
  				}
  			}
  		}
+
  	}
- 	while(animal.size()>1);
- 	System.out.println("\n**"+animal.get(0).getName() +" wins the fight**");
+ 	
+ 	while(animals.size()>1);
+ 	System.out.println("\n**"+animals.get(0).getName() +" wins the fight**");
 
 }
 public void print()
@@ -107,15 +118,33 @@ public void print()
 		{
 			for(int j=0;j<10;j++)
 			{
-				if(array[i][j]!=null)
-				{
-					System.out.print(array[i][j].getName()+"\t\t");
-				}
-				else{
-					System.out.print("0\t\t");
-				}
+				array[i][j]=null;
 			}
-			System.out.println();
 		}
+		for(int i=0;i<animals.size();i++)
+		{
+			int x,y;
+			do
+		    {
+		    x=(int)(Math.random()*10);
+		    y=(int)(Math.random()*10);	
+		    }	
+		     while(array[x][y]!=null);
+		     animals.setLocationX(x);
+			animals.setLocationY(y);
+		     array[animals.getLocationX()][animals.getLocationY()]=animals;	
+           // array[x][y]=animals.get(i);
+		    
+		}
+     for(int i=0;i<10;i++)
+		{
+			for(int j=0;j<10;j++)
+			{
+				System.out.print(array[i][j]+"\t");
+			}
+			System.out.print("\n");
+		}
+
+
 }
 }
