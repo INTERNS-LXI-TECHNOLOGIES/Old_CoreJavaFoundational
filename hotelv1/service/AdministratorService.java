@@ -51,5 +51,15 @@ public class AdministratorService
 				}
 		}
 	}
+	/*public void editFood_add_date(String edit,ArrayList <Food> foods,String d)
+	{
+		for(int i=0;i<foods.size();i++)
+		{	
+			if(edit.equals(foods.get(i).getName()))
+				{
+					foods.get(i).setFood_add_date(d);
+				}
+		}
+	}*/
 	
 }

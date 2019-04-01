@@ -14,22 +14,31 @@ public class HotelService
 	 {
 		 return repository;
 	 }
+	 public HotelService()
+	 {
+		repository=new Repository();
+	 }		
 	 public void a()throws Exception
 	 {
-		 repository=new Repository();
 		 repository.connectWithDb();
 	 }
 	public void storeDetails(ArrayList <Food> foods)throws Exception
 	{
-	repository=new Repository();
 	repository.writeToFile(foods);
-	repository.insert(foods);
 	}
 	public void displayDetails(ArrayList <Food> foods)throws Exception
 	{
-		repository=new Repository();
 		repository.readFromFile(foods);
 	}
+	public void store(ArrayList <Food> foods)throws Exception
+	{
+		repository.insert(foods);
+	}
+	public void remove(ArrayList <Food> foods)throws Exception
+	{
+		repository.delete(foods);
+	}
+		
 	public int printBill(String nameOfFood,int noOfOrder,ArrayList <Food> foods)
 	{
 		int total=0;

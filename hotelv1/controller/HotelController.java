@@ -50,19 +50,26 @@ public class HotelController
 		 hs=new HotelService();
 	}
 	public void a()throws Exception{
-		HotelService hs=new HotelService();
 		hs.a();}
 	
 	public void storeDetails(ArrayList <Food> foods)throws Exception
 	{
-		//HotelService hs=new HotelService();
 		hs.storeDetails(foods);
 	
 	}
 	public void displayDetails(ArrayList <Food> foods)throws Exception
 	{
-		HotelService hs=new HotelService();
 		hs.displayDetails(foods);
+	}
+	public void store(ArrayList <Food> foods)throws Exception
+	{
+		hs.store(foods);
+	
+	}
+	public void remove(ArrayList <Food> foods)throws Exception
+	{
+		hs.remove(foods);
+	
 	}
 	
 }	

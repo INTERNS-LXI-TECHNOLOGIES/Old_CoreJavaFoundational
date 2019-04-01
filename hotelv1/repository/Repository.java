@@ -65,32 +65,35 @@ public class Repository
 	public void insert(ArrayList <Food> foods)throws Exception
 	{
 		Connection con=null;
-	Statement stmt=null;
+	//Statement stmt=null;
+	PreparedStatement ps=null;
 	try
 	{
 	Class.forName("com.mysql.jdbc.Driver");
 	System.out.println("connecting to database");
 	con=DriverManager.getConnection(DB_URL,USER,PASS);
 	System.out.println("creating database");
-	
+
+	String sql;
+	//stmt=con.createStatement();
+	Calendar calendar=Calendar.getInstance();
+	java.sql.Date dateobj=new java.sql.Date(calendar.getTime().getTime());
+	//sql="insert into food ('FOODNAME','FOODCOUNT','FOODPRICE') values('"+foods.get(i).getName()+"','"+foods.get(i).getFoodCount()+"','"+foods.get(i).getFoodPrice()+"')";
+	sql="INSERT INTO food"+ "(FOODNAME,FOODCOUNT,FOODPRICE,FOOD_ADD_DATE)values"+"(?,?,?,?)";
+	//ResultSet rs=stmt.executeQuery(sql);
+	ps=con.prepareStatement(sql);
 	for(int i=0;i<foods.size();i++)
 	{
-	String sql;
-	stmt=con.createStatement();
-	
-	//sql="insert into food ('FOODNAME','FOODCOUNT','FOODPRICE') values('"+foods.get(i).getName()+"','"+foods.get(i).getFoodCount()+"','"+foods.get(i).getFoodPrice()+"')";
-	sql="insert into food ('FOODNAME','FOODCOUNT','FOODPRICE') values(?,?,?)";
-	ResultSet rs=stmt.executeQuery(sql);
-	PreparedStatement ps=con.prepareStatement(sql);
 	ps.setString(1,foods.get(i).getName());
 	ps.setInt(2,foods.get(i).getFoodCount());
 	ps.setInt(3,foods.get(i).getFoodPrice());
-	ps.execute(sql);
-	ps.close();
-	rs.close();
-	stmt.close();
+	ps.setDate(4,dateobj);
 	}
-	
+	foods.clear();
+	ps.execute();
+	ps.close();
+	//rs.close();
+	//stmt.close();
 	
 	
 	con.close();
@@ -101,12 +104,12 @@ public class Repository
 	}
 	finally
 	{
-		try{
+		/*try{
 			if(stmt!=null)
 			stmt.close();
 		}
 		catch(SQLException se1)
-		{}
+		{}*/
 		try{
 			if(con!=null)
 			con.close();
@@ -115,8 +118,43 @@ public class Repository
 		}
 	}
 	}
-		
+	public void delete(ArrayList <Food> foods)throws Exception
+	{
+		Connection con=null;
+	//Statement stmt=null;
+	PreparedStatement ps=null;
+	int SI_NO;
+	try
+	{
+	Class.forName("com.mysql.jdbc.Driver");
+	System.out.println("connecting to database");
+	con=DriverManager.getConnection(DB_URL,USER,PASS);
+	//System.out.println("creating database");
+	
+	
+	String sql;
+	sql="DELETE FROM food WHERE SI_NO=?";
+	ps=con.prepareStatement(sql);	
+	//ps.setInt(1,SI_NO);
 
+	ps.execute();
+	ps.close();
+	con.close();
+	}
+	catch(ClassNotFoundException e)
+	{
+		e.printStackTrace();
+	}
+	finally
+	{
+		try{
+			if(con!=null)
+			con.close();
+		}
+		catch(SQLException se2){
+		}
+	}
+	}
 		
 		
 
@@ -138,7 +176,7 @@ public void writeToFile(ArrayList <Food> foods)throws Exception
 	for(int i=0;i<foods.size();i++)
 	{
 		
-	bw.write(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+"\n");
+	bw.write(foods.get(i).getName()+","+foods.get(i).getFoodCount()+","+foods.get(i).getFoodPrice()+","+foods.get(i).getFood_add_date()+"\n");
 		
 	}
 	bw.close();
@@ -162,12 +200,13 @@ public void readFromFile(ArrayList <Food> foods)throws Exception
 				f.setName(item[k]);
 				f.setFoodCount(Integer.parseInt(item[k+1]));
 				f.setFoodPrice(Integer.parseInt(item[k+2]));
+				f.setFood_add_date(item[k+3]);
 				foods.add(f);
 				}
-				System.out.println("SNo\t\tFood items\t\tCount\t\tPrice");
+				System.out.println("SNo\t\tFood items\t\tCount\t\tPrice\t\tDate");
 			for(int i=0;i<foods.size();i++)
 			{
-			System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\n");
+			System.out.print((i+1)+"\t\t"+foods.get(i).getName()+"\t\t\t"+foods.get(i).getFoodCount()+"\t\t"+foods.get(i).getFoodPrice()+"\t\t"+foods.get(i).getFood_add_date()+"\n");
 			}
 }
 }

@@ -7,6 +7,7 @@ public class Food
 	private String name;
 	private int foodCount;
 	private int foodPrice;
+	private String food_add_date;
 	public void setSNo(int sNo)
 	{
 		this.sNo=sNo;
@@ -38,6 +39,14 @@ public class Food
 	public int getFoodPrice()
 	{
 		return foodPrice;
+	}
+	public void setFood_add_date(String food_add_date)
+	{
+		this.food_add_date=food_add_date;
+	}
+	public String getFood_add_date()
+	{
+		return food_add_date;
 	}
 	
 }

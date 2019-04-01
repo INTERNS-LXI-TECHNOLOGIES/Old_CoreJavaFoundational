@@ -51,12 +51,14 @@ public class Tdd
 										System.out.print("Count:");
 										food.setFoodCount(scan.nextInt());
 										System.out.print("Price:");
-										food.setFoodPrice(scan.nextInt());			
+										food.setFoodPrice(scan.nextInt());
 										//foods.add(food);
+										
 										controller.getAc().getAs().addFood(foods,food);
 							System.out.println("To add food again press 1");
 							}while(scan.nextInt()==1);
 							controller.storeDetails(foods);
+							controller.store(foods);
 							foods.clear();
 							controller.displayDetails(foods);
 							break;
@@ -99,6 +101,12 @@ public class Tdd
 										//foods.get(i).setFoodPrice(p);
 										controller.getAc().getAs().editFoodPrice(edit,foods,p);
 										}
+										/*System.out.println("change date press 4");
+										while(scan.nextInt()==4){
+										System.out.print("changed food adding date:");
+										String d=scan.next();
+										controller.getAc().getAs().editFood_add_date(edit,foods,d);
+										}*/
 							//file.delete();
 							controller.storeDetails(foods);
 							foods.clear();
