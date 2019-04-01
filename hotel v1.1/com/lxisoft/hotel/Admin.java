@@ -12,6 +12,7 @@ Scanner scan=new Scanner(System.in);
    public void choose(ArrayList<Food> foods)throws Exception
 	   {
 		 int con;
+		 
 		 do
 		  {
 		  System.out.println("CHOOSE\n1)ADD\n2)DELETE\n3)EDIT");

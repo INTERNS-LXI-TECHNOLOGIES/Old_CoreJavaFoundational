@@ -25,7 +25,6 @@ public class HotelView
 			
 			  if(adminPassword==1234)
 					{      
-						  System.out.println("pass="+adminPassword);
 						admin.choose(foods);
 					}
 			  else

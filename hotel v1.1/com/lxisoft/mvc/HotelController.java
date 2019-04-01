@@ -10,18 +10,20 @@ public class HotelController
 	Scanner scan=new Scanner (System.in);
 	public void calling()throws Exception
 	{
-	Admin admin=null;
+	//Admin admin=null;
+	
 	Cashier cashier=null;
 	Customer customers=null;
 	ArrayList<Food> foods=null;
     HotelModel hm=new HotelModel();
 	HotelView hv=new HotelView();
+	hm.admin=new Admin();
 	int d=0;
 	do
 	      {
-			hv.authendication(admin,cashier,customers, foods);
+			hv.authendication(hm.admin,hm.cashier,hm.customers,hm.foods);
 			System.out.println("do you want to continue\nyes=1 \n no=0");
-		 d=scan.nextInt();
+            d=scan.nextInt();
 		  }
         while(d==1);		 
 	}
