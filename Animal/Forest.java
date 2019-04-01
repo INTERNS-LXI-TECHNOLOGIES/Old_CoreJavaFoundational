@@ -3,7 +3,7 @@ import java.util.*;
 public class Forest
 {
 	 ArrayList<Animal> animals = new ArrayList<>();
-   	Animal[][] array=new Animal[20][20];
+   	 Animal[][] array=new Animal[20][20];
 
 
 	public Forest(){
@@ -54,9 +54,15 @@ public class Forest
  	
  	
  	boolean x=false;
- 	do{
+ 	do
+ 	{
  		int a=(int)(Math.random()*animals.size());
  		int b=(int)(Math.random()*animals.size());
+ 		
+			for(int j=0;j<animals.size();j++)
+			{
+				position(animals.get(j));
+			}
  	//	System.out.println(">>>>>>>>>>>>>>>>>"+Math.random()*animal.size());
  		if(animals.get(a)!=null && animals.get(b)!=null)
  		{
@@ -72,41 +78,47 @@ public class Forest
 					System.out.println(x);
 					if(x==true)
  					{
- 						animals.remove(b);
- 					
- 						System.out.println("++");
+ 						
+ 						animals.remove(array[animals.get(b).getLocationX()][animals.get(b).getLocationY()]);
  					}
  					else
  					{
- 						animals.remove(a);
- 						
- 						System.out.println("++");
- 					}
- 					print();
- 					
+ 						animals.remove(array[animals.get(a).getLocationX()][animals.get(a).getLocationY()]);
+ 					}	
  				}
  				else if(animals.get(a) instanceof Carnivores && animals.get(b) instanceof Herbivores)
  				{
  					boolean s=animals.get(a).eat(animals.get(b));
  					if(s==true)
  					{
- 						animals.remove(b);
+ 						animals.remove(array[animals.get(b).getLocationX()][animals.get(b).getLocationY()]);
  					}
- 					print();
+ 					
  				}
  				else if(animals.get(b) instanceof Carnivores && animals.get(a) instanceof Herbivores)
  				{
  					boolean s=animals.get(b).eat(animals.get(a));
  					if(s==true)
  					{
- 						animals.remove(a);
+ 						animals.remove(array[animals.get(a).getLocationX()][animals.get(a).getLocationY()]);
  					}
- 					print();
+ 					
  				}
  			}
  		}
 
+ 		print();
+ 		System.out.println("__________________________________________________________");
+ 		
+ 		for(int i=0;i<10;i++)
+		{
+			for(int j=0;j<10;j++)
+			{
+				array[i][j]=null;
+			}
+		}	
  	}
+ 	
  	
  	while(animals.size()>1);
  	System.out.println("\n**"+animals.get(0).getName() +" wins the fight**");
@@ -114,37 +126,21 @@ public class Forest
 }
 public void print()
 {
+
 	for(int i=0;i<10;i++)
 		{
 			for(int j=0;j<10;j++)
 			{
-				array[i][j]=null;
+				if(array[i][j]!=null)
+				{
+					System.out.print(array[i][j].getName()+"\t\t");
+				}
+				else
+				{
+					System.out.print("0\t\t");
+				}
 			}
+			System.out.println();
 		}
-		for(int i=0;i<animals.size();i++)
-		{
-			int x,y;
-			do
-		    {
-		    x=(int)(Math.random()*10);
-		    y=(int)(Math.random()*10);	
-		    }	
-		     while(array[x][y]!=null);
-		     animals.setLocationX(x);
-			animals.setLocationY(y);
-		     array[animals.getLocationX()][animals.getLocationY()]=animals;	
-           // array[x][y]=animals.get(i);
-		    
-		}
-     for(int i=0;i<10;i++)
-		{
-			for(int j=0;j<10;j++)
-			{
-				System.out.print(array[i][j]+"\t");
-			}
-			System.out.print("\n");
-		}
-
-
 }
 }

@@ -43,14 +43,14 @@ public int getLocationY()
 	{
 		if(this instanceof Carnivores)
 		{	
-			if(animal.getLocationX()-getLocationX()<=2 && animal.getLocationY()-getLocationY()<=2)
+			if(animal.getLocationX()-getLocationX()<=5 && animal.getLocationY()-getLocationY()<=5)
 			{
 				if(animal instanceof Carnivores)
 				{
 					System.out.println("\n"+name+ " and " +animal.name+ " are fighting ");
 					if(animalStrength>animal.animalStrength)
 					{
-						System.out.println(name+" WINS!... ");
+						System.out.println(animals.get(b)+" WINS!... ");
 						System.out.println(animal.name+" LOOSES!....");
 						System.out.println("***************");
 						return true;
@@ -70,7 +70,7 @@ public int getLocationY()
 
 	public boolean eat(Animal animal)
 	{
-		if(animal.getLocationX()-getLocationX()<=2 && animal.getLocationY()-getLocationY()<=2)
+		if(animal.getLocationX()-getLocationX()<=5 && animal.getLocationY()-getLocationY()<=5)
 		{
 			if(animal instanceof Herbivores)
 			{
@@ -96,7 +96,7 @@ public int getLocationY()
 	}
 	public boolean meet(Animal animal)
 	{
-		if(animal.getLocationX()-getLocationX()<=2 && animal.getLocationY()-getLocationY()<=2)
+		if(animal.getLocationX()-getLocationX()<=5 && animal.getLocationY()-getLocationY()<=5)
 		{
 			if(animal instanceof Herbivores)
 			{
