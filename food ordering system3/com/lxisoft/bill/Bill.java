@@ -15,7 +15,7 @@ private int totalPrice;
 			return totalPrice;
 			}
 	
-	public void viewBill(String item,int value,ArrayList<FoodItem> foodItems)
+	/*public void viewBill(String item,int value,ArrayList<FoodItem> foodItems)
 	{
 		System.out.println("  ");
 		
@@ -35,6 +35,15 @@ private int totalPrice;
 		System.out.println("                                                    Total "+getTotalPrice()+" Rs");
 		System.out.println("  ");
 		System.out.println("                                 THANK YOU                                   ");
+	}*/
+	
+	public void viewBill()
+	{
+		System.out.println("  ");
+		System.out.println("                                 BILL                                        ");
+				System.out.println("-----------------------------------------------------------------------------");
+				System.out.println("Items ordered:                                                         Price:");
+				System.out.println("  ");
 	}
 					
 	

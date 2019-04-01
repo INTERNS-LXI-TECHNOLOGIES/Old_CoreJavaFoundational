@@ -71,7 +71,7 @@ public void homePage()throws Exception
 public void logUser()throws Exception
 	{
 		String password;
-		Bill bill=new Bill();
+		//Bill bill=new Bill();
 		int price;
 		System.out.println(" ");
 		System.out.println("                         CUSTOMER LOGGIN                          ");
@@ -100,9 +100,9 @@ public void logUser()throws Exception
 			
 			
 		     customer.placeOrder();
-		     price=admin.calculateBill(customer.item,customer.value,foodItems);
-			 bill.setTotalPrice(price);
-			 bill.viewBill(customer.item,customer.value,foodItems);
+		     admin.calculateBill(customer.item,customer.value);
+			// bill.setTotalPrice(price);
+			 //bill.viewBill(customer.item,customer.value,foodItems);
 		
 	    }
 		else

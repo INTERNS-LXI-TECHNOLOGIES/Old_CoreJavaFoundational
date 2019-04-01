@@ -59,7 +59,7 @@ public class Admin
 			  {
 				  case 1:add(foodItems);
 				  break;
-				  case 2:delete(foodItems);
+				  case 2:delete();
 				  break;
 				  default:System.out.println("Invalid choice made...please try again...!!!");
 			
@@ -126,8 +126,10 @@ public void add(ArrayList<FoodItem> foodItems)throws Exception
 		}
 }
 
-public void delete(ArrayList<FoodItem> foodItems)
+public void delete()
 {
+	//FileWriter fw=new FileWriter(s,true);
+	//BufferedWriter bw=new BufferedWriter(fw);
 	 String item;
 	 System.out.println("FoodItem                                                           Price");
 	         System.out.println("-----------------------------------------------------------------------");
@@ -137,7 +139,7 @@ public void delete(ArrayList<FoodItem> foodItems)
 		
 		System.out.println(f.getName()+"                                          "+f.getPrice());
 	}
-	System.out.println("     ");
+	System.out.println("    ");
 		
 		System.out.print("Which item you want to delete...?:");
 		item=scan.next();
@@ -147,6 +149,11 @@ public void delete(ArrayList<FoodItem> foodItems)
 			{
 				foodItems.remove(foodItems.get(i));
 			}
+			
+		}
+		for(FoodItem f:foodItems)
+		{
+			bw.write(f.getName()+";"+f.getPrice());
 		}
 		
 		System.out.println("   ");
@@ -161,9 +168,9 @@ public void delete(ArrayList<FoodItem> foodItems)
 		
 }
 	
-	public int calculateBill(String item,int value,ArrayList<FoodItem> foodItems)
+	public void calculateBill(String item,int value)
 	{
-		
+		Bill bill=new Bill();
 		int price=0;
 		System.out.println("  ");
 		
@@ -173,10 +180,15 @@ public void delete(ArrayList<FoodItem> foodItems)
 			if(item.equals(f.getName()))
 			{
 				   price=((value)*(f.getPrice()));
-						
+					bill.setTotalPrice(price);
+                    bill.viewBill();
+                    System.out.println(f.getName()+" "+"X"+" "+value+"                                      "+f.getPrice());
+                    System.out.println("                                                    Total "+bill.getTotalPrice()+" Rs");
+		System.out.println("  ");
+		System.out.println("                                 THANK YOU                                   ");                              					
 			}
 		}
-		return price;
+		//return price;
 	}
 	//public static ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 	public void reader()throws Exception
