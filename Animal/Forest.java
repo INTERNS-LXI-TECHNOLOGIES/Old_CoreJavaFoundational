@@ -3,17 +3,14 @@ import java.util.*;
 public class Forest
 {
 	ArrayList<Animal> animals = new ArrayList<>();
-   	
-	
-
-	public Forest(){
-	
+    Animal[][] landscape=new Animal[20][20];
+    public Forest()
+	{
 		for(int i=0;i<10;i++)
 		{
 			for(int j=0;j<10;j++)
 			{
-				area();
-				grids[i][j]=null;
+				landscape[i][j]=null;
 			}
 		}
 		setDetails();
@@ -39,22 +36,20 @@ public class Forest
 	}
 	public void position(Animal animals)
 	{
-		area();
 		int x,y;		
 		do
 		{
 		x=(int)(Math.random()*10);
 		y=(int)(Math.random()*10);	
 		}	
-		while(grids[x][y]!=null);
+		while(landscape[x][y]!=null);
 		animals.setLocationX(x);
 		animals.setLocationY(y);
-		grids[animals.getLocationX()][animals.getLocationY()]=animals;
+		landscape[animals.getLocationX()][animals.getLocationY()]=animals;
 		
 	}
  public void initiatingFight()
  {	
- 	area();
  	boolean x=false;
  	do
  	{
@@ -80,11 +75,11 @@ public class Forest
 					System.out.println(x);
 					if(x==true)
  					{
- 						animals.remove(grids[animals.get(b).getLocationX()][animals.get(b).getLocationY()]);
+ 						animals.remove(landscape[animals.get(b).getLocationX()][animals.get(b).getLocationY()]);
  					}
  					else
  					{
- 						animals.remove(grids[animals.get(a).getLocationX()][animals.get(a).getLocationY()]);
+ 						animals.remove(landscape[animals.get(a).getLocationX()][animals.get(a).getLocationY()]);
  					}	
  				}
  				else if(animals.get(a) instanceof Carnivores && animals.get(b) instanceof Herbivores)
@@ -92,7 +87,7 @@ public class Forest
  					boolean s=animals.get(a).eat(animals.get(b));
  					if(s==true)
  					{
- 						animals.remove(grids[animals.get(b).getLocationX()][animals.get(b).getLocationY()]);
+ 						animals.remove(landscape[animals.get(b).getLocationX()][animals.get(b).getLocationY()]);
  					}
  					
  				}
@@ -101,7 +96,7 @@ public class Forest
  					boolean s=animals.get(b).eat(animals.get(a));
  					if(s==true)
  					{
- 						animals.remove(grids[animals.get(a).getLocationX()][animals.get(a).getLocationY()]);
+ 						animals.remove(landscape[animals.get(a).getLocationX()][animals.get(a).getLocationY()]);
  					}
  					
  				}
@@ -115,7 +110,7 @@ public class Forest
 		{
 			for(int j=0;j<10;j++)
 			{
-				grids[i][j]=null;
+				landscape[i][j]=null;
 			}
 		}	
  	}
@@ -127,14 +122,13 @@ public class Forest
 }
 public void print()
 {
-	area();
 	for(int i=0;i<10;i++)
 		{
 			for(int j=0;j<10;j++)
 			{
-				if(grids[i][j]!=null)
+				if(landscape[i][j]!=null)
 				{
-					System.out.print(grids[i][j].getName()+"\t\t");
+					System.out.print(landscape[i][j].getName()+"\t\t");
 				}
 				else
 				{
@@ -143,9 +137,5 @@ public void print()
 			}
 			System.out.println();
 		}
-}
-public void area(Animal grids[][])
-{
-	Animal[][] grids=new Animal[20][20];
 }
 }
