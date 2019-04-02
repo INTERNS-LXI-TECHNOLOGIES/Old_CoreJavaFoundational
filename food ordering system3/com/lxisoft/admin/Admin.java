@@ -10,6 +10,10 @@ public class Admin
 	private String userName="admin";
 	private String password="admin123";
 	private static File s=new File("foods.txt");
+	private static FileWriter fw=new FileWriter(s,true);
+	private static BufferedWriter bw=new BufferedWriter(fw);
+		//FileWriter fw;
+		//BufferedWriter bw;
 	public static ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 	
 	public void setUserName(String userName)
@@ -90,8 +94,8 @@ public void add(ArrayList<FoodItem> foodItems)throws Exception
         int num;
 		
 		
-		FileWriter fw=new FileWriter(s,true);
-		BufferedWriter bw=new BufferedWriter(fw);
+		//FileWriter fw=new FileWriter(s,true);
+		//BufferedWriter bw=new BufferedWriter(fw);
 		
 	   
 	    System.out.println(" ");
@@ -126,7 +130,7 @@ public void add(ArrayList<FoodItem> foodItems)throws Exception
 		}
 }
 
-public void delete()
+public void delete()throws Exception
 {
 	//FileWriter fw=new FileWriter(s,true);
 	//BufferedWriter bw=new BufferedWriter(fw);
@@ -153,6 +157,7 @@ public void delete()
 		}
 		for(FoodItem f:foodItems)
 		{
+		
 			bw.write(f.getName()+";"+f.getPrice());
 		}
 		

@@ -1,7 +1,2 @@
 pizza;140
 burger;150
-cheese;120
-sanvich;120
-paneer;120
-paalak;130
-dhosha;110
