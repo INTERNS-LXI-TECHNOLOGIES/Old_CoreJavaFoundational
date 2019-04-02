@@ -41,8 +41,7 @@ public int getLocationY()
 
 	public boolean fight(Animal animal)
 	{
-		if(this instanceof Carnivores)
-		{	
+			
 			if(animal.getLocationX()-getLocationX()<=5 && animal.getLocationY()-getLocationY()<=5)
 			{
 				if(animal instanceof Carnivores)
@@ -50,7 +49,7 @@ public int getLocationY()
 					System.out.println("\n"+name+ " and " +animal.name+ " are fighting ");
 					if(animalStrength>animal.animalStrength)
 					{
-						System.out.println(animals.get(b)+" WINS!... ");
+						System.out.println(name+" WINS!... ");
 						System.out.println(animal.name+" LOOSES!....");
 						System.out.println("***************");
 						return true;
@@ -64,7 +63,7 @@ public int getLocationY()
 					}
 				}
 			}
-		}
+		
 		return false;
  	}
 
