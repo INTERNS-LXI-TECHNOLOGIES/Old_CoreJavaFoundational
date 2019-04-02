@@ -52,32 +52,36 @@ public class Animal
 	}
 
 	public boolean fight(Animal animals)
-	{
 				
-
+   				{
 				if((animals.getLocationX()-locationX<=5) && (animals.getLocationY()-locationY<=5))
 				{
-					System.out.println(animals.getName()+" "+"Fights With"+" "+name);
+					System.out.println("\n"+animals.getName()+" "+"Fights With"+" "+name);
 
-				if((animals.getStrengthLevel()>strengthLevel)&&(animals.getHungerLevel()>hungerLevel))
-				{
-					
-					System.out.println(animals.getName()+"  "+"Wins !");
-					System.out.println(name+"  "+" loose!"+"\n--------------");
-					animals.setStrengthLevel(animals.getStrengthLevel() - 10);
-					this.setHungerLevel(this.getHungerLevel() + 5);	
-					return true;
+					if((animals.getStrengthLevel()>strengthLevel)&&(animals.getHungerLevel()>hungerLevel))
+					{
+		
+						
+						System.out.println(animals.getName()+"  "+"Wins !");
+						System.out.println(name+"  "+" loose!"+"\n--------------");
+						animals.setStrengthLevel(animals.getStrengthLevel() - 10);
+						this.setHungerLevel(this.getHungerLevel() + 5);	
+						return true;
 
 
-			    }
-				else 
-				{
-					System.out.println(name+"  "+"Wins !");
-					System.out.println(animals.getName()+"  "+" loose !"+"\n--------------");
-					animals.setStrengthLevel(animals.getStrengthLevel() - 10);
-					this.setHungerLevel(this.getHungerLevel() + 5);	
-					return false;
-			    }
+				    }
+					else
+					{
+						System.out.println(name+"  "+"Wins !");
+						System.out.println(animals.getName()+"  "+" loose !"+"\n--------------");
+						animals.setStrengthLevel(animals.getStrengthLevel() - 10);
+						this.setHungerLevel(this.getHungerLevel() + 5);	
+						return false;
+				    }
+			  }
+			  else
+			  {
+			  	System.out.println("\n"+animals.getName()+"  far from "+" "+name);
 			  }
 		
 
