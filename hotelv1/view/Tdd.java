@@ -59,7 +59,7 @@ public class Tdd
 							}while(scan.nextInt()==1);
 							controller.storeDetails(foods);
 							controller.store(foods);
-							foods.clear();
+							//foods.clear();
 							controller.displayDetails(foods);
 							break;
 						case 2:
@@ -68,6 +68,7 @@ public class Tdd
 								System.out.print("which one you want to delete:");
 								String  n=scan.next();
 								controller.getAc().getAs().deleteFood(n,foods);
+								controller.remove(n);
 								controller.storeDetails(foods);
 								foods.clear();
 								controller.displayDetails(foods);

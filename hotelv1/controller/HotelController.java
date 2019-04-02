@@ -66,10 +66,14 @@ public class HotelController
 		hs.store(foods);
 	
 	}
-	public void remove(ArrayList <Food> foods)throws Exception
+	public void remove(String n)throws Exception
 	{
-		hs.remove(foods);
+		hs.remove(n);
 	
 	}
+	/*public void edit(String FOODNAME,String edit)throws Exception
+	{
+		hs.edit(FOODNAME,edit);
+	}*/
 	
 }	

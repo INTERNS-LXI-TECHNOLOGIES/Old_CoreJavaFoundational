@@ -34,10 +34,14 @@ public class HotelService
 	{
 		repository.insert(foods);
 	}
-	public void remove(ArrayList <Food> foods)throws Exception
+	public void remove(String n)throws Exception
 	{
-		repository.delete(foods);
+		repository.delete(n);
 	}
+	/*public void edit(String FOODNAME,String edit)throws Exception
+	{
+		repository.edit(FOODNAME,edit);
+	}*/
 		
 	public int printBill(String nameOfFood,int noOfOrder,ArrayList <Food> foods)
 	{
