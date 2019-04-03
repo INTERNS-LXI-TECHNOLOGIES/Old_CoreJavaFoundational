@@ -62,7 +62,7 @@ public class Repository
 	}
 	
 	
-	public void insert(ArrayList <Food> foods)throws Exception
+	public void insert(Food food)throws Exception
 	{
 		Connection con=null;
 	//Statement stmt=null;
@@ -81,19 +81,17 @@ public class Repository
 	sql="INSERT INTO food"+ "(FOODNAME,FOODCOUNT,FOODPRICE,FOOD_ADD_DATE)values"+"(?,?,?,?)";
 	//ResultSet rs=stmt.executeQuery(sql);
 	ps=con.prepareStatement(sql);
-	for(int i=0;i<foods.size();i++)
-	{
-	ps.setString(1,foods.get(i).getName());
-	ps.setInt(2,foods.get(i).getFoodCount());
-	ps.setInt(3,foods.get(i).getFoodPrice());
+	ps.setString(1,food.getName());
+	ps.setInt(2,food.getFoodCount());
+	ps.setInt(3,food.getFoodPrice());
 	ps.setDate(4,dateobj);
 	
 	ps.execute();
-	foods.clear();
-	}
+
 	
-	
+	//foods.clear();
 	ps.close();
+	
 	//rs.close();
 	//stmt.close();
 	
@@ -150,24 +148,84 @@ public class Repository
 	}
 	}
 		
-	/*public void edit(String FOODNAME,String edit)throws Exception
+	public void editName(String nam,String edit)throws Exception
 	{
 		Connection con=null;
 	Statement stmt=null;
-	PreparedStatement ps=null;
 	try
 	{
 	Class.forName("com.mysql.jdbc.Driver");
 	System.out.println("connecting to database");
 	con=DriverManager.getConnection(DB_URL,USER,PASS);
-	//System.out.println("creating database");
+	Calendar calendar=Calendar.getInstance();
+	java.sql.Date dateobj=new java.sql.Date(calendar.getTime().getTime());
 	String sql;
-	sql="update food  set WHERE FOODNAME='"+edit+"'";
-	
-	ps=con.prepareStatement(sql);	
-	ps.setString(1,FOODNAME);
-	ps.executeQuery();
-	ps.close();
+	sql="update food  set FOODNAME='"+nam+"',FOOD_ADD_DATE='"+dateobj+"' WHERE FOODNAME='"+edit+"'";
+	stmt=con.createStatement();
+	stmt.execute(sql);
+	stmt.close();
+	con.close();
+	}
+	catch(ClassNotFoundException e)
+	{
+		e.printStackTrace();
+	}
+	finally
+	{
+		try{
+			if(con!=null)
+			con.close();
+		}
+		catch(SQLException se2){
+		}
+	}
+	}	
+	/*public void editCount(String nam,int c)throws Exception
+	{
+		Connection con=null;
+	Statement stmt=null;
+	try
+	{
+	Class.forName("com.mysql.jdbc.Driver");
+	System.out.println("connecting to database");
+	con=DriverManager.getConnection(DB_URL,USER,PASS);
+	Calendar calendar=Calendar.getInstance();
+	java.sql.Date dateobj=new java.sql.Date(calendar.getTime().getTime());
+	String sql;
+	sql="update food  set FOODCOUNT='"+c+"',FOOD_ADD_DATE='"+dateobj+"' WHERE FOODNAME='"+edit+"'";
+	stmt=con.createStatement();
+	stmt.execute(sql);
+	stmt.close();
+	con.close();
+	}
+	catch(ClassNotFoundException e)
+	{
+		e.printStackTrace();
+	}
+	finally
+	{
+		try{
+			if(con!=null)
+			con.close();
+		}
+		catch(SQLException se2){
+		}
+	}
+	}	
+	public void editPrice(String nam,int p)throws Exception
+	{
+		Connection con=null;
+	Statement stmt=null;
+	try
+	{
+	Class.forName("com.mysql.jdbc.Driver");
+	System.out.println("connecting to database");
+	con=DriverManager.getConnection(DB_URL,USER,PASS);
+	Calendar calendar=Calendar.getInstance();
+	java.sql.Date dateobj=new java.sql.Date(calendar.getTime().getTime());
+	String sql;
+	sql="update food  set FOODPRICE='"+p+"',FOOD_ADD_DATE='"+dateobj+"' WHERE FOODNAME='"+edit+"'";
+	stmt=con.createStatement();
 	stmt.execute(sql);
 	stmt.close();
 	con.close();
@@ -186,7 +244,6 @@ public class Repository
 		}
 	}
 	}	*/
-
 
 
 

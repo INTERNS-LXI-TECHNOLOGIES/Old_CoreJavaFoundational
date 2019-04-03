@@ -53,13 +53,12 @@ public class Tdd
 										System.out.print("Price:");
 										food.setFoodPrice(scan.nextInt());
 										//foods.add(food);
-										
+										controller.store(food);
 										controller.getAc().getAs().addFood(foods,food);
 							System.out.println("To add food again press 1");
 							}while(scan.nextInt()==1);
 							controller.storeDetails(foods);
-							controller.store(foods);
-							//foods.clear();
+							foods.clear();
 							controller.displayDetails(foods);
 							break;
 						case 2:
@@ -78,6 +77,7 @@ public class Tdd
 							//editFood(foods);
 								System.out.print("which one you want to edit:");
 								String edit=scan.next();
+						
 										//System.out.println(foodItems.get(i));
 										//String name=foodItems.get(i);
 										System.out.println("change name press 1");
@@ -86,6 +86,7 @@ public class Tdd
 										String nam=scan.next();
 										//foods.get(i).setName(nam);
 										controller.getAc().getAs().editFoodName(edit,foods,nam);
+										controller.editName(nam,edit);
 										}
 									
 									System.out.println("change food count press 2");
@@ -94,6 +95,7 @@ public class Tdd
 										int c=scan.nextInt();
 										//foods.get(i).setFoodCount(c);
 										controller.getAc().getAs().editFoodCount(edit,foods,c);
+										//controller.editCount(c,edit);
 										}
 									System.out.println("change name press 3");
 										while(scan.nextInt()==3){
@@ -101,13 +103,9 @@ public class Tdd
 										int p=scan.nextInt();
 										//foods.get(i).setFoodPrice(p);
 										controller.getAc().getAs().editFoodPrice(edit,foods,p);
+										//controller.editPrice(p,edit);
 										}
-										/*System.out.println("change date press 4");
-										while(scan.nextInt()==4){
-										System.out.print("changed food adding date:");
-										String d=scan.next();
-										controller.getAc().getAs().editFood_add_date(edit,foods,d);
-										}*/
+									
 							//file.delete();
 							controller.storeDetails(foods);
 							foods.clear();

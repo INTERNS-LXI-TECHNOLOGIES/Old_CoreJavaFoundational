@@ -61,9 +61,9 @@ public class HotelController
 	{
 		hs.displayDetails(foods);
 	}
-	public void store(ArrayList <Food> foods)throws Exception
+	public void store(Food food)throws Exception
 	{
-		hs.store(foods);
+		hs.store(food);
 	
 	}
 	public void remove(String n)throws Exception
@@ -71,9 +71,17 @@ public class HotelController
 		hs.remove(n);
 	
 	}
-	/*public void edit(String FOODNAME,String edit)throws Exception
+	public void editName(String nam,String edit)throws Exception
 	{
-		hs.edit(FOODNAME,edit);
+		hs.editName(nam,edit);
+	}
+	/*public void editCount(int c,String edit)throws Exception
+	{
+		hs.editCount(c,edit);
+	}
+	public void editPrice(int p,String edit)throws Exception
+	{
+		hs.editPrice(p,edit);
 	}*/
 	
 }	
