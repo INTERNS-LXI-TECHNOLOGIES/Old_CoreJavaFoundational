@@ -1,18 +1,19 @@
-package com.lxisoft.hotel;
-import java.util.Scanner;
+package com.lxisoft.mvc;
+import com.lxisoft.mvc.*;
+import com.lxisoft.hotel.*;
 import java.util.ArrayList;	
-import java.io.*;		
-public class Admin 
+import java.util.Scanner;
+import java.io.*;	
+public class AdminView
 {
 	File f=new File("A.Txt");
 	FileWriter fw;
 	BufferedWriter bw;
-Scanner scan=new Scanner(System.in);
+   Scanner scan=new Scanner(System.in);
 
    public void choose(ArrayList<Food> foods)throws Exception
-	   {
+	   {																																																																																								
 		 int con;
-		 
 		 do
 		  {
 		  System.out.println("CHOOSE\n1)ADD\n2)DELETE\n3)EDIT");
@@ -174,4 +175,5 @@ Scanner scan=new Scanner(System.in);
 		}
 	 bw.close();
 	}
-}	
+
+}

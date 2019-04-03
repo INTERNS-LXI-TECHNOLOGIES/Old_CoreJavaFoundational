@@ -7,15 +7,16 @@
  { 
 	private String name;
     Scanner scan=new Scanner(System.in);
-	public Admin admin;
+	
     public Cashier cashier=new Cashier();
 	public Customer customers=new Customer();
 	public ArrayList<Worker> workers=new ArrayList<Worker>();
-	public ArrayList<Food> foods=new ArrayList<Food>();
 	public MenuList menuList=new MenuList();
+	public AdminController ac=new AdminController();
+	public ArrayList<Food> foods;
 	
 			
-	       /* public void setMenuList (MenuList menuList)
+	       /*public void setMenuList (MenuList menuList)
 			{
 				this.menuList=menuList;
 			}

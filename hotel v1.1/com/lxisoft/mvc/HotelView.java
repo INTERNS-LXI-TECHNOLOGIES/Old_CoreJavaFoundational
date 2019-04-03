@@ -1,6 +1,6 @@
 package com.lxisoft.mvc;
 import com.lxisoft.hotel.*;
-import com.lxisoft.hotel.Admin;
+//import com.lxisoft.hotel.Admin;
 import com.lxisoft.mvc.*;
 import java.util.Scanner;
 import java.io.*;
@@ -12,9 +12,11 @@ public class HotelView
 	FileReader fr;
 	BufferedReader br;
 	Scanner scan=new Scanner(System.in);
+	ArrayList<Food> foods=new ArrayList<Food>();
 	public void authendication(Admin admin,Cashier cashier,Customer customers,ArrayList<Food> foods)throws Exception
     {
 	
+	    ac.passing(foods);
 	     System.out.println("do you want admin or cashier or customer\ncashier=0\nadmin=1\ncustomer=2\nworkers=3");
 		 int login=scan.nextInt();
 		 

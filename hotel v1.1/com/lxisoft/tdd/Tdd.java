@@ -7,7 +7,7 @@ public static void main (String args[])throws Exception
 	{
 	Scanner scan=new Scanner(System.in);
 	int d;
-	
+
 	
 	HotelController hc=new HotelController();
 		hc.calling();	
