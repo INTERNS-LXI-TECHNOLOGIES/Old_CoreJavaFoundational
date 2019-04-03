@@ -1,2 +1,4 @@
 pizza;140
 burger;150
+sanvich;120
+cheese;140

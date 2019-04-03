@@ -10,11 +10,11 @@ public class Admin
 	private String userName="admin";
 	private String password="admin123";
 	private static File s=new File("foods.txt");
-	private static FileWriter fw=new FileWriter(s,true);
-	private static BufferedWriter bw=new BufferedWriter(fw);
-		//FileWriter fw;
-		//BufferedWriter bw;
-	public static ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
+	//private static FileWriter fw=new FileWriter(s,true);
+	//private static BufferedWriter bw=new BufferedWriter(fw);
+		FileWriter fw;
+		BufferedWriter bw;
+	//public static ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 	
 	public void setUserName(String userName)
 	{
@@ -94,8 +94,8 @@ public void add(ArrayList<FoodItem> foodItems)throws Exception
         int num;
 		
 		
-		//FileWriter fw=new FileWriter(s,true);
-		//BufferedWriter bw=new BufferedWriter(fw);
+		FileWriter fw=new FileWriter(s,true);
+		BufferedWriter bw=new BufferedWriter(fw);
 		
 	   
 	    System.out.println(" ");
@@ -132,17 +132,19 @@ public void add(ArrayList<FoodItem> foodItems)throws Exception
 
 public void delete()throws Exception
 {
-	//FileWriter fw=new FileWriter(s,true);
-	//BufferedWriter bw=new BufferedWriter(fw);
+	FileWriter fw=new FileWriter(s,true);
+	BufferedWriter bw=new BufferedWriter(fw);
 	 String item;
-	 System.out.println("FoodItem                                                           Price");
+	/* System.out.println("FoodItem                                                           Price");
 	         System.out.println("-----------------------------------------------------------------------");
 	
 			 for(FoodItem f:foodItems)
 	{
 		
 		System.out.println(f.getName()+"                                          "+f.getPrice());
-	}
+	}*/
+	printDetails();
+	//print
 	System.out.println("    ");
 		
 		System.out.print("Which item you want to delete...?:");
@@ -172,7 +174,18 @@ public void delete()throws Exception
 		}
 		
 }
+
+/*public void printFoodDetails()
+{
 	
+	System.out.println("FoodItem                                   Price");
+		System.out.println("------------------------------------------------");
+		for(FoodItem f:foodItems)
+		{
+			System.out.println(f.getName()+"                    "+f.getPrice());
+		}
+		
+}*/
 	public void calculateBill(String item,int value)
 	{
 		Bill bill=new Bill();
@@ -196,9 +209,9 @@ public void delete()throws Exception
 		//return price;
 	}
 	//public static ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
-	public void reader()throws Exception
+	public ArrayList<FoodItem> reader()throws Exception
 	{
-		//ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
+		ArrayList<FoodItem> foodItems=new ArrayList<FoodItem>();
 		
 		FileReader fr=new FileReader(s);
 		BufferedReader br=new BufferedReader(fr);
@@ -234,6 +247,7 @@ public void delete()throws Exception
 			{
 				System.out.println(f.getName()+"                                                              "+f.getPrice());
 			}*/
+			return foodItems;
 	}
 	
 	public void printDetails()

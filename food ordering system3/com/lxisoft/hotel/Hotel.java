@@ -61,6 +61,7 @@ public void homePage()throws Exception
 	System.out.println("-----------------------------------------------------------------------");
 	admin.reader();
 	admin.printDetails();
+	//admin.printFoodDetails();
 	/*for(FoodItem f:foodItems)
 	{
 		
@@ -88,8 +89,9 @@ public void logUser()throws Exception
 		     System.out.println("Access granted");
 		     System.out.println(" ");
 			 //foodMenu();
-			// admin.reader();
+			 admin.reader();
 	admin.printDetails();
+	//admin.printFoodDetails();
 			
 			
 			/*for(FoodItem f:foods)
