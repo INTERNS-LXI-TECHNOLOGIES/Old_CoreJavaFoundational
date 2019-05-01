@@ -3,8 +3,18 @@ import java.sql.PreparedStatement;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
+/**
+*This class is the connection class for QuizDatabase
+*
+*@author Arya Vineesh
+*
+*@version 2.4
+*
+*Date Modified:1/5/2019
+*/
 public class QuizDatabaseConnection
 {
+	
 	Connection con;
 	ResultSet rs;
 	PreparedStatement ps;
@@ -13,7 +23,7 @@ public class QuizDatabaseConnection
 	{
 		try
 		{
-			Class.forName("com.mysql.jdbc.Driver");
+			// Class.forName("com.mysql.jdbc.Driver");
 			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz","root","root");
 		}
 		catch(Exception ex)

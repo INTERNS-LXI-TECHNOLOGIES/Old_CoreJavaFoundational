@@ -8,6 +8,7 @@ import com.lxisoft.quiz.model.MultipleChoiceQuestion;
 import com.lxisoft.quiz.model.MultipleAnswerQuestion;
 import com.lxisoft.quiz.model.TrueOrFalseQuestion;
 import com.lxisoft.quiz.control.QuizDatabaseControl;
+import com.lxisoft.quiz.control.QuizControl;
 /**
 *This class is the view class for QuestionPaper
 *
@@ -15,7 +16,7 @@ import com.lxisoft.quiz.control.QuizDatabaseControl;
 *
 *@version 2.4
 *
-*Date Modified:22/4/2019
+*Date Modified:1/5/2019
 */
 public class QuestionPaperView
 {
@@ -23,7 +24,7 @@ public class QuestionPaperView
 	*Reference Logger class to get log messages
 	*/
 	private static final Logger log=Logger.getLogger(QuestionPaperView.class.getName());
-	QuizDatabaseControl quizControl;
+	QuizDatabaseControl quizDbControl;
 		
 	public void enterMultipleChoiceQuestions()
 	{
@@ -60,8 +61,8 @@ public class QuestionPaperView
 			qT.setAnswer(answer);
 			questions.add(qT);
 			qP.setMultipleChoiceQuestion(questions);
-			quizControl=new QuizDatabaseControl();
-			quizControl.insertIntoDb(qT);
+			quizDbControl=new QuizDatabaseControl();
+			quizDbControl.insertIntoDb(qT);
 			
 		}
 		log.info("Tdd class.............createQuestionpaperView............end");
@@ -74,7 +75,38 @@ public class QuestionPaperView
 	
 	public void displayMultipleChoiceQuestions()
 	{
-			
+		quizDbControl=new QuizDatabaseControl();
+		ArrayList<MultipleChoiceQuestion> questions=new ArrayList<MultipleChoiceQuestion>();
+		questions=quizDbControl.selectFromDB();
+		int score=0;
+		for(int i=0;i<questions.size();i++)
+		{
+			MultipleChoiceQuestion mcq=questions.get(i);
+			ArrayList<String> options=new ArrayList<String>();
+			options=mcq.getOptions();
+			System.out.println("QuestionId:"+mcq.toString()+"\n"+"Question:"+mcq.getQuestion()+"\n"+"OptionA:"+options.get(0)+"\n"+"OptionB:"+options.get(1)+"\n"+"OptionC:"+options.get(2)+"\n"+"OptionD:"+options.get(3));
+			System.out.println("Enter the answer:\n");
+			Scanner sc=new Scanner(System.in);
+			String answer=sc.nextLine();
+			QuizControl qC=new QuizControl();
+			if(qC.isCorrect(answer,mcq.getAnswer()))
+			{
+				score++;
+			}
+		}
+		displayResult(score);
+		
+	}
+	
+	public void displayResult(int score)
+	{
+		System.out.println();
+		System.out.println("****************Quiz  completed**************");
+		if(score>0)
+			System.out.println("Status : Pass");
+		else
+			System.out.println("Status : Failed");		
+			System.out.println("Mark Scored :"+score);
 	}
 	
 	public void displayTrueOrFalseQuestions()
@@ -152,14 +184,21 @@ public class QuestionPaperView
 		
 	}
 	
-	public void updateFileView()
+	public void updateView()
 	{
+		MultipleChoiceQuestion qT=new MultipleChoiceQuestion();
+		System.out.println("Enter the id of the question to be updated:\n");
+		Scanner sc=new Scanner(System.in);
+		String id=sc.nextLine();
+		quizDbControl=new QuizDatabaseControl();
+		quizDbControl.updateDB(qT,id);
+		System.out.println();
 		
 		
 		
 	}
 	
-	public void deleteFileView()
+	public void deleteView()
 	{
 		
 		

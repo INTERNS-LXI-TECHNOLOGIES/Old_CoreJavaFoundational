@@ -10,20 +10,21 @@ import com.lxisoft.quiz.model.Question;
 *
 *@version 2.4
 *
-*Date Modified:22/4/2019
+*Date Modified:1/5/2019
 */
 public class TrueOrFalseQuestion extends Question
 {
 	/**
 	*Reference Logger class to get log messages
 	*/
+	private static final Logger log=Logger.getLogger(TrueOrFalseQuestion.class.getName());
 	
-	private static final Logger log=Logger.getLogger(Question.class.getName());
+	
 	/**
 	*This is the boolean value to corresponding to the answer is true/false
 	*/
-	
 	private boolean isTrue=false;
+	
 	
 	/**
 	*This is a setter for status of answer
@@ -33,7 +34,9 @@ public class TrueOrFalseQuestion extends Question
 	
 	public void setIsTrue(boolean isTrue)
 	{
+		log.info("TrueOrFalseQuestion class.............setIsTrue............start");
 		this.isTrue=isTrue;
+		log.info("TrueOrFalseQuestion class.............setIsTrue............ends");
 	}
 	
 	/**
@@ -44,6 +47,8 @@ public class TrueOrFalseQuestion extends Question
 	
 	public boolean getIsTrue()
 	{
+		log.info("TrueOrFalseQuestion class.............getIsTrue............start/ends");
 		return isTrue;
+		
 	}
 }

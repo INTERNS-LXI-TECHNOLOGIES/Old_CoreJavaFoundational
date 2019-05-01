@@ -11,7 +11,7 @@ import java.util.*;
 *
 *@version 2.4
 *
-*Date Modified:22/4/2019
+*Date Modified:1/5/2019
 */
 public class Tdd
 {
@@ -68,9 +68,9 @@ public class Tdd
 		{
 			case 1:selectQuestionType();
 			break;
-			case 2:qPView.updateFileView();
+			case 2:qPView.updateView();
 			break;
-			case 3:qPView.deleteFileView();
+			case 3:qPView.deleteView();
 			break;
 		}
 	}

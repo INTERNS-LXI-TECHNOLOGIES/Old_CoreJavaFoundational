@@ -12,10 +12,14 @@ import com.lxisoft.quiz.model.TrueOrFalseQuestion;
 *
 *@version 2.4
 *
-*Date Modified:22/4/2019
+*Date Modified:1/5/2019
 */
 public class QuestionPaper
 {
+	public QuestionPaper()
+	{
+		log.setLevel(Level.SEVERE);
+	}
 	/**
 	*This is an arraylist of questions for the user
 	*/
@@ -47,78 +51,78 @@ public class QuestionPaper
 	
 	public void setMultipleAnswerQuestion(ArrayList<MultipleAnswerQuestion> multipleAnswerQuestion)
 	{
-		log.info("QuestionPaper class.............setQuestions............start");
+		log.info("QuestionPaper class.............setMultipleAnswerQuestion............start");
 		
 		this.multipleAnswerQuestion=multipleAnswerQuestion;
 		
-		log.info("QuestionPaper class.............setQuestions............end");
+		log.info("QuestionPaper class.............setMultipleAnswerQuestion............end");
 	}
 	
 	/**
-	*This is a getter which returns the questions
+	*This is a getter which returns the multipleAnswerQuestion
 	*
-	*@return questions
+	*@return multipleAnswerQuestion
 	*/
 	
 	public ArrayList<MultipleAnswerQuestion> getMultipleAnswerQuestion()
 	{
-		log.info("QuestionPaper class.............getQuestions............start/ends");
+		log.info("QuestionPaper class.............getMultipleAnswerQuestion............start/ends");
 		
 		return multipleAnswerQuestion;
 	}
 	
 	/**
-	*This is a setter which used for set questions
+	*This is a setter which used for set multiple Choice questions
 	*
-	*@param questions - the questions to set
+	*@param multipleChoiceQuestion - the multipleChoiceQuestion to set
 	*/
 	
 	public void setMultipleChoiceQuestion(ArrayList<MultipleChoiceQuestion> multipleChoiceQuestion)
 	{
-		log.info("QuestionPaper class.............setQuestions............start");
+		log.info("QuestionPaper class.............setMultipleChoiceQuestion............start");
 		
 		this.multipleChoiceQuestion=multipleChoiceQuestion;
 		
-		log.info("QuestionPaper class.............setQuestions............end");
+		log.info("QuestionPaper class.............setMultipleChoiceQuestion............end");
 	}
 	
 	/**
-	*This is a getter which returns the questions
+	*This is a getter which returns the MultipleChoiceQuestion
 	*
-	*@return questions
+	*@return multipleChoiceQuestion
 	*/
 	
 	public ArrayList<MultipleChoiceQuestion> getMultipleChoiceQuestion()
 	{
-		log.info("QuestionPaper class.............getQuestions............start/ends");
+		log.info("QuestionPaper class.............getMultipleChoiceQuestion............start/ends");
 		
 		return multipleChoiceQuestion;
 	}
 	
 	/**
-	*This is a setter which used for set questions
+	*This is a setter which used for set the True or False questions
 	*
-	*@param questions - the questions to set
+	*@param trueOrFalseQuestion - the questions to set
 	*/
 	
 	public void setTrueOrFalseQuestion(ArrayList<TrueOrFalseQuestion> trueOrFalseQuestion)
 	{
-		log.info("QuestionPaper class.............setQuestions............start");
+		log.info("QuestionPaper class.............setTrueOrFalseQuestion............start");
 		
 		this.trueOrFalseQuestion=trueOrFalseQuestion;
 		
-		log.info("QuestionPaper class.............setQuestions............end");
+		log.info("QuestionPaper class.............setTrueOrFalseQuestion............end");
 	}
 	
 	/**
-	*This is a getter which returns the questions
+	*This is a getter which returns the True or False questions
 	*
-	*@return questions
+	*@return trueOrFalseQuestion
 	*/
 	
 	public ArrayList<TrueOrFalseQuestion> getTrueOrFalseQuestion()
 	{
-		log.info("QuestionPaper class.............getQuestions............start/ends");
+		log.info("QuestionPaper class.............getTrueOrFalseQuestion............start/ends");
 		
 		return trueOrFalseQuestion;
 	}
