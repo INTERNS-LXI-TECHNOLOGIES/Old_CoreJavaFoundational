@@ -1,7 +1,8 @@
 import java.util.*;
+import java.io.*;
 public class Movie
 {
-private String name="Taxivala";
+private String name="Lucifer";
 
 Scanner scan=new Scanner(System.in);
 
@@ -18,7 +19,7 @@ public String getName()
 return name;
 }
 
-public void playMovie()
+public void playMovie()throws Exception
 {
 System.out.println(" ");
 System.out.println("             "+getName()+"             ");
@@ -26,5 +27,7 @@ System.out.println(" ");
 System.out.println(" Story Writen By :"+writer.getName());
 System.out.println(" Produced by     :"+producer.getName());
 System.out.println(" Directed by     :"+director.getName());
+System.out.println(" ");
+writer.script();
 }
 }

@@ -1,7 +1,7 @@
 import java.util.*;
 public class Director
 {
-private String name="Sibin";
+private String name="Prithviraj";
 
 Scanner scan=new Scanner(System.in);
 
