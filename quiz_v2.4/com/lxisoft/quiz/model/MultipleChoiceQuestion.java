@@ -10,7 +10,7 @@ import com.lxisoft.quiz.model.Question;
 *
 *@version 2.4
 *
-*Date Modified:1/5/2019
+*Date Modified:21/5/2019
 */
 public class MultipleChoiceQuestion extends Question
 {
@@ -18,9 +18,9 @@ public class MultipleChoiceQuestion extends Question
 	*Reference Logger class to get log messages
 	*/
 	
-	private static final Logger log=Logger.getLogger(Question.class.getName());
+	private static final Logger log=Logger.getLogger(MultipleChoiceQuestion.class.getName());
 	/**
-	*This is an arraylist of options for the questions
+	*This is an arraylist of options for the MultipleChoiceQuestion
 	*/
 	
 	private ArrayList<String> options;
@@ -33,11 +33,11 @@ public class MultipleChoiceQuestion extends Question
 	
 	public void setOptions(ArrayList<String> options)
 	{
-		log.info("Question class.............setOptions............start");
+		log.info("MultipleChoiceQuestion class.............setOptions............start");
 		
 		this.options=options;
 		
-		log.info("Question class.............setOptions............end");
+		log.info("MultipleChoiceQuestion class.............setOptions............end");
 	}
 	
 	/**
@@ -48,7 +48,7 @@ public class MultipleChoiceQuestion extends Question
 	
 	public ArrayList<String> getOptions()
 	{
-		log.info("Question class.............getOptions............start/ends");
+		log.info("MultipleChoiceQuestion class.............getOptions............start/ends");
 		
 		
 		return options;

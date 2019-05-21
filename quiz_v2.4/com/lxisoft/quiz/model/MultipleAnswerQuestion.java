@@ -10,22 +10,26 @@ import com.lxisoft.quiz.model.Question;
 *
 *@version 2.4
 *
-*Date Modified:1/5/2019
+*Date Modified:21/5/2019
 */
 public class MultipleAnswerQuestion extends Question
 {
+	/**
+	*Reference Logger class to get log messages
+	*/
+	private static final Logger log=Logger.getLogger(MultipleAnswerQuestion.class.getName());
+	
+	/**
+	*This is the default constructor for MultipleAnswerQuestion class
+	*/
 	public MultipleAnswerQuestion()
 	{
 		log.setLevel(Level.SEVERE);
 	}
 	
-	/**
-	*Reference Logger class to get log messages
-	*/
 	
-	private static final Logger log=Logger.getLogger(Question.class.getName());
 	/**
-	*This is an arraylist of options for the questions
+	*This is an arraylist of options for the MultipleAnswerQuestion
 	*/
 	
 	private ArrayList<String> options;
@@ -38,11 +42,11 @@ public class MultipleAnswerQuestion extends Question
 	
 	public void setOptions(ArrayList<String> options)
 	{
-		log.info("Question class.............setOptions............start");
+		log.info("MultipleAnswerQuestion class.............setOptions............start");
 		
 		this.options=options;
 		
-		log.info("Question class.............setOptions............end");
+		log.info("MultipleAnswerQuestion class.............setOptions............end");
 	}
 	
 	/**
@@ -53,7 +57,7 @@ public class MultipleAnswerQuestion extends Question
 	
 	public ArrayList<String> getOptions()
 	{
-		log.info("Question class.............getOptions............start/ends");
+		log.info("MultipleAnswerQuestion class.............getOptions............start/ends");
 		
 		return options;
 	}

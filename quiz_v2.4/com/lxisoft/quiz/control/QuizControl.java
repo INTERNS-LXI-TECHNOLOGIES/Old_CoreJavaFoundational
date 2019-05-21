@@ -2,6 +2,15 @@ package com.lxisoft.quiz.control;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.logging.Level;
+/**
+*This class is the control class for quiz
+*
+*@author Arya Vineesh
+*
+*@version 2.4
+*
+*Date Modified:21/5/2019
+*/
 public class QuizControl
 {
 	

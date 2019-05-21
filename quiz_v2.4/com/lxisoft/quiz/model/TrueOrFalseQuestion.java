@@ -10,7 +10,7 @@ import com.lxisoft.quiz.model.Question;
 *
 *@version 2.4
 *
-*Date Modified:1/5/2019
+*Date Modified:21/5/2019
 */
 public class TrueOrFalseQuestion extends Question
 {

@@ -1,5 +1,7 @@
 package com.lxisoft.quiz.view;
-import com.lxisoft.quiz.view.QuestionPaperView;
+import com.lxisoft.quiz.view.MCQView;
+import com.lxisoft.quiz.view.MAQView;
+import com.lxisoft.quiz.view.TFQView;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 import java.util.*;
@@ -11,7 +13,7 @@ import java.util.*;
 *
 *@version 2.4
 *
-*Date Modified:1/5/2019
+*Date Modified:21/5/2019
 */
 public class Tdd
 {
@@ -19,7 +21,9 @@ public class Tdd
 	*Reference Logger class to get log messages
 	*/
 	private static final Logger log=Logger.getLogger(Tdd.class.getName());
-	QuestionPaperView qPView;
+	MCQView mcqView;
+	TFQView tfqView;
+	MAQView maqView;
 	
 	/**
 	*This is the constructor for Tdd
@@ -56,44 +60,68 @@ public class Tdd
 		
 		log.info("Tdd class.............loginView............end");	
 	}
-	
+	/**
+	*This method is used to select the operation performed by the admin
+	*/
 	public void adminView()
 	{
-		qPView=new QuestionPaperView();
-		System.out.println("Select the file operations:");
-		System.out.println("1.Insert\n2.Update\n3.Delete");
-		Scanner sc=new Scanner(System.in);
-		int choice=sc.nextInt();
-		switch(choice)
-		{
-			case 1:selectQuestionType();
-			break;
-			case 2:qPView.updateView();
-			break;
-			case 3:qPView.deleteView();
-			break;
-		}
-	}
-	
-	public void selectQuestionType()
-	{
+		log.info("Tdd class.............adminView............start");
 		System.out.println("Enter the type of question you want:\n");
 		System.out.println("1.MultipleChoiceQuestion\n2.MultipleAnswerQuestion\n3.TrueOrFalseQuestion\n");
 		System.out.println("select your choice:\n");
 		Scanner sc=new Scanner(System.in);
 		int choice=sc.nextInt();
-		qPView=new QuestionPaperView();
 		switch(choice)
 		{
-			case 1:qPView.enterMultipleChoiceQuestions();
-					break;
-			case 2:qPView.enterMultipleAnswerQuestions();
-					break;
-			case 3:qPView.enterTrueOrFalseQuestion();
-					break;
+			case 1:mcqView=new MCQView();
+					System.out.println("Select your operation:");
+					System.out.println("1.Insert\n2.Update\n3.Delete");
+					int select=sc.nextInt();
+					switch(select)
+					{
+						case 1:mcqView.enterMultipleChoiceQuestions();
+						break;
+						case 2:mcqView.updateView();
+						break;
+						case 3:mcqView.deleteView();
+						break;
+					}
+			break;
+			case 2:maqView=new MAQView();
+					System.out.println("Select your operation:");
+					System.out.println("1.Insert\n2.Update\n3.Delete");
+					int select2=sc.nextInt();
+					switch(select2)
+					{
+						case 1:maqView.enterMultipleAnswerQuestions();
+						break;
+						case 2:maqView.updateView();
+						break;
+						case 3:maqView.deleteView();
+						break;
+					}
+			break;
+			case 3:tfqView=new TFQView();
+					System.out.println("Select your operation:");
+					System.out.println("1.Insert\n2.Update\n3.Delete");
+					int select3=sc.nextInt();
+					switch(select3)
+					{
+						case 1:tfqView.enterTrueOrFalseQuestion();
+						break;
+						case 2:tfqView.updateView();
+						break;
+						case 3:tfqView.deleteView();
+						break;
+					}
+			break;
 		}
+		log.info("Tdd class.............adminView............end");
 	}
 	
+	/**
+	*This method is used for user view of the quiz
+	*/
 	public void userView()
 	{
 		log.info("Tdd class.............userView............start");
@@ -109,23 +137,25 @@ public class Tdd
 		System.out.println("1.MultipleChoiceQuestion\n2.MultipleAnswerQuestion\n3.TrueOrFalseQuestion\n");
 		System.out.println("select your choice:\n");
 		int k=sc.nextInt();
-		qPView=new QuestionPaperView();
 		switch(k)
 		{
-			case 1:qPView.displayMultipleChoiceQuestions();
+			case 1:mcqView=new MCQView();
+					mcqView.displayMultipleChoiceQuestions();
 					break;
-			case 2:qPView.displayMultipleAnswerQuestions();
+			case 2:maqView=new MAQView();
+					maqView.displayMultipleAnswerQuestions();
 					break;
-			case 3:qPView.displayTrueOrFalseQuestions();
+			case 3:tfqView=new TFQView();
+					tfqView.displayTrueOrFalseQuestion();
 					break;
 		}
 		
 		log.info("Tdd class.............userView............end");
 	}
 	
-	
-	
-	
+	/**
+	*this is the main method
+	*/
 	public static void main(String arg[])
 	{
 		Tdd t= new Tdd();

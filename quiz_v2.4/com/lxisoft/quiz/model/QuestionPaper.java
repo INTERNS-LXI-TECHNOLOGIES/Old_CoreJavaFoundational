@@ -1,6 +1,7 @@
 package com.lxisoft.quiz.model;
 import java.util.*;
 import java.util.logging.*;
+import java.util.logging.Level;
 import com.lxisoft.quiz.model.Question;
 import com.lxisoft.quiz.model.MultipleAnswerQuestion;
 import com.lxisoft.quiz.model.MultipleChoiceQuestion;
@@ -12,31 +13,10 @@ import com.lxisoft.quiz.model.TrueOrFalseQuestion;
 *
 *@version 2.4
 *
-*Date Modified:1/5/2019
+*Date Modified:21/5/2019
 */
 public class QuestionPaper
 {
-	public QuestionPaper()
-	{
-		log.setLevel(Level.SEVERE);
-	}
-	/**
-	*This is an arraylist of questions for the user
-	*/
-	
-	private ArrayList<MultipleAnswerQuestion> multipleAnswerQuestion;
-	
-	/**
-	*This is an arraylist of questions for the user
-	*/
-	
-	private ArrayList<MultipleChoiceQuestion> multipleChoiceQuestion;
-	
-	/**
-	*This is an arraylist of questions for the user
-	*/
-	
-	private ArrayList<TrueOrFalseQuestion> trueOrFalseQuestion;
 	/**
 	*Reference Logger class to get log messages
 	*/
@@ -44,9 +24,37 @@ public class QuestionPaper
 	private static final Logger log=Logger.getLogger(QuestionPaper.class.getName());
 	
 	/**
-	*This is a setter which used for set questions
+	*This is the default constructor of the QuestionPaper class
+	*/
+	public QuestionPaper()
+	{
+		log.setLevel(Level.SEVERE);
+	}
+	
+	/**
+	*This is an arraylist of multiple answer questions for the user
+	*/
+	
+	private ArrayList<MultipleAnswerQuestion> multipleAnswerQuestion;
+	
+	/**
+	*This is an arraylist of multiple choice questions for the user
+	*/
+	
+	private ArrayList<MultipleChoiceQuestion> multipleChoiceQuestion;
+	
+	/**
+	*This is an arraylist of true or false questions for the user
+	*/
+	
+	private ArrayList<TrueOrFalseQuestion> trueOrFalseQuestion;
+	
+	
+	
+	/**
+	*This is a setter which used for setting multiple answer questions
 	*
-	*@param questions - the questions to set
+	*@param multipleAnswerQuestion - the questions to set
 	*/
 	
 	public void setMultipleAnswerQuestion(ArrayList<MultipleAnswerQuestion> multipleAnswerQuestion)

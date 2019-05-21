@@ -9,7 +9,7 @@ import java.util.logging.*;
 *
 *@version 2.4
 *
-*Date Modified:1/5/2019
+*Date Modified:21/5/2019
 */
 public class Question
 {
@@ -25,6 +25,9 @@ public class Question
 	
 	private String question;
 	
+	/**
+	*This is the set of answers to the question
+	*/
 	private String[] answers;
 	
 	/**
@@ -32,8 +35,6 @@ public class Question
 	*/
 	
 	private String answer;
-	
-	
 	
 	/**
 	*Reference Logger class to get log messages
@@ -49,7 +50,9 @@ public class Question
 	
 	public void setQuestionId(String questionId)
 	{
+		log.info("Question class.............setQuestionId............start");
 		this.questionId=questionId;
+		log.info("Question class.............setQuestionId............ends");
 	}
 	
 	/**
@@ -60,6 +63,7 @@ public class Question
 	
 	public String toString()
 	{
+		log.info("Question class.............toString............start/ends");
 		return questionId;
 	}
 	
@@ -108,7 +112,7 @@ public class Question
 	/**
 	*This is a getter which returns the answer
 	*
-	*@return answer
+	*@return answer - the answer to the question
 	*/
 	
 	public String getAnswer()
@@ -117,13 +121,26 @@ public class Question
 		return answer;
 	}
 	
+	/**
+	*This is a setter used to set answers
+	*
+	*@param answers - the answers to the question
+	*/
 	public void setAnswers(String[] answers)
 	{
+		log.info("Question class.............setAnswers............start");
 		this.answers=answers;
+		log.info("Question class.............setAnswers............end");
 	}
 	
+	/**
+	*This is a getter which returns answers to the question
+	*
+	*@return answers - the answers to the questions
+	*/
 	public String[] getAnswers()
 	{
+		log.info("Question class.............getAnswers............start/end");
 		return answers;
 	}
 	
