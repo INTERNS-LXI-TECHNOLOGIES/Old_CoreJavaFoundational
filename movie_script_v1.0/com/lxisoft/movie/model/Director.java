@@ -9,7 +9,7 @@ import java.util.logging.*;
 *
 *@version v1.0
 *
-*Date Modified:21/05/2019
+*Date Modified:22/05/2019
 */
 public class Director
 {
@@ -23,4 +23,27 @@ public class Director
 	*This is used as the name of the Director
 	*/
 	private String name;
+	
+	/**
+	*This method is used to set the name of the Director
+	*
+	*@param name - the name to be set
+	*/
+	public void setName(String name)
+	{
+		log.info("Director class.............setName............start");
+		this.name=name;
+		log.info("Director class.............setName............end");
+	}
+	
+	/**
+	*This method is to get the name of the Director
+	*
+	*@return name
+	*/
+	public String getName()
+	{
+		log.info("Director class.............getName............start/end");
+		return name;
+	}
 }

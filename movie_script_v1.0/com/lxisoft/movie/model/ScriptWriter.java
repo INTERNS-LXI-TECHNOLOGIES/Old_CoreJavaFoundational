@@ -9,7 +9,7 @@ import java.util.logging.*;
 *
 *@version v1.0
 *
-*Date Modified:21/05/2019
+*Date Modified:22/05/2019
 */
 public class ScriptWriter
 {
@@ -18,4 +18,48 @@ public class ScriptWriter
 	*/
 	
 	private static final Logger log=Logger.getLogger(ScriptWriter.class.getName());
+	
+	/**
+	*This is used to represent the name of the script writer 
+	*/
+	private String name;
+	
+	/**
+	*This is the reference to the Movie Script
+	*/
+	private MovieScript movieScript;
+	
+	/**
+	*This method is used to set the name of the script writer
+	*
+	*@param name - the name to be set
+	*/
+	public void setName(String name)
+	{
+		log.info("ScriptWriter class.............setName............start");
+		this.name=name;
+		log.info("ScriptWriter class.............setName............end");
+	}
+	
+	/**
+	*This method is to get the name of the script writer
+	*
+	*@return name
+	*/
+	public String getName()
+	{
+		log.info("ScriptWriter class.............getName............start/end");
+		return name;
+	}
+	
+	public void setMovieScript(MovieScript movieScript)
+	{
+		this.movieScript=movieScript;
+	}
+	
+	
+	public MovieScript getMovieScript()
+	{
+		return movieScript;
+	}
 }
