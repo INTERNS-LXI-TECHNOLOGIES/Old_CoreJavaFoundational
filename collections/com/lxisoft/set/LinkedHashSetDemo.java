@@ -1,18 +1,18 @@
 package com.lxisoft.set;
 import java.util.*;
-public class HashSetDemo
+public class LinkedHashSetDemo
 {
-HashSet<String> programmingLanguages = new HashSet<String>();
+LinkedHashSet<String>programmingLanguages = new LinkedHashSet<String>();
 
 	Scanner scan=new Scanner(System.in);
-	
-		public void setOperations()
+	public void setOperations()
 		{
-		    int x,choice; 
+		    int x,choice;
+			
 			do
 			{
 				System.out.println("----------------------------------------------------------------");
-				System.out.println("                      HASHSET OPERATIONS                        ");
+				System.out.println("                     LINKEDHASHSET OPERATIONS                        ");
 				System.out.println("----------------------------------------------------------------");
 			    System.out.println("1.ADD");
 				System.out.println("2.DISPLAY");
@@ -45,7 +45,7 @@ HashSet<String> programmingLanguages = new HashSet<String>();
 		
 		public void add()
 		{
-		  int num;
+		int num;
 		  
 	    System.out.println(" ");
         System.out.print("No.of Items you want to add..?:");
@@ -73,7 +73,6 @@ HashSet<String> programmingLanguages = new HashSet<String>();
             System.out.println(programmingLanguage);
         }
 		}
-		
 		public void delete()
 		{
 			System.out.print("Which item do you want to delete...? :");
@@ -82,13 +81,11 @@ HashSet<String> programmingLanguages = new HashSet<String>();
 			System.out.println("Item deleted");
 			System.out.println(" ");
 		}
-			
-			public void sort()
+		public void sort()
 			{
-				List<String> list =new ArrayList<String>(programmingLanguages);
-                System.out.println(" ");
-				Collections.sort(list);
-				System.out.println("Elements in sorted order : "+list);
+				TreeSet<String> treeSet = new TreeSet<String>(programmingLanguages);
+				System.out.println(" ");
+				System.out.println("Elements in sorted order : "+treeSet);
 			}
 			
 			public void update()
@@ -103,18 +100,6 @@ HashSet<String> programmingLanguages = new HashSet<String>();
 				System.out.print("Type here to update : ");
 				ele=scan.next();
 				ls.set(index,ele);
-				
-				/*for(int i=0;i<ls.size();i++)
-				{
-					
-					if(ele.equals(ls))
-					{
-						System.out.print("Type here to update : ");
-						item=scan.next();
-						ls.set(i,item);
-					}
-				}*/
-				
 				System.out.println(" ");
 				System.out.println("        MODIFIED PROGRAMMING LANGUAGES         ");
 				System.out.println("-----------------------------------------------");
@@ -123,6 +108,4 @@ HashSet<String> programmingLanguages = new HashSet<String>();
 					System.out.println(ls.get(i));
 				}
 			}
-		
-			
-		}
+			}
