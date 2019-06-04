@@ -6,6 +6,10 @@ public class Sort implements Comparator<T>
 {
 	public int compare(T data,T data1)	
 	{
-		return T.data.compareTo(T.data1);
+		for(int i=0;i<arrayList.size();i++)
+		{
+		int j=i+1;
+		return arrayLi.get(i).compareTo(arrayList.get(j));
+		}
 	}
-}*/                 
+} */                
