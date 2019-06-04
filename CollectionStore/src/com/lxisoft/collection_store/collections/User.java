@@ -8,7 +8,7 @@ package com.lxisoft.collection_store.collections;
  *
  */
 public class User {
-	public int id;
+	public Integer id;
 	public String name;
 	public User(int id, String name) {
 		
@@ -16,12 +16,12 @@ public class User {
 		this.name = name;
 	}
 	public User() {
-		// TODO Auto-generated constructor stub
+		
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {

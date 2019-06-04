@@ -3,10 +3,10 @@
  */
 package com.lxisoft.collection_store.collections;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -14,25 +14,25 @@ import java.util.ListIterator;
  * @author anish
  *
  */
-public class ArrayListStore<T> implements CollectionRepository<T> {
+public class LinkedListStore<T> implements CollectionRepository<T> {
+
 	private Class<T> type;
 	private String fieldName = "id";
-	List<T> arrayList = new ArrayList<>();
-
-	public ArrayListStore(Class<T> type) {
+	List<T> linkedList = new LinkedList<T>();
+	
+	public LinkedListStore(Class<T> type) {
 		this.type = type;
 	}
-
 	@Override
 	public void create(T value) {
-		arrayList.add(value);
+		linkedList.add(value);
 	}
 
 	@Override
 	public Collection<T> readAll() {
-		return arrayList;
+		return linkedList;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private void sort(List<T> list) {
 		try {
@@ -49,16 +49,11 @@ public class ArrayListStore<T> implements CollectionRepository<T> {
 	}
 	
 	@Override
-	public void sort() {
-		sort(arrayList);
-	}
-
-	@Override
 	public void sort(String fieldName) {
 		if (this.fieldName != null) {
 			this.fieldName = fieldName;
 		}
-		Collections.sort(arrayList, (a, b) -> {
+		Collections.sort(linkedList, (a, b) -> {
 			try {
 				if (type.getDeclaredField(this.fieldName).getType().toString().equals("class java.lang.String")) {
 					try {
@@ -90,24 +85,31 @@ public class ArrayListStore<T> implements CollectionRepository<T> {
 
 	@Override
 	public void delete(T element) {
-		arrayList.remove(element);
-
+		linkedList.remove(element);
+		
 	}
 
 	@Override
 	public void delete(int index) {
-		arrayList.remove(index);
-
+		linkedList.remove(index);
+		
 	}
 
 	@Override
 	public void update(int index, T element) {
-		arrayList.set(index, element);
+		linkedList.set(index, element);
+		
 	}
 
 	@Override
 	public void update(T element0, T element1) {
-		arrayList.set(arrayList.indexOf(element0), element1);
+		linkedList.set(linkedList.indexOf(element0), element1);
+		
+	}
+	@Override
+	public void sort() {
+		sort(linkedList);
+		
 	}
 
 }
