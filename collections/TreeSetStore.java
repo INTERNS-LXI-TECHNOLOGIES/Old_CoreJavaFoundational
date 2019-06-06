@@ -26,6 +26,6 @@ public class TreeSetStore<T> implements CollectionRepository<T>
 	}
 	public void sort()
 	{
-		
+		System.out.println(treeSet);
 	}
 }

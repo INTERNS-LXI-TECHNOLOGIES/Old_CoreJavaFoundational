@@ -1,34 +1,34 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.io.*;
-public class HashSetStore<T> implements CollectionRepository<T>
+public class LinkedHashSetStore<T> implements CollectionRepository<T>
 {
-	Set<T> hashSet = new HashSet<>();
+	Set<T> linkedHashSet = new LinkedHashSet<>();
 	public void create(T data)
 	{
-		hashSet.add(data);
+		linkedHashSet.add(data);
 	}
 	public Collection<T> read()
 	{
-		return hashSet;
+		return linkedHashSet;
 	}	
 	public void update(T data,T data1)
 	{
-		if(hashSet.contains(data))
+		if(linkedHashSet.contains(data))
 		{
-			hashSet.remove(data);
-			hashSet.add(data1);
+			linkedHashSet.remove(data);
+			linkedHashSet.add(data1);
 		}
 	}
 	public void delete(T data)
 	{
-		hashSet.remove(data);
+		linkedHashSet.remove(data);
 	}
 	public void sort()
 	{
 		//List<T> list=new ArrayList<T>(hashSet);
 		//Collections.sort(list);
-		TreeSet<T> treeSet=new TreeSet<T>(hashSet);
+		TreeSet<T> treeSet=new TreeSet<T>(linkedHashSet);
 		System.out.println(treeSet);
 	}
 }

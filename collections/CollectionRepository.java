@@ -9,3 +9,4 @@ public	void update(T data,T data1);
 public	void delete(T data);
 public	void sort();
 }
+
