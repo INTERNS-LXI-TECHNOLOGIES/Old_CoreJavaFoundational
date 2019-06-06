@@ -14,19 +14,18 @@ public class TreeSetStore<T> implements CollectionRepository<T>
 	}
 	public void update(T data,T data1)
 	{
-		for(int i=0;i<treeSet.size();i++)
+		if(treeSet.contains(data))
 		{
-			if(data.equals(treeSet.get(i)))
-			{
-				treeSet.set(i,data1);
-				
-			}
+			treeSet.remove(data);
+			treeSet.add(data1);
 		}
 	}
 	public void delete(T data)
 	{
+		treeSet.remove(data);
 	}
 	public void sort()
 	{
+		
 	}
 }

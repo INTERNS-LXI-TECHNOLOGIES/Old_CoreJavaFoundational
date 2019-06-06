@@ -14,9 +14,15 @@ public class HashSetStore<T> implements CollectionRepository<T>
 	}	
 	public void update(T data,T data1)
 	{
+		if(hashSet.contains(data))
+		{
+			hashSet.remove(data);
+			hashSet.add(data1);
+		}
 	}
 	public void delete(T data)
 	{
+		hashSet.remove(data);
 	}
 	public void sort()
 	{

@@ -5,7 +5,9 @@ public class Tdd
 	public static void main(String[] args)
 	{
 	CollectionRepository<String>  c=new TreeSetStore<String>();
-	//Interns i=new Intern("Pavana");
+	//CollectionRepository<Interns>  c=new ArrayListStore<Interns>();
+	//CollectionRepository<Integer>  c=new ArrayListStore<Integer>();
+	//Interns i=new Interns("Pavana");
 	c.create("Pavana");
 	c.create("Sanjana");
 	c.create("Greeshma");
