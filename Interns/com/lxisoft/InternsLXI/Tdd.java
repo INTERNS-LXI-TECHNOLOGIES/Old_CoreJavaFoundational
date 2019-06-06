@@ -4,8 +4,13 @@ public class Tdd{
 
 	public static void main(String[] args){
 
-	ArrayListStore store = new ArrayListStore();
-	store.create();
-	store.read();
+	// ArrayListStore alstore = new ArrayListStore();
+	// alstore.display();
+	CollectionRepository<String> hsstore = new HashSetStore<String>();
+	//CollectionRepository<String> hsstore = new TreeSetStore<String>();
+	hsstore.create("sree");
+	hsstore.create("anu");
+	hsstore.read();
+
 	}
 }
