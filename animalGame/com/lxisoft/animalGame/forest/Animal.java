@@ -1,14 +1,16 @@
 package com.lxisoft.animalGame.forest;
+public abstract class Animal
 
-public  class Animal
 {
     private String name;
 	private int strength,locationX,locationY;
-	
+
+	public abstract void  eat();
 	
 	public void setLocationX()
 	{
-		//this.locationX=location;
+
+
 		this.locationX=(int)(Math.random()*30);
 	}
 	public int getLocationX()

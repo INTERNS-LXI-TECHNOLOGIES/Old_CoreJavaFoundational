@@ -7,6 +7,7 @@ public class Forest
    ArrayList<Animal> animal=new ArrayList();
 	 public void detailsOfAnimal()
 		{
+
 		int x=1,y=1,z=1,o=1;
 		for(int i=0;i<3;i++,x++)
 				{
@@ -47,7 +48,7 @@ public void fight()
 int animal1,animal2;
 for(int j=1,w=1;j<animal.size();w++)
 {
-	System.out.println("round"+w);
+
 	for(int i=0;i<animal.size();i++)
 {
 	
@@ -94,11 +95,19 @@ for(int j=1,w=1;j<animal.size();w++)
 							  
 			if(animal.get(animal1).getStrength()>animal.get(animal2).getStrength())
 				 {
+
+					 
 					System.out.println(""+animal.get(animal1).getName()+" kills "+animal.get(animal2).getName());
 					System.out.println("location a1 x"  +animal.get(animal1).getLocationX()+"y"  +animal.get(animal1).getLocationY());
 					System.out.println("location a2 x"  +animal.get(animal2).getLocationX()+"y"  +animal.get(animal2).getLocationY());
+				
+				if(animal.get(animal1) instanceof Herbivorous)
+					{
+					animal.get(animal1).eat();
+					((Herbivorous)animal.get(animal1)).luck();
+					}
 					animal.remove(animal.get(animal2));
-					//System.out.println(animal.get(animal2));
+
 					System.out.println("...................................");
 				
 				 }  
@@ -119,6 +128,8 @@ for(int j=1,w=1;j<animal.size();w++)
 for(Animal a:animal)
 {
  System.out.println(a.getName());
+
  }               
+
 }
 }
