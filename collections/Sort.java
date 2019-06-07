@@ -2,9 +2,9 @@
 import java.util.*;
 import java.lang.*;
 import java.io.*;
-public class Sort implements Comparator<ArrayListStore>
+public class Sort<T> implements Comparator<T>
 {
-	public int compare(ArrayListStore data1,ArrayListStore data2)	
+	public int compare(T data1,T data2)	
 	{
 		return data1.compareTo(data2);
 	}

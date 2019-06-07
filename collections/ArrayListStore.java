@@ -34,6 +34,6 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 	}
 	public void sort()
 	{
-	//System.out.println(Collections.sort(arrayList));
+	//System.out.println(new Sort());
 	}
 }

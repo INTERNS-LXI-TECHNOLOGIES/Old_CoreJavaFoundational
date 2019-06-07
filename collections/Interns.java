@@ -11,7 +11,7 @@ public class Interns
 	{
 		return name;
 	}
-	/*public boolean equals(Object o)
+	public boolean equals(Object o)
 	{
 		return this.name.equals(((Interns)o).name);
 		
@@ -20,8 +20,5 @@ public class Interns
 	{
 		return name.hashCode();
 	}
-	public int compareTo(List<Interns> arrayList)
-	{
-		return this.name.compareTo(arrayList.name);
-	}*/
+
 }
