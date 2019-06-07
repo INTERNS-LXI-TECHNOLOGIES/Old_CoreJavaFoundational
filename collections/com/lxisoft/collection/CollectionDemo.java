@@ -5,6 +5,7 @@ public class CollectionDemo
 {
 HashSetDemo ha=new HashSetDemo();
 LinkedHashSetDemo lh=new LinkedHashSetDemo();
+TreeSetDemo tr=new TreeSetDemo();
 Scanner scan=new Scanner(System.in);
 public void setOptions()
 {
@@ -15,15 +16,19 @@ public void setOptions()
 			System.out.println(" ");
 			System.out.println("1.HASHSET ");
 			System.out.println("2.LINKEDHASHSET ");
+			System.out.println("3.TREESET ");
 			System.out.println(" ");
 			System.out.print("Enter your choice:");
 			    choice=scan.nextInt();
+4				
 				
 				 switch(choice)
 			  {
 				 case 1:ha.setOperations();
 				 break;
 				 case 2:lh.setOperations();
+				 break;
+				 case 3:tr.setOperations();
 				 break;
 				  default:System.out.println("Invalid choice made...please try again...!!!");
 			
