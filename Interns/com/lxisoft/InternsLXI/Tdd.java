@@ -6,11 +6,18 @@ public class Tdd{
 
 	// ArrayListStore alstore = new ArrayListStore();
 	// alstore.display();
-	CollectionRepository<String> hsstore = new HashSetStore<String>();
+	CollectionRepository<String> hsstore = new LinkedListStore<String>();
 	//CollectionRepository<String> hsstore = new TreeSetStore<String>();
 	hsstore.create("sree");
 	hsstore.create("anu");
+	hsstore.create("tara");
+	hsstore.create("vidya");
 	hsstore.read();
+	hsstore.update("sree","manu");
+	hsstore.delete("anu");
+	hsstore.sort();
+	//hsstore.compare("manu","anu","tara","vidya");
+
 
 	}
 }

@@ -1,5 +1,6 @@
 package com.lxisoft.InternsLXI;
 import java.util.*;
+import java.io.*;
 public class HashSetStore<T> implements CollectionRepository<T>{
 
 String data;
@@ -9,22 +10,30 @@ public void create(T data){
 	hs.add(data);
 }
 public void read(){
-	Iterator itr = hs.iterator();
-
-	while (itr.hasNext()){
-	System.out.println(itr.next());
-
+	System.out.println(hs);
+}
+public void update(T data,T data1){
+	if(hs.contains(data)){
+	    hs.remove(data);
+	    hs.add(data1);
+	    System.out.println(hs);
 }
 }
-public void update(){
-
-}  
-public void delete(){
+public void delete(T data){
+	if(hs.contains(data)){
+		hs.remove(data);
+		System.out.println(hs);
+	}
 
 }
 public void sort(){
+	TreeSet<T> list =new TreeSet<T>(hs);
+    System.out.println(list);           
 
 }
+// public int compareTo(){
+
+// }
 
 
 }

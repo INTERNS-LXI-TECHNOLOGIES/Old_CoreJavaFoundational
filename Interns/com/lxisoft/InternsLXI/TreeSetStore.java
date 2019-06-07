@@ -1,32 +1,38 @@
-// package com.lxisoft.IntersLXI;
-// import java.util.*;
-// import java.io.*;
-// public class TreeSetStore<T> implements CollectionRepository<T>{
+package com.lxisoft.InternsLXI;
+import java.util.*;
+import java.io.*;
+public class TreeSetStore<T> implements CollectionRepository<T>{
 
-// String data;
-// Set<T> ts = new TreeSet<T>();
+String data;
+Set<T> ts = new TreeSet<T>();
 
-// public void create(T data){
-// 	ts.add(data);
+public void create(T data){
+	ts.add(data);
+}
+public void read(){
+	System.out.println(ts);
+}
+public void update(T data,T data1){
+	if(ts.contains(data)){
+	    ts.remove(data);
+	    ts.add(data1);
+	    System.out.println(ts);
+}
+}
+public void delete(T data){
+	if(ts.contains(data)){
+		ts.remove(data);
+		System.out.println(ts);
+	}
+
+}
+public void sort(){
+    System.out.println(ts);           
+
+}
+// public int compareTo(){
+
 // }
-// public void read(){
-// 	Iterator itr = hs.iterator();
 
-// 	while (itr.hasNext()){
-// 	System.out.println(itr.next());
 
-// }
-// }
-// public void add(){
-
-// }
-// public void update(){
-
-// }  
-// public void delete(){
-
-// }
-// public void sort(){
-
-// }
-// }
+}

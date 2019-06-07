@@ -1,10 +1,9 @@
 package com.lxisoft.InternsLXI;
 import java.util.*;
-//import java.util.Comparator;
-import java.util.concurrent.CopyOnWriteArrayList;
-public class ArrayListStore<T> implements CollectionRepository<T>{
+import java.util.concurrent.*;
+public class LinkedListStore<T> implements CollectionRepository<T>{
 
-List<T> as = new CopyOnWriteArrayList<T>();
+List<T> as = new LinkedList<T>();
 
 public void create(T data){
 	as.add(data);
@@ -39,10 +38,11 @@ public void sort(){
 //     return data.compareTo(data1);
 // } 
 // public String toString(){
-
+ 
 //     return data;
 // }
 
 }
+
 
 
