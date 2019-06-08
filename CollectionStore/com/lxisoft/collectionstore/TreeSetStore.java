@@ -4,16 +4,14 @@ import java.lang.*;
 
 public class TreeSetStore<T> implements CollectionRepository<T>
 {
-	Set <T> treeSet =new TreeSet <T>(new IdComparator());
+	Set <T> treeSet =new TreeSet <T>(new NameComparator());
 	private Comparator comparator;
 
 	public void create(T user)
 	{
-		try{treeSet.add(user);
+		treeSet.add(user);
 
-			}
-		catch(ClassCastException e)
-		{}
+	
 	}
 
 	public Collection<T> read()
@@ -72,6 +70,8 @@ public class TreeSetStore<T> implements CollectionRepository<T>
 		}
 		treeSet.remove(userRemove);
 	}
+
+	// public void sort()
 
 
 }

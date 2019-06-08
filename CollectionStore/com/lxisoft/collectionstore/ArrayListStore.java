@@ -20,14 +20,16 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 	}
 	
 
-	public void update(int index, T user)
+	public void update(int id, T user)
 	{
-
-		arrayList.set(index,user);
-		Iterator<T> itr=arrayList.iterator();
-		while(itr.hasNext())
+		for(int i=0;i<arrayList.size()-1;i++)
 		{
-			System.out.println("\nAfter Updation"+itr.next());
+			if(((User)arrayList.get(i)).getId()==id)
+			{
+				System.out.println("ID"+((User)arrayList.get(i)).getId());
+				arrayList.remove((User)arrayList.get(i));
+				arrayList.add(user);
+			}
 		}
 	}
 
@@ -35,45 +37,72 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 	{
 		int index=arrayList.indexOf(user); 
 		arrayList.set(index,user1);
-		
-		Iterator<T> itr=arrayList.iterator();
-		while(itr.hasNext())
-		{
-			System.out.println("\nAfter Updation2"+itr.next());
-		}
+	
 	}
 
 	public void delete(T user)
 	{
 		int index=arrayList.indexOf(user);
 		arrayList.remove(index);
-
-		Iterator<T> itr=arrayList.iterator();
-		while(itr.hasNext())
-		{
-			System.out.println("\nAfter Deletion"+itr.next());
-		}
 	}
 
-	// public void deleteStore(int id)
-	// {
-	// 	arrayList.remove(id);
-	// 	Iterator<T> itr=arrayList.iterator();
-	// 	while(itr.hasNext())
-	// 	{
-	// 		System.out.println("\nAfter deletion"+itr.next());
-	// 	}
-	// }
+	public void delete(int id)
+	{
+		for(int i=0;i<arrayList.size();i++)
+		{
+			if(((User)arrayList.get(i)).getId()==id)
+			{
+				arrayList.remove((User)arrayList.get(i));
+			}
+
+		}
+	
+		
+	}
 public void sort(String value)
 {
 		if (value=="Id")
 		{
-			this.comparator=new IdComparator();
-	
+			comparator=new IdComparator();
+			System.out.println("Id Sorting");
+			for(int i=0;i<arrayList.size();i++)
+			{
+			for(int j = i+1; j <arrayList.size(); j++) 
+			{
+				
+				// System.out.println("Getting"+(i+1));
+				User u1 = (User)arrayList.get(i);
+				User u2 = (User)arrayList.get(j);
+
+				if(comparator.compare(u1,u2)<0) 
+				{
+
+					arrayList.set(j ,(T) u1);
+					arrayList.set(i , (T)u2);
+				}
+
+			} 
+			}
 		}
 		else 
 			{ 
-				this.comparator=new NameComparator();
+				comparator=new NameComparator();
+				//System.out.println("Name Based Sorting");
+				for(int i=0;i<arrayList.size();i++)
+					{
+						for(int j=i+1;j<arrayList.size();j++)
+						{
+							User u1=(User)arrayList.get(i);
+							User u2=(User)arrayList.get(j);		
+						
+							if(comparator.compare(u1,u2)>0)
+							{
+								arrayList.set(j,(T)u1);
+								arrayList.set(i,(T)u2);
+							}
+						}
+					}
+
 			}
 
 }

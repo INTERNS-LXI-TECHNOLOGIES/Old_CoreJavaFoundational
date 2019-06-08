@@ -34,6 +34,5 @@ public class User
 		return "ID :"+this.id+":"+"Name :"+this.name;
 
 	}
-
-
+	
 }
