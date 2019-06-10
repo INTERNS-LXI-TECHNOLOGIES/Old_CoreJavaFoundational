@@ -1,4 +1,6 @@
 package com.lxisoft.InternsLXI;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.*;
 import java.io.*;
 public class HashSetStore<T> implements CollectionRepository<T>{
@@ -31,9 +33,6 @@ public void sort(){
     System.out.println(list);           
 
 }
-// public int compareTo(){
-
-// }
 
 
 }

@@ -6,7 +6,7 @@ public class Tdd{
 
 	// ArrayListStore alstore = new ArrayListStore();
 	// alstore.display();
-	CollectionRepository<String> hsstore = new LinkedListStore<String>();
+	CollectionRepository<String> hsstore = new PriorityQueueStore<String>();
 	//CollectionRepository<String> hsstore = new TreeSetStore<String>();
 	hsstore.create("sree");
 	hsstore.create("anu");
