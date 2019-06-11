@@ -8,7 +8,6 @@ PriorityQueue<T> queue=new PriorityQueue<T>();
 
 public void create(T data){
 	queue.add(data);
-	
 }
 public void read(){
 	System.out.println(queue);
@@ -29,13 +28,11 @@ public void delete(T data){
 
 }
 public void sort(){
-	Comparator<Intern> internsNameComparator = new Comparator<Intern>() {
-            @Override
-            public int compare(Intern data, Intern data1) {
-                return data.compareTo(data1);
-            }
-        };
-
-System.out.println("\nInterns (Sorted by Name) : " + queue);
+	
+ 	T sorted;
+ 	while((sorted = queue.poll())!=null){
+ 	System.out.println(sorted);
+	}	 
 } 
-}  
+
+}

@@ -22,6 +22,9 @@ public void update(T data,T data1){
 		}
 	System.out.println(as);
 }
+public void update(){
+	
+}
 public void delete(T data){
 	Iterator<T> itr=as.iterator();
 		while(itr.hasNext()){

@@ -8,6 +8,7 @@ List<T> as = new LinkedList<T>();
 public void create(T data){
 	as.add(data);
 }
+
 public void read(){
 	System.out.println(as);
 } 

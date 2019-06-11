@@ -6,17 +6,18 @@ public class Tdd{
 
 	// ArrayListStore alstore = new ArrayListStore();
 	// alstore.display();
-	CollectionRepository<String> hsstore = new PriorityQueueStore<String>();
-	//CollectionRepository<String> hsstore = new TreeSetStore<String>();
-	hsstore.create("sree");
-	hsstore.create("anu");
-	hsstore.create("tara");
-	hsstore.create("vidya");
-	hsstore.read();
-	hsstore.update("sree","manu");
-	hsstore.delete("anu");
-	hsstore.sort();
-	//hsstore.compare("manu","anu","tara","vidya");
+	CollectionRepository<Intern> store = new PriorityQueueStore<Intern>();
+	Intern intern1=new Intern("Ammu");
+	Intern intern2=new Intern("Mithya");
+	Intern intern3=new Intern("Pavana");
+	Intern intern4=new Intern("Bhavana");
+	store.create(intern1);
+	store.create(intern2);
+	store.create(intern3);
+	store.read();
+	store.update(intern1,intern4);
+	store.delete(intern2);
+	store.sort();
 
 
 	}

@@ -6,5 +6,4 @@ public void read();
 public void update(T data,T data1);
 public void delete(T data);
 public void sort();
-//public int compareTo(T data,T data1);
 }

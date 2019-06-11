@@ -19,6 +19,9 @@ public void update(T data,T data1){
 	    System.out.println(lhs);
 }
 }
+public void update(){
+	
+}
 public void delete(T data){
 	if(lhs.contains(data)){
 		lhs.remove(data);

@@ -21,6 +21,9 @@ public void update(T data,T data1){
 	    System.out.println(hs);
 }
 }
+public void update(){
+	
+}
 public void delete(T data){
 	if(hs.contains(data)){
 		hs.remove(data);
@@ -29,6 +32,7 @@ public void delete(T data){
 
 }
 public void sort(){
+	//no method found for sort
 	TreeSet<T> list =new TreeSet<T>(hs);
     System.out.println(list);           
 
