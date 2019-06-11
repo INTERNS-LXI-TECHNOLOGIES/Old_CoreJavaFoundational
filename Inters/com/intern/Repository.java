@@ -8,6 +8,6 @@ public interface Repository<T>
 	public void update(T element,T element1);
 	public void delete(T element);
 	public void delete(int index);
-	//public void sort();
+	public void sort(String name);
 	public void sort();
 }

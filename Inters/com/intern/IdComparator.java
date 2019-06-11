@@ -9,7 +9,7 @@ public class IdComparator implements Comparator
 
        if(in1.getId()==in2.getId())
         return 0;
-        else if(in1.getId()>in2.getId())
+        else if(in1.getId()<in2.getId())
             return 1;
         else
             return -1;

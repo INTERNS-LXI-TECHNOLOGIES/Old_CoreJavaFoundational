@@ -40,15 +40,16 @@ public class HashSetStore<T> implements Repository<T>
 		{
 			hashSet.remove(index);
 		}
-		public void sort()
+		public void sort(String name)
 		{
 			TreeSet<T>treeSet= new TreeSet<T>(hashSet);
 			System.out.println(treeSet);
 		}
 
-		// public void sort()
-		// {
-
-		// }
+		 public void sort()
+		 {
+		 	TreeSet<T>treeSet=new TreeSet<T>(hashSet);
+		 	System.out.println(treeSet);
+		 }
 
 }

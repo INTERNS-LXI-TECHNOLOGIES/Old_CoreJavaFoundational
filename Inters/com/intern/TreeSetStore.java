@@ -45,7 +45,7 @@ public class TreeSetStore<T> implements Repository<T>
         System.out.println(treeSet);
 
     }
-    public void update(int index,T element)
+    public void update(String index,T element)
     {
 
     }
