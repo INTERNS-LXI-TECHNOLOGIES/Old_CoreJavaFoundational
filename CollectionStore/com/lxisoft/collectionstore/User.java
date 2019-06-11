@@ -3,6 +3,7 @@ import java.util.*;
 import java.io.*;
 
 public class User 
+//implements Comparable 
 {
 	private int id;
 	private String name;
@@ -35,4 +36,13 @@ public class User
 
 	}
 	
+	// public int hashCode()
+	// {
+	// 	return this.id;
+	// }
+
+	/*public int compareTo(Object o1,Object o2)
+	{
+		return 
+	}*/
 }

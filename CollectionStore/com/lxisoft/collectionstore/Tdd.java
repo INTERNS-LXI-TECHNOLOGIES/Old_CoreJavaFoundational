@@ -7,9 +7,12 @@ public class Tdd
 	public static void main(String[] args)throws Exception
 	{
 
-		ArrayListStore<User> a=new ArrayListStore<User>();
+		//ArrayListStore<User> a=new ArrayListStore<User>();
 		//LinkedListStore<User> a=new LinkedListStore<User>();
 		//TreeSetStore <User> a = new TreeSetStore <User> ();
+		//HashSetStore <User> a=new HashSetStore<User>();
+		//LinkedHashSetStore <User> a=new LinkedHashSetStore<User>();
+		PriorityQueueStore <User> a=new PriorityQueueStore<User>();
 		User u1=new User(10,"A");
 		User u2=new User(11,"B");
 		User u3=new User(12,"C");
@@ -37,19 +40,19 @@ public class Tdd
 		{
 			System.out.println(user);
 		}
-		a.update(u2,new User(14,"Pooja"));
+		a.update(u2,new User(14,"Balu"));
 		System.out.println("After Updation1");
 		for(User user:a.read())
 		{
 			System.out.println(user);
 		}
-		a.update(10,new User(13,"Sarath"));
+		a.update(10,new User(13,"Abhijith"));
 		System.out.println("After Updation2");
 		for(User user:a.read())
 		{
 			System.out.println(user);
 		}
-		a.delete(u3);
+		a.delete(u3);		
 		System.out.println("After Deletion");
 		for(User user:a.read())
 		{
@@ -62,13 +65,17 @@ public class Tdd
 		{
 			System.out.println(user);
 		}
-		a.sort("Name");
-		System.out.println("After Name Sorting");
+		a.sort("Id");
+		/*System.out.println("After Sorting");
 		for(User user:a.read())
 		{
 			System.out.println(user);
 		}
-
+		//a.sort();
+		// for(User user:a.read())
+		// {
+		// 	System.out.println(user);
+		// }*/
 	}
 }
 

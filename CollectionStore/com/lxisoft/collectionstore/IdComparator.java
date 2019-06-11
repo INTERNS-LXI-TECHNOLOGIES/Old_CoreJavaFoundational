@@ -16,8 +16,3 @@ class IdComparator implements Comparator
     }
 }   
  
-/* if(e1.getSalary() > e2.getSalary()){
-            return 1;
-        } else {
-            return -1;
-        }*/

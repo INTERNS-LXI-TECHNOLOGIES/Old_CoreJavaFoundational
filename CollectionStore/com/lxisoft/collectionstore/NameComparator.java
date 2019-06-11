@@ -1,4 +1,4 @@
-package com.lxisoft.collectionstore;
+/*package com.lxisoft.collectionstore;
 import java.util.*;
 class NameComparator implements Comparator
 {
@@ -11,3 +11,4 @@ class NameComparator implements Comparator
       
     }
 }
+*/

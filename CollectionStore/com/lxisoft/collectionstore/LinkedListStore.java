@@ -22,7 +22,7 @@ public class LinkedListStore<T> implements CollectionRepository<T>
 		{
 			if(((User)linkedList.get(i)).getId()==id)
 			{
-				System.out.println("ID"+((User)linkedList.get(i)).getId());
+			//	System.out.println("ID"+((User)linkedList.get(i)).getId());
 				linkedList.remove((User)linkedList.get(i));
 				linkedList.add(user);
 			}
@@ -58,8 +58,8 @@ public void sort(String value)
 {
 		if (value=="Id")
 		{
-			comparator=new IdComparator();
-			System.out.println("Id Sorting");
+			Comparator comparator=new IdComparator();
+			// System.out.println("Id Sorting");
 			for(int i=0;i<linkedList.size();i++)
 			{
 			for(int j = i+1; j <linkedList.size(); j++) 
@@ -69,11 +69,11 @@ public void sort(String value)
 				User u1 = (User)linkedList.get(i);
 				User u2 = (User)linkedList.get(j);
 
-				if(comparator.compare(u1,u2)<0) 
+				if(comparator.compare(u1,u2)>0) 
 				{
 
 					linkedList.set(j ,(T) u1);
-					linkedList.set(i , (T)u2);
+					linkedList.set(i ,(T) u2);
 				}
 
 			} 
@@ -81,7 +81,7 @@ public void sort(String value)
 		}
 		else 
 			{ 
-				comparator=new NameComparator();
+				Comparator comparator=new NameComparator();
 				//System.out.println("Name Based Sorting");
 				for(int i=0;i<linkedList.size();i++)
 					{
@@ -90,7 +90,7 @@ public void sort(String value)
 							User u1=(User)linkedList.get(i);
 							User u2=(User)linkedList.get(j);		
 						
-							if(comparator.compare(u1,u2)>0)
+							if(comparator.compare(u1,u2)<0)
 							{
 								linkedList.set(j,(T)u1);
 								linkedList.set(i,(T)u2);
