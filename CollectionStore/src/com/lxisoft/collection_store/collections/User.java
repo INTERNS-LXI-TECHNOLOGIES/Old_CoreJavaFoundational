@@ -34,6 +34,22 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + "]";
 	}
+	@Override
+	public boolean equals(Object obj) {
+		User other = (User) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+	
 	
 	
 }

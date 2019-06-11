@@ -66,9 +66,9 @@ public class LinkedListStore<T> implements CollectionRepository<T> {
 					}
 				} else {
 					try {
-						return (int) type.getDeclaredField(this.fieldName).getType()
+						return (Integer) type.getDeclaredField(this.fieldName).getType()
 								.cast(type.getDeclaredField(this.fieldName).get(a))
-								- (int) type.getField(fieldName).getType().cast(type.getField(fieldName).get(b));
+								- (Integer) type.getField(fieldName).getType().cast(type.getField(fieldName).get(b));
 					} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException
 							| SecurityException e) {
 						e.printStackTrace();
