@@ -1,7 +1,8 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.io.*;
-public class HashSetStore<T> implements CollectionRepository<T>
+import java.lang.*;
+public class HashSetStore<T> implements CollectionRepository<T> 
 {
 	Set<T> hashSet = new HashSet<>();
 	public void create(T data)
@@ -26,9 +27,13 @@ public class HashSetStore<T> implements CollectionRepository<T>
 	}
 	public void sort()
 	{
-		//List<T> list=new ArrayList<T>(hashSet);
-		//Collections.sort(list);
-		TreeSet<T> treeSet=new TreeSet<T>(hashSet);
-		System.out.println(treeSet);
+		try
+		{
+			throw new UnsupportedSortException("Hashset cannot be sorted");
+		}
+		catch(UnsupportedSortException e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

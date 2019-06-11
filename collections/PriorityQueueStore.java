@@ -30,6 +30,10 @@ public class PriorityQueueStore<T> implements CollectionRepository<T>
 			if
 			//System.out.println(a[j].toString());
 		}*/
+	/*While(!println.isEmpty()){
+		Integer i=priorityQueue.poll();
+	System.out.println(i);
+	}*/
 	
 	}
 }

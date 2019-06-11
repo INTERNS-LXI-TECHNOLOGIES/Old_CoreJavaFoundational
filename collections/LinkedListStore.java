@@ -34,6 +34,12 @@ public class LinkedListStore<T> implements CollectionRepository<T>
 	}
 	public void sort()
 	{
-		
+		Collections.sort(linkedList,new Comparator(){
+	public int compare(Object t1,Object t2)
+	{
+		return ((Interns)t1).name.compareTo(((Interns)t2).name);
+	}
+	});System.out.println(linkedList);
+	
 	}
 }

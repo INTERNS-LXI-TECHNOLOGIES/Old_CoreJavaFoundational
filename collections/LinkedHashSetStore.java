@@ -26,9 +26,13 @@ public class LinkedHashSetStore<T> implements CollectionRepository<T>
 	}
 	public void sort()
 	{
-		//List<T> list=new ArrayList<T>(hashSet);
-		//Collections.sort(list);
-		TreeSet<T> treeSet=new TreeSet<T>(linkedHashSet);
-		System.out.println(treeSet);
+		try
+		{
+			throw new UnsupportedSortException("Hashset cannot be sorted");
+		}
+		catch(UnsupportedSortException e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

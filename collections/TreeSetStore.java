@@ -3,8 +3,14 @@ import java.util.*;
 import java.io.*;
 public class TreeSetStore<T> implements CollectionRepository<T>
 {
-	Set<T> treeSet = new TreeSet<>();
+	Set<T> treeSet = new TreeSet<>(new Comparator(){
+	public int compare(Object t1,Object t2)
+	{
+		return ((Interns)t1).id.compareTo(((Interns)t2).id);
+	}
+	});
 	public void create(T data)
+	
 	{
 		treeSet.add(data);
 	}
@@ -29,3 +35,15 @@ public class TreeSetStore<T> implements CollectionRepository<T>
 		System.out.println(treeSet);
 	}
 }
+/*class IdComparator implements Comparator<T>
+{
+	public int compare(T t1,T t2)
+	{
+		if(t1.id>t2.id)
+		{
+			return 1;
+		}
+		else
+			return -1;
+	}
+}*/
