@@ -54,9 +54,39 @@ public class LinkedListStore<T> implements CollectionRepository<T>
 	
 		
 	}
-public void sort(String value)
-{
-		if (value=="Id")
+	public void sort(String value)
+	{
+			if(value=="Id")
+			{
+				Collections.sort(linkedList,new Comparator()
+					{
+						public int compare(Object o1,Object o2)
+						{
+							User u1=(User)o1;
+							User u2=(User)o2;
+
+							return u1.getId()-u2.getId();
+						}
+					});
+			}
+			else
+			{
+				Collections.sort(linkedList,new Comparator()
+					{
+						public int compare(Object o1,Object o2)
+						{
+							User u1=(User)o1;
+							User u2=(User)o2;
+
+							return u1.getName().compareTo(u2.getName());
+						}
+					});
+			}
+	}
+
+}
+
+/*if (value=="Id")
 		{
 			Comparator comparator=new IdComparator();
 			// System.out.println("Id Sorting");
@@ -98,9 +128,4 @@ public void sort(String value)
 						}
 					}
 
-			}
-
-}
-
-
-}
+			}*/

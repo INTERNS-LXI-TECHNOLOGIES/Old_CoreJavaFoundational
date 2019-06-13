@@ -85,7 +85,9 @@ public class PriorityQueueStore<T> implements CollectionRepository<T>
 	// 	while (!priorQueue.isEmpty()) 
 	// 		{
  //    			Integer i = priorQueue.poll();
- //    			System.out.println(priorQueue.poll().getId());
+ //    			System.out.println(priorQueue.poll().getId()); 
+	
+	
  //    		}
 	// }
 

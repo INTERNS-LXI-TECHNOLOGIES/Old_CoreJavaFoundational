@@ -4,7 +4,15 @@ import java.io.*;
 
 public class ArrayListStore<T> implements CollectionRepository<T>
 {
+	// private Class<T> type;
+	// private String fieldName;
+
 	List <T> arrayList=new ArrayList <T>();
+
+	// public ArrayListStore (Class<T> type)
+	// {
+	// 	this.type=type;
+	// }
 	
 	private Comparator comparator;
 
@@ -59,7 +67,38 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 	
 		
 	}
-public void sort(String value)
+	public void sort(String value)
+	{
+		if(value=="Id")
+		{
+			Collections.sort(arrayList,new Comparator()
+			{
+				public int compare(Object o1, Object o2) 
+    			{
+        			User u1=(User)o1;
+       				User u2=(User)o2;
+
+       				return u1.getId()-u2.getId();
+    			}
+    		});
+		}
+		else
+		{
+			Collections.sort(arrayList,new Comparator()
+			{
+				public int compare(Object o1,Object o2)
+				{
+					User u1=(User)o1;
+					User u2=(User)o2;
+
+			    	return u1.getName().compareTo(u2.getName());
+				}
+			});
+		}
+	}
+
+}
+/*public void sort(String value)
 {
 		if (value=="Id")
 		{
@@ -105,9 +144,9 @@ public void sort(String value)
 
 			}
 
-}
+}*/
 
 
-}
+
 
 

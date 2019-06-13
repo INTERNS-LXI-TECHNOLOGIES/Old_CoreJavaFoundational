@@ -7,12 +7,12 @@ public class Tdd
 	public static void main(String[] args)throws Exception
 	{
 
-		//ArrayListStore<User> a=new ArrayListStore<User>();
+		ArrayListStore<User> a=new ArrayListStore<User>();
 		//LinkedListStore<User> a=new LinkedListStore<User>();
 		//TreeSetStore <User> a = new TreeSetStore <User> ();
 		//HashSetStore <User> a=new HashSetStore<User>();
 		//LinkedHashSetStore <User> a=new LinkedHashSetStore<User>();
-		PriorityQueueStore <User> a=new PriorityQueueStore<User>();
+		//PriorityQueueStore <User> a=new PriorityQueueStore<User>();
 		User u1=new User(10,"A");
 		User u2=new User(11,"B");
 		User u3=new User(12,"C");
@@ -23,9 +23,6 @@ public class Tdd
 		User u8=new User(9,"Aaaaaa");
 		User u9=new User(5,"Sharat");
 
-		// a.create(new User(10,"A"));
-		// a.create(new User(11,"B"));
-		// a.create(new User(12,"C"));
 		a.create(u1);
 		a.create(u5);
 		a.create(u3);
@@ -66,7 +63,7 @@ public class Tdd
 			System.out.println(user);
 		}
 		a.sort("Id");
-		/*System.out.println("After Sorting");
+		System.out.println("After Sorting");
 		for(User user:a.read())
 		{
 			System.out.println(user);

@@ -4,7 +4,7 @@ import java.lang.*;
 
 public class TreeSetStore<T> implements CollectionRepository<T>
 {
-	Set <T> treeSet =new TreeSet <T>(new IdComparator());
+	/*Set <T> treeSet =new TreeSet <T>(new IdComparator());
 
 	class NameComparator implements Comparator
 	{
@@ -16,7 +16,7 @@ public class TreeSetStore<T> implements CollectionRepository<T>
     		return user1.getName().compareTo(user2.getName());
       
     	}
-	}
+	}*/
 	/*Set<T> treeSet =new TreeSet<T>(new Comparator()
 	{
 		 public int compare(Object o1, Object o2) 
@@ -29,6 +29,16 @@ public class TreeSetStore<T> implements CollectionRepository<T>
       
     	}
 	});*/
+	Set <T> treeSet =new TreeSet<T>(new Comparator()
+		{
+			public int compare(Object o1, Object o2) 
+    			{
+        			User u1=(User)o1;
+       				User u2=(User)o2;
+
+       				return u1.getId()-u2.getId();
+    			}
+		});
 	
 	public void create(T user)
 	{
@@ -94,19 +104,28 @@ public class TreeSetStore<T> implements CollectionRepository<T>
 
 	public void sort(String value)
 	{
-		if(value=="String")
+		if(value=="Name")
 		{
-			Set<T> temp=new TreeSet<T>(new NameComparator());
+			Set<T> temp=new TreeSet<T>(new Comparator()
+				{
+					public int compare(Object o1, Object o2) 
+    					{
+    						User user1=(User)o1;
+    						User user2=(User)o2;
+
+    						return user1.getName().compareTo(user2.getName());
+    				    }
+				});
 			for(T u: this.treeSet)
 			{
 				temp.add(u);
 			}
 			this.treeSet=temp;
-		}
-		else
-		{
+			}
+			else
+			{
 
-		}
+			}
 	}
 	
 	

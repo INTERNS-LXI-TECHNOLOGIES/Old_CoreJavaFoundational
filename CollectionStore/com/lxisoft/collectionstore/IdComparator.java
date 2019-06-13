@@ -1,4 +1,4 @@
-package com.lxisoft.collectionstore;
+/*package com.lxisoft.collectionstore;
 import java.util.*;
 class IdComparator implements Comparator
 {
@@ -16,3 +16,4 @@ class IdComparator implements Comparator
     }
 }   
  
+*/
