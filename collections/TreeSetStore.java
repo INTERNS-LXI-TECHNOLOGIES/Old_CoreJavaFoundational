@@ -1,12 +1,13 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.io.*;
+import java.lang.reflect.*;
 public class TreeSetStore<T> implements CollectionRepository<T>
 {
 	Set<T> treeSet = new TreeSet<>(new Comparator(){
 	public int compare(Object t1,Object t2)
 	{
-		return ((Interns)t1).id.compareTo(((Interns)t2).id);
+		return ((Interns)t1).getName().compareTo(((Interns)t2).getName());
 	}
 	});
 	public void create(T data)

@@ -1,6 +1,7 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.io.*;
+import java.lang.reflect.*;
 public class LinkedListStore<T> implements CollectionRepository<T>
 {
 	List<T> linkedList = new LinkedList<>();
@@ -37,7 +38,7 @@ public class LinkedListStore<T> implements CollectionRepository<T>
 		Collections.sort(linkedList,new Comparator(){
 	public int compare(Object t1,Object t2)
 	{
-		return ((Interns)t1).name.compareTo(((Interns)t2).name);
+		return ((Interns)t1).getName().compareTo(((Interns)t2).getName());
 	}
 	});System.out.println(linkedList);
 	

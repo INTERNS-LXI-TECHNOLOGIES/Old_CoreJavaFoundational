@@ -1,10 +1,27 @@
 package com.lxisoft.collections;
 import java.util.*;
+import java.lang.reflect.*;
 public class Interns  
 {
-	String name;
-	String id;
-	public Interns(String name,String id)
+	private String name;
+	private int id;
+	public void setName(String name)
+	{
+		this.name=name;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public void setId(int id)
+	{
+		this.id=id;
+	}
+	public int getId()
+	{
+		return id;
+	}
+	public Interns(String name,int id)
 	{
 		this.name=name;
 		this.id=id;

@@ -1,6 +1,7 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.io.*;
+import java.lang.reflect.*;
 public class LinkedHashSetStore<T> implements CollectionRepository<T>
 {
 	Set<T> linkedHashSet = new LinkedHashSet<>();

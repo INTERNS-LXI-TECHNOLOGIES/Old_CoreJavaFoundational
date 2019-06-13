@@ -1,7 +1,7 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.io.*;
-import java.lang.*;
+import java.lang.reflect.*;
 public class HashSetStore<T> implements CollectionRepository<T> 
 {
 	Set<T> hashSet = new HashSet<>();

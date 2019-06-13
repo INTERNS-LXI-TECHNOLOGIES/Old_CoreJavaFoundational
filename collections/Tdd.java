@@ -1,10 +1,11 @@
 package com.lxisoft.collections;
 import java.util.*;
+import java.lang.reflect.*;
 public class Tdd
 {
 	public static void main(String[] args)
 	{
-	/*CollectionRepository<String>  c=new ArrayListStore<String>();
+	/*CollectionRepository<String>  c=new ArrayListStore<String>(String.class);
 	c.create("Pavana");
 	c.create("Sanjana");
 	c.create("Greeshma");
@@ -17,7 +18,7 @@ public class Tdd
 	c.delete("Sanjana");
 	System.out.println(c.read());
 	c.sort();*/
-	/*CollectionRepository<Integer>  c=new PriorityQueueStore<Integer>();
+	CollectionRepository<Integer>  c=new ArrayListStore<Integer>(Integer.class);
 	c.create(12);
 	c.create(36);
 	c.create(24);
@@ -29,24 +30,24 @@ public class Tdd
 	System.out.println(c.read());
 	c.delete(36);
 	System.out.println(c.read());
-	c.sort();*/
-	CollectionRepository<Interns>  c=new LinkedListStore<Interns>();
-	Interns i=new Interns("Pavana","101");
-	Interns i1=new Interns("Sanjana","102");
-	Interns i2=new Interns("Greeshma","103");
-	Interns i3=new Interns("Greeshma","104");
-	Interns i4=new Interns("Akhil","105");
+	c.sort();
+	/*CollectionRepository<Interns>  c=new ArrayListStore<Interns>();
+	Interns i=new Interns("Pavana",101);
+	Interns i1=new Interns("Sanjana",102);
+	Interns i2=new Interns("Greeshma",103);
+	Interns i3=new Interns("Greeshma",104);
+	Interns i4=new Interns("Akhil",105);
 	c.create(i);
 	c.create(i1);
 	c.create(i2);
 	c.create(i3);
 	c.create(i4);
 	System.out.println(c.read());
-	Interns i6=new Interns("Jose","106");
+	Interns i6=new Interns("Jose",106);
 	c.update(i2,i6);
 	System.out.println(c.read());
 	c.delete(i1);
 	System.out.println(c.read());
-	c.sort();
+	c.sort();*/
 	}
 }
