@@ -33,9 +33,7 @@ public void sort(){
     System.out.println(ts);           
 
 }
-// public int compareTo(){
 
-// }
 
 
 }

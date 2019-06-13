@@ -34,8 +34,6 @@ public void sort(){
     System.out.println(list);           
 
 }
-// public int compareTo(){
 
-// }
 
 }

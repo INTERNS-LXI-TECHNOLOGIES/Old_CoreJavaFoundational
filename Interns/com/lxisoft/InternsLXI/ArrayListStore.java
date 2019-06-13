@@ -35,7 +35,12 @@ public void delete(T data){
 	System.out.println(as);
 	}
 public void sort(){
-
+	Collections.sort(al, new Comparator() {
+	public int compare(Object s1, Object s2) {
+	return (((Intern)s1).name).compareTo(((Intern)s2).name);
+} } );
+	System.out.println(al);
+}	 
 }
 // public int compareTo(T data,T data1) {  
     
@@ -45,7 +50,3 @@ public void sort(){
 
 //     return data;
 // }
-
-}
-
-
