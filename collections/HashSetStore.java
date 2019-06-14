@@ -4,7 +4,19 @@ import java.io.*;
 import java.lang.reflect.*;
 public class HashSetStore<T> implements CollectionRepository<T> 
 {
-	Set<T> hashSet = new HashSet<>();
+	Class<T> type;
+	Set<T> hashSet;
+	public HashSetStore(Class<T> type)
+	{
+		this.type=type;
+	}
+	public HashSetStore()
+	{
+		if(type.equals(Integer.class)||type.equals(String.class))
+		{
+			hashSet = new HashSet<>();
+		}
+	}
 	public void create(T data)
 	{
 		hashSet.add(data);

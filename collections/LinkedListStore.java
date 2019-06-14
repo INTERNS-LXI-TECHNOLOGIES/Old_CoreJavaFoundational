@@ -4,6 +4,11 @@ import java.io.*;
 import java.lang.reflect.*;
 public class LinkedListStore<T> implements CollectionRepository<T>
 {
+	Class<T> type;
+	public LinkedListStore(Class<T> type)
+	{
+		this.type=type;
+	}
 	List<T> linkedList = new LinkedList<>();
 	public void create(T data)
 	{
@@ -35,12 +40,21 @@ public class LinkedListStore<T> implements CollectionRepository<T>
 	}
 	public void sort()
 	{
+		if(type.equals(Integer.class)||type.equals(String.class))
+		{
+			Object[] a=linkedList.toArray();
+			Arrays.sort(a);
+			for(int i=0;i<a.length;i++)
+			System.out.println(a[i]);
+		}
+		else
+		{
 		Collections.sort(linkedList,new Comparator(){
 	public int compare(Object t1,Object t2)
 	{
 		return ((Interns)t1).getName().compareTo(((Interns)t2).getName());
 	}
 	});System.out.println(linkedList);
-	
+	}
 	}
 }

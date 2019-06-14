@@ -5,6 +5,7 @@ import java.lang.reflect.*;
 public class ArrayListStore<T> implements CollectionRepository<T>
 {
 	/*Interns obj=new Interns();
+	
 	Class cls = obj.getClass(); 
 	Class c=boolean.class;*/
 	Class<T> type;
@@ -44,7 +45,7 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 	public void sort()
 	{
 	//Collections.sort(arrayList);
-	if(type.equals(Integer.class))
+	if(type.equals(Integer.class)||type.equals(String.class))
 	{
 		
 		Object[] a=arrayList.toArray();
@@ -60,10 +61,17 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 	System.out.println(a[i]);
 	}
 	else{
+		//System.out.print(type);
 	Collections.sort(arrayList,new Comparator(){
 	public int compare(Object t1,Object t2)
 	{
-		return ((Interns)t1).getName().compareTo(((Interns)t2).getName());
+		
+		System.out.print(type);
+		try{
+		return ((String)type.getDeclaredField("name").get(t1)).compareTo((String)type.getDeclaredField("name").get(t2));
+		}
+		catch(Exception e){};
+		return 4;
 	}
 	});
 	

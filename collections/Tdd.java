@@ -5,7 +5,7 @@ public class Tdd
 {
 	public static void main(String[] args)
 	{
-	/*CollectionRepository<String>  c=new ArrayListStore<String>(String.class);
+	/*CollectionRepository<String>  c=new PriorityQueueStore<String>(String.class);
 	c.create("Pavana");
 	c.create("Sanjana");
 	c.create("Greeshma");
@@ -18,7 +18,7 @@ public class Tdd
 	c.delete("Sanjana");
 	System.out.println(c.read());
 	c.sort();*/
-	CollectionRepository<Integer>  c=new ArrayListStore<Integer>(Integer.class);
+	/*CollectionRepository<Integer>  c=new ArrayListStore<Integer>(Integer.class);
 	c.create(12);
 	c.create(36);
 	c.create(24);
@@ -30,8 +30,8 @@ public class Tdd
 	System.out.println(c.read());
 	c.delete(36);
 	System.out.println(c.read());
-	c.sort();
-	/*CollectionRepository<Interns>  c=new ArrayListStore<Interns>();
+	c.sort();*/
+	CollectionRepository<Interns>  c=new ArrayListStore<Interns>(Interns.class);
 	Interns i=new Interns("Pavana",101);
 	Interns i1=new Interns("Sanjana",102);
 	Interns i2=new Interns("Greeshma",103);
@@ -48,6 +48,6 @@ public class Tdd
 	System.out.println(c.read());
 	c.delete(i1);
 	System.out.println(c.read());
-	c.sort();*/
+	c.sort();
 	}
 }
