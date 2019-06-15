@@ -31,7 +31,7 @@ public class Tdd
 	c.delete(36);
 	System.out.println(c.read());
 	c.sort();*/
-	CollectionRepository<Interns>  c=new ArrayListStore<Interns>(Interns.class);
+	/*CollectionRepository<Interns>  c=new LinkedListStore<Interns>(Interns.class);
 	Interns i=new Interns("Pavana",101);
 	Interns i1=new Interns("Sanjana",102);
 	Interns i2=new Interns("Greeshma",103);
@@ -48,6 +48,23 @@ public class Tdd
 	System.out.println(c.read());
 	c.delete(i1);
 	System.out.println(c.read());
-	c.sort();
+	c.sort();*/
+	TreeMapStore<Integer,String> t=new TreeMapStore<Integer,String>();
+	t.create(2,"Sanjana");
+	t.create(1,"Greeshma");
+	t.create(3,"Ajay");
+	t.create(4,"Pavana");
+	t.create(5,"Ayana");
+	/*Map sortedMap = sortByValues(treemap);
+	Set set = sortedMap.entrySet();
+    Iterator i = set.iterator();
+    while(i.hasNext()) {
+      Map.Entry me = (Map.Entry)i.next();
+      System.out.print(me.getKey() + ": ");
+      System.out.println(me.getValue());
+    }*/
+	System.out.println(t.read());
+	t.update(2,"Gopika");
+	t.delete(2);
 	}
 }

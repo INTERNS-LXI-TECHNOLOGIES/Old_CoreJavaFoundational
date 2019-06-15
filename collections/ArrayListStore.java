@@ -66,7 +66,7 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 	public int compare(Object t1,Object t2)
 	{
 		
-		System.out.print(type);
+		//System.out.print(type);
 		try{
 		return ((String)type.getDeclaredField("name").get(t1)).compareTo((String)type.getDeclaredField("name").get(t2));
 		}
