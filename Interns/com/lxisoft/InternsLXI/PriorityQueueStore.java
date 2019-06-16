@@ -5,7 +5,10 @@ public class PriorityQueueStore<T> implements CollectionRepository<T>{
 
 String data;
 PriorityQueue<T> queue=new PriorityQueue<T>();	
-
+Class<T> type;
+public PriorityQueueStore(Class<T> type){
+	this.type=type;
+}
 public void create(T data){
 	queue.add(data);
 }
@@ -28,10 +31,20 @@ public void delete(T data){
 
 }
 public void sort(){
-	
+	if(type.equals(Integer.class)||type.equals(String.class)){
+		T sorted;
+ 	while((sorted = queue.poll())!=null){
+ 		System.out.println(sorted);
+ 	
+	}
+	}
+	else
+	{	 
  	T sorted;
  	while((sorted = queue.poll())!=null){
- 	System.out.println(sorted);
+ 		System.out.println(sorted);
+ 	
+	}
 	}	 
 } 
 

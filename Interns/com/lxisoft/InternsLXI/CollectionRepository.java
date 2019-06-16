@@ -1,5 +1,5 @@
 package com.lxisoft.InternsLXI;
-interface CollectionRepository<T>{
+public interface CollectionRepository<T>{
 
 public void create(T data);
 public void read();

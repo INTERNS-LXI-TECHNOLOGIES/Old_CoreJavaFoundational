@@ -30,10 +30,13 @@ public void delete(T data){
 
 }
 public void sort(){
-	TreeSet<T> list =new TreeSet<T>(lhs);
-    System.out.println(list);           
-
+	try {
+    	throw new CannotSortException("Cannot sort this type");
+        // execute SQL statements..
+    } catch (Exception ex) {
+         ex.printStackTrace();
+        //throw new CannotSortException("Cannot sort this type", ex);
+    }
 }
-
 
 }
