@@ -18,4 +18,8 @@ public interface MapRepository<K,V> {
 	public boolean delete(Object key, Object value);
 	
 	public boolean update(K key, V oldValue, V newValue);
+
+	public void sortByValue();
+
+	public void sortByValue(String fieldName);
 }

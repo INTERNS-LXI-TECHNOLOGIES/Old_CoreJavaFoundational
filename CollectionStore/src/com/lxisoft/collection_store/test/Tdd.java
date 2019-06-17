@@ -25,18 +25,19 @@ public class Tdd {
 	 */
 	public static void main(String[] args) {
 
-		MapRepository<Integer,User> a = new TreeMapStore<>();
+		MapRepository<Integer,User> a = new TreeMapStore<>(Integer.class);
 		a.create(1,new User(20,"asd"));
-		a.create(2,new User(15,"xsd"));
-		a.create(3,new User(14,"esd"));
+		a.create(9,new User(15,"xsd"));
+		a.create(7,new User(14,"esd"));
 		User x = new User(33,"tuv");
 		a.create(4,x);
 //		CollectionRepository<String> a = new HashSetStore<>(String.class);
-//		a.create("asd");
-//		a.create("xsd");
-//		a.create("esd");
+//		a.create(1,"asd");
+//		a.create(5,"xsd");
+//		a.create(3,"zsd");
 		//a.sort();
 		//a.update(x,new User(2,"uef"));
+		a.sortByValue("name");
 		System.out.println(a.readAll());
 
 	}
