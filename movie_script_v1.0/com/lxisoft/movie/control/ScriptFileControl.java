@@ -2,6 +2,7 @@ package com.lxisoft.movie.control;
 import java.io.*;
 import java.util.*;
 import java.util.logging.*;
+import com.lxisoft.movie.model.ScriptFileModel;
 /**
 *This class is the control class for ScriptFile
 *
@@ -9,7 +10,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:22/05/2019
+*Date Modified:17/06/2019
 */
 public class ScriptFileControl
 {
@@ -50,20 +51,20 @@ public class ScriptFileControl
 		
 		
 		ArrayList<String> readDataList=new ArrayList<String>();
-		QuizModel quizFileModel=new QuizModel();
+		ScriptFileModel scriptFileModel=new ScriptFileModel();
 		try
 		{
 			FileReader fr=new FileReader(fileName);
 			BufferedReader br=new BufferedReader(fr);
 			
-			quizFileModel.setReadData(br.readLine());
+			scriptFileModel.setReadData(br.readLine());
 			
-			String data=quizFileModel.getReadData();
+			String data=scriptFileModel.getReadData();
 			while(data!=null)
 			{
 				
 				
-				String array[]=data.split(",");
+				String array[]=data.split(":");
 				for(String value:array)
 					readDataList.add(value);
 				data=br.readLine();

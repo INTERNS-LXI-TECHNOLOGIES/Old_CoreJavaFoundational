@@ -2,6 +2,8 @@ package com.lxisoft.movie.view;
 import java.io.*;
 import java.util.*;
 import java.util.logging.*;
+import com.lxisoft.movie.model.Actor;
+import com.lxisoft.movie.model.Movie;
 /**
 *This class is used as a model class for Tdd
 *
@@ -9,7 +11,7 @@ import java.util.logging.*;
 *
 *@version v1.0
 *
-*Date Modified:22/05/2019
+*Date Modified:17/06/2019
 */
 public class Tdd
 {
@@ -22,6 +24,7 @@ public class Tdd
 	Actor heroine;
 	Actor villian;
 	Actor comedeian;
+	Movie singamMovie;
 	
 	/**
 	*this is the default constructor
@@ -52,6 +55,8 @@ public class Tdd
 		System.out.println("Enter the name of the comedeian");
 		String comedeianName=sc.nextLine();
 		System.out.println("");
+		singamMovie=new Movie();
+		singamMovie.playMovie();
 		
 	}
 	
