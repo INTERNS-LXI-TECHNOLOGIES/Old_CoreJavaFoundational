@@ -80,7 +80,11 @@ public class TreeSetStore<T> implements CollectionRepository<T>
 		System.out.println(a[i]);
 		}
 		else
+		{	
+		Set<T> treeSet=this.treeSet;
+		//create();
 		System.out.println(treeSet);
+		}
 	}
 }
 /*class IdComparator implements Comparator<T>

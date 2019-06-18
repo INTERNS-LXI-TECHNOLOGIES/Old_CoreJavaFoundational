@@ -26,6 +26,10 @@ public class Interns
 		this.name=name;
 		this.id=id;
 	}
+	public Interns(int id)
+	{
+		this.id=id;
+	}
 	public String toString()
 	{
 		return name+" "+id;

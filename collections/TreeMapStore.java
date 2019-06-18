@@ -24,21 +24,14 @@ public class TreeMapStore<K,V>
 		treeMap.remove(k);
 		System.out.println(treeMap);
 	}
-	/*public static <K, V extends Comparable<V>> Map<K, V> 
-    sortByValues(final Map<K, V> map)
+	public void sort()
 	{
-    Comparator<K> valueComparator = new Comparator<K>() 
-	{
-      public int compare(K k1, K k2) {
-        int compare =map.get(k1).compareTo(map.get(k2));
-        if (compare == 0) 
-          return 1;
-        else 
-          return compare;
-      }
-    };
-	Map<K, V> sortedByValues =new TreeMap<K, V>(valueComparator);
-    sortedByValues.putAll(map);
-    return sortedByValues;
-  }*/
+		List arr=new ArrayList();
+		arr.add(treeMap);
+		//System.out.println(arr);
+		Object[] a=arr.toArray();
+			Arrays.sort(a);
+			for(int i=0;i<a.length;i++)
+			System.out.println(a[i]);
+	}
 }

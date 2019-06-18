@@ -1,11 +1,14 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.lang.reflect.*;
+//import org.apache.log4j.*;
 public class Tdd
 {
+	//private static Final Logg=Logger.getLogger(Tdd.class.getName)
 	public static void main(String[] args)
 	{
-	/*CollectionRepository<String>  c=new PriorityQueueStore<String>(String.class);
+		//Logger log=new Logger();
+	/*CollectionRepository<String>  c=new HashSetStore<String>(String.class);
 	c.create("Pavana");
 	c.create("Sanjana");
 	c.create("Greeshma");
@@ -31,7 +34,7 @@ public class Tdd
 	c.delete(36);
 	System.out.println(c.read());
 	c.sort();*/
-	/*CollectionRepository<Interns>  c=new LinkedListStore<Interns>(Interns.class);
+	CollectionRepository<Interns>  c=new ArrayListStore<Interns>(Interns.class);
 	Interns i=new Interns("Pavana",101);
 	Interns i1=new Interns("Sanjana",102);
 	Interns i2=new Interns("Greeshma",103);
@@ -48,23 +51,28 @@ public class Tdd
 	System.out.println(c.read());
 	c.delete(i1);
 	System.out.println(c.read());
-	c.sort();*/
-	TreeMapStore<Integer,String> t=new TreeMapStore<Integer,String>();
+	c.sort();
+	/*HashMapStore<Integer,String> t=new HashMapStore<Integer,String>();
 	t.create(2,"Sanjana");
 	t.create(1,"Greeshma");
 	t.create(3,"Ajay");
 	t.create(4,"Pavana");
 	t.create(5,"Ayana");
-	/*Map sortedMap = sortByValues(treemap);
-	Set set = sortedMap.entrySet();
-    Iterator i = set.iterator();
-    while(i.hasNext()) {
-      Map.Entry me = (Map.Entry)i.next();
-      System.out.print(me.getKey() + ": ");
-      System.out.println(me.getValue());
-    }*/
 	System.out.println(t.read());
 	t.update(2,"Gopika");
 	t.delete(2);
+	t.sort();*/
+	/*HashMapStore<String,Interns> t=new HashMapStore<String,Interns>();
+	t.create("2",new Interns("Pavana",101));
+	t.create("5",new Interns("Sanjana",102));
+	t.create("3",new Interns("Greeshma",103));
+	t.create("1",new Interns("Ajay",104));
+	t.create("4",new Interns("Akhil",105));
+	System.out.println(t.read());
+	t.update("1",new Interns("Ajay",106));
+	System.out.println(t.read());
+	t.delete("4");
+	System.out.println(t.read());
+	t.sort();*/
 	}
 }
