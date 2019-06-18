@@ -2,7 +2,7 @@ package com.lxisoft.movie.model;
 import java.io.*;
 import java.util.*;
 import java.util.logging.*;
-import com.lxisoft.movie.model.Action;
+
 
 /**
 *This class is used as a model class for Actors
@@ -11,9 +11,9 @@ import com.lxisoft.movie.model.Action;
 *
 *@version v1.0
 *
-*Date Modified:17/06/2019
+*Date Modified:18/06/2019
 */
-abstract public class Actor implements Action
+public class Actor 
 {
 	/**
 	*Reference Logger class to get log messages

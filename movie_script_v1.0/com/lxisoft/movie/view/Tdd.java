@@ -2,8 +2,7 @@ package com.lxisoft.movie.view;
 import java.io.*;
 import java.util.*;
 import java.util.logging.*;
-import com.lxisoft.movie.model.Actor;
-import com.lxisoft.movie.model.Movie;
+import com.lxisoft.movie.model.*;
 /**
 *This class is used as a model class for Tdd
 *
@@ -11,7 +10,7 @@ import com.lxisoft.movie.model.Movie;
 *
 *@version v1.0
 *
-*Date Modified:17/06/2019
+*Date Modified:18/06/2019
 */
 public class Tdd
 {
@@ -22,10 +21,11 @@ public class Tdd
 	
 	Actor hero;
 	Actor heroine;
-	Actor villian;
+	Actor villain;
 	Actor comedeian;
 	Movie singamMovie;
-	
+	Director director;
+	ScriptWriter writer;
 	/**
 	*this is the default constructor
 	*/
@@ -34,28 +34,44 @@ public class Tdd
 		enterMovieDetails();
 	}
 	
+	
+	public void printStatement(String name)
+	{
+		System.out.println("Enter the name of the "+name+" :");
+	}
 	public void enterMovieDetails()
 	{
 		System.out.println("\t\t\t\t\t MovieScript \t\t\t\t\t");
-		System.out.println("Enter the name of the movie");
+		printStatement("movie");
 		Scanner sc=new Scanner(System.in);
-		String movieName=sc.nextLine();
-		System.out.println("Enter the name of the Director");
-		String dirName=sc.nextLine();
-		System.out.println("Enter the name of the script writer");
-		String writerName=sc.nextLine();
-		System.out.println("Enter the producer's name");
-		String producerName=sc.nextLine();
-		System.out.println("Enter the name of the hero");
-		String heroName=sc.nextLine();
-		System.out.println("Enter the name of the heroine");
-		String heroineName=sc.nextLine();
-		System.out.println("Enter the name of the villian");
-		String villianName=sc.nextLine();
-		System.out.println("Enter the name of the comedeian");
-		String comedeianName=sc.nextLine();
-		System.out.println("");
 		singamMovie=new Movie();
+		singamMovie.setMovieName(sc.nextLine());
+		
+		printStatement("Director");
+		director=new Director();
+		director.setName(sc.nextLine());
+		
+		printStatement("script writer");
+		writer=new ScriptWriter();
+		writer.setName(sc.nextLine());
+		
+		printStatement("Hero");
+		hero=new Hero();
+		hero.setName(sc.nextLine());
+		
+		printStatement("Heroine");
+		heroine=new Heroine();
+		heroine.setName(sc.nextLine());
+		
+		printStatement("Villain");
+		villain=new Villain();
+		villain.setName(sc.nextLine());
+		
+		printStatement("Comedeian");
+		comedeian=new Comedeian();
+		comedeian.setName(sc.nextLine());
+		
+		
 		singamMovie.playMovie();
 		
 	}
