@@ -25,4 +25,17 @@ public class CollectionLinkedList<T> implements CollectionRepository<T>
 		data.remove(a);
 		System.out.println("DELETE"+data);	
    }
+
+   public void sort()
+   {
+	    Collections.sort(data,new Comparator()
+		 {
+			public int compare(Object a,Object b)
+			{
+				return ((Intern)a).name.compareTo(((Intern)b).name);
+			
+			} 
+		 });
+		  System.out.println("SORT="+data);
+   }
 }

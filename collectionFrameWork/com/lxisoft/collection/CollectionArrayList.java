@@ -1,5 +1,6 @@
 package com.lxisoft.collection;
 import java.util.*;
+
 public class CollectionArrayList<T> implements CollectionRepository<T>
 {
 	public ArrayList<T> data=new ArrayList<T>();
@@ -12,6 +13,7 @@ public class CollectionArrayList<T> implements CollectionRepository<T>
 	     return data;	
      }
 	public void update(T a,T a1)
+
 	 {		 
         for(int i=0;i<data.size();i++)
 		{
@@ -34,5 +36,18 @@ public class CollectionArrayList<T> implements CollectionRepository<T>
 				 System.out.println("DELETE="+data);
 		    }
 		} 
+	 }
+	 public void sort()
+	 {
+		 //anonymous  class 
+		 Collections.sort(data,new Comparator()
+		 {
+			public int compare(Object a,Object b)
+			{
+				return ((Intern)a).name.compareTo(((Intern)b).name);
+			
+			} 
+		 });
+		  System.out.println("SORT="+data);
 	 }
 }

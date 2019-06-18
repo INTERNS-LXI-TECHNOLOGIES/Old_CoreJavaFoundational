@@ -5,17 +5,22 @@ public class Tdd
 {
 	public static void main(String args[])
 	{
-	  //CollectionRepository<String> intern= new CollectionArrayList<String>();
-      //CollectionRepository<String> intern= new CollectionTreeSet<String>();
-      //CollectionRepository<String> intern= new CollectionLinkedHashSet<String>();
-      CollectionRepository<String> intern= new CollectionLinkedList<String>();
-     //CollectionRepository<String> intern= new CollectionLinkedHashMap<String>();
-	  intern.create("1");
-      intern.create("2");
-      intern.create("46");
-      intern.create("56");
-	  System.out.println("READ"+intern.read());
-	  intern.update("46","99999");
-	  intern.delete("56");
-	}	
+
+		 CollectionRepository<Intern> intern=new CollectionPriorityQueue<Intern>(Intern.class);
+	    //CollectionRepository<Intern> intern=new CollectionHashSet<Intern>();
+	   //CollectionRepository<Intern> intern= new CollectionArrayList<Intern>();
+      //CollectionRepository<Integer> intern= new CollectionTreeSet<Integer>();
+     //CollectionRepository<Intern> intern= new CollectionLinkedHashSet<Intern>();
+    //CollectionRepository<Intern> intern= new CollectionLinkedList<Intern>();
+   //CollectionRepository<String> intern= new CollectionLinkedHashMap<String>();
+	  intern.create(new Intern("z",3));
+      intern.create(new Intern("u",12));
+      intern.create(new Intern ("h",132));
+      intern.create(new Intern ("re",123));
+	  System.out.println("CREATE"+intern.read()+"\n"+"READ"+intern.read());
+	  intern.update(new Intern ("u",12),(new Intern ("tytr",9)));
+	  intern.delete(new Intern ("re",123));
+	  intern.sort();
+	}
+
 }

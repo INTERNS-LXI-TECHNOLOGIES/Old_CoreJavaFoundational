@@ -8,4 +8,6 @@ public interface CollectionRepository<T>
 	public Collection<T> read();
 	public void update(T a,T a1);
 	public void delete(T a);
+	public void sort();
+
 }
