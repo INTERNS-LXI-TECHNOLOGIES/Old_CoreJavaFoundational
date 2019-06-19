@@ -1,6 +1,7 @@
 package com.lxisoft.InternsLXI;
 import java.util.*;
 import java.io.*;
+import java.util.logging.*;
 public class TreeSetStore<T> implements CollectionRepository<T>{
 
 String data;
@@ -13,8 +14,8 @@ public TreeSetStore(Class<T> type){
 public void create(T data){
 	ts.add(data);
 }
-public void read(){
-	System.out.println(ts);
+public Collection<T> read(){
+	return ts;
 }
 public void update(T data,T data1){
 	if(ts.contains(data)){

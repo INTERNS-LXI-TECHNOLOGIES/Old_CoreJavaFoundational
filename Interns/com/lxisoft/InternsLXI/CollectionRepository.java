@@ -1,8 +1,9 @@
 package com.lxisoft.InternsLXI;
+import java.util.*;
 public interface CollectionRepository<T>{
 
 public void create(T data);
-public void read();
+public Collection<T> read();
 public void update(T data,T data1);
 public void delete(T data);
 public void sort();

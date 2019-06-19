@@ -9,7 +9,7 @@ public Intern(String name){
 
 	this.name=name;
 	// this.qualification=qualification;
-	// this.age=age;
+	//this.age=age;
 
 }
 public boolean equals(Object I) {

@@ -2,6 +2,7 @@ package com.lxisoft.InternsLXI;
 import java.util.*;
 import java.util.Comparator;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.logging.*;
 public class ArrayListStore<T> implements CollectionRepository<T>{
 
 List<T> al = new CopyOnWriteArrayList<T>();
@@ -13,8 +14,8 @@ public ArrayListStore(Class<T> type){
 public void create(T data){
 	al.add(data);
 }
-public void read(){
-	System.out.println(al);
+public Collection<T> read(){
+	return al;
 } 
 public void update(T data,T data1){
 	Iterator it = al.iterator();
@@ -24,7 +25,6 @@ public void update(T data,T data1){
 	    	al.add(data1);
 			}
 		}
-	System.out.println(al);
 }
 
 public void delete(T data){
@@ -34,7 +34,6 @@ public void delete(T data){
 				al.remove(data);
 			}	
 		}
-	System.out.println(al);
 	}
 public void sort(){
 	if(type.equals(Integer.class)||type.equals(String.class))
@@ -51,8 +50,9 @@ public void sort(){
 	public int compare(Object s1, Object s2) {
 	return (((Intern)s1).name).compareTo(((Intern)s2).name);
 } } );
-	System.out.println(al);
+	
 }
+
 }
 }
 
