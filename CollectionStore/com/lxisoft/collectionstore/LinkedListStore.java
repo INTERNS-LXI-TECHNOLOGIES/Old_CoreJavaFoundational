@@ -4,7 +4,14 @@ import java.io.*;
 
 public class LinkedListStore<T> implements CollectionRepository<T>
 {
+	Class<T> type;
+
 	List <T> linkedList=new LinkedList <T>();
+
+	public LinkedListStore (Class<T> type)
+	{
+		this.type=type;
+	}
 
 	public void create(T user)
 	{
@@ -56,35 +63,60 @@ public class LinkedListStore<T> implements CollectionRepository<T>
 	}
 	public void sort(String value)
 	{
-			if(value=="Id")
+				if(value=="id")
+	{
+		if(type.equals(Integer.class)||type.equals(String.class))
+		{
+			Object[] a =linkedList.toArray();
+			Arrays.sort(a);
+			for(int i=0;i<a.length;i++)
 			{
-				Collections.sort(linkedList,new Comparator()
-					{
-						public int compare(Object o1,Object o2)
-						{
-							User u1=(User)o1;
-							User u2=(User)o2;
-
-							return u1.getId()-u2.getId();
-						}
-					});
+			 System.out.println("\n"+a[i]);
 			}
-			else
+		}
+		else
+		{
+			Collections.sort(linkedList,new Comparator()
 			{
-				Collections.sort(linkedList,new Comparator()
+				public int compare(Object o1,Object o2)
+				{
+					try
 					{
-						public int compare(Object o1,Object o2)
-						{
-							User u1=(User)o1;
-							User u2=(User)o2;
-
-							return u1.getName().compareTo(u2.getName());
-						}
-					});
-			}
+						//System.out.println("SS:"+(String)type.getDeclaredField("name").get(o1));
+						return ((Integer)type.getDeclaredField("id").get(o1)).compareTo ((Integer)type.getDeclaredField("id").get(o2));
+					}
+					catch (Exception e)
+					{
+						e.printStackTrace();
+					};
+					return 3;  
+				}
+			});
+		}
 	}
-
+	else
+	{
+		Collections.sort(linkedList,new Comparator()
+			{
+				public int compare(Object o1,Object o2)
+				{
+					try
+					{
+						//System.out.println("SS:"+(String)type.getDeclaredField("name").get(o1));
+						return ((String)type.getDeclaredField("name").get(o1)).compareTo ((String)type.getDeclaredField("name").get(o2));
+					}
+					catch (Exception e)
+					{
+						e.printStackTrace();
+					};
+					return 3;  
+				}
+			});
+	}
+	}
 }
+
+
 
 /*if (value=="Id")
 		{
@@ -128,4 +160,34 @@ public class LinkedListStore<T> implements CollectionRepository<T>
 						}
 					}
 
+			}*/
+
+			/*public void sort(String value)
+			{
+			if(value=="Id")
+			{
+				Collections.sort(linkedList,new Comparator()
+					{
+						public int compare(Object o1,Object o2)
+						{
+							User u1=(User)o1;
+							User u2=(User)o2;
+
+							return u1.getId()-u2.getId();
+						}
+					});
+			}
+			else
+			{
+				Collections.sort(linkedList,new Comparator()
+					{
+						public int compare(Object o1,Object o2)
+						{
+							User u1=(User)o1;
+							User u2=(User)o2;
+
+							return u1.getName().compareTo(u2.getName());
+						}
+					});
+			}
 			}*/

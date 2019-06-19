@@ -1,20 +1,20 @@
 package com.lxisoft.collectionstore;
 import java.util.*;
 import java.io.*;
+import java.lang.*;
 
 public class ArrayListStore<T> implements CollectionRepository<T>
 {
-	// private Class<T> type;
-	// private String fieldName;
-
+	Class<T> type;
+	
 	List <T> arrayList=new ArrayList <T>();
 
-	// public ArrayListStore (Class<T> type)
-	// {
-	// 	this.type=type;
-	// }
+	public ArrayListStore (Class<T> type)
+	{
+		this.type=type;
+	}
 	
-	private Comparator comparator;
+	//private Comparator comparator;
 
 	public void create(T user)
 	{
@@ -69,18 +69,17 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 	}
 	public void sort(String value)
 	{
-		if(value=="Id")
+	if(value=="id")
+	{
+		if(type.equals(Integer.class)||type.equals(String.class))
 		{
-			Collections.sort(arrayList,new Comparator()
+			System.out.println("SSS"+type);
+			Object[] a =arrayList.toArray();
+			Arrays.sort(a);
+			for(int i=0;i<a.length;i++)
 			{
-				public int compare(Object o1, Object o2) 
-    			{
-        			User u1=(User)o1;
-       				User u2=(User)o2;
-
-       				return u1.getId()-u2.getId();
-    			}
-    		});
+			 System.out.println("\n"+a[i]);
+			}
 		}
 		else
 		{
@@ -88,16 +87,43 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 			{
 				public int compare(Object o1,Object o2)
 				{
-					User u1=(User)o1;
-					User u2=(User)o2;
-
-			    	return u1.getName().compareTo(u2.getName());
+					try
+					{
+						//System.out.println("SS:"+(String)type.getDeclaredField("name").get(o1));
+						return ((Integer)type.getDeclaredField("id").get(o1)).compareTo ((Integer)type.getDeclaredField("id").get(o2));
+					}
+					catch (Exception e)
+					{
+						e.printStackTrace();
+					};
+					return 3;  
 				}
 			});
 		}
 	}
-
+	else
+	{
+		Collections.sort(arrayList,new Comparator()
+			{
+				public int compare(Object o1,Object o2)
+				{
+					try
+					{
+						//System.out.println("SS:"+(String)type.getDeclaredField("name").get(o1));
+						return ((String)type.getDeclaredField("name").get(o1)).compareTo ((String)type.getDeclaredField("name").get(o2));
+					}
+					catch (Exception e)
+					{
+						e.printStackTrace();
+					};
+					return 3;  
+				}
+			});
+	}
+	}
 }
+
+
 /*public void sort(String value)
 {
 		if (value=="Id")
@@ -144,8 +170,36 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 
 			}
 
-}*/
+}*//*
+public void sort(String value)
+	{
+		if(value=="Id")
+		{
+			Collections.sort(arrayList,new Comparator()
+			{
+				public int compare(Object o1, Object o2) 
+    			{
+        			User u1=(User)o1;
+       				User u2=(User)o2;
 
+       				return u1.getId()-u2.getId();
+    			}
+    		});
+		}
+		else
+		{
+			Collections.sort(arrayList,new Comparator()
+			{
+				public int compare(Object o1,Object o2)
+				{
+					User u1=(User)o1;
+					User u2=(User)o2;
+
+			    	return u1.getName().compareTo(u2.getName());
+				}
+			});
+		}
+	}*/
 
 
 

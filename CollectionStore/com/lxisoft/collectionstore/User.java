@@ -5,10 +5,10 @@ import java.io.*;
 public class User 
 //implements Comparable 
 {
-	//private int id;
-	private String name;
+	Integer id;
+	String name;
 
-	/*public User(int id,String name)
+	public User(int id,String name)
 	{
 		this.id=id;
 		this.name=name;
@@ -21,7 +21,7 @@ public class User
 	public Integer getId()
 	{
 		return id;
-	}*/
+	}
 	public void setName()
 	{ 
 		this.name=name;
@@ -32,7 +32,7 @@ public class User
 	}
 	public String toString()
 	{
-		return /*"ID :"+this.id+":"+*/"Name :"+this.name;
+		return "ID :"+this.id+":"+"Name :"+this.name;
 
 	}
 	
@@ -41,7 +41,7 @@ public class User
 	{
 		User u=(User)object;
 
-		/*if(this.id == null)
+		if(this.id == null)
 			{
 				if(u.id!=null)
 					{
@@ -52,7 +52,7 @@ public class User
 			{
 				return true;
 			}
-			else{return false;}*/
+			else{return false;}
 		
 		if(this.name==null)
 			{
@@ -70,6 +70,10 @@ public class User
 				return false;
 			}
 			return true;
+	}
+	public int hashcode()
+	{
+		return this.id;
 	}
 	
 	
