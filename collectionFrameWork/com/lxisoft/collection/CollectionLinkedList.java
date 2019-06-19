@@ -6,7 +6,6 @@ public class CollectionLinkedList<T> implements CollectionRepository<T>
    public void create(T a)
    {
 	   data.add(a);
-	   System.out.println(data);
    }  
    public Collection<T> read()
    {

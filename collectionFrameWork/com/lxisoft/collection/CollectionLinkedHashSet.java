@@ -9,7 +9,6 @@ public class CollectionLinkedHashSet<T> implements CollectionRepository<T>
 	public void create(T a)
 	{
 	   data.add(a);
-	   System.out.println(data);
 	}	
 	public Collection<T> read()
 	{
