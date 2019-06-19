@@ -3,8 +3,8 @@ import java.util.*;
 import java.lang.reflect.*;
 public class Interns  
 {
-	private String name;
-	private int id;
+	 String name;
+	 int id;
 	public void setName(String name)
 	{
 		this.name=name;

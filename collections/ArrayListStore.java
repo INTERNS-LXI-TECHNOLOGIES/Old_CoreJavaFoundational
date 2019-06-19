@@ -1,7 +1,6 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.io.*;
-import java.lang.reflect.*;
 public class ArrayListStore<T> implements CollectionRepository<T>
 {
 	/*Interns obj=new Interns();
@@ -70,12 +69,12 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 		try{
 		return ((String)type.getDeclaredField("name").get(t1)).compareTo((String)type.getDeclaredField("name").get(t2));
 		}
-		catch(Exception e){};
+		catch(Exception e){ e.printStackTrace();};
 		return 4;
 	}
 	});
 	
-	System.out.println(arrayList);
+	//System.out.println(arrayList);
 	}
 	}
 }

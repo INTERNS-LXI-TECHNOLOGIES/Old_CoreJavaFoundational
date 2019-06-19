@@ -1,13 +1,26 @@
 package com.lxisoft.collections;
 import java.util.*;
-import java.lang.reflect.*;
+import java.io.*;
+import java.util.logging.*;
 //import org.apache.log4j.*;
 public class Tdd
 {
 	//private static Final Logg=Logger.getLogger(Tdd.class.getName)
+	private static final Logger log=Logger.getLogger(Tdd.class.getName());
 	public static void main(String[] args)
 	{
-		//Logger log=new Logger();
+	try{
+	//private static final Logger log=Logger.getLogger(Tdd.class.getName());
+	FileHandler fileHandler=new FileHandler("logger.log");
+	SimpleFormatter simpleFormatter=new SimpleFormatter();
+	log.addHandler(fileHandler);
+	fileHandler.setFormatter(simpleFormatter);
+	log.setUseParentHandlers(false);
+	}
+	catch(IOException e)
+	{
+		e.printStackTrace();
+	}
 	/*CollectionRepository<String>  c=new HashSetStore<String>(String.class);
 	c.create("Pavana");
 	c.create("Sanjana");
@@ -34,6 +47,7 @@ public class Tdd
 	c.delete(36);
 	System.out.println(c.read());
 	c.sort();*/
+	log.info("get in");
 	CollectionRepository<Interns>  c=new ArrayListStore<Interns>(Interns.class);
 	Interns i=new Interns("Pavana",101);
 	Interns i1=new Interns("Sanjana",102);
@@ -45,13 +59,14 @@ public class Tdd
 	c.create(i2);
 	c.create(i3);
 	c.create(i4);
-	System.out.println(c.read());
+	log.info(c.read().toString());
 	Interns i6=new Interns("Jose",106);
 	c.update(i2,i6);
-	System.out.println(c.read());
+	log.info(c.read().toString());
 	c.delete(i1);
-	System.out.println(c.read());
+	log.info(c.read().toString());
 	c.sort();
+	log.info(c.read().toString());
 	/*HashMapStore<Integer,String> t=new HashMapStore<Integer,String>();
 	t.create(2,"Sanjana");
 	t.create(1,"Greeshma");
