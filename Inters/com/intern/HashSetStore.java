@@ -4,6 +4,15 @@ import com.intern.*;
 public class HashSetStore<T> implements Repository<T>
 {
 	Set<T>hashSet=new HashSet<T>();
+	
+	@SuppressWarnings("unused")
+	private String name= "id";
+
+	@SuppressWarnings("unused")
+	private Class<T> type;
+	public HashSetStore(Class<Intern> class1) {
+		// TODO Auto-generated constructor stub
+	}
 	public void create(T value)
 	{
 		hashSet.add(value);
@@ -46,10 +55,20 @@ public class HashSetStore<T> implements Repository<T>
 			System.out.println(treeSet);
 		}
 
-		 public void sort()
+		 @SuppressWarnings("unchecked")
+		public void sort()
 		 {
-		 	TreeSet<T>treeSet=new TreeSet<T>(hashSet);
-		 	System.out.println(treeSet);
+		 	try {
+				Object[] obj = hashSet.toArray();
+				Arrays.sort(obj);
+				for (Object s : obj) {
+					hashSet.add((T) s);
+				} 
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		 	
+		 
 		 }
 
 }

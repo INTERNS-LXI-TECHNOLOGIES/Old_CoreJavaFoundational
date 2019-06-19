@@ -1,97 +1,117 @@
 package com.intern;
-import java.util.*;
-import com.intern.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 public class LinkedListStore<T> implements Repository<T>
 {
- List<T>linkedList=new LinkedList<T>();
- private Comparator comparator;
-
- public void create(T value)
- {
- 	linkedList.add(value);
- }
- public Collection<T>readAll()
- {
- 	return linkedList;
- }
- public void update(int index, T element)
- {
- 	
- 	linkedList.set(index,element);
- }
- public void update(T element,T element1)
- {
- 	for(int i=0;i<linkedList.size();i++)
- 	{
- 		if(element.equals(linkedList.get(i)))
-			{
-			linkedList.set(i,element1);	
-			}
- 	}
- 	 System.out.println(linkedList);
- 
-
- }
- public void delete(T element)
- {
- 	linkedList.remove(element);
- }
- public void delete(int index)
- {
- 	linkedList.remove(index);
- }
- 
- public void sort(String name)
- {
- 	try
+	
+	private Class <T> type;
+	public LinkedListStore(Class<T>type)
+	{
+		this.type=type;
+	}
+	List<T>linklist=new ArrayList<T>();
+	private String name="id";
+	public void create(T value)
+	{
+		linklist.add(value);
+	}
+	public Collection<T>readAll()
+	{
+		return linklist;
+	}
+	public void update(T element, T element1)
+	{
+		for(int i=0;i<linklist.size();i++)
 		{
-			if(name==name)
+			if(element.equals(linklist.get(i)))
 			{
-				comparator= new NameComparator();
-				for(int i=0;i<linkedList.size();i++)
+				linklist.set(i,element1);	
+			}
+		}
+	}
+	public void update(int index, T element)
+	{
+		linklist.set(index,element);
+	}
+	public void delete(T element)
+	{
+		for(int i=0;i<linklist.size();i++)
+		{
+			if(element.equals(linklist.get(i)))
+			{
+				linklist.remove(i);
+			}
+		}
+	}
+	public void delete(int index)
+	{
+		linklist.remove(index);
+	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void sort()
+	{
+		try
+		{
+			if( type==Double.class||type==Integer.class||type==Character.class||type==Short.class||
+		            type==Float.class||type==String.class)
+			{
+				Object[] obj = linklist.toArray();
+				Arrays.sort(obj);
+				for(int i=0;i<obj.length;i++)
 				{
-					for(int j=0;j<linkedList.size();j++)
-					{
-						Intern int1=(Intern)linkedList.get(i);
-						Intern int2=(Intern)linkedList.get(j);
-						if(comparator.compare(int1,int2)>0)
-						{
-							linkedList.set(j,(T)int1);
-							linkedList.set(i,(T)int2);
-						                                                                                                                                                                                                                                                  
-						}
-
-					}
+					System.out.println(obj[i]);
 				}
 			}
 			else
 			{
-				comparator=new IdComparator();
-				for(int i=0;i<linkedList.size();i++)
-				{
-					for(int k=0;k<linkedList.size();k++)
-					{
-						Intern in1=(Intern)linkedList.get(i);
-						Intern in2=(Intern)linkedList.get(k);
-						if(comparator.compare(in1,in2)<0)
+			Collections.sort(linklist, new Comparator()
+			{
+			
+			public int compare(Object i1, Object i2)
+			{
+				
+					try {
+						if(type.getDeclaredField(name).getType()==String.class)
 						{
-							linkedList.set(k,(T)in1);
-							linkedList.set(i,(T)in2);
+							return ((String) type.getClass().getDeclaredField(name).get(i1)).compareTo((String)type.getClass().getDeclaredField(name).get(i2));
+
 						}
+						
+					} catch (NoSuchFieldException | SecurityException | IllegalArgumentException
+							| IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
 					}
-				}
+				
+				System.out.println();
+			try {
+				return (Integer) type.getDeclaredField(name).get(i1)-(Integer)type.getDeclaredField(name).get(i2);
+			} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
+				// TODO Auto-generated catch block
+				
 			}
+			return 4;
+			}
+			});
 		}
-		catch(Exception e)
+		}
+			
+		catch(SecurityException e)
 		{
-
+			
 		}
 
- }
- public void sort()
- {
 
- }
+	}
 
+	public void sort(String name)
+	{
+		
+	}
 
-}
+	
+	}

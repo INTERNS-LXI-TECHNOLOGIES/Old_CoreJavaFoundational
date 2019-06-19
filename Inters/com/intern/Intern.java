@@ -1,22 +1,23 @@
 package com.intern;
 import java.util.*;
+import java.util.Collections;
    public class Intern
    {
-   	private String id;
-    private String name;
-   public  Intern(String id, String name)
+    int id;
+    String name;
+   public  Intern(int id, String name)
     {
         this.id = id;
         this.name = name;
     }
 
 
- 	public void setId(String id)
+ 	public void setId(int id)
      {
         this.id = id;
     }
 
-    public String getId()
+    public int getId()
      {
         return id;
     }
@@ -27,6 +28,14 @@ import java.util.*;
     public String getName() 
     {
         return name;
+    }
+    public boolean equals(Object I) {
+
+    return (this.name).equals(((Intern)I).name);
+    }
+    public int compareTo(Intern intern){
+    	int hash=this.name.compareTo(intern.name);
+    return hash;
     }
 
 

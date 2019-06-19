@@ -1,10 +1,20 @@
 package com.intern;
-import java.util.*;
-import com.intern.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 public class ArrayListStore<T> implements Repository<T>
 {
+	
+	private Class <T> type;
+	public ArrayListStore(Class<T>type)
+	{
+		this.type=type;
+	}
 	List<T>al=new ArrayList<T>();
-	private Comparator comparator;
+	private String name="id";
 	public void create(T value)
 	{
 		al.add(value);
@@ -41,53 +51,67 @@ public class ArrayListStore<T> implements Repository<T>
 	{
 		al.remove(index);
 	}
-	public void sort(String name)
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void sort()
 	{
 		try
 		{
-			if(name==name)
+			if( type==Double.class||type==Integer.class||type==Character.class||type==Short.class||
+		            type==Float.class||type==String.class)
 			{
-				comparator= new NameComparator();
-				for(int i=0;i<al.size();i++)
+				Object[] obj = al.toArray();
+				Arrays.sort(obj);
+				for(int i=0;i<obj.length;i++)
 				{
-					for(int j=0;j<al.size();j++)
-					{
-						Intern int1=(Intern)al.get(i);
-						Intern int2=(Intern)al.get(j);
-						if(comparator.compare(int1,int2)>0)
-						{
-							al.set(j,(T)int1);
-							al.set(i,(T)int2);
-						}
-					}
+					System.out.println(obj[i]);
 				}
 			}
 			else
 			{
-				comparator=new IdComparator();
-				for(int i=0;i<al.size();i++)
-				{
-					for(int k=0;k<al.size();k++)
-					{
-						Intern in1=(Intern)al.get(i);
-						Intern in2=(Intern)al.get(k);
-						if(comparator.compare(in1,in2)<0)
+			Collections.sort(al, new Comparator()
+			{
+			
+			public int compare(Object i1, Object i2)
+			{
+				
+					try {
+						if(type.getDeclaredField(name).getType()==String.class)
 						{
-							al.set(k,(T)in1);
-							al.set(i,(T)in2);
+							return ((String) type.getClass().getDeclaredField(name).get(i1)).compareTo((String)type.getClass().getDeclaredField(name).get(i2));
+
 						}
+						
+					} catch (NoSuchFieldException | SecurityException | IllegalArgumentException
+							| IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
 					}
-				}
+				
+				System.out.println();
+			try {
+				return (Integer) type.getDeclaredField(name).get(i1)-(Integer)type.getDeclaredField(name).get(i2);
+			} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
+				// TODO Auto-generated catch block
+				
 			}
+			return 4;
+			}
+			});
 		}
-		catch(Exception e)
+		}
+			
+		catch(SecurityException e)
 		{
-
+			
 		}
 
-	}
-	public void sort()
-	{
 
 	}
-} 
+
+	public void sort(String name)
+	{
+		
+	}
+
+	
+	}
