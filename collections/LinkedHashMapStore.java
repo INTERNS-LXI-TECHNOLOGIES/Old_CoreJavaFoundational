@@ -11,18 +11,19 @@ public class LinkedHashMapStore<K,V>
 	}
 	public Map<K,V> read()
 	{
+		MyLogger.logger().info(linkedHashMap.toString());
 		return linkedHashMap;
 	}
 	public void update(K k,V nv)
 	{
 		linkedHashMap.remove(k);
 		linkedHashMap.put(k,nv);
-		System.out.println(linkedHashMap);
+		MyLogger.logger().info(linkedHashMap.toString());
 	}
 	public void delete(K k)
 	{
 		linkedHashMap.remove(k);
-		System.out.println(linkedHashMap);
+		MyLogger.logger().info(linkedHashMap.toString());
 	}
 	public void sort()
 	{

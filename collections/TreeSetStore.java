@@ -1,7 +1,7 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.io.*;
-import java.lang.*;
+import java.util.logging.*;
 public class TreeSetStore<T> implements CollectionRepository<T>
 {
 	Class<T> type;
@@ -83,7 +83,7 @@ public class TreeSetStore<T> implements CollectionRepository<T>
 		{	
 		Set<T> treeSet=this.treeSet;
 		//create();
-		System.out.println(treeSet);
+		MyLogger.logger().info(treeSet.toString());
 		}
 	}
 }

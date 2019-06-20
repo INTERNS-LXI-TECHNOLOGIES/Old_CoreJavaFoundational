@@ -1,7 +1,7 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.io.*;
-import java.lang.reflect.*;
+import java.util.logging.*;
 public class HashSetStore<T> implements CollectionRepository<T> 
 {
 	Class<T> type;
@@ -23,6 +23,7 @@ public class HashSetStore<T> implements CollectionRepository<T>
 	}
 	public Collection<T> read()
 	{
+		MyLogger.logger().info(hashSet.toString());
 		return hashSet;
 	}	
 	public void update(T data,T data1)
@@ -32,10 +33,12 @@ public class HashSetStore<T> implements CollectionRepository<T>
 			hashSet.remove(data);
 			hashSet.add(data1);
 		}
+		MyLogger.logger().info(hashSet.toString());
 	}
 	public void delete(T data)
 	{
 		hashSet.remove(data);
+		MyLogger.logger().info(hashSet.toString());
 	}
 	public void sort()
 	{

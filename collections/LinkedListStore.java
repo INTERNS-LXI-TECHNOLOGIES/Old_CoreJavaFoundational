@@ -1,7 +1,7 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.io.*;
-import java.lang.reflect.*;
+import java.util.logging.*;
 public class LinkedListStore<T> implements CollectionRepository<T>
 {
 	Class<T> type;
@@ -12,14 +12,18 @@ public class LinkedListStore<T> implements CollectionRepository<T>
 	List<T> linkedList = new LinkedList<>();
 	public void create(T data)
 	{
+		MyLogger.logger().info("Start");
 		linkedList.add(data);
 	}
 	public Collection<T> read()
 	{
+		MyLogger.logger().info("Start");
+		MyLogger.logger().info(linkedList.toString());
 		return linkedList;
 	}
 	public void update(T data,T data1)
 	{
+		MyLogger.logger().info("Start");
 		for(int i=0;i<linkedList.size();i++)
 		{
 			if(data.equals(linkedList.get(i)))
@@ -27,9 +31,11 @@ public class LinkedListStore<T> implements CollectionRepository<T>
 				linkedList.set(i,data1);
 			}
 		}
+		MyLogger.logger().info(linkedList.toString());
 	}
 	public void delete(T data)
 	{
+		MyLogger.logger().info("Start");
 		for(int i=0;i<linkedList.size();i++)
 		{
 			if(data.equals(linkedList.get(i)))
@@ -37,6 +43,7 @@ public class LinkedListStore<T> implements CollectionRepository<T>
 				linkedList.remove(i);
 			}
 		}
+		MyLogger.logger().info(linkedList.toString());
 	}
 	public void sort()
 	{
@@ -45,7 +52,7 @@ public class LinkedListStore<T> implements CollectionRepository<T>
 			Object[] a=linkedList.toArray();
 			Arrays.sort(a);
 			for(int i=0;i<a.length;i++)
-			System.out.println(a[i]);
+			MyLogger.logger().info(a[i].toString());
 		}
 		else
 		{
@@ -54,7 +61,8 @@ public class LinkedListStore<T> implements CollectionRepository<T>
 	{
 		return ((Interns)t1).getName().compareTo(((Interns)t2).getName());
 	}
-	});System.out.println(linkedList);
+	});
+	MyLogger.logger().info(linkedList.toString());
 	}
 	}
 }

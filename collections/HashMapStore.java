@@ -1,7 +1,7 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.io.*;
-import java.lang.*;
+import java.util.logging.*;
 public class HashMapStore<K,V>
 {
 	HashMap<K,V> hashMap=new HashMap<K,V>();
@@ -11,18 +11,19 @@ public class HashMapStore<K,V>
 	}
 	public Map<K,V> read()
 	{
+		MyLogger.logger().info(hashMap.toString());
 		return hashMap;
 	}
 	public void update(K k,V nv)
 	{
 		hashMap.remove(k);
 		hashMap.put(k,nv);
-		System.out.println(hashMap);
+		MyLogger.logger().info(hashMap.toString());
 	}
 	public void delete(K k)
 	{
 		hashMap.remove(k);
-		System.out.println(hashMap);
+		MyLogger.logger().info(hashMap.toString());
 	}
 	public void sort()
 	{

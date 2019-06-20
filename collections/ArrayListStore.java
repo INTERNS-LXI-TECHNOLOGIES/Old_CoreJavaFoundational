@@ -1,6 +1,7 @@
 package com.lxisoft.collections;
 import java.util.*;
 import java.io.*;
+import java.util.logging.*;
 public class ArrayListStore<T> implements CollectionRepository<T>
 {
 	/*Interns obj=new Interns();
@@ -19,6 +20,7 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 	}
 	public Collection<T> read()
 	{
+		MyLogger.logger().info(arrayList.toString());
 		return arrayList;
 	}
 	public void update(T data,T data1)
@@ -30,6 +32,7 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 				arrayList.set(i,data1);
 			}
 		}
+		MyLogger.logger().info(arrayList.toString());
 	}
 	public void delete(T data)
 	{
@@ -40,6 +43,7 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 				arrayList.remove(i);
 			}
 		}
+		MyLogger.logger().info(arrayList.toString());
 	}
 	public void sort()
 	{
@@ -57,7 +61,7 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 	}
 	});*/
 	for(int i=0;i<a.length;i++)
-	System.out.println(a[i]);
+	MyLogger.logger().info(a[i].toString());
 	}
 	else{
 		//System.out.print(type);
@@ -73,8 +77,8 @@ public class ArrayListStore<T> implements CollectionRepository<T>
 		return 4;
 	}
 	});
-	
 	//System.out.println(arrayList);
+	MyLogger.logger().info(arrayList.toString());
 	}
 	}
 }
