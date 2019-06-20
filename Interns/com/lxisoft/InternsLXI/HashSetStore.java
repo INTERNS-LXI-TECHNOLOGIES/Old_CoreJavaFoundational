@@ -9,6 +9,10 @@ public class HashSetStore<T> implements CollectionRepository<T>{
 String data;
 Set<T> hs = new HashSet<T>();
 
+Class<T> type;
+public HashSetStore(Class<T> type){
+	this.type=type;
+}
 public void create(T data){
 	hs.add(data);
 }

@@ -7,6 +7,10 @@ public class LinkedHashSetStore<T> implements CollectionRepository<T>{
 String data;
 Set<T> lhs = new LinkedHashSet<T>();
 
+Class<T> type;
+public LinkedHashSetStore(Class<T> type){
+	this.type=type;
+}
 public void create(T data){
 	lhs.add(data);
 }

@@ -31,22 +31,13 @@ public void delete(T data){
 	}
 
 }
-public void sort(){
-	if(type.equals(Integer.class)||type.equals(String.class)){
-		T sorted;
- 	while((sorted = queue.poll())!=null){
- 		System.out.println(sorted);
- 	
-	}
-	}
-	else
-	{	 
+public void sort(){	 
  	T sorted;
  	while((sorted = queue.poll())!=null){
  		System.out.println(sorted);
  	
 	}
-	}	 
+		 
 } 
 
 }
