@@ -2,16 +2,14 @@ package com.lxisoft.movie.model;
 import java.io.*;
 import java.util.*;
 import java.util.logging.*;
-
-
 /**
 *This class is used as a model class for Actors
 *
 *@author AryaVineesh
 *
-*@version v1.0
+*@version 1.0
 *
-*Date Modified:18/06/2019
+*Date Modified:20/06/2019
 */
 public class Actor 
 {
@@ -19,6 +17,11 @@ public class Actor
 	*Reference Logger class to get log messages
 	*/
 	private static final Logger log=Logger.getLogger(Actor.class.getName());
+	
+	public Actor()
+	{
+		log.setLevel(Level.WARNING);
+	}
 	
 	/**
 	*This is the original name of the Actor

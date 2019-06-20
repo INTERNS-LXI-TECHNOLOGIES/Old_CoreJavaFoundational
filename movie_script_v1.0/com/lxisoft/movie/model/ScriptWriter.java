@@ -7,9 +7,9 @@ import java.util.logging.*;
 *
 *@author AryaVineesh
 *
-*@version v1.0
+*@version 1.0
 *
-*Date Modified:18/06/2019
+*Date Modified:20/06/2019
 */
 public class ScriptWriter
 {
@@ -18,6 +18,11 @@ public class ScriptWriter
 	*/
 	
 	private static final Logger log=Logger.getLogger(ScriptWriter.class.getName());
+	
+	public ScriptWriter()
+	{
+		log.setLevel(Level.WARNING);
+	}
 	
 	/**
 	*This is used to represent the name of the script writer 
@@ -52,14 +57,28 @@ public class ScriptWriter
 		return name;
 	}
 	
+	/**
+	*this method is used to set the movieScript
+	*
+	*@param movieScript - the movie script to set
+	*
+	*/
 	public void setMovieScript(MovieScript movieScript)
 	{
+		log.info("ScriptWriter class.............setMovieScript............start");
 		this.movieScript=movieScript;
+		log.info("ScriptWriter class.............setMovieScript............end");
 	}
 	
-	
+	/**
+	*this method will return the movie script
+	*
+	*@return movieScript
+	*
+	*/
 	public MovieScript getMovieScript()
 	{
+		log.info("ScriptWriter class.............getMovieScript............start/end");
 		return movieScript;
 	}
 }

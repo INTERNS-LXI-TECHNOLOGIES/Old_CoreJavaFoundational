@@ -19,6 +19,11 @@ public class ScriptFileControl
 	*/
 	private static final Logger log=Logger.getLogger(ScriptFileControl.class.getName());
 	
+	public ScriptFileControl()
+	{
+		log.setLevel(Level.WARNING);
+	}
+	
 	/**
 	*This method is used for create file
 	*
@@ -60,6 +65,9 @@ public class ScriptFileControl
 			scriptFileModel.setReadData(br.readLine());
 			
 			String data=scriptFileModel.getReadData();
+			
+			System.out.println("dataa from file\n"+data);
+			
 			while(data!=null)
 			{
 				

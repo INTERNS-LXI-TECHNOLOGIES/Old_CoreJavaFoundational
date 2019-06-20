@@ -5,14 +5,18 @@ import java.util.logging.*;
 /**
 *This class is the model class for ScriptFile
 *
-*@author Arya Vineesh
+*@author AryaVineesh
 *
 *@version 1.0
 *
-*Date Modified:18/06/2019
+*Date Modified:20/06/2019
 */
 public class ScriptFileModel
 {
+	public ScriptFileModel()
+	{
+		log.setLevel(Level.WARNING);
+	}
 	/**
 	*This is the name of the file
 	*/

@@ -10,9 +10,9 @@ import com.lxisoft.movie.model.*;
 *
 *@author AryaVineesh
 *
-*@version v1.0
+*@version 1.0
 *
-*Date Modified:18/06/2019
+*Date Modified:20/06/2019
 */
 public class Hero extends Actor implements Action
 {
@@ -22,6 +22,10 @@ public class Hero extends Actor implements Action
 	
 	private static final Logger log=Logger.getLogger(Hero.class.getName());
 	
+	/**
+	*@Override
+	*
+	*/
 	public void deliverDialogue()
 	{
 		

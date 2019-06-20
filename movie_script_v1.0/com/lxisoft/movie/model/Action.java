@@ -7,11 +7,15 @@ import java.util.logging.*;
 *
 *@author AryaVineesh
 *
-*@version v1.0
+*@version 1.0
 *
-*Date Modified:18/06/2019
+*Date Modified:20/06/2019
 */
 public interface Action
 {
+	/**
+	*this method is public and abstract used for delivering the dialogue
+	*
+	*/
 	public void deliverDialogue();
 }
