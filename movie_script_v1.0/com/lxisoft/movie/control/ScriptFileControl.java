@@ -10,7 +10,7 @@ import com.lxisoft.movie.model.ScriptFileModel;
 *
 *@version 1.0
 *
-*Date Modified:18/06/2019
+*Date Modified:21/06/2019
 */
 public class ScriptFileControl
 {
@@ -66,7 +66,7 @@ public class ScriptFileControl
 			
 			String data=scriptFileModel.getReadData();
 			
-			System.out.println("dataa from file\n"+data);
+			// System.out.println("dataa from file\n"+data);
 			
 			while(data!=null)
 			{

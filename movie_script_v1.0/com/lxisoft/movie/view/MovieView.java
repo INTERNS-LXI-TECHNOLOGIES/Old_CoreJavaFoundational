@@ -11,7 +11,7 @@ import com.lxisoft.movie.control.*;
 *
 *@version 1.0
 *
-*Date Modified:20/06/2019
+*Date Modified:21/06/2019
 */
 public class MovieView
 {
@@ -33,6 +33,7 @@ public class MovieView
 	Movie kgf=new Movie();
 	Director director;
 	ScriptWriter writer;
+	JuniorArtists artists;
 	
 	public void printStatement(String name)
 	{
@@ -69,6 +70,18 @@ public class MovieView
 		printStatement("Comedeian");
 		comedeian=new Comedeian();
 		comedeian.setName(sc.nextLine());
+		
+		printStatement("Junior Artists");
+		artists=new JuniorArtists();
+		artists.setName(sc.nextLine());
+		
+		ArrayList<Actor> actors=new ArrayList<Actor>();
+		actors.add(hero);
+		actors.add(heroine);
+		actors.add(comedeian);
+		actors.add(villain);
+		actors.add(artists);
+		kgf.setActor(actors);
 		
 		movieControl=new MovieControl();
 		movieControl.playMovie(kgf,director,writer);

@@ -10,7 +10,7 @@ import com.lxisoft.movie.model.*;
 *
 *@version 1.0
 *
-*Date Modified:20/06/2019
+*Date Modified:21/06/2019
 */
 public class Tdd
 {
@@ -26,8 +26,7 @@ public class Tdd
 	public Tdd()
 	{
 		log.setLevel(Level.WARNING);
-		MovieView view=new MovieView();
-		view.enterMovieDetails();
+		selectCategory();
 		
 	}
 	
@@ -35,7 +34,26 @@ public class Tdd
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("\t\t\t\t Movie \t\t\t\t");
-		System.out.println("1.play movie\n2.Operations on Script");
+		System.out.println("1.play movie\n2.Edit Script");
+		System.out.println("Enter your choice:\n");
+		int choice=sc.nextInt();
+		switch(choice)
+		{
+			case 1:	MovieView view=new MovieView();
+					view.enterMovieDetails();
+					break;
+			case 2:selectCrudOperation();
+					
+		}
+	}
+	
+	public void selectCrudOperation()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("1.Create New Script\n2.Read Script\n3.Update Script\n4.Delete Script\n");
+		System.out.println("Enter your choice:\n");
+		int choice=sc.nextInt();
+		
 	}
 	
 	/**

@@ -10,7 +10,7 @@ import com.lxisoft.movie.control.ScriptFileControl;
 *
 *@version 1.0
 *
-*Date Modified:20/06/2019
+*Date Modified:21/06/2019
 */
 public class Movie
 {
@@ -42,7 +42,7 @@ public class Movie
 	/**
 	*Reference Actor class to get the information of the actors
 	*/
-	private Actor actors;
+	private ArrayList<Actor> actors;
 	
 	/**
 	*this method is used to set the name of the movie
@@ -93,6 +93,32 @@ public class Movie
 		log.info("Movie class..........getDirector..........start/end");
 		return director;
 	}
+	
+	/**
+	*This method is used to set an arraylist of Actors
+	*
+	*@param actors - the list of actors to be set
+	*
+	*/
+	public void setActor(ArrayList<Actor> actors)
+	{
+		log.info("Movie class..........setActor..........start");
+		this.actors=actors;
+		log.info("Movie class..........setActor..........end");
+	}
+	
+	/**
+	*This method will return an arraylist of actors
+	*
+	*@return actors
+	*
+	*/
+	public ArrayList<Actor> getActor()
+	{
+		log.info("Movie class..........getActor..........start/end");
+		return actors;
+	}
+	
 	
 	
 	

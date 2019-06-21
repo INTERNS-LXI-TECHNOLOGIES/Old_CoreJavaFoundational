@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.logging.*;
 import com.lxisoft.movie.model.Actor;
 import com.lxisoft.movie.model.*;
+import com.lxisoft.movie.control.*;
 
 /**
 *This class is used as a model class for Heroine
@@ -12,7 +13,7 @@ import com.lxisoft.movie.model.*;
 *
 *@version 1.0
 *
-*Date Modified:20/06/2019
+*Date Modified:21/06/2019
 */
 public class Heroine extends Actor implements Action
 {
@@ -28,6 +29,11 @@ public class Heroine extends Actor implements Action
 	*/
 	public void deliverDialogue()
 	{
-		
+		System.out.println("\ndelivering dialogue\n");
+		ScriptFileControl sfc=new ScriptFileControl();
+		sfc.createFile("heroine.csv");
+		ArrayList<String> heroineDialogues=sfc.readFromFile("heroine.csv");
+		int i=(int)(Math.random()*heroineDialogues.size());
+		System.out.println(getName()+":"+heroineDialogues.get(i));
 	}
 }
