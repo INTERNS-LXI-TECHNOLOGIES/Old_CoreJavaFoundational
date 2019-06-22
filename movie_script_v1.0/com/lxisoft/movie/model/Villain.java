@@ -12,19 +12,17 @@ import com.lxisoft.movie.control.*;
 *
 *@version 1.0
 *
-*Date Modified:21/06/2019
+*Date Modified:22/06/2019
 */
 public class Villain extends Actor implements Action
 {
 	/**
 	*Reference Logger class to get log messages
 	*/
-	
 	private static final Logger log=Logger.getLogger(Villain.class.getName());
 	
 	public void deliverDialogue()
 	{
-		System.out.println("\ndelivering dialogue\n");
 		ScriptFileControl sfc=new ScriptFileControl();
 		sfc.createFile("villain.csv");
 		ArrayList<String> villainDialogues=sfc.readFromFile("villain.csv");

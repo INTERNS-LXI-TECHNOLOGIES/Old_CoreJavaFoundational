@@ -12,7 +12,7 @@ import java.util.*;
 *
 *@version 1.0
 *
-*Date Modified:21/06/2019
+*Date Modified:22/06/2019
 */
 public class JuniorArtists extends Actor implements Action
 {
@@ -27,7 +27,6 @@ public class JuniorArtists extends Actor implements Action
 	*/
 	public void deliverDialogue()
 	{
-		System.out.println("\ndelivering dialogue\n");
 		ScriptFileControl sfc=new ScriptFileControl();
 		sfc.createFile("junior.csv");
 		ArrayList<String> juniorDialogues=sfc.readFromFile("junior.csv");

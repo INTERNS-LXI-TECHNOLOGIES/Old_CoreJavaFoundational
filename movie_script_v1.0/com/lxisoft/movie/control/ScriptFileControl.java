@@ -10,7 +10,7 @@ import com.lxisoft.movie.model.ScriptFileModel;
 *
 *@version 1.0
 *
-*Date Modified:21/06/2019
+*Date Modified:22/06/2019
 */
 public class ScriptFileControl
 {
@@ -53,34 +53,22 @@ public class ScriptFileControl
 	public ArrayList<String> readFromFile(String fileName)
 	{
 		log.info("ScriptFileControl class.............readFromFile............start");
-		
-		
 		ArrayList<String> readDataList=new ArrayList<String>();
 		ScriptFileModel scriptFileModel=new ScriptFileModel();
 		try
 		{
 			FileReader fr=new FileReader(fileName);
 			BufferedReader br=new BufferedReader(fr);
-			
 			scriptFileModel.setReadData(br.readLine());
-			
 			String data=scriptFileModel.getReadData();
-			
-			// System.out.println("dataa from file\n"+data);
-			
 			while(data!=null)
 			{
-				
-				
 				String array[]=data.split(":");
 				for(String value:array)
 					readDataList.add(value);
 				data=br.readLine();
 			}
-			
-			
 			br.close();
-			
 		}
 		catch(ArrayIndexOutOfBoundsException e)
 		{
