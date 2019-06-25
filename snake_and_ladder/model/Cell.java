@@ -10,4 +10,8 @@ public class Cell
 	{
 		return num;
 	}
+	public Cell(int num)
+	{
+		this.num=num;
+	}
 }
