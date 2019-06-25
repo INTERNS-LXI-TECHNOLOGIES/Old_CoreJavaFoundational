@@ -9,7 +9,7 @@ import com.lxisoft.game.model.*;
 *
 *@version 1.0
 *
-*Date Modified:24/06/2019
+*Date Modified:25/06/2019
 */
 public class SnakeNLadderView
 {
@@ -18,36 +18,23 @@ public class SnakeNLadderView
 	*/
 	private static final Logger log=Logger.getLogger(SnakeNLadderView.class.getName());
 	
+	Board board;
 	public void createBoard()
 	{
-		// Board[][] cells=new Board[10][10]; 
-		// for(int i=1;i<=10;i++)
-		// {
-			// for(int j=1;j<=10;j++)
-			// {
-				// w x=100;
-				// cells[i][j]=x;
-				// System.out.println(" ");
-				// System.out.print("\t"+cells[i][j]);
-				// x--;
-			// }
-			// System.out.println(" ");
-			// System.out.println(" ");
-		// }
-		
-		int[][] array=new int[10][10];
+		board=new Board();
+		Cell[][] cellArray=new Cell[10][10];
 		int x=100;
 		for(int i=0;i<10;i++)
 		{
 			if(i%2==0)
 			{
-				
 				for(int j=0;j<10;j++)
 				{
-				
-					array[i][j]=x;
+					
+					cellArray[i][j]=new Cell();
+					cellArray[i][j].setCellNumber(x);
 					System.out.print(" ");
-					System.out.print("\t"+array[i][j]);
+					System.out.print("\t"+cellArray[i][j].getCellNumber());
 					x--;
 				}
 				x=x-10;
@@ -59,38 +46,88 @@ public class SnakeNLadderView
 				int temp=x+1;
 				for(int j=0;j<10;j++)
 				{
-					array[i][j]=temp;
+					cellArray[i][j]=new Cell();
+					cellArray[i][j].setCellNumber(temp);
 					System.out.print(" ");
-					System.out.print("\t"+array[i][j]);
+					System.out.print("\t"+cellArray[i][j].getCellNumber());
 					temp++;
 				}
 				System.out.println(" ");
 				System.out.println(" ");
 			}
-			
 		}
-		ArrayList<Cell> cells=new ArrayList<Cell>();
-		Cell cell;
-		for(int k=0;k<100;k++)
+		board.setCells(cellArray);
+		createSnakes(board);
+		createLadder(board);
+		createDice(board);
+	}
+	
+	public void createSnakes(Board board)
+	{
+		ArrayList<Snake> snakes=new ArrayList<Snake>();
+		for(int i=0;i<8;i++)
 		{
-			cells.add(cell=new Cell());
-			cells.get(k).setCellNumber(k+1);
-			
-			// System.out.print(cells.get(k));
-			
-		}
-		int count=0;
-		for(int t=(cells.size())-1;t>=0;t--)
-		{
-			System.out.print("\t"+cells.get(t).getCellNumber());
-			count++;
-			if(count==10)
+			snakes.add(new Snake());
+			int rand1=getRandomCellNumber(board);
+			int rand2=getRandomCellNumber(board);
+			if(rand1>rand2)
 			{
-				System.out.println(" ");
+				snakes.get(i).setHeadPosition(rand1);
+				snakes.get(i).setTailPosition(rand2);
 			}
+			else
+			{
+				snakes.get(i).setHeadPosition(rand2);
+				snakes.get(i).setTailPosition(rand1);
+			}
+			
+			
+			System.out.println(" "+snakes.get(i).getHeadPosition());
+			System.out.println(" "+snakes.get(i).getTailPosition());
 		}
-		
-		
+		board.setSnakes(snakes);
+	}
+	
+	public void createLadder(Board board)
+	{
+		ArrayList<Ladder> ladders=new ArrayList<Ladder>();
+		for(int i=0;i<8;i++)
+		{
+			ladders.add(new Ladder());
+			int rand1=getRandomCellNumber(board);
+			int rand2=getRandomCellNumber(board);
+			if(rand1<rand2)
+			{
+				ladders.get(i).setStartingPoint(rand1);
+				ladders.get(i).setEndPoint(rand2);
+			}
+			else
+			{
+				ladders.get(i).setStartingPoint(rand2);
+				ladders.get(i).setEndPoint(rand1);
+			}
+			
+			
+			System.out.println(" "+ladders.get(i).getStartingPoint());
+			System.out.println(" "+ladders.get(i).getEndPoint());
+		}
+		board.setLadders(ladders);
+	}
+	
+	public void createDice(Board board)
+	{
+		Dice dice=new Dice();
 		
 	}
+	
+	public int getRandomCellNumber(Board board)
+	{
+		int i=(int)(Math.random()*9);
+		int j=(int)(Math.random()*9);
+		Cell[][] cellArray=new Cell[10][10];
+		cellArray=board.getCells();
+		return cellArray[i][j].getCellNumber();
+	}
+	
+	
 }

@@ -8,7 +8,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:24/06/2019
+*Date Modified:25/06/2019
 */
 public class Board
 {
@@ -28,9 +28,9 @@ public class Board
 	private ArrayList<Ladder> ladders;
 	
 	/**
-	*This is an arraylist of cells in the board
+	*This is an array of cells in the board
 	*/
-	private ArrayList<Cell> cells;
+	private Cell[][] cells;
 	
 	/**
 	*This is the size of the board
@@ -84,11 +84,11 @@ public class Board
 	}
 	
 	/**
-	*This method is used to set an arraylist of cells on the board
+	*This method is used to set an array of cells on the board
 	*
 	*@param cells - the cells to be set
 	*/
-	public void setCells(ArrayList<Cell> cells)
+	public void setCells(Cell[][] cells)
 	{
 		log.info("Board class...............setCells............start");
 		this.cells=cells;
@@ -96,11 +96,11 @@ public class Board
 	}
 	
 	/**
-	*This method will return an arraylist of cells
+	*This method will return an array of cells
 	*
 	*@return cells
 	*/
-	public ArrayList<Cell> getCells()
+	public Cell[][] getCells()
 	{
 		log.info("Board class...............getCells............start/end");
 		return cells;

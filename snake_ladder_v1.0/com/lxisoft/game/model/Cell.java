@@ -7,10 +7,15 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:24/06/2019
+*Date Modified:25/06/2019
 */
 public class Cell
 {
+	
+	public Cell()
+	{
+		log.setLevel(Level.WARNING);
+	}
 	/**
 	*Reference Logger class to get log messages
 	*/
