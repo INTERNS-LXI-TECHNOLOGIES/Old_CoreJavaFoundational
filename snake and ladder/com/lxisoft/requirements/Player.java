@@ -3,7 +3,7 @@ import java.util.*;
 public class Player
 {
 private String name;
-private String color;
+private int position;
 
 public void setName(String name)
 {
@@ -14,13 +14,13 @@ public String getName()
 return name;
 }
 
-public void setColor(String color)
+public void setPosition(int position)
 {
-this.color=color;
+this.position=position;
 }
-public String getColor()
+public int getPosition()
 {
-return color;
+return position;
 }
 
 

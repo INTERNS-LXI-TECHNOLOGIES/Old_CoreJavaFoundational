@@ -1,4 +1,5 @@
 package com.lxisoft.test;
+import com.lxisoft.game.*;
 import java.util.*;
 
 public class Tdd
