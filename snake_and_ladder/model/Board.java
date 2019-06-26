@@ -5,19 +5,23 @@ public class Board
 {
 	CellView cellV;
 	ArrayList <Cell> cells;
+	ArrayList <Snake> snakes;
 	public Board()
 	{
 		cells=new ArrayList<Cell>();
+		snakes=new ArrayList<Snake>();
 	}
 	public void setBoard()
 	{
 		cellV=new CellView();
 		cellV.setCell(cells);
-		System.out.println(cells.size());
-		for(int p=0;p<cells.size();p++)
+		//System.out.println(cells.size());
+		/*for(int p=0;p<cells.size();p++)
 		{
 		System.out.println(cells.get(p).getNum());
-		}
+		}*/
+		
 	}
+	
 	
 }

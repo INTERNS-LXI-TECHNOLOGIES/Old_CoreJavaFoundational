@@ -21,9 +21,6 @@ public class CellView
 				{
 				System.out.print(k+"\t");
 				Cell cell=new Cell(k);
-			//	cellC.cell.setNum(k);
-			//	System.out.print(cellC.cell.ge+tNum());
-				//cells.add(cellC.cell);
 				cells.add(cell);
 				m=k-1;
 				}
@@ -35,9 +32,6 @@ public class CellView
 				{
 				System.out.print(j+"\t");
 				Cell cell=new Cell(j);
-				//cellC.cell.setNum(j);
-				//System.out.print(cellC.cell.getNum());
-				//cells.add(cellC.cell);
 				cells.add(cell);
 				m=j-1;
 				}
@@ -45,11 +39,139 @@ public class CellView
 			}
 			System.out.println("\n");
 		}
-		System.out.println(cells.size());
-		/*for(int p=0;p<cells.size();p++)
-		{
-		System.out.println(cells.get(p).getNum());
+		//System.out.println(cells.size());
+		/*int l=0;
+		for(int p=0;p<cells.size();p++)
+		{	
+		System.out.print(cells.get(p).getNum()+"\t");
+		l++;
+		if(l==10){
+		System.out.println("\n");
+		l=0;
+		}
 		}*/
+		setSnake(cells);
 	}
+	public void setSnake(ArrayList <Cell> cells)
+	{
+		for(int noOfSnake=1;noOfSnake<=3;noOfSnake++)
+		{
+		int n=noOfSnake;
+		int cellNo1=(int)(Math.random()*100);
+		int cellNo2=(int)(Math.random()*100);
+		if(cellNo1!=cellNo2)
+		{
+		System.out.println(cellNo1);
+		System.out.println(cellNo2);
+		if(cellNo1>cellNo2)
+		{
+			int l=0;
+			for(int p=0;p<cells.size();p++)
+			{
+			if(cellNo1==cells.get(p).getNum())
+			{
+				System.out.print(cells.get(p).getNum()+"H"+n+"\t");
+				l++;
+			}
+			else if(cellNo2==cells.get(p).getNum())
+			{
+				System.out.print(cells.get(p).getNum()+"T"+n+"\t");
+				l++;
+			}
+			else
+			{
+				System.out.print(cells.get(p).getNum()+"\t");
+				l++;
+			}
+			if(l==10)
+			{
+				System.out.println("\n");
+				l=0;
+			}
+			}	
+		}
+		else
+		{
+			int l=0;
+			for(int p=0;p<cells.size();p++)
+			{
+			if(cellNo2==cells.get(p).getNum())
+			{
+				System.out.print(cells.get(p).getNum()+"H"+n+"\t");
+				l++;
+			}
+			else if(cellNo1==cells.get(p).getNum())
+			{
+				System.out.print(cells.get(p).getNum()+"T"+n+"\t");
+				l++;
+			}
+			else
+			{
+				System.out.print(cells.get(p).getNum()+"\t");
+				l++;
+			}
+			if(l==10)
+			{
+				System.out.println("\n");
+				l=0;
+			}
+			}	
+		}
+		}
+		}	
+		/*int l=0;
+		int n=1;
+		for(int p=0;p<cells.size();p++)
+		{
+		int cellNo1=(int)(Math.random()*100);
+		int cellNo2=(int)(Math.random()*100);
+		if(cellNo1!=cellNo2)
+		{	
+			if(cellNo1>cellNo2)
+			{
+				if(cellNo1==cells.get(p).getNum())
+				{
+					System.out.print(cells.get(p).getNum()+"H"+n+"\t");
+					l++;
+				}
+				else if(cellNo2==cells.get(p).getNum())
+				{
+					System.out.print(cells.get(p).getNum()+"T"+n+"\t");
+					l++;
+				}
+				else
+				{
+					System.out.print(cells.get(p).getNum()+"\t");
+					l++;
+				}
+			}
+			else
+			{
+				if(cellNo2==cells.get(p).getNum())
+				{
+					System.out.print(cells.get(p).getNum()+"H"+n+"\t");
+					l++;
+				}
+				else if(cellNo1==cells.get(p).getNum())
+				{
+					System.out.print(cells.get(p).getNum()+"T"+n+"\t");
+					l++;
+				}
+				else
+				{
+					System.out.print(cells.get(p).getNum()+"\t");
+					l++;
+				}
+			}
+			if(l==10)
+			{
+				System.out.println("\n");
+				l=0;
+			}
+		}
+		}*/
+				
+	}
+	
 }
 	
