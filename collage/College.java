@@ -1,25 +1,45 @@
+import java.util.*;
+import java.io.*;
 public class College
 {
 	String name;
 	String address;
-	Department d = new Department();
+    static BufferedReader input = new BufferedReader(new InputStreamReader (System.in));
+    static Scanner in = new Scanner(System.in);
+    ArrayList <Department> departmentslist = new ArrayList<Department>();
     public College(String name,String address)
     {
         this.name = name;
         this.address = address;
     }
-    public College(){
-        
+    public void createDeprtments()
+    {   
+        System.out.println("enter the number of the department");
+        int a = in.nextInt();
+        String b=null;
+        for (int i=1;i<=a;i++) {
+            try{
+            System.out.println("enter the name of the department "+i+":");             
+            b=input.readLine();}catch(IOException e){}
+            Department d =new Department(b);
+            d.createStudents();
+            d.createTeachers();
+           // d.departmentDetails();
+            departmentslist.add(d);
+        }         
     }
-
     public void displayDetails()
     {
-    	System.out.println("COLLAGE:"+name+"\n"+"ADDRESS:"+address);
-    	//d.displayDetails();
-        d.readDptmnt();
-    	//t.readTeacher();
-    	//s.readStudent();
-    	//t.readTeacher();
+    	System.out.println("\t\t\t<<<<<  COLLEGE NAME :"+name+" >>>>>"+"\n"+"\t                    ADDRESS:"+address);
+        for(int i=0;i<departmentslist.size();i++){
+            departmentslist.get(i).departmentDetails();
+            //d.departmentDetails();
+        }
     }
-    
-}
+    /*public void displayall()
+    {
+        displayDetails();
+
+    }*/
+
+ }   

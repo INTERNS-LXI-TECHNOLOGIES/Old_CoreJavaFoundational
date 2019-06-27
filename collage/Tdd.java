@@ -4,7 +4,10 @@ public class Tdd
    {
 	College c = new College("SNM","NORTH PARAVOOR");
 	
+	
+	c.createDeprtments();
 	c.displayDetails();
+	//c.displayAll();
    }
 
 }

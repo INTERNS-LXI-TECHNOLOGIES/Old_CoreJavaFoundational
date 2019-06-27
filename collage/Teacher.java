@@ -1,22 +1,19 @@
 import java.util.*;
 import java.io.*;
 public class Teacher
-{	
-	
-private String name;
-private String department;
-public void setName(String name)
-{
-	this.name=name;
-}	
-public String getName(){
-	return this.name;
-}
-public void setDepartment(String department)
-{
-	this.department=department;
-}	
-public String  getDepartment(){
-	return this.department;
-}
+{   static BufferedReader input = new BufferedReader(new InputStreamReader (System.in));
+    static Scanner in = new Scanner (System.in);
+	String name;
+   	public void readTeacher()
+   	{   try{
+   			System.out.println("enter the name of the Teacher :");
+   			this.name=input.readLine();}
+   			catch(IOException e){
+   				e.printStackTrace();
+   			}
+    }
+    public void displayTeacher()
+    {
+    	System.out.println("Teacher name:"+name);
+    }
 }
