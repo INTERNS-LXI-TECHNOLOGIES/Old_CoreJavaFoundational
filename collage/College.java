@@ -16,16 +16,18 @@ public class College
     {   
         System.out.println("enter the number of the department");
         int a = in.nextInt();
+        in.nextLine();
         String b=null;
         for (int i=1;i<=a;i++) {
             try{
             System.out.println("enter the name of the department "+i+":");             
-            b=input.readLine();}catch(IOException e){}
+            b=in.nextLine();}catch(IOException e){}
             Department d =new Department(b);
             d.createStudents();
             d.createTeachers();
-           // d.departmentDetails();
+            d.createLab();
             departmentslist.add(d);
+
         }         
     }
     public void displayDetails()
@@ -33,13 +35,7 @@ public class College
     	System.out.println("\t\t\t<<<<<  COLLEGE NAME :"+name+" >>>>>"+"\n"+"\t                    ADDRESS:"+address);
         for(int i=0;i<departmentslist.size();i++){
             departmentslist.get(i).departmentDetails();
-            //d.departmentDetails();
         }
     }
-    /*public void displayall()
-    {
-        displayDetails();
-
-    }*/
-
+  
  }   
