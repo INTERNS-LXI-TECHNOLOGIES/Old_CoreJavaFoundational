@@ -21,7 +21,7 @@ int num=100;
        					
 					}
 				num=num-10;	
-				}
+				} 
 				else{
 					int n=num+1;
 					for(int j=0;j<10;j++){

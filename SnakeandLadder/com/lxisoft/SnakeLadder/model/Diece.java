@@ -2,19 +2,13 @@ package com.lxisoft.SnakeLadder.model;
 import java.util.*;
 public class Diece{
 
-	private int[] sides;
-	private String colour;
+	private int dieceValue;
 
-public void setSides(int[] sides){
-	this.sides=sides;
+public void setDieceValue(int dieceValue){
+	this.dieceValue=dieceValue;
 }
-public void setColour(String colour){
-	this.colour=colour;
+public int getDieceValue(){
+	return dieceValue;
 }
-public int[] getSides(){
-	return sides;
-}
-public String getColour(){
-	return colour;
-}
+
 }
