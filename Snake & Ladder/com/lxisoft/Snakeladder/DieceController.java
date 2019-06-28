@@ -24,15 +24,16 @@ public class DieceController
 	int rnd;
 	Random random=new Random();
 	//Board board=new Board();
-	public void rollDiece() 
+	public int rollDiece() 
 	{
 		for(int i=1;i<=6;i++)
 		{
     		int rnd = new Random().nextInt(6)+1;
-    		System.out.print(rnd);
+    		//System.out.print(rnd);
+    		return rnd;
     	}
     	//return rnd;
-    	System.out.print(rnd);
+    	return rnd;
     }
 }
 

@@ -6,13 +6,16 @@ public class Tdd
 {
 	public static void main(String[] args)
 	{
-		Board board=new Board();
-		board.createBoard();
+		GameController gController=new GameController();
+		gController.startGame();
+		// BoardController bController=new BoardController();
+		// bController.createBoard();
 		//board.posMov();
 		// GameView gameView=new GameView();
 		// gameView.setGame();
-		// DieceController dc=new DieceController();
-		// dc.rollDiece();
+		//  DieceController dc=new DieceController();
+		// int k= dc.rollDiece();
+		// System.out.println("Value: "+k);
 	}
 }
 

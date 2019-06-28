@@ -3,15 +3,19 @@ package com.lxisoft.Snakeladder;
 import java.util.*;
 
 
-public class Board
+public class BoardController
 {
-	/*SnakeController sController=new SnakeController();
+	SnakeController sController=new SnakeController();
 	LadderController lController=new LadderController();
+	PlayerController pController=new PlayerController();
+	
 	int [][] brd=new int[11][11];
 	int pos=0;
 	
 	public void createBoard()
 	{
+		pController.createPlayer();
+		
 		sController.createSnake();
 		lController.createLadder();
 		System.out.println("Snake Count"+sController.snakes.size());
@@ -88,10 +92,34 @@ public class Board
 					}
 			}
 		return false;
-	}*/
-	public void createBoard()
+	}
+	
+		
+
+}
+	/*public void createBoard()
 	{
 		PlayerController pController=new PlayerController();
 		pController.createPlayer();
-	} 
-}
+	} */
+	// public void setPlayer()
+	// {
+	// 	PlayerController pController=new PlayerController();
+	// 	pController.createPlayer();
+	// 	int pos=0;
+	// 	System.out.println("Size:"+pController.players.size());
+	// 	for(int i=0;i<pController.players.size();i++)
+	// 	{
+	// 		System.out.println("Enter to loop");
+	// 		Player player=new Player();
+	// 		player.setPos(pos);
+	// 		System.out.println("Position:"+player.getPos());
+	// 		//pController.players.add(player);
+	// 		pController.players.add(player);
+	// 	}
+		
+		// for(int p=0;p<pController.players.size();p++)
+		// {
+		// 	System.out.println("Player :"+pController.players.get(p).getName()+":"+pController.players.get(p).getCoin()+":"+pController.players.get(p).getPos());
+		// }
+	//}
