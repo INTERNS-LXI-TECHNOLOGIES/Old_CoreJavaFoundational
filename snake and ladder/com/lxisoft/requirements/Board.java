@@ -3,7 +3,7 @@ import java.util.*;
 public class Board
 {
 
-//public ArrayList<Cell> cells=new ArrayList<Cell>();
+
  int numbers[][]=new int[10][10];
 //public ArrayList<Ladder> ladders=new ArrayList<Ladder>();
 //public ArrayList<Snake> snakes=new ArrayList<Snake>();

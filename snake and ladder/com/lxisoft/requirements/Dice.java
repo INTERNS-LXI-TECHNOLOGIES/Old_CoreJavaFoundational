@@ -1,8 +1,15 @@
-pakage com.lxisoft.requirements;
+package com.lxisoft.requirements;
 import java.util.*;
 public class Dice
 {
-Integer diceVal;
+int diceVal;
+
+public int getDiceValue()
+{
+	Random r=new Random();
+	diceVal=r.nextInt(5)+1;
+	return diceVal;
+}
 
 
 

@@ -22,6 +22,9 @@ public int getPosition()
 {
 return position;
 }
+public String toString(){
+return name;
+}
 
 
 }
