@@ -5,9 +5,17 @@ import java.util.*;
 public class CellView
 {
 	CellController cellC;
+	ArrayList <Integer> cellNos;
+	ArrayList <Integer> c;
+	ArrayList <Integer> cellNs;
+	ArrayList <Integer> c1;
 	public CellView()
 	{
 		cellC=new CellController();
+		cellNos=new ArrayList<Integer>();
+		c=new ArrayList<Integer>();
+		cellNs=new ArrayList<Integer>();
+		c1=new ArrayList<Integer>();
 	}
 	public void setCell(ArrayList <Cell> cells)
 	{
@@ -50,128 +58,103 @@ public class CellView
 		l=0;
 		}
 		}*/
-		setSnake(cells);
 	}
-	public void setSnake(ArrayList <Cell> cells)
+	public void setSnake(ArrayList <Snake> snakes)
 	{
-		for(int noOfSnake=1;noOfSnake<=3;noOfSnake++)
+		int f=0;
+		while(cellNos.size()<6)
 		{
-		int n=noOfSnake;
-		int cellNo1=(int)(Math.random()*100);
-		int cellNo2=(int)(Math.random()*100);
-		if(cellNo1!=cellNo2)
-		{
-		System.out.println(cellNo1);
-		System.out.println(cellNo2);
-		if(cellNo1>cellNo2)
-		{
-			int l=0;
-			for(int p=0;p<cells.size();p++)
+
+			int cellNo=(int)(Math.random()*100);
+			
+			for(int j=0;j<c.size();j++)
 			{
-			if(cellNo1==cells.get(p).getNum())
+			if(c.get(j)!=cellNo&&cellNo!=0)
 			{
-				System.out.print(cells.get(p).getNum()+"H"+n+"\t");
-				l++;
+			f=1;
 			}
-			else if(cellNo2==cells.get(p).getNum())
+			}
+			if(f==1)
+			cellNos.add(cellNo);
+			c.add(cellNo);
+			
+		}
+		System.out.println(cellNos);
+		for(int j=0;j<6;j=j+2)
+		{
+			int k=j+1;
+			
+			if(cellNos.get(j)>cellNos.get(k))
 			{
-				System.out.print(cells.get(p).getNum()+"T"+n+"\t");
-				l++;
+				Snake snake=new Snake();
+				snake.setHead(cellNos.get(j));
+				snake.setTail(cellNos.get(k));
+				snakes.add(snake);
 			}
 			else
 			{
-				System.out.print(cells.get(p).getNum()+"\t");
-				l++;
+				Snake snake=new Snake();
+				snake.setTail(cellNos.get(j));
+				snake.setHead(cellNos.get(k));
+				snakes.add(snake);
 			}
-			if(l==10)
-			{
-				System.out.println("\n");
-				l=0;
-			}
-			}	
 		}
-		else
+		for(int j=0;j<snakes.size();j++)
 		{
-			int l=0;
-			for(int p=0;p<cells.size();p++)
-			{
-			if(cellNo2==cells.get(p).getNum())
-			{
-				System.out.print(cells.get(p).getNum()+"H"+n+"\t");
-				l++;
-			}
-			else if(cellNo1==cells.get(p).getNum())
-			{
-				System.out.print(cells.get(p).getNum()+"T"+n+"\t");
-				l++;
-			}
-			else
-			{
-				System.out.print(cells.get(p).getNum()+"\t");
-				l++;
-			}
-			if(l==10)
-			{
-				System.out.println("\n");
-				l=0;
-			}
-			}	
+		System.out.println(snakes.get(j).getHead());
+		System.out.println(snakes.get(j).getTail());
 		}
-		}
-		}	
-		/*int l=0;
-		int n=1;
-		for(int p=0;p<cells.size();p++)
-		{
-		int cellNo1=(int)(Math.random()*100);
-		int cellNo2=(int)(Math.random()*100);
-		if(cellNo1!=cellNo2)
-		{	
-			if(cellNo1>cellNo2)
-			{
-				if(cellNo1==cells.get(p).getNum())
-				{
-					System.out.print(cells.get(p).getNum()+"H"+n+"\t");
-					l++;
-				}
-				else if(cellNo2==cells.get(p).getNum())
-				{
-					System.out.print(cells.get(p).getNum()+"T"+n+"\t");
-					l++;
-				}
-				else
-				{
-					System.out.print(cells.get(p).getNum()+"\t");
-					l++;
-				}
-			}
-			else
-			{
-				if(cellNo2==cells.get(p).getNum())
-				{
-					System.out.print(cells.get(p).getNum()+"H"+n+"\t");
-					l++;
-				}
-				else if(cellNo1==cells.get(p).getNum())
-				{
-					System.out.print(cells.get(p).getNum()+"T"+n+"\t");
-					l++;
-				}
-				else
-				{
-					System.out.print(cells.get(p).getNum()+"\t");
-					l++;
-				}
-			}
-			if(l==10)
-			{
-				System.out.println("\n");
-				l=0;
-			}
-		}
-		}*/
-				
+		
 	}
-	
+	public void setLadder(ArrayList <Ladder> ladders)
+	{
+		int f=0;
+		while(cellNs.size()<6)
+		{
+
+			int cellN=(int)(Math.random()*100);
+			
+			for(int j=0;j<c.size();j++)
+			{
+			if(c.get(j)!=cellN&&cellN!=0)
+			{
+			for(int k=0;k<cellNos.size();k++)
+			{
+			if(cellN!=cellNos.get(k))
+			f=1;
+			}
+			}
+			}
+			if(f==1)
+			cellNs.add(cellN);
+			c1.add(cellN);
+			
+		}
+		System.out.println(cellNs);
+		for(int j=0;j<6;j=j+2)
+		{
+			int k=j+1;
+			
+			if(cellNs.get(j)>cellNs.get(k))
+			{
+				Ladder ladder =new Ladder();
+				ladder.setTop(cellNs.get(j));
+				ladder.setBottom(cellNs.get(k));
+				ladders.add(ladder);
+			}
+			else
+			{
+				Ladder ladder =new Ladder();
+				ladder.setBottom(cellNs.get(j));
+				ladder.setTop(cellNs.get(k));
+				ladders.add(ladder);
+			}
+		}
+		for(int j=0;j<ladders.size();j++)
+		{
+		System.out.println(ladders.get(j).getTop());
+		System.out.println(ladders.get(j).getBottom());
+		}
+	}
 }
 	
