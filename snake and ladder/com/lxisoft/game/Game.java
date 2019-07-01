@@ -19,6 +19,10 @@ public void playGame()
 	System.out.println("\n"+"\n"+"                            SNAKE AND LADDER                            "+"\n"+"\n");
 	
     board.createBoard();
+	board.placeSnakes();
+	int res=0;
+	int pos;
+	do{
 	
 	for(int i=0;i<players.size();i++)
 		{ 
@@ -26,10 +30,33 @@ public void playGame()
 		System.out.print("Player"+(i+1)+", press any key to shuffle the die... :");
 		String str=scan.next();
 		System.out.println("The number on the die is : "+random);
-
+		if((players.get(i).getPosition()+random)>100)
+		{
+			System.out.println("you will have to wait for the next turn , you have exeeded 100 ");
+		}
+		else
+		{
+        pos=players.get(i).getPosition()+random;
+		players.get(i).setPosition(pos);
+		System.out.println("You have progressed by "+random+" and your new position is "+players.get(i).getPosition());
+		if(players.get(i).getPosition()==100)
+		{
+			System.out.println("congratulations player"+(i+1)+" you have won the game");
+			break;
+		}
 		//System.out.println(players.get(i).getName()+" : "+random);
 		//System.out.println("dicevalue :"+random);
 		}
+		}
+		for(int i=0;i<players.size();i++){
+		if(players.get(i).getPosition()==100)
+		{
+		
+			res=1;
+			//System.out.println("congratulations player"+(i+1)+" you have won the hame");
+		}
+			}
+	}while(res==0);
 	//System.out.println(players);
 }
 
@@ -45,6 +72,7 @@ public void setPlayers()
 			players.add(new Player());
 			System.out.print("  Name of player"+(i+1)+" : ");
 			players.get(i).setName(scan.next());
+			players.get(i).setPosition(1);
 		}
 	
 }
