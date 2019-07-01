@@ -7,7 +7,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:25/06/2019
+*Date Modified:01/07/2019
 */
 public class Player
 {
@@ -20,6 +20,11 @@ public class Player
 	*This is the name of the player
 	*/
 	private String playerName;
+	
+	/**
+	*This is the current position of the player
+	*/
+	private int playerPosition;
 	
 	/**
 	*This method is used to set the name of the player
@@ -42,6 +47,29 @@ public class Player
 	{
 		log.info("Player class...........getPlayerName.........start/end");
 		return playerName;
+	}
+	
+	/**
+	*This method is used to set the position of the player
+	*
+	*@param playerPosition - the position to be set
+	*/
+	public void setPlayerPosition(int playerPosition)
+	{
+		log.info("Player class...........setPlayerPosition.........start");
+		this.playerPosition=playerPosition;
+		log.info("Player class...........setPlayerPosition.........end");
+	}
+	
+	/**
+	*This method will return the position of the player
+	*
+	*@return playerPosition
+	*/
+	public int getPlayerPosition()
+	{
+		log.info("Player class...........getPlayerPosition.........start/end");
+		return playerPosition;
 	}
 	
 }
