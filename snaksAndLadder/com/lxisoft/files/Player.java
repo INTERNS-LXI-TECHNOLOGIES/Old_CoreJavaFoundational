@@ -1,4 +1,4 @@
-package com.lxisoft.controller;
+package com.lxisoft.files;
 public class Player
 {
 	private String name;
@@ -12,6 +12,6 @@ public class Player
 	}
 	public void selectColour()
 	{
-		System.out.println("select colour of the coin");
+     	System.out.println("select colour of the coin");
 	}
 }

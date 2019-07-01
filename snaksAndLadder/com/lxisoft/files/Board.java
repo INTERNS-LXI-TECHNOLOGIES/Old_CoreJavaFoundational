@@ -1,80 +1,149 @@
 package com.lxisoft.files;
+import java.util.ArrayList;
+import com.lxisoft.files.*;
+import java.util.*;
 public class Board
 {
-	/*private  Cell cells;
-	private  Snake snakes;
-	private  Ladder ladders;
-	public void setCells(Cell cells)
+	private ArrayList<Integer> cells = new ArrayList<Integer>();
+	ArrayList<Snake> snakes=new  ArrayList<Snake>();
+	ArrayList<Ladder> ladders=new  ArrayList<Ladder>();
+    public void setCells(ArrayList<Integer> cellls)
 	{
 		this.cells=cells;
 	}
-	public Cell getcells()
+	public ArrayList<Integer> getCells()
 	{
 		return cells;
 	}
-	public void setSnakes(Snake snakes)
+	
+    public void setSnakes(ArrayList<Snake> snakes)
 	{
 		this.snakes=snakes;
 	}
-	public Snake getSnakes()
+	public ArrayList<Snake> getSnakes()
 	{
 		return snakes;
 	}
-	public void setLadders(Ladder ladders)
+    public void setLadders(ArrayList<Ladder> ladders)
 	{
-		this.snakes=snakes;
+		this.ladders=ladders;
 	}
-	public Snake getSnakes()
+	public ArrayList<Ladder> getLadders()
 	{
-		return snake;
-	}*/
-	public void b()
+		return ladders;
+	}
+	public void setSnakesAndLaddersOnTheBoard()
+		{ 
+           int x=0,y=0;		
+	       for(int i=0;i<4;i++)
+		   {
+			 Snake snake=new Snake();
+			 snake.setHead((int)(Math.random() *100));
+			 snake.setTail((int)(Math.random() *100));
+			 snakes.add(snake);
+			 Ladder ladder=new Ladder();
+			 ladder.setStartPosition((int)(Math.random() *100));
+			 ladder.setEndPosition((int)(Math.random() *100));
+			 ladders.add(ladder);
+            }
+				createBoard();
+			/*for(int j=0;j<4;j++)
+			{
+	        if(snakes.get(j).getHead()!=snakes.get(j).getTail()&&ladders.get(j).getStartPosition()!=ladders.get(j).getEndPosition()&&snakes.get(j).getHead()!=ladders.get(j).getStartPosition()&&snakes.get(j).getTail()!=ladders.get(j).getEndPosition())
+			{
+				
+			}
+		
+		    }*/
+			
+		}
+	public void createBoard()
 	{  
 	int a=100;
 	int t = 0;
+	int z=0;
 			for(int i=0;i<10;i++)
 			{
 				System.out.println("\n");
-				System.out.print(a+"\t");
-				for(int j=0;j<9;j++)
+				for(int k=0;k<snakes.size();k++)
 				{
-					if(t%10==1){
-						a++;
+					if(a==snakes.get(k).getHead())
+					{
+					z=a;
+					System.out.print(a+"{h"+(k+1)+"}"+"\t");
 					}
-					else{
-						a--;
+					else if(a==snakes.get(k).getTail())
+					{
+						System.out.print(a+"{t"+(k+1)+"}"+"\t");
+						z=a;
 					}
-				  System.out.print(a+"\t");
+					else if(a==ladders.get(k).getStartPosition())
+				    {
+					z=a;
+					System.out.print(a+"|s"+(k+1)+"|"+"\t");
+				    }
+				    else if(a==ladders.get(k).getEndPosition())
+					{
+						z=a;
+						System.out.print(a+"|e"+(k+1)+"|"+"\t");
+					}
 				}
-					a=a-10;
-					t=a;
-			}
-	}
-			/*int i=100;
-			boolean a = true;
-		    while(i>=0)
-			{
-			
-				if(i%10==1&&i%2==1||i%10==0&&i%2==0 && i!=100){
-					System.out.print(i+"\t");
-					i=i-10;
-				}
-				System.out.print(i+"\t");
-				if(i%10==1){
-				a=true;
-				}
-				if(i%10==0){
-				a=false;
-				}
-				if(a){
-					i++;
-				}
-				else{
-					i--;
+			   if(a!=z)
+				{
+				System.out.print(a+"\t");
 				}
 				
-				if(i%20==10||i%20==11){
-					System.out.println("\n");
-				}
-			}*/
+				
+				for(int j=0;j<9;j++)
+				{
+					if(t%10==1)
+					{
+						a++;
+					}
+					
+					else
+					{
+						a--;
+					}
+				
+				
+				
+				for(int k=0;k<snakes.size();k++)
+				{
+					if(a==snakes.get(k).getHead())
+					{
+						System.out.print(a+"{h"+(k+1)+"}"+"\t");
+						z=a;
+					}
+					else if(a==snakes.get(k).getTail())
+					{
+						z=a;
+						System.out.print(a+"{t"+(k+1)+"}"+"\t");
+					}
+					else if(a==ladders.get(k).getStartPosition())
+				     {
+				    System.out.print(a+"|s"+(k+1)+"|"+"\t");
+					z=a;
+				     }
+					else if(a==ladders.get(k).getEndPosition())
+					{
+						System.out.print(a+"|e"+(k+1)+"|"+"\t");
+						z=a;
+					}
+					}
+					if(a!=z)
+					{
+					System.out.print(a+"\t");
+					}
+			}
+		a=a-10;
+		t=a;
+		}
+			
+			/*for(int j=0;j<ladders.size();j++)
+			{
+			     System.out.println("\n\nladder"+ladders.get(j).getStartPosition()+"ladder"+ladders.get(j).getEndPosition()+"\n");
+			     System.out.println("\n\nsnake"+snakes.get(j).getHead()+"snakes."+snakes.get(j).getTail()+"\n");
+			}*/	
+	}
 }
