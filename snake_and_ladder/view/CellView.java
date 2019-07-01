@@ -27,7 +27,7 @@ public class CellView
 			{
 				for(int k=m;k>=n-9;k=k-1)
 				{
-				System.out.print(k+"\t");
+				//System.out.print(k+"\t");
 				Cell cell=new Cell(k);
 				cells.add(cell);
 				m=k-1;
@@ -38,14 +38,14 @@ public class CellView
 			{
 				for(int j=n;j<=n+9;j=j+1)
 				{
-				System.out.print(j+"\t");
+				//System.out.print(j+"\t");
 				Cell cell=new Cell(j);
 				cells.add(cell);
 				m=j-1;
 				}
 				n=n-1;
 			}
-			System.out.println("\n");
+			//System.out.println("\n");
 		}
 		//System.out.println(cells.size());
 		/*int l=0;
@@ -59,7 +59,7 @@ public class CellView
 		}
 		}*/
 	}
-	public void setSnake(ArrayList <Snake> snakes)
+	public void setSnakes(ArrayList <Snake> snakes)
 	{
 		int f=0;
 		while(cellNos.size()<6)
@@ -106,7 +106,7 @@ public class CellView
 		}
 		
 	}
-	public void setLadder(ArrayList <Ladder> ladders)
+	public void setLadders(ArrayList <Ladder> ladders)
 	{
 		int f=0;
 		while(cellNs.size()<6)
