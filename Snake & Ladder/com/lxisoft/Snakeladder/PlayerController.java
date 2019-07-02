@@ -10,7 +10,7 @@ public class PlayerController
 	{
 		
 		Scanner scan=new Scanner(System.in);
-		System.out.print("Enter the Number of Players:");
+		System.out.print("Enter the Number of Players: ");
 		noOfPlayers=scan.nextInt();
 
 		for(int i=0;i<noOfPlayers;i++)
@@ -18,26 +18,16 @@ public class PlayerController
 			Player player=new Player();
 			int pos=0;
 
-			System.out.print("Player "+(i+1)+"Name :");
+			System.out.print("Player"+(i+1)+" Name : ");
 			player.setName(scan.next());
 
-			System.out.print("Select an alphabet for coin:");
+			System.out.print("Select an alphabet for coin: ");
 			player.setCoin(scan.next());
 			player.setPos(pos);
 
 			players.add(player);
 
 		}
-	
-		System.out.println("SIZE:"+players.size());
-
-		/*for(int t=0;t<players.size();t++)
-		{
-			System.out.println(players.get(t).getName()+":"+players.get(t).getCoin());
-		}*/
-		//setPlayer();
 	}
-
-
 }
 

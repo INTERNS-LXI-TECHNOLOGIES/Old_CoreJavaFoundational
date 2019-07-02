@@ -1,80 +1,108 @@
 package com.lxisoft.Snakeladder;
 //import com.lxisoft.Snakeladder.model.*;
 import java.util.*;
+import java.lang.*;
+import java.io.IOException;
 
 public class GameController
 {
-	//PlayerModel playerModel=new PlayerModel();
-	// PlayerController pController=new PlayerController();
-	// //Board board=new Board();
-	// pController.createPlayer();
-	 DieceController dController=new DieceController();
-	// Player player=new Player();
-
-	BoardController bController=new BoardController();
+	
+	DieceController dcr=new DieceController();
+	
+	BoardController bcr=new BoardController();
 
 	Scanner scan=new Scanner(System.in);
 
 	public void startGame()
 	{
-		bController.createBoard();
+		bcr.initiateBoard();
+		bcr.refreshBoard();
 		int nwPos=0;
+		int d;
+		int q;
 		System.out.println("Press 1 to Start Game");
 		{
 			if(scan.nextInt()==1)
 			{
-				System.out.println("Enter I loop");
-				
-				 System.out.println("No of players: "+bController.pController.players.size());
-				for(int i=0;i<bController.pController.players.size();i++)
+				do
 				{
-					do{
-					System.out.println("Enter II loop");
-					//System.out.println("Diece Value:"+dController.rollDiece());
-
-					if(bController.pController.players.get(i).getPos()==0)
+					
+					for(int i=0;i<bcr.pcr.players.size();i++)
 					{
-						System.out.println("Enter loop for diece throw");
-						if(dController.rollDiece()==1)
+					
+						if(bcr.pcr.players.get(i).getPos()==0)
 						{
-							System.out.println("Execute after dice throw equal 1");
-							nwPos=bController.pController.players.get(i).getPos()+1;
-							System.out.println("1 Psition:"+nwPos);
-							bController.pController.players.get(i).setPos(nwPos);
-							//System.out.println(bController.pController.players.get(i).getPos());
+					
+							System.out.print("Chance for "+bcr.pcr.players.get(i).getName()+"  Press 1 for dice throw: ");
+							if(scan.nextInt()==1)
+							{
+								if(dcr.rollDiece()==1)
+									{
+										System.out.println("Execute after dice throw equal 1");
+										// nwPos=bcr.pcr.players.get(i).getPos()+1;
+										// System.out.println("1 Psition:"+nwPos);
+										// bcr.pcr.players.get(i).setPos(nwPos);
+										d=1;
+										bcr.moovePlayer(i,d);
+									}
+							}
 						}
+						else if(bcr.pcr.players.get(i).getPos() >0)
+						{
+							int z;
+							System.out.print("Chance for "+bcr.pcr.players.get(i).getName()+"  Press 1 for dice throw: ");
+							if(scan.nextInt()==1)
+							{
+								do
+								{	
+									z=0;
+									//System.out.print("Chance for "+bcr.pcr.players.get(i).getName()+"  Press 1 for dice throw: ");
+									d=dcr.rollDiece();
+									System.out.println("Dice after roll :"+d);
+									if((bcr.pcr.players.get(i).getPos()+d)<100)
+									{
+										bcr.moovePlayer(i,d);
+									}
+									else if((bcr.pcr.players.get(i).getPos()+d)>100)
+										{}
+										else
+										{
+											bcr.moovePlayer(i,d);
+											System.out.println("Winner is "+bcr.pcr.players.get(i).getName());
+											System.exit(0);
+										}
+										// nwPos=bcr.pcr.players.get(i).getPos()+d;
+										// System.out.println("Next Position of"+bcr.pcr.players.get(i).getName()+"is: "+nwPos);
+										//  bcr.pcr.players.get(i).setPos(nwPos);
+										if(d==6)
+										{
+											System.out.println("!!!! You have an another chance !!!!");
+											System.out.print("PRESS 1 FOR DICE THROW : ");
+											z=scan.nextInt();
+										}
+								}while(z==1);
+							}
+						}	
 					}
-					else if(bController.pController.players.get(i).getPos() >0)
+					// try
+					// {
+					// 	clearScreen();
+					// }
+					// catch(Exception e){}
+				System.out.print("Press 1 for next round: ");
+				q=scan.nextInt();
+				try
 					{
-						nwPos=bController.pController.players.get(i).getPos()+dController.rollDiece();
-						System.out.println("Next Position:"+nwPos);
-						bController.pController.players.get(i).setPos(nwPos);
-						//System.out.println("Next in brd: "+bController.pController.players.get(i).getPos());
+						clearScreen();
 					}
-				}while(i<bController.pController.players.size());
-				
-				}
+					catch(Exception e){}
+				}while(q==1);
+			
 			}
 		}
 	}
+	public static void clearScreen() throws IOException, InterruptedException
+	{  
+    	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+	} 
 }
-/*	DieceController dieceController=new DieceController();
-	public void posMov()
-	{
-		for(int i=0;i<100;i++)
-		{
-		int rnd=dieceController.rollDiece();
-		System.out.println("Diece value:"+rnd);
-		if(rnd==6)
-
-		{
-		pos=pos+rnd;
-		for(int j=0;j<10;j++)
-		{
-			int rnd1=dieceController.rollDiece();
-			pos=pos+rnd1;
-		System.out.println("Position "+pos);
-		}}
-		else{}
-		}
-	}*/
