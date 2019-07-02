@@ -8,10 +8,14 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:01/07/2019
+*Date Modified:02/07/2019
 */
 public class Dice
 {
+	public Dice()
+	{
+		log.setLevel(Level.WARNING);
+	}
 	/**
 	*Reference Logger class to get log messages
 	*/
@@ -21,7 +25,8 @@ public class Dice
 	
 	public int getRandomDiceNumber()
 	{
-		diceNumber=(int)(Math.random()*6);
+		int MIN=1,MAX=7;
+		diceNumber=(int)(Math.random()*(MAX-MIN)+MIN);
 		return diceNumber;
 	}
 }

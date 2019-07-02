@@ -7,10 +7,14 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:01/07/2019
+*Date Modified:02/07/2019
 */
 public class Player
 {
+	public Player()
+	{
+		log.setLevel(Level.WARNING);
+	}
 	/**
 	*Reference Logger class to get log messages
 	*/
@@ -20,6 +24,11 @@ public class Player
 	*This is the name of the player
 	*/
 	private String playerName;
+	
+	/**
+	*This is to check whether the player is alive
+	*/
+	private boolean isAlive;
 	
 	/**
 	*This is the current position of the player
@@ -70,6 +79,29 @@ public class Player
 	{
 		log.info("Player class...........getPlayerPosition.........start/end");
 		return playerPosition;
+	}
+	
+	/**
+	*This method is used to set the status of the player
+	*
+	*@param isAlive - the status to be set
+	*/
+	public void setIsAlive(boolean isAlive)
+	{
+		log.info("Player class...........setIsAlive.........start");
+		this.isAlive=isAlive;
+		log.info("Player class...........setIsAlive.........end");
+	}
+	
+	/**
+	*This method will return the status of the player
+	*
+	*@return isAlive
+	*/
+	public boolean getIsAlive()
+	{
+		log.info("Player class...........getIsAlive.........start/end");
+		return isAlive;
 	}
 	
 }

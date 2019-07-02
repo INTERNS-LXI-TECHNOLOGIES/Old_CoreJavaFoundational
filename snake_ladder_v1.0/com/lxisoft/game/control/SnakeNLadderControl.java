@@ -9,7 +9,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:01/07/2019
+*Date Modified:02/07/2019
 */
 public class SnakeNLadderControl
 {
@@ -22,7 +22,7 @@ public class SnakeNLadderControl
 	
 	public SnakeNLadderControl()
 	{
-		
+		log.setLevel(Level.WARNING);
 	}
 	
 	public void createBoard(SnakeNLadder game)
@@ -128,24 +128,49 @@ public class SnakeNLadderControl
 	{
 		ArrayList<Player> playerList=game.getPlayers();
 		Scanner sc=new Scanner(System.in);
-		for(int i=0;i<playerList.size();i++)
+		Dice dice=game.getDice();
+		for(int j=0;j<playerList.size();j++)
 		{
-			System.out.println("player "+(i+1)+" ,"+playerList.get(i).getPlayerName()+"is rolling the dice...");
-			System.out.println("press key 'r' to roll the dice:");
-			String c=sc.next();
-			// while(c!=null)
-			// {
-				Dice dice=game.getDice();
-				int random=dice.getRandomDiceNumber();
-				if(random==1 || random==6)
-				{
-					playerList.get(i).setPlayerPosition(());
-				}
-				else
-				{
-					playerList.get(i).setPlayerPosition(0);
-				}
-			// }
+			playerList.get(j).setIsAlive(false);
+			playerList.get(j).setPlayerPosition(0);
 		}
+		do
+		{
+			
+			for(int i=0;i<playerList.size();i++)
+			{
+				System.out.println("player "+(i+1)+" ,"+playerList.get(i).getPlayerName()+"is rolling the dice...");
+				System.out.println("press any key to roll the dice:");
+				String c=sc.next();
+				
+				int random=dice.getRandomDiceNumber();
+				System.out.println("Dice number is "+random);
+				boolean status=playerList.get(i).getIsAlive();
+				if(playerList.get(i).getPlayerPosition()==0)
+				{
+					if(random==1 || random==6 && status==false)
+					{
+						playerList.get(i).setIsAlive(true);
+					}
+					else
+					{
+						playerList.get(i).setIsAlive(false);
+					}
+				}
+				
+				if(playerList.get(i).getIsAlive()==true)
+				{
+					int currentPositon=playerList.get(i).getPlayerPosition();
+					int newPosition=currentPositon+random;
+					playerList.get(i).setPlayerPosition(newPosition);
+					System.out.println(" position of "+playerList.get(i).getPlayerName()+" is "+playerList.get(i).getPlayerPosition());
+				}
+			}
+		}while(true);
+	}
+	
+	public void checkResult()
+	{
+		
 	}
 }
