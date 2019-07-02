@@ -35,6 +35,7 @@ public class SnakeNLadderView
 				{
 					System.out.print(" ");
 					System.out.print("\t"+cellArray[i][j].getCellNumber());
+					
 				}
 				System.out.println(" ");
 				System.out.println(" ");

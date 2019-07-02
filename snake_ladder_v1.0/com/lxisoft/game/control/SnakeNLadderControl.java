@@ -68,7 +68,7 @@ public class SnakeNLadderControl
 	public void placeSnakes(Board board)
 	{
 		ArrayList<Snake> snakes=new ArrayList<Snake>();
-		for(int i=0;i<8;i++)
+		for(int i=0;i<5;i++)
 		{
 			snakes.add(new Snake());
 			int rand1=getRandomCellNumber(board);
@@ -92,7 +92,7 @@ public class SnakeNLadderControl
 	public void placeLadders(Board board)
 	{
 		ArrayList<Ladder> ladders=new ArrayList<Ladder>();
-		for(int i=0;i<8;i++)
+		for(int i=0;i<5;i++)
 		{
 			ladders.add(new Ladder());
 			int rand1=getRandomCellNumber(board);
@@ -163,6 +163,7 @@ public class SnakeNLadderControl
 					int currentPositon=playerList.get(i).getPlayerPosition();
 					int newPosition=currentPositon+random;
 					playerList.get(i).setPlayerPosition(newPosition);
+					
 					System.out.println(" position of "+playerList.get(i).getPlayerName()+" is "+playerList.get(i).getPlayerPosition());
 				}
 			}
