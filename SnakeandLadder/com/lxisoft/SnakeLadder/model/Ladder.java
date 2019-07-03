@@ -1,19 +1,19 @@
 package com.lxisoft.SnakeLadder.model;
 public class Ladder{
 	
-	private String ladderTop;
-	private String ladderBottom;
+	private int ladderTop;
+	private int ladderBottom;
 
-public void setLadderTop(String ladderTop){
+public void setLadderTop(int ladderTop){
 	this.ladderTop=ladderTop;
 }
-public void setLadderBottom(String ladderBottom){
+public void setLadderBottom(int ladderBottom){
 	this.ladderBottom=ladderBottom;
 }
-public String getLadderTop(){
+public int getLadderTop(){
 	return ladderTop;
 }
-public String getLadderBottom(){
+public int getLadderBottom(){
 	return ladderBottom;
 }
 }

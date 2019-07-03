@@ -2,19 +2,19 @@ package com.lxisoft.SnakeLadder.model;
 import java.util.*;
 public class Snake{
 
-	private String snakeHead;
-	private String snakeTail;
+	private int snakeHead;
+	private int snakeTail;
 
-public void setSnakeHead(String snakeHead){
+public void setSnakeHead(int snakeHead){
 	this.snakeHead=snakeHead;
 } 
-public void setSnakeTail(String snakeTail){
+public void setSnakeTail(int snakeTail){
 	this.snakeTail=snakeTail;
 }
-public String getSnakeHead(){
+public int getSnakeHead(){
 	return snakeHead;
 }
-public String getSnakeTail(){
+public int getSnakeTail(){
 	return snakeTail;
 }
 }

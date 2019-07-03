@@ -8,7 +8,7 @@ public class GameView{
 int pos;
 int value=0;
 ArrayList<Player> players = new ArrayList<Player>();
-ArrayList<Diece> dieceValues=new ArrayList<Diece>();
+//ArrayList<Diece> dieceValues=new ArrayList<Diece>();
 Player[][] location=new Player[10][10];
 //GameController gameController = new GameController();
 BoardView boardView=new BoardView(); 
@@ -64,43 +64,45 @@ Scanner in=new Scanner(System.in);
 	dieceThrow(players);
 }
 	public void dieceThrow(ArrayList<Player> players){
-		
+			
 			do{
+
 				for(int i=0;i<players.size();i++){
-			Diece diece=new Diece();
-			int n=((int)(Math.random()*6)+1);
-			diece.setDieceValue(n);
-			dieceValues.add(diece);
+					int n=((int)(Math.random()*6)+1);
+			// Diece diece=new Diece();
+			// diece.setDieceValue(n);
+			// dieceValues.add(diece);
+			//System.out.println(dieceValues.get(i).getDieceValue());
 			System.out.println("Enter any key to roll the diece");
 			String key=in.next();
-			System.out.println("Diece value of "+players.get(i).getName()+"="+dieceValues.get(i).getDieceValue());
-			pos=players.get(i).getPosition()+dieceValues.get(i).getDieceValue();
+			System.out.println("Diece value of "+players.get(i).getName()+"="+n);
+			pos=players.get(i).getPosition()+n;
 			players.get(i).setPosition(pos);
 			System.out.println("player "+players.get(i).getName()+ " is now at position "+players.get(i).getPosition());
 			// Player play = new Player();
 			// play.setPlayerPosition();
 			}
 			for(int i=0;i<players.size();i++){
-				if(players.get(i).getPosition()==100)
-					 value=1;
-				// 	int dieVal=dieceValues.get(i).getDieceValue();
-				// 	if(dieVal>=1){
-				// 	position(players,diece);
-				// }
+			if(players.get(i).getPosition()==100)
+			 		 value=1;
+			// 	// 	int dieVal=dieceValues.get(i).getDieceValue();
+			// 	// 	if(dieVal>=1){
+			// 	// 	position(players,diece);
+			// 	// }
 			}
 		}while(value==0);
     }
 	
 // 		for(int j=0;j<players.size();j++){ 
 // //logic for moving the token to be written here
-	public void position(ArrayList<Player> players,Diece diece){
-		for(int i=0;i<players.size();i++){
-			for(int j=dieceValues.get(i).getDieceValue();j<10;j++){
-				//location[i][j]=players.get(i).getposition();
-				System.out.println(location[i][j]);
-			}
-		}
-	}
+	// public void position(ArrayList<Player> players,Diece diece){
+	// 	for(int i=0;i<players.size();i++){
+	// 		for(int j=dieceValues.get(i).getDieceValue();j<10;j++){
+	// 			//location[i][j]=players.get(i).getposition();
+	// 			System.out.println(location[i][j]);
+	// 		}
+	// 	}
+	// }
 
 	public void ExitGame(){
 		System.out.println("Game over.........");
