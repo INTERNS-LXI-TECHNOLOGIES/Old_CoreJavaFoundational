@@ -1,5 +1,6 @@
 package com.lxisoft.game.control;
 import com.lxisoft.game.model.*;
+import com.lxisoft.game.view.*;
 import java.util.*;
 import java.util.logging.*;
 /**
@@ -19,6 +20,7 @@ public class SnakeNLadderControl
 	private static final Logger log=Logger.getLogger(SnakeNLadderControl.class.getName());
 	
 	SnakeNLadder game;
+	SnakeNLadderView gameView;
 	
 	public SnakeNLadderControl()
 	{
@@ -126,9 +128,11 @@ public class SnakeNLadderControl
 	
 	public void playGame(SnakeNLadder game)
 	{
+		gameView=new SnakeNLadderView();
 		ArrayList<Player> playerList=game.getPlayers();
 		Scanner sc=new Scanner(System.in);
 		Dice dice=game.getDice();
+		Board board=game.getBoard();
 		for(int j=0;j<playerList.size();j++)
 		{
 			playerList.get(j).setIsAlive(false);
@@ -139,7 +143,8 @@ public class SnakeNLadderControl
 			
 			for(int i=0;i<playerList.size();i++)
 			{
-				System.out.println("player "+(i+1)+" ,"+playerList.get(i).getPlayerName()+"is rolling the dice...");
+				gameView.displayBoard(board,i+1,playerList.get(i).getPlayerPosition());
+				System.out.println("player "+(i+1)+" ,"+playerList.get(i).getPlayerName()+" is rolling the dice...");
 				System.out.println("press any key to roll the dice:");
 				String c=sc.next();
 				
@@ -148,6 +153,7 @@ public class SnakeNLadderControl
 				boolean status=playerList.get(i).getIsAlive();
 				if(playerList.get(i).getPlayerPosition()==0)
 				{
+					//gameView.displayBoard(board,playerList.get(i).getPlayerPosition());
 					if(random==1 || random==6 && status==false)
 					{
 						playerList.get(i).setIsAlive(true);
@@ -162,16 +168,20 @@ public class SnakeNLadderControl
 				{
 					int currentPositon=playerList.get(i).getPlayerPosition();
 					int newPosition=currentPositon+random;
-					playerList.get(i).setPlayerPosition(newPosition);
-					checkResult(newPosition.game.getBoard());
-					
+					if(newPosition>100)
+					{
+						newPosition=currentPositon;
+					}
+					int updatedPosition=checkResult(newPosition,game.getBoard());
+					playerList.get(i).setPlayerPosition(updatedPosition);
 					System.out.println(" position of "+playerList.get(i).getPlayerName()+" is "+playerList.get(i).getPlayerPosition());
+					gameView.displayBoard(board,i+1,playerList.get(i).getPlayerPosition());
 				}
 			}
 		}while(true);
 	}
 	
-	public void checkResult(int position,Board board)
+	public int checkResult(int position,Board board)
 	{
 		ArrayList<Snake> snakeList=board.getSnakes();
 		ArrayList<Ladder> ladderList=board.getLadders();
@@ -181,6 +191,23 @@ public class SnakeNLadderControl
 			int snakeTail=snakeList.get(k).getTailPosition();
 			int ladderBottom=ladderList.get(k).getStartingPoint();
 			int ladderTop=ladderList.get(k).getEndPoint();
+			if(position==snakeHead)
+			{
+				System.out.println("......Snake hindered!......");
+				position=snakeTail;
+			}
+			if(position==ladderBottom)
+			{
+				System.out.println(".....Ladder helped.....");
+				position=ladderTop;
+			}
+			if(position==100)
+			{
+				System.out.println("win....game over...");
+				System.exit(0);
+			}
+			
 		}
+		return position;
 	}
 }
