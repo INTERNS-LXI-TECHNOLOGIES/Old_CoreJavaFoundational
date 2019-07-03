@@ -9,7 +9,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:02/07/2019
+*Date Modified:03/07/2019
 */
 public class SnakeNLadderControl
 {
@@ -163,6 +163,7 @@ public class SnakeNLadderControl
 					int currentPositon=playerList.get(i).getPlayerPosition();
 					int newPosition=currentPositon+random;
 					playerList.get(i).setPlayerPosition(newPosition);
+					checkResult(newPosition.game.getBoard());
 					
 					System.out.println(" position of "+playerList.get(i).getPlayerName()+" is "+playerList.get(i).getPlayerPosition());
 				}
@@ -170,8 +171,16 @@ public class SnakeNLadderControl
 		}while(true);
 	}
 	
-	public void checkResult()
+	public void checkResult(int position,Board board)
 	{
-		
+		ArrayList<Snake> snakeList=board.getSnakes();
+		ArrayList<Ladder> ladderList=board.getLadders();
+		for(int k=0;k<5;k++)
+		{
+			int snakeHead=snakeList.get(k).getHeadPosition();
+			int snakeTail=snakeList.get(k).getTailPosition();
+			int ladderBottom=ladderList.get(k).getStartingPoint();
+			int ladderTop=ladderList.get(k).getEndPoint();
+		}
 	}
 }

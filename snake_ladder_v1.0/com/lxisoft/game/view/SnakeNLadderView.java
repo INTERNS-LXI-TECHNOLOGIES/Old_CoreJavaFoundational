@@ -10,7 +10,7 @@ import com.lxisoft.game.control.*;
 *
 *@version 1.0
 *
-*Date Modified:02/07/2019
+*Date Modified:03/07/2019
 */
 public class SnakeNLadderView
 {
@@ -53,6 +53,131 @@ public class SnakeNLadderView
 		}
 	}
 	
+	public void displayBoard(Board board)
+	{
+		Cell[][] cellArray=board.getCells();
+		ArrayList<Snake> snakeList=board.getSnakes();
+		ArrayList<Ladder> ladderList=board.getLadders();
+		for(int i=0;i<10;i++)
+		{
+			if(i%2==0)
+			{
+				for(int j=0;j<10;j++)
+				{
+					int cellNum=cellArray[i][j].getCellNumber();
+					int flag=0;
+					for(int k=0;k<5;k++)
+					{
+						int snakeHead=snakeList.get(k).getHeadPosition();
+						int snakeTail=snakeList.get(k).getTailPosition();
+						int ladderBottom=ladderList.get(k).getStartingPoint();
+						int ladderTop=ladderList.get(k).getEndPoint();
+						if(cellNum==snakeHead)
+						{
+							System.out.print(" ");
+							System.out.print("\t{SH"+(k+1)+"}");
+							flag=1;
+							//break;
+						}
+						else if(cellNum==snakeTail)
+						{
+							System.out.print(" ");
+							System.out.print("\t{ST"+(k+1)+"}");
+							flag=1;
+							//break;
+						}
+						else if(cellNum==ladderBottom)
+						{
+							System.out.print(" ");
+							System.out.print("\t|LB"+(k+1)+"|");
+							flag=1;
+							//break;
+						}
+						else if(cellNum==ladderTop)
+						{
+							System.out.print(" ");
+							System.out.print("\t|LT"+(k+1)+"|");
+							flag=1;
+							//break;
+						}
+						// else
+						// {
+							
+						// }
+						
+						
+					}
+					if(flag!=1)
+					{
+						System.out.print(" ");
+					System.out.print("\t"+cellArray[i][j].getCellNumber());
+					}
+					
+					
+					
+				}
+				System.out.println(" ");
+				System.out.println(" ");
+			}
+			else
+			{
+				for(int j=0;j<10;j++)
+				{
+					int cellNum=cellArray[i][j].getCellNumber();
+					int flag=0;
+					for(int k=0;k<5;k++)
+					{
+						int snakeHead=snakeList.get(k).getHeadPosition();
+						int snakeTail=snakeList.get(k).getTailPosition();
+						int ladderBottom=ladderList.get(k).getStartingPoint();
+						int ladderTop=ladderList.get(k).getEndPoint();
+						if(cellNum==snakeHead)
+						{
+							System.out.print(" ");
+						System.out.print("\t{SH"+(k+1)+"}");
+							flag=1;
+							//break;
+						}
+						else if(cellNum==snakeTail)
+						{
+							System.out.print(" ");
+							System.out.print("\t{ST"+(k+1)+"}");
+							flag=1;
+							//break;
+						}
+						else if(cellNum==ladderBottom)
+						{
+							System.out.print(" ");
+							System.out.print("\t|LB"+(k+1)+"|");
+							flag=1;
+							//break;
+						}
+						else if(cellNum==ladderTop)
+						{
+							System.out.print(" ");
+							System.out.print("\t|LT"+(k+1)+"|");
+							flag=1;
+							//break;
+						}
+						// else
+						// {
+							
+						// }
+						
+						
+					}
+					if(flag!=1)
+					{
+						System.out.print(" ");
+						System.out.print("\t"+cellArray[i][j].getCellNumber());
+					}
+					
+				}
+				System.out.println(" ");
+				System.out.println(" ");
+			}
+		}
+	}
 	
 	
 	
@@ -83,6 +208,7 @@ public class SnakeNLadderView
 		
 		Board board=game.getBoard();
 		showBoard(board);
+		displayBoard(board);
 		gameControl.playGame(game);
 	}
 }
