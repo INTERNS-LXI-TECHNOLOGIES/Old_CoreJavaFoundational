@@ -19,7 +19,8 @@ public void playGame()
 	System.out.println("\n"+"\n"+"                            SNAKE AND LADDER                            "+"\n"+"\n");
 	
     board.createBoard();
-	board.placeSnakes();
+	//board.placeSnakes();
+	board.placeLadders();
 	int res=0;
 	int pos;
 	do{
