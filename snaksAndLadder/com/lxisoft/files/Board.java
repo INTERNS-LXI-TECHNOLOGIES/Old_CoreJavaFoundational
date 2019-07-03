@@ -7,7 +7,9 @@ public class Board
 	private ArrayList<Integer> cells = new ArrayList<Integer>();
 	ArrayList<Snake> snakes=new  ArrayList<Snake>();
 	ArrayList<Ladder> ladders=new  ArrayList<Ladder>();
-    public void setCells(ArrayList<Integer> cellls)
+	ArrayList<Player> players = new ArrayList<Player>();
+	
+	public void setCells(ArrayList<Integer> cellls)
 	{
 		this.cells=cells;
 	}
@@ -32,30 +34,63 @@ public class Board
 	{
 		return ladders;
 	}
+	public void getPlayers(ArrayList<Player> players)
+	{
+		this.players=players;
+		
+	}
 	public void setSnakesAndLaddersOnTheBoard()
 		{ 
-           int x=0,y=0;		
+		for(int i=0;i<players.size();i++)
+	    {
+	       System.out.println("kkkkkkkk"+players.get(i).getName()+""+players.get(i).getPosition());
+        }
+           ArrayList<Integer> value=new ArrayList<Integer>();
 	       for(int i=0;i<4;i++)
 		   {
+			   boolean checking = false;
+			   int a,b,c,d;
+			  do{
+			   a =(int)(Math.random() *100);
+			   b =(int)(Math.random() *100);
+			   c =(int)(Math.random() *100);
+			   d =(int)(Math.random() *100);
+			 for(Integer x : value)
+				{
+					if(x==a||x==b||x==c||x==d)
+					{
+						checking=true;
+						break;
+					} 
+					else{
+						value.add(a);
+						value.add(b);
+						value.add(c);
+						value.add(d);
+						checking = false;
+						}
+				if(b>a)
+				{
+					int s=a;
+					    b=s;
+				}
+				if(d>c)
+				{
+					int l=c;
+					d=l;
+				}
+				}
+			  }while(checking); 
 			 Snake snake=new Snake();
-			 snake.setHead((int)(Math.random() *100));
-			 snake.setTail((int)(Math.random() *100));
+			 snake.setHead(a);
+			 snake.setTail(b);
 			 snakes.add(snake);
 			 Ladder ladder=new Ladder();
-			 ladder.setStartPosition((int)(Math.random() *100));
-			 ladder.setEndPosition((int)(Math.random() *100));
+			 ladder.setStartPosition(c);
+			 ladder.setEndPosition(d);
 			 ladders.add(ladder);
             }
 				createBoard();
-			/*for(int j=0;j<4;j++)
-			{
-	        if(snakes.get(j).getHead()!=snakes.get(j).getTail()&&ladders.get(j).getStartPosition()!=ladders.get(j).getEndPosition()&&snakes.get(j).getHead()!=ladders.get(j).getStartPosition()&&snakes.get(j).getTail()!=ladders.get(j).getEndPosition())
-			{
-				
-			}
-		
-		    }*/
-			
 		}
 	public void createBoard()
 	{  
@@ -86,6 +121,11 @@ public class Board
 					{
 						z=a;
 						System.out.print(a+"|e"+(k+1)+"|"+"\t");
+					}
+					
+					else if(a==players.get(k).getPosition())
+					{
+						System.out.println(a+""+players.get(k).getName());
 					}
 				}
 			   if(a!=z)

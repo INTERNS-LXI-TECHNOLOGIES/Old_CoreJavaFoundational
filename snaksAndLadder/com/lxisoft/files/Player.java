@@ -2,6 +2,7 @@ package com.lxisoft.files;
 public class Player
 {
 	private String name;
+	private int position;
 	public void setName(String name)
 	{
 		this.name=name;
@@ -10,8 +11,12 @@ public class Player
 	{
 		return name;
 	}
-	public void selectColour()
+	public void setPosition(int position)
 	{
-     	System.out.println("select colour of the coin");
+		this.position=position;
+	}
+	public int getPosition()
+	{
+		return position;
 	}
 }
