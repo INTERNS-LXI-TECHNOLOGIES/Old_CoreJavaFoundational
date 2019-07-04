@@ -11,7 +11,7 @@ import java.io.*;
 *
 *@version 1.0
 *
-*Date Modified:03/07/2019
+*Date Modified:04/07/2019
 */
 public class SnakeNLadderView
 {
@@ -54,7 +54,7 @@ public class SnakeNLadderView
 		}
 	}
 	
-	public void displayBoard(Board board,int snakeNum,int position)
+	public void displayBoard(Board board,int playerNum,int position)
 	{
 		Cell[][] cellArray=board.getCells();
 		ArrayList<Snake> snakeList=board.getSnakes();
@@ -78,7 +78,7 @@ public class SnakeNLadderView
 							if(snakeHead==position)
 							{
 								System.out.print(" ");
-								System.out.print("\t@P"+snakeNum);
+								System.out.print("\t@P"+playerNum);
 								flag=1;
 							}
 							else
@@ -87,15 +87,13 @@ public class SnakeNLadderView
 								System.out.print("\t{SH"+(k+1)+"}");
 								flag=1;
 							}
-							
-							//break;
 						}
 						else if(cellNum==snakeTail)
 						{
 							if(snakeTail==position)
 							{
 								System.out.print(" ");
-								System.out.print("\t@P"+snakeNum);
+								System.out.print("\t@P"+playerNum);
 								flag=1;
 							}
 							else
@@ -110,7 +108,7 @@ public class SnakeNLadderView
 							if(ladderBottom==position)
 							{
 								System.out.print(" ");
-								System.out.print("\t@P"+snakeNum);
+								System.out.print("\t@P"+playerNum);
 								flag=1;
 							}
 							else
@@ -119,15 +117,13 @@ public class SnakeNLadderView
 								System.out.print("\t|LB"+(k+1)+"|");
 								flag=1;
 							}
-							
-							
 						}
 						else if(cellNum==ladderTop)
 						{
 							if(ladderTop==position)
 							{
 								System.out.print(" ");
-								System.out.print("\t@P"+snakeNum);
+								System.out.print("\t@P"+playerNum);
 								flag=1;
 							}
 							else
@@ -143,7 +139,7 @@ public class SnakeNLadderView
 						if(cellNum==position)
 						{
 							System.out.print(" ");
-							System.out.print("\t@P"+snakeNum);
+							System.out.print("\t@P"+playerNum);
 							flag=1;
 						}
 						else
@@ -157,6 +153,7 @@ public class SnakeNLadderView
 					
 					
 				}
+				System.out.println(" ");
 				System.out.println(" ");
 				System.out.println(" ");
 			}
@@ -177,7 +174,7 @@ public class SnakeNLadderView
 							if(snakeHead==position)
 							{
 								System.out.print(" ");
-								System.out.print("\t@P"+snakeNum);
+								System.out.print("\t@P"+playerNum);
 								flag=1;
 							}
 							else
@@ -194,7 +191,7 @@ public class SnakeNLadderView
 							if(snakeTail==position)
 							{
 								System.out.print(" ");
-								System.out.print("\t@P"+snakeNum);
+								System.out.print("\t@P"+playerNum);
 								flag=1;
 							}
 							else
@@ -209,7 +206,7 @@ public class SnakeNLadderView
 							if(ladderBottom==position)
 							{
 								System.out.print(" ");
-								System.out.print("\t@P"+snakeNum);
+								System.out.print("\t@P"+playerNum);
 								flag=1;
 							}
 							else
@@ -226,7 +223,7 @@ public class SnakeNLadderView
 							if(ladderTop==position)
 							{
 								System.out.print(" ");
-								System.out.print("\t@P"+snakeNum);
+								System.out.print("\t@P"+playerNum);
 								flag=1;
 							}
 							else
@@ -242,7 +239,7 @@ public class SnakeNLadderView
 						if(cellNum==position)
 						{
 							System.out.print(" ");
-							System.out.print("\t@P"+snakeNum);
+							System.out.print("\t@P"+playerNum);
 							flag=1;
 						}
 						else
@@ -256,10 +253,238 @@ public class SnakeNLadderView
 				}
 				System.out.println(" ");
 				System.out.println(" ");
+				System.out.println(" ");
 			}
 		}
 	}
 	
+	
+	public void displayBoard2(Board board,ArrayList<Player> playerList)
+	{
+		Cell[][] cellArray=board.getCells();
+		ArrayList<Snake> snakeList=board.getSnakes();
+		ArrayList<Ladder> ladderList=board.getLadders();
+		
+		for(int i=0;i<10;i++)
+		{
+			if(i%2==0)
+			{
+				for(int j=0;j<10;j++)
+				{
+					int cellNum=cellArray[i][j].getCellNumber();
+					int flag=0;
+					for(int l=0;l<playerList.size();l++)
+					{
+						int playerNum=l+1;
+						int position=playerList.get(l).getPlayerPosition();
+						
+						
+						for(int k=0;k<5;k++)
+						{
+							int snakeHead=snakeList.get(k).getHeadPosition();
+						int snakeTail=snakeList.get(k).getTailPosition();
+						int ladderBottom=ladderList.get(k).getStartingPoint();
+						int ladderTop=ladderList.get(k).getEndPoint();
+							
+							if(cellNum==snakeHead)
+							{
+								if(snakeHead==position)
+								{
+									System.out.print(" ");
+									System.out.print("\t@P"+playerNum);
+									flag=1;
+								}
+								else
+								{
+									System.out.print(" ");
+									System.out.print("\t{SH"+(k+1)+"}");
+									flag=1;
+								}
+							
+							//break;
+							}
+							else if(cellNum==snakeTail)
+							{
+								if(snakeTail==position)
+								{
+									System.out.print(" ");
+									System.out.print("\t@P"+playerNum);
+									flag=1;
+								}
+								else
+								{
+									System.out.print(" ");
+									System.out.print("\t{ST"+(k+1)+"}");
+									flag=1;
+								}
+							}
+							else if(cellNum==ladderBottom)
+							{
+								if(ladderBottom==position)
+								{
+									System.out.print(" ");
+									System.out.print("\t@P"+playerNum);
+									flag=1;
+								}
+								else
+								{
+									System.out.print(" ");
+									System.out.print("\t|LB"+(k+1)+"|");
+									flag=1;
+								}
+							}
+							else if(cellNum==ladderTop)
+							{
+								if(ladderTop==position)
+								{
+									System.out.print(" ");
+									System.out.print("\t@P"+playerNum);
+									flag=1;
+								}
+								else
+								{
+									System.out.print(" ");
+									System.out.print("\t|LT"+(k+1)+"|");
+									flag=1;
+								}
+							}
+							
+						}
+					}
+					
+					if(flag!=1)
+					{
+						// if(cellNum==position)
+						// {
+							// System.out.print(" ");
+							// System.out.print("\t@P"+playerNum);
+							// flag=1;
+						// }
+						// else
+						// {
+							System.out.print(" ");
+							System.out.print("\t"+cellArray[i][j].getCellNumber());
+						//}
+						
+					}
+					
+					
+				}
+				System.out.println(" ");
+				System.out.println(" ");
+				System.out.println(" ");
+			}
+			else
+			{
+				for(int j=0;j<10;j++)
+				{
+					int cellNum=cellArray[i][j].getCellNumber();
+					int flag=0;
+					for(int l=0;l<playerList.size();l++)
+					{
+						int playerNum=l+1;
+							int position=playerList.get(l).getPlayerPosition();
+						
+						
+						for(int k=0;k<5;k++)
+						{
+							int snakeHead=snakeList.get(k).getHeadPosition();
+						int snakeTail=snakeList.get(k).getTailPosition();
+						int ladderBottom=ladderList.get(k).getStartingPoint();
+						int ladderTop=ladderList.get(k).getEndPoint();
+							
+							if(cellNum==snakeHead)
+						{
+							if(snakeHead==position)
+							{
+								System.out.print(" ");
+								System.out.print("\t@P"+playerNum);
+								flag=1;
+							}
+							else
+							{
+								System.out.print(" ");
+								System.out.print("\t{SH"+(k+1)+"}");
+								flag=1;
+							}
+							
+							//break;
+						}
+						else if(cellNum==snakeTail)
+						{
+							if(snakeTail==position)
+							{
+								System.out.print(" ");
+								System.out.print("\t@P"+playerNum);
+								flag=1;
+							}
+							else
+							{
+								System.out.print(" ");
+								System.out.print("\t{ST"+(k+1)+"}");
+								flag=1;
+							}
+						}
+						else if(cellNum==ladderBottom)
+						{
+							if(ladderBottom==position)
+							{
+								System.out.print(" ");
+								System.out.print("\t@P"+playerNum);
+								flag=1;
+							}
+							else
+							{
+								System.out.print(" ");
+								System.out.print("\t|LB"+(k+1)+"|");
+								flag=1;
+							}
+							
+							
+						}
+						else if(cellNum==ladderTop)
+						{
+							if(ladderTop==position)
+							{
+								System.out.print(" ");
+								System.out.print("\t@P"+playerNum);
+								flag=1;
+							}
+							else
+							{
+								System.out.print(" ");
+								System.out.print("\t|LT"+(k+1)+"|");
+								flag=1;
+							}
+						}
+						
+						}
+						
+						
+					}
+					
+					if(flag!=1)
+					{
+						// if(cellNum==position)
+						// {
+							// System.out.print(" ");
+							// System.out.print("\t@P"+playerNum);
+							// flag=1;
+						// }
+						// else
+						// {
+							System.out.print(" ");
+							System.out.print("\t"+cellArray[i][j].getCellNumber());
+						//}
+						
+					}
+				}
+				System.out.println(" ");
+				System.out.println(" ");
+				System.out.println(" ");
+			}
+		}
+	}
 	
 	
 	public void startNewGame()

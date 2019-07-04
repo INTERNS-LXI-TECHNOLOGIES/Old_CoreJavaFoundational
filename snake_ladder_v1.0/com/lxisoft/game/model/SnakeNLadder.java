@@ -8,7 +8,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:03/07/2019
+*Date Modified:04/07/2019
 */
 public class SnakeNLadder
 {
@@ -16,6 +16,11 @@ public class SnakeNLadder
 	*Reference Logger class to get log messages
 	*/
 	private static final Logger log=Logger.getLogger(SnakeNLadder.class.getName());
+	
+	public SnakeNLadder()
+	{
+		log.setLevel(Level.WARNING);
+	}
 	
 	/**
 	*Reference Board class

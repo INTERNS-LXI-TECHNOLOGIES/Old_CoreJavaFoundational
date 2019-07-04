@@ -8,7 +8,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:03/07/2019
+*Date Modified:04/07/2019
 */
 public class Dice
 {

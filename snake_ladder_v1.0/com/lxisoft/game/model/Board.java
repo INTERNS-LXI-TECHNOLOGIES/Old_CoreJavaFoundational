@@ -8,7 +8,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:03/07/2019
+*Date Modified:04/07/2019
 */
 public class Board
 {
@@ -16,6 +16,11 @@ public class Board
 	*Reference Logger class to get log messages
 	*/
 	private static final Logger log=Logger.getLogger(Board.class.getName());
+	
+	public Board()
+	{
+		log.setLevel(Level.WARNING);
+	}
 	
 	/**
 	*This is an arraylist of snakes in the board

@@ -10,7 +10,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:03/07/2019
+*Date Modified:04/07/2019
 */
 public class SnakeNLadderControl
 {
@@ -80,9 +80,14 @@ public class SnakeNLadderControl
 				snakes.get(i).setHeadPosition(rand1);
 				snakes.get(i).setTailPosition(rand2);
 			}
-			else
+			else if(rand1<rand2)
 			{
 				snakes.get(i).setHeadPosition(rand2);
+				snakes.get(i).setTailPosition(rand1);
+			}
+			else
+			{
+				snakes.get(i).setHeadPosition(rand2+1);
 				snakes.get(i).setTailPosition(rand1);
 			}
 			System.out.println(" "+snakes.get(i).getHeadPosition());
@@ -104,10 +109,16 @@ public class SnakeNLadderControl
 				ladders.get(i).setStartingPoint(rand1);
 				ladders.get(i).setEndPoint(rand2);
 			}
-			else
+			
+			else if(rand1>rand2)
 			{
 				ladders.get(i).setStartingPoint(rand2);
 				ladders.get(i).setEndPoint(rand1);
+			}
+			else
+			{
+				ladders.get(i).setStartingPoint(rand1);
+				ladders.get(i).setEndPoint(rand1+1);
 			}
 			
 			
@@ -143,7 +154,10 @@ public class SnakeNLadderControl
 			
 			for(int i=0;i<playerList.size();i++)
 			{
-				gameView.displayBoard(board,i+1,playerList.get(i).getPlayerPosition());
+				gameView.displayBoard2(board,playerList);
+					System.out.println(" ");
+				//gameView.displayBoard(board,i+1,playerList.get(i).getPlayerPosition());
+				System.out.println(" ");
 				System.out.println("player "+(i+1)+" ,"+playerList.get(i).getPlayerName()+" is rolling the dice...");
 				System.out.println("press any key to roll the dice:");
 				String c=sc.next();
@@ -175,7 +189,10 @@ public class SnakeNLadderControl
 					int updatedPosition=checkResult(newPosition,game.getBoard());
 					playerList.get(i).setPlayerPosition(updatedPosition);
 					System.out.println(" position of "+playerList.get(i).getPlayerName()+" is "+playerList.get(i).getPlayerPosition());
-					gameView.displayBoard(board,i+1,playerList.get(i).getPlayerPosition());
+					//gameView.displayBoard(board,i+1,playerList.get(i).getPlayerPosition());
+					//System.out.println(" ");
+					gameView.displayBoard2(board,playerList);
+					System.out.println(" ");
 				}
 			}
 		}while(true);
