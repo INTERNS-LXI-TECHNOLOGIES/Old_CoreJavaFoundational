@@ -10,7 +10,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:04/07/2019
+*Date Modified:05/07/2019
 */
 public class SnakeNLadderControl
 {
@@ -191,7 +191,9 @@ public class SnakeNLadderControl
 					System.out.println(" position of "+playerList.get(i).getPlayerName()+" is "+playerList.get(i).getPlayerPosition());
 					//gameView.displayBoard(board,i+1,playerList.get(i).getPlayerPosition());
 					//System.out.println(" ");
-					gameView.displayBoard2(board,playerList);
+					game.setPlayers(playerList);
+					
+					gameView.displayBoard2(board,game.getPlayers());
 					System.out.println(" ");
 				}
 			}
