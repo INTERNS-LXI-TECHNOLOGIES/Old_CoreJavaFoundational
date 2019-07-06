@@ -11,7 +11,7 @@ import java.io.*;
 *
 *@version 1.0
 *
-*Date Modified:05/07/2019
+*Date Modified:06/07/2019
 */
 public class SnakeNLadderView
 {
@@ -400,6 +400,7 @@ public class SnakeNLadderView
 						}
 						else
 						{
+							
 							flag=0;
 						}
 					}
@@ -416,6 +417,7 @@ public class SnakeNLadderView
 							}
 							else
 							{
+								
 								flag1=0;
 							}
 						}

@@ -1,6 +1,7 @@
 package com.lxisoft.game.control;
 import com.lxisoft.game.model.*;
 import com.lxisoft.game.view.*;
+import java.io.*;
 import java.util.*;
 import java.util.logging.*;
 /**
@@ -10,7 +11,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:05/07/2019
+*Date Modified:06/07/2019
 */
 public class SnakeNLadderControl
 {
@@ -33,8 +34,10 @@ public class SnakeNLadderControl
 		Board board=new Board();
 		placeCells(board);
 		placeSnakes(board);
-		placeLadders(board);
+		// placeLadders(board);
+		
 		game.setBoard(board);
+		//placeSnakesNLadders(board);
 	}
 	
 	public void placeCells(Board board)
@@ -67,64 +70,101 @@ public class SnakeNLadderControl
 		board.setCells(cellArray);
 	}
 	
+	public void placeSnakesNLadders(Board board)
+	{
+		ArrayList<Snake> snakes=new ArrayList<Snake>();
+		ArrayList<Ladder> ladders=new ArrayList<Ladder>();
+		ArrayList<Integer> randomPosition=getListOfRandomNumbers();
+		Collections.sort(randomPosition);
+		int i=0;
+		int j=randomPosition.size()-1;
+		do
+		{
+			for(int n=0;n<5;n++)
+			{
+				snakes.add(new Snake());
+				snakes.get(n).setTailPosition(randomPosition.get(i));
+				snakes.get(n).setHeadPosition(randomPosition.get(j));
+			
+				System.out.println("SH"+n+":"+snakes.get(n).getHeadPosition());
+				System.out.println("ST"+n+":"+snakes.get(n).getTailPosition());
+			
+			
+			i=i+1;
+			j=j-1;
+			}
+			
+		}while(i<5&&j>14);
+		
+		
+	}
+	
+	public ArrayList<Integer> getListOfRandomNumbers()
+	{
+		ArrayList<Integer> numberList=new ArrayList<Integer>();
+		int i=0;
+		 do
+		 {
+			 int random=(int)(Math.random()*100);
+			 if(!numberList.contains(random))
+			 {
+				 numberList.add(random);
+				 i++;
+			 }
+		 }while(i<20);
+		 return numberList;
+	}
+	
 	public void placeSnakes(Board board)
 	{
 		ArrayList<Snake> snakes=new ArrayList<Snake>();
-		for(int i=0;i<5;i++)
+		ArrayList<Integer> randomPosition=getListOfRandomNumbers();
+		Collections.sort(randomPosition);
+		placeLadders(board,randomPosition);
+		int i=0;
+		int j=randomPosition.size()-1;
+		do
 		{
-			snakes.add(new Snake());
-			int rand1=getRandomCellNumber(board);
-			int rand2=getRandomCellNumber(board);
-			if(rand1>rand2)
+			for(int n=0;n<5;n++)
 			{
-				snakes.get(i).setHeadPosition(rand1);
-				snakes.get(i).setTailPosition(rand2);
+				snakes.add(new Snake());
+				snakes.get(n).setTailPosition(randomPosition.get(i));
+				snakes.get(n).setHeadPosition(randomPosition.get(j));
+			
+				System.out.println("SH"+n+":"+snakes.get(n).getHeadPosition());
+				System.out.println("ST"+n+":"+snakes.get(n).getTailPosition());
+			
+			
+			i=i+1;
+			j=j-1;
 			}
-			else if(rand1<rand2)
-			{
-				snakes.get(i).setHeadPosition(rand2);
-				snakes.get(i).setTailPosition(rand1);
-			}
-			else
-			{
-				snakes.get(i).setHeadPosition(rand2+1);
-				snakes.get(i).setTailPosition(rand1);
-			}
-			System.out.println(" "+snakes.get(i).getHeadPosition());
-			System.out.println(" "+snakes.get(i).getTailPosition());
-		}
+			
+		}while(i<5&&j>14);
 		board.setSnakes(snakes);
 	}
 	
-	public void placeLadders(Board board)
+	public void placeLadders(Board board,ArrayList<Integer> randomPosition)
 	{
 		ArrayList<Ladder> ladders=new ArrayList<Ladder>();
-		for(int i=0;i<5;i++)
+		int i=5;
+		int j=14;
+		do
 		{
-			ladders.add(new Ladder());
-			int rand1=getRandomCellNumber(board);
-			int rand2=getRandomCellNumber(board);
-			if(rand1<rand2)
+			for(int n=0;n<5;n++)
 			{
-				ladders.get(i).setStartingPoint(rand1);
-				ladders.get(i).setEndPoint(rand2);
-			}
+				ladders.add(new Ladder());
+				ladders.get(n).setStartingPoint(randomPosition.get(i));
+				ladders.get(n).setEndPoint(randomPosition.get(j));
 			
-			else if(rand1>rand2)
-			{
-				ladders.get(i).setStartingPoint(rand2);
-				ladders.get(i).setEndPoint(rand1);
-			}
-			else
-			{
-				ladders.get(i).setStartingPoint(rand1);
-				ladders.get(i).setEndPoint(rand1+1);
-			}
+				System.out.println("LB"+n+":"+ladders.get(n).getStartingPoint());
+				System.out.println("LT"+n+":"+ladders.get(n).getEndPoint());
 			
 			
-			System.out.println(" "+ladders.get(i).getStartingPoint());
-			System.out.println(" "+ladders.get(i).getEndPoint());
-		}
+			i=i+1;
+			j=j-1;
+			}
+			
+		}while(i<10&&j>9);
 		board.setLadders(ladders);
 	}
 	
