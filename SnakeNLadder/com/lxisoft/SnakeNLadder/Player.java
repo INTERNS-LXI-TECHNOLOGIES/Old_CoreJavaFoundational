@@ -1,3 +1,12 @@
+package com.lxisoft.SnakeNLadder;
+/**
+*This model class is used for players
+*
+*@author AJAY .E.S
+*
+*@version 1.0
+
+*/
 
 public class Player {
 private int pos;
