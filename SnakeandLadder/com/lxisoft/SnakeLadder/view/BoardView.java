@@ -14,8 +14,8 @@ int[][] cells = new int[10][10];
 int num=100;
 ArrayList<Snake> snakes=new ArrayList<Snake>();
 ArrayList<Ladder> ladders=new ArrayList<Ladder>();
-ArrayList<Integer> snakeElements=new ArrayList<Integer>();
-ArrayList<Integer> ladderElements=new ArrayList<Integer>();
+ArrayList<Snake> snakeElements=new ArrayList<Integer>();
+ArrayList<Ladder> ladderElements=new ArrayList<Integer>();
 
 
 		public void setBoard(){
@@ -58,20 +58,23 @@ ArrayList<Integer> ladderElements=new ArrayList<Integer>();
 		//snakes.add(s);
 		for(int p=0;p<k;p++){
 
-			//Snake snake=new Snake();
+			Snake snake=new Snake();
 			Snake s = new Snake();
 			num=100;
 			int x=(int)(Math.random()*((75-51)+1))+51;
 			int	y=(int)(Math.random()*((25-3)+1))+3;
-			 if(x!=rand1 && y!=rand2){
+			snake.setSnakeElement1(rand1);
+				snake.setSnakeElement1(0);
+				snake.setSnakeElement2(0);
+			 if(x!=snake.setSnakeElement1(rand1); && y!=snake.setSnakeElement2(rand2);){
 			 	rand1=x;
 			 	rand2=y;
-				// snake.setSnakeElement1(rand1);
-				// snakes.add(snake);
-				// System.out.println(snake.getSnakeElement1());
-				// snake.setSnakeElement2(rand2);
-				// snakes.add(snake);
-				// System.out.println(snake.getSnakeElement2());
+				snake.setSnakeElement1(rand1);
+				snakes.add(snake);
+				//System.out.println(snake.getSnakeElement1());
+				snake.setSnakeElement2(rand2);
+				snakes.add(snake);
+				//System.out.println(snake.getSnakeElement2());
 				int H=(x>y)?x:y;
 				int T=(x<y)?x:y;
 				if(H!=T){
@@ -111,18 +114,20 @@ ArrayList<Integer> ladderElements=new ArrayList<Integer>();
 		System.out.println("value="+k);
 		for(int p=0;p<k;p++){
 
-			//Ladder ladder=new Ladder();
+			Ladder ladder=new Ladder();
 			Ladder l= new Ladder();
 			num=100;
 			int x=(int)(Math.random()*((97-76)+1))+76;
 			int	y=(int)(Math.random()*((50-26)+1))+26;
-			if(x!=rand1 && y!=rand2){
+			ladder.setLadderElement1(0);
+			ladder.setLadderElement2(0);
+			if(x!=ladder.setLadderElement1(); && y!=ladder.setLadderElement2();){
 			rand1=x;
 			rand2=y;
-			// ladder.setLadderElement1(rand1);
-			// ladderElements.add(rand1);
-			// ladder.setLadderElement2(rand2);
-			// ladderElements.add(rand2);
+			ladder.setLadderElement1(rand1);
+			ladderElements.add(ladder);
+			ladder.setLadderElement2(rand2);
+			ladderElements.add(ladder);
 			int U=(x>y)?x:y;
 			int B=(x<y)?x:y;
 				if(U!=B){
@@ -141,7 +146,7 @@ ArrayList<Integer> ladderElements=new ArrayList<Integer>();
 								
 							}
 						}
-							l.setLadderBottom(B);
+								l.setLadderBottom(B);
 								l.setLadderTop(U);
 						}
 						// else if(snakes.get(i).getSnakeTail()!=B){

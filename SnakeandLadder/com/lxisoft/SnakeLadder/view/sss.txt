@@ -19,7 +19,7 @@ BoardView board = new BoardView();
 		System.out.println("Enter the number of players:");
 		System.out.println("Remember the number of players must should be from 2 to 4");
 		int b=in.nextInt();
-		for(int i=1;i<=b;i++){
+		for(int i=1;i<=b;i++ ){
 			Player player = new Player();
 			System.out.println("Enter the name of the player"+i);
 			//String name=in.next();
@@ -67,15 +67,13 @@ BoardView board = new BoardView();
 			gameBoard();
 			//setPlayerBoard();
 			for(int j=0;j<players.size();j++){
-				if(players.get(j).getPosition()>=100)
+				if(players.get(j).getPosition()==100)
 				 	value=1;
 				}
 			}
 		}
 			while(value==0);
-    
-    System.out.println("****************************");
-}
+    }
     public void gameBoard(){
     	int num=100;
 
@@ -90,10 +88,10 @@ BoardView board = new BoardView();
 	       					   	for(int q=0;q<players.size();q++){
 									if(board.snakes.get(p).getSnakeHead()==players.get(q).getPosition()){
 										players.get(q).setPosition(board.snakes.get(p).getSnakeTail());
-										System.out.print("<"+players.get(q).getTokenColour()+">");
+										System.out.print(cells[i][j]+"<"+players.get(q).getTokenColour()+">"+"\t");
 									}
 									else{
-										System.out.print(cells[i][j]+"<"+players.get(p).getTokenColour()+">"+"\t");
+										
 									}
 								}
 	       					   	System.out.print(cells[i][j]+"{H"+p+"}"+"\t");	
@@ -104,10 +102,10 @@ BoardView board = new BoardView();
 	       						for(int q=0;q<players.size();q++){
 									if(board.snakes.get(p).getSnakeTail()==players.get(q).getPosition()){
 								
-										System.out.print("<"+players.get(q).getTokenColour()+">");
+										System.out.print(cells[i][j]+"<"+players.get(q).getTokenColour()+">"+"\t");
 									}
 									else{
-										System.out.print(cells[i][j]+"<"+players.get(p).getTokenColour()+">"+"\t");
+										
 									}
 								}
 								System.out.print(cells[i][j]+"{T"+p+"}"+"\t");
@@ -118,10 +116,10 @@ BoardView board = new BoardView();
 	       						for(int q=0;q<players.size();q++){
 									if(board.ladders.get(p).getLadderTop()==players.get(q).getPosition()){
 										
-										System.out.print("<"+players.get(q).getTokenColour()+">");
+										System.out.print(cells[i][j]+"<"+players.get(q).getTokenColour()+">"+"\t");
 									}
 									else{
-										System.out.print(cells[i][j]+"<"+players.get(p).getTokenColour()+">"+"\t");
+										
 									}
 								}
 	       						System.out.print(cells[i][j]+"{U"+p+"}"+"\t");
@@ -132,10 +130,10 @@ BoardView board = new BoardView();
 	       						for(int q=0;q<players.size();q++){
 									if(board.ladders.get(p).getLadderBottom()==players.get(q).getPosition()){
 										players.get(q).setPosition(board.ladders.get(p).getLadderTop());
-										System.out.print("<"+players.get(q).getTokenColour()+">");
+										System.out.print(cells[i][j]+"<"+players.get(q).getTokenColour()+">"+"\t");
 									}
 									else{
-										System.out.print(cells[i][j]+"<"+players.get(p).getTokenColour()+">"+"\t");
+										
 									}
 								}
 	       						System.out.print(cells[i][j]+"{B"+p+"}"+"\t");
@@ -144,24 +142,24 @@ BoardView board = new BoardView();
 	       					}
 	       					else
 	       					{
-	       						
+	       					
 	       					}
 	       				}
-	       				// for(int p=0;p<players.size();p++){
+	       				for(int p=0;p<players.size();p++){
 							
-	       				// 	if (cells[i][j]==players.get(p).getPosition()){
+	       					if (cells[i][j]==players.get(p).getPosition()){
 	       					   
-	       				// 	   	System.out.print(cells[i][j]+"<"+players.get(p).getTokenColour()+">"+"\t");	
-	       				// 		num--;
-	       				// 		flag=1;
-	       				// 	}
-	       				// 	else
-	       				// 	{
+	       					   	System.out.print(cells[i][j]+"<"+players.get(p).getTokenColour()+">"+"\t");	
+	       						num--;
+	       						flag=1;
+	       					}
+	       					else
+	       					{
 
-	       				// 	//System.out.print(cells[i][j]+"\t");
-	       				// 	//num--;
-	       				// 	}
-	       				// }
+	       					//System.out.print(cells[i][j]+"\t");
+	       					//num--;
+	       					}
+	       				}
 
 	       				if(flag==0){
 	       				System.out.print(cells[i][j]+"\t");
@@ -181,10 +179,10 @@ BoardView board = new BoardView();
 							if(cells[i][j]==board.snakes.get(p).getSnakeTail()){
 								for(int q=0;q<players.size();q++){
 									if(board.snakes.get(p).getSnakeTail()==players.get(q).getPosition()){
-										System.out.print("<"+players.get(q).getTokenColour()+">");
+										System.out.print(cells[i][j]+"<"+players.get(q).getTokenColour()+">"+"\t");
 									}
 									else{
-										System.out.print(cells[i][j]+"<"+players.get(p).getTokenColour()+">"+"\t");
+										
 									}
 								}
 								System.out.print(cells[i][j]+"{T"+p+"}"+"\t");
@@ -195,10 +193,10 @@ BoardView board = new BoardView();
 								for(int q=0;q<players.size();q++){
 									if(board.snakes.get(p).getSnakeHead()==players.get(q).getPosition()){
 										players.get(q).setPosition(board.snakes.get(p).getSnakeTail());
-										System.out.print("<"+players.get(q).getTokenColour()+">");
+										System.out.print(cells[i][j]+"<"+players.get(q).getTokenColour()+">"+"\t");
 									}
 									else{
-										System.out.print(cells[i][j]+"<"+players.get(p).getTokenColour()+">"+"\t");
+										
 									}
 								}
 	       					   	System.out.print(cells[i][j]+"{H"+p+"}"+"\t");
@@ -209,10 +207,10 @@ BoardView board = new BoardView();
 								for(int q=0;q<players.size();q++){
 									if(board.ladders.get(p).getLadderBottom()==players.get(q).getPosition()){
 										players.get(q).setPosition(board.ladders.get(p).getLadderTop());
-										System.out.print("<"+players.get(q).getTokenColour()+">");
+										System.out.print(cells[i][j]+"<"+players.get(q).getTokenColour()+">"+"\t");
 									}
 									else{
-										System.out.print(cells[i][j]+"<"+players.get(p).getTokenColour()+">"+"\t");
+										
 									}
 								}
 								System.out.print(cells[i][j]+"{B"+p+"}"+"\t");
@@ -222,10 +220,10 @@ BoardView board = new BoardView();
 							else if(cells[i][j]==board.ladders.get(p).getLadderTop()){
 								for(int q=0;q<players.size();q++){
 									if(board.ladders.get(p).getLadderTop()==players.get(q).getPosition()){
-										System.out.print("<"+players.get(q).getTokenColour()+">");
+										System.out.print(cells[i][j]+"<"+players.get(q).getTokenColour()+">"+"\t");
 									}
 									else{
-										System.out.print(cells[i][j]+"<"+players.get(p).getTokenColour()+">"+"\t");
+										
 									}
 								}
 								System.out.print(cells[i][j]+"{U"+p+"}"+"\t");
@@ -237,18 +235,18 @@ BoardView board = new BoardView();
 			   					
 			   				}
 			   			}
-			   	// 		for(int p=0;p<players.size();p++){
-							// if(cells[i][j]==players.get(p).getPosition()){
-							// 	System.out.print(cells[i][j]+"<"+players.get(p).getTokenColour()+">"+"\t");
-							// 	n++;
-							// 	key=1;
-							// }
-							// else
-							// {
-			   	// 				// System.out.print("*"+cells[i][j]+"\t");
-			   	// 				// n++;
-			   	// 			}
-			   	// 		}
+			   			for(int p=0;p<players.size();p++){
+							if(cells[i][j]==players.get(p).getPosition()){
+								System.out.print(cells[i][j]+"<"+players.get(p).getTokenColour()+">"+"\t");
+								n++;
+								key=1;
+							}
+							else
+							{
+			   					// System.out.print("*"+cells[i][j]+"\t");
+			   					// n++;
+			   				}
+			   			}
 			   			if(key==0){
 			   			System.out.print(cells[i][j]+"\t");
 			   			n++;
