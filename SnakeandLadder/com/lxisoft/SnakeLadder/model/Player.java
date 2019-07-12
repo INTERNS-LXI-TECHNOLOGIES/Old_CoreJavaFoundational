@@ -27,7 +27,5 @@ public int getPosition(){
 public String toString(){
 	return name;
 }
-public void setPlayerPosition(){
-		
-	}
+
 }

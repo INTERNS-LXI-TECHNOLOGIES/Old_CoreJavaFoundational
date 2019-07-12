@@ -4,14 +4,14 @@ import com.lxisoft.SnakeLadder.view.BoardView;
 public class Tdd{
 
 	public static void main(String[] args){
-	 	//GameView gameview = new GameView();
+	 	GameView gameview = new GameView();
 		// // gameview.gameRule();
-		//gameview.display();
+		gameview.display();
 		//gameview.dieceThrow();
 		//gameview.playGame();
-		BoardView boardview = new BoardView();
-		 boardview.setSnakePosition();
-		 boardview.setLadderPosition();
+		// BoardView boardview = new BoardView();
+		//  boardview.setSnakePosition();
+		 //boardview.setLadderPosition();
 		// boardview.startGame();
 
 	}

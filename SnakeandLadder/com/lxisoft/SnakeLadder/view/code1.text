@@ -1,0 +1,246 @@
+public void setPlayerBoard(){
+	int num=100;
+
+			for(int i=0;i<10;i++){
+				if(i%2==0){
+					for(int j=0;j<10;j++){
+						cells[i][j]=num;
+						int flag=0;
+						for(int p=0;p<players.size();p++){
+							
+	       					if (cells[i][j]==players.get(p).getPosition()){
+	       					   
+	       					   	System.out.print(cells[i][j]+players.get(p).getTokenColour()+"\t");	
+	       						num--;
+	       						flag=1;
+	       					}
+	       					else
+	       					{
+	       					//System.out.print(cells[i][j]+"\t");
+	       					//num--;
+	       					}
+	       				}
+
+	       				if(flag==0){
+	       				System.out.print(cells[i][j]+"\t");
+
+	       				num--;
+	       			}
+					}
+					//System.out.print("\n");
+					num=num-10;	
+				}
+				else{
+					int n=num+1;
+					for(int j=0;j<10;j++){
+						
+						cells[i][j]=n;
+						int key=0;
+						for(int p=0;p<players.size();p++){
+							if(cells[i][j]==players.get(p).getPosition()){
+								System.out.print(cells[i][j]+players.get(p).getTokenColour()+"\t");
+								n++;
+								key=1;
+							}
+							else
+							{
+			   					// System.out.print("*"+cells[i][j]+"\t");
+			   					// n++;
+			   				}
+			   			}
+			   			if(key==0){
+			   			System.out.print(cells[i][j]+"\t");
+			   			n++;
+			   		}
+					}
+
+				}
+			System.out.print("\n\n\n");
+		}
+	}
+}
+  	
+    
+  public void gameBoard(){
+  	
+	// board.setSnake();
+	// board.setLadder();
+	
+			int num=100;
+
+			for(int i=0;i<10;i++){
+				if(i%2==0){
+					for(int j=0;j<10;j++){
+						cells[i][j]=num;
+						int flag=0;
+						for(int p=0;p<board.snakes.size() && p<board.ladders.size() && p<players.size();p++){
+							
+	       					if (cells[i][j]==board.snakes.get(p).getSnakeHead()){
+	       					   // System.out.print(cells[i][j]+"{H"+p+"}"+"\t");
+	       					   for(int q=0;q<players.size();q++){
+	       					   	
+	       					   		if(players.get(p).getPosition()==cells[i][j]){
+	       					   			System.out.print(cells[i][j]+players.get(p).getTokenColour()+"\t");
+	       					   			//if(players.get(p).getPosition()==board.snakes.get(p).getSnakeHead()){
+	       					   				players.get(p).setPosition(board.snakes.get(p).getSnakeTail());
+	       					   				System.out.print(cells[i][j]+players.get(p).getTokenColour()+"{H"+p+"}"+"\t");
+	       					   			//}
+	       					   			//else{
+	       					   			//}
+	       					   		}	
+								}
+	       					   	System.out.print(cells[i][j]+"{H"+p+"}"+"\t");	
+	       						num--;
+	       						flag=1;
+	       					}
+	       					else if(cells[i][j]==board.snakes.get(p).getSnakeTail()){
+	       						//for(int q=0;q<players.size();q++){
+	       							if(players.get(p).getPosition()==cells[i][j]){
+	       								System.out.print(cells[i][j]+players.get(p).getTokenColour()+"\t");
+	       								if(players.get(p).getPosition()==board.snakes.get(p).getSnakeTail()){
+	       									System.out.print(cells[i][j]+players.get(p).getTokenColour()+"{T"+p+"}"+"\t");
+	       								}
+	       							else{
+
+	       							}
+	       						}
+	       					//}
+								System.out.print(cells[i][j]+"{T"+p+"}"+"\t");
+								num--;
+								flag=1;
+							}
+	       					else if(cells[i][j]==board.ladders.get(p).getLadderTop()){
+	       						//for(int q=0;q<players.size();q++){
+	       							if(players.get(p).getPosition()==cells[i][j]){
+	       								System.out.print(cells[i][j]+players.get(p).getTokenColour()+"\t");
+	       							if(players.get(p).getPosition()==board.ladders.get(p).getLadderTop()){
+	       								System.out.print(cells[i][j]+players.get(p).getTokenColour()+"{U"+p+"}"+"\t");
+	       							}
+	       							else{
+
+	       							}
+	       						}
+	       					//}
+	       						System.out.print(cells[i][j]+"{U"+p+"}"+"\t");
+	       						num--;
+	       						flag=1;
+	       					}
+	       					else if(cells[i][j]==board.ladders.get(p).getLadderBottom()){
+	       						//for(int q=0;q<players.size();q++){
+	       							if(players.get(p).getPosition()==cells[i][j]){
+	       								System.out.print(cells[i][j]+players.get(p).getTokenColour()+"\t");
+	       							if(players.get(p).getPosition()==board.ladders.get(p).getLadderBottom()){
+	       								players.get(p).setPosition(board.ladders.get(p).getLadderTop());
+	       								System.out.print(cells[i][j]+players.get(p).getTokenColour()+"{B"+p+"}"+"\t");
+	       							}
+	       							else{
+
+	       							}
+	       						}
+	       					//}
+	       						System.out.print(cells[i][j]+"{B"+p+"}"+"\t");
+	       						num--;
+	       						flag=1;
+	       					}
+	       					else
+	       					{
+	       					//System.out.print(cells[i][j]+"\t");
+	       					//num--;
+	       					}
+	       				}
+
+	       				if(flag==0){
+	       				System.out.print(cells[i][j]+"\t");
+
+	       				num--;
+	       			}
+					}
+					//System.out.print("\n");
+					num=num-10;	
+				}
+				else{
+					int n=num+1;
+					for(int j=0;j<10;j++){
+						
+						cells[i][j]=n;
+						int key=0;
+						for(int p=0;p<board.snakes.size() && p<board.ladders.size() && p<players.size();p++){
+							if(cells[i][j]==board.snakes.get(p).getSnakeTail()){
+								//for(int q=0;q<players.size();q++){
+								if(players.get(p).getPosition()==cells[i][j]){
+									System.out.print(cells[i][j]+players.get(p).getTokenColour()+"\t");
+									if(players.get(p).getPosition()==board.snakes.get(p).getSnakeTail()){
+										System.out.print(cells[i][j]+players.get(p).getTokenColour()+"{T"+p+"}"+"\t");
+									}
+									else{
+
+									}
+								}
+								System.out.print(cells[i][j]+"{T"+p+"}"+"\t");
+								n++;
+								key=1;
+							}
+							else if(cells[i][j]==board.snakes.get(p).getSnakeHead()){
+								//for(int q=0;q<players.size();q++){
+								if(players.get(p).getPosition()==cells[i][j]){
+									System.out.print(cells[i][j]+players.get(p).getTokenColour()+"\t");
+									if(players.get(p).getPosition()==board.snakes.get(p).getSnakeHead()){
+										players.get(p).setPosition(board.snakes.get(p).getSnakeTail());
+										System.out.print(cells[i][j]+players.get(p).getTokenColour()+"{H"+p+"}"+"\t");
+									}
+									else{
+
+									}
+								}
+	       					   System.out.print(cells[i][j]+"{H"+p+"}"+"\t");
+	       						n++;
+	       						key=1;
+	       					}
+							else if(cells[i][j]==board.ladders.get(p).getLadderBottom()){
+								//for(int q=0;q<players.size();q++){
+								if(players.get(p).getPosition()==cells[i][j]){
+									System.out.print(cells[i][j]+players.get(p).getTokenColour()+"\t");
+									if(players.get(p).getPosition()==board.ladders.get(p).getLadderBottom()){
+										players.get(p).setPosition(board.ladders.get(p).getLadderTop());
+										System.out.print(cells[i][j]+players.get(p).getTokenColour()+"{B"+p+"}"+"\t");
+									}
+									else{
+
+									}
+								}
+								System.out.print(cells[i][j]+"{B"+p+"}"+"\t");
+								n++;
+								key=1;
+							}
+							else if(cells[i][j]==board.ladders.get(p).getLadderTop()){
+								//for(int q=0;q<players.size();q++){
+								if(players.get(p).getPosition()==cells[i][j]){
+										System.out.print(cells[i][j]+players.get(p).getTokenColour()+"\t");
+									if(players.get(p).getPosition()==board.ladders.get(p).getLadderTop()){
+										System.out.print(cells[i][j]+players.get(p).getTokenColour()+"{U"+p+"}"+"\t");
+									}
+									else{
+
+									}
+								}
+								System.out.print(cells[i][j]+"{U"+p+"}"+"\t");
+								n++;
+								key=1;
+							}
+							else
+							{
+			   					// System.out.print("*"+cells[i][j]+"\t");
+			   					// n++;
+			   				}
+			   			}
+			   			if(key==0){
+			   			System.out.print(cells[i][j]+"\t");
+			   			n++;
+			   		}
+					}
+
+				}
+			System.out.print("\n\n\n");
+		}
+	}
+}
