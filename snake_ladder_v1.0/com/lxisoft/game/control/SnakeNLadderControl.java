@@ -11,7 +11,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:11/07/2019
+*Date Modified:12/07/2019
 */
 public class SnakeNLadderControl
 {
@@ -34,10 +34,8 @@ public class SnakeNLadderControl
 		Board board=new Board();
 		placeCells(board);
 		placeSnakes(board);
-		// placeLadders(board);
-		
 		game.setBoard(board);
-		//placeSnakesNLadders(board);
+		
 	}
 	
 	public void placeCells(Board board)
@@ -108,8 +106,12 @@ public class SnakeNLadderControl
 			 int random=(int)(Math.random()*100);
 			 if(!numberList.contains(random))
 			 {
-				 numberList.add(random);
-				 i++;
+				if(random==0)
+				{
+					random=random+1;
+				}
+				numberList.add(random);
+				i++;
 			 }
 		 }while(i<20);
 		 return numberList;
@@ -189,14 +191,15 @@ public class SnakeNLadderControl
 			playerList.get(j).setIsAlive(false);
 			playerList.get(j).setPlayerPosition(0);
 		}
+		gameView.showBoard(board,playerList);
 		do
 		{
 			
 			for(int i=0;i<playerList.size();i++)
 			{
-				gameView.displayBoard2(board,playerList);
+				
 					System.out.println(" ");
-				//gameView.displayBoard(board,i+1,playerList.get(i).getPlayerPosition());
+				
 				System.out.println(" ");
 				System.out.println("player "+(i+1)+" ,"+playerList.get(i).getPlayerName()+" is rolling the dice...");
 				System.out.println("press any key to roll the dice:");
@@ -207,7 +210,7 @@ public class SnakeNLadderControl
 				boolean status=playerList.get(i).getIsAlive();
 				if(playerList.get(i).getPlayerPosition()==0)
 				{
-					//gameView.displayBoard(board,playerList.get(i).getPlayerPosition());
+					
 					if(random==1 || random==6 && status==false)
 					{
 						playerList.get(i).setIsAlive(true);
@@ -229,11 +232,16 @@ public class SnakeNLadderControl
 					int updatedPosition=checkResult(newPosition,game.getBoard());
 					playerList.get(i).setPlayerPosition(updatedPosition);
 					System.out.println(" position of "+playerList.get(i).getPlayerName()+" is "+playerList.get(i).getPlayerPosition());
-					//gameView.displayBoard(board,i+1,playerList.get(i).getPlayerPosition());
-					//System.out.println(" ");
+					
 					game.setPlayers(playerList);
 					
-					gameView.displayBoard2(board,game.getPlayers());
+					gameView.showBoard(board,playerList);
+					if(updatedPosition==100)
+					{
+						System.out.println("win....game over...");
+						System.exit(0);
+					}
+					
 					System.out.println(" ");
 				}
 			}
@@ -260,11 +268,7 @@ public class SnakeNLadderControl
 				System.out.println(".....Ladder helped.....");
 				position=ladderTop;
 			}
-			if(position==100)
-			{
-				System.out.println("win....game over...");
-				System.exit(0);
-			}
+			
 			
 		}
 		return position;
