@@ -59,17 +59,17 @@ public class CellView
 		}
 		}*/
 	}
-	public void setSnakes(ArrayList <Snake> snakes)
+	public void setSnakesAndLadders(ArrayList <Snake> snakes,ArrayList <Ladder> ladders)
 	{
 		int f=0;
-		while(cellNos.size()<6)
+		while(cellNos.size()<12)
 		{
 
-			int cellNo=(int)(Math.random()*100);
+			int cellNo=(int)(Math.random()*99+1);
 			
 			for(int j=0;j<c.size();j++)
 			{
-			if(c.get(j)!=cellNo&&cellNo!=0)
+			if(cellNo!=c.get(j)&&cellNo!=0)
 			{
 			f=1;
 			}
@@ -104,24 +104,50 @@ public class CellView
 		System.out.println(snakes.get(j).getHead());
 		System.out.println(snakes.get(j).getTail());
 		}
+		for(int j=6;j<12;j=j+2)
+		{
+			int k=j+1;
+			
+			if(cellNos.get(j)>cellNos.get(k))
+			{
+				Ladder ladder =new Ladder();
+				ladder.setTop(cellNos.get(j));
+				ladder.setBottom(cellNos.get(k));
+				ladders.add(ladder);
+			}
+			else
+			{
+				Ladder ladder =new Ladder();
+				ladder.setBottom(cellNos.get(j));
+				ladder.setTop(cellNos.get(k));
+				ladders.add(ladder);
+			}
+		}
+		for(int j=0;j<ladders.size();j++)
+		{
+		System.out.println(ladders.get(j).getTop());
+		System.out.println(ladders.get(j).getBottom());
+		}
 		
 	}
-	public void setLadders(ArrayList <Ladder> ladders)
+	/*public void setLadders(ArrayList <Ladder> ladders)
 	{
 		int f=0;
 		while(cellNs.size()<6)
 		{
 
-			int cellN=(int)(Math.random()*100);
+			int cellN=(int)(Math.random()*100+1);
 			
 			for(int j=0;j<c.size();j++)
 			{
-			if(c.get(j)!=cellN&&cellN!=0)
+			if(cellN!=c.get(j)&&cellN!=0)
 			{
 			for(int k=0;k<cellNos.size();k++)
 			{
 			if(cellN!=cellNos.get(k))
 			f=1;
+			else
+			continue;
 			}
 			}
 			}
@@ -155,6 +181,6 @@ public class CellView
 		System.out.println(ladders.get(j).getTop());
 		System.out.println(ladders.get(j).getBottom());
 		}
-	}
+	}*/
 }
 	

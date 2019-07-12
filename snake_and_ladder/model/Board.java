@@ -4,9 +4,9 @@ import java.util.*;
 public class Board
 {
 	CellView cellV;
-	ArrayList <Cell> cells;
-	ArrayList<Snake> snakes;
-	ArrayList <Ladder> ladders;
+	public ArrayList <Cell> cells;
+	public ArrayList<Snake> snakes;
+	public ArrayList <Ladder> ladders;
 	public Board()
 	{
 		cells=new ArrayList<Cell>();
@@ -26,8 +26,8 @@ public class Board
 	}
 	public void setSnakesNLadders()
 	{
-		cellV.setSnakes(snakes);
-		cellV.setLadders(ladders);
+		cellV.setSnakesAndLadders(snakes,ladders);
+	
 		int l=0,k=0,h=1,t=1,u=1,b=1;
 		for(int p=0;p<cells.size();p++)
 		{

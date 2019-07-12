@@ -6,6 +6,8 @@ public class Player
 	private String name;
 	private String coin;
 	private int position;
+	String c=null;
+	int posn=0;
 	Scanner scan=new Scanner(System.in);
 	public void setName(String name)
 	{
@@ -51,6 +53,8 @@ public class Player
 		System.out.print(players.get(i).name+"'s turn:");
 		int diceSide=dice.diceThrow();
 		System.out.println(diceSide);
+		if(players.get(i).getPosition()<=100)
+		{
 			if(players.get(i).getPosition()==0)
 			{
 				if(diceSide==1)
@@ -74,6 +78,7 @@ public class Player
 					int p2=players.get(i).getPosition()+diceSide;
 					players.get(i).setPosition(p2);
 					System.out.println(players.get(i).getPosition());
+					
 					for(int k=0;k<3;k++)
 					{
 					if(players.get(i).getPosition()==board.ladders.get(k).getBottom())
@@ -89,6 +94,15 @@ public class Player
 						System.out.println(players.get(i).getPosition());
 					}
 					}
+					if(players.get(i).getPosition()==100)
+					{
+						System.out.println(players.get(i).name+" Wins");
+						System.out.println("Game Over");
+						System.exit(0);
+					}
+					
+					
+					
 			}
 			int l=0,k=0,h=1,t=1,u=1,b=1;
 			for(int p=0;p<board.cells.size();p++)
@@ -135,36 +149,48 @@ public class Player
 					}
 						if(k==1)
 						{
+							if(posn==board.cells.get(p).getNum())
+								System.out.print(c);
 							System.out.print(board.cells.get(p).getNum()+"H"+h+"\t");
 							l++;
 							h++;
 						}
 						else if(k==2)
 						{
+							if(posn==board.cells.get(p).getNum())
+								System.out.print(c);
 							System.out.print(board.cells.get(p).getNum()+"T"+t+"\t");
 							l++;
 							t++;
 						}
 						else if(k==22)
 						{
+							if(posn==board.cells.get(p).getNum())
+								System.out.print(c);
 							System.out.print(players.get(i).coin+board.cells.get(p).getNum()+"T"+t+"\t");
 							l++;
 							t++;
 						}
 						else if(k==3)
 						{
+							if(posn==board.cells.get(p).getNum())
+								System.out.print(c);
 							System.out.print(board.cells.get(p).getNum()+"U"+u+"\t");
 							l++;
 							u++;
 						}
 						else if(k==33)
 						{
+							if(posn==board.cells.get(p).getNum())
+								System.out.print(c);
 							System.out.print(players.get(i).coin+board.cells.get(p).getNum()+"U"+u+"\t");
 							l++;
 							u++;
 						}
 						else if(k==4)
 						{
+							if(posn==board.cells.get(p).getNum())
+								System.out.print(c);
 							System.out.print(board.cells.get(p).getNum()+"B"+b+"\t");
 							l++;
 							b++;
@@ -173,9 +199,13 @@ public class Player
 						{
 							if(players.get(i).getPosition()==board.cells.get(p).getNum())
 							{
+								if(posn==board.cells.get(p).getNum())
+								System.out.print(c);
 							System.out.print(players.get(i).coin+board.cells.get(p).getNum()+"\t");
 							}
 							else{
+								if(posn==board.cells.get(p).getNum())
+								System.out.print(c);
 							System.out.print(board.cells.get(p).getNum()+"\t");
 							}
 							l++;
@@ -187,6 +217,9 @@ public class Player
 						}
 		
 			}
+		c=players.get(i).coin;
+		posn=players.get(i).getPosition();
+		}
 		}
 		
 		}
