@@ -17,10 +17,9 @@ public void playGame()
 	String key=scan.next();
 	System.out.println("\n"+"==================================================================================="+"\n"+"There are snakes on squares 17, 54, 62, 64, 87, 93, 95 and 98. Tread with care....!"+"\n"+"There are ladders on squares 4, 16, 35, 50, 57, 67, 68 and 86. Good Luck....!"+"\n"+"===================================================================================");
 	System.out.println("\n"+"\n"+"                            SNAKE AND LADDER                            "+"\n"+"\n");
+	//board.display();
+    board.setBoard(players);
 	
-    board.createBoard();
-	//board.placeSnakes();
-	board.placeLadders();
 	int res=0;
 	int pos;
 	do{
@@ -29,7 +28,7 @@ public void playGame()
 		{ 
 		int random=dice.getDiceValue();
 		System.out.print("Player"+(i+1)+", press any key to shuffle the die... :");
-		String str=scan.next();
+		String str=scan.next(); 
 		System.out.println("The number on the die is : "+random);
 		if((players.get(i).getPosition()+random)>100)
 		{
@@ -40,6 +39,7 @@ public void playGame()
         pos=players.get(i).getPosition()+random;
 		players.get(i).setPosition(pos);
 		System.out.println("You have progressed by "+random+" and your new position is "+players.get(i).getPosition());
+		board.createBoard(players);
 		if(players.get(i).getPosition()==100)
 		{
 			System.out.println("congratulations player"+(i+1)+" you have won the game");

@@ -10,85 +10,91 @@ public ArrayList<Snake> snakes=new ArrayList<Snake>();
 
 Random r = new Random();
 
+public void placeLadders()
+{
+	
+for(int i=0;i<5;i++)
+	{    
+        
+		int flag=0;
+		int p,q;
+		Ladder l=new Ladder();
+		do{
+			flag=0;
+	         p=r.nextInt(95-78)+78;
+		     q=r.nextInt(55-28)+28;
+			 for(int k=0;k<ladders.size();k++){
+			 if((ladders.get(k).getTop()==p)||(ladders.get(k).getBottom()==q)){
+				 flag=1;
+				 break;
+			 }
+			 }
+		}while(flag==1);	
+if(flag==0){
+	l.setTop(p);
+	
+l.setBottom(q);
+ladders.add(l);
+		}
+	}
+	
+
+/*		
+for(int k=0;k<ladders.size();k++){
+	System.out.println("\n");
+System.out.println("T"+(k+1)+(" : ")+ladders.get(k).getTop()+("\n")+"B"+(k+1)+(" : ")+ladders.get(k).getBottom());
+}*/	
+}
 
 public void placeSnakes()
 {
-	int element1=0;
-	int element2=0;
-	
-	for(int i=0;i<5;i++)
-	{
-		//System.out.println("\n");
-    int x=r.nextInt(98-36)+36;
-    int y=r.nextInt(64-7)+7;
-	snakes.add(new Snake());
-	if((x!=element1) && (y!=element2))
-	{
-		element1=x;
-		element2=y;
-	if(x>y)
-	{
-	snakes.get(i).setHead(x);
-	snakes.get(i).setTail(y);
-	//System.out.println("H"+(i+1)+" : "+snakes.get(i).getHead());
-	//System.out.println("T"+(i+1)+" : "+snakes.get(i).getTail());
-	}
-	else
-	{
-		snakes.get(i).setHead(y);
-		snakes.get(i).setTail(x);
-		//System.out.println("H"+(i+1)+" : "+snakes.get(i).getHead());
-	    //System.out.println("T"+(i+1)+" : "+snakes.get(i).getTail());
-		
-	}
-	}
-	else{
-	}
-	
-	}
-	
-	
-}
 
-
-public void placeLadders()
-{
-	int value1=0;
-	int value2=0;
-	for(int i=0;i<5;i++)
+for(int i=0;i<5;i++)
 	{    
-        System.out.println("\n");
-		int p=r.nextInt(56-5)+5;
-		int q=r.nextInt(94-35)+35;
-		ladders.add(new Ladder());
-		if((p!=value1) && (q!=value2))
-		{
-			value1=p;
-			value2=q;
-		if(p<q)
-		{
-			ladders.get(i).setBottom(p);
-			ladders.get(i).setTop(q);
-			System.out.println("B"+(i+1)+" : "+ladders.get(i).getBottom());
-			System.out.println("t"+(i+1)+" : "+ladders.get(i).getTop());
-		}
-		else{
-			
-			ladders.get(i).setBottom(q);
-			ladders.get(i).setTop(p);
-			System.out.println("B"+(i+1)+" : "+ladders.get(i).getBottom());
-			System.out.println("t"+(i+1)+" : "+ladders.get(i).getTop());
-		}
-		}
-		else{
+        
+		int flag=0;
+		int x,y;
+		Snake s=new Snake();
+		
+		do{
+			flag=0;
+	         x=r.nextInt(77-56)+56;
+		     y=r.nextInt(29-5)+5;
+			 for(int k=0;k<snakes.size();k++){
+			 if((snakes.get(k).getHead()==x)||(snakes.get(k).getTail()==y)){
+				 flag=1;
+				 break;
+			 }
+			 }
+		}while(flag==1);	
+if(flag==0){
+	s.setHead(x);
+    s.setTail(y);
+snakes.add(s);
 		}
 	}
 	
-	
+
+/*		
+for(int k=0;k<snakes.size();k++){
+	System.out.println("\n");
+System.out.println("H"+(k+1)+(" : ")+snakes.get(k).getHead()+("\n")+"t"+(k+1)+(" : ")+snakes.get(k).getTail());
+}*/	
+
 }
 
+public void display()
+{
+	System.out.println(ladders.size());
+	for(int k=0;k<ladders.size();k++){
+	System.out.println("\n");
+System.out.println("T"+(k+1)+(" : ")+ladders.get(k).getTop()+("\n")+"B"+(k+1)+(" : ")+ladders.get(k).getBottom());
+System.out.println("H"+(k+1)+(" : ")+snakes.get(k).getHead()+("\n")+"t"+(k+1)+(" : ")+snakes.get(k).getTail());
 
-public void createBoard()
+}
+}
+
+public void createBoard(ArrayList<Player> players)
 {
 
 
@@ -118,13 +124,27 @@ public void createBoard()
 			 
 			 
 			int k=0;
-			placeSnakes();
+			//placeSnakes();
+			//placeLadders();
 			
 		for(int i=0;i<10;i++)
 			 { 
 			    for(int j=0;j<10;j++)
 			      {
 					  int m=0;
+					  //int mx=0;
+					  for(int r=0;r<players.size();r++)
+					  {
+						  if(numbers[i][j]==players.get(r).getPosition())
+						  {
+							 System.out.print("P"+(r+1)+"\t");
+                         // mx=1;
+						 m=1;
+						  }
+					  }
+					  
+					  
+					  
 					  for(k=0;k<snakes.size();k++)
 					  {
 						  
@@ -137,6 +157,17 @@ public void createBoard()
 						  {
 							System.out.print("("+numbers[i][j]+")T"+(k+1)+"\t");
                           m=1;
+						  }
+						  
+						  else if((ladders.get(k).getTop())==(numbers[i][j]))
+						  {
+							System.out.print("["+numbers[i][j]+"]U"+(k+1)+"\t");
+                            m=1;							
+						  }
+						  else if((ladders.get(k).getBottom())==(numbers[i][j]))
+						  {
+							System.out.print("["+numbers[i][j]+"]B"+(k+1)+"\t");
+                            m=1;							
 						  }
 						 
 						  else{
@@ -152,13 +183,20 @@ public void createBoard()
 					  else
 					 System.out.print(numbers[i][j]+"\t"); 
                   }
-
+				  
                   System.out.println("\n");
              }
 
 
         
 }			 
-			 
+
+public void setBoard(ArrayList<Player> players)
+{
+	placeLadders();
+	placeSnakes();
+	createBoard(players);
+}
+
 
 }
