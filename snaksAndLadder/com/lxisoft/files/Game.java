@@ -41,6 +41,7 @@ public class Game
         board.setSnakesAndLaddersOnTheBoard();
         
 	    int num=0;
+		boolean b= true;
 		do
 		{
 			for(int i=0;i<players.size();i++)
@@ -50,26 +51,37 @@ public class Game
 				if(players.get(i).getPosition()>0)
 				{
 					players.get(i).setPosition(players.get(i).getPosition()+num);
+				  
 				}
 				else if(players.get(i).getPosition()==0)
 				{
 					if(num==1)
 					{
 						players.get(i).setPosition(players.get(i).getPosition()+num);
-					}	
-				}
-				else
-				{
-					
+					}					   
 				}
 			}
 			for(int i=0;i<players.size();i++)
 			{
-				System.out.println("name of the players   :"+players.get(i).getName()+"position     :"+players.get(i).getPosition());
+				System.out.println("name of the players :"+players.get(i).getName()+"       position :"+players.get(i).getPosition());
+			    
 			}
 			board.createBoard();
+			System.out.println("                               ");
+			System.out.println("                               ");
 			System.out.println("do you want to continue press 1");
-		}while(scan.nextInt()==1);
+			
+
+			
+			for(int i=0;i<players.size();i++){
+				if(players.get(i).getPosition()>=100)
+				{
+					 b=false;
+					 break;
+				}
+			}
+		}while(scan.nextInt()==1&&b==true);
+		
 	}
 	
 }
