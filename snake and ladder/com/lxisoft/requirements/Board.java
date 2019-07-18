@@ -2,20 +2,16 @@ package com.lxisoft.requirements;
 import java.util.*;
 public class Board
 {
-
-
  int numbers[][]=new int[10][10];
 public ArrayList<Ladder> ladders=new ArrayList<Ladder>();
 public ArrayList<Snake> snakes=new ArrayList<Snake>();
 
 Random r = new Random();
 
-public void placeLadders()
-{
-	
+public void setLadders()
+{	
 for(int i=0;i<5;i++)
 	{    
-        
 		int flag=0;
 		int p,q;
 		Ladder l=new Ladder();
@@ -37,21 +33,12 @@ l.setBottom(q);
 ladders.add(l);
 		}
 	}
-	
-
-/*		
-for(int k=0;k<ladders.size();k++){
-	System.out.println("\n");
-System.out.println("T"+(k+1)+(" : ")+ladders.get(k).getTop()+("\n")+"B"+(k+1)+(" : ")+ladders.get(k).getBottom());
-}*/	
 }
 
-public void placeSnakes()
+public void setSnakes()
 {
-
 for(int i=0;i<5;i++)
-	{    
-        
+	{     
 		int flag=0;
 		int x,y;
 		Snake s=new Snake();
@@ -73,31 +60,10 @@ if(flag==0){
 snakes.add(s);
 		}
 	}
-	
-
-/*		
-for(int k=0;k<snakes.size();k++){
-	System.out.println("\n");
-System.out.println("H"+(k+1)+(" : ")+snakes.get(k).getHead()+("\n")+"t"+(k+1)+(" : ")+snakes.get(k).getTail());
-}*/	
-
-}
-
-public void display()
-{
-	System.out.println(ladders.size());
-	for(int k=0;k<ladders.size();k++){
-	System.out.println("\n");
-System.out.println("T"+(k+1)+(" : ")+ladders.get(k).getTop()+("\n")+"B"+(k+1)+(" : ")+ladders.get(k).getBottom());
-System.out.println("H"+(k+1)+(" : ")+snakes.get(k).getHead()+("\n")+"t"+(k+1)+(" : ")+snakes.get(k).getTail());
-
-}
 }
 
 public void createBoard(ArrayList<Player> players)
 {
-
-
               int x = 101;
 			int  n=10;
 			 
@@ -121,82 +87,66 @@ public void createBoard(ArrayList<Player> players)
 			        n--;
 			  }
 			 
-			 
-			 
 			int k=0;
-			//placeSnakes();
-			//placeLadders();
 			
 		for(int i=0;i<10;i++)
 			 { 
 			    for(int j=0;j<10;j++)
 			      {
 					  int m=0;
-					  //int mx=0;
+					 
 					  for(int r=0;r<players.size();r++)
-					  {
-						  if(numbers[i][j]==players.get(r).getPosition())
-						  {
-							 System.out.print("P"+(r+1)+"\t");
-                         // mx=1;
-						 m=1;
-						  }
-					  }
-					  
-					  
-					  
-					  for(k=0;k<snakes.size();k++)
-					  {
-						  
-						  if((snakes.get(k).getHead())==(numbers[i][j]))
-						  {
-                      System.out.print("("+numbers[i][j]+")H"+(k+1)+"\t");
-					 m=1;
-						  }
-						  else if((snakes.get(k).getTail())==(numbers[i][j]))
-						  {
-							System.out.print("("+numbers[i][j]+")T"+(k+1)+"\t");
-                          m=1;
-						  }
-						  
-						  else if((ladders.get(k).getTop())==(numbers[i][j]))
-						  {
-							System.out.print("["+numbers[i][j]+"]U"+(k+1)+"\t");
-                            m=1;							
-						  }
-						  else if((ladders.get(k).getBottom())==(numbers[i][j]))
-						  {
-							System.out.print("["+numbers[i][j]+"]B"+(k+1)+"\t");
-                            m=1;							
-						  }
-						 
-						  else{
-							//System.out.print(numbers[i][j]+"\t"); 
-							//m=0;
-						  }
-						  
-					  }
+					     {
+						    if(numbers[i][j]==players.get(r).getPosition())
+						       {
+							       System.out.print("P"+(r+1));
+						           m=1;
+						       }
+					     }
 					  if(m==1)
-					  {
-						  
-					  }
+					    {
+						  System.out.print("\t");
+					    }
 					  else
+					  {
+					      for(k=0;k<snakes.size();k++)
+					         {
+						         if((snakes.get(k).getHead())==(numbers[i][j]))
+						            {
+                                        System.out.print("("+numbers[i][j]+")H"+(k+1)+"\t");
+					                    m=1;
+						            }
+						         else if((snakes.get(k).getTail())==(numbers[i][j]))
+						            {
+							            System.out.print("("+numbers[i][j]+")T"+(k+1)+"\t");
+                                        m=1;
+						            }
+						         else if((ladders.get(k).getTop())==(numbers[i][j]))
+						            {
+							            System.out.print("["+numbers[i][j]+"]U"+(k+1)+"\t");
+                                        m=1;							
+						            }
+						         else if((ladders.get(k).getBottom())==(numbers[i][j]))
+						            {
+							            System.out.print("["+numbers[i][j]+"]B"+(k+1)+"\t");
+                                        m=1;							
+						            }
+						         else{
+						            } 
+					        } 
+					  }
+				if(m==0)
 					 System.out.print(numbers[i][j]+"\t"); 
-                  }
-				  
+               }
                   System.out.println("\n");
-             }
-
-
-        
+             }      
 }			 
 
-public void setBoard(ArrayList<Player> players)
+public void displayBoard(ArrayList<Player> players)
 {
-	placeLadders();
-	placeSnakes();
+	setLadders();
+	setSnakes();
 	createBoard(players);
 }
-
 
 }

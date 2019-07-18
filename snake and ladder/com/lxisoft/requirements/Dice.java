@@ -7,11 +7,8 @@ int diceVal;
 public int getDiceValue()
 {
 	Random r=new Random();
-	diceVal=r.nextInt(5)+1;
+	diceVal=r.nextInt(6-1)+1;
 	return diceVal;
 }
-
-
-
 
 }
