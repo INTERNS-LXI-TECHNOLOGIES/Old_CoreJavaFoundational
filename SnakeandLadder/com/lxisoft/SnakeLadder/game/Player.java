@@ -1,4 +1,4 @@
-package com.lxisoft.SnakeLadder.model;
+package com.lxisoft.SnakeLadder.game;
 import java.util.*;
 public class Player{
 

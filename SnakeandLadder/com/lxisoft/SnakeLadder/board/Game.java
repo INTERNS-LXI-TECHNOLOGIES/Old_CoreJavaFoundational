@@ -1,14 +1,14 @@
-package com.lxisoft.SnakeLadder.view;
-import com.lxisoft.SnakeLadder.model.Player;
-import com.lxisoft.SnakeLadder.model.Diece;
+package com.lxisoft.SnakeLadder.board;
+import com.lxisoft.SnakeLadder.game.Player;
+import com.lxisoft.SnakeLadder.game.Diece;
 import java.util.*;
 import java.io.*;
-public class GameView{
+public class Game{
 
 int pos;
 int value=0;
  
-PlayerView view=new PlayerView();
+GamePlayer player=new GamePlayer();
 Scanner in=new Scanner(System.in);
 
 	public void display(){
@@ -16,7 +16,7 @@ Scanner in=new Scanner(System.in);
 		System.out.println("Enter your choice:");
 		int a=in.nextInt();
 		switch(a){
-			case 1:view.playGame();
+			case 1:player.playGame();
 			break;
 			case 2:ExitGame();
 			break;

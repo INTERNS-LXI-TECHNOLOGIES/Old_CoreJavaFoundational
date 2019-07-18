@@ -1,18 +1,10 @@
 package com.lxisoft.SnakeLadder.test;
-import com.lxisoft.SnakeLadder.view.GameView;
-import com.lxisoft.SnakeLadder.view.BoardView;
+import com.lxisoft.SnakeLadder.board.Game;
+
 public class Tdd{
 
 	public static void main(String[] args){
-	 	GameView gameview = new GameView();
-		// // gameview.gameRule();
-		gameview.display();
-		//gameview.dieceThrow();
-		//gameview.playGame();
-		// BoardView boardview = new BoardView();
-		//  boardview.setSnakePosition();
-		 //boardview.setLadderPosition();
-		// boardview.startGame();
-
+	 	Game game = new Game();
+		game.display();
 	}
 }
