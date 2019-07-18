@@ -66,6 +66,7 @@ Board board = new Board();
 			for(int j=0;j<players.size();j++){
 				if(players.get(j).getPosition()==100)
 				 	{value=1;
+				 		System.out.println("Player "+players.get(j).getTokenColour()+" has **WON**");
 				 	break;}
 				}
 			}
