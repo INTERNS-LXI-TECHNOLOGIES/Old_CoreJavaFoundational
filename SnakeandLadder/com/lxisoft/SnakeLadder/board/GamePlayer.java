@@ -11,23 +11,27 @@ int[][] cells = new int[10][10];
 ArrayList<Player> players = new ArrayList<Player>();
 Scanner in=new Scanner(System.in);
 Board board = new Board();
+String token="T";
 
-	public void playGame(){
- 
-		
+	public void playGame(){		
 		boolean validate=false;
 		System.out.println("Enter the number of players:");
 		System.out.println("Remember the number of players must should be from 2 to 4");
 		int b=in.nextInt();
+		int san=1;
+		do{
+		san=playerNumber(b);
+     	}while(san==0);
 		for(int i=1;i<=b;i++ ){
+
 			Player player = new Player();
 			System.out.println("Enter the name of the player"+i);
 			player.setName(in.next());
-			System.out.println("Enter the colour of the Token"+i);
-			player.setTokenColour(in.next());
+			// System.out.println("Enter the colour of the Token"+i);
+			player.setTokenColour(token+i);
 			players.add(player);
-			System.out.println(players.size());
 		}
+		
 		System.out.println(" ");	
 		board.setSnake();
 		board.setLadder();
@@ -35,6 +39,22 @@ Board board = new Board();
 		System.out.println(" ");
 		gameBoard();
 		dieceThrow(players);
+	}
+	public int playerNumber(int val){
+		int res=1;
+		try{
+		
+			if(val<2){
+				res=0;
+				throw new PlayerNumberException("cannot play with one player");
+				
+			}
+		
+	        }
+	catch(Exception e){
+		e.printStackTrace();
+	}
+	return res;
 	}
 	public void dieceThrow(ArrayList<Player> players){
 			
