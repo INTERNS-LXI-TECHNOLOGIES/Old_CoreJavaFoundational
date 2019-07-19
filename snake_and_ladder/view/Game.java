@@ -1,22 +1,27 @@
 package com.lxisoft.snake_and_ladder.view;
-import com.lxisoft.snake_and_ladder.controller.*;
-import com.lxisoft.snake_and_ladder.model.*;
 import java.util.*;
 import java.io.*;
-public class GameView
+public class Game
 {
+	private int noOfPlayers;
 	Scanner scan=new Scanner(System.in);
 	InputStreamReader r=new InputStreamReader(System.in);  
 	BufferedReader br=new BufferedReader(r);
-	GameController gameC;
 	ArrayList <Player> players;
 	Player player;
 	Board board;
 	Dice dice;
-	public GameView()
+	public void setNoOfPlayers(int noOfPlayers)
+	{
+		this.noOfPlayers=noOfPlayers;
+	}
+	public int getNoOfPlayers()
+	{
+		return noOfPlayers;
+	}
+	public Game()
 	{
 		player=new Player();
-		gameC=new GameController();
 		players=new ArrayList <Player>();
 		dice=new Dice();
 	}
@@ -31,11 +36,11 @@ public class GameView
 		{
 			System.out.println("SnakeNLadder game");
 			System.out.print("Number of players maximum 3 and minimum 2:");
-			gameC.getGame().setNoOfPlayers(scan.nextInt());
-			if(gameC.getGame().getNoOfPlayers()>1&&gameC.getGame().getNoOfPlayers()<4)
+			noOfPlayers=scan.nextInt();
+			if(noOfPlayers>1&&noOfPlayers<4)
 			{
 			int i=1;
-			while(i<=gameC.getGame().getNoOfPlayers())
+			while(i<=noOfPlayers)
 			{
 				Player player=new Player();
 				System.out.print("Player"+i+" name:");

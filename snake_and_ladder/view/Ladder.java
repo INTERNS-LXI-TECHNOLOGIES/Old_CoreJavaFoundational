@@ -1,4 +1,4 @@
-package com.lxisoft.snake_and_ladder.model;
+package com.lxisoft.snake_and_ladder.view;
 public class Ladder
 {
 	private int top;

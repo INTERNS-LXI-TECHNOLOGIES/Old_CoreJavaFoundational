@@ -4,8 +4,8 @@ public class Tdd
 {
 	public static void main(String[] args)
 	{
-		GameView gameV=new GameView();
-		gameV.setGame();
-		gameV.startGame();
+		Game game=new Game();
+		game.setGame();
+		game.startGame();
 	}
 }

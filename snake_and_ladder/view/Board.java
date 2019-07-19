@@ -1,9 +1,8 @@
-package com.lxisoft.snake_and_ladder.model;
-import com.lxisoft.snake_and_ladder.view.*;
+package com.lxisoft.snake_and_ladder.view;
 import java.util.*;
 public class Board
 {
-	CellView cellV;
+	Cell cell;
 	public ArrayList <Cell> cells;
 	public ArrayList<Snake> snakes;
 	public ArrayList <Ladder> ladders;
@@ -15,8 +14,8 @@ public class Board
 	}
 	public void setBoard()
 	{
-		cellV=new CellView();
-		cellV.setCell(cells);
+		cell=new Cell();
+		cell.setCell(cells);
 		//System.out.println(cells.size());
 		/*for(int p=0;p<cells.size();p++)
 		{
@@ -26,32 +25,34 @@ public class Board
 	}
 	public void setSnakesNLadders()
 	{
-		cellV.setSnakesAndLadders(snakes,ladders);
-	
-		int l=0,k=0,h=1,t=1,u=1,b=1;
+		cell.setSnakesAndLadders(snakes,ladders);
+		int l=0,k=0,h=0,t=0,u=0,b=0;
 		for(int p=0;p<cells.size();p++)
 		{
-
 				for(int i=0;i<3;i++)
 				{
 					if(cells.get(p).getNum()==snakes.get(i).getHead())
 					{
 						k=1;
+						h++;
 						break;
 					}
 					else if(cells.get(p).getNum()==snakes.get(i).getTail())
 					{
 						k=2;
+						t++;
 						break;
 					}
 					else if(cells.get(p).getNum()==ladders.get(i).getTop())
 					{
 						k=3;
+						u++;
 						break;
 					}
 					else if(cells.get(p).getNum()==ladders.get(i).getBottom())
 					{
 						k=4;
+						b++;
 						break;
 					}
 					else
@@ -59,41 +60,37 @@ public class Board
 						k=5;
 					}
 				}
-					if(k==1)
-					{
-						System.out.print(cells.get(p).getNum()+"H"+h+"\t");
-						l++;
-						h++;
-					}
-					else if(k==2)
-					{
-						System.out.print(cells.get(p).getNum()+"T"+t+"\t");
-						l++;
-						t++;
-					}
-					else if(k==3)
-					{
-						System.out.print(cells.get(p).getNum()+"U"+u+"\t");
-						l++;
-						u++;
-					}
-					else if(k==4)
-					{
-						System.out.print(cells.get(p).getNum()+"B"+b+"\t");
-						l++;
-						b++;
-					}
-					else if(k==5)
-					{
-						System.out.print(cells.get(p).getNum()+"\t");
-						l++;
-					}
+				int num=cells.get(p).getNum();
+				displayBoard(k,num,h,t,u,b);
+					l++;
 					if(l==10)
 					{
 						System.out.println("\n");
 						l=0;
 					}
-	
 		}
+	}
+	public void displayBoard(int k,int num,int h,int t,int u,int b)
+	{
+					if(k==1)
+					{
+						System.out.print(num+"H"+h+"\t");
+					}
+					else if(k==2)
+					{
+						System.out.print(num+"T"+t+"\t");
+					}
+					else if(k==3)
+					{
+						System.out.print(num+"U"+u+"\t");
+					}
+					else if(k==4)
+					{
+						System.out.print(num+"B"+b+"\t");
+					}
+					else if(k==5)
+					{
+						System.out.print(num+"\t");
+					}
 	}
 }
