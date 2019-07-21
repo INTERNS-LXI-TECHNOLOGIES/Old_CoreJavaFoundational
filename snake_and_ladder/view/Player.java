@@ -52,15 +52,7 @@ public class Player
 					int p1=1;
 					players.get(i).setPosition(p1);
 					System.out.println(players.get(i).getPosition());
-					for(int j=0;j<3;j++)
-					{
-						if(players.get(i).getPosition()==board.ladders.get(j).getBottom())
-						{
-							int pos=board.ladders.get(j).getTop();
-							players.get(i).setPosition(pos);
-							System.out.println(players.get(i).getPosition());
-						}
-					}
+					bottomPosition(players,board);
 					}
 				}
 				else if(players.get(i).getPosition()>0)
@@ -77,24 +69,8 @@ public class Player
 						players.get(i).setPosition(p2);
 						System.out.println(players.get(i).getPosition());
 						}
-						for(int k=0;k<3;k++)
-						{
-						if(players.get(i).getPosition()==board.ladders.get(k).getBottom())
-						{
-							int pos1=board.ladders.get(k).getTop();
-							players.get(i).setPosition(pos1);
-							System.out.println(players.get(i).getPosition());
-						}
-						}
-						for(int k=0;k<3;k++)
-						{
-						if(players.get(i).getPosition()==board.snakes.get(k).getHead())
-						{
-							int pos2=board.snakes.get(k).getTail();
-							players.get(i).setPosition(pos2);
-							System.out.println(players.get(i).getPosition());
-						}
-						}
+						bottomPosition(players,board);
+						headPosition(players,board);
 				}				
 				postn=players.get(i).getPosition();
 				coin=players.get(i).coin;
@@ -103,6 +79,36 @@ public class Player
 			}
 			System.out.print("Press 0 to continue:");	
 			}while(scan.nextInt()==0);	
+		}
+		public void bottomPosition(ArrayList <Player> players,Board board )
+		{
+			for(int i=0;i<players.size();i++)
+			{
+			for(int j=0;j<3;j++)
+					{
+						if(players.get(i).getPosition()==board.ladders.get(j).getBottom())
+						{
+							int pos=board.ladders.get(j).getTop();
+							players.get(i).setPosition(pos);
+							System.out.println(players.get(i).getPosition());
+						}
+					}
+			}
+		}
+		public void headPosition(ArrayList <Player> players,Board board )
+		{
+			for(int i=0;i<players.size();i++)
+			{
+				for(int k=0;k<3;k++)
+						{
+						if(players.get(i).getPosition()==board.snakes.get(k).getHead())
+						{
+							int pos2=board.snakes.get(k).getTail();
+							players.get(i).setPosition(pos2);
+							System.out.println(players.get(i).getPosition());
+						}
+						}
+			}
 		}
 		public void checkSnakeNLadder(ArrayList <Player> players,Board board,int postn,String coin )
 		{

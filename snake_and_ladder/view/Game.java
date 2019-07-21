@@ -1,4 +1,5 @@
 package com.lxisoft.snake_and_ladder.view;
+import com.lxisoft.snake_and_ladder.test.NumberException;
 import java.util.*;
 import java.io.*;
 public class Game
@@ -58,8 +59,12 @@ public class Game
 			System.out.println("****Start game****");
 			player.playGame(dice,players,board);
 			}
+			else if(noOfPlayers>3)
+			throw new NumberException("Number of players are exceed ");
+			else if(noOfPlayers<2)
+			throw new NumberException("Number of players are lesser");	
 		}
-		catch(IOException e)
+		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
