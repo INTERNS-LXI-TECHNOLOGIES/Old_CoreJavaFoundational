@@ -18,7 +18,7 @@ public void playGame()
 	System.out.print("Press any key to start the game... : ");
 	String key=scan.next();
 	System.out.println("\n"+"==================================================================================="+"\n"+ "                            SNAKE AND LADDER                            " +"\n"+"==================================================================================="+"\n"+"\n");
-    board.displayBoard(players);
+    board.displaySnakeAndLadderNumberBoard(players);
 	
 	int res=0;
 	int pos;
@@ -35,10 +35,10 @@ public void playGame()
 			if(random==1)
 			{
 				players.get(i).setPosition(random);
-				System.out.println("You have progressed by "+random+" and your new position is "+players.get(i).getPosition());
+				System.out.println("Wow...You have progressed by "+random+" and your new position is "+players.get(i).getPosition());
 		System.out.println("\n"+"==================================================================================="+"\n"+ "                            SNAKE AND LADDER                            " +"\n"+"==================================================================================="+"\n"+"\n");
 
-				board.createBoard(players);
+				board.displayBoard(players);
 			}
 			else{
 			System.out.println("you will have to wait for the next turn , you have exeeded 1 ");
@@ -77,16 +77,14 @@ public void playGame()
 		}
 		System.out.println("You have progressed by "+random+" and your new position is "+players.get(i).getPosition());
 		System.out.println("\n"+"==================================================================================="+"\n"+ "                            SNAKE AND LADDER                            " +"\n"+"==================================================================================="+"\n"+"\n");
-		board.createBoard(players);
+		board.displayBoard(players);
 		if(players.get(i).getPosition()==100)
 		{
 			System.out.println("Congratulations "+players.get(i).getName()+" you have won the game.....");
 			break;
 		}
-	
 		}
-		}
-		
+		}	
 		}
 		for(int i=0;i<players.size();i++){
 		if(players.get(i).getPosition()==100)
@@ -95,8 +93,7 @@ public void playGame()
 		}
 			}
 	}while(res==0);
-	}
-	
+	}	
 }
 
 public int setPlayers()

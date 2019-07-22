@@ -62,9 +62,9 @@ snakes.add(s);
 	}
 }
 
-public void createBoard(ArrayList<Player> players)
+public void createBoard()
 {
-              int x = 101;
+	   int x = 101;
 			int  n=10;
 			 
 			 for(int i=0;i<10;i++)
@@ -87,7 +87,12 @@ public void createBoard(ArrayList<Player> players)
 			        n--;
 			  }
 			 
-			int k=0;
+}
+
+public void displayBoard(ArrayList<Player> players)
+{
+	createBoard();
+		int k=0;
 			
 		for(int i=0;i<10;i++)
 			 { 
@@ -103,50 +108,49 @@ public void createBoard(ArrayList<Player> players)
 						           m=1;
 						       }
 					     }
-					  if(m==1)
+						   if(m==1)
 					    {
 						  System.out.print("\t");
 					    }
-					  else
+						else
 					  {
 					      for(k=0;k<snakes.size();k++)
 					         {
 						         if((snakes.get(k).getHead())==(numbers[i][j]))
 						            {
-                                        System.out.print("("+numbers[i][j]+")H"+(k+1)+"\t");
+										System.out.print("(H"+(k+1)+")"+"\t");
 					                    m=1;
 						            }
 						         else if((snakes.get(k).getTail())==(numbers[i][j]))
 						            {
-							            System.out.print("("+numbers[i][j]+")T"+(k+1)+"\t");
+										System.out.print("(T"+(k+1)+")"+"\t");
                                         m=1;
 						            }
 						         else if((ladders.get(k).getTop())==(numbers[i][j]))
 						            {
-							            System.out.print("["+numbers[i][j]+"]U"+(k+1)+"\t");
+										System.out.print("[U"+(k+1)+"]"+"\t");
                                         m=1;							
 						            }
 						         else if((ladders.get(k).getBottom())==(numbers[i][j]))
 						            {
-							            System.out.print("["+numbers[i][j]+"]B"+(k+1)+"\t");
+										System.out.print("[B"+(k+1)+"]"+"\t");
                                         m=1;							
 						            }
 						         else{
 						            } 
 					        } 
 					  }
-				if(m==0)
+					   if(m==0)
 					 System.out.print(numbers[i][j]+"\t"); 
                }
                   System.out.println("\n");
-             }      
-}			 
+             }     
+}
 
-public void displayBoard(ArrayList<Player> players)
+public void displaySnakeAndLadderNumberBoard(ArrayList<Player> players)
 {
 	setLadders();
 	setSnakes();
-	createBoard(players);
+	displayBoard(players);
 }
-
 }
