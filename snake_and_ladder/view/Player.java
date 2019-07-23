@@ -5,8 +5,6 @@ public class Player
 	private String name;
 	private String coin;
 	private int position;
-	String c=null,d=null;
-	int posn=0,posn1=0;
 	Scanner scan=new Scanner(System.in);
 	public void setName(String name)
 	{
@@ -112,6 +110,8 @@ public class Player
 		}
 		public void checkSnakeNLadder(ArrayList <Player> players,Board board,int postn,String coin )
 		{
+			String c=null,d=null;
+			int posn=0,posn1=0;
 			int l=0,k=0,h=0,t=0,u=0,b=0;
 				for(int p=0;p<board.cells.size();p++)
 				{

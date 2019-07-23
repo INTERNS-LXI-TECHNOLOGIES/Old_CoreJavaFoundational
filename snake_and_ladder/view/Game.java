@@ -9,7 +9,6 @@ public class Game
 	InputStreamReader r=new InputStreamReader(System.in);  
 	BufferedReader br=new BufferedReader(r);
 	ArrayList <Player> players;
-	Player player;
 	Board board;
 	Dice dice;
 	public void setNoOfPlayers(int noOfPlayers)
@@ -22,17 +21,17 @@ public class Game
 	}
 	public Game()
 	{
-		player=new Player();
 		players=new ArrayList <Player>();
 		dice=new Dice();
 	}
 	public void setGame()
 	{
 		board=new Board();
-		board.setBoard();
+		board.setCell();
 	}
 	public void startGame()
 	{
+		Player player=new Player();
 		try
 		{
 			System.out.println("SnakeNLadder game");
@@ -43,7 +42,7 @@ public class Game
 			int i=1;
 			while(i<=noOfPlayers)
 			{
-				Player player=new Player();
+				player=new Player();
 				System.out.print("Player"+i+" name:");
 				player.setName(br.readLine());
 				players.add(player);

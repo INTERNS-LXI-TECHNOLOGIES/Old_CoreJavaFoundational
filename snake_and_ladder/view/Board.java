@@ -2,20 +2,58 @@ package com.lxisoft.snake_and_ladder.view;
 import java.util.*;
 public class Board
 {
-	Cell cell;
 	public ArrayList <Cell> cells;
 	public ArrayList<Snake> snakes;
 	public ArrayList <Ladder> ladders;
+	public ArrayList<Integer> cellNos;
 	public Board()
 	{
 		cells=new ArrayList<Cell>();
 		snakes=new ArrayList<Snake>();
 		ladders=new ArrayList<Ladder>();
+		cellNos=new ArrayList<Integer>();
 	}
-	public void setBoard()
+	public void setCell()
 	{
-		cell=new Cell();
-		cell.setCell(cells);
+		int n=100;
+		for(int i=1;i<=10;i++)
+		{ 
+			int m=n;
+			if(n%2==0)
+			{
+				for(int k=m;k>=n-9;k=k-1)
+				{
+				//System.out.print(k+"\t");
+				Cell cell=new Cell(k);
+				cells.add(cell);
+				m=k-1;
+				}
+				n=n-19;
+			}
+			else
+			{
+				for(int j=n;j<=n+9;j=j+1)
+				{
+				//System.out.print(j+"\t");
+				Cell cell=new Cell(j);
+				cells.add(cell);
+				m=j-1;
+				}
+				n=n-1;
+			}
+			//System.out.println("\n");
+		}
+		//System.out.println(cells.size());
+		/*int l=0;
+		for(int p=0;p<cells.size();p++)
+		{	
+		System.out.print(cells.get(p).getNum()+"\t");
+		l++;
+		if(l==10){
+		System.out.println("\n");
+		l=0;
+		}
+		}*/
 		//System.out.println(cells.size());
 		/*for(int p=0;p<cells.size();p++)
 		{
@@ -25,7 +63,8 @@ public class Board
 	}
 	public void setSnakesNLadders()
 	{
-		cell.setSnakesAndLadders(snakes,ladders);
+		Cell cell=new Cell();
+		cell.setSnakesAndLadders(snakes,ladders,cellNos);
 		int l=0,k=0,h=0,t=0,u=0,b=0;
 		for(int p=0;p<cells.size();p++)
 		{

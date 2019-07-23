@@ -3,8 +3,6 @@ import java.util.*;
 public class Cell
 {
 	private int num;
-	ArrayList<Integer> cellNos;
-	Set <Integer> c;
 	public void setNum(int num)
 	{
 		this.num=num;
@@ -12,76 +10,33 @@ public class Cell
 	public int getNum()
 	{
 		return num;
-	}
+	}            
+	public Cell()
+	{
+	}	
 	public Cell(int num)
 	{
 		this.num=num;
 	}
-	public Cell()
+	public void setSnakesAndLadders(ArrayList <Snake> snakes,ArrayList <Ladder> ladders,ArrayList<Integer> cellNos)
 	{
-		cellNos=new ArrayList<Integer>();
-		c=new HashSet<Integer>();
-	}
-	public void setCell(ArrayList <Cell> cells)
-	{
-		int n=100;
-		for(int i=1;i<=10;i++)
-		{ 
-			int m=n;
-			if(n%2==0)
-			{
-				for(int k=m;k>=n-9;k=k-1)
-				{
-				//System.out.print(k+"\t");
-				Cell cell=new Cell(k);
-				cells.add(cell);
-				m=k-1;
-				}
-				n=n-19;
-			}
-			else
-			{
-				for(int j=n;j<=n+9;j=j+1)
-				{
-				//System.out.print(j+"\t");
-				Cell cell=new Cell(j);
-				cells.add(cell);
-				m=j-1;
-				}
-				n=n-1;
-			}
-			//System.out.println("\n");
-		}
-		//System.out.println(cells.size());
-		/*int l=0;
-		for(int p=0;p<cells.size();p++)
-		{	
-		System.out.print(cells.get(p).getNum()+"\t");
-		l++;
-		if(l==10){
-		System.out.println("\n");
-		l=0;
-		}
-		}*/
-	}
-	public void setSnakesAndLadders(ArrayList <Snake> snakes,ArrayList <Ladder> ladders)
-	{
+		Set <Integer> cellNums=new HashSet<Integer>();
 		int f=0;
-		while(c.size()<12)
+		while(cellNums.size()<12)
 		{
 			int cellNo=(int)(Math.random()*99+1);
-			c.add(cellNo);	
+			cellNums.add(cellNo);	
 		}
-		Iterator<Integer> itr=c.iterator();
+		Iterator<Integer> itr=cellNums.iterator();
 		while(itr.hasNext())
 		{
 		cellNos.add(itr.next());
 		}
 		System.out.println(cellNos);
-		setSnakes(snakes);
-		setLadders(ladders);	
+		setSnakes(snakes,cellNos);
+		setLadders(ladders,cellNos);	
 	}
-	public void setSnakes(ArrayList <Snake> snakes)
+	public void setSnakes(ArrayList <Snake> snakes,ArrayList<Integer> cellNos)
 	{
 			for(int j=0;j<6;j=j+2)
 			{
@@ -107,7 +62,7 @@ public class Cell
 			System.out.println(snakes.get(j).getTail());
 			}
 	}
-	public void setLadders(ArrayList <Ladder> ladders)
+	public void setLadders(ArrayList <Ladder> ladders,ArrayList<Integer> cellNos)
 	{
 			for(int j=6;j<12;j=j+2)
 			{
