@@ -1,7 +1,9 @@
 package com.lxisoft.files;
+import java.util.Scanner;
 public class Dice
 {
 public int num;
+Scanner scan=new Scanner(System.in);
 	/*public void setNum(int num)
 	{
 		this.num=num;
@@ -16,6 +18,6 @@ public int num;
 		{
 		 num=(int)(Math.random()*6)+1;
 		}
-		 return num;
+		 return scan.nextInt();
 	}
 }
