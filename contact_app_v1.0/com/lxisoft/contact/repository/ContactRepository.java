@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
-
 /**
 *This class is the repository class for Contact
 *
@@ -14,7 +13,7 @@ import java.sql.DriverManager;
 *
 *@version 1.0
 *
-*Date Modified:24/07/2019
+*Date Modified:25/07/2019
 */
 public class ContactRepository
 {
@@ -48,7 +47,7 @@ public class ContactRepository
 			String insertQuery="insert into contact(name,number,place,email) values(?,?,?,?)";
 			ps=con.prepareStatement(insertQuery);
 			ps.setString(1,contact.getName());
-			ps.setInt(2,contact.getPhoneNumber());
+			ps.setString(2,contact.getPhoneNumber());
 			ps.setString(3,contact.getPlace());
 			ps.setString(4,contact.getEmail());
 			status=ps.executeUpdate();
@@ -71,7 +70,7 @@ public class ContactRepository
 			String updateQuery="update contact set number=?,place=?,email=? where name=?";
 			ps=con.prepareStatement(updateQuery);
 			
-			ps.setInt(1,contact.getPhoneNumber());
+			ps.setString(1,contact.getPhoneNumber());
 			ps.setString(2,contact.getPlace());
 			ps.setString(3,contact.getEmail());
 			ps.setString(4,contact.getName());
@@ -116,7 +115,7 @@ public class ContactRepository
 			while(rs.next())
 			{
 				contact=new Contact();
-				int number=rs.getInt("number");
+				String number=rs.getString("number");
 				String place=rs.getString("place");
 				String email=rs.getString("email");
 
@@ -149,7 +148,7 @@ public class ContactRepository
 			{
 				contact=new Contact();
 				String name=rs.getString("name");
-				int number=rs.getInt("number");
+				String number=rs.getString("number");
 				String place=rs.getString("place");
 				String email=rs.getString("email");
 

@@ -7,7 +7,7 @@ import java.util.logging.*;
 *
 *@version 1.0
 *
-*Date Modified:24/07/2019
+*Date Modified:25/07/2019
 */
 public class Contact
 {
@@ -33,7 +33,7 @@ public class Contact
 	/**
 	*This is the phone number of the person
 	*/
-	private int phoneNumber;
+	private String phoneNumber;
 	
 	/**
 	*This is the email of the person
@@ -96,7 +96,7 @@ public class Contact
 	*@param phoneNumber - the phoneNumber to be set
 	*
 	*/
-	public void setPhoneNumber(int phoneNumber)
+	public void setPhoneNumber(String phoneNumber)
 	{
 		log.info("Contact class............setPhoneNumber...........start");
 		this.phoneNumber=phoneNumber;
@@ -109,7 +109,7 @@ public class Contact
 	*@return phoneNumber 
 	*
 	*/
-	public int getPhoneNumber()
+	public String getPhoneNumber()
 	{
 		log.info("Contact class............getPhoneNumber...........start/end");
 		return phoneNumber;

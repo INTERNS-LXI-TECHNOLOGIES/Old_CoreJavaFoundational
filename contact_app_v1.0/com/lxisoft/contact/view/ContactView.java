@@ -2,14 +2,24 @@ package com.lxisoft.contact.view;
 import com.lxisoft.contact.model.*;
 import com.lxisoft.contact.control.*;
 import java.util.*;
+/**
+*This class is the view class for Contact
+*
+*@author Arya Vineesh
+*
+*@version 1.0
+*
+*Date Modified:25/07/2019
+*/
 public class ContactView
 {
 	ContactControl control;
 	Contact contact;
-	Scanner sc=new Scanner(System.in);
-	Scanner input=new Scanner(System.in);
+	
 	public void enterContactDetails()
 	{
+		Scanner sc=new Scanner(System.in);
+		Scanner input=new Scanner(System.in);
 		System.out.println(" enter how many contact you want to create:\n");
 		int limit=input.nextInt();
 		for(int i=0;i<limit;i++)
@@ -17,7 +27,7 @@ public class ContactView
 			System.out.println("Enter the Contact name:\n");
 			String name=sc.nextLine();
 			System.out.println("Enter the contact number:\n");
-			int num=input.nextInt();
+			String num=sc.nextLine();
 			System.out.println("Enter the place:\n");
 			String place=sc.nextLine();
 			System.out.println("enter the email:\n");
@@ -35,11 +45,13 @@ public class ContactView
 	
 	public void editContactView()
 	{
+		Scanner sc=new Scanner(System.in);
+		Scanner input=new Scanner(System.in);
 		contact=new Contact();
 		System.out.println("Enter the Contact name to be updated:\n");
 		String name=sc.nextLine();
 		System.out.println("Enter the new contact number:\n");
-		int num=input.nextInt();
+		String num=sc.nextLine();
 		System.out.println("Enter the place to be updated:\n");
 		String place=sc.nextLine();
 		System.out.println("enter the email to be updated:\n");
@@ -55,6 +67,7 @@ public class ContactView
 	
 	public void deleteView()
 	{
+		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the name of the contact to be deleted:\n");
 		String name=sc.nextLine();
 		control=new ContactControl();
@@ -63,6 +76,7 @@ public class ContactView
 	
 	public void searchView()
 	{
+		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the contact name to be searched:\n");
 		String name=sc.nextLine();
 		control=new ContactControl();

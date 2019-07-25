@@ -1,6 +1,15 @@
 package com.lxisoft.contact.view;
 import com.lxisoft.contact.view.*;
 import java.util.*;
+/**
+*This class is the main class  Tdd
+*
+*@author Arya Vineesh
+*
+*@version 1.0
+*
+*Date Modified:25/07/2019
+*/
 public class Tdd
 {
 	
@@ -18,12 +27,13 @@ public class Tdd
 	public void printMenuItems()
 	{
 		Scanner sc=new Scanner(System.in);
+		int choice;
 		do
 		{
 			System.out.println("...........Contact Menu.............");
-			System.out.println("1.Create New Contact\n2.Edit Contact\n3.Delete Contact\n4.Search Contact\n5.display contacts");
+			System.out.println("1.Create New Contact\n2.Edit Contact\n3.Delete Contact\n4.Search Contact\n5.display contacts\n6.Exit");
 			System.out.println("Enter your choice:\n");
-			int choice=sc.nextInt();
+			choice=sc.nextInt();
 			ContactView contacts=new ContactView();
 			switch(choice)
 			{
@@ -37,9 +47,10 @@ public class Tdd
 					break;
 				case 5:contacts.displayContacts();
 					break;
+				case 6:System.exit(0);
 				default:System.out.println("please enter correct choice!....");
 			}
-		}while(true);
+		}while(choice!=0);
 		
 		
 		
