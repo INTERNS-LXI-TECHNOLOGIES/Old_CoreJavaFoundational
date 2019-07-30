@@ -1,0 +1,8 @@
+com\lxisoft\contact\ServiceImpl\ServiceImpl.class
+com\lxisoft\contact\Service\Service.class
+com\lxisoft\contact\Test\Tdd.class
+com\lxisoft\contact\Controller\ContactController.class
+com\lxisoft\contact\Model\Contact.class
+com\lxisoft\contact\RepoImpl\RepoImpl.class
+com\lxisoft\contact\View\View.class
+com\lxisoft\contact\App.class
