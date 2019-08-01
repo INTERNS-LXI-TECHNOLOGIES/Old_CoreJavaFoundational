@@ -2,11 +2,11 @@ package com.lxisoft.contact.repository;
 import com.lxisoft.contact.view.*;
 import com.lxisoft.contact.model.*;
 import com.lxisoft.contact.controller.*;
-import java.util.ArrayList;
+import java.util.*;
 import java.sql.*;
 public class ContactRepository
 {
-	static final String JDBC_DRIVER="com.mysql.jdbc.Driver";
+	//static final String JDBC_DRIVER="com.mysql.jdbc.Driver";
 	static final String DB_URL="jdbc:mysql://localhost/contact_db";
 	static final String USER="root";
 	static final String PASS="root";
