@@ -1,0 +1,6 @@
+com\lxisoft\model\Contact.class
+com\lxisoft\test\Tdd.class
+com\lxisoft\controller\ContactController.class
+com\lxisoft\repoimpl\RepositoryImpl.class
+com\lxisoft\App.class
+com\lxisoft\repo\ContactRepository.class
