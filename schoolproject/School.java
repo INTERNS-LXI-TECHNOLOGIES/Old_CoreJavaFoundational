@@ -1,12 +1,14 @@
 public class School
 {
-String schoolname;
-Classroom class1 =new Classroom();
-Classroom class2 =new Classroom();
+String name;
+Classroom classroom1;
+Classroom classroom2;
+	public  void intilaze()
+	{
+	 classroom1=new Classroom();
+	 classroom2=new Classroom();
+	classroom1.number=101;
+	classroom2.number=102;
 
-public void details()
-{
-	System.out.println("name of the school is "+schoolname);
-}
-
+	}
 }

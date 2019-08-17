@@ -1,9 +1,6 @@
 public class Student
 {
-int id;
-String stname;
+	String name;
+	String rollno;
 
-public void details()
-{
-System.out.println("roll number is "+id+" and name is "+stname);
-}}
+}

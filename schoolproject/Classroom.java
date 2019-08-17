@@ -1,17 +1,14 @@
 public class Classroom
 {
-String div;
-Student student1=new Student();
-Student student2=new Student();
-Teacher teacher=new Teacher();
-
-public void details()
-{
-	System.out.println("class and division is "+div);
-	
-
-
-
-
+	int number;
+Teacher teacher;
+Student student1;
+Student student2;
+Student student3;
+void print(){
+ teacher=new Teacher();
+ student1=new Student();
+student2=new Student();
+student3=new Student();
 }
 }

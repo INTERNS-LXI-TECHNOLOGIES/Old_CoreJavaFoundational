@@ -1,43 +1,47 @@
-public class Tdd
+public class TDD
 {
-public static void main(String[]args)
+	public static void main(String[] args)
+	{
+		School smkschool=new School();
+		smkschool.intilaze();
+		smkschool.classroom1.print();
+		smkschool.classroom2.print();
+		// smkschool.classroom1.student1.print();
+		// smkschool.classroom1.student2.print();
+		// smkschool.classroom1.student3.print();
+		// smkschool.classroom1.teacher.print();
+		
+		// smkschool.classroom2.student1.print();
+		// smkschool.classroom2.student2.print();
+		// smkschool.classroom2.student3.print();
+		// smkschool.classroom2.teacher.print();
+	
+		smkschool.name="smkschool";
+	smkschool.classroom1.teacher.name="kundhi";
+	smkschool.classroom1.student1.name="kouru";	
+	smkschool.classroom1.student2.name="ravan";	
+	smkschool.classroom1.student3.name="dhrona";	
+	
+	smkschool.classroom2.teacher.name="panjali";
+	smkschool.classroom2.student1.name="bheem";
+	smkschool.classroom2.student2.name="nakul";	
+	smkschool.classroom2.student3.name="Sahadev";
 
-{
-	School school=new School();
-	school.schoolname="LSN";
-	school.details();
+
+		System.out.println(smkschool.name);
+	System.out.println(smkschool.classroom1.number);
+	System.out.println(smkschool.classroom1.teacher.name);
+	System.out.println(smkschool.classroom1.student1.name);
+	System.out.println(smkschool.classroom1.student2.name);
+	System.out.println(smkschool.classroom1.student3.name);
+
+
+	System.out.println(smkschool.classroom2.number);
+	System.out.println(smkschool.classroom2.teacher.name);
+	System.out.println(smkschool.classroom2.student1.name);
+	System.out.println(smkschool.classroom2.student2.name);
+	System.out.println(smkschool.classroom2.student3.name);	
 	
-	school.class1.div="5A";
-	school.class1.teacher.trname="bindu";
-	school.class1.student1.stname="neethu";
-	school.class1.student1.id=15;
-	school.class1.student2.stname="ammu";
-	school.class1.student2.id=51;
-	
-	school.class1.details();
-	school.class1.teacher.details();
-	school.class1.student1.details();
-	school.class1.student2.details();
-	
-	school.class2.div="5B";
-	school.class2.teacher.trname="sindu";
-	school.class2.student1.stname="geethu";
-	school.class2.student1.id=25;
-	school.class2.student2.stname="anu";
-	school.class2.student2.id=52;
-	
-	school.class2.details();
-	school.class2.teacher.details();
-	school.class2.student1.details();
-	school.class2.student2.details();
-	
-	
+
+	}
 }
-}
-	
-	
-	
-	
-	
-	
-	
