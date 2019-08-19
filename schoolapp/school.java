@@ -1,27 +1,36 @@
 import java.util.Scanner;
 public class school
+
 {
-String schoolname;
-String place;
-classroom class1 =new classroom();
-classroom class2 =new classroom();
-Scanner sc=new Scanner(System.in);
-public void setdetails()
+	int i;
+	String schoolname;
+	String place;
+	classroom classes[]=new classroom[2];
+	
+	public void setdetails()
 {
-	System.out.println("Enter the school name: ");
+	
+	Scanner sc=new Scanner(System.in);
+	System.out.println("enter school name");
 	schoolname=sc.nextLine();
-    System.out.println("Enter the school place: ");
+	
+	System.out.println("enter school place");
 	place=sc.nextLine();
- class1.setdetails();
- class2.setdetails();
+	for(i=0;i<2;i++)
+	{
+	classes[i]=new classroom();
+	classes[i].setdetails();
+	}
 }
 public void printdetails()
+{
+	System.out.println(" name of the school is "+schoolname);
+	System.out.println("situated in "+place);
+	
+	for(i=0;i<2;i++)
 	{
-System.out.println("school name is: "+schoolname);
-System.out.println("school place  is: "+place);
+	classes[i].printdetails();
+    }
 
- class1.printdetails();
- class2.printdetails();
 }
-
 }

@@ -1,27 +1,34 @@
 import java.util.Scanner;
-public class classroom {
-String std;
-
-student stud1=new student();
-student stud2=new student();
-teacher teach=new teacher();
-Scanner sc=new Scanner(System.in);
+public class classroom
+{
+	int i;
+	String std;
+	teacher teach=new teacher();
+	student stud[]=new student[4];
+	
 public void setdetails()
 {
-	System.out.println(" Enter the standered: ");
+	Scanner sc=new Scanner(System.in);
+	System.out.println("enter standered");
 	std=sc.nextLine();
-	stud1.setdetails();
-	stud2.setdetails();
 	teach.setdetails();
+	for(i=0;i<2;i++)
+	{
+		stud[i]=new student();
+	    stud[i].setdetails();
 	}
-public void printdetails()
-{
-	System.out.println("standered is:"+std);
 	
-	stud1.printdetails();
-	stud2.printdetails();
+}
+	public void printdetails()
+{
+	System.out.println("standerd is : "+std);
 	teach.printdetails();
-
+	for(i=0;i<2;i++)
+	{
+	stud[i].printdetails();
+    }
 
 }
+
+	 
 }

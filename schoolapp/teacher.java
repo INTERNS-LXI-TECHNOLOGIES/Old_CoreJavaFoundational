@@ -1,17 +1,18 @@
-import java.util.Scanner;
-public class teacher {
+import java.util.Scanner; 
+public class teacher{
 
-  String trname;
+String trname;
 
-Scanner sc=new Scanner(System.in);
-   public void setdetails()
+public void setdetails()
 {
-    System.out.println("Enter the name of teacher: ");
-	 trname=sc.nextLine();		
-  }
+	Scanner sc=new Scanner(System.in);
+	System.out.println("enter teachers name"); 
+	trname=sc.nextLine();
+} 
+	
 public void printdetails()
-{	
-	System.out.println("name of teacher is: "+trname);
-}}  
-   
- 
+{
+	System.out.println(" name of the teacher is "+trname);
+}	
+	
+}
