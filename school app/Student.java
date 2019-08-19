@@ -10,9 +10,7 @@ public void scan()
 	System.out.println("enter student name");
 	stname=sc.nextLine();
 	System.out.println("enter student rollno");
-	rno=i.nextInt();
-	
-
+	rno=sc.nextInt();
 }
 
 public void print()

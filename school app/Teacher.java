@@ -5,9 +5,9 @@ public class Teacher{
 
 public void scan()
 {
-	Scanner i=new Scanner(System.in);
+	Scanner sc=new Scanner(System.in);
 	System.out.println("enter teachers name"); 
-	trname=i.nextLine();
+	trname=sc.nextLine();
 } 
 	
 	public void print()

@@ -5,8 +5,8 @@ public class School
 {
 	String schoolname;
 	String place;
-	Classroom class1=new Classroom();
-	// Classroom class2=new Classroom();
+	int n,i;
+	Classroom classes[]=new Classroom[5];
 
 	public void scan()
 	{
@@ -15,7 +15,14 @@ public class School
 		schoolname=sc.nextLine();
 		System.out.println(" enter the school location ");
 		place=sc.nextLine();
-		class1.scan();
+
+		System.out.println("enter the no. of classes");
+		n=sc.nextInt();
+		for(i=0;i<n;i++)
+		{
+			classes[i]=new Classroom();
+			classes[i].scan();
+		}
 
 	}
 
@@ -23,7 +30,10 @@ public void print()
 {
 	System.out.println(" name of the school is "+schoolname);
 	System.out.println("situated in "+place);
-	class1.print();
+	for(i=0;i<n;i++)
+		{
+			classes[i].print();
+		}
 }
 
 }
