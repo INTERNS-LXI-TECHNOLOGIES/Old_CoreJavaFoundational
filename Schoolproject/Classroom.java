@@ -1,14 +1,11 @@
 import java.util.Scanner;
 public class Classroom
 {
-	int std;
+	int std,limit;
     Teacher teacher1=new Teacher();
-	Teacher teacher2=new Teacher();
 	
-	 Student student1=new Student();
-	 Student student2=new Student();
-     Student student3=new Student();
-     Student student4=new Student();	 
+	
+	Student student[]=new Student[10];	 
 	Scanner sc=new Scanner(System.in);
 
 	public void setClassroomDetails()
@@ -19,11 +16,15 @@ public class Classroom
 	 System.out.println("\nEnter teacher details");
 	 teacher1.setTeacherDetails();
 	
-	 System.out.println("\nEnter student details");
-	 student1.setStudentDetails();
-	 student2.setStudentDetails();
-     student3.setStudentDetails();
-	 student4.setStudentDetails();
+	 System.out.println("\nEnter  no of student");
+     limit=sc.nextInt();
+
+	 System.out.println("\nEnter  details of student");
+	 for(int i=0;i<limit;i++)
+	 {
+	 	student[i]=new Student();
+	 	student[i].setStudentDetails();
+	 }
 
     }
 
@@ -31,21 +32,12 @@ public class Classroom
     public void getClassroomDetails()
 	{
 		System.out.println("\nStandard" +std);
-
-
 		teacher1.getTeacherDetails();
 	   
-	
-
-	  student1.getStudentDetails();
-	  student2.getStudentDetails();
-	  student3.getStudentDetails();
-	  student4.getStudentDetails();
-	
+	   for(int i=0;i<limit;i++)
+         {
+	       student[i].getStudentDetails();
+	     }
 	}
 
-	 
-	
-
-	  
 }
