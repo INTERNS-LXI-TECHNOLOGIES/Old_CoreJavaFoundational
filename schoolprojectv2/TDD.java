@@ -4,6 +4,7 @@ public class TDD{
 	{
 		School school=new School();
 		school.scan();
+		System.out.println("\n");
 		school.print();
 	}	
 }

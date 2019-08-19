@@ -1,10 +1,10 @@
 import java.util.Scanner;
 public class Classroom
 {
-	int std;
+	int std,i;
 	String div;
-	Teacher teacher1=new Teacher();
-	Student student1=new Student();
+	Teacher teacher=new Teacher();
+	Student student[]=new Student[4];
 	public void scan()
 	{
 	
@@ -14,17 +14,25 @@ public class Classroom
 	div=s.nextLine();
 	System.out.println("enter standard");
 	std=s.nextInt();
-	student1.scan();
-	teacher1.scan();
+	teacher.scan();
+	for(i=0;i<4;i++)
+	{
+	student[i]=new Student();
+	student[i].scan();
+	}
 	}
 	
 	
 public void print()
 {
+	System.out.println("------------");
 	System.out.println("standard="+std);
 	System.out.println("division="+div);
-	teacher1.print();
-	student1.print();
+	teacher.print();
+	for(i=0;i<4;i++)
+	{
+	student[i].print();
+	}
 }
 
 }	

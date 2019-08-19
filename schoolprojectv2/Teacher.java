@@ -17,6 +17,7 @@ id=s.nextInt();
 
 public void print()
 {
+	
 	System.out.println("teacher id="+id);
 	System.out.println("teacher name="+name);
 }

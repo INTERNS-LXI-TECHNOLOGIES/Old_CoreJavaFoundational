@@ -1,10 +1,10 @@
 import java.util.Scanner;
 public class School
 {
+int i; 
 String schoolname;
 String schoolplace;
-
-Classroom class1=new Classroom();
+Classroom classes[]=new Classroom[2];
 public void scan()
 {
 
@@ -13,14 +13,21 @@ System.out.println("enter school name");
 schoolname=s.nextLine();
 System.out.println("enter school place");
 schoolplace=s.nextLine();
-class1.scan();
+for(i=0;i<2;i++)
+{
+classes[i]=new Classroom();
+classes[i].scan();
 }
-
+}
 public void print()
 {
+	System.out.println("\n");
 	System.out.println("school name="+schoolname);
 	System.out.println("school place="+schoolplace);
-	class1.print();
+	for(i=0;i<2;i++)
+	{
+	classes[i].print();
+	}
 }
 
 }

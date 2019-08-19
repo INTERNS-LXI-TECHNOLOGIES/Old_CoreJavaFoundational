@@ -16,6 +16,7 @@ rollno=s.nextInt();
 
 public void print()
 {
+	System.out.println("\n");
 	System.out.println("rollno="+rollno);
 	System.out.println("student name="+name);
 }
