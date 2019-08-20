@@ -13,7 +13,7 @@ public class Teacher
 	
 	public void print()
 	{
-	System.out.println(" name of the teacher is "+trName);
+		System.out.println(" name of the teacher is "+trName);
 	}	
 	
 }

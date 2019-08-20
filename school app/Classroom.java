@@ -6,26 +6,26 @@ public class Classroom
 	int std;
 	Teacher teacher;
 	
-	Student student[];
+	Student[] student;
 	
 	public void scan()
 	{
 		int i,o;
-		student[]=new Student[10];
-		teacher=new Teacher();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter the standard");
 		std=sc.nextInt();
-		
-		teacher.scan();
 		System.out.println("enter no. of students");
 		o=sc.nextInt();
+
+		student=new Student[o];
+		teacher=new Teacher();
+		teacher.scan();
 		
-			for(i=0;i<o;i++)
-			{
+		for(i=0;i<o;i++)
+		{
 			student[i]=new Student();
 			student[i].scan();
-			}
+		}
 
 	}
 
@@ -33,12 +33,13 @@ public class Classroom
 	public void print()
 {
 	int i,o;
+	o=student.length;
 	System.out.println(" standard :- "+std);
 	teacher.print();
-		
-		for(i=0;i<o;i++)
-		{
-			student[i].print();
-		}
+
+	for(i=0;i<o;i++)
+	{
+		student[i].print();
+	}
 }
 }
