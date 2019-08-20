@@ -1,40 +1,40 @@
 import java.util.Scanner;
 public class Classroom
 {
-	int std,limit;
-    Teacher teacher1=new Teacher();
+	int std;
+    Teacher teacher;
+	Student[] student;
 	
-	
-	Student student[]=new Student[10];	 
-	Scanner sc=new Scanner(System.in);
-
 	public void setClassroomDetails()
 	{
-	System.out.println("\nEnter standard:");
-	std =sc.nextInt();
-
-	 System.out.println("\nEnter teacher details");
-	 teacher1.setTeacherDetails();
-	
-	 System.out.println("\nEnter  no of student");
-     limit=sc.nextInt();
-
-	 System.out.println("\nEnter  details of student");
-	 for(int i=0;i<limit;i++)
-	 {
-	 	student[i]=new Student();
-	 	student[i].setStudentDetails();
-	 }
-
+		Scanner sc=new Scanner(System.in); 
+	    System.out.println("\nEnter standard:");
+	    std=sc.nextInt();
+	    teacher=new Teacher();
+	    System.out.println("\nEnter teacher details");
+	    teacher.setTeacherDetails();
+	    System.out.println("\nEnter  no of student");
+        int n=sc.nextInt();
+        student=new Student[n];
+	    System.out.println("\nEnter  details of student");
+	       for(int i=0;i<n;i++)
+	          {
+	 	         student[i]=new Student();
+	 	         student[i].setStudentDetails();
+	          }
     }
 
 
     public void getClassroomDetails()
 	{
-		System.out.println("\nStandard" +std);
-		teacher1.getTeacherDetails();
-	   
-	   for(int i=0;i<limit;i++)
+		int n=student.length;
+		System.out.println("\nStandard "+std);
+		System.out.println("Teacher Details");
+   		System.out.println("----------------");
+		teacher.getTeacherDetails();
+	   	System.out.println("Student Details");
+		System.out.println("----------------");
+	   	for(int i=0;i<n;i++)
          {
 	       student[i].getStudentDetails();
 	     }
