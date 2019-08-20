@@ -1,20 +1,21 @@
 import java.util.Scanner; 
 
-public class Student{
-	String stname;
-	int rno;
-
-public void scan()
+public class Student
 {
-	Scanner sc=new Scanner(System.in);
-	System.out.println("enter student name");
-	stname=sc.nextLine();
-	System.out.println("enter student rollno");
-	rno=sc.nextInt();
-}
+	String stName;
+	int rNo;
 
-public void print()
-{
-	System.out.println(" rollno of the student is "+rno+" and name is "+stname);
-}
+	public void scan()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter student name");
+		stName=sc.nextLine();
+		System.out.println("enter student rollno");
+		rNo=sc.nextInt();
+	}
+
+	public void print()
+	{
+		System.out.println(" rollno of the student is "+rNo+" and name is "+stName);
+	}
 }
