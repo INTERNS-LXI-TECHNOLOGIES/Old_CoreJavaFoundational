@@ -5,16 +5,17 @@ public class Student
 	String name;
 	Integer rollno;
 
-void getDetails(){
+	void getDetails()
+	{
 
-	System.out.println("enter the student name");
-	name=word.nextLine();
-	System.out.println("enter the student roll no");
-	rollno=word.nextInt();
-}
-void printDetails(){
-
-	System.out.println(name);
-	System.out.println(rollno);
-}
+		System.out.println("enter the student name");
+		name=word.nextLine();
+		System.out.println("enter the student roll no");
+		rollno=word.nextInt();
+	}
+	void printDetails()
+	{
+		System.out.println(name);
+		System.out.println(rollno);
+	}
 }

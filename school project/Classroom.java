@@ -1,35 +1,51 @@
 import java.util.Scanner;
 public class Classroom
 {
-	Scanner word=new Scanner(System.in);
-	int number,n;
-// Teacher teacher;
-// Student student1;
-// Student student2;
-// Student student3;
-Teacher teacher=new Teacher();
- Student student[]=new Student[15];
+	
+	String number;
 
 
-void getDetails(){
-	System.out.println("enter the class nmber");
-	number=word.nextInt();
-	teacher.getDetails();
+	Teacher teacher;
+	Student student[];
+ 	
+
+
+    void getDetails()
+	{
+		int n;
+		Scanner word=new Scanner(System.in);
+		
+		System.out.println("enter the class nmber");
+		number=word.nextLine();
+		teacher =new Teacher();
+		teacher.getDetails();
 	
-	System.out.println("entrer the students count");
-	n=word.nextInt();
-	for(int i=0; i<n; i++){
-		student[i]=new Student();
+		System.out.println("entrer the students count");
+		n=word.nextInt();
+		student=new Student[n];
+		for(int i=0; i<n; i++)
+		{
+			System.out.println("enter "+(i+1)+"th student details");
+			student[i]=new Student();	
+			student[i].getDetails();
+		}
 	
-	student[i].getDetails();}
-	
-}
-void printDetails(){
-	System.out.println("class room number= "+number);
-	teacher.printDetails();
-	for(int i=0; i<n; i++)
-	student[i].printDetails();
-	
-}
+	}
+	void printDetails()
+	{
+
+		
+
+		System.out.println("class room number= "+number);
+		teacher.printDetails();
+		int n=student.length;
+		
+		for(int i=0; i<n; i++)
+		{
+			System.out.println(+(i+1)+"th student details");
+			student[i].printDetails();
+		}
+		
+	}
 
 }

@@ -11,7 +11,8 @@ public class Teacher
 		System.out.println("enter the subject");
 		sub=word.nextLine();
 	}
-	void printDetails(){
+	void printDetails()
+	{
 		System.out.println(name);
 		System.out.println(sub);
 	}
