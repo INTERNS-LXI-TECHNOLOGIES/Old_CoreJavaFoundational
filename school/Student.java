@@ -1,21 +1,21 @@
 import java.util.Scanner;
 public class Student
 {
-int id;
-String stname;
-Scanner sc=new Scanner(System.in);
+	int id;
+	String studentName;
+	Scanner sc=new Scanner(System.in);
 
-public void setdetails()
+public void setDetails()
 {
 
-System.out.println(" Enter the student name : ");
-stname=sc.nextLine();
-System.out.println(" Enter the roll number : ");
- id=sc.nextInt();
+	System.out.println(" Enter the student name : ");
+	studentName=sc.nextLine();
+	System.out.println(" Enter the roll number : ");
+	id=sc.nextInt();
 }
-public void printdetails()
+public void printDetails()
 {
-System.out.println("roll number is :"+id);
-System.out.println("student name is :"+stname);
+	System.out.println("roll number is :"+id);
+	System.out.println("student name is :"+studentName);
 }
 }

@@ -2,23 +2,23 @@ import java.util.Scanner;
 
 public class Teacher
 {
-String trname;
-String sub;
-Scanner sc=new Scanner(System.in);
-public void setdetails()
+	String teacherName;
+	String subject;
+	Scanner sc=new Scanner(System.in);
+public void setDetails()
 {
 
-System.out.println("Enter teacher name : ");
- trname=sc.nextLine();
-System.out.println("Enter the handling subject : ");
-sub=sc.nextLine();
+	System.out.println("Enter teacher name : ");
+	teacherName=sc.nextLine();
+	System.out.println("Enter the handling subject : ");
+	subject=sc.nextLine();
 
 
 }
-public void printdetails()
+public void printDetails()
 {
 
-System.out.println("Teacher name is : "+trname);
-System.out.println("handling subject is : "+sub);
+	System.out.println("Teacher name is : "+teacherName);
+	System.out.println("handling subject is : "+subject);
 }
 }

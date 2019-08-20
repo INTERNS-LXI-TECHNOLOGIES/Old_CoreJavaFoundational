@@ -1,36 +1,33 @@
 import java.util.Scanner;
 public class Classroom
 {
-String div;
-int i,n;
-Student students[]=new Student[5];
-Teacher teacher=new Teacher();
-Scanner sc=new Scanner(System.in);
-public void setdetails()
+	String division;
+	Student []students;
+	Teacher teacher;
+	Scanner sc=new Scanner(System.in);
+public void setDetails()
 {
 	System.out.println(" Enter the class and division: ");
-	 div=sc.nextLine();
+	division=sc.nextLine();
 	System.out.println("Enter the number of students: ");
-	n=sc.nextInt();
+	int n=sc.nextInt();
+	students=new Student[n];
 	System.out.println(" Number of students: "+n);
-	teacher.setdetails();
-	for(i=0;i<n;i++)
+	teacher=new Teacher();
+	teacher.setDetails();
+	for(int i=0;i<n;i++)
 	{
 		students[i]=new Student();
-		students[i].setdetails();
+		students[i].setDetails();
+	}
 }
-}
-	public void printdetails()
-	{
-	System.out.println("class and division is :"+div);
-	
-	teacher.printdetails();
-	
-for(i=0;i<n;i++)
-	{
-	
-	students[i].printdetails();}
-
-
-}
+public void printDetails()
+{
+	int n=students.length;
+	System.out.println("class and division is :"+division);
+	teacher.printDetails();
+	for(int i=0;i<n;i++)
+	{	
+		students[i].printDetails();}
+	}
 }

@@ -1,37 +1,38 @@
  import java.util.Scanner;
  public class School
 {
-String schoolname;
-String location;
-int i,n;
-Classroom classes[] =new Classroom[5];
-Scanner sc=new Scanner(System.in);
+	String schoolName;
+	String location;
+	Classroom []classes;
+	Scanner sc=new Scanner(System.in);
 
-public void setdetails()
+public void setDetails()
 
 {
 	
 	System.out.println("Enter the school name: ");
-	 schoolname=sc.nextLine();
+	schoolName=sc.nextLine();
     System.out.println("Enter the school location: ");
- location=sc.nextLine();
- System.out.println("Enter the number of classroom: ");
- n=sc.nextInt();
- System.out.println("Number of classroom: "+n);
- for(i=0;i<n;i++)
+    location=sc.nextLine();
+    System.out.println("Enter the number of classroom: ");
+    int n=sc.nextInt();
+	classes =new Classroom[n];
+    System.out.println("Number of classroom: "+n);
+ for(int i=0;i<n;i++)
 	{
 		classes[i]=new Classroom();
-		classes[i].setdetails();
+		classes[i].setDetails();
 }
 }
-public void printdetails()
+public void printDetails()
 {
 	
-	System.out.println("school name is: "+schoolname);
+	System.out.println("school name is: "+schoolName);
 	System.out.println("school location is: "+location);
-	for(i=0;i<n;i++)
+	int n=classes.length;
+	for(int i=0;i<n;i++)
 	{
-		classes[i].printdetails();
+		classes[i].printDetails();
 }
 }
 }
