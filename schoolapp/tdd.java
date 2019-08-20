@@ -1,14 +1,9 @@
-import java.util.Scanner; 
-
-public class tdd{
+public class TDD{
 	public static void main(String[] arg)
 	{
-		school scl=new school();
-		scl.setdetails();
-		scl.printdetails();
-
-		
-		
+		School scl=new School();
+		scl.setDetails();
+		scl.printDetails();
 	}
 }
 
