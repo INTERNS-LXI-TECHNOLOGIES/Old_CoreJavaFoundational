@@ -5,6 +5,8 @@ public class Classroom
     Teacher teacher;
 	Student[] student;
 	
+
+	
 	public void setClassroomDetails()
 	{
 		Scanner sc=new Scanner(System.in); 
@@ -18,7 +20,8 @@ public class Classroom
         student=new Student[n];
 	    System.out.println("\nEnter  details of student");
 	       for(int i=0;i<n;i++)
-	          {
+	          { 
+	          	 System.out.println("\nEnter " +(i+1)+"th student details");
 	 	         student[i]=new Student();
 	 	         student[i].setStudentDetails();
 	          }
