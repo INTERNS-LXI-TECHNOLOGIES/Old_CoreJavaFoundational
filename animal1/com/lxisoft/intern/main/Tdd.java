@@ -8,7 +8,8 @@ public class Tdd
 	{
 		Forest f = new Forest();
 		f.createAnimals();
+		f.display();		
 		f.fight();
-		f.display();
+		
 	}
 }

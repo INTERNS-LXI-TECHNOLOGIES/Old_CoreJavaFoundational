@@ -1,83 +1,65 @@
 package com.lxisoft.intern.files;
 import java.util.*;
 import java.io.*;
+import java.util.Random;
 public class Forest
 { 
 	ArrayList <Animal> animalslist = new ArrayList <Animal>();
-	
 	public void createAnimals()
-	{
-	     Animal d = new Deer("Deer",5);
-       	     Animal t = new Tiger("Tiger",7);
-     	     Animal l = new Lion("Lion",9);
-    	     Animal r = new Rabbit("Rabbit",2);
+	{   
+	     
+	     Random rand = new Random();              
+	     int random1 = rand.nextInt(60); 
+	     int random2 = rand.nextInt(90); 
+	     int random3 = rand.nextInt(100); 
+             int random4 = rand.nextInt(30); 
+             int random
+	     Animal d = new Deer("Deer",random1);
+       	     Animal t = new Tiger("Tiger",random2);
+     	     Animal l = new Lion("Lion",random3);
+    	     Animal r = new Rabbit("Rabbit",random4);
     	     animalslist.add(d);
        	     animalslist.add(t);
              animalslist.add(l);
              animalslist.add(r);
-          if(l instanceof Lion)	
-   	     System.out.println("l is instance of Lion");
-	  else
-             System.out.println("l is not instance of lion");
+	
         } 
-  public void fight()
-{
-   for (Animal a : animalslist)
-     { 
-        System.out.println("Animal name:"+a.name+"         Power:"+a.power);
-           
-         /* if(a.power>n)
-            {System.out.println("true");}
-          else
-            {System.out.println("false");}*/
-
-
-     }
-   /* for (int i=0;i<animalslist.size();i++)
-    
-  {   System.out.println(animalslist.get(i).name+"power:" +animalslist.get(i).power); 
-      if(animalslist.get(i).power>animalslist.get(i+1).power)
-       
-          {System.out.println(animalslist.get(i).name+"wins");}
-       	
-     else
-		  {System.out.println("Tiger wins");}
-   }*/
-}
      public void display()
-     { 
-       for (int i=0;i<animalslist.size();i++)
-         {
-          System.out.println("Names of Animal :"+animalslist.get(i).name);
-          System.out.println("\nPower           :"+animalslist.get(i).power);
-         }
-      }  
+         { 
+          for (int i=0;i<animalslist.size();i++)
+            {
+             System.out.println("Names of Animal :"+animalslist.get(i).name);
+             System.out.println("Power           :"+animalslist.get(i).power);
+            }
+         } 
+    public void fight()
+          {
+              for (int i=0;i<(animalslist.size()-1);i+=2)
+                 {
+                     System.out.println(animalslist.get(i).name+" fight with " +animalslist.get(i+1).name); 
+		        if(animalslist.get(i).power >= animalslist.get(i+1).power)
+		            System.out.println(animalslist.get(i).name+" wins ");
+		        else
+		            System.out.println(animalslist.get(i+1).name+" wins ");
+		
+                  }
+          }
+
 }
 
+    
 
 
 
 
 
+/*   if((animalslist.get(0).power >= animalslist.get(1).power) & (animalslist.get(0).power >= animalslist.get(2).power) & (animalslist.get(0).power >= animalslist.get(3).power)) 
+	    {   System.out.println ("Deer wins"); }
+	
+               else if ((animalslist.get(1).power >= animalslist.get(2).power) && (animalslist.get(1).power >= animalslist.get(3).power))       
+                 {  System.out.println ("Tiger wins"); }
+	       else if ((animalslist.get(2).power >= animalslist.get(3).power)) 
+		 {  System.out.println ("Lion wins");  }
+         else {  System.out.println ("Rabbit wins");} */
 
 
-
-
-
-
-
-
-
-/*
-
-if ((a >= b) && (a >= c) && (a >= d) && (a >= e)) { 
-    System.out.println ("Largest is: " + a);
-} else if ((b >= c) && (b >= d) && (b >= e)) {      
-    System.out.println ("Largest is: " + b);
-} else if ((c >= d) && (c >= e)) {                  
-    System.out.println ("Largest is: " + c);
-} else if (d >= e) {                                
-    System.out.println ("Largest is: " + d);
-} else {                                            
-    System.out.println ("Largest is: " + e);
-}*/
