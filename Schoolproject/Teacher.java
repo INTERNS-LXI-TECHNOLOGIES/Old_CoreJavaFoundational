@@ -21,6 +21,7 @@ public class Teacher
    
   	System.out.println("Teacher: "+name);
   	System.out.println("Subject: "+subject);
+    System.out.println("\n");
   }
 
 }

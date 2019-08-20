@@ -13,7 +13,7 @@ public class School
 		name =sc.nextLine();
 		System.out.println("Enter place:");
 		place =sc.nextLine();
-
+		System.out.println("\n ");
 		System.out.println("classroomdetails");
 		System.out.println("\n");
 		System.out.println("enter no of classes");
@@ -22,7 +22,7 @@ public class School
 		classes=new Classroom[n];
 		for(int i=0;i<n;i++)
 		{ 
-			System.out.println("\nenter"+(i+1)+" th classroom details");
+			System.out.println("\nenter "+(i+1)+" th classroom details");
 			classes[i]=new Classroom();
 			classes[i].setClassroomDetails();
 		}
