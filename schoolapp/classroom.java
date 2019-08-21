@@ -19,7 +19,7 @@ public class Classroom
 		for(int i=0;i<l;i++)
 		{
 			stud[i]=new Student();
-	    		stud[i].setDetails();
+	    	stud[i].setDetails();
 		}
 	}
 	public void printDetails()
