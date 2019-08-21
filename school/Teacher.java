@@ -20,5 +20,6 @@ public void printDetails()
 
 	System.out.println("Teacher name is : "+teacherName);
 	System.out.println("handling subject is : "+subject);
+	System.out.println("\n");
 }
 }

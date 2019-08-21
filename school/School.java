@@ -22,17 +22,19 @@ public void setDetails()
 	{
 		classes[i]=new Classroom();
 		classes[i].setDetails();
-}
+	}
 }
 public void printDetails()
 {
 	
 	System.out.println("school name is: "+schoolName);
 	System.out.println("school location is: "+location);
+	System.out.println("\n");
 	int n=classes.length;
 	for(int i=0;i<n;i++)
 	{
 		classes[i].printDetails();
+	}
 }
-}
+
 }

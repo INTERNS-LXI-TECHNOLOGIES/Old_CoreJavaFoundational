@@ -28,6 +28,7 @@ public void printDetails()
 	teacher.printDetails();
 	for(int i=0;i<n;i++)
 	{	
-		students[i].printDetails();}
+		students[i].printDetails();
+	}
 	}
 }
