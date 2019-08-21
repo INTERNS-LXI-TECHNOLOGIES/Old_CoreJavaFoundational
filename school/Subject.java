@@ -28,6 +28,26 @@ public void printDetails()
 {
 	System.out.println("subjectname is :"+subjectName);
 	System.out.println("mark is :"+subjectMark);
-			
+	System.out.println("-----------------------------------------");
+	
+	System.out.println("Student marklist  :");
+	
+	if(subjectMark>80)
+	{
+		System.out.println("A                 PASS");
+	}
+	else if(subjectMark>60&&subjectMark<80)
+	{
+		System.out.println("B                 PASS");
+	}
+	else if(subjectMark>40&&subjectMark<60)
+	{
+		System.out.println("C                 PASS");
+	}
+	else{
+	System.out.println("D                 FAIL");
+	
+	}
 }
+			
 }
