@@ -4,6 +4,7 @@ public class Student
 	int rollno;
 	String name;
     Subject[] subject;
+    int total;
 	void setStudentDetails()
 	{
 	Scanner sc=new Scanner(System.in);
@@ -23,7 +24,7 @@ public class Student
     }
 	void getStudentDetails()
 	{   
-		int total=0;
+		total=0;
 		System.out.println("Rollno:	"+rollno);
 		System.out.println("Name:	"+name);
 		for(int i=0;i<subject.length;i++)

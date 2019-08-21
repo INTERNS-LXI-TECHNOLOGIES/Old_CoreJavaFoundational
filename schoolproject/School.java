@@ -38,6 +38,8 @@ public class School
 	    for(int i=0;i<n;i++)
 		{
 	       classes[i].getClassroomDetails();
+	       System.out.println("Rank List");
+	       classes[i].rankList();
 	    }
 
     }
