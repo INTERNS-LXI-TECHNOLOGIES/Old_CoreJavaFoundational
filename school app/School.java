@@ -25,6 +25,7 @@ public class School
 			classes[i]=new Classroom();
 			classes[i].scan();
 		}
+
 	}
 
 	public void print()
@@ -33,7 +34,7 @@ public class School
 		n=classes.length;
 		System.out.println(" name of the school is "+schoolName);
 		System.out.println("situated in "+place);
-		
+		System.out.println("\n");
 		for(i=0;i<n;i++)
 		{
 			classes[i].print();

@@ -17,16 +17,15 @@ public class Classroom
 		System.out.println("enter no. of students");
 		o=sc.nextInt();
 
-		student=new Student[o];
 		teacher=new Teacher();
 		teacher.scan();
-		
+		student=new Student[o];
 		for(i=0;i<o;i++)
 		{
 			student[i]=new Student();
 			student[i].scan();
 		}
-
+		
 	}
 
 
