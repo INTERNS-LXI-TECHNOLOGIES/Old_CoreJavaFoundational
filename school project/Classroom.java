@@ -3,10 +3,9 @@ public class Classroom
 {
 	
 	String number;
-
-
 	Teacher teacher;
 	Student student[];
+
  	
 
 
@@ -23,12 +22,14 @@ public class Classroom
 		System.out.println("entrer the students count");
 		n=word.nextInt();
 		student=new Student[n];
+		
 		for(int i=0; i<n; i++)
 		{
-			System.out.println("enter "+(i+1)+"th student details");
+			System.out.println("enter student "+(i+1)+" details");
 			student[i]=new Student();	
-			student[i].getDetails();
+			student[i].setDetails();
 		}
+		
 	
 	}
 	void printDetails()

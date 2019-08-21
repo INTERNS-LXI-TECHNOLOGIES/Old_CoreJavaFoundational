@@ -8,12 +8,12 @@ public class Teacher
 	{
 		System.out.println("enter teacher name");
 		name=word.nextLine();
-		System.out.println("enter the subject");
-		sub=word.nextLine();
+		// System.out.println("enter the subject");
+		// sub=word.nextLine();
 	}
 	void printDetails()
 	{
 		System.out.println(name);
-		System.out.println(sub);
+		// System.out.println(sub);
 	}
 }

@@ -1,21 +1,40 @@
-import java.util.Scanner;
+import java.util.Scanner; 
 public class Student
 {
-	Scanner word=new Scanner(System.in);
-	String name;
-	Integer rollno;
-
-	void getDetails()
+	String studentName;
+	Subject[] subjects;	
+	public void setDetails()
 	{
-
-		System.out.println("enter the student name");
-		name=word.nextLine();
-		System.out.println("enter the student roll no");
-		rollno=word.nextInt();
+		
+		Scanner word=new Scanner(System.in);
+		System.out.println("enter student name");
+		studentName=word.nextLine();
+		System.out.println("enter the number of subjects");		
+		int n=word.nextInt();
+		subjects=new Subject[n];
+		for(int i=0;i<n;i++)
+		{
+			subjects[i]=new Subject();
+	    	subjects[i].setDetails();
+		}
 	}
-	void printDetails()
+	public void printDetails()
 	{
-		System.out.println(name);
-		System.out.println(rollno);
+		int totalMark=0;
+		System.out.println(" student name is "+studentName);
+		int l=subjects.length;
+		for(int i=0;i<l;i++)
+		{
+	
+			subjects[i].printDetails();
+			totalMark+=subjects[i].mark;
+			
+		
+			
+		}
+		
+		System.out.println("total mark:"+totalMark);
+		
+				
 	}
 }
