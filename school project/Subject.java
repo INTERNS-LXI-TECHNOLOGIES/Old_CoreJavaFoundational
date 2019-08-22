@@ -7,7 +7,7 @@ public class Subject
 	{
 		Scanner word=new Scanner(System.in);		
 		System.out.println("enter the subject name:");
-		subjectName=sc.nextLine();
+		subjectName=word.nextLine();
 		System.out.println("enter the mark:");
 		mark=word.nextInt();
 		

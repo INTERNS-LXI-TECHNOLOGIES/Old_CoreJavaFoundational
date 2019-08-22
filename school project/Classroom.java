@@ -4,11 +4,9 @@ public class Classroom
 	
 	String number;
 	Teacher teacher;
-	Student student[];
-
- 	
-
-
+	Student[] student;
+	
+	
     void getDetails()
 	{
 		int n;
@@ -47,6 +45,45 @@ public class Classroom
 			student[i].printDetails();
 		}
 		
+	}
+	void rankList()
+	{
+		
+		int n=student.length;
+		Student[] rank=new Student[5];
+		Student[] temp=new Student[5];
+		for(int i=0; i<n; i++)
+		{
+			temp[i]=new Student();
+			temp[i]=student[i];
+		}
+
+		for(int i=0; i<n; i++)
+		{
+			rank[i]=new Student();
+			for(int j=0; j<n; j++)
+			{
+				if(temp[i].tmark>temp[j].tmark)
+				{
+					rank[1]=temp[i];
+					temp[i]=temp[j];
+					temp[j]=rank[1];
+
+				}
+			}
+		}
+		for(int i=0; i<n; i++)
+		{
+			rank[i]=temp[i];
+		}
+
+	
+		for(int i=0; i<n; i++)
+		{
+			System.out.println(rank[i].studentName);
+			System.out.println(rank[i].tmark);
+
+		}
 	}
 
 }

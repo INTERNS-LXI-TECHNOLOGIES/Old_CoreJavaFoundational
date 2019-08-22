@@ -3,6 +3,7 @@ public class Student
 {
 	String studentName;
 	Subject[] subjects;	
+	int tmark;
 	public void setDetails()
 	{
 		
@@ -14,26 +15,28 @@ public class Student
 		subjects=new Subject[n];
 		for(int i=0;i<n;i++)
 		{
+			tmark=0;
 			subjects[i]=new Subject();
 	    	subjects[i].setDetails();
-		}
+	    	tmark+=subjects[i].mark;
+	    }
 	}
 	public void printDetails()
 	{
-		int totalMark=0;
+		
 		System.out.println(" student name is "+studentName);
 		int l=subjects.length;
 		for(int i=0;i<l;i++)
 		{
 	
 			subjects[i].printDetails();
-			totalMark+=subjects[i].mark;
+			//tmark+=subjects[i].mark;
 			
 		
 			
 		}
 		
-		System.out.println("total mark:"+totalMark);
+		System.out.println("total mark:"+tmark);
 		
 				
 	}

@@ -32,6 +32,8 @@ public class School
 			{
 				System.out.println(+(i+1)+"th classroom details");
 				classroom[i].printDetails();
+				System.out.print("class wise rank list :");
+				classroom[i].rankList();
 			}		
 	}
 }
