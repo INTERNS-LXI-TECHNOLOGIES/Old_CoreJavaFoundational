@@ -2,7 +2,8 @@ import java.util.Scanner;
 public class Student
 {
 	String studentName;
-	Subject[] subjects;	
+	Subject[] subjects;
+	int totalMark;	
 	public void setDetails()
 	{
 		
@@ -20,21 +21,15 @@ public class Student
 	}
 	public void printDetails()
 	{
-		int totalMark=0;
+		totalMark=0;
 		System.out.println(" student name is "+studentName);
 		int l=subjects.length;
 		for(int i=0;i<l;i++)
-		{
-	
+		{	
 			subjects[i].printDetails();
-			totalMark+=subjects[i].mark;
-			
-		
-			
+			totalMark+=subjects[i].mark;				
 		}
-		
 		System.out.println("total mark:"+totalMark);
-		
-				
 	}
 }
+    

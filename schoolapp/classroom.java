@@ -2,8 +2,9 @@ import java.util.Scanner;
 public class Classroom
 {
 	String standard;
-	Teacher teach;
-	Student[] stud;
+	Teacher teacher;
+	Student[] students;
+	Student[] rank;
 	public void setDetails()
 	{ 	
 		int l;		
@@ -12,26 +13,63 @@ public class Classroom
 		standard=sc.nextLine();		
 		System.out.println("enter the number of students");		
 		l=sc.nextInt();
-		stud=new Student[l];
-		teach=new Teacher();
+		students=new Student[l];
+		teacher=new Teacher();
 		
-		teach.setDetails();
+		teacher.setDetails();
 		for(int i=0;i<l;i++)
 		{
-			stud[i]=new Student();
-	    	stud[i].setDetails();
+			students[i]=new Student();
+	    	students[i].setDetails();
 		}
 	}
 	public void printDetails()
 	{
 		int l;
-		l=stud.length;
+		l=students.length;
 		System.out.println("standard is : "+standard);
-		teach.printDetails();
+		teacher.printDetails();
 		for(int i=0;i<l;i++)
 		{	
-			stud[i].printDetails();
+			students[i].printDetails();
 		}
 	}
+	public void rankList()
+	{
+		Student[] temp;
+		int n=students.length;		
+		temp=new Student[n];
+		rank=new Student[n];
+		for(int i=0;i<n;i++)
+		{
+			temp[i]=students[i];
+		}
+		for(int i=0;i<n;i++)
+		{	
+			for(int j=0;j<n;j++)
+			{		
+				if(temp[i].totalMark>temp[j].totalMark)
+				{
+				rank[1]=temp[i];
+				temp[i]=temp[j];
+				temp[j]=rank[1];
+				}
+			}
+		}	
+		for(int i=0;i<n;i++)
+			{
+				rank[i]=temp[i];
+			}
+
+		for(int i=0;i<n;i++)
+			{
+
+				System.out.println(rank[i].studentName);				
+				System.out.println(rank[i].totalMark);
+			}		
+
+	}	
+    
 }
+
 

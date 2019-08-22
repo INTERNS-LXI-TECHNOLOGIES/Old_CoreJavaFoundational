@@ -32,6 +32,8 @@ public class School
 		for(int i=0;i<lt;i++)
 		{	
 			classes[i].printDetails();
+		 	System.out.println("ranklist");
+		 	classes[i].rankList();
 		}
 	}
 }
